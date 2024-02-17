@@ -1,0 +1,645 @@
+<config version="10.1.0" urldb="paloaltonetworks" detail-version="10.1.3">
+  <mgt-config>
+    <users>
+      <entry name="admin">
+        <phash>********</phash>
+        <permissions>
+          <role-based>
+            <superuser>yes</superuser>
+          </role-based>
+        </permissions>
+      </entry>
+      <entry name="cdot">
+        <permissions>
+          <role-based>
+            <superuser>yes</superuser>
+          </role-based>
+        </permissions>
+        <phash>********</phash>
+      </entry>
+      <entry name="terraform">
+        <permissions>
+          <role-based>
+            <superuser>yes</superuser>
+          </role-based>
+        </permissions>
+        <phash>********</phash>
+      </entry>
+    </users>
+    <password-complexity>
+      <enabled>yes</enabled>
+      <minimum-length>8</minimum-length>
+    </password-complexity>
+  </mgt-config>
+  <shared>
+    <application />
+    <application-group />
+    <service />
+    <service-group />
+    <botnet>
+      <configuration>
+        <http>
+          <dynamic-dns>
+            <enabled>yes</enabled>
+            <threshold>5</threshold>
+          </dynamic-dns>
+          <malware-sites>
+            <enabled>yes</enabled>
+            <threshold>5</threshold>
+          </malware-sites>
+          <recent-domains>
+            <enabled>yes</enabled>
+            <threshold>5</threshold>
+          </recent-domains>
+          <ip-domains>
+            <enabled>yes</enabled>
+            <threshold>10</threshold>
+          </ip-domains>
+          <executables-from-unknown-sites>
+            <enabled>yes</enabled>
+            <threshold>5</threshold>
+          </executables-from-unknown-sites>
+        </http>
+        <other-applications>
+          <irc>yes</irc>
+        </other-applications>
+        <unknown-applications>
+          <unknown-tcp>
+            <destinations-per-hour>10</destinations-per-hour>
+            <sessions-per-hour>10</sessions-per-hour>
+            <session-length>
+              <maximum-bytes>100</maximum-bytes>
+              <minimum-bytes>50</minimum-bytes>
+            </session-length>
+          </unknown-tcp>
+          <unknown-udp>
+            <destinations-per-hour>10</destinations-per-hour>
+            <sessions-per-hour>10</sessions-per-hour>
+            <session-length>
+              <maximum-bytes>100</maximum-bytes>
+              <minimum-bytes>50</minimum-bytes>
+            </session-length>
+          </unknown-udp>
+        </unknown-applications>
+      </configuration>
+      <report>
+        <topn>100</topn>
+        <scheduled>yes</scheduled>
+      </report>
+    </botnet>
+    <content-preview>
+      <application>
+        <entry id="11590" minver="8.1.0" name="codesys-gateway" ori_country="USA" ori_language="English">
+          <category>business-systems</category>
+          <subcategory>ics-protocols</subcategory>
+          <technology>client-server</technology>
+          <description>The CODESYS Edge Gateway allows the CODESYS Automation Server and all clients that establish a connection via the Automation Server full access to all services provided by the runtime system via communication interfaces. It can be operated on a controller or on a stand-alone device in the local network. This App-ID covers messages between a client and a CODESYS Gateway.</description>
+          <alg>yes</alg>
+          <appident>yes</appident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>no</able-to-transfer-file>
+          <has-known-vulnerability>yes</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <new-appid>yes</new-appid>
+          <references>
+            <entry name="CODESYS GmbH">
+              <link>https://www.codesys.com/</link>
+            </entry>
+          </references>
+          <risk>1</risk>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11587" minver="8.1.0" name="delta-dcisoft-discovery" ori_country="USA" ori_language="English">
+          <category>business-systems</category>
+          <subcategory>ics-protocols</subcategory>
+          <technology>client-server</technology>
+          <description>Delta DCISoft software is an integrated configuration tool used for monitoring and configuring Delta PLCs. This App-ID covers discovery messages sent via broadcast from the DCISoft application to Delta PLCs residing on an internal network.</description>
+          <alg>yes</alg>
+          <appident>yes</appident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>no</able-to-transfer-file>
+          <has-known-vulnerability>no</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <can-disable>yes</can-disable>
+          <new-appid>yes</new-appid>
+          <references>
+            <entry name="Delta">
+              <link>https://www.deltaww.com/en-US/index</link>
+            </entry>
+          </references>
+          <risk>1</risk>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11585" minver="8.1.0" name="delta-hmi-discovery" ori_country="USA" ori_language="English">
+          <category>business-systems</category>
+          <subcategory>ics-protocols</subcategory>
+          <technology>client-server</technology>
+          <description>Delta's human machine interface (HMI) is a platform which permits interaction between users and automation equipment. The color touchscreen enables intuitive parameter entry and a variety of ways to display variable data, including trend graphs and alarm elements. This App-ID covers device discovery traffic initiated from a workstation running Delta's DIAView software to Delta HMI devices on a local network</description>
+          <alg>yes</alg>
+          <appident>yes</appident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>no</able-to-transfer-file>
+          <has-known-vulnerability>no</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <new-appid>yes</new-appid>
+          <references>
+            <entry name="Delta HMI">
+              <link>https://www.deltaww.com/en-US/Products/Touch-Panel-HMI-Human-Machine-Interfaces/ALL/</link>
+            </entry>
+          </references>
+          <risk>1</risk>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11588" minver="8.1.0" name="ghostwriter" ori_country="USA" ori_language="English">
+          <category>saas</category>
+          <subcategory>artificial-intelligence</subcategory>
+          <technology>client-server</technology>
+          <description>Ghostwriter is an OpenAI ChatGPT writing assistant add-in for Microsoft Office. This App-ID covers the traffic for Ghostwriter application.</description>
+          <appident>yes</appident>
+          <vulnerability-ident>yes</vulnerability-ident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>no</able-to-transfer-file>
+          <has-known-vulnerability>yes</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <can-disable>yes</can-disable>
+          <new-appid>yes</new-appid>
+          <is-saas>yes</is-saas>
+          <saas minver="8.1.0">
+            <is-data-breaches>no</is-data-breaches>
+            <is-ip-based-restrictions>no</is-ip-based-restrictions>
+            <is-poor-financial-viability>no</is-poor-financial-viability>
+            <is-poor-terms-of-service>no</is-poor-terms-of-service>
+          </saas>
+          <tag minver="9.1.0">
+            <member>[Generative AI]</member>
+            <member>[Web App]</member>
+          </tag>
+          <references>
+            <entry name="Ghostwriter">
+              <link>https://ghostwriter-ai.com/</link>
+            </entry>
+          </references>
+          <use-applications>
+            <member>ssl</member>
+            <member>web-browsing</member>
+          </use-applications>
+          <implicit-use-applications>
+            <member>ssl</member>
+            <member>web-browsing</member>
+          </implicit-use-applications>
+          <risk>1</risk>
+          <parent-app>azure-openai-studio</parent-app>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11589" minver="8.1.0" name="ha-tunnel-plus" ori_country="USA" ori_language="English">
+          <category>networking</category>
+          <subcategory>encrypted-tunnel</subcategory>
+          <technology>client-server</technology>
+          <description>HA Tunnel Plus is a free VPN app that allows users to create their own custom VPN configurations. This App-ID covers the traffic for HA Tunnel Plus application.</description>
+          <appident>yes</appident>
+          <vulnerability-ident>yes</vulnerability-ident>
+          <evasive-behavior>yes</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>yes</able-to-transfer-file>
+          <has-known-vulnerability>yes</has-known-vulnerability>
+          <tunnel-other-application>yes</tunnel-other-application>
+          <prone-to-misuse>yes</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <breaks-decryption>yes</breaks-decryption>
+          <can-disable>yes</can-disable>
+          <new-appid>yes</new-appid>
+          <is-saas>yes</is-saas>
+          <saas minver="8.1.0">
+            <is-data-breaches>no</is-data-breaches>
+            <is-ip-based-restrictions>no</is-ip-based-restrictions>
+            <is-poor-financial-viability>no</is-poor-financial-viability>
+            <is-poor-terms-of-service>no</is-poor-terms-of-service>
+          </saas>
+          <tag minver="9.1.0">
+            <member>[Web App]</member>
+          </tag>
+          <references>
+            <entry name="Google Play Store">
+              <link>https://play.google.com/store/apps/details?id=com.hatunnel.plus&amp;amp;hl=en_US</link>
+            </entry>
+          </references>
+          <use-applications>
+            <member>ssl</member>
+          </use-applications>
+          <implicit-use-applications>
+            <member>ssl</member>
+          </implicit-use-applications>
+          <risk>4</risk>
+          <parent-app>web20_parrent_app</parent-app>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11586" minver="8.1.0" name="ms-powerapps" ori_country="USA" ori_language="English">
+          <category>business-systems</category>
+          <subcategory>office-programs</subcategory>
+          <technology>browser-based</technology>
+          <description>Microsoft Power Apps is a suite of apps, services, connectors and data platforms that provides a development environment to build custom apps for business needs. This App-ID covers the traffic of Microsoft Power Apps.</description>
+          <appident>yes</appident>
+          <vulnerability-ident>yes</vulnerability-ident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>yes</able-to-transfer-file>
+          <has-known-vulnerability>yes</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <can-disable>yes</can-disable>
+          <new-appid>yes</new-appid>
+          <is-saas>yes</is-saas>
+          <saas minver="8.1.0">
+            <is-data-breaches>no</is-data-breaches>
+            <is-ip-based-restrictions>no</is-ip-based-restrictions>
+            <is-poor-financial-viability>no</is-poor-financial-viability>
+            <is-poor-terms-of-service>no</is-poor-terms-of-service>
+          </saas>
+          <tag minver="9.1.0">
+            <member>[Generative AI]</member>
+            <member>[Office 365]</member>
+            <member>[Web App]</member>
+          </tag>
+          <references>
+            <entry name="Microsoft">
+              <link>https://learn.microsoft.com/en-us/power-apps/powerapps-overview</link>
+            </entry>
+          </references>
+          <use-applications>
+            <member>microsoft-dynamics-crm</member>
+          </use-applications>
+          <risk>2</risk>
+          <parent-app>office365-enterprise-access</parent-app>
+          <preview>yes</preview>
+        </entry>
+        <entry id="11581" minver="8.1.0" name="stretchoid-scanning" ori_country="USA" ori_language="English">
+          <category>general-internet</category>
+          <subcategory>internet-utility</subcategory>
+          <technology>client-server</technology>
+          <description>Stretchoid is a platform that helps identify an organization's online services. This App-ID covers the scanning traffic of Stretchoid.</description>
+          <appident>yes</appident>
+          <evasive-behavior>no</evasive-behavior>
+          <consume-big-bandwidth>no</consume-big-bandwidth>
+          <used-by-malware>no</used-by-malware>
+          <able-to-transfer-file>no</able-to-transfer-file>
+          <has-known-vulnerability>no</has-known-vulnerability>
+          <tunnel-other-application>no</tunnel-other-application>
+          <prone-to-misuse>no</prone-to-misuse>
+          <pervasive-use>no</pervasive-use>
+          <per-direction-regex>no</per-direction-regex>
+          <deny-action>drop-reset</deny-action>
+          <cachable>no</cachable>
+          <new-appid>yes</new-appid>
+          <references>
+            <entry name="Stretchoid">
+              <link>https://stretchoid.com/</link>
+            </entry>
+          </references>
+          <risk>1</risk>
+          <preview>yes</preview>
+        </entry>
+      </application>
+      <application-type>
+        <category />
+        <technology />
+      </application-type>
+    </content-preview>
+  </shared>
+  <devices>
+    <entry name="localhost.localdomain">
+      <network>
+        <interface>
+          <ethernet>
+            <entry name="ethernet1/1">
+              <ha />
+              <comment>HA1</comment>
+            </entry>
+            <entry name="ethernet1/2">
+              <comment>HA2</comment>
+              <ha />
+            </entry>
+          </ethernet>
+        </interface>
+        <profiles>
+          <monitor-profile>
+            <entry name="default">
+              <interval>3</interval>
+              <threshold>5</threshold>
+              <action>wait-recover</action>
+            </entry>
+          </monitor-profile>
+        </profiles>
+        <ike>
+          <crypto-profiles>
+            <ike-crypto-profiles>
+              <entry name="default">
+                <encryption>
+                  <member>aes-128-cbc</member>
+                  <member>3des</member>
+                </encryption>
+                <hash>
+                  <member>sha1</member>
+                </hash>
+                <dh-group>
+                  <member>group2</member>
+                </dh-group>
+                <lifetime>
+                  <hours>8</hours>
+                </lifetime>
+              </entry>
+              <entry name="Suite-B-GCM-128">
+                <encryption>
+                  <member>aes-128-cbc</member>
+                </encryption>
+                <hash>
+                  <member>sha256</member>
+                </hash>
+                <dh-group>
+                  <member>group19</member>
+                </dh-group>
+                <lifetime>
+                  <hours>8</hours>
+                </lifetime>
+              </entry>
+              <entry name="Suite-B-GCM-256">
+                <encryption>
+                  <member>aes-256-cbc</member>
+                </encryption>
+                <hash>
+                  <member>sha384</member>
+                </hash>
+                <dh-group>
+                  <member>group20</member>
+                </dh-group>
+                <lifetime>
+                  <hours>8</hours>
+                </lifetime>
+              </entry>
+            </ike-crypto-profiles>
+            <ipsec-crypto-profiles>
+              <entry name="default">
+                <esp>
+                  <encryption>
+                    <member>aes-128-cbc</member>
+                    <member>3des</member>
+                  </encryption>
+                  <authentication>
+                    <member>sha1</member>
+                  </authentication>
+                </esp>
+                <dh-group>group2</dh-group>
+                <lifetime>
+                  <hours>1</hours>
+                </lifetime>
+              </entry>
+              <entry name="Suite-B-GCM-128">
+                <esp>
+                  <encryption>
+                    <member>aes-128-gcm</member>
+                  </encryption>
+                  <authentication>
+                    <member>none</member>
+                  </authentication>
+                </esp>
+                <dh-group>group19</dh-group>
+                <lifetime>
+                  <hours>1</hours>
+                </lifetime>
+              </entry>
+              <entry name="Suite-B-GCM-256">
+                <esp>
+                  <encryption>
+                    <member>aes-256-gcm</member>
+                  </encryption>
+                  <authentication>
+                    <member>none</member>
+                  </authentication>
+                </esp>
+                <dh-group>group20</dh-group>
+                <lifetime>
+                  <hours>1</hours>
+                </lifetime>
+              </entry>
+            </ipsec-crypto-profiles>
+            <global-protect-app-crypto-profiles>
+              <entry name="default">
+                <encryption>
+                  <member>aes-128-cbc</member>
+                </encryption>
+                <authentication>
+                  <member>sha1</member>
+                </authentication>
+              </entry>
+            </global-protect-app-crypto-profiles>
+          </crypto-profiles>
+          <gateway />
+        </ike>
+        <qos>
+          <profile>
+            <entry name="default">
+              <class-bandwidth-type>
+                <mbps>
+                  <class>
+                    <entry name="class1">
+                      <priority>real-time</priority>
+                    </entry>
+                    <entry name="class2">
+                      <priority>high</priority>
+                    </entry>
+                    <entry name="class3">
+                      <priority>high</priority>
+                    </entry>
+                    <entry name="class4">
+                      <priority>medium</priority>
+                    </entry>
+                    <entry name="class5">
+                      <priority>medium</priority>
+                    </entry>
+                    <entry name="class6">
+                      <priority>low</priority>
+                    </entry>
+                    <entry name="class7">
+                      <priority>low</priority>
+                    </entry>
+                    <entry name="class8">
+                      <priority>low</priority>
+                    </entry>
+                  </class>
+                </mbps>
+              </class-bandwidth-type>
+            </entry>
+          </profile>
+        </qos>
+        <virtual-router>
+          <entry name="default">
+            <protocol>
+              <bgp>
+                <enable>no</enable>
+                <dampening-profile>
+                  <entry name="default">
+                    <cutoff>1.25</cutoff>
+                    <reuse>0.5</reuse>
+                    <max-hold-time>900</max-hold-time>
+                    <decay-half-life-reachable>300</decay-half-life-reachable>
+                    <decay-half-life-unreachable>900</decay-half-life-unreachable>
+                    <enable>yes</enable>
+                  </entry>
+                </dampening-profile>
+              </bgp>
+            </protocol>
+          </entry>
+        </virtual-router>
+        <tunnel>
+          <ipsec />
+          <global-protect-gateway />
+          <global-protect-site-to-site />
+        </tunnel>
+      </network>
+      <deviceconfig>
+        <system>
+          <panorama>
+            <local-panorama>
+              <panorama-server>192.168.255.210</panorama-server>
+            </local-panorama>
+          </panorama>
+          <device-telemetry>
+            <device-health-performance>yes</device-health-performance>
+            <product-usage>yes</product-usage>
+            <threat-prevention>yes</threat-prevention>
+            <region>Americas</region>
+          </device-telemetry>
+          <type>
+            <static />
+          </type>
+          <update-server>updates.paloaltonetworks.com</update-server>
+          <update-schedule>
+            <threats>
+              <recurring>
+                <weekly>
+                  <day-of-week>wednesday</day-of-week>
+                  <at>01:02</at>
+                  <action>download-only</action>
+                </weekly>
+              </recurring>
+            </threats>
+          </update-schedule>
+          <timezone>US/Central</timezone>
+          <service>
+            <disable-telnet>yes</disable-telnet>
+            <disable-http>yes</disable-http>
+          </service>
+          <hostname>Katy-fw2</hostname>
+          <ip-address>192.168.255.42</ip-address>
+          <netmask>255.255.255.0</netmask>
+          <default-gateway>192.168.255.1</default-gateway>
+          <dns-setting>
+            <servers>
+              <primary>192.168.255.1</primary>
+            </servers>
+          </dns-setting>
+          <ntp-servers>
+            <primary-ntp-server>
+              <ntp-server-address>0.us.pool.ntp.org</ntp-server-address>
+              <authentication-type>
+                <none />
+              </authentication-type>
+            </primary-ntp-server>
+            <secondary-ntp-server>
+              <ntp-server-address>1.us.pool.ntp.org</ntp-server-address>
+              <authentication-type>
+                <none />
+              </authentication-type>
+            </secondary-ntp-server>
+          </ntp-servers>
+        </system>
+        <setting>
+          <config>
+            <rematch>yes</rematch>
+          </config>
+          <management>
+            <hostname-type-in-syslog>FQDN</hostname-type-in-syslog>
+          </management>
+          <auto-mac-detect>yes</auto-mac-detect>
+        </setting>
+        <high-availability>
+          <interface>
+            <ha1>
+              <port>ethernet1/1</port>
+              <ip-address>169.250.0.2</ip-address>
+              <netmask>255.255.255.0</netmask>
+            </ha1>
+            <ha1-backup />
+            <ha2>
+              <port>ethernet1/2</port>
+            </ha2>
+          </interface>
+          <group>
+            <group-id>1</group-id>
+            <peer-ip>169.250.0.1</peer-ip>
+            <election-option>
+              <device-priority>20</device-priority>
+              <heartbeat-backup>yes</heartbeat-backup>
+              <timers>
+                <recommended />
+              </timers>
+            </election-option>
+            <state-synchronization>
+              <ha2-keep-alive>
+                <enabled>yes</enabled>
+              </ha2-keep-alive>
+            </state-synchronization>
+          </group>
+          <enabled>yes</enabled>
+        </high-availability>
+      </deviceconfig>
+      <vsys>
+        <entry name="vsys1">
+          <application />
+          <application-group />
+          <zone />
+          <service />
+          <service-group />
+          <schedule />
+          <rulebase />
+        </entry>
+      </vsys>
+    </entry>
+  </devices>
+</config>

@@ -1,0 +1,41 @@
+{
+    "active_support": null,
+    "arp_entry_exist": null,
+    "candidate_config": {
+        "state": true,
+        "reason": "[SUCCESS] "
+    },
+    "certificates_requirements": null,
+    "content_version": {
+        "state": false,
+        "reason": "[FAIL] Installed content DB version (8799-8509) is not the latest one (8803-8534)."
+    },
+    "dynamic_updates": null,
+    "expired_licenses": {
+        "state": true,
+        "reason": "[SUCCESS] "
+    },
+    "free_disk_space": {
+        "state": false,
+        "reason": "[FAIL] There is not enough free space, only 3.0GB is available."
+    },
+    "ha": {
+        "state": false,
+        "reason": "[FAIL] Local device is not in active or passive state."
+    },
+    "ip_sec_tunnel_status": null,
+    "jobs": null,
+    "ntp_sync": {
+        "state": true,
+        "reason": "[SUCCESS] "
+    },
+    "panorama": {
+        "state": true,
+        "reason": "[SUCCESS] "
+    },
+    "planes_clock_sync": {
+        "state": true,
+        "reason": "[SUCCESS] "
+    },
+    "session_exist": null
+}
