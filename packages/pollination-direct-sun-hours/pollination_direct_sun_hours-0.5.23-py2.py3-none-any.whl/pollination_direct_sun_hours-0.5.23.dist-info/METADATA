@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pollination-direct-sun-hours
+Version: 0.5.23
+Summary: Direct sun hours recipe for Pollination.
+Home-page: https://github.com/pollination/direct-sun-hours
+Author: ladybug-tools
+Author-email: info@ladybug.tools
+Maintainer: mostapha, ladybug-tools
+Maintainer-email: mostapha@ladybug.tools, info@ladybug.tools
+License: PolyForm Shield License 1.0.0, https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+Project-URL: icon, https://raw.githubusercontent.com/ladybug-tools/artwork/master/icons_components/honeybee/png/directsun.png
+Project-URL: docker, https://hub.docker.com/r/ladybugtools/honeybee-radiance
+Keywords: honeybee,radiance,ladybug-tools,daylight,direct-sun-hours
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pollination-honeybee-radiance (>=0.22.46)
+Requires-Dist: pollination-ladybug (>=0.2.4)
+Requires-Dist: pollination-alias (>=0.11.9)
+Requires-Dist: pollination-path (>=0.3.2)
+Provides-Extra: viz
+Requires-Dist: pollination-honeybee-display (>=0.1.13) ; extra == 'viz'
+
+# direct-sun-hours
+
+Direct sun hours recipe calculates the number of hours of direct sun received by grids of sensors during
+the time period of a specified Wea. The recipe generates 2 sub-folders of results:
+
+1. `direct_sun_hours`: Contains matrices of zero/one values indicating whether
+  each sensor is exposed to the sun at a given time step of the input Wea.
+
+2. `cumulative`: The cumulative number of hours that each sensor can see the
+  sun. Each value is always in hours.
+
+Using the -viz version of this recipe will produce a VTKjs file for visualizing
+the cumulative results.
