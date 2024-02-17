@@ -1,0 +1,10 @@
+PyYAML==6.*
+websocket-client==1.*
+
+[docs]
+sphinx==6.2.1
+sphinx-design
+furo
+sphinx-tabs
+lxd-sphinx-extensions
+sphinx-copybutton
