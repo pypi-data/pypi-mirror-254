@@ -1,0 +1,1 @@
+from relevanceai.connect.fastapi.tools import connect_tools as connect_fastapi_to_rai
