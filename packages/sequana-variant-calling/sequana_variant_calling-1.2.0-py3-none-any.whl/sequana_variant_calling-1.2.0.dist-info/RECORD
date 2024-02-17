@@ -1,0 +1,14 @@
+sequana_pipelines/variant_calling/__init__.py,sha256=Da8dIwd0__Mm1-jl4aRLItqYRZbCBBlBJQwy9eaLezc,303
+sequana_pipelines/variant_calling/config.yaml,sha256=EW33k56nNwCZdMdqYxy3BZhURco_QjyGqyuNQBkK6gg,7764
+sequana_pipelines/variant_calling/dag.png,sha256=oPF5KCf8VH1ZQ-gGS3gl71IcvH3lhzSVHA_7bvf-238,90725
+sequana_pipelines/variant_calling/logo.png,sha256=5sZn_qDmmsoZun86Kz1sTzMUHtVgRSocpHk2C_LLoyo,5336
+sequana_pipelines/variant_calling/main.py,sha256=-id8b1BZGZXDRfwF2F4UZLfkft5v1xczny8BAJ0BFhg,5580
+sequana_pipelines/variant_calling/multiqc_config.yaml,sha256=XzFWt0iFeFxCz1JaRoK9W7I7loAs9BzkfT0xEVeuVmQ,5163
+sequana_pipelines/variant_calling/schema.yaml,sha256=FI_14XUvKpo_-O8_X1H2EH-WZnh9HbTSRyJrngawh0g,5968
+sequana_pipelines/variant_calling/tools.txt,sha256=E5z1ISeMgHRlDRXsoEzuzChw7iHNLmUBHCCF5UCBNtE,55
+sequana_pipelines/variant_calling/variant_calling.rules,sha256=MXnlv7JigLWvIIe-FyxIC88joEpS1dZ0dbkVZmphD5g,22043
+sequana_variant_calling-1.2.0.dist-info/LICENSE,sha256=tifUGMwXA9uaq2g1wFz0ZgRRPOFCfqsOxRj8JneHZ3M,1530
+sequana_variant_calling-1.2.0.dist-info/METADATA,sha256=URN2vtppkdAPklR7PljARvjmjs2aqL7kS0n7v6WPQrw,9321
+sequana_variant_calling-1.2.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+sequana_variant_calling-1.2.0.dist-info/entry_points.txt,sha256=1My2CTtwzmWVj8naX6KtpkxbGHqUGaTV42BP2G7iYi4,87
+sequana_variant_calling-1.2.0.dist-info/RECORD,,
