@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "eda_mds"
+version = "2.1.0"
+description = "EBasic EDA functions implemented"
+authors = ["Koray Tecimer, Paolo De Lagrave-Codina, Nicole Bidwell, Simon Frew"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.1.4"
+numpy = "^1.26.3"
+python-semantic-release = "^8.7.0"
+
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+ipykernel = "^6.29.0"
+myst-nb = {version = "^1.0.0", python = "^3.9"}
+sphinx-autoapi = "^3.0.0"
+sphinx-rtd-theme = "^2.0.0"
+pytest-cov = "^4.1.0"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+]                                                    # version location
+branch = "main"                                      # branch to make releases of
+changelog_file = "CHANGELOG.md"                      # changelog file
+build_command = "pip install poetry && poetry build" # build dists
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
