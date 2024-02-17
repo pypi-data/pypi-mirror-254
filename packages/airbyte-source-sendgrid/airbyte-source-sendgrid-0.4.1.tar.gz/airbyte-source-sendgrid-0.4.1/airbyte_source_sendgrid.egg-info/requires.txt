@@ -1,0 +1,9 @@
+airbyte-cdk
+backoff
+requests
+pandas
+
+[tests]
+pytest-mock~=3.6.1
+pytest~=6.1
+requests-mock
