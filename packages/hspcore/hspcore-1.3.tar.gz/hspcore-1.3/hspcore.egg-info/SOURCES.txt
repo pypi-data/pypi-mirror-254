@@ -1,0 +1,12 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+hspcore/__init__.py
+hspcore.egg-info/PKG-INFO
+hspcore.egg-info/SOURCES.txt
+hspcore.egg-info/dependency_links.txt
+hspcore.egg-info/requires.txt
+hspcore.egg-info/top_level.txt
+hspcore/src/__init__.py
+hspcore/src/hsp.py
