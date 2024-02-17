@@ -1,0 +1,15 @@
+jsonschema
+rok4<3.0.0,>=2.1.0
+
+[dev]
+black
+isort>=5.12.0
+pre-commit<4,>3
+ruff>=0.0.281
+
+[doc]
+pdoc3>=0.10.0
+
+[test]
+pytest>=7.1.2
+coverage>=7.0.5
