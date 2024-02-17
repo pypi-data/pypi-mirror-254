@@ -1,0 +1,203 @@
+Metadata-Version: 2.1
+Name: jupyterlab-conda-store
+Version: 2024.1.1
+Summary: A JupyterLab extension that provides a user-friendly graphical interface for building and managing environments using an existing conda-store server
+Project-URL: Homepage, https://github.com/conda-incubator/jupyterlab-conda-store
+Project-URL: Repository, https://github.com/conda-incubator/jupyterlab-conda-store
+Maintainer-email: Tania Allard <trallard@bitsandchips.me>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2022, conda-store development team
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Keywords: Jupyter,JupyterLab,JupyterLab3,conda,environments
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 3
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-asyncio; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest-tornasync; extra == 'test'
+Description-Content-Type: text/markdown
+
+# jupyterlab-conda-store
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/conda-incubator/conda-store/main/docusaurus-docs/community/assets/logos/conda-store-logo-vertical-lockup.svg" alt="conda-store logo" width="30%">
+</div>
+
+---
+
+| Information | Links                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Project     | [![License](https://img.shields.io/badge/License-BSD%203--Clause-gray.svg?&colorB=298642&style=flat.svg)](https://opensource.org/licenses/BSD-3-Clause) [![conda-store documentation](https://img.shields.io/badge/conda--store-documentation%20📖-gray.svg?&colorB=298642&style=flat.svg)][conda-store-docs] [![conda-store-ui documentation](https://img.shields.io/badge/conda--store--UI-documentation%20📖-gray.svg?&colorB=298642&style=flat.svg)][conda-store-ui-docs] |
+| Workflows   | [![Build extension](https://github.com/conda-incubator/jupyterlab-conda-store/actions/workflows/build.yml/badge.svg)](https://github.com/conda-incubator/jupyterlab-conda-store/actions/workflows/build.yml) [![Make PyPI release](https://github.com/conda-incubator/jupyterlab-conda-store/actions/workflows/release.yml/badge.svg)](https://github.com/conda-incubator/jupyterlab-conda-store/actions/workflows/release.yml)                                               |
+| Releases    | ![GitHub release (the latest by date)](https://img.shields.io/github/v/release/conda-incubator/jupyterlab-conda-store?logo=Github) ![PyPI releases](https://img.shields.io/pypi/v/jupyterlab-conda-store)                                                                                                                                                                                                                                                                     |
+
+---
+
+A JupyterLab extension for [conda-store][conda-store-repo].
+
+> [!NOTE]
+> Currently, this extension is only compatible with JupyterLab `>= 3.0 <= 4.0`.
+
+## Installation 📦
+
+### Pre-requisites
+
+You will need to have [conda-store][conda-store-repo] installed and running on your local computer to use this extension. As well as:
+
+- `JupyterLab >= 3.0 <= 4.0`
+- Python `>= 3.8`
+
+You can install the extension with pip:
+
+```bash
+pip install jupyterlab-conda-store
+```
+
+To remove the extension, execute:
+
+```bash
+pip uninstall jupyterlab-conda-store
+```
+
+## Installing the development version 🚀
+
+### Pre-requisites
+
+1. You will need to have [NodeJS `> 18`](https://nodejs.org/en/download/) installed on your local computer to build the extension package.
+2. Python `>= 3.8` and `pip`.
+
+### Building and linking the extension
+
+> [!NOTE]
+> The `jlpm` command is JupyterLab's pinned version of [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use`yarn` or `npm` in lieu of `jlpm` in the commands below.
+
+1. Clone this repository to your local computer:
+
+   ```bash
+   git clone https://github.com/conda-incubator/jupyterlab-conda-store.git
+   ```
+
+2. Change to the `jupyterlab-conda-store` directory:
+
+   ```bash
+    cd jupyterlab-conda-store
+   ```
+
+3. Optional but recommended - Create and activate a development environment with conda:
+
+   ```bash
+   # Create environment named `jupyterlab-conda-store`
+   conda create -n jupyterlab-conda-store
+   conda activate jupyterlab-conda-store
+   ```
+
+4. Install JupyterLab and NodeJS **if not installed**:
+
+   ```bash
+   # Install node and jupyterlab from conda-forge
+   conda install -c conda-forge 'nodejs>16' 'jupyterlab<4'
+   ```
+
+5. Install the package in development mode:
+
+   ```bash
+   pip install -e .
+   ```
+
+6. Now you'll need to link the development version of the extension to JupyterLab and rebuild the Typescript source:
+
+   ```bash
+   # Link your development version of the extension with JupyterLab
+   jupyter labextension develop . --overwrite
+   ```
+
+7. On the first installation, or after making some changes, to visualize them in your local JupyterLab re-run the following command:
+
+   ```bash
+   # Rebuild extension Typescript source after making changes
+   jlpm build
+   ```
+
+8. Run JupyterLab and check that the installation worked:
+
+```bash
+# Run JupyterLab
+jupyter lab
+```
+
+### Uninstalling the development version
+
+1. Remove the extension:
+
+   ```bash
+   pip uninstall jupyterlab-conda-store
+   ```
+
+2. In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
+   command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
+   folder is located. Then you can remove the symlink named `jupyterlab-conda-store` within that folder.
+
+## Release
+
+To create a jupyterlab-conda-store release:
+
+1. Open a `new_release` issue in the [repository][jupyterlab-conda-store-repo] and fill in the release details.
+2. Follow the steps in the new release checklist.
+
+> [!TIP]
+> Follow the steps in [RELEASE.md](./RELEASE.md) to ensure all is working as expected.
+
+## Code of Conduct 🤝
+
+To guarantee a welcoming and friendly community, we require all community members to follow our [Code of Conduct](https://github.com/conda-incubator/governance/blob/main/CODE_OF_CONDUCT.md).
+
+## License 📃
+
+jupyterlab-conda-store is developed under the [BSD 3-Clause License](./LICENSE).
+
+<!-- reusable links -->
+
+[conda-store-docs]: https://conda.store/en/latest/
+[conda-store-ui-docs]: https://conda-incubator.github.io/conda-store-ui/?path=/story/welcome--page
+[conda-store-repo]: https://github.com/conda-incubator/conda-store
+[jupyterlab-conda-store-repo]: https://github.com/conda-incubator/jupyterlab-conda-store
