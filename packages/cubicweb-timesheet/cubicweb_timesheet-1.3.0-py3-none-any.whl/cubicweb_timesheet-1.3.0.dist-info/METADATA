@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: cubicweb-timesheet
+Version: 1.3.0
+Summary: record who did what and when for the CubicWeb framework
+Home-page: http://www.cubicweb.org/project/cubicweb-timesheet
+Author: Logilab
+Author-email: contact@logilab.fr
+License: LGPL
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Requires-Dist: cubicweb <5.0.0,>=4.0.0
+Requires-Dist: cubicweb-web <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-calendar <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-workorder <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-rqlcontroller <2.0.0,>=1.0.0
+
+This cube is for tracking resource availability and usage (persons and their
+daily activities, meeting rooms and their occupancy, etc.).
