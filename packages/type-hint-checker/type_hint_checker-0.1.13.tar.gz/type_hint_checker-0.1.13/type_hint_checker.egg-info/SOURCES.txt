@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+tests/test_command_line.py
+tests/test_pre_commit.py
+tests/test_unit_tests.py
+type_hint_checker/__init__.py
+type_hint_checker/checkers.py
+type_hint_checker/exceptions.py
+type_hint_checker/file_parser.py
+type_hint_checker/main.py
+type_hint_checker.egg-info/PKG-INFO
+type_hint_checker.egg-info/SOURCES.txt
+type_hint_checker.egg-info/dependency_links.txt
+type_hint_checker.egg-info/entry_points.txt
+type_hint_checker.egg-info/top_level.txt
