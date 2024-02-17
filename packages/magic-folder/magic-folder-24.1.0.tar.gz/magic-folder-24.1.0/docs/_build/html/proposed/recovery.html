@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recovery (From Backup) &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Magic Folder local filesystem integration design" href="magic-folder/filesystem-integration.html" />
+    <link rel="prev" title="Conflict API" href="conflict-api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../invites.html">How invites work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Proposed Specifications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conflict-api.html">Conflict API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Recovery (From Backup)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#audience">Audience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gathering-the-information">Gathering the Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restoring-a-magic-folder">Restoring a Magic Folder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="magic-folder/filesystem-integration.html">Magic Folder local filesystem integration design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="magic-folder/remote-to-local-sync.html">Magic Folder design for remote-to-local sync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="magic-folder/user-interface-design.html">Magic Folder user interface design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanning-for-changes.html">Magic-Folder discovers new files</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Proposed Specifications</a></li>
+      <li class="breadcrumb-item active">Recovery (From Backup)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/proposed/recovery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="recovery-from-backup">
+<span id="recovery"></span><h1>Recovery (From Backup)<a class="headerlink" href="#recovery-from-backup" title="Permalink to this heading"></a></h1>
+<section id="audience">
+<h2>Audience<a class="headerlink" href="#audience" title="Permalink to this heading"></a></h2>
+<p>This document is aimed at programmers working on integrating with magic-folder.</p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
+<p>It is useful to be able to back up enough information in order to recover a magic-folder on a new device.
+This document describes both the process of gathering the informatino to back up and using it to re-create a similar magic-folder.</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>A magic-folder consists of a Collective DMD containing sub-directories pointing at the read-capabilities of one or more participant’s Personal DMDs.
+If this magic-folder instance is the “admin” instance, it will contain a write-capability for the Collective.
+It will also contain a write-capablity corresponding to the Personal DMD.</p>
+<p>The rough process of “recovery” is:</p>
+<ul class="simple">
+<li><p>create a new, fresh Magic Folder on the new instance</p></li>
+<li><p>add the “recovery” instance as a participant in this new Magic Folder</p></li>
+</ul>
+<p>The new instance’s local magic-path will fill up with all the files in the old instance as the downloader gets to them.
+In a usual case of “recovery” from e.g. a lost or broken device, this participant would not produce new Snapshots.
+However, if it does start producing new Snapshots the Magic Folder will continue to synchronize and detect conflicts as normal.</p>
+<p><strong>Note:</strong> this document is only concerned with single-participant Magic Folders for now and does not cover recovery of other participants.</p>
+</section>
+<section id="gathering-the-information">
+<h2>Gathering the Information<a class="headerlink" href="#gathering-the-information" title="Permalink to this heading"></a></h2>
+<p>In order to recover a Magic Folder on a new device you will need some information about it:</p>
+<ul class="simple">
+<li><p>the Collective DMD (either write-capability or read-capability)</p></li>
+<li><p>the Personal DMD (usually a write-capability but you could choose to only save the read-capability corresponding to it)</p></li>
+</ul>
+<p>This can be gathered for all folders at once with a <code class="docutils literal notranslate"><span class="pre">magic-folder</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ magic-folder list --json --include-secret-information
+</pre></div>
+</div>
+<p>Running that command will produce a JSON <code class="docutils literal notranslate"><span class="pre">object</span></code> containing one key for each Magic Folder.
+These will point to a <code class="docutils literal notranslate"><span class="pre">object</span></code> containing all the information about this Magic Folder.
+The relevant keys here are:
+- <code class="docutils literal notranslate"><span class="pre">&quot;upload-dircap&quot;</span></code>: our Personal DMD write-capability
+- <code class="docutils literal notranslate"><span class="pre">&quot;collective-dircap&quot;</span></code>: a write-capability or read-capability to the Collective DMD (not used in this revision of this document but it is useful to save)</p>
+<p>You could choose to keep _all_ of the JSON from the <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">list</span></code> incantation.</p>
+<p><strong>Note:</strong> these capability-strings are <strong>secret information</strong> and must be stored securely.
+Anyone who passively observes them can access all files in the Magic Folder forever and may impersonate this device (if they have access to the same Tahoe grid).</p>
+</section>
+<section id="restoring-a-magic-folder">
+<h2>Restoring a Magic Folder<a class="headerlink" href="#restoring-a-magic-folder" title="Permalink to this heading"></a></h2>
+<p>Let us assume you have saved the JSON for a single Magic Folder (as returned from <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">list</span></code> incantaion as above) which looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;laptop&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;signing_key&quot;</span><span class="p">:</span> <span class="s2">&quot;UF5FBIDFVAXOX3XEZVPTEEGKZBEMIRGKO2T5BFWXNGQNASGEC2BA====&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;verify_key&quot;</span><span class="p">:</span> <span class="s2">&quot;HRBIWJZMREI7I3MYIEUZ4MOWMCGH5SMFHCDW3VAT3EWHUPXJJ76Q====&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;upload_dircap&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:DIR2:6izqnla37sdnefnukjs7dbta64:cefhacik6stdiyq577l5zy4jpvnmw7bepriqxydad6voc2fiqt2a&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;poll_interval&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="s2">&quot;is_admin&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;collective_dircap&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:DIR2:oxpqd6wlmxkjona3elv6rdxqnm:cqdkh6vlbwbkgtqi7wwiwojudbeqaitmrd2435p3vh2ez2kazb4q&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stash_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/meejah/.config/magic-folder/laptop/default/stash&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;magic_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/meejah/cat-photos&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Further we assume that your new device or magic-folders instance is in <code class="docutils literal notranslate"><span class="pre">~/magicfolder2</span></code> and that you’ve correctly set this up and have the daemon running.</p>
+<p>First, we create a new Magic Folder into which we’ll recover:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ magic-folder --config ~/magicfolder2 add --author desktop --name recovered_cats --poll-interval 120 ~/favourite-kitties
+Created magic-folder named &#39;recovered_cats&#39;
+</pre></div>
+</div>
+<p>Here we only describe the case where you are the admin and there is only a single participant in the original Magic Folder (other cases are to-be-designed still).</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">magic-folder-api</span></code> command to add a new participant to the just-created Magic Folder:</p>
+<blockquote>
+<div><p>$ magic-folder-api –config ~/magicfolder2 add-participant –author-name laptop –folder recovered_cats –personal-dmd URI:DIR2-RO:xst3xp2fgqxsrq6vvx4dsgl5zy:cefhacik6stdiyq577l5zy4jpvnmw7bepriqxydad6voc2fiqt2a
+{}</p>
+</div></blockquote>
+<p>We use the same name <code class="docutils literal notranslate"><span class="pre">&quot;laptop&quot;</span></code> here, but you could chose something different (as long as it’s not the name of our local participant, which is <code class="docutils literal notranslate"><span class="pre">&quot;desktop&quot;</span></code> in this example).
+One way to transform the write-capability of the Personal DMD into a read-capability is to use <code class="docutils literal notranslate"><span class="pre">magic_folder.util.capabilities.to_readonly_capability</span></code> (it is an error to pass a write-capability to the <code class="docutils literal notranslate"><span class="pre">add-participant</span></code> API).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="conflict-api.html" class="btn btn-neutral float-left" title="Conflict API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="magic-folder/filesystem-integration.html" class="btn btn-neutral float-right" title="Magic Folder local filesystem integration design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

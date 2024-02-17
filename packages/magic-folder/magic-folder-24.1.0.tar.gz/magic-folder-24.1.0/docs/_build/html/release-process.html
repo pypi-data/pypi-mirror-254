@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic-Folder Release Process &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Leif Design: synchronization model" href="leif-design.html" />
+    <link rel="prev" title="Downloader Operation" href="downloader.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invites.html">How invites work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magic-Folder Release Process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#versioning-scheme">Versioning Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-stability-and-compatibility">API Stability and Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-the-version">Updating the Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Magic-Folder Release Process</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/release-process.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="magic-folder-release-process">
+<span id="release-process"></span><h1>Magic-Folder Release Process<a class="headerlink" href="#magic-folder-release-process" title="Permalink to this heading"></a></h1>
+<p>There is no schedule for magic-folders releases.
+We endeavor to keep <code class="docutils literal notranslate"><span class="pre">main</span></code> as always releasable.</p>
+<section id="versioning-scheme">
+<h2>Versioning Scheme<a class="headerlink" href="#versioning-scheme" title="Permalink to this heading"></a></h2>
+<p>We use a kind of Calendar Versioning (<a href="#id1"><span class="problematic" id="id2">`https://calver.org/`_</span></a>):
+<cite>YY.MM.NN</cite> where these values are:</p>
+<ul class="simple">
+<li><p><cite>YY</cite>: the last two digits of the current year;</p></li>
+<li><p><cite>MM</cite>: the two-digit month;</p></li>
+<li><p><cite>NN</cite>: a number that starts at 0 and increases for every release in a given month.</p></li>
+</ul>
+</section>
+<section id="api-stability-and-compatibility">
+<h2>API Stability and Compatibility<a class="headerlink" href="#api-stability-and-compatibility" title="Permalink to this heading"></a></h2>
+<p>The recommended API is the HTTP API; there is a command-line wrapper of this called <cite>magic-folder-api</cite> which _should_ be in sync.
+There is no supported Python API.</p>
+<p><strong>Currently we make no stability guarantees.</strong></p>
+<p>Once we change the above statement, the version numbers in the protocols will be updated upon any breaking changes.
+Any such changes will also be noted in the release notes.</p>
+<p>No matter the above statement, anyting in the <cite>/experimental</cite> tree of the HTTP API may change in any release.</p>
+<p>Integrations should:
+* run the Python daemon as a “black box”
+* not depend on any on-disc files
+* use the HTTP API to communicate</p>
+<p>The <cite>magic-folder-api</cite> command is intended as a convenience around the HTTP API and _should_ be in sync with that API (if it is not, that is a bug).
+Generally, this endeavors to return the same information in the same way as the HTTP API itself (usually JSON).</p>
+<p>The <cite>magic-folder</cite> command and sub-commands are mostly intended for “human” use so parsing their output <em>should not</em> be considered stable.
+For automated use it is preferable to use the “low-level” <cite>magic-folder-api</cite> or the HTTP API instead.
+(Please reach out if your needs are not served by the latter).</p>
+</section>
+<section id="updating-the-version">
+<h2>Updating the Version<a class="headerlink" href="#updating-the-version" title="Permalink to this heading"></a></h2>
+<p>The version is stored as signed Git tags.
+<cite>setuptools_scm</cite> handles turning the Git tag into a Python version.</p>
+</section>
+</section>
+<section id="making-a-release">
+<h1>Making a Release<a class="headerlink" href="#making-a-release" title="Permalink to this heading"></a></h1>
+<p>The exact process for creating a release is in the <cite>DEVELOPERS</cite> file.
+There are also explicit low-level steps in the top-level <cite>Makefile</cite>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="downloader.html" class="btn btn-neutral float-left" title="Downloader Operation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="leif-design.html" class="btn btn-neutral float-right" title="The Leif Design: synchronization model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

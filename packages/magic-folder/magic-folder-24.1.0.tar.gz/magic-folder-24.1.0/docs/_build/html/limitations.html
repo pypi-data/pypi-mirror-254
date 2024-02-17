@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Known Issues and Limitations &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Releases of Magic Folder" href="releases.html" />
+    <link rel="prev" title="How invites work" href="invites.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invites.html">How invites work</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Known Issues and Limitations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/limitations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="known-issues-and-limitations">
+<span id="known-issues-in-magic-folder"></span><h1>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>If a file enters the “conflicted” state there is no way to get it out
+of this state currently (see <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/102">Issue 102</a>)</p></li>
+<li><p>The status WebSocket (see <a class="reference internal" href="interface.html#status-api"><span class="std std-ref">Status API</span></a>) endpoint produces a lot of output when there
+are lots of files; see <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/686">Issue 686</a> for more.</p></li>
+<li><p>Unicode filenames are supported on both Linux and Windows, but on
+Linux the local name of a file must be encoded correctly in order
+for it to be uploaded.  The expected encoding is that printed by
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;import</span> <span class="pre">sys;</span> <span class="pre">print</span> <span class="pre">sys.getfilesystemencoding()&quot;</span></code>.</p></li>
+<li><p>On Windows, <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">run</span></code> may be unresponsive to Ctrl-C (it
+can only be killed using Task Manager or similar). (<a class="reference external" href="https://tahoe-lafs.org/trac/tahoe-lafs/ticket/2218">#2218</a>)</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="invites.html" class="btn btn-neutral float-left" title="How invites work" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="releases.html" class="btn btn-neutral float-right" title="Releases of Magic Folder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

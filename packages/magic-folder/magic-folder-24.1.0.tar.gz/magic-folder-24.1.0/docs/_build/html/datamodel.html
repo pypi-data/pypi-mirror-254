@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Folder Data Model &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Downloader Operation" href="downloader.html" />
+    <link rel="prev" title="Snapshots Design" href="snapshots.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invites.html">How invites work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magic Folder Data Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#audience">Audience</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-view">High-Level View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#synchronization-model-representing-changes">Synchronization Model: Representing Changes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#local-changes">Local Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-changes">Remote Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conflicts">Conflicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snapshot-representation">Snapshot Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authors">Authors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Magic Folder Data Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/datamodel.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="magic-folder-data-model">
+<span id="datamodel"></span><h1>Magic Folder Data Model<a class="headerlink" href="#magic-folder-data-model" title="Permalink to this heading"></a></h1>
+<section id="audience">
+<h2>Audience<a class="headerlink" href="#audience" title="Permalink to this heading"></a></h2>
+<p>This document describes the datamodel of on-Grid objects that magic-folder writes to Tahoe-LAFS.
+Developers working on magic-folder itself or integrating with it may be interested in these details.</p>
+<p>See also <a class="reference internal" href="snapshots.html#snapshots"><span class="std std-ref">Snapshots Design</span></a> for more information about the Snapshots themselves.</p>
+<p>Familiarity with Tahoe-LAFS is assumed (see the next section for a brief refresh of what we need here).</p>
+<p>Here we describe <em>Version 1</em> of the datamodel.
+There are no other versions.</p>
+<p>Common English words that have special meaning here are capitalized, like: Folder, Participant, etc.</p>
+<section id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h3>
+<p>A collection of Tahoe-LAFS servers constitutes “a <strong>Grid</strong>”.</p>
+<p>Tahoe-LAFS stores data in “<strong>Capabilities</strong>”.
+In this document, we talk about several kinds of these:</p>
+<ul>
+<li><p><strong>Immutable Capability</strong>: some data whose contents will never change (write once).</p></li>
+<li><p><strong>Mutable Directory Capability</strong>: this sort of capability allows one computer to hold a “Write Capability” that authorizes changes while sharing a <strong>Read-Only Directory Capability</strong> with other computers.
+Clients with the latter kind will see changes made.
+The capability contains names pointing to either contents (files) or other Directory Capabilities (sub-directories).</p>
+<p>It is <strong>vital to note</strong> that <strong>only a single computer</strong> may hold and use the Write Capability.</p>
+</li>
+<li><p><strong>Immutable Directory Capability</strong>: similar to above, except there is no write Capability: the contents will never change.</p></li>
+</ul>
+<p>You can read a lot more in <a class="reference external" href="https://tahoe-lafs.readthedocs.io/en/latest/architecture.html#capabilities">Tahoe-LAFS’s Capabilities documentation</a>.</p>
+</section>
+<section id="high-level-view">
+<h3>High-Level View<a class="headerlink" href="#high-level-view" title="Permalink to this heading"></a></h3>
+<p>At a very high level, <code class="docutils literal notranslate"><span class="pre">magic-folder</span></code> contains one or more “<strong>Folders</strong>”.
+These represent a collection of files to synchronize to one or more computers.
+Each computer is called a <strong>Participant</strong>.</p>
+<p>Participants may be “read-only” or “read-write”; the latter kind can introduce new files or changes to existing files.</p>
+<p>A Folder is represented in Tahoe-LAFS as a Mutable Directory.
+We call this “<strong>the Collective</strong>”.
+This directory lists all the Participants: it maps their name to a Capability.
+For read-only Participants, this will be an empty Immutable.
+For read-write Participants their name will map the a Read-Only Directory Capability.</p>
+<p>The single computer that holds the Write Capability to this Mutable Directory is known as “the admin”.
+They decide who the participants are, what they are named and whether they are read-only or read-write.</p>
+<p>All read-write Participants hold the single Write Capability corresponding to their public Read-Only Directory Capability.
+We call these the “<strong>Personal</strong>” directory.</p>
+<p>Here is an example: we have a Folder called “My Notes” whose Collective contains two Participants named “laptop” and “desktop”.
+The “metadata” Immutable contains JSON describing the version (there is only one version right now, <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/magic-folder-data-model--high-level.svg"><img alt="Overview of Magic Folder datamodel" height="30pt" src="_images/magic-folder-data-model--high-level.svg" width="100%" /></a>
+</figure>
+<p>Recall that only a <em>single computer</em> may have the write-capabilities corresponding to the three Mutable Directories in the above diagrams.
+Of course, a single computer may hold more than one write-capability: the admin will have both the Collective and their own Personal write capability.</p>
+</section>
+<section id="synchronization-model-representing-changes">
+<h3>Synchronization Model: Representing Changes<a class="headerlink" href="#synchronization-model-representing-changes" title="Permalink to this heading"></a></h3>
+<p>See also the historical document <a class="reference internal" href="leif-design.html#leif-design"><span class="std std-ref">The Leif Design: synchronization model</span></a> for background.</p>
+<p>The <a class="reference internal" href="snapshots.html#snapshots"><span class="std std-ref">Snapshots Design</span></a> document also contains details of the current implementation.</p>
+<p>Here, we give a broad overview of the synchronization process in order to better understand the on-Grid datamodel.</p>
+<p>(We discuss how Snapshot objects themselves are represented lower down).</p>
+<section id="local-changes">
+<h4>Local Changes<a class="headerlink" href="#local-changes" title="Permalink to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">magic-folder</span></code> daemons running on Participants’ computers detect local changes (currently by examining the filesystem periodically and comparing timestamps).</p>
+<p>When a local change is found, a new Snapshot is created.
+This Snapshot will have zero “parent” Snapshots if it is a brand new file (i.e. not yet known to magic-folder).
+Otherwise, the Snapshot will have one “parent” Snapshot, representing the latest version known to this Participant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a notion of a “local snapshot” which we won’t go into here; once uploaded to the Grid, a Snapshot has a concrete representation which is what is important from a datamodel perspective.
+Obviously, some amount of time passes between an actual change to a file on disk and it being represented in the Tahoe-LAFS Grid – from seconds to days or more (e.g. if offline).</p>
+</div>
+<p>A Snapshot will have more than one parent in case it is resolving a Conflict (see below).
+In this way, we consider Snapshots as a Directed Acyclic Graph (DAG).</p>
+<p>One can visualize this as a tree: each file has a root in the Personal directory pointing at some Snapshot that itself may point at zero or more parent Snapshots (and so on, until the very first version is reached).</p>
+<p>When fully synchronized, all Personal directories of all Participants will point to the very same Snapshot object in the Grid (the Capability string will be identical).</p>
+</section>
+<section id="remote-changes">
+<h4>Remote Changes<a class="headerlink" href="#remote-changes" title="Permalink to this heading"></a></h4>
+<p>Periodically, the <code class="docutils literal notranslate"><span class="pre">magic-folder</span></code> daemons of Participants will check the Grid for updates.</p>
+<p>This is done by examining the Collective to determine all Participants – that is, we list the Collective directory contents.
+If any new Participants have been added since our last check, they will be considered as well.</p>
+<p>Next, we examine each Participant’s Personal folder (except our own) and determine if that file is pointing at the same Snapshot as us – that is, we list the Personal directory contents.</p>
+<p>If any Snapshot is different, it is downloaded and acted upon.
+For a full discussion of this process, see <a class="reference internal" href="downloader.html#downloader"><span class="std std-ref">Downloader Operation</span></a>.</p>
+<p>Ultimately, for normal updates or deletes, the change will be reflected (or “acknowledged” if you prefer) by updating our own Personal folder.
+In case of a “conflict” (e.g. two changes at “the same” time) we will not update the Personal folder until the user resolves the conflict (this isn’t possible yet, see <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/102">Issue 102</a>).</p>
+<p>Considered together, an abstract view of a two-Participant example:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/magic-folder-data-model-abstract.svg"><img alt="Magic Folder datamodel, abstract snapshots" height="30pt" src="_images/magic-folder-data-model-abstract.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-text">An abstract view of two participants with a single file.
+The file has been changed once.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the above, we have two Participants (<code class="docutils literal notranslate"><span class="pre">laptop</span></code> and <code class="docutils literal notranslate"><span class="pre">desktop</span></code>), omitting the Collective from the view.
+There is a single file (<code class="docutils literal notranslate"><span class="pre">grumpy-cat.jpeg</span></code>) which has been changed once (the original version is at the green dot “1” and the newest version is at green dot “2”).
+We can see that both Participants are up-to-date because both Personal folders point at the latest Snapshot.</p>
+</section>
+</section>
+<section id="conflicts">
+<h3>Conflicts<a class="headerlink" href="#conflicts" title="Permalink to this heading"></a></h3>
+<p>Once a file is conflicted, it is up to the user to resolve this.
+While we currently lack UI or HTTP API affordances to accomplish this, there <em>is</em> a way to model it already.</p>
+<p>That way is by having multiple parents.
+So, looking at our two-Participant case, here is an example of a conflict and its resolution.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/magic-folder-data-model-abstract--conflict.plain.svg"><img alt="Magic Folder datamodel, abstract snapshots" height="30pt" src="_images/magic-folder-data-model-abstract--conflict.plain.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-text">An abstract view of two participants with a single file.
+The file has been changed a few times, once with a conflict.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The green dots at “1” and “2” are the same as the previous diagram.
+At green dot “3”, both Participants made their own change, representing it as a Snapshot with a parent pointing at “2”.
+This is a Conflict.</p>
+<p>Since neither Participant had seen the other’s change, they both used “2” as a parent.
+(If instead there had been some time to synchronize between the changes, one or the other would be first and no problem would occur).</p>
+<p>At green point “4”, the “desktop” participant has “resolved” the Conflict: they have chosen some way to do this (possibly taking one or the other version whole, or merging the changes somehow).
+No matter how this was accomplished (and again, we have no UI for this yet) the conflict resolution is represented on the Grid by producing a new Snapshot (at green dot “4”) with <strong>both</strong> Snapshots as parents – this communicates that the “desktop” Participant saw both and did something to decide that the new snapshot at “4” is the correct way to move forward. In cases with more Participants, there could be more conflicting Snapshots and thus more than two parents.</p>
+<p>We can also see in this diagram that participant “laptop” has <strong>not yet updated</strong> fully, as they are still pointing at “3”.</p>
+</section>
+<section id="snapshot-representation">
+<h3>Snapshot Representation<a class="headerlink" href="#snapshot-representation" title="Permalink to this heading"></a></h3>
+<p>So far we’ve looked abstractly at Snapshots.
+While the <a class="reference internal" href="snapshots.html#snapshots"><span class="std std-ref">Snapshots Design</span></a> document describes the process, lets me more concrete.</p>
+<p>Here is a fully-worked diagram of a complete Folder called “My Notes” with two Participants (“laptop”, “desktop”) that have two files (“Meeting Notes.odt” and “grumpy-cat.jpeg”). The main change here is visualizing all the parts.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/magic-folder-data-model.svg"><img alt="Magic Folder datamodel with all details" height="40pt" src="_images/magic-folder-data-model.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-text">A fully featured view of the magic-folder datamodel.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let’s examine the pieces.</p>
+<p>At “1”, we have the Collective.
+This contains the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> (confirming this version, <code class="docutils literal notranslate"><span class="pre">1</span></code>) and two participants: <code class="docutils literal notranslate"><span class="pre">&quot;laptop&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;desktop&quot;</span></code>.
+Each of these are Mutable folders.
+We don’t know from this view whether “laptop” or “desktop” holds the Write Capability to the Collective (and is thus “the admin).
+The only way to know this is to ask.</p>
+<p>At “2” we see one of the Participant’s Personal directories expanded (in this case, <code class="docutils literal notranslate"><span class="pre">&quot;laptop&quot;</span></code>).
+It also has a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> confirming the version.</p>
+<p>The blue bubbles expand the Snapshots to their actual on-Grid representation.
+They are Immutable Directories containing two entries: <code class="docutils literal notranslate"><span class="pre">&quot;contents&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;metadata&quot;</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;contents&quot;</span></code> entry points at an Immutable Capability containing the actual contents of this version.
+The <code class="docutils literal notranslate"><span class="pre">&quot;metadata&quot;</span></code> entry points at an Immutable Capability containing JSON that will deserialize to a representation of some information about this entry.</p>
+<p>We see it has a <code class="docutils literal notranslate"><span class="pre">&quot;snapshot_version&quot;</span></code>, the relative pathname in <code class="docutils literal notranslate"><span class="pre">&quot;relpath&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">&quot;modification-time&quot;</span></code> (in seconds-since-the epoch), some author information and a list of parents.</p>
+<p>The “parents” list contains Capability strings for other Snapshot objects. In the case of <code class="docutils literal notranslate"><span class="pre">&quot;grumpy-cat.jpeg&quot;</span></code> we can see that someone has added a colour version and that the black and white version has no parents (so is the only version).</p>
+</section>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Permalink to this heading"></a></h3>
+<p>The author information is usable, but there is not yet a way to collect and examine who are legitimate authors of Snapshots (that is, “Public Key Infrastructure” or PKI).
+The <a class="reference internal" href="snapshots.html#snapshots"><span class="std std-ref">Snapshots Design</span></a> document describes how the signatures are produced and how to verify them – but as you can see the public keys are simply in the metadata.</p>
+<p>Clients could already use this to see if authorship <em>change</em>.
+A future version of the software will add some way to manage, verify, revoke and move author keys.</p>
+<p>One such use-case could be a single human who uses multiple devices: they may wish to show they authored changes from multiple Participant devices (which would still have different Personal capabilities).</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="snapshots.html" class="btn btn-neutral float-left" title="Snapshots Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="downloader.html" class="btn btn-neutral float-right" title="Downloader Operation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

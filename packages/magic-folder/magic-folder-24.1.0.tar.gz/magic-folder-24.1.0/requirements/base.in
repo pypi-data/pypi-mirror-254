@@ -1,0 +1,56 @@
+# zope.interface >= 3.6.0 is required for Twisted >= 12.1.0.
+# zope.interface 3.6.3 and 3.6.4 are incompatible with Nevow (#1435).
+zope.interface >= 3.6.0, != 3.6.3, != 3.6.4
+
+humanize >= 1.0.0
+
+eliot
+
+attrs
+
+# WebSocket library for twisted and asyncio
+# (python 3.8 support ends at 23.1.2)
+autobahn >= 19.5.2
+
+hyperlink
+
+# Of course, we depend on Twisted.  Let Tahoe-LAFS' Twisted dependency
+# declaration serve, though.  Otherwise we have to be careful to agree on
+# which extras to pull in.
+#
+# Although there are still some allmydata.* imports (so we depend on
+# tahoe-lafs) these are confied to allmydata.uri so this dependency is
+#  open-ended.
+#
+# See also https://github.com/LeastAuthority/magic-folder/issues/676 which covers
+# getting rid of these final imports
+
+tahoe-lafs >= 1.18.0
+
+# twisted-based HTTP client
+treq
+
+# find the default location for configuration on different OSes
+appdirs
+
+# Python utilities that were originally extracted from tahoe
+# We use them directly, rather than the re-exports from allmydata
+pyutil >= 3.3.0
+
+# This is the version of cryptography required by tahoe-lafs
+cryptography >= 2.6
+
+# last py2 release of klein
+klein>=20.6.0
+
+# Loading old magic-folders config for migration
+# Minimum version is the version packaged in the nix snapshot we use.
+#PyYAML >= 5.1.1
+
+# used for double-checking if a process is actually running when our
+# PID-file still exists
+psutil >= 5.8.0
+filelock >= 3.8.0
+
+# see https://github.com/agronholm/cbor2/issues/208
+cbor2 != 5.6.0

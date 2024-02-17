@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local HTTP Interface &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration Storage" href="config.html" />
+    <link rel="prev" title="Magic-Folder Development" href="development.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invites.html">How invites work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Local HTTP Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-api">HTTP API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authorization">Authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioning-and-stability">Versioning and Stability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-snapshot"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-snapshot-folder-name"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot/&lt;folder-name&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-snapshot-folder-name-path-some-path"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot/&lt;folder-name&gt;?path=&lt;some-path&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-v1-magic-folder-folder-name-snapshot-path-some-path"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/snapshot?path=&lt;some-path&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-participants"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/participants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-v1-magic-folder-folder-name-participants"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/participants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-file-status"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/file-status</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-tahoe-objects">GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/tahoe-objects</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-conflicts">GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/conflicts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-scan-local">GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/scan-local</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-v1-magic-folder-folder-name-poll-remote">GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/poll-remote</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-experimental-magic-folder-folder-name-invite">POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invite</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-experimental-magic-folder-folder-name-invite-wait">POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invite-wait</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-experimental-magic-folder-folder-name-join">POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/join</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-experimental-magic-folder-folder-name-invites">POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invites</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#status-api">Status API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Local HTTP Interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/interface.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="local-http-interface">
+<h1>Local HTTP Interface<a class="headerlink" href="#local-http-interface" title="Permalink to this heading"></a></h1>
+<section id="http-api">
+<span id="id1"></span><h2>HTTP API<a class="headerlink" href="#http-api" title="Permalink to this heading"></a></h2>
+<p>Magic-Folder exposes all of its supported functionality in an HTTP API.
+The address of the HTTP server is part of the <a class="reference internal" href="config.html#config"><span class="std std-ref">Configuration Storage</span></a>.</p>
+<p>A client may learn how to connect by reading the file <code class="docutils literal notranslate"><span class="pre">api_client_endpoint</span></code> from the state directory.
+This contains a Twisted “endpoint-string”, like <code class="docutils literal notranslate"><span class="pre">tcp:localhost:1234</span></code>.
+The file <code class="docutils literal notranslate"><span class="pre">api_client_endpoint</span></code> merely exports information and changes to it will not be reflected in the daemon.</p>
+<section id="authorization">
+<h3>Authorization<a class="headerlink" href="#authorization" title="Permalink to this heading"></a></h3>
+<p>The HTTP API is protected by a Bearer token-style authorization scheme.
+Only requests which include the correct token will receive successful responses.
+Other requests will receive <strong>401 Unauthorized</strong> responses which omit the requested resource.
+The token value should be included with the <strong>Bearer</strong> scheme in the <strong>Authorization</strong> header element.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">abcdefghijklmnopqrstuvwxyz</span>
+</pre></div>
+</div>
+<p>The correct token value can be found in the <code class="docutils literal notranslate"><span class="pre">api_token</span></code> file inside the Magic-Folder daemon configuration directory.
+The token value is periodically rotated so clients must be prepared to receive an <strong>Unauthorized</strong> response even when supplying the token.
+In this case,
+the client should re-read the token from the filesystem to determine if the value held in memory has become stale.</p>
+</section>
+<section id="versioning-and-stability">
+<h3>Versioning and Stability<a class="headerlink" href="#versioning-and-stability" title="Permalink to this heading"></a></h3>
+<p>This API is <strong>not considered stable</strong> yet (as of January 2023).</p>
+<p>The HTTP API has a global version, indicated in the path: <code class="docutils literal notranslate"><span class="pre">/v1/</span></code> for example is Version 1.</p>
+<p>APIs put in this hierarchy shall be considered stable (but not yet complete backwards compatilibty, see above caveat).</p>
+<p>There is also an <code class="docutils literal notranslate"><span class="pre">/experimental</span></code> hierarchy to allow for experimentation, even when Version 1 is considered stable.
+APIs in the <code class="docutils literal notranslate"><span class="pre">/experimental/</span></code> tree may change in any revision.</p>
+<p>Whenever a new version is added (or changed), this section will be updatd and the relevant API(s) will indicate what version adds which features.
+A mechanism to add deprecation of APIs will be added in a future release.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Version 1 (``/v1``)</strong>: initial version of the API (not yet considered 100% stable).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-v1-magic-folder">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder</span></code><a class="headerlink" href="#get-v1-magic-folder" title="Permalink to this heading"></a></h3>
+<p>This endpoint returns a dict of all individual magic-folders managed by this daemon.
+The keys of the dict are the folder name and the values are themselves dicts.</p>
+<p>You may include the query argument <code class="docutils literal notranslate"><span class="pre">?include_secret_information=1</span></code> to include values for each folder which should be kept hidden (and are not shown by default).
+These are: <code class="docutils literal notranslate"><span class="pre">upload_dircap</span></code>, <code class="docutils literal notranslate"><span class="pre">collective_dircap</span></code>, and the <code class="docutils literal notranslate"><span class="pre">signing_key</span></code> inside <code class="docutils literal notranslate"><span class="pre">author</span></code>.</p>
+<p>The response code <strong>OK</strong> and the <strong>Content-Type</strong> is <code class="docutils literal notranslate"><span class="pre">application/json</span></code>.
+The response body follows the form of this example (containing a single magic-folder named “documents”):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;documents&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verify_key&quot;</span><span class="p">:</span> <span class="s2">&quot;OY7FCVPCOJXDNHQLSDTTJFONTROMQQED5Q6K33T3NBGGQHKLV73Q====&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;poll_interval&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="s2">&quot;scan_interval&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="s2">&quot;is_admin&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;stash_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/alice/.config/magic-folder/documents&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;magic_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/alice/Documents&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="get-v1-snapshot">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot</span></code><a class="headerlink" href="#get-v1-snapshot" title="Permalink to this heading"></a></h3>
+<p>Retrieve information about all snapshots known to exist.</p>
+<p>The response is <strong>OK</strong> with an <code class="docutils literal notranslate"><span class="pre">application/json</span></code> <strong>Content-Type</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;folder name&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;foo/bar&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
+      <span class="p">,</span> <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;06be2d83-2d86-402d-ae2a-81b3779d72d9&quot;</span>
+      <span class="p">,</span> <span class="s2">&quot;parents&quot;</span><span class="p">:</span>
+        <span class="p">[</span> <span class="p">{</span><span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="s2">&quot;30803885-ef3c-4645-85e6-6b1c9dfd50c3&quot;</span><span class="p">}</span>
+        <span class="p">,</span> <span class="p">{</span><span class="s2">&quot;remote&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:...&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+<p>Properties of the top-level object map the name of a magic-folder to second-level objects describing snapshots for each file in that folder.
+Properties of second-level objects map relative file paths to lists of snapshots for that magic-folder.
+Elements of the list are objects with describe a single snapshot.</p>
+<p>Local snapshots are represented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
+<span class="p">,</span> <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;0d585a0e-c39c-4dec-affb-cbab34245370&quot;</span>
+<span class="p">,</span> <span class="s2">&quot;parents&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="s2">&quot;a3eb3d57-5272-45f3-ba5f-04a52024785b&quot;</span><span class="p">}]</span>
+<span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The parents property gives a list of references to snapshots which are parents of the containing snapshot.
+A local snapshot reference in this list is represented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="s2">&quot;a3eb3d57-5272-45f3-ba5f-04a52024785b&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>The values for the <code class="docutils literal notranslate"><span class="pre">local</span></code> property can be resolved against the <code class="docutils literal notranslate"><span class="pre">identifier</span></code> described above.</p>
+<p>In the future,
+this this may also contain remote snapshot references.
+A remote snapshot reference in this list is represented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;remote&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:...&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>The value is a Tahoe-LAFS capability string for a stored object representing the snapshot.</p>
+</section>
+<section id="get-v1-snapshot-folder-name">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot/&lt;folder-name&gt;</span></code><a class="headerlink" href="#get-v1-snapshot-folder-name" title="Permalink to this heading"></a></h3>
+<p>Not yet implemented.
+Get all snapshots for one folder.</p>
+</section>
+<section id="get-v1-snapshot-folder-name-path-some-path">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/snapshot/&lt;folder-name&gt;?path=&lt;some-path&gt;</span></code><a class="headerlink" href="#get-v1-snapshot-folder-name-path-some-path" title="Permalink to this heading"></a></h3>
+<p>Not yet implemented.
+Get all snapshots for one folder beneath a certain path.</p>
+</section>
+<section id="post-v1-magic-folder-folder-name-snapshot-path-some-path">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/snapshot?path=&lt;some-path&gt;</span></code><a class="headerlink" href="#post-v1-magic-folder-folder-name-snapshot-path-some-path" title="Permalink to this heading"></a></h3>
+<p>Create a new snapshot for a certain file in a certain magic-folder.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">path</span></code> query argument is required.
+It must be a filesystem path relative to the selected magic-folder.
+A new snapshot will be created for the file it identifies.</p>
+<p>The response is delayed until the local state tracking the snapshot has been created.</p>
+<p>The response code <strong>CREATED</strong> and the <strong>Content-Type</strong> is <code class="docutils literal notranslate"><span class="pre">application/json</span></code>.
+The response body follows the form of this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+</section>
+<section id="get-v1-magic-folder-folder-name-participants">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/participants</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-participants" title="Permalink to this heading"></a></h3>
+<p>List all participants in a certain magic-folder.</p>
+<p>The response is <strong>OK</strong> with an <code class="docutils literal notranslate"><span class="pre">application/json</span></code> <strong>Content-Type</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;participant name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;personal_dmd&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:DIR2-RO:...&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There will be one entry per participant.
+<code class="docutils literal notranslate"><span class="pre">personal_dmd</span></code> is a Tahoe read-only directory capability-string.</p>
+</section>
+<section id="post-v1-magic-folder-folder-name-participants">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/participants</span></code><a class="headerlink" href="#post-v1-magic-folder-folder-name-participants" title="Permalink to this heading"></a></h3>
+<p>Add a new participant to a certain magic-folder.
+Accepts a JSON body listing the details of the participant to add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;arbitrary string&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;personal_dmd&quot;</span><span class="p">:</span> <span class="s2">&quot;URI:DIR2-RO:...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The response is delayed until the participant is correctly added to the Collective.
+The <code class="docutils literal notranslate"><span class="pre">personal_dmd</span></code> is a Tahoe read-only directory capability-string (the participant device holds the write-capability).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a “low-level” API requiring careful handling of the secret
+Personal capability string. A higher-level API using a secure
+magic-wormhole connection is available with the <code class="docutils literal notranslate"><span class="pre">.../invite</span></code> and
+<code class="docutils literal notranslate"><span class="pre">.../join</span></code> endpoints</p>
+</div>
+<p>A response code of <strong>CREATED</strong> is sent upon success with response body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+</section>
+<section id="get-v1-magic-folder-folder-name-file-status">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/magic-folder/&lt;folder-name&gt;/file-status</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-file-status" title="Permalink to this heading"></a></h3>
+<p>Retrieve the file-status of every file in a given magic-folder.
+The response is <strong>OK</strong> with an <code class="docutils literal notranslate"><span class="pre">application/json</span></code> <strong>Content-Type</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;relpath&quot;</span><span class="p">:</span> <span class="s2">&quot;rel/path/foo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mtime&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">321</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;relpath&quot;</span><span class="p">:</span> <span class="s2">&quot;rel/path/bar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mtime&quot;</span><span class="p">:</span> <span class="mi">12346</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">111</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>There will be one entry in the list for every file.
+The list is ordered from most-recent to least-recent timestamp.
+<code class="docutils literal notranslate"><span class="pre">relpath</span></code> is the relative path in the magic-folder.
+<code class="docutils literal notranslate"><span class="pre">mtime</span></code> is in seconds.
+<code class="docutils literal notranslate"><span class="pre">size</span></code> is in bytes.</p>
+</section>
+<section id="get-v1-magic-folder-folder-name-tahoe-objects">
+<h3>GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/tahoe-objects</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-tahoe-objects" title="Permalink to this heading"></a></h3>
+<p>Returns a list of integers representing the sizes of all individual capabilities that this folder is using.
+That means a size for each Snapshot capability and its corresponding metadata capability and content capability.
+The list is flat; if there are 2 Snapshots on the grid this will return 6 integers.</p>
+</section>
+<section id="get-v1-magic-folder-folder-name-conflicts">
+<h3>GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/conflicts</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-conflicts" title="Permalink to this heading"></a></h3>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">dict</span></code> of all conflicts in the given magic-folder.
+Each item in the <code class="docutils literal notranslate"><span class="pre">dict</span></code> maps a relpath to a list of author-names.
+The author-names correspond to the device that conflicts with this file.
+There will also be a file named like <code class="docutils literal notranslate"><span class="pre">&lt;relpath&gt;.conflict-&lt;author-name&gt;</span></code> in the magic-folder whose contents match those of the conflicting remote file.</p>
+</section>
+<section id="get-v1-magic-folder-folder-name-scan-local">
+<h3>GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/scan-local</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-scan-local" title="Permalink to this heading"></a></h3>
+<p>Request an immediate scan of the local filesystem for the given folder.
+Returns an empty <code class="docutils literal notranslate"><span class="pre">dict</span></code> after the scan is complete.</p>
+</section>
+<section id="get-v1-magic-folder-folder-name-poll-remote">
+<h3>GET <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder/&lt;folder-name&gt;/poll-remote</span></code><a class="headerlink" href="#get-v1-magic-folder-folder-name-poll-remote" title="Permalink to this heading"></a></h3>
+<p>Request an immediate scan of the Collective and remote participants of the given folder.
+Returns an empty <code class="docutils literal notranslate"><span class="pre">dict</span></code> after the scan is complete.</p>
+</section>
+<section id="post-experimental-magic-folder-folder-name-invite">
+<h3>POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invite</span></code><a class="headerlink" href="#post-experimental-magic-folder-folder-name-invite" title="Permalink to this heading"></a></h3>
+<p>Create a new invite.
+The body of the invite is a JSON object containing the keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">participant-name</span></code>: maps to a string describing what to call the invitee when they join</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;read-write&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;read-only&quot;</span></code> indicating what access the new participant has</p></li>
+</ul>
+<p>This will initiate the invite and returns the serialized invite.
+To await the end of the invite process, see the <a class="reference internal" href="#invite-wait"><span class="std std-ref">POST /experimental/magic-folder/&lt;folder-name&gt;/invite-wait</span></a> endpoint.</p>
+<p>A serialized invite is a JSON object that has keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: A UUID, like <code class="docutils literal notranslate"><span class="pre">92148d89-85ae-4677-8629-8ef6de54417d</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">participant-name</span></code>: the name to call the invitee in the Collective</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consumed</span></code>: True if the wormhole code has been used up</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code>: True if the invite has completed successfully</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wormhole-code</span></code>: None or the text wormhole code</p></li>
+</ul>
+</section>
+<section id="post-experimental-magic-folder-folder-name-invite-wait">
+<span id="invite-wait"></span><h3>POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invite-wait</span></code><a class="headerlink" href="#post-experimental-magic-folder-folder-name-invite-wait" title="Permalink to this heading"></a></h3>
+<p>Wait for an invite to complete (either successfully or not).</p>
+<p>The body of the invite is a JSON object with keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: the UUID of the invite to await</p></li>
+</ul>
+<p>This endpoint returns 200 OK with the serialized Invite (see above) if the invite concluded successfully.
+Otherwise, the endpoint returns a 400 error describing the error.</p>
+</section>
+<section id="post-experimental-magic-folder-folder-name-join">
+<h3>POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/join</span></code><a class="headerlink" href="#post-experimental-magic-folder-folder-name-join" title="Permalink to this heading"></a></h3>
+<p>Join a magic-folder by accepting an invite.
+The body of the request is a JSON object with keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">invite-code</span></code>: the wormhole code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local-directory</span></code>: absolute path of an existing local directory to synchronize files in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">author</span></code>: arbitrary, valid author name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poll-interval</span></code>: seconds between remote update checks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scan-interval</span></code>: seconds between local update checks</p></li>
+</ul>
+<p>The endpoint returns 201 Created once the folder is created and joined.
+Otherwise, a 400 error is returned describing the error.</p>
+</section>
+<section id="post-experimental-magic-folder-folder-name-invites">
+<h3>POST <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;folder-name&gt;/invites</span></code><a class="headerlink" href="#post-experimental-magic-folder-folder-name-invites" title="Permalink to this heading"></a></h3>
+<p>List all invites.
+Invites are stored in memory only, so this is any active or completed invites since the prorgam started.</p>
+</section>
+</section>
+<section id="status-api">
+<span id="id2"></span><h2>Status API<a class="headerlink" href="#status-api" title="Permalink to this heading"></a></h2>
+<p>There is a WebSocket-based status API located at <code class="docutils literal notranslate"><span class="pre">/v1/status</span></code>.
+This is authenticated the same way as the HTTP API with an <code class="docutils literal notranslate"><span class="pre">Authorization:</span></code> header (see above).</p>
+<p>All messages are JSON.
+Upon connecting, a new client will immediately receive a “state” message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;folders&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;downloads&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;uploads&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;recent&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;relpath&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+                        <span class="s2">&quot;conflicted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                        <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="mi">1634431697</span><span class="p">,</span>
+                        <span class="s2">&quot;last-updated&quot;</span><span class="p">:</span> <span class="mi">1634431700</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;synchronizing&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;tahoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;connected&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;happy&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;desired&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;scanner&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;last-scan&quot;</span><span class="p">:</span> <span class="mf">1634431700.1234</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;poller&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;last-poll&quot;</span><span class="p">:</span> <span class="n">null</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After that the client may receive further state updates with a <code class="docutils literal notranslate"><span class="pre">&quot;state&quot;</span></code> message like the above.
+Currently the only valid kind of message is <code class="docutils literal notranslate"><span class="pre">&quot;state&quot;</span></code>.
+The above example has no uploads or downloads happening and a single recent file, <code class="docutils literal notranslate"><span class="pre">foo</span></code>.</p>
+<p>The state for each folder consists of the following information:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;synchronizing&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. When <code class="docutils literal notranslate"><span class="pre">true</span></code> the
+magic-folder daemon is uploading data to or downloading data from
+Tahoe-LAFS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;tahoe&quot;</span></code>: a dict containing status information about the Tahoe-LAFS connection
+- <code class="docutils literal notranslate"><span class="pre">&quot;connected&quot;</span></code>: the number of storage-servers the client is connected to
+- <code class="docutils literal notranslate"><span class="pre">&quot;desired&quot;</span></code>: the number of storage-servers we want to connect to
+- <code class="docutils literal notranslate"><span class="pre">&quot;happy&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">&quot;connected&quot;</span></code> is greater than the client’s configured “happy”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> contains keys mapping the folder name to:
+- <code class="docutils literal notranslate"><span class="pre">&quot;uploads&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;downloads&quot;</span></code> contain currently queued or active uploads (or downloads). Each <code class="docutils literal notranslate"><span class="pre">dict</span></code> in these lists contain:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;relpath&quot;</span></code>: the relative-path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;queued-at&quot;</span></code>: the Unix timestamp when this item was queued</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;started-at&quot;</span></code>: the Unix timestamp when we started uploading (or downloading) this item. This key will not exist until we do start.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;recent&quot;</span></code> contains a list up to 30 of the most-recently updated files. Each <code class="docutils literal notranslate"><span class="pre">dict</span></code> in this list contains:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;relpath&quot;</span></code>: the relative path of this item</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;modified&quot;</span></code>: the Unix timestamp when the on-disk file was most-recently modified</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;last-updated&quot;</span></code>: the Unix timestamp when this item’s state was updated in the magic-folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;conflicted&quot;</span></code>: a boolean indicating if there is a conflict for this relative path</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;scanner&quot;</span></code> contains information about the local changes scanner
+- <code class="docutils literal notranslate"><span class="pre">&quot;last-scan&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">null</span></code> if no scan is completed yet, or the timestamp of the last completion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;poller&quot;</span></code> contains information about the remote changes poller
+- <code class="docutils literal notranslate"><span class="pre">&quot;last-poll&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">null</span></code> if no scan is completed yet, or the timestamp of the last completion</p></li>
+</ul>
+</li>
+</ul>
+<p>Clients should be tolerant of keys in the state they don’t understand.
+Unknown state keys should be ignored.
+Note that <code class="docutils literal notranslate"><span class="pre">&quot;modified&quot;</span></code> is when the local state for thie item changed while <code class="docutils literal notranslate"><span class="pre">&quot;last-updated&quot;</span></code> is to do with the filesystem modification time.
+For example, a file may have an on-disk modification time that is older than the last time we updated our state about it, especially one that came from another device.</p>
+<p>The client doesn’t send any messages to the server; it is an error to do so.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="development.html" class="btn btn-neutral float-left" title="Magic-Folder Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="Configuration Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

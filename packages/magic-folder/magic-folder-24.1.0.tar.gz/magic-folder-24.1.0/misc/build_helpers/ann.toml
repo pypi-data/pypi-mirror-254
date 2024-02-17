@@ -1,0 +1,58 @@
+## duplicated from top-level but can't see a better way to control the
+## "markdown-like" output etc -- really want to say "take all the
+## other config, and override the following..."
+
+[tool.towncrier]
+    package_dir = "src"
+    package = "magic_folder"
+    filename = "NEWS.rst"
+    directory = "newsfragments"
+    start_string = ".. towncrier start line"
+    title_format = false
+    issue_format = "#{issue}"
+    underlines = [
+        "=",
+        "-",
+    ]
+    all_bullets = true
+    wrap = true
+
+    [[tool.towncrier.type]]
+        directory = "incompat"
+        name = "Backwards Incompatible Changes"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "feature"
+        name = "Features"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "bugfix"
+        name = "Bug Fixes"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "installation"
+        name = "Dependency/Installation Changes"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "configuration"
+        name = "Configuration Changes"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "removed"
+        name = "Removed Features"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "other"
+        name = "Other Changes"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "minor"
+        name = "Misc/Other"
+        showcontent = false

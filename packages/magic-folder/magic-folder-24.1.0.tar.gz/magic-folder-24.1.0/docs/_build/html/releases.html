@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Releases of Magic Folder &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Statement on Backdoors" href="backdoors.html" />
+    <link rel="prev" title="Known Issues and Limitations" href="limitations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invites.html">How invites work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Releases of Magic Folder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-23-3-0-2023-03-06">Magic_Folder 23.3.0 (2023-03-06)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#misc-other">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-23-1-1-2023-01-30">Magic_Folder 23.1.1 (2023-01-30)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-10-1-2022-10-03">Magic_Folder 22.10.1 (2022-10-03)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-10-0-2022-10-01">Magic_Folder 22.10.0 (2022-10-01)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-9-0-2022-09-14">Magic_Folder 22.9.0 (2022-09-14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-8-0-2022-08-04">Magic_Folder 22.8.0 (2022-08-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">Magic_Folder 22.8.0 (2022-08-04)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-5-0-2022-05-13">Magic_Folder 22.5.0 (2022-05-13)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id26">Magic_Folder 22.5.0 (2022-05-13)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-2-1-2022-02-23">Magic_Folder 22.2.1 (2022-02-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-2-0-2022-02-14">Magic_Folder 22.2.0 (2022-02-14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Misc/Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magic-folder-22-1-0-2022-01-28">Magic_Folder 22.1.0 (2022-01-28)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#backwards-incompatible-changes">Backwards Incompatible Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id78">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-installation-changes">Dependency/Installation Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed-features">Removed Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-changes">Other Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id107">Misc/Other</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Releases of Magic Folder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/releases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="releases-of-magic-folder">
+<h1>Releases of Magic Folder<a class="headerlink" href="#releases-of-magic-folder" title="Permalink to this heading"></a></h1>
+<p>Versions follow the year and month of their release, with a minor number increasing for each release that month.</p>
+<p>See also the <a class="reference internal" href="release-process.html#release-process"><span class="std std-ref">Magic-Folder Release Process</span></a> for further explanation.</p>
+<section id="magic-folder-23-3-0-2023-03-06">
+<h2>Magic_Folder 23.3.0 (2023-03-06)<a class="headerlink" href="#magic-folder-23-3-0-2023-03-06" title="Permalink to this heading"></a></h2>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add ability to cancel an in-progress invite (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/692">#692</a>)</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Our Personal DMD is now checked vs local database state</p>
+<p>It’s possible with a crash or exit at the right time to
+have downloaded an update and noted that in the database
+but not yet succeeded in updating the Personal DMD. We
+now check at startup for this condition and fix it. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/668">#668</a>)</p>
+</li>
+</ul>
+</section>
+<section id="misc-other">
+<h3>Misc/Other<a class="headerlink" href="#misc-other" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/690">#690</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-23-1-1-2023-01-30">
+<h2>Magic_Folder 23.1.1 (2023-01-30)<a class="headerlink" href="#magic-folder-23-1-1-2023-01-30" title="Permalink to this heading"></a></h2>
+<section id="id4">
+<h3>Features<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Support for “inviting” another participant to a folder (experimental).</p>
+<p>There is now a specification and implementation for “inviting” another
+participant who may “join” a given folder. The two computers communicate
+via the “magic-wormhole” protocol, allowing for secure communication
+setup with a short, human-pronouncable short password. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/232">#232</a>)</p>
+</li>
+<li><p>Allow for experimental features (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/680">#680</a>)</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Misc/Other<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/683">#683</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/685">#685</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-10-1-2022-10-03">
+<h2>Magic_Folder 22.10.1 (2022-10-03)<a class="headerlink" href="#magic-folder-22-10-1-2022-10-03" title="Permalink to this heading"></a></h2>
+<section id="id10">
+<h3>Misc/Other<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/672">#672</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/674">#674</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-10-0-2022-10-01">
+<h2>Magic_Folder 22.10.0 (2022-10-01)<a class="headerlink" href="#magic-folder-22-10-0-2022-10-01" title="Permalink to this heading"></a></h2>
+<section id="id13">
+<h3>Features<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>pidfile access is locked with “filelock” library (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/670">#670</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-9-0-2022-09-14">
+<h2>Magic_Folder 22.9.0 (2022-09-14)<a class="headerlink" href="#magic-folder-22-9-0-2022-09-14" title="Permalink to this heading"></a></h2>
+<section id="id15">
+<h3>Features<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Automatically exit when stdin is closed</p>
+<p>This facilitates subprocess management, specifically cleanup. When
+a parent process is running magic-folder and exits without time to
+do “proper” cleanup at least the stdin descriptor will be closed.
+magic-folder notices this and exits. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/665">#665</a>)</p>
+</li>
+</ul>
+</section>
+<section id="id17">
+<h3>Misc/Other<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/660">#660</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-8-0-2022-08-04">
+<h2>Magic_Folder 22.8.0 (2022-08-04)<a class="headerlink" href="#magic-folder-22-8-0-2022-08-04" title="Permalink to this heading"></a></h2>
+<p>No significant changes.</p>
+</section>
+<section id="id19">
+<h2>Magic_Folder 22.8.0 (2022-08-04)<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h2>
+<section id="id20">
+<h3>Bug Fixes<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Stashed file-paths are unique even with same capability (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/662">#662</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-5-0-2022-05-13">
+<h2>Magic_Folder 22.5.0 (2022-05-13)<a class="headerlink" href="#magic-folder-22-5-0-2022-05-13" title="Permalink to this heading"></a></h2>
+<section id="id22">
+<h3>Features<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>A pid-file is now written</p>
+<p>If a previous instance is running _and_ appears to be an actual
+magic-folder process, it is killed. Otherwise, magic-folder will
+refuse to start. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/644">#644</a>)</p>
+</li>
+</ul>
+</section>
+<section id="id24">
+<h3>Misc/Other<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/656">#656</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id26">
+<h2>Magic_Folder 22.5.0 (2022-05-13)<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h2>
+<section id="id27">
+<h3>Features<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>A pid-file is now written</p>
+<p>If a previous instance is running _and_ appears to be an actual
+magic-folder process, it is killed. Otherwise, magic-folder will
+refuse to start. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/644">#644</a>)</p>
+</li>
+</ul>
+</section>
+<section id="id29">
+<h3>Misc/Other<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/656">#656</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-2-1-2022-02-23">
+<h2>Magic_Folder 22.2.1 (2022-02-23)<a class="headerlink" href="#magic-folder-22-2-1-2022-02-23" title="Permalink to this heading"></a></h2>
+<section id="id31">
+<h3>Features<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The status API now shows last-scan and last-poll timestamps (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/646">#646</a>)</p></li>
+</ul>
+</section>
+<section id="id33">
+<h3>Misc/Other<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/642">#642</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-2-0-2022-02-14">
+<h2>Magic_Folder 22.2.0 (2022-02-14)<a class="headerlink" href="#magic-folder-22-2-0-2022-02-14" title="Permalink to this heading"></a></h2>
+<section id="id35">
+<h3>Features<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Check “connected enough” constantly, not just at startup.</p>
+<p>Further, refuse to do “mutable” operations if our Tahoe-LAFS client is not
+connected to a “happy” number of servers. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/543">#543</a>)</p>
+</li>
+</ul>
+</section>
+<section id="id37">
+<h3>Bug Fixes<a class="headerlink" href="#id37" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use Cooperator to copy (potentially large) files (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/196">#196</a>)</p></li>
+<li><p>Further avoid overwriting local changes (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/454">#454</a>)</p></li>
+<li><p>“magic-folder status” gives better error when service not running (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/616">#616</a>)</p></li>
+<li><p>Update several dependencies (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/636">#636</a>)</p></li>
+</ul>
+</section>
+<section id="id42">
+<h3>Misc/Other<a class="headerlink" href="#id42" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/173">#173</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/386">#386</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/466">#466</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/620">#620</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/623">#623</a></p></li>
+</ul>
+</section>
+</section>
+<section id="magic-folder-22-1-0-2022-01-28">
+<h2>Magic_Folder 22.1.0 (2022-01-28)<a class="headerlink" href="#magic-folder-22-1-0-2022-01-28" title="Permalink to this heading"></a></h2>
+<section id="backwards-incompatible-changes">
+<h3>Backwards Incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>–web-port is now a required option with no default (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/81">#81</a>)</p></li>
+</ul>
+</section>
+<section id="id49">
+<h3>Features<a class="headerlink" href="#id49" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>magic-folder exits with error if it can’t listen (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/67">#67</a>)</p></li>
+<li><p>Deleting a file uploads a deletion snapshot (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/105">#105</a>)</p></li>
+<li><p>Integration tests are run against multiple Tahoe versions (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/120">#120</a>)</p></li>
+<li><p>Automated scanning for local changes (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/138">#138</a>)</p></li>
+<li><p>Create LocalSnapshot instances. LocalSnapshots are an intermediate snapshot representation that is used to maintain history even when the user modifies files while offline. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/139">#139</a>)</p></li>
+<li><p>LocalSnapshots are persisted into the disk to preserve history even if the computer is offline. During startup, magic-folder would look for these persisted LocalSnapshots and try to commit them into the grid. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/140">#140</a>)</p></li>
+<li><p>Magic-Folder now exposes a bearer-token-authorized HTTP API hierarchy beneath <code class="docutils literal notranslate"><span class="pre">/v1</span></code>. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/198">#198</a>)</p></li>
+<li><p>Magic-Folder now exposes an HTTP API endpoint, <code class="docutils literal notranslate"><span class="pre">/v1/magic-folder</span></code>, which can be used to list the managed Magic Folders. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/205">#205</a>)</p></li>
+<li><p>Magic-Folder now exposes an HTTP API for creating a new local snapshot of a file. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/266">#266</a>)</p></li>
+<li><p>Add a “magic-folder-api add-snapshot” command (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/309">#309</a>)</p></li>
+<li><p>The development process is documented. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/322">#322</a>)</p></li>
+<li><p>Add a “magic-folder-api dump-state” command (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/325">#325</a>)</p></li>
+<li><p>There is now an HTTP API to add and list new participants, along with corresponding magic-folder-api subcommands (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/327">#327</a>)</p></li>
+<li><p>Add real-time WebSocket status update endpoint (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/335">#335</a>)</p></li>
+<li><p>Export api_client_endpoint to config dir (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/339">#339</a>)</p></li>
+<li><p>Add ‘magic-folder-api monitor’ command (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/351">#351</a>)</p></li>
+<li><p>Add a <a class="reference external" href="mailto:'&#37;&#52;&#48;metadata">‘<span>&#64;</span>metadata</a>’ entry to Collective and Personal DMDs (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/420">#420</a>)</p></li>
+<li><p>More status information emitted. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/440">#440</a>)</p></li>
+<li><p>Report errors via /status API (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/481">#481</a>)</p></li>
+<li><p>Include “last-updated” time in file-status endpoint (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/501">#501</a>)</p></li>
+<li><p>If the HTTP API listens on port 0, the actual port is reported (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/516">#516</a>)</p></li>
+<li><p>API to return tahoe object-sizes (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/524">#524</a>)</p></li>
+<li><p>A spec for conflicts APIs exists (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/537">#537</a>)</p></li>
+<li><p>Add an explicit ‘conflicts’ API (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/538">#538</a>)</p></li>
+<li><p>Add a <cite>magic-folder status</cite> command (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/557">#557</a>)</p></li>
+<li><p>test against Tahoe 1.16.x (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/564">#564</a>)</p></li>
+<li><p>Added a …/poll-remote endpoint (and rename /scan to /scan-local) (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/572">#572</a>)</p></li>
+<li><p>Output “cuvner report” after unit-tests (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/620">#620</a>)</p></li>
+</ul>
+</section>
+<section id="id78">
+<h3>Bug Fixes<a class="headerlink" href="#id78" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The “treq” library is now required (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/139">#139</a>)</p></li>
+<li><p>Sub-commands no longer accept the –basedir option; use –node-directory instead (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/145">#145</a>)</p></li>
+<li><p>Internal functions sign_snapshot() and write_snapshot_to_tahoe() support upload of LocalSnapshot instances (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/191">#191</a>)</p></li>
+<li><p>When told to the daemon will queue and create local snapshots (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/192">#192</a>)</p></li>
+<li><p>(<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/202">#202</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/407">#407</a>)</p></li>
+<li><p>Added a client endpoint-string to “magic-folder init” and “migrate” (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/251">#251</a>)</p></li>
+<li><p>Internally, all paths are now text (not bytes) (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/281">#281</a>)</p></li>
+<li><p>Ensure capabilities cannot leak accidentally in logs (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/559">#559</a>)</p></li>
+<li><p>Correctly return tahoe-object sizes for delete items (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/606">#606</a>)</p></li>
+</ul>
+</section>
+<section id="dependency-installation-changes">
+<h3>Dependency/Installation Changes<a class="headerlink" href="#dependency-installation-changes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>magic-folder supports CentOS 8 (and no longer supports CentOS 7) (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/76">#76</a>)</p></li>
+<li><p>magic-folder is now compatible with python-cryptography 3.0. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/208">#208</a>)</p></li>
+<li><p>magic-folder now has a Python library dependency on Tahoe-LAFS 1.17.0. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/597">#597</a>)</p></li>
+</ul>
+</section>
+<section id="removed-features">
+<h3>Removed Features<a class="headerlink" href="#removed-features" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The HTTP status API at <cite>/api</cite> has been removed in anticipation of the introduction of a new, better interface. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/214">#214</a>)</p></li>
+<li><p>Support for directly synchronizing magic folders stored using the old on-grid schema has been removed. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/227">#227</a>)</p></li>
+</ul>
+</section>
+<section id="other-changes">
+<h3>Other Changes<a class="headerlink" href="#other-changes" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>hot-fix from Tahoe-LAFS repo to do Tahoe-LAFS web api testing (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/142">#142</a>)</p></li>
+<li><p>Documentation updates. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/155">#155</a>)</p></li>
+<li><p>The project now includes basic developer/contributor documentation. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/164">#164</a>)</p></li>
+<li><p>The Magic-Folder project has adopted a code of conduct. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/171">#171</a>)</p></li>
+<li><p>There is a new database-based configuration design and “magic-folder init” command to use it (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/189">#189</a>)</p></li>
+<li><p>Tahoe-LAFS 1.15.1 is now required. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/303">#303</a>)</p></li>
+<li><p>(<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/305">#305</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/311">#311</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/314">#314</a>, <a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/315">#315</a>)</p></li>
+<li><p>Switch to using klein for managing the magic-folder api. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/362">#362</a>)</p></li>
+<li><p>Improve handling of serialized eliot messages in tests, and upload eliot logs to circleci. (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/366">#366</a>)</p></li>
+<li><p>Document /conflicts API and aspects of /status API (<a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/574">#574</a>)</p></li>
+</ul>
+</section>
+<section id="id107">
+<h3>Misc/Other<a class="headerlink" href="#id107" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/1">#1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/4">#4</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/5">#5</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/6">#6</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/7">#7</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/9">#9</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/11">#11</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/12">#12</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/16">#16</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/20">#20</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/24">#24</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/26">#26</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/28">#28</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/30">#30</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/33">#33</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/34">#34</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/39">#39</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/41">#41</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/43">#43</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/45">#45</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/47">#47</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/51">#51</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/52">#52</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/54">#54</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/56">#56</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/58">#58</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/62">#62</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/66">#66</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/79">#79</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/86">#86</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/88">#88</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/89">#89</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/107">#107</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/114">#114</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/118">#118</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/121">#121</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/136">#136</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/152">#152</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/162">#162</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/165">#165</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/167">#167</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/176">#176</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/177">#177</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/180">#180</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/181">#181</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/182">#182</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/184">#184</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/193">#193</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/197">#197</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/203">#203</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/207">#207</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/210">#210</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/211">#211</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/218">#218</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/222">#222</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/226">#226</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/229">#229</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/235">#235</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/245">#245</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/246">#246</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/253">#253</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/256">#256</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/258">#258</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/260">#260</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/261">#261</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/265">#265</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/267">#267</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/272">#272</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/274">#274</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/285">#285</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/287">#287</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/293">#293</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/295">#295</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/297">#297</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/301">#301</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/318">#318</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/319">#319</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/320">#320</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/333">#333</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/336">#336</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/337">#337</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/338">#338</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/344">#344</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/346">#346</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/348">#348</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/349">#349</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/350">#350</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/351">#351</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/353">#353</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/354">#354</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/359">#359</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/361">#361</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/367">#367</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/369">#369</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/371">#371</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/373">#373</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/376">#376</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/377">#377</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/378">#378</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/381">#381</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/382">#382</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/384">#384</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/390">#390</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/391">#391</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/392">#392</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/399">#399</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/400">#400</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/410">#410</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/411">#411</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/412">#412</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/416">#416</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/429">#429</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/430">#430</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/438">#438</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/449">#449</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/450">#450</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/455">#455</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/457">#457</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/459">#459</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/460">#460</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/461">#461</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/462">#462</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/473">#473</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/476">#476</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/480">#480</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/482">#482</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/486">#486</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/491">#491</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/493">#493</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/496">#496</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/499">#499</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/503">#503</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/508">#508</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/513">#513</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/514">#514</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/515">#515</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/517">#517</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/519">#519</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/523">#523</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/526">#526</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/532">#532</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/535">#535</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/541">#541</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/552">#552</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/555">#555</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/570">#570</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/576">#576</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/578">#578</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/579">#579</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/584">#584</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/587">#587</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/589">#589</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/594">#594</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/599">#599</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/600">#600</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/605">#605</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/608">#608</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LeastAuthority/magic-folder/issues/612">#612</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="limitations.html" class="btn btn-neutral float-left" title="Known Issues and Limitations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="backdoors.html" class="btn btn-neutral float-right" title="Statement on Backdoors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How invites work &mdash; Magic-Folder 1.x documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Known Issues and Limitations" href="limitations.html" />
+    <link rel="prev" title="Using Magic Folder" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Magic-Folder
+          </a>
+              <div class="version">
+                1.x
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Magic Folder</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How invites work</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detailed-process">Detailed Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-folder">Creating the Folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inviting-laptop">Inviting Laptop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accepting-the-invitation">Accepting the Invitation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finalizing-the-invite">Finalizing the Invite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exchanged-messages">Exchanged Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invite-http-api">Invite HTTP API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-invite">POST …/invite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-invite-wait">POST …/invite-wait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-invite-cancel">POST …/invite-cancel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-invites">GET …/invites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-join">POST …/join</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Known Issues and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases of Magic Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backdoors.html">Statement on Backdoors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Magic-Folder Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Local HTTP Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodel.html">Magic Folder Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader.html">Downloader Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Magic-Folder Release Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html#making-a-release">Making a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leif-design.html">The Leif Design: synchronization model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposed/index.html">Proposed Specifications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Magic-Folder</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How invites work</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/invites.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This document uses semantic newlines.</p>
+<section id="how-invites-work">
+<span id="invites"></span><h1>How invites work<a class="headerlink" href="#how-invites-work" title="Permalink to this heading"></a></h1>
+<p>Audience: fellow developers of Magic-Folder</p>
+<p>To begin we outline some definitions and assumptions:</p>
+<ul class="simple">
+<li><p><strong>mutable directory</strong>, is a Tahoe-LAFS mutable directory.
+Tahoe demands that we co-ordinate multiple writes, effectively meaning that only a single device may hold the write-capability for any given mutable.</p></li>
+<li><p><strong>writecap</strong>, <strong>readcap</strong> refer to Tahoe-LAFS directory capabilities here, either read-write or read-only.</p></li>
+<li><p>One client (“the admin”) holds a write-capability to a <strong>Collective mutable directory</strong> and thus has the ability to add new devices to that collection.
+All other clients have a read-capability to the Collective so they may discover new devices.
+Each entry in the Collective points to a read-capability for the Personal mutable directory of that participant device.</p></li>
+<li><p>Every client has a <strong>Personal mutable directory</strong> that they hold the write-capability to.
+The corresponding read-capability appears in the <strong>Collective</strong>.</p></li>
+</ul>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>A “Desktop” device has a magic-folder.
+Since it created this magic-folder it also has the <strong>write</strong> capability to the Collective; i.e. the human controlling this device is the admin.
+Desktop wishes to add Laptop as a member of the folder.
+Desktop must send to Laptop: a read-capability to the Collective.
+Deskopt must receive from Laptop: a read-capability to a fresh “Personal” directory for Laptop.</p>
+<p>(If the Laptop is invited as a read-only participant, there’s no Personal readcap to send back).</p>
+<p>It may be useful to exchange some other information; the above is a minimum.
+Desktop is the admin and thus decides what the Laptop device is called.</p>
+<p>We exchange messages between the Desktop and Laptop devices via a magic-wormhole.
+The built-in “app-versions” mechanism in magic-wormhole is used for protocol negotiation.
+Besides the wormhole setup messages themselves, we exchange several message types.
+They are all JSON and the exact format of these is detailed later.</p>
+<p>It is <strong>important to note</strong> that only read-capabilities are ever exchanged.
+Write-capabilities must only ever exist on a single device.</p>
+<p>The flow is fairly straightforward:</p>
+<ul class="simple">
+<li><p>on the Desktop device, a wormhole invite-code is created</p></li>
+<li><p>(out-of-band the code is securely communicated to the Laptop device)</p></li>
+<li><p>on the Laptop device, the wormhole code is presented to the wormhole server, completing the wormhole and allowing secure communication between the devices.</p></li>
+<li><p>upon a successful wormhole, Desktop posts its message and Laptop posts its (after creating his Personal directory and extracting the read-capability).</p></li>
+<li><p>Desktop creates the Collective entry and posts a final message. Laptop closes the wormhole.</p></li>
+<li><p>(If Desktop failed to do this for some reason, an error message is posted instead).</p></li>
+</ul>
+<p>An illustration of the process:</p>
+</section>
+<section id="detailed-process">
+<h2>Detailed Process<a class="headerlink" href="#detailed-process" title="Permalink to this heading"></a></h2>
+<p>Command-line examples assume that we have a correctly set-up and currently running magic-folder with configuration directory <code class="docutils literal notranslate"><span class="pre">~/.magic-folder</span></code> on both the Desktop and Laptop devices.</p>
+<section id="creating-the-folder">
+<h3>Creating the Folder<a class="headerlink" href="#creating-the-folder" title="Permalink to this heading"></a></h3>
+<p>Desktop creates a new magic-folder (called “funny-photos”):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="o">--</span><span class="n">config</span> <span class="o">~/.</span><span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="n">add</span> <span class="o">--</span><span class="n">name</span> <span class="n">funny</span><span class="o">-</span><span class="n">photos</span> <span class="o">--</span><span class="n">author</span> <span class="n">desktop</span> <span class="o">~/</span><span class="n">Documents</span><span class="o">/</span><span class="n">funny</span><span class="o">-</span><span class="n">photos</span>
+</pre></div>
+</div>
+<p>We can see that it was created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="o">--</span><span class="n">config</span> <span class="o">~/.</span><span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="nb">list</span>
+<span class="n">funny</span><span class="o">-</span><span class="n">photos</span><span class="p">:</span>
+    <span class="n">location</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">desktop</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">funny</span><span class="o">-</span><span class="n">photos</span>
+   <span class="n">stash</span><span class="o">-</span><span class="nb">dir</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">desktop</span><span class="o">/.</span><span class="n">magic</span><span class="o">-</span><span class="n">folder</span><span class="o">/</span><span class="n">funny</span><span class="o">-</span><span class="n">photos</span><span class="o">/</span><span class="n">stash</span>
+      <span class="n">author</span><span class="p">:</span> <span class="n">Desktop</span> <span class="p">(</span><span class="n">public_key</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+     <span class="n">updates</span><span class="p">:</span> <span class="n">every</span> <span class="mi">60</span><span class="n">s</span>
+       <span class="n">admin</span><span class="p">:</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Desktop’s magic-folder software will now have:</p>
+<ul>
+<li><p>a write-capability to the “Collective” for “funny-photos”.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the “Collective” will contain a single entry (<code class="docutils literal notranslate"><span class="pre">&quot;desktop&quot;</span></code>) pointing to the read-capability of Desktop’s “Personal” directory</p></li>
+<li><p>we know we have a write-capability because <code class="docutils literal notranslate"><span class="pre">admin:</span> <span class="pre">True</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>the write-capability for Desktop’s “Personal” directory</p></li>
+</ul>
+<p>Users don’t usually need to see or care about the read- or write- capabilities; these are used with our Tahoe-LAFS client to do operations.
+However, if you do need them you can pass <code class="docutils literal notranslate"><span class="pre">--include-secret-information</span></code> to the <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">list</span></code> command.</p>
+</section>
+<section id="inviting-laptop">
+<h3>Inviting Laptop<a class="headerlink" href="#inviting-laptop" title="Permalink to this heading"></a></h3>
+<p>To invite a new (read-write) participant, Desktop needs to send a piece of information and receive a piece of information.
+This is accomplished by communicating to the other device by means of <a class="reference external" href="http://magic-wormhole.io">Magic Wormhole</a>.
+Since the pieces of information that we exchange are small, we do not need a “bulk transfer” (aka Transit) connection and can send the data via the Magic Wormhole “mailbox” server alone .. so both devices don’t strictly need to be online at the same time.
+Note that mailbox allocations “time out” so at least one side has to be connected to the mailbox server within this timeout window.</p>
+<p>The piece of information we need to send to Laptop is the read-capablity for the “Collective” directory.
+The piece of information we need to get from Laptop is the read-capability for its “Personal” directory (unless it is a read-only participant).</p>
+<p>Note that Desktop never shares the write-capability to the Collective (nor to the Personal directory) and Laptop never shares the write-capability for the Personal directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In tahoe-lafs 1.14.0 and earlier magic-folder the above features were not present; Desktop could impersonate anyone.
+A passive observer of the invite-code could impersonate the invitee indefinitely.</p>
+</div>
+<p>To start the invitation process, Desktop runs <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">invite</span></code>.
+This process will tell the human running Desktop a code that looks like <code class="docutils literal notranslate"><span class="pre">5-secret-words</span></code> or similar.
+The human using Desktop must securely communicate this code to the human who runs Laptop.</p>
+<p>All magic-wormholes include a “versions” message through which applications can include arbitrary JSON information (intended for protocol versions and similar).
+We use this mechanism for protocol negotiation, including this as the <cite>app_versions=</cite> part:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;magic-folder&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;supported-messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This tells the other side that: we support magic-folder operations, and support the <cite>invite-v1</cite> messages.
+More message may be added in the future.
+Communictions MUST stop if <code class="docutils literal notranslate"><span class="pre">&quot;invite-v1&quot;</span></code> is not supported (that is, close the mailbox).</p>
+<p>All actual messages include a <code class="docutils literal notranslate"><span class="pre">&quot;kind&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;protocol&quot;</span></code> key.
+The <code class="docutils literal notranslate"><span class="pre">&quot;protocol&quot;</span></code> MUST refer to one of the <code class="docutils literal notranslate"><span class="pre">&quot;supported-messages&quot;</span></code> that the peer supports; in this case it will always be <code class="docutils literal notranslate"><span class="pre">&quot;invite-v1&quot;</span></code> for the protocol described in this document.
+We use <code class="docutils literal notranslate"><span class="pre">&quot;kind&quot;</span></code> to distinguish the sort of message this is (within that protocol).</p>
+<p>Once the wormhole is established Desktop’s magic-folder client sends a message via the wormhole server as JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;join-folder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;folder-name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;free-form string&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;collective&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;read-capability of the Collective&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;participant-name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;admin-provided name&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;read-write&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;mode&quot;</span></code> may be <code class="docutils literal notranslate"><span class="pre">&quot;read-write&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;read-only&quot;</span></code>.</p>
+<p>Desktop may start this process with the command-line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="o">--</span><span class="n">config</span> <span class="o">~/.</span><span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="n">invite</span> <span class="o">--</span><span class="n">name</span> <span class="n">funny</span><span class="o">-</span><span class="n">photos</span> <span class="o">--</span><span class="n">mode</span> <span class="n">read</span><span class="o">-</span><span class="n">write</span> <span class="n">laptop</span>
+<span class="n">Invite</span> <span class="n">code</span><span class="p">:</span> <span class="mi">5</span><span class="o">-</span><span class="n">secret</span><span class="o">-</span><span class="n">words</span>
+  <span class="n">waiting</span> <span class="k">for</span> <span class="n">laptop</span> <span class="n">to</span> <span class="n">accept</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>The CLI command accomplishes this using two HTTP APIs: one to start the invite and one to await its completion.
+The CLI will now block until the wormhole is completed.
+Exiting the process (e.g. ctrl-c) will not kill the invite, though, as that is running in the daemon.
+See the HTTP API below for more details.</p>
+</section>
+<section id="accepting-the-invitation">
+<h3>Accepting the Invitation<a class="headerlink" href="#accepting-the-invitation" title="Permalink to this heading"></a></h3>
+<p>Once the human running Laptop has received a magic-wormhole code from the human running Desktop (for example, “<code class="docutils literal notranslate"><span class="pre">5-secret-words</span></code>”) the <code class="docutils literal notranslate"><span class="pre">magic-folder</span> <span class="pre">join</span></code> command is used on the Latop device to complete the wormhole.</p>
+<p>This means that Laptop’s client contacts the magic-wormhole server and uses the code-phrase to complete the SPAKE2 transaction.
+At this point, Desktop and Laptop have a shared secret key and a “mailbox” allocated on the server – that is, a secure communication path.
+Desktop will have sent the first message; Laptop retrieves this and creates the “Personal” mutable directory (unless it is read-only).
+Laptop sends back a message to Desktop (as with all wormhole messages these will be encrypted by the Wormhole library using the shared secret):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;join-folder-accept&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;personal&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;read-capability of Laptop&#39;s Personal directory&gt;&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Laptop will not close the wormhole; that will be done by Desktop.
+Note that the <code class="docutils literal notranslate"><span class="pre">&quot;personal&quot;</span></code> key MUST be absent for read-only participants.
+Laptop may accept the invite with the command-line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="o">--</span><span class="n">config</span> <span class="o">~/.</span><span class="n">magic</span><span class="o">-</span><span class="n">folder</span> <span class="n">join</span> <span class="o">--</span><span class="n">author</span> <span class="n">laptop</span> <span class="o">--</span><span class="n">name</span> <span class="n">hilarious</span><span class="o">-</span><span class="n">pics</span> <span class="mi">5</span><span class="o">-</span><span class="n">secret</span><span class="o">-</span><span class="n">words</span> <span class="o">~/</span><span class="n">Documents</span><span class="o">/</span><span class="n">desktop</span><span class="o">-</span><span class="n">fun</span><span class="o">-</span><span class="n">pix</span>
+</pre></div>
+</div>
+<p>If Laptop wishes to reject the connection, a reject message is sent back:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;join-folder-reject&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reject-reason&quot;</span><span class="p">:</span> <span class="s2">&quot;free-form string explaining why&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>(There is no HTTP API to reject an invitation currently).</p>
+</section>
+<section id="finalizing-the-invite">
+<h3>Finalizing the Invite<a class="headerlink" href="#finalizing-the-invite" title="Permalink to this heading"></a></h3>
+<p>Once Desktop receives Laptop’s reply message Desktop adds Laptop to the Collective.</p>
+<p>Desktop writes a new entry into the “Collective” pointing to Laptop’s provided Personal read-capability.
+In case Laptop is a read-only particpapnt an empty immutable directory is added instead.
+In this case, <code class="docutils literal notranslate"><span class="pre">laptop</span> <span class="pre">-&gt;</span> <span class="pre">&lt;Laptop's</span> <span class="pre">Personal</span> <span class="pre">readcap&gt;</span></code>.</p>
+<p>Desktop sends a final acknowledgement message to Laptop:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;join-folder-ack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;participant-name&quot;</span><span class="p">:</span> <span class="s2">&quot;laptop&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If there was a problem adding the participant, and error may be sent instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;invite-v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;join-folder-ack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;friendly message&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After one of the above two messages are sent, the wormhole is closed (by Desktop, the inviter).</p>
+<p>This concludes the invitation process.
+Any other participants will discover Laptop when they next poll the Collective via the read-capabilitiy they were given.</p>
+</section>
+</section>
+<section id="exchanged-messages">
+<h2>Exchanged Messages<a class="headerlink" href="#exchanged-messages" title="Permalink to this heading"></a></h2>
+<p>Looking at the whole process from the magic-wormhole perspective, this is what happens:</p>
+<ul class="simple">
+<li><p>Desktop: allocates a wormhole code, sends the first invite message <code class="docutils literal notranslate"><span class="pre">{&quot;collective&quot;:</span> <span class="pre">&quot;...&quot;}</span></code></p></li>
+<li><p>Desktop human: securely communicates the wormhole code to the Laptop human</p></li>
+<li><p>Laptop: uses the wormhole code to complete the SPAKE2 handshake.</p></li>
+<li><p>Laptop: retrieves the first invite message.</p></li>
+<li><p>Laptop: creates Personal (or not, if read-only)</p></li>
+<li><p>Laptop: sends the invite reply <code class="docutils literal notranslate"><span class="pre">{&quot;personal&quot;:</span> <span class="pre">&quot;...&quot;,</span> <span class="pre">}</span></code></p></li>
+<li><p>Desktop: retrieves the invite reply.</p></li>
+<li><p>Desktop: writes a new entry in the Collective (pointing at Laptop’s Personal read-capability)</p></li>
+<li><p>Desktop: sends confirmation message <code class="docutils literal notranslate"><span class="pre">{&quot;success&quot;:</span> <span class="pre">true}</span></code></p></li>
+<li><p>Desktop: closes the wormhole.</p></li>
+</ul>
+</section>
+<section id="invite-http-api">
+<h2>Invite HTTP API<a class="headerlink" href="#invite-http-api" title="Permalink to this heading"></a></h2>
+<p>All Invite functionality is available via HTTP APIs scoped to a particluar magic-folder.
+That is, the root URI is <code class="docutils literal notranslate"><span class="pre">/experimental/magic-folder/&lt;magic-folder-name&gt;/</span></code>.
+We describe endpoints below this.</p>
+<section id="post-invite">
+<h3>POST …/invite<a class="headerlink" href="#post-invite" title="Permalink to this heading"></a></h3>
+<p>Accepts a JSON body containing keys: <code class="docutils literal notranslate"><span class="pre">participant-name</span></code>, <code class="docutils literal notranslate"><span class="pre">mode</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">participant-name</span></code> should be a free-form string with the name for this participant.
+The <code class="docutils literal notranslate"><span class="pre">mode</span></code> must be <code class="docutils literal notranslate"><span class="pre">read-only</span></code> or <code class="docutils literal notranslate"><span class="pre">read-write</span></code>.
+Once the invite is created and a Wormhole code is successfully allocated a reply is rendered.
+The reply is a JSON serialization of the invite:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;uuid&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;participant-name&quot;</span><span class="p">:</span> <span class="s2">&quot;valid author name&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;consumed&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;wormhole-code&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;valid wormhole code&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="post-invite-wait">
+<h3>POST …/invite-wait<a class="headerlink" href="#post-invite-wait" title="Permalink to this heading"></a></h3>
+<p>Accepts a JSON body containing keys: <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">id</span></code> is the UUID of an existing invite.
+This endpoint will wait until the invite is consumed and then return code 200 with the serialized JSON of the invite (as above) or a 400 error.</p>
+</section>
+<section id="post-invite-cancel">
+<h3>POST …/invite-cancel<a class="headerlink" href="#post-invite-cancel" title="Permalink to this heading"></a></h3>
+<p>Accepts a JSON body containing keys: <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">id</span></code> is the UUID of an existing invite.
+This endpoint will cancel the pending invite then return code 200 with empty JSON body (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).
+In case the invite cannot be cancelled (e.g. it has already succeed or failed or otherwise consumed the wormhole) an error is produced.</p>
+</section>
+<section id="get-invites">
+<h3>GET …/invites<a class="headerlink" href="#get-invites" title="Permalink to this heading"></a></h3>
+<p>List currently pending invites.
+This returns a serialized JSON list containing all invites known to this client.
+Currently invites are ephemeral but aren’t deleted, so this will be all invites that have been created since the last time the daemon started.
+Note that <code class="docutils literal notranslate"><span class="pre">wormhole-code</span></code> may be <code class="docutils literal notranslate"><span class="pre">null</span></code> for consumed invites or extremely-recently created invites that haven’t yet allocated a code.</p>
+</section>
+<section id="post-join">
+<h3>POST …/join<a class="headerlink" href="#post-join" title="Permalink to this heading"></a></h3>
+<p>This is for the client receiving an invite.
+This endpoint will accept an invite and create a new magic-folder joined to it.
+Takes a JSON body containing the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">invite-code</span></code>: the Wormhole code from the inviter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local-directory</span></code>: absolute path of an existing local directory to synchronize files in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">author</span></code>: arbitrary, valid author name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poll-interval</span></code>: seconds between remote update checks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scan-interval</span></code>: seconds between local update checks</p></li>
+</ul>
+<p>(The <code class="docutils literal notranslate"><span class="pre">name</span></code> for the folder comes from the URI).
+When the endpoint returns (code 200, empty JSON), the new folder will be added and its services will be running.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Using Magic Folder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="limitations.html" class="btn btn-neutral float-right" title="Known Issues and Limitations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The Tahoe-LAFS Developers, The Magic-Folder Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
