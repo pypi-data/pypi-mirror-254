@@ -1,0 +1,17 @@
+numpy
+MCCNN==1.2.2
+pandora==1.6.*
+xarray
+json-checker
+
+[dev]
+pytest
+pytest-cov
+pylint
+pre-commit
+black
+
+[docs]
+sphinx
+sphinx_rtd_theme
+sphinx_autoapi
