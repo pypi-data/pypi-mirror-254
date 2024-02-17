@@ -1,0 +1,32 @@
+[project]
+name = "odoo_filter_addons"
+description = "Simple utlity to filter odoo addons into a single directory"
+readme = "README.md"
+authors = [
+    { name="Pablo Esteban", email="pablo.esteban@forgeflow.com" },
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Utilities",
+    "Operating System :: POSIX",
+    "Framework :: Odoo",
+    "Programming Language :: Python :: 3"
+]
+
+requires-python = ">=3"
+# Ensure git-aggregator>=3.0.0 to prevent branch divergence issues with recent git versions
+# https://github.com/acsone/git-aggregator/pull/64
+dependencies= ["pyyaml", "click", "python-dotenv", "plumbum", "git-aggregator>=3.0.0"]
+dynamic = ["version"]
+
+[project.scripts]
+odoo_filter_addons = "odoo_filter_addons.main:cli_main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["odoo_filter_addons"]
+[tool.setuptools.dynamic]
+version = {attr = "odoo_filter_addons.version.__version__"}

@@ -1,0 +1,5 @@
+pyyaml
+click
+python-dotenv
+plumbum
+git-aggregator>=3.0.0
