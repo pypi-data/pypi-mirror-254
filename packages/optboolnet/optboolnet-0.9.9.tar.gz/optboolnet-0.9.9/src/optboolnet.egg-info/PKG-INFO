@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: optboolnet
+Version: 0.9.9
+Summary: The optimization toolbox for control problems of a Boolean network
+Home-page: https://www.msolab.org/
+Author: MSO Lab
+Author-email: kaleb.moon@postech.ac.kr
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+License-File: LICENSE.txt
+Requires-Dist: boolean.py
+Requires-Dist: colomoto_jupyter
+Requires-Dist: pyomo
+Requires-Dist: gurobipy
+
+# optboolnet
+ The optimization toolbox for Boolean network analysis
+
+## Docker distribution
+
+### Build docker image
+
+```
+docker build -t mso_lab/colomoto-optboolnet:v0 .
+```
+
+### Launch CoLoMoTo Notebook
+
+```
+python -m pip install -U colomoto-docker
+colomoto-docker --image mso_lab/colomoto-optboolnet -V v0 --bind .
+```
+
+Note: A Gurobi [Web License Service](https://license.gurobi.com/manager/doc/overview/) (WLS) `gurobi.lic` must be in the working directoy.
