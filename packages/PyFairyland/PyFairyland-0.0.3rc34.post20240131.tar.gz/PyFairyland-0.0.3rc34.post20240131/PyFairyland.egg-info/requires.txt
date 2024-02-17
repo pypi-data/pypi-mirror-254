@@ -1,0 +1,11 @@
+python-dotenv
+loguru
+pymysql
+psycopg2-binary
+requests
+tornado
+pandas
+django
+django-stubs
+djangorestframework
+django-cors-headers
