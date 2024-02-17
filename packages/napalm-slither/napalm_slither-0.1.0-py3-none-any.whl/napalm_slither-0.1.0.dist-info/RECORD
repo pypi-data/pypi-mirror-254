@@ -1,0 +1,14 @@
+napalm_slither/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napalm_slither/detector_info.py,sha256=VtcbkBl9hqwmybICkgByLkXgr5mHMAIfpJ2O8JNdgDo,1728
+napalm_slither/entry_point.py,sha256=qzdPBxwElLIK35tDf9AQv5nxWjUPiS95-gJdeD7HJBQ,1498
+napalm_slither/environment_setter.py,sha256=F6vaQn_7m8izkCsCcg8SD55FSIspX8OPdanQVRMwjsg,1674
+napalm_slither/init.py,sha256=xOfoz2MkGAdvcnpvzzrhAzG2--CASHdVpqFduHa5Ze0,433
+napalm_slither/plugin.py,sha256=CVNc9MNmaOT1grSUolvASCylcP4jbUfFQW4ZAoG9lA8,2197
+napalm_slither/slither_modules.py,sha256=2KCQ86AZ8hRQ2iqo_9rvQ7o8iG0vRBeR0ibajMBaNJQ,838
+napalm_slither/slither_tool_runner.py,sha256=Mj0t0gDhQ2TyGtjzxDfGeJnM-d1m0Kei4Z35140MGSo,1938
+templates/init/example_slither_module.py,sha256=-7F_ZsFzxzl1VVFFl2rnwewxX-sTIVdOJ6T2NZaU9dM,516
+napalm_slither-0.1.0.dist-info/LICENSE,sha256=z5aMVBrc-9kk0pxaOdOAkI62S5YhYMiF6ADsMtZmOZg,34353
+napalm_slither-0.1.0.dist-info/METADATA,sha256=Cuul3ewJSUKW2ymTM0eTXdu_PJ26AhLZIJXJFPCTkGY,734
+napalm_slither-0.1.0.dist-info/WHEEL,sha256=7Z8_27uaHI_UZAc4Uox4PpBhQ9Y5_modZXWMxtUi4NU,88
+napalm_slither-0.1.0.dist-info/entry_points.txt,sha256=WByVOxznTlWH_722CxHrSHJyR2pZA6HeubT-epuzBqM,168
+napalm_slither-0.1.0.dist-info/RECORD,,

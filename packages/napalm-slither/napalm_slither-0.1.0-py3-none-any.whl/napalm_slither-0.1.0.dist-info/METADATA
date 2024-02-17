@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: napalm-slither
+Version: 0.1.0
+Summary: Napalm slither plugin
+License: AGPLv3
+Author: Joran Honig
+Author-email: joran.honig@consensys.net
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: napalm-toolbox (>=0.1.0,<0.2.0)
+Requires-Dist: slither-analyzer (>=0.10.0,<0.11.0)
+Requires-Dist: toolz (>=0.12.1,<0.13.0)
+Description-Content-Type: text/markdown
+
+## Napalm - Slither
+
+This package is a plugin for the napalm base package that adds support for slither detection modules.

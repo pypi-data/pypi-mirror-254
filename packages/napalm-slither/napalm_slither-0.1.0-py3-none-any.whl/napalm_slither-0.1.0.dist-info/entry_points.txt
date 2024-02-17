@@ -1,0 +1,6 @@
+[napalm.tool_plugin]
+napalm_slither=napalm_slither.plugin:SlitherPlugin
+
+[slither_analyzer.plugin]
+slithernapalm=napalm_slither.entry_point:napalm_entry_point_slither
+
