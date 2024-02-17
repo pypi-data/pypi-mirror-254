@@ -1,0 +1,2 @@
+[console_scripts]
+qlogs = src.qlogs:main
