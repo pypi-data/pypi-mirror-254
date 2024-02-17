@@ -1,0 +1,2 @@
+[console_scripts]
+source-public-apis = source_public_apis.run:run
