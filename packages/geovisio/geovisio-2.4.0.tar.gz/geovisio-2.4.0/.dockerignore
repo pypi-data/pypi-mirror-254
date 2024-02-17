@@ -1,0 +1,15 @@
+# Ignore all file but explicitly allowed ones
+*
+
+!/pyproject.toml
+!/README.md
+!/LICENSE
+!/geovisio/**/*.py
+!/geovisio/**/*.html
+!/docker/docker-entrypoint.sh
+!/images/*
+!/migrations/*.sql
+!/migrations/*.py
+!/migrations/data/*.json
+
+/**/__pycache__

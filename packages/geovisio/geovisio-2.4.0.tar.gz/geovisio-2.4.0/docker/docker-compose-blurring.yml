@@ -1,0 +1,37 @@
+# ⚠️ This docker has an old version of the blurring API used by GeoVisio
+# The best implementation yet is https://github.com/cquest/sgblur but it is not yet dockerized.
+# This will be done in a near future, feel free to open an issue if you need it.
+# ----
+# This docker-compose needs to be used alongside a docker containing geovisio API
+# For instance with docker-compose-full.yml
+# docker compose -f docker/docker-compose-full.yml -f docker/docker-compose-blurring.yml up
+version: "3"
+services:
+  blurring:
+    image: geovisio/blurring:develop
+    environment:
+      STRATEGY: FAST
+    ports:
+      - "5500:80"
+    command: api
+    volumes:
+      - ./models:/opt/blur/models
+    healthcheck:
+      test: python -c "import requests; requests.get('http://localhost:80').raise_for_status()"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    extra_hosts:
+      - "localhost:host-gateway"
+
+  # Add a configuration to the API/workers to tell them the location of the blurring API
+  api:
+    environment:
+      API_BLUR_URL: http://localhost:5500
+
+  background-worker:
+    environment:
+      API_BLUR_URL: http://localhost:5500
+    depends_on:
+      blurring:
+        condition: service_healthy
