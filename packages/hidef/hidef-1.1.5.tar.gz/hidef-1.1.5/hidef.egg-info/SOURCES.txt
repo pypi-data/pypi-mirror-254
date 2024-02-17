@@ -1,0 +1,13 @@
+README.md
+setup.py
+hidef/__init__.py
+hidef/dash_utils.py
+hidef/hidef_finder.py
+hidef/logger.py
+hidef/utils.py
+hidef/weaver.py
+hidef.egg-info/PKG-INFO
+hidef.egg-info/SOURCES.txt
+hidef.egg-info/dependency_links.txt
+hidef.egg-info/requires.txt
+hidef.egg-info/top_level.txt
