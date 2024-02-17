@@ -1,0 +1,15 @@
+pydantic
+typing-extensions
+geojson-pydantic>=1.0.1
+shapely
+dacite
+certifi>=2021.5.30
+aiohttp
+aiolimiter
+aiohttp-retry
+protobuf==4.21.12
+
+[test]
+pytest
+pytest-asyncio
+flake8
