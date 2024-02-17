@@ -1,0 +1,16 @@
+cpanel_xss_2023/__init__.py,sha256=eFZK8l9_bR8pH5ySZ2t9PN19zHq-PA7rHIXE-1StzOY,216
+cpanel_xss_2023/main.py,sha256=ohsCpphas5W4qGAZfxGqXWmXkENIZUfoaFNYlj3tvCY,1500
+cpanel_xss_2023/includes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cpanel_xss_2023/includes/bot.py,sha256=jeL8ymscJyaX3vy9MyaMV4glJnVWboj9Ko8RbRO-ZDU,654
+cpanel_xss_2023/includes/filereader.py,sha256=OiqIf4wV5fWMvJI8WeSZ2hiEL590bYbxkbQYpWU50IE,492
+cpanel_xss_2023/includes/scan.py,sha256=ERerHsUylF_-fEeew4zlNJHweILj1dAlKDnpJUD3AV8,2986
+cpanel_xss_2023/includes/writefile.py,sha256=SeW9ckgmySnO7_9kzEhvskNsWNQmF9r_JKk8Aly6z5o,305
+cpanel_xss_2023/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cpanel_xss_2023/utils/configure.py,sha256=-jTMjlR_HcJFW7Z4djl_0bZJQ7nQXXbEqTNKCLUqy1k,1988
+cpanel_xss_2023/utils/const.py,sha256=92ZyD9sumNtPAVfoMKqyU12XggfW9ITBnQsIeVg0WJk,530
+cpanel_xss_2023/utils/helpers.py,sha256=KaI426PeGbxFbeNenO8oCYy8GGwTiRkR3Fs95eQIjb8,2177
+cpanel_xss_2023-1.1.dist-info/METADATA,sha256=9WuPXJlmqKkHwtjJJHbJLTOxoKIwLf7JoqDFPv0N284,3667
+cpanel_xss_2023-1.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+cpanel_xss_2023-1.1.dist-info/entry_points.txt,sha256=2XRq1z0leBUFwp1v9NAgEG_eRdJjOGgOCfIGUBxHrPc,62
+cpanel_xss_2023-1.1.dist-info/top_level.txt,sha256=HU3zr1-brIn9CTTPCjpu5oOvypEYvyrbWsNYIE4eRYc,16
+cpanel_xss_2023-1.1.dist-info/RECORD,,
