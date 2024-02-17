@@ -1,0 +1,15 @@
+jinja2
+packaging
+pyyaml
+
+[:python_version < "3.12"]
+importlib-resources
+
+[dev]
+nox
+
+[testing]
+coveralls
+pytest
+pytest-cov
+pytest-datadir
