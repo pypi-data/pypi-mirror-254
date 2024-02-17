@@ -1,0 +1,14 @@
+pyyaml>=6.0
+jupyter_server<2.8,>=2.7.0
+pycurl<8,>=7.45.1
+pachyderm_sdk>=2.8.0a5
+
+[dev]
+black
+jupyter_packaging<2,~=0.10.0
+jupyterlab>=3.0.14
+pre-commit
+pytest
+pytest-asyncio
+pytest-tornasync
+pytest-jupyter
