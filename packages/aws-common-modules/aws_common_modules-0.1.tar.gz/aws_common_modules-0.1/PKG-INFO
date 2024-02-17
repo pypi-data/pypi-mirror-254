@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: aws-common-modules
+Version: 0.1
+Summary: Python Libraries to do various things with AWS
+Project-URL: Documentation, https://github.com/jonathlt/aws_common_modules#readme
+Project-URL: Issues, https://github.com/jonathlt/aws_common_modules/issues
+Project-URL: Source, https://github.com/jonathlt/aws_common_modules
+Author-email: Jonathan Lake-Thomas <jonathan.lakethomas@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: boto3
+Description-Content-Type: text/markdown
+
+This is the project description
+
+hatch build -t wheel
+
+twine upload --repository testpypi dist/*
+
+To run the tests
+
+cd src
+python -m unittest test/test_route53.py
