@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+./deser/deser.py
+./deser/test_serializer.py
+deser.egg-info/PKG-INFO
+deser.egg-info/SOURCES.txt
+deser.egg-info/dependency_links.txt
+deser.egg-info/top_level.txt
