@@ -1,0 +1,16 @@
+cryptography
+fsspec
+numpy
+pandas
+python_dateutil
+Requests
+urllib3
+pyarrow
+azure-storage-blob>=12.16
+adlfs
+azure-core
+azure-datalake-store
+azure-identity
+botocore
+gcsfs
+s3fs

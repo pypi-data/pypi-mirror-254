@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: iosense-connect
+Version: 4.10.3
+Summary: iosense connect library
+Author: Faclon-Labs
+Author-email: reachus@faclon.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: cryptography
+Requires-Dist: fsspec
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: python_dateutil
+Requires-Dist: Requests
+Requires-Dist: urllib3
+Requires-Dist: pyarrow
+Requires-Dist: azure-storage-blob>=12.16
+Requires-Dist: adlfs
+Requires-Dist: azure-core
+Requires-Dist: azure-datalake-store
+Requires-Dist: azure-identity
+Requires-Dist: botocore
+Requires-Dist: gcsfs
+Requires-Dist: s3fs
+
+
+### Project description
+Faclon I/O Sense Data Access Library
+​
+#### Where to get it
+https://pypi.org/project/iosense/
+
+#### Installation
+pip install iosense-connect
+
+pip3 install iosense-connect
+
+#### Features
+Retrives following details:
+
+- User information.
+- Device Details.
+- Device metaData.
+- Time based sensor data of a Device. 
+- Published events details.
+- Events data in given timeslot.
+- Event categories.
+- Events data count.
+
+#### Dependencies
+
++ pandas
++ requests
++ json 
++ time 
++ datetime 
+
+
+#### Documentation
+The official documentation is hosted on​ 
+
+#### Reach us
+For usage questions, please reach out to us at reachus@faclon.com
