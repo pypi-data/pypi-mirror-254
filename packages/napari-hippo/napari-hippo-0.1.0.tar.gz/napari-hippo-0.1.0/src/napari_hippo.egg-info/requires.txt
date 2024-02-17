@@ -1,0 +1,14 @@
+natsort
+hylite
+numpy
+magicgui
+qtpy
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+hylite
+pyqt5
