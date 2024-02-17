@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: aview_cmd_builder
+Version: 0.0.1
+Summary: Package for creating Adams View .cmd files
+Author-email: Azov Dmitrii <olodiman11@mail.ru>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Aview Cmd Builder
