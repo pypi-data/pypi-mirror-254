@@ -1,0 +1,15 @@
+plastexdepgraph/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+plastexdepgraph/Packages/depgraph.py,sha256=YQ7G8_ss9SlVd0ZwHdWw10AMHHg5sqT_4Xk5ST7X8cA,14081
+plastexdepgraph/Packages/renderer_templates/depgraph.jinja2s,sha256=9sFD3dvzNAKit5MPAs-TRgMhk4NoH-daOJto0Tpqg5o,26
+plastexdepgraph/static/d3-graphviz.js,sha256=4mjheJI_gI2K89O7HFI6G6Y2HluuX4CZg4Lui8ovdV8,80111
+plastexdepgraph/static/d3-graphviz.js.map,sha256=HFp8ED5_saf4MDG5-0k8jxyiLV7WcPY2yNRI0yx1ry8,157612
+plastexdepgraph/static/d3.min.js,sha256=m0QmIsBXcOMiETRmpT3qg2IQ_i0qazJA2miCHzOmS1Y,247829
+plastexdepgraph/static/dep_graph.css,sha256=gGJUgq7CTPpNk-Waonjj5vObp9v1797vrJuGaotXY9A,2950
+plastexdepgraph/static/expatlib.wasm,sha256=OpdJPaqnHDjAL3tnsteak4RbD4gkQDrgwV2tsnzvGJM,100896
+plastexdepgraph/static/graphvizlib.wasm,sha256=0LlLchANdzg95-Lyr8NEw_YT0c1FPpy_JkdZ19LGLYY,1099314
+plastexdepgraph/static/hpcc.min.js,sha256=W4nqun4mrK8k5QJ53eYO8zoYM-A36hjdO0ZbpJRWw2k,117436
+plastexdepgraph/templates/dep_graph.html,sha256=yNhf2BB0mI9Klp_ILGhCeifNMIAMR6qXo0tu17nrMwU,4612
+plastexdepgraph-0.0.2.dist-info/METADATA,sha256=DLgpLYfZEe8tvHHKHzHT76GTOvZhizR_rwQ6yzzYHLg,771
+plastexdepgraph-0.0.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+plastexdepgraph-0.0.2.dist-info/top_level.txt,sha256=_MxtcKpz-O0hI74qgKMG_6lVcw9H_vL7ZbBEmvMf0ps,16
+plastexdepgraph-0.0.2.dist-info/RECORD,,
