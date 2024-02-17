@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rg3py
+Version: 0.0.1
+Summary: RG3 is a C/C++ analyzer framework
+Author: DronCode
+Author-email: alexandrleutin@gmail.com
+Platform: Windows
+Platform: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.10
+
+RG3 is a C/C++ analyzer framework
