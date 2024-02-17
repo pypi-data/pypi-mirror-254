@@ -1,0 +1,45 @@
+[project]
+name = "tja2fumen"
+version = "0.6.2.dev2"
+description = "Convert TJA chart files into fumen (.bin) chart files"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE.txt"}
+keywords = ["taiko", "tatsujin", "fumen", "TJA"]
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/vivaria/tja2fumen/"
+"Bug Reports" = "https://github.com/vivaria/tja2fumen/issues/"
+"Source" = "https://github.com/vivaria/tja2fumen/"
+
+# The following would provide a command line executable called `sample`
+# which executes the function `main` from this package when invoked.
+[project.scripts]  # Optional
+tja2fumen = "tja2fumen:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "build", "pyinstaller", "twine", "toml-cli",
+       "flake8", "pyproject-flake8", "mypy", "pylint"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-vv --tb=short"
+console_output_style = "count"
+
+[tool.flake8]
+exclude = "venv/"
+per-file-ignores = """
+    ./src/tja2fumen/classes.py: E221
+    ./testing/test_conversion.py: E221, E272
+"""
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = """
+    too-many-instance-attributes,
+    too-many-branches,
+    too-many-arguments,
+    too-many-locals,
+    too-many-statements
+"""
