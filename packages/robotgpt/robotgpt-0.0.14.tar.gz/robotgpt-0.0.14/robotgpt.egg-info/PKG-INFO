@@ -1,0 +1,101 @@
+Metadata-Version: 1.0
+Name: robotgpt
+Version: 0.0.14
+Summary: RobotGPT LLM 支持Langchain
+Home-page: UNKNOWN
+Author: blaze.zhang
+Author-email: blaze.zhang@cloudminds.com
+License: UNKNOWN
+Description: =================
+        RobotGPT LLM
+        =================
+        
+            RobotGPT 支持langchain-0.1.4
+        
+        =================
+        Quick Install
+        =================
+        
+            `pip install robotgpt`
+        
+        =================
+        使用样例
+        =================
+        
+        agent块式输出::
+        
+            from robotgpt.robotgpt import RobotGPTLLM
+            from langchain.agents import AgentType, initialize_agent
+            from langchain.tools import BaseTool, StructuredTool, Tool, tool
+            class CoffeeMaking:
+                def inference(self):
+                    return "Making coffee requires a coffee machine, coffee beans, sugar packets, and paper cups."
+            
+            class ImageObjectDetect:
+                def inference(self, obj):
+                    if obj == "sugar packets":
+                        return "No "+obj
+                    return "There is a "+obj
+            
+            class AskCustomer:
+                def inference(self,):
+                    return "Hello! We don’t have any sugar packets at the moment. Do you need to add milk?"
+            
+            robotgpt_api_url = "https://dataai.harix.iamidata.com/llm/api/ask"  #流式智能问答统一适配服务，从用户控制台购买https://console.openai.iamidata.com/api/apiList
+            model_name = "openai/gpt-3.5-turbo-0613"
+            robotgpt_api_token = "Your token" #https://dataai-doc.dataarobotics.com/docs/getting-started/authentication
+            llm = RobotGPTLLM(temperature=0, model_name=model_name,robotgpt_api_token=robotgpt_api_token,robotgpt_api_url=robotgpt_api_url)
+            
+            imgObjDetect = ImageObjectDetect()
+            tools = [
+                Tool.from_function(
+                    func=CoffeeMaking.inference,
+                    name="Coffee making",
+                    description="useful for when the user needs to make coffee."
+                    # coroutine= ... <- you can specify an async method if desired as well
+                ),
+                Tool.from_function(
+                    func=imgObjDetect.inference,
+                    name="Determine whether the object exists in the picture",
+                    description="useful for when you want to know what is inside the photo. receives object as input. The input to this tool should be a string, representing the object. "
+                    # coroutine= ... <- you can specify an async method if desired as well
+                ),
+                Tool.from_function(
+                    func=AskCustomer.inference,
+                    name="Ask the customer whether to add milk",
+                    description="useful for when making coffee without sugar packets, you can ask the customer whether you need to add milk. The input to this tool should be a bool, represents whether there is a sugar packet."
+                    # coroutine= ... <- you can specify an async method if desired as well
+                ),
+            ]
+            agent = initialize_agent(
+                tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+            )
+            agent.run(
+                "给我做杯咖啡"
+            )      
+            
+        块式输出::
+        
+            from robotgpt.robotgpt import RobotGPTLLM
+            from langchain.schema import HumanMessage
+            
+            robotgpt_api_url = "https://dataai.harix.iamidata.com/llm/api/ask"  #流式智能问答统一适配服务
+            model_name = "openai/gpt-3.5-turbo-0613"
+            robotgpt_api_token = "Your token" #https://dataai-doc.dataarobotics.com/docs/getting-started/authentication
+            
+            llm = RobotGPTLLM(temperature=0, model_name=model_name,robotgpt_api_token=robotgpt_api_token,robotgpt_api_url=robotgpt_api_url)
+            resp = llm([HumanMessage(content="Write me a song about sparkling water.")])
+            print(resp)
+        
+        流式输出::
+            
+            from langchain.callbacks import StreamingStdOutCallbackHandler
+            from langchain.schema import HumanMessage
+            from robotgpt.robotgpt import RobotGPTLLM
+            robotgpt_api_url = "https://dataai.harix.iamidata.com/llm/api/ask"  #流式智能问答统一适配服务
+            model_name = "openai/gpt-3.5-turbo-0613"
+            robotgpt_api_token = "Your token" #https://dataai-doc.dataarobotics.com/docs/getting-started/authentication
+            chat = RobotGPTLLM(streaming=True, callbacks=[StreamingStdOutCallbackHandler()], temperature=0,model_name=model_name,robotgpt_api_token=robotgpt_api_token,robotgpt_api_url=robotgpt_api_url)
+            resp = chat([HumanMessage(content="Write me a song about sparkling water.")])
+            print(resp)
+Platform: UNKNOWN
