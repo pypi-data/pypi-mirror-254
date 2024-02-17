@@ -1,0 +1,2 @@
+[console_scripts]
+source-secoda = source_secoda.run:run
