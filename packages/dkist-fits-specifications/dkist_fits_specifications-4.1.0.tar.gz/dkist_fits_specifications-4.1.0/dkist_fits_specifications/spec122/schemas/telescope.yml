@@ -1,0 +1,162 @@
+spec122:
+  section: telescope
+  expand: False
+---
+WCSAXES:
+  required: true
+  type: int
+  values:
+    - 3
+WCSAXESA:
+  required: false
+  type: int
+  values:
+    - 3
+WCSNAME:
+  required: true
+  type: str
+  values:
+    - 'Helioprojective-cartesian'
+    - 'Equatorial equinox J2000'
+WCSNAMEA:
+  required: false
+  type: str
+  values:
+    - 'Helioprojective-cartesian'
+    - 'Equatorial equinox J2000'
+CRPIX<n>:
+  required: true
+  type: float
+  expand: True
+CRPIX<n>A:
+  required: false
+  type: float
+  expand: True
+CRDATE<n>:
+  required: false
+  type: str
+  format: isot
+  expand: True
+CRDATE<n>A:
+  required: false
+  type: str
+  format: isot
+  expand: True
+CRVAL<n>:
+  required: true
+  type: float
+  expand: True
+CRVAL<n>A:
+  required: false
+  type: float
+  expand: True
+CDELT<n>:
+  required: true
+  type: float
+  expand: True
+CDELT<n>A:
+  required: false
+  type: float
+  expand: True
+CUNIT<n>:
+  required: true
+  type: str
+  expand: True
+  format: 'unit'
+CUNIT<n>A:
+  required: false
+  type: str
+  expand: True
+  format: 'unit'
+CTYPE<n>:
+  required: true
+  type: str
+  expand: True
+CTYPE<n>A:
+  required: false
+  type: str
+  expand: True
+PC<i>_<j>:
+  required: true
+  type: float
+  expand: True
+PC<i>_<j>A:
+  required: false
+  type: float
+  expand: True
+#not currently in use
+#PVi_m:
+#  required: true
+#  type: float
+#  expand: True
+#PVi_mA:
+#  required: false
+# type: float
+#  expand: True
+#PSi_m:
+#  required: true
+#  type: float
+#  expand: True
+#PSi_mA:
+#  required: false
+#  type: float
+#  expand: True
+LONPOLE:
+  required: false
+  type: float
+LONPOLEA:
+  required: false
+  type: float
+LATPOLE:
+  required: false
+  type: float
+LATPOLEA:
+  required: false
+  type: float
+TAZIMUTH:
+  required: false
+  comment: '[deg] RawTelescopeAzimuthAngle'
+  type: float
+TELEVATN:
+  required: false
+  comment: '[deg] RawTelescopeElevationAngle'
+  type: float
+TELTRACK:
+  required: false
+  comment: TelescopeTrackingMode
+  type: str
+  values:
+    - "None"
+    - "Fixed Solar Rotation Tracking"
+    - "Standard Differential Rotation Tracking"
+    - "Custom Differential Rotation Tracking"
+TELSCAN:
+  required: false
+  comment: TelescopeScanningMode
+  type: str
+  values:
+    - "None"
+    - "Random"
+    - "Raster"
+    - "Spiral"
+TTBLANGL:
+  required: false
+  comment: '[deg] TelescopeCoudeTableAngle'
+  type: float
+TTBLTRCK:
+  required: false
+  comment: TelescopeCoudeTableTrackingMode
+  type: str
+  values:
+    - '(stepped) parallactic'
+    - 'fixed angle on sun'
+    - 'fixed difference-angle btwn'
+    - 'coude and tel. azimuth'
+    - 'fixed coude table angle'
+WCSVALID:
+  required: false
+  comment: WCSValidityIndicator
+  type: bool
+  values:
+    - True
+    - False
