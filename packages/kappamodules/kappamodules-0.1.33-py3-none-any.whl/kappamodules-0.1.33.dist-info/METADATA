@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: kappamodules
+Version: 0.1.33
+Summary: efficient building blocks for pytorch models
+Home-page: https://github.com/BenediktAlkin/KappaModules
+Project-URL: Source Code, https://github.com/BenediktAlkin/KappaModules
+Project-URL: Bug Tracker, https://github.com/BenediktAlkin/KappaModules/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: einops
+Requires-Dist: numpy
+
+# KappaModules
+
+[![publish](https://github.com/BenediktAlkin/KappaModules/actions/workflows/publish.yaml/badge.svg)](https://github.com/BenediktAlkin/KappaModules/actions/workflows/publish.yaml)
+
+# Setup
+
+- new install: `pip install kappamodules`
+- uprade to new version: `pip install kappamodules --upgrade` 
