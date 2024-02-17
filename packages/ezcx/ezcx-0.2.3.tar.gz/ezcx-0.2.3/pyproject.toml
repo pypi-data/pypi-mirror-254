@@ -1,0 +1,26 @@
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ezcx"
+version = "0.2.3"
+authors = [
+  { name="Yvan J. Aquino", email="yvan.aquino@cloud-colosseum.net" },
+]
+description = "An application server for deploying Dialogflow CX Webhooks"
+readme = "README.md"
+requires-python = ">3.8"
+dependencies = [
+  "starlette",
+  "google-cloud-dialogflow-cx",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+ez-cli = "ezcx.cli:cli"
