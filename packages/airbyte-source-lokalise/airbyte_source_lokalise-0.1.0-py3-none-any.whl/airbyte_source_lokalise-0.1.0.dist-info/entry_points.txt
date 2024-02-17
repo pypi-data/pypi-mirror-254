@@ -1,0 +1,2 @@
+[console_scripts]
+source-lokalise = source_lokalise.run:run
