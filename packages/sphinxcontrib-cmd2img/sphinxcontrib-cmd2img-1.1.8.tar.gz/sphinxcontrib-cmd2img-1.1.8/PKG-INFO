@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sphinxcontrib-cmd2img
+Version: 1.1.8
+Summary: Sphinx extension to render the image by script or command
+Home-page: https://github.com/stathissideris/sphinxcontrib-cmd2img
+Author: Yongping Guo
+Author-email: guoyoooping@163.com
+License: BSD
+Platform: any
+License-File: LICENSE
+
+sphinxcontrib-cmd2img
+*********************
+
+This project WILL NOT be maintained and please use the new one: "sphinx-plot-directive":
+
+https://pypi.org/project/sphinx-plot-directive/
+
+The functions are the same but the new name is more intuitive.
+
+Thanks.
+
+
