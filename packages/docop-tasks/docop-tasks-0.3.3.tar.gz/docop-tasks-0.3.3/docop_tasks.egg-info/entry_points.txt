@@ -1,0 +1,2 @@
+[docop.tasks]
+fetch_html = docop_tasks.webhtml.fetch_html

@@ -1,0 +1,34 @@
+
+[project]
+name = "docop-tasks"
+version = "0.3.3"
+authors = [
+    {name = "Petri Savolainen", email = "petri@koodaamo.fi"},
+]
+description = "Basic set of tasks for docop"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPLv3+"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+dependencies = ["playwright", "docop"]
+
+[project.urls]
+Homepage = "https://github.com/koodaamo/docop-tasks"
+Repository = "https://github.com/koodaamo/docop-tasks"
+
+[project.entry-points.'docop.tasks']
+fetch_html = 'docop_tasks.webhtml.fetch_html'
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["docop_tasks", "docop_tasks.webhtml"]
+
