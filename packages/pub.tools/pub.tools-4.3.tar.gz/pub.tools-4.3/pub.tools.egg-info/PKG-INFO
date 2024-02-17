@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pub.tools
+Version: 4.3
+Summary: Wrapper for Biopython and NCBI's eUtils
+Author-email: Eric Wohnlich <wohnlice@imsweb.com>
+License: GPL
+Project-URL: homepage, https://github.com/imsweb/pub.tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Requires-Dist: biopython>=1.83
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: unidecode
+Requires-Dist: beautifulsoup4
