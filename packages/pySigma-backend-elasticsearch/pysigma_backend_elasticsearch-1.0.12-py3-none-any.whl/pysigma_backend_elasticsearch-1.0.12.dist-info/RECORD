@@ -1,0 +1,11 @@
+sigma/backends/elasticsearch/__init__.py,sha256=fMP5HH-PzEYQXe5DsCnSGt34535-xPnmaOjDgylMyTg,89
+sigma/backends/elasticsearch/elasticsearch_eql.py,sha256=rG368erW1HtxlUEef-AASYNX2HFJEyyvGp6YlKk78SU,19414
+sigma/backends/elasticsearch/elasticsearch_lucene.py,sha256=WzhjlLY6g4kqiq9iVIfsr2WsjJsu-9Gbrlh-BRcQ9h8,18478
+sigma/pipelines/elasticsearch/__init__.py,sha256=388BjMqeXD7giVLai3ZzZ_oxO__2UkPveJDYGRRcKr0,308
+sigma/pipelines/elasticsearch/kubernetes.py,sha256=ynjvzDIsUGyOvmD0Ksq7b21uXQ0V8m01GKkNdgWJDg8,2830
+sigma/pipelines/elasticsearch/windows.py,sha256=_TjOVHLX25GOn2RpZyzIdKAGGCJZegNVBOU0UrYyRMY,10192
+sigma/pipelines/elasticsearch/zeek.py,sha256=cHmAzZcuRtqLE1Dl20O7hdZIhltqvT9fNSIWZq4wO-A,61080
+pysigma_backend_elasticsearch-1.0.12.dist-info/LICENSE,sha256=3IXI3x1RN4jDR2PonpWF1guc33zagcTgpq_VnboE3UU,7653
+pysigma_backend_elasticsearch-1.0.12.dist-info/METADATA,sha256=7RYxwGGV5b9Wp4TfQGiYrDOOxwfN09M7TdR_T8pzIZE,2334
+pysigma_backend_elasticsearch-1.0.12.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+pysigma_backend_elasticsearch-1.0.12.dist-info/RECORD,,
