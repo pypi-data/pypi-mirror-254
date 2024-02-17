@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: pyPrediktorUtilities
+Version: 0.3.2
+Summary: Helper functions for Prediktor projects
+Home-page: https://github.com/PrediktorAS/pyPrediktorUtilities
+Author: Prediktor
+Author-email: support@prediktor.com
+License: MIT
+Project-URL: Documentation, https://prediktoras.github.io/pyPrediktorUtilities/
+Project-URL: Source, https://github.com/PrediktorAS/pyPrediktorUtilities
+Project-URL: Changelog, https://github.com/PrediktorAS/pyPrediktorUtilities/releases
+Project-URL: Tracker, https://github.com/PrediktorAS/pyPrediktorUtilities/issues
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+Requires-Dist: importlib-metadata; python_version < "3.9"
+Requires-Dist: requests>=2.28.1
+Requires-Dist: pydantic>=2.0
+Requires-Dist: email-validator>=2.0.0
+Requires-Dist: paramiko>=3.3.1
+Requires-Dist: jinja2>=3.0.1
+Requires-Dist: pandas>=1.4.4
+Requires-Dist: pyodbc
+Requires-Dist: pytest
+Requires-Dist: pytest-cov
+Requires-Dist: pytest-mock
+Requires-Dist: pyarrow
+Provides-Extra: testing
+Requires-Dist: setuptools; extra == "testing"
+Requires-Dist: pytest; extra == "testing"
+Requires-Dist: pytest-cov; extra == "testing"
+Requires-Dist: pytest-mock; extra == "testing"
+
+.. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
+    :alt: Project generated with PyScaffold
+    :target: https://pyscaffold.org/
+
+|
+
+====================
+pyPrediktorUtilities
+====================
+
+
+    Helper functions for Prediktor projects
+
+
+The included classes and functions allows for easier and more maintainable code when
+working with Prediktor projects. The main features are:
+
+* Sending emails
+* Working with FTP and SFTP server
+* Logging
+* Generating files through templates
+
+.. _pyscaffold-notes:
+
+Note
+====
+
+This project has been set up using PyScaffold 4.3. For details and usage
+information on PyScaffold see https://pyscaffold.org/.
