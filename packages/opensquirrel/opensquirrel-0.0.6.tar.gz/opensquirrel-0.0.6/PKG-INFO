@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: opensquirrel
+Version: 0.0.6
+Summary: A quantum circuit transformation and manipulation tool
+Home-page: https://github.com/QuTech-Delft/OpenSquirrel
+License: Apache-2.0
+Keywords: quantum,circuits,compilation
+Author: Pablo Le Henaff
+Author-email: p.lehenaff@tudelft.nl
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: antlr4-python3-runtime (>=4.13.1,<5.0.0)
+Requires-Dist: libqasm (==0.5.2)
+Requires-Dist: mkdocs-material (>=9.4.12,<10.0.0)
+Requires-Dist: mkdocs[python] (>=1.5.3,<2.0.0)
+Requires-Dist: mkdocs_gen_files[python] (>=0.5.0,<0.6.0)
+Requires-Dist: mkdocstrings[python] (>=0.24.0,<0.25.0)
+Requires-Dist: numpy (==1.24) ; python_version < "3.9"
+Requires-Dist: numpy (>=1.26,<2.0) ; python_version >= "3.9" and python_version < "4.0"
+Project-URL: Repository, https://github.com/QuTech-Delft/OpenSquirrel
+Description-Content-Type: text/markdown
+
+# Mini-compiler for Quantum Inspire's quantum chip(munk)s
+
+```
+ ,;;:;,
+   ;;;;;
+  ,:;;:;    ,'=.
+  ;:;:;' .=" ,'_\
+  ':;:;,/  ,__:=@
+   ';;:;  =./)_
+ jgs `"=\_  )_"`
+          ``'"`
+```
+
+## Installation
+
+```shell
+$ pip install opensquirrel
+```
+
+### Editable installation
+
+To perform an editable install, run the following command in the root directory of `OpenSquirrel` with the `-e` flag
+```shell
+$ pip install -e .
+```
+
+To install the developer specific dependencies, run the command
+```shell
+$ pip install -e '.[dev]'
+```
+
+## Documentation
+
+OpenSquirrel documentation is hosted through GitHub Pages [here](https://QuTech-Delft.github.io/OpenSquirrel/).
+
+### MkDocs
+
+The documentation is generated using MkDocs. For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
+
+#### Commands
+
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
+* `mkdocs gh-deploy` - Rebuild and deploy documentation to GitHub Pages.
+
+### Style guide
+
+We use the [Google style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) for the docstring format.
+
+## Tools
+
+### Poetry
+
+Project dependencies are specified in the `pyproject.toml` file in the root directory of the project.
+
+Website: <https://python-poetry.org/>
+
+Install dependencies
+
+```shell
+$ poetry install
+```
+
+Start a Poetry shell
+
+```shell
+$ poetry shell
+```
+
+Within the shell PyTest and MyPy can be run accordingly:
+
+```shell
+$ mypy -p opensquirrel
+```
+
+```shell
+$ pytest
+```
+

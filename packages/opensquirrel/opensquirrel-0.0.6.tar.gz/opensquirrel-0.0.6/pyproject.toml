@@ -1,0 +1,87 @@
+[tool.poetry]
+name = "opensquirrel"
+version = "0.0.6"
+description = "A quantum circuit transformation and manipulation tool"
+authors = [
+    "Pablo Le Henaff <p.lehenaff@tudelft.nl>",
+    "Roberto Turrado Camblor <r.turradocamblor@tudelft.nl>",
+    "Chris Elenbaas <chris.elenbaas@tno.nl>"
+]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/QuTech-Delft/OpenSquirrel"
+repository = "https://github.com/QuTech-Delft/OpenSquirrel"
+keywords = [
+    "quantum",
+    "circuits",
+    "compilation",
+]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
+  'License :: OSI Approved :: Apache Software License'
+]
+packages = [
+    { include = "opensquirrel" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+antlr4-python3-runtime = "^4.13.1"
+numpy = [
+    { version = "1.24", python = "<3.9" },
+    { version = "^1.26", python = "^3.9" },
+]
+mkdocs = {extras = ["python"], version = "^1.5.3"}
+mkdocstrings = {extras = ["python"], version = "^0.24.0"}
+mkdocs_gen_files = {extras = ["python"], version = "^0.5.0"}
+mkdocs-material = "^9.4.12"
+libqasm = "0.5.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.11.0"
+coverage = {extras = ["toml"], version = "^7.3.2"}
+isort = "^5.11.4"
+pytest = {extras = ["toml"], version = "^7.4.3"}
+pytest-cov = "^4.1.0"
+mypy = "^1.7.0"
+
+[tool.pytest.ini_options]
+addopts = "-v --cov --cov-report term-missing:skip-covered --cov-report xml"
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+branch = true
+omit = ["tests/*", "**/.tox/**", "opensquirrel/parsing/antlr/generated/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+exclude_lines = [
+    "pragma: no cover",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
