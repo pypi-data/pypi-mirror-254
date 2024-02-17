@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/typingchecker/__init__.py
+src/typingchecker/typingchecker_function.py
+src/typingchecker.egg-info/PKG-INFO
+src/typingchecker.egg-info/SOURCES.txt
+src/typingchecker.egg-info/dependency_links.txt
+src/typingchecker.egg-info/top_level.txt
+tests/test_check_types_convert_int.py
+tests/test_check_types_decorator.py
+tests/test_check_types_func_name.py
+tests/test_check_types_strictfloat.py

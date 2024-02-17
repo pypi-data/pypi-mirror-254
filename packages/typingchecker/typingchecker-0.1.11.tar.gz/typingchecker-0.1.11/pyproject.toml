@@ -1,0 +1,23 @@
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "typingchecker"
+version = "0.1.11"
+description = 'A tool for checking Python type annotations'
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["typing"]
+authors = [{ name = "Oliver Maith", email = "oliver_maith@gmx.de" }]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.urls]
+Source = "https://github.com/Olmai/typingchecker"
