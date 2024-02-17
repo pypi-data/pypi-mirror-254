@@ -1,0 +1,4 @@
+[console_scripts]
+ackermann=grscheller.boring_math.integer_math_cli:ackermann_cli
+pythag3=grscheller.boring_math.integer_math_cli:pythag3_cli
+
