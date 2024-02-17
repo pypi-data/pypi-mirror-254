@@ -1,0 +1,16 @@
+docopt
+types-docopt
+anytree
+pyfzf
+fusepy
+natsort
+cmd2
+gnureadline
+
+[dev]
+check-manifest
+
+[test]
+coverage
+pytest
+pytest-cov
