@@ -1,0 +1,40 @@
+{% from 'components/menu.html' import render_nav with context %}
+
+<div class="drawer">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+        <header class="p-4 w-full flex gap-5">
+            <label for="my-drawer" class="flex md:hidden btn btn-md drawer-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list-ul"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                </svg>
+            </label>
+            <input type="text" placeholder="Search" class="hidden md:block input input-bordered w-full max-w-xs" />
+        </header>
+    </div>
+    <div class="drawer-side">
+        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <aside class="h-full w-1/2 bg-base-200">
+            <div class="px-4 py-6">
+                <div class="flex items-center">
+                    <span class="grid h-10 w-full place-content-center rounded-lg text-xl">
+                        {{ config.site_name }}
+                    </span>
+                </div>
+                <nav>
+                    {% if nav|length > 1 %}
+                    <ul class="menu w-full rounded-box">
+                        {% for nav_item in nav %}
+                        <li>
+                            {{ render_nav(nav_item) }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </nav>
+            </div>
+        </aside>
+    </div>
+</div>
