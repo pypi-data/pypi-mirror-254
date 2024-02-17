@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: istacky
+Version: 0.2
+Summary: A lightweight image processing library
+Project-URL: Homepage, https://github.com/antoineedy/istacky
+Project-URL: Documentation, https://antoineedy.github.io/istacky/
+Project-URL: Repository, https://github.com/antoineedy/istacky
+Project-URL: Issues, https://github.com/antoineedy/istacky/issues
+Author-email: Antoine EDY <antoineedy@outlook.fr>
+License: MIT License
+License-File: LICENSE
+Keywords: image,image blending,image editing,image fusion,image processing,image stacking,photoshop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: ipyfilechooser
+Requires-Dist: ipykernel
+Requires-Dist: ipython
+Requires-Dist: ipywidgets
+Requires-Dist: nbclient
+Requires-Dist: nbconvert
+Requires-Dist: notebook
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: pandas
+Requires-Dist: pillow
+Description-Content-Type: text/markdown
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/antoineedy/istacky">
+    <img src="https://raw.githubusercontent.com/antoineedy/istacky/main/docs/img/logo.png" alt="Logo" height="120">
+  </a>
+
+<h3 align="center">IStacky</h3>
+
+  <p align="center">
+    A lightweight image processing library
+    <br />
+    <a href="https:/github.com/antoineedy/istacky"><strong>GitHub repository</strong></a>
+  </p>
+</div>
