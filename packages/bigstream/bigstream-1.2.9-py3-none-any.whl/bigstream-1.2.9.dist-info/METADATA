@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: bigstream
+Version: 1.2.9
+Summary: Tools for distributed alignment of massive images
+Home-page: https://github.com/GFleishman/bigstream
+Author: Greg M. Fleishman
+Author-email: greg.nli10me@gmail.com
+License: MIT
+License-File: LICENSE.md
+Requires-Dist: numpy (>=1.20.3)
+Requires-Dist: scipy (>=1.9.1)
+Requires-Dist: opencv-python (>=4.5.5.64)
+Requires-Dist: bokeh (>=2.4.3)
+Requires-Dist: dask (>=2022.9.1)
+Requires-Dist: dask[array] (>=2022.9.1)
+Requires-Dist: dask[delayed] (>=2022.9.1)
+Requires-Dist: dask[distributed] (>=2022.9.1)
+Requires-Dist: ClusterWrap (>=0.3.0)
+Requires-Dist: zarr (>=2.12.0)
+Requires-Dist: h5py (>=3.8.0)
+Requires-Dist: numcodecs (>=0.9.1)
+Requires-Dist: fishspot (>=0.2.3)
+Requires-Dist: SimpleITK (>=2.2.0)
+Requires-Dist: tifffile (>=2022.10.10)
+Requires-Dist: morphsnakes (>=2.0.0)
+
