@@ -1,0 +1,13 @@
+xgpu/__init__.py,sha256=g_ByBM-dm_Pa5GsqbtdWgNrJzqUnMOaMmjIenM494oc,96
+xgpu/_build_ext.py,sha256=G4G7T2-Gtuw1NJrsgE-0RVa1MrxsJk6MCA0-D1qC-ck,76545
+xgpu/_wgpu_native_cffi.cp312-win_amd64.pyd,sha256=Z-wxmUkFKB-zDrU3YLLSJ6foIHNwSYZK_2iqTFraF5Y,237568
+xgpu/bindings.py,sha256=iYAN0EbMuFaHstMyKhYqxflMeKjIsjTYvAC_pqfN12k,269345
+xgpu/extensions.py,sha256=PK5lnSPIE4QGXsNPUAQywRh9hDNd74-1aDfzkXyuDIE,11251
+xgpu/helpers.py,sha256=s-hhgiVJ6IXChw5JRMn0zf1nBCuAbHUL10vkVLuW4fw,5078
+xgpu/renderdoc.py,sha256=zmjuD7daKAj5s2ELlK9rrOoJNwHIvfK4bhC1lQVANa4,12802
+xgpu/wgpu_native.dll,sha256=VvCTNN_V8z_qWgt1BGsVPpC1tpZF1-PLeE33SL1lnlA,8036352
+xgpu-0.6.5.dist-info/LICENSE,sha256=T6B-p4z6bKMAMzIAqSwjNWFjJEAYnAr7t93Z2gI8xfI,1083
+xgpu-0.6.5.dist-info/METADATA,sha256=t2sEkUsY5cPvyXcU5dQxvEx5BYT6UY6Rhp6E4EyuNUc,7518
+xgpu-0.6.5.dist-info/WHEEL,sha256=j9Aissza3750LQHFAQyYerNjmkEON1-8w_RaZNFtKSs,102
+xgpu-0.6.5.dist-info/top_level.txt,sha256=8YZR9bJi6aEHDR2Y3RHd8Yqh5cQWD0uBOiHZmrVd-Eg,5
+xgpu-0.6.5.dist-info/RECORD,,
