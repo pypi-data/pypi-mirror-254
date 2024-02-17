@@ -1,0 +1,10 @@
+joblib
+requests
+torch
+networkx
+numpy
+seaborn
+scikit-learn
+tqdm
+biopython
+loguru
