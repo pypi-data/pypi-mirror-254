@@ -1,0 +1,15 @@
+invoke
+boto3
+pyyaml
+GitPython
+pytest
+mypy
+getmac
+requests
+pre-commit>=3.3.3
+
+[docs]
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mike
+mkdocs-section-index
