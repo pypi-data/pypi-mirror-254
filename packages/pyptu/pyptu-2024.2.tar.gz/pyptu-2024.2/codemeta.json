@@ -1,0 +1,44 @@
+{
+    "@context": [
+        "https://doi.org/10.5063/schema/codemeta-2.0",
+        "https://w3id.org/software-iodata",
+        "https://raw.githubusercontent.com/jantman/repostatus.org/master/badges/latest/ontology.jsonld",
+        "https://schema.org",
+        "https://w3id.org/software-types"
+    ],
+    "@type": "SoftwareSourceCode",
+    "author": "Jan-Michael Rye",
+    "codeRepository": "https://gitlab.inria.fr/jrye/pyptu.git",
+    "description": "Load PicoQuant PTU files.",
+    "email": "jan-michael.rye@inria.fr",
+    "identifier": "pyptu",
+    "issueTracker": "https://gitlab.inria.fr/jrye/pyptu/-/issues",
+    "license": "http://spdx.org/licenses/MIT",
+    "name": "pyptu",
+    "operatingSystem": "OS Independent",
+    "runtimePlatform": "Python 3",
+    "softwareHelp": "https://jrye.gitlabpages.inria.fr/pyptu",
+    "softwareRequirements": [
+        {
+            "@type": "SoftwareApplication",
+            "identifier": "numpy",
+            "name": "numpy",
+            "runtimePlatform": "Python 3"
+        },
+        {
+            "@type": "SoftwareApplication",
+            "identifier": "pandas",
+            "name": "pandas",
+            "runtimePlatform": "Python 3"
+        }
+    ],
+    "targetProduct": {
+        "@type": "CommandLineApplication",
+        "description": "\nCommand-line tool for parsing PTU files.\n",
+        "executableName": "pyptu",
+        "name": "pyptu",
+        "runtimePlatform": "Python 3"
+    },
+    "url": "https://gitlab.inria.fr/jrye/pyptu",
+    "version": "2024.2"
+}

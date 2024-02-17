@@ -1,0 +1,12 @@
+*.pyc
+__pycache__/
+
+/doc/source/pyptu*.rst
+/doc/source/modules.rst
+
+/src/pyptu/version.py
+
+*.ptu
+public/
+tmp/
+venv/
