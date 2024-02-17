@@ -1,0 +1,124 @@
+
+
+
+
+
+<pre>
+
+<style>
+h1,h2,h3 {
+	display: inline-block;
+}
+
+code {
+	border-radius: 8px;
+	display: inline-block;
+	border: 3px solid #222;
+	padding: 10px;
+}
+
+</style>
+
+<h1>onesie</h1>
+
+	<h2>install</h2>
+	
+		[SH] pip install onesie
+	
+	<h2>documentation</h2>
+	
+		[SH] onesie shares 
+	
+	
+	<h2>health checks</h2>
+		
+		<h3>create a status file</h3>
+			
+			# status_1.py
+			
+			def check_1 ():
+				print ("check 1")
+				
+			def check_2 ():
+				print ("check 2")
+				
+			def check_3 ():
+				raise Exception ("not 110%")
+
+			checks = {
+				"check 1": check_1,
+				"check 2": check_2,
+				"check 3": check_3
+			}
+					
+		
+		<h3>start</h3>
+			[SH] onesie status
+	
+	
+	
+	
+	
+	<h2>start</h2>
+		<h3>create a project structure like this</h3>
+			
+			/
+				/assurances
+					status_1.py
+				
+				status.process.py
+		
+	
+		<h3>status_1.py</h3>
+		
+			<code>def check_1 ():
+	print ("check 1")
+	
+def check_2 ():
+	print ("check 2")
+	
+def check_3 ():
+	raise Exception ("NOT 100%")
+
+checks = {
+	"check 1": check_1,
+	"check 2": check_2,
+	"check 3": check_3
+}
+			</code>
+		
+		<h3>start.process.py</h3>
+			
+			<code>
+import pathlib
+this_directory = pathlib.Path (__file__).parent.resolve ()
+
+from os.path import dirname, join, normpath
+search_path = str (normpath (join (this_directory, "assurances")))
+
+import onesie
+scan = onesie.start (
+	glob_string = search_path + '/**/status_*.py',
+	simultaneous = True
+)
+			</code>
+
+	<h2>notes</h2>
+
+		For each file path found in the glob, the "checks" dictionary is retrieved with the python "exec"
+		and then each "check" in "checks" is run.
+
+		Each check suite found by the glob is started by 
+		a process with a flask API, that is opened on the first available port found.
+
+	
+	<h2>if file in glob is empty</h2>
+		
+		The scanner reports:
+		
+			"empty": true
+
+```
+
+
+</pre>
