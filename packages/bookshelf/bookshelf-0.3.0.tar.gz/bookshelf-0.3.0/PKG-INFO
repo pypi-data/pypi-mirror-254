@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: bookshelf
+Version: 0.3.0
+Summary: A collection of curated climate data sets
+Author: Jared Lewis
+Author-email: jared.lewis@climate-resource.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: appdirs
+Requires-Dist: boto3
+Requires-Dist: click (>8)
+Requires-Dist: click-log
+Requires-Dist: datapackage (>=1.15.2,<2.0.0)
+Requires-Dist: pooch
+Requires-Dist: pycountry
+Requires-Dist: pydantic (>=1.10.7,<2.0.0)
+Requires-Dist: python-dotenv
+Requires-Dist: pyyaml
+Requires-Dist: scmdata (>=0.16.1,<0.17.0)
+Requires-Dist: urllib3 (<2)
+Description-Content-Type: text/markdown
+
+# Bookshelf
+
+<!---
+Can use start-after and end-before directives in docs, see
+https://myst-parser.readthedocs.io/en/latest/syntax/organising_content.html#inserting-other-documents-directly-into-the-current-document
+-->
+
+<!--- sec-begin-description -->
+
+`bookshelf` is how Climate Resource reuses datasets across projects
+
+The `bookshelf` represents a shared collection of curated datasets or `Books`. Each
+`Book` is a preprocessed, versioned dataset including the notebooks used to produce it.
+As the underlying datasets or processing are updated, new `Books` can be created (with
+an updated version). A single dataset may produce multiple `Resources` if different
+representations are useful. These `Books` can be deployed to a shared `Bookshelf`
+so that they are accessible by other users.
+
+Users are able to use specific `Books` within other projects. The dataset and associated
+metadata is fetched and cached locally. Specific versions of `Books` can also be pinned for
+reproducibility purposes.
+
+This repository contains the notebooks that are used to generate the `Books`
+as well as a CLI tool for managing these datasets.
+
+This is a prototype and will likely change in future. Other potential ideas:
+
+- Deployed data are made available via `api.climateresource.com.au` so that
+  they can be consumed queried smartly
+- Simple web page to allow querying the data
+
+Each Book consists of a [datapackage](https://specs.frictionlessdata.io/data-package/)
+description of the metadata. This datapackage contains the associated `Resources` and
+their hashes. Each `Resource` is fetched when it is first used and then cached for later use
+
+
+<!--- sec-end-description -->
+
+## Installation
+
+<!--- sec-begin-installation -->
+
+`bookshelf` can be installed via pip:
+
+```bash
+pip install bookshelf
+```
+
+
+<!--- sec-end-installation -->
+
+### For developers
+
+<!--- sec-begin-installation-dev -->
+
+For development, we rely on [poetry](https://python-poetry.org) for all our
+dependency management. To get started, you will need to make sure that poetry
+is installed
+([instructions here](https://python-poetry.org/docs/#installing-with-the-official-installer),
+we found that pipx and pip worked better to install on a Mac).
+
+For all of work, we use our `Makefile`.
+You can read the instructions out and run the commands by hand if you wish,
+but we generally discourage this because it can be error prone.
+In order to create your environment, run `make virtual-environment`.
+
+If there are any issues, the messages from the `Makefile` should guide you
+through. If not, please raise an issue in the [issue tracker][issue_tracker].
+
+For the rest of our developer docs, please see [](development-reference).
+
+[issue_tracker]: https://gitlab.com/climate-resource/bookshelf/bookshelf/issues
+
+<!--- sec-end-installation-dev -->
+
