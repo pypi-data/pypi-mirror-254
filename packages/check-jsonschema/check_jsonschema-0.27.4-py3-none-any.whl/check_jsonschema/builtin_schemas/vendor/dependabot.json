@@ -1,0 +1,512 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://json.schemastore.org/dependabot-2.0.json",
+  "additionalProperties": false,
+  "definitions": {
+    "timezone": {
+      "$id": "timezone",
+      "$ref": "https://json.schemastore.org/base.json#/definitions/timezone"
+    },
+    "dependency-type": {
+      "type": "string",
+      "enum": ["direct", "indirect", "all", "production", "development"],
+      "x-intellij-enum-metadata": {
+        "direct": {
+          "description": "All explicitly defined dependencies."
+        },
+        "indirect": {
+          "description": "Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies)."
+        },
+        "all": {
+          "description": "All explicitly defined dependencies. For bundler, pip, composer, cargo, also the dependencies of direct dependencies."
+        },
+        "production": {
+          "description": "Only dependencies in the 'Product dependency group'."
+        },
+        "development": {
+          "description": "Only dependencies in the 'Development dependency group'."
+        }
+      }
+    },
+    "update-types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "version-update:semver-major",
+          "version-update:semver-minor",
+          "version-update:semver-patch"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "insecure-external-code-execution": {
+      "type": "string",
+      "enum": ["allow", "deny"]
+    },
+    "versioning-strategy": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "increase",
+        "increase-if-necessary",
+        "lockfile-only",
+        "widen"
+      ],
+      "x-intellij-enum-metadata": {
+        "auto": {
+          "description": "Try to differentiate between apps and libraries. Use 'increase' for apps and 'widen' for libraries."
+        },
+        "increase": {
+          "description": "Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound."
+        },
+        "increase-if-necessary": {
+          "description": "Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint."
+        },
+        "lockfile-only": {
+          "description": "Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes."
+        },
+        "widen": {
+          "description": "Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement."
+        }
+      }
+    },
+    "package-ecosystem-values": {
+      "enum": [
+        "bundler",
+        "cargo",
+        "composer",
+        "devcontainers",
+        "docker",
+        "elm",
+        "gitsubmodule",
+        "github-actions",
+        "gomod",
+        "gradle",
+        "maven",
+        "mix",
+        "npm",
+        "nuget",
+        "pip",
+        "pub",
+        "swift",
+        "terraform"
+      ]
+    },
+    "schedule-day": {
+      "type": "string",
+      "enum": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ]
+    },
+    "schedule-interval": {
+      "type": "string",
+      "enum": ["daily", "weekly", "monthly"]
+    },
+    "update": {
+      "type": "object",
+      "properties": {
+        "allow": {
+          "description": "Customize which updates are allowed",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dependency-name": {
+                "type": "string"
+              },
+              "dependency-type": {
+                "$ref": "#/definitions/dependency-type"
+              }
+            },
+            "anyOf": [
+              { "required": ["dependency-name"] },
+              { "required": ["dependency-type"] }
+            ],
+            "additionalProperties": false
+          }
+        },
+        "assignees": {
+          "description": "Assignees to set on pull requests",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "commit-message": {
+          "description": "Dependabot attempts to detect your commit message preferences and use similar patterns. Use this option to specify your preferences explicitly.",
+          "type": "object",
+          "properties": {
+            "prefix": {
+              "description": "A prefix for all commit messages. When you specify a prefix for commit messages, GitHub will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.",
+              "type": "string",
+              "maxLength": 50
+            },
+            "prefix-development": {
+              "description": "A separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the prefix is used only for updates to dependencies in the Production dependency group. This is not supported by all package ecosystems.",
+              "type": "string",
+              "maxLength": 50
+            },
+            "include": {
+              "description": "Specifies that any prefix is followed by a list of the dependencies updated in the commit.",
+              "type": "string",
+              "enum": ["scope"],
+              "default": "scope"
+            }
+          },
+          "anyOf": [
+            { "required": ["prefix"] },
+            { "required": ["prefix-development"] },
+            { "required": ["include"] }
+          ],
+          "additionalProperties": false
+        },
+        "directory": {
+          "description": "Location of package manifests",
+          "type": "string",
+          "default": "/"
+        },
+        "groups": {
+          "description": "Configure groups for dependencies. Each 'groups' property is arbitrary will appear in pull request titles and branch names. For example, the code snippet '{\"groups\": {\"NPM dependencies\": {\"patterns\": [\"*\"]}}}' sets the group name to 'NPM dependencies'.",
+          "type": "object",
+          "patternProperties": {
+            "^.+$": {
+              "type": "object",
+              "properties": {
+                "dependency-type": {
+                  "description": "Specify a dependency type to be included in the group.",
+                  "type": "string",
+                  "enum": ["development", "production"]
+                },
+                "patterns": {
+                  "description": "Define strings of characters that match with a dependency name (or multiple dependency names) to include those dependencies in the group.",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                },
+                "exclude-patterns": {
+                  "description": "Exclude certain dependencies from the group. If a dependency is excluded from a group, Dependabot will continue to raise single pull requests to update the dependency to its latest version.",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                },
+                "update-types": {
+                  "description": "Specify the semantic versioning level to include in the group",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": ["major", "minor", "patch"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "anyOf": [
+                { "required": ["dependency-type"] },
+                { "required": ["patterns"] },
+                { "required": ["update-types"] }
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "ignore": {
+          "description": "Ignore certain dependencies or versions",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dependency-name": {
+                "description": "Use to ignore updates for dependencies with matching names, optionally using * to match zero or more characters.",
+                "type": "string"
+              },
+              "update-types": {
+                "$ref": "#/definitions/update-types",
+                "description": "Use to ignore types of updates. You can combine this with 'dependency-name: \"*\"' to ignore particular update-types for all dependencies."
+              },
+              "versions": {
+                "description": "Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "anyOf": [
+              { "required": ["dependency-name"] },
+              { "required": ["update-types"] },
+              { "required": ["versions"] }
+            ],
+            "additionalProperties": false
+          }
+        },
+        "insecure-external-code-execution": {
+          "$ref": "#/definitions/insecure-external-code-execution",
+          "description": "Allow or deny code execution in manifest files"
+        },
+        "labels": {
+          "description": "Labels to set on pull requests",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true,
+          "default": ["dependencies"]
+        },
+        "milestone": {
+          "description": "Associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "open-pull-requests-limit": {
+          "description": "Limit number of open pull requests for version updates",
+          "type": "integer",
+          "minimum": 0,
+          "default": 5
+        },
+        "package-ecosystem": {
+          "$comment": "These values are restricted by a top-level if-then-else when 'enable-beta-ecosystems' is not enabled.",
+          "description": "Package manager to use",
+          "type": "string",
+          "anyOf": [
+            { "$ref": "#/definitions/package-ecosystem-values" },
+            { "minLength": 1 }
+          ]
+        },
+        "pull-request-branch-name": {
+          "description": "Pull request branch name preferences",
+          "type": "object",
+          "properties": {
+            "separator": {
+              "description": "Change separator for PR branch name",
+              "type": "string",
+              "default": "/",
+              "enum": ["-", "_", "/"]
+            }
+          },
+          "required": ["separator"],
+          "additionalProperties": false
+        },
+        "rebase-strategy": {
+          "description": "Disable automatic rebasing. 'auto' is the default and Dependabot will rebase open pull requests when changes are detected. 'disabled' will disable automatic rebasing.",
+          "type": "string",
+          "enum": ["auto", "disabled"],
+          "default": "auto"
+        },
+        "registries": {
+          "$comment": "'registries' must be either an array of strings, or the string constant '*'.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "const": "*"
+            }
+          ]
+        },
+        "reviewers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "schedule": {
+          "description": "Schedule preferences",
+          "type": "object",
+          "properties": {
+            "interval": {
+              "$ref": "#/definitions/schedule-interval"
+            },
+            "day": {
+              "$ref": "#/definitions/schedule-day",
+              "description": "Specify an alternative day to check for updates"
+            },
+            "time": {
+              "type": "string",
+              "description": "Specify an alternative time of day to check for updates (format: hh:mm)",
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            "timezone": {
+              "$ref": "#/definitions/timezone",
+              "description": "The time zone identifier must be from the Time Zone database maintained by IANA"
+            }
+          },
+          "required": ["interval"]
+        },
+        "target-branch": {
+          "description": "Specify a different branch for manifest files and for pull requests.",
+          "type": "string",
+          "minLength": 1
+        },
+        "vendor": {
+          "description": "Tell Dependabot to vendor dependencies when updating them. Don't use this option if you're using 'gomod'.",
+          "type": "boolean"
+        },
+        "versioning-strategy": {
+          "$ref": "#/definitions/versioning-strategy",
+          "description": "How to update manifest version requirements"
+        }
+      },
+      "required": ["package-ecosystem", "directory", "schedule"]
+    },
+    "registry": {
+      "type": "object",
+      "description": "The top-level registries key is optional. It allows you to specify authentication details that Dependabot can use to access private package registries.",
+      "additionalProperties": false,
+      "patternProperties": {
+        ".+": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "description": "Identifies the type of registry.",
+              "enum": [
+                "composer-repository",
+                "docker-registry",
+                "git",
+                "hex-organization",
+                "hex-repository",
+                "maven-repository",
+                "npm-registry",
+                "nuget-feed",
+                "python-index",
+                "rubygems-server",
+                "terraform-registry"
+              ]
+            },
+            "url": {
+              "description": "The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, 'https://' is assumed. Dependabot adds or ignores trailing slashes as required.",
+              "type": "string"
+            },
+            "username": {
+              "description": "The username that Dependabot uses to access the registry.",
+              "type": "string"
+            },
+            "password": {
+              "description": "A reference to a Dependabot secret containing the password for the specified user.",
+              "type": "string"
+            },
+            "key": {
+              "description": "A reference to a Dependabot secret containing an access key for this registry.",
+              "type": "string"
+            },
+            "token": {
+              "description": "A reference to a Dependabot secret containing an access token for this registry.",
+              "type": "string"
+            },
+            "replaces-base": {
+              "description": "For registries with type: python-index, if the boolean value is true, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default https://pypi.org/simple).",
+              "type": "boolean"
+            },
+            "organization": {
+              "description": "",
+              "type": "string"
+            },
+            "repo": {
+              "description": "",
+              "type": "string"
+            },
+            "auth-key": {
+              "description": "",
+              "type": "string"
+            },
+            "public-key-fingerprint": {
+              "description": "",
+              "type": "string"
+            }
+          },
+          "required": ["type", "url"]
+        }
+      },
+      "minProperties": 1
+    }
+  },
+  "properties": {
+    "version": {
+      "title": "Config file version",
+      "description": "Dependabot configuration files require this key, and its value must be 2",
+      "type": "integer",
+      "enum": [2]
+    },
+    "enable-beta-ecosystems": {
+      "description": "Enable ecosystems that have beta-level support",
+      "type": "boolean"
+    },
+    "updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/update",
+        "title": "Package Ecosystem",
+        "description": "Element for each one package manager that you want GitHub Dependabot to monitor for new versions"
+      }
+    },
+    "registries": {
+      "$ref": "#/definitions/registry"
+    }
+  },
+  "required": ["version", "updates"],
+  "title": "GitHub Dependabot v2 config",
+  "type": "object",
+  "allOf": [
+    {
+      "$comment": "If 'enable-beta-ecosystems' is NOT enabled, enforce known 'package-ecosystem' values.",
+      "if": {
+        "properties": {
+          "enable-beta-ecosystems": {
+            "const": true
+          }
+        },
+        "required": ["enable-beta-ecosystems"]
+      },
+      "then": {},
+      "else": {
+        "properties": {
+          "updates": {
+            "items": {
+              "properties": {
+                "package-ecosystem": {
+                  "$ref": "#/definitions/package-ecosystem-values"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
