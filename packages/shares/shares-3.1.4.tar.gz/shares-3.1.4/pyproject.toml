@@ -1,0 +1,61 @@
+
+
+
+#
+#	How to Publish:
+#
+#		python3 lands/structures_local/shares/_status/status.proc.py
+#		python3 status_E2E/status.proc.py
+#		cp lands/structures_local/shares/module.MD readme.md
+#		(rm -rf dist && python3 -m build --sdist && twine upload dist/*)
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shares"
+version = "3.1.4"
+dependencies = [
+	"body_scan",
+	"law_dictionary",
+
+	"mako",
+	"flask",	
+	"jsonschema",
+	"rich"
+]
+
+license = { text = "GPL 3.0" }
+
+description = "documentation framework that serves all '.s.HTML' that are found in the cwd."
+readme = "lands/structures_local/shares/module.MD"
+
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#setuptools-specific-configuration
+#
+#[tool.setuptools]
+#script-files = [ "lands/scripts/shares" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#setuptools-specific-configuration
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from shares import clique; clique ()
+#
+[project.scripts]
+shares = "shares:clique"
+
+[tool.setuptools.packages.find]
+where = [ "lands/structures_local" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.HTML" ]
+
+[project.urls]
+GitLab = "https://gitlab.com/reptilian_climates/modules_series_2/shares"
