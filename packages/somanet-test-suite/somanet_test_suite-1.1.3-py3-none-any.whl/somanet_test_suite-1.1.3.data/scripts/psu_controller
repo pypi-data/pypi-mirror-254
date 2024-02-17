@@ -1,0 +1,60 @@
+#!python
+
+import argparse
+from somanet_test_suite.psu.psu_ea import *
+
+
+class PSU:
+
+    def __init__(self, port: str):
+        if port:
+            self.psu = PsuEA(comport=port)
+        else:
+            self.psu = PsuEA()
+
+    def output_on(self, output: int):
+        self.psu.output_on(output)
+
+    def output_off(self, output: int):
+        self.psu.output_off(output)
+
+    def set_voltage(self, voltage: float, output: int):
+        self.psu.set_voltage(voltage, output)
+
+    def set_current(self, current: float, output: int):
+        self.psu.set_current(current, output)
+
+    def close(self):
+        self.psu.close()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Control the EA PSU")
+    parser.add_argument("-p", "--port", type=str, help="Optional comport")
+    parser.add_argument("-o", "--output", type=int, default=0, help="Output index. 0 or 1.")
+    parser.add_argument("-u", "--voltage", type=float, help="Output Voltage")
+    parser.add_argument("-i", "--current", type=float, help="Output maximal current")
+    parser.add_argument("--on", action="store_true", help="Turns on the output if used.")
+
+    args = parser.parse_args()
+
+    psu = PSU(args.port)
+
+    o_index = args.output
+
+    if args.on and args.voltage is None and args.current is None:
+        parser.error("Voltage and current are needed if --on is used")
+
+    if args.on:
+        psu.set_voltage(args.voltage, o_index)
+        psu.set_current(args.current, o_index)
+
+    if args.on:
+        psu.output_on(o_index)
+    else:
+        psu.output_off(o_index)
+
+    psu.close()
+
+
+
