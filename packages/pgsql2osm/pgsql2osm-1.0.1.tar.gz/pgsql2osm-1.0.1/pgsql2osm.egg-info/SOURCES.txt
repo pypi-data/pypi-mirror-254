@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+pgsql2osm/__init__.py
+pgsql2osm/cli.py
+pgsql2osm/dbutils.py
+pgsql2osm/log.py
+pgsql2osm/pgsql2osm.py
+pgsql2osm/regions.csv
+pgsql2osm/settings.py
+pgsql2osm.egg-info/PKG-INFO
+pgsql2osm.egg-info/SOURCES.txt
+pgsql2osm.egg-info/dependency_links.txt
+pgsql2osm.egg-info/entry_points.txt
+pgsql2osm.egg-info/requires.txt
+pgsql2osm.egg-info/top_level.txt
