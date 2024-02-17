@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: BPMN-RPA
+Version: 9.0.0
+Summary: Robotic Process Automation by running BPMN diagram flows.
+Author: Joost van Gils
+Author-email: joostvangils@1ic.nl
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: Pillow (>=8.1.0)
+Requires-Dist: PyAutoGUI (>=0.9.52)
+Requires-Dist: PyJWT (>=2.0.1)
+Requires-Dist: Werkzeug (>=1.0.1)
+Requires-Dist: beautifulsoup4 (>=4.9.3)
+Requires-Dist: bs4 (>=0.0.1)
+Requires-Dist: defusedxml (>=0.7.1)
+Requires-Dist: dill (>=0.3.3)
+Requires-Dist: exchangelib (>=3.3.1)
+Requires-Dist: future (>=0.18.2)
+Requires-Dist: jira (>=2.0.0)
+Requires-Dist: keyboard (>=0.13.5)
+Requires-Dist: lxml (>=4.6.2)
+Requires-Dist: matplotlib (>=3.3.4)
+Requires-Dist: msal (>=1.9.0)
+Requires-Dist: openai (>=0.7.0)
+Requires-Dist: pandas (>=1.2.1)
+Requires-Dist: psycopg2-binary (>=2.8.6)
+Requires-Dist: pykeepass (>=3.2.1)
+Requires-Dist: pyodbc (>=4.0.30)
+Requires-Dist: pypdf2 (>=1.26.0)
+Requires-Dist: pypiwin32 (>=223)
+Requires-Dist: python-dateutil (>=2.8.1)
+Requires-Dist: pywin32 (>=300)
+Requires-Dist: requests (>=2.25.1)
+Requires-Dist: selenium (>=3.141.0)
+Requires-Dist: setuptools (>=54.1.2)
+Requires-Dist: spacy (>=3.0.1)
+Requires-Dist: tensorflow (>=2.4.1)
+Requires-Dist: urllib3 (>=1.26.3)
+Requires-Dist: uuid (>=1.30)
+Requires-Dist: xmltodict (>=0.12.0)
