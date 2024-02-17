@@ -1,0 +1,9 @@
+black
+Jinja2
+networkx
+loguru
+sympy
+
+[streamlit]
+streamlit
+streamlit-ace
