@@ -1,0 +1,51 @@
+import re
+
+def check_api_request_for_attacks(api_request):
+    try:
+        # Проверка наличия SQL-инъекций
+        if re.search(r'\b(union|select|insert|update|delete|create|alter|drop)\b', api_request, re.I):
+            return True
+
+        # Проверка наличия инъекций команд
+        if re.search(r';\s*(?:\||&|&&)\s*', api_request):
+            return True
+
+        # Проверка наличия XSS-атак
+        if re.search(r'<\s*script\b', api_request, re.I):
+            return True
+
+        # Проверка наличия атак на основе XML
+        if re.search(r'<!ENTITY|<!DOCTYPE', api_request):
+            return True
+
+        # Проверка наличия атак на основе файлов
+        if re.search(r'\.\.(\/|\\)', api_request):
+            return True
+
+        # Проверка наличия атак на основе скриптов
+        if re.search(r'\b(document\.|window\.|eval\(|setTimeout\(|setInterval\(|location\.|localStorage\.|sessionStorage\.)', api_request):
+            return True
+
+        # Проверка наличия атак на основе параметров
+        if re.search(r'\b(?:\.\.|\'|\"|\`|%27|%22|%60)\s*=\s*(?:\.\.|\'|\"|\`|%27|%22|%60)', api_request):
+            return True
+
+        # Другие проверки на атаки могут быть добавлены по мере необходимости
+
+        # Если ни одна из проверок не сработала, возвращаем False (атаки не обнаружены)
+        return False
+
+    except Exception as e:
+        # Логгирование исключений для последующего анализа
+        print(f"Exception during API request security check: {e}")
+        return False
+
+# Пример использования
+api_request_example = "SELECT * FROM users WHERE username='admin';"
+result = check_api_request_for_attacks(api_request_example)
+
+if result:
+    print("API request contains potential attacks!")
+else:
+    print("API request is secure.")
+

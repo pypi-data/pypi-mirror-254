@@ -1,0 +1,52 @@
+import requests
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+def api_request(url):
+    response = requests.get(url)
+    print(f"URL: {url}, Status Code: {response.status_code}")
+
+if __name__ == "__main__":
+    # Список URL-адресов, которые вы хотите запросить параллельно
+    urls = ["https://example.com", "https://example.org", "https://example.net", ...]
+
+    # Количество потоков, которые вы хотите использовать
+    num_threads = 10
+
+    # Создаем ThreadPoolExecutor с указанным количеством потоков
+    with ThreadPoolExecutor(max_workers=num_threads) as executor:
+        # Запускаем API-запросы в каждом потоке для каждого URL
+        executor.map(api_request, urls)
+    
+    # Даем потокам время завершить выполнение
+    time.sleep(2)
+    
+    
+    
+    
+    
+    
+    
+import asyncio
+import httpx
+
+async def async_send_post_request(url, headers, data):
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, headers=headers, data=data)
+        print(f"URL: {url}, Status Code: {response.status_code}, Response Body: {response.text}")
+
+async def parallel_post_requests(num_requests):
+    base_url = "https://example.com/api/resource/"
+    headers = {"Content-Type": "application/json"}
+    data = {"key": "value"}
+
+    tasks = [async_send_post_request(f"{base_url}{i}", headers=headers, data=data) for i in range(num_requests)]
+    await asyncio.gather(*tasks)
+
+if __name__ == "__main__":
+    num_requests = 1000000
+
+    asyncio.run(parallel_post_requests(num_requests))
+ 
+
+
