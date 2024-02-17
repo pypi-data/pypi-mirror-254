@@ -1,0 +1,3 @@
+[console_scripts]
+bookshelf=bookshelf.cli:main
+
