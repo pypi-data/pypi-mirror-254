@@ -1,0 +1,6 @@
+psutil
+pandas<2
+numpy
+cluster_pack
+tqdm
+deprecation
