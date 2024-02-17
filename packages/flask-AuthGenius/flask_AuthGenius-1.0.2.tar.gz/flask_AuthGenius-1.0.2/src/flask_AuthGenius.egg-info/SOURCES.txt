@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+src/flask_AuthGenius/__init__.py
+src/flask_AuthGenius/utils.py
+src/flask_AuthGenius.egg-info/PKG-INFO
+src/flask_AuthGenius.egg-info/SOURCES.txt
+src/flask_AuthGenius.egg-info/dependency_links.txt
+src/flask_AuthGenius.egg-info/requires.txt
+src/flask_AuthGenius.egg-info/top_level.txt
+src/flask_AuthGenius/assets/Comic_Sans_MS.ttf
+src/flask_AuthGenius/assets/Droid_Sans_Mono.ttf
+src/flask_AuthGenius/assets/Helvetica.ttf
