@@ -1,0 +1,2 @@
+[console_scripts]
+source-onesignal = source_onesignal.run:run
