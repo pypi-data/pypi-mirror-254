@@ -1,0 +1,7 @@
+requests
+pydantic>2.0.0
+paper-qa==4.0.0-pre.7
+tenacity
+aiohttp
+jinja2
+click
