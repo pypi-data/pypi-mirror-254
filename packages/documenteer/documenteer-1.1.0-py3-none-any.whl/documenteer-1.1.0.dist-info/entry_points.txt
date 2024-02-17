@@ -1,0 +1,4 @@
+[console_scripts]
+documenteer = documenteer.cli:main
+package-docs = documenteer.stackdocs.packagecli:main
+stack-docs = documenteer.stackdocs.stackcli:main
