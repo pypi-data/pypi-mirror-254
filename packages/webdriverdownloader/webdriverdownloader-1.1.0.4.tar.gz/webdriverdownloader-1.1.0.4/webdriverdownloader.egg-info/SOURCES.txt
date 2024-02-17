@@ -1,0 +1,15 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+webdriverdownloader/__init__.py
+webdriverdownloader/cli.py
+webdriverdownloader/util.py
+webdriverdownloader/webdriverdownloader.py
+webdriverdownloader.egg-info/PKG-INFO
+webdriverdownloader.egg-info/SOURCES.txt
+webdriverdownloader.egg-info/dependency_links.txt
+webdriverdownloader.egg-info/entry_points.txt
+webdriverdownloader.egg-info/not-zip-safe
+webdriverdownloader.egg-info/requires.txt
+webdriverdownloader.egg-info/top_level.txt
