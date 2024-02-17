@@ -1,0 +1,2 @@
+[console_scripts]
+source-prestashop = source_prestashop.run:run
