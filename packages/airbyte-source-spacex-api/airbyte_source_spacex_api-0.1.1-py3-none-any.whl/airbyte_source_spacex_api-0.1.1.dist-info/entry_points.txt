@@ -1,0 +1,2 @@
+[console_scripts]
+source-spacex-api = source_spacex_api.run:run
