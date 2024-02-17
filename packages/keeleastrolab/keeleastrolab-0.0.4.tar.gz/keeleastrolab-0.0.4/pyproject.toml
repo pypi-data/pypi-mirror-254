@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keeleastrolab"
+version = "0.0.4"
+authors = [
+  { name="Pierre Maxted", email="p.maxted@keele.ac.uk" },
+]
+description = "Convenience functions for Keele astrophysics lab students"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["rawpy","exifread", "astropy", "astrometry",
+    "photutils", "rawpy", "exifread", "scipy > 1.7.0", "numpy > 1.26.0"]
+
+[project.urls]
+Homepage = "https://github.com/pmaxted/keeleastrolab"
+Issues = "https://github.com/pmaxted/keeleastrolab/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+keeleastrolab = ["*.csv"]
+
+[project.scripts]
+raw2fits = "keeleastrolab.raw2fits:main"
+stackfits = "keeleastrolab.stackfits:main"
