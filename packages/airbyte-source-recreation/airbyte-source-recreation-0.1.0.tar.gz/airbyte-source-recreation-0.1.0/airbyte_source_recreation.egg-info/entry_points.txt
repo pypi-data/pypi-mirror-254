@@ -1,0 +1,2 @@
+[console_scripts]
+source-recreation = source_recreation.run:run
