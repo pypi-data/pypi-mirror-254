@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "plotly-extend-wrapper"
+version = "1.0.0"
+description = ""
+authors = ["Toru Sumi <prayonshootingstars@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+plotly = "^5.15.0"
+kaleido = "0.2.1"
+pyarrow = "*"
+pandas = "^2.0.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+pytest-cov = "*"
+scikit-learn = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "*"
+ipykernel = "*"
+
+
+[tool.poetry.group.deploy.dependencies]
+setuptools = "*"
+twine = "*"
+wheel = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
