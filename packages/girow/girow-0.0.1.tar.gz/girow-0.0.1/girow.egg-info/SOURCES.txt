@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+app/__init__.py
+app/girow.py
+girow.egg-info/PKG-INFO
+girow.egg-info/SOURCES.txt
+girow.egg-info/dependency_links.txt
+girow.egg-info/entry_points.txt
+girow.egg-info/requires.txt
+girow.egg-info/top_level.txt
