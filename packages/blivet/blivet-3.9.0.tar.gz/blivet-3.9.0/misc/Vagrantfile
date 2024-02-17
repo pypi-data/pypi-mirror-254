@@ -1,0 +1,94 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#
+# A Vagrantfile template that can be used for creating machines for libblockdev
+# development/testing.
+#
+# Use 'vagrant up && vagrant ssh' to spawn the default machine (most recent
+# Fedora) and ssh into it or e.g. 'vagrant up bl-f39 && vagrant ssh bl-f39' to
+# use a Fedora 39 based machine, etc.
+#
+
+def os_cpu_cores
+  case RbConfig::CONFIG['host_os']
+  when /darwin/
+    Integer(`sysctl -n hw.ncpu`)
+  when /linux/
+    Integer(`getconf _NPROCESSORS_ONLN`)
+  else
+    raise StandardError, "Unsupported platform"
+  end
+end
+
+Vagrant.configure("2") do |config|
+  # common configuration
+
+  config.vm.synced_folder "../", "/home/vagrant/blivet/",
+                          type: "rsync", rsync__args: ["-a", "-l", "--exclude=misc"]  # override the default args
+
+  # CHECK THAT THE BELOW OPTIONS ARE OKAY FOR YOUR HW
+  config.vm.provider :libvirt do |v|
+    v.memory = "2048"
+    v.cpus = os_cpu_cores
+    v.disk_driver :cache => "unsafe"
+  end
+
+  config.vm.define "bl-f39", primary: true, autostart: true do |f39|
+    f39.vm.box = "fedora/39-cloud-base"
+
+    f39.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+
+  config.vm.define "bl-f38", primary: false, autostart: false do |f38|
+    f38.vm.box = "fedora/38-cloud-base"
+
+    f38.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+
+  config.vm.define "bl-c8s", primary: false, autostart: false do |c8s|
+    c8s.vm.box = "generic/centos8s"
+
+    # install all test dependencies using ansible
+    c8s.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/libexec/platform-python" }
+    end
+  end
+
+  config.vm.define "bl-c9s", primary: false, autostart: false do |c9s|
+    c9s.vm.box = "generic/centos9s"
+
+    # install all test dependencies using ansible
+    c9s.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/libexec/platform-python" }
+    end
+  end
+
+  config.vm.define "bl-u2304", primary: false, autostart: false do |u2304|
+    u2304.vm.box = "generic/ubuntu2304"
+
+    # install all test dependencies using ansible
+    u2304.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+
+  config.vm.define "bl-debiant", primary: false, autostart: false do |debiant|
+    debiant.vm.box = "debian/testing64"
+
+    # install all test dependencies using ansible
+    debiant.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install-test-dependencies.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+end
