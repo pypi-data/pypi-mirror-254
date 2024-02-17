@@ -1,0 +1,2 @@
+[console_scripts]
+funasr = funasr.bin.inference:main_hydra
