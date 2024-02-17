@@ -1,0 +1,1 @@
+ILLEGAL_LOGIT = -1e5
