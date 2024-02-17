@@ -1,0 +1,2 @@
+[console_scripts]
+little_llama = llama.starter:main
