@@ -1,0 +1,16 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/acceptance.py,sha256=VAt-At7bkaZ2HJ9W-uf_XNkVuYeI7oz_h_vplBrtcQE,313
+integration_tests/configured_catalog.json,sha256=Q8CkQgt-9uQgv-63LUBJ1vndDTxTHfUIup1mcKV1k_s,241
+integration_tests/invalid_config.json,sha256=mrNWFhVkLy64l6IkVZPuZacOLqqxn7BxpNUQmx61ckw,97
+integration_tests/sample_config.json,sha256=2JFI60tsHMJJLLOKbmmBR-sgY1BpI_u7uRBUt68YfAM,90
+source_plausible/__init__.py,sha256=NhLlfdLoJUFRXB4fg0X0qqRjhZ3LG-ZAI_3yWrUIeGQ,130
+source_plausible/manifest.yaml,sha256=-57GFuW6tKTgqqgGDxHzsVsq18eFk6lcM33-mqYImpA,1314
+source_plausible/run.py,sha256=zvbSxY5jXTAZ3DnROnWetZ-2Ut07Y_NyWim_EndRRXQ,239
+source_plausible/source.py,sha256=6u-IgN5hjuzbul8Ih0IYbes1k1Swx_EaTWJKoqat_Ww,478
+source_plausible/spec.yaml,sha256=hS9Pd3jwG_gthJM6tzIXusUkLtwuy7OZuEtg6zSaP1c,1286
+source_plausible/schemas/stats.json,sha256=4K29vEdM-jPpwOKszQse-XXmvEmIfHF0wUQWXX9eAjs,954
+airbyte_source_plausible-0.1.0.dist-info/METADATA,sha256=Rwg5fPC_ZbNvQ_jtJIydpOlVGCKZO4LKUdtcr39z5Tw,4229
+airbyte_source_plausible-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_plausible-0.1.0.dist-info/entry_points.txt,sha256=MCSNxpdmBUk9zuqE7cSergt8ALqYzbCOCb8_Izt6z08,62
+airbyte_source_plausible-0.1.0.dist-info/top_level.txt,sha256=yGg_0Pv661Vom3iZ97g7l-JzTrSojf_gbT8T-XWhimc,35
+airbyte_source_plausible-0.1.0.dist-info/RECORD,,
