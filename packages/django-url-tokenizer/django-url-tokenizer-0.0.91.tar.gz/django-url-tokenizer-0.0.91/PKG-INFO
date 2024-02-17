@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: django-url-tokenizer
+Version: 0.0.91
+Summary: A python package that provides a Django app that allows you to
+Home-page: https://github.com/nibblex/django-url-tokenizer
+Author: Sergio Rodríguez
+Author-email: srodriguez3441@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Provides-Extra: sms
+License-File: LICENSE
