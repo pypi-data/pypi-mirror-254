@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+bert4vector/__init__.py
+bert4vector/base.py
+bert4vector/bert.py
+bert4vector/faiss.py
+bert4vector/utils.py
+bert4vector.egg-info/PKG-INFO
+bert4vector.egg-info/SOURCES.txt
+bert4vector.egg-info/dependency_links.txt
+bert4vector.egg-info/requires.txt
+bert4vector.egg-info/top_level.txt
