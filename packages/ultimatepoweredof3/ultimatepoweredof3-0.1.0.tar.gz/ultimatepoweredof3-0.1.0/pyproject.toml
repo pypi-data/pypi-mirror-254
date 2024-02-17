@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "ultimatepoweredof3"
+version = "0.1.0"
+description = ""
+authors = ["alejandro20019 <aferiag@unal.edu.co>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
