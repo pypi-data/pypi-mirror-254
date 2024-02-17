@@ -1,0 +1,2 @@
+[console_scripts]
+source-looker = source_looker.run:run
