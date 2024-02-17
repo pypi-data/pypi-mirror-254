@@ -1,0 +1,12 @@
+<div id="tag-verification-action-id-{{ block_id }}" class="tag-verification-container tag-verification-{{ block_type }}">
+    {% include form %}
+    {% if block_type == 'vertical' %}
+    <div class="tag-verification-image-container">
+        {{ image | safe }}
+    </div>
+    {% endif %}
+</div>
+
+{% include thank_you_section %}
+
+{% include error_section %}
