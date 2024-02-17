@@ -1,0 +1,2 @@
+[console_scripts]
+source-klaus-api = source_klaus_api.run:run
