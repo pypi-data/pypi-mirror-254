@@ -1,0 +1,16 @@
+
+[build]
+furo
+sphinx
+twine
+urllib3<2
+wheel
+
+[test]
+mypy
+myst_parser
+pytest>=7.1.0
+pytest-cov
+seedir
+testfixtures
+types-PyYAML
