@@ -1,0 +1,2 @@
+[console_scripts]
+source-punk-api = source_punk_api.run:run
