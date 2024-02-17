@@ -1,0 +1,9 @@
+opencv-python==4.7.0.72
+numpy==1.24.3
+torch
+tensorflow
+easyocr
+pandas
+tqdm
+seaborn
+pyrealsense2

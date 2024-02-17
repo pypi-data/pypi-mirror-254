@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IRA_vision"
+version = "0.0.1"
+authors = [
+  { name="saroj", email="saroj.debnath@adtran.com" },
+]
+description = "A package for vision tasks"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "opencv-python==4.7.0.72",
+    "numpy==1.24.3",
+    "torch",
+    "tensorflow",
+    "easyocr",
+    "pandas",
+    "tqdm",
+    "seaborn",
+    "pyrealsense2",
+    
+]
+
+[project.urls]
+Homepage = "https://github.com/SarojDebnath"
+
