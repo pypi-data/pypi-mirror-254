@@ -1,0 +1,23 @@
+# ide and env dirs
+/.idea
+/.venv
+/.vscode
+/.venv
+
+# ci related
+flake8_output.txt
+
+# temp folders
+/temp*
+/tmp
+
+# test generated files
+/.pytest_cache/*
+/tests/results/*
+/tests/target/host/test_app
+/tests/target/host/test_app.exe
+TEST*.xml
+
+# files
+*.pyc
+*.log

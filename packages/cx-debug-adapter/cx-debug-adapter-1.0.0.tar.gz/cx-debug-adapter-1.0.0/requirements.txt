@@ -1,0 +1,6 @@
+setuptools>=21
+# Version 21 is required to handle PEP 508 environment markers.
+click
+esp-debug-backend
+pywin32>=227; sys.platform == 'win32'
+requests>=2.21.0

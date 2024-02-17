@@ -1,0 +1,54 @@
+stages:
+  - checks
+  - tests
+
+cache:
+  paths:
+  - node_modules
+
+variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    CI_DEBUG_TRACE: "true"
+
+before_script:
+    - export LC_ALL=C.UTF-8
+    - export LANG=C.UTF-8
+
+check_python_style:
+  stage: checks
+  image: python:3.7-slim-buster
+  artifacts:
+    when: on_failure
+    paths:
+      - flake8_output.txt
+    expire_in: 1 week
+  before_script:
+    - python3 -m pip install flake8
+  script:
+    - python3 -m flake8 --config=.flake8 --output-file=flake8_output.txt --tee
+
+
+tests_unit:
+  image: $CI_DOCKER_REGISTRY/target-test-env-v5.2:1
+  stage: tests
+  tags:
+    - gdb_amd64_test
+  artifacts:
+    paths:
+    - "*.log"
+    - tests/*.log
+    - tests/results/*
+    reports:
+      junit:
+        - tests/results/*
+    when: always
+    expire_in: 1 week
+  script:
+    - apt-get update && apt-get install -y build-essential gdb gcc
+    - python3 -m pip install -r ./requirements.txt
+    - python3 -m pip install -r ./tests/requirements.txt
+    - python3 ./tests/target/build_all.py
+    # make 'xtensa-esp32-elf-gdb' accessible via PATH
+    - export PATH=$(dirname $(find /root -name xtensa-esp32-elf-gdb)):$PATH
+    - cd $CI_PROJECT_DIR/tests
+    - python3 -m pytest
