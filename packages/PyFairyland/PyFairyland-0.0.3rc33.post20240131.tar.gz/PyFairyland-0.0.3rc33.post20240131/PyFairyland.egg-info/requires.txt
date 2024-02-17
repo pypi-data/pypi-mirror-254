@@ -1,0 +1,6 @@
+python-dotenv
+loguru
+pymysql
+psycopg2-binary
+django<5.0.0
+django-stubs
