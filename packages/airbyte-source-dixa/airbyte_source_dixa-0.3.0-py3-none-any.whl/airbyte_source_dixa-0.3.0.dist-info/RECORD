@@ -1,0 +1,17 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/abnormal_state.json,sha256=2ljNjzxWK0S6Cd2ESwH3KeTxY04YewM4LPKum8DSPg8,67
+integration_tests/acceptance.py,sha256=8eU9iSDbmHyufPvAouJGhPMgPAFTCP8IKIKHLm7u5TE,435
+integration_tests/configured_catalog.json,sha256=2SW45yVUjmj_ZTA2E9i-YJFXlDQiIdbUp6FnUdUaRlA,439
+integration_tests/invalid_config.json,sha256=iht2eyMdld4me6kKwBf6j-ylfgrfQD_rwPhUX-zflqs,79
+integration_tests/sample_config.json,sha256=M0ILNPWMc5DuJI8W7eNDbe8vQpGsWFWgl8p4AL2riXA,77
+integration_tests/sample_state.json,sha256=PSABKD9RL1jBkoL_pG8A35tu83cjijP9xBK-q3q_Fsw,67
+source_dixa/__init__.py,sha256=vP--8-Ff8gNCf-aliAdj6PHU155dK1asNgcz5DEzT2c,120
+source_dixa/manifest.yaml,sha256=YhkVZWwd7PKObKummm0zgxl499WWuJ8Y5BCoDl4-4Lg,2556
+source_dixa/run.py,sha256=burqwqoo2ahQb8DXgdwTZagFCagc45uDnxnietbBV8k,224
+source_dixa/source.py,sha256=gTeg2i6Upblwdh8lHMDtxAUkkjomaonwyz_DnHgHHcU,473
+source_dixa/schemas/conversation_export.json,sha256=fSGDlDTTIddaRJoEVcH-GXBvRERf8GNOKb9ZKS9yeFc,5471
+airbyte_source_dixa-0.3.0.dist-info/METADATA,sha256=J_Pn_lAD9OYExmrascAdoYeb-L5OVTFHvaYsk2oodWI,4135
+airbyte_source_dixa-0.3.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_dixa-0.3.0.dist-info/entry_points.txt,sha256=7TARsZhiCdIHfEYfQTwWBYlGe9Gt9rdIpjZdyl6pb74,52
+airbyte_source_dixa-0.3.0.dist-info/top_level.txt,sha256=j_78GNiGdGArFRhiSyV6jgM4SeSivxx5Ch_r32eZDIc,30
+airbyte_source_dixa-0.3.0.dist-info/RECORD,,
