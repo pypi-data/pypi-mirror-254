@@ -1,0 +1,4 @@
+---
+- name: Warning
+  debug:
+    msg: "Python3 must be pre-installed on CentOS-6."

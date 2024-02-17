@@ -1,0 +1,7 @@
+---
+- name: "Install Python3 (AlmaLinux-8)."
+  become: yes
+  yum:
+    state: present
+    name:
+      - python3
