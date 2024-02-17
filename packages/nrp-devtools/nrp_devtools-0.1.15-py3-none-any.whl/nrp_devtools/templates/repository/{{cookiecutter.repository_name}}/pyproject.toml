@@ -1,0 +1,40 @@
+[project]
+name = "repo"
+version = "1.0.0"
+description = ""
+packages = []
+authors = []
+dependencies = [
+    "json5",
+    "oarepo=={{cookiecutter.oarepo_version}}.*",
+    "oarepo-runtime",
+    "oarepo-ui",
+    "python-dotenv",
+    {% if cookiecutter.use_oarepo_vocabularies -%}
+    "oarepo-vocabularies",
+    {%- endif %}
+]
+requires-python = ">=3.9,<3.11"
+
+
+[project.entry-points."invenio_assets.webpack"]
+branding = "{{cookiecutter.ui_package}}.branding.webpack:theme"
+i18n = "i18n.webpack:theme"
+components = "{{cookiecutter.ui_package}}.components.webpack:theme"
+
+[project.entry-points."invenio_base.blueprints"]
+branding = "{{cookiecutter.ui_package}}.branding:create_blueprint"
+titlepage = "{{cookiecutter.ui_package}}.titlepage:create_blueprint"
+components = "{{cookiecutter.ui_package}}.components:create_blueprint"
+
+[project.entry-points."invenio_i18n.translations"]
+translations = "i18n"
+
+[project.entry-points."invenio_db.alembic"]
+repo = "{{cookiecutter.shared_package}}:alembic"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
