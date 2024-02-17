@@ -1,0 +1,50 @@
+
+
+
+EEC448:
+
+
+	agenda:
+		[ ] form private key
+		[ ] form private key
+
+		[ ] write private key to file
+		[ ] write public key to file
+		
+
+	public key:
+		138 characters
+		
+	relevant JavaScript:
+		https://www.npmjs.com/package/elliptic
+
+	relevant:
+		https://soatok.blog/2022/05/19/guidance-for-choosing-an-elliptic-curve-signature-algorithm-in-2022/
+	
+		https://cryptography.io/en/latest/
+		
+		https://github.com/tlsfuzzer/python-ecdsa
+	
+		https://wizardforcel.gitbooks.io/practical-cryptography-for-developers-book/content/digital-signatures/eddsa-sign-verify-examples.html
+		https://github.com/cslashm/ECPy
+		https://stackoverflow.com/questions/18806962/simple-der-cert-parsing-in-python
+		https://github.com/wbond/asn1crypto/
+
+	256 possibilities per byte:
+	73 					  bytes:
+
+	256 ** 73 = 63316582777114760719488645381029680648993625
+				36991023101800014235978168962727215799560099
+				86716782195173370038850601316708739494487825
+				28309751691815706084650986651333670066978816
+	
+	
+	
+	less relevant:
+		'''
+			https://stackoverflow.com/questions/18806962/simple-der-cert-parsing-in-python
+		'''
+		#from asn1crypto.x509 import Certificate
+		#cert = Certificate.load (public_key ["string"])
+		#n = cert.public_key.native["public_key"]["modulus"]
+		#e = cert.public_key.native["public_key"]["public_exponent"]	
