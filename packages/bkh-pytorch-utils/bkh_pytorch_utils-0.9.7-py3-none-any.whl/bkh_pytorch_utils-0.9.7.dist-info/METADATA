@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: bkh_pytorch_utils
+Version: 0.9.7
+Summary: A rapid prototyping tool for MONAI & PyTorch Lightning
+Home-page: https://github.com/BardiaKh/PytorchUtils
+Author: Bardia Khosravi
+Author-email: bardiakhosravi95@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib >=3.1.2
+Requires-Dist: pandas >=0.25.0
+Requires-Dist: numpy >=1.20.0
+Requires-Dist: torch >=1.4
+Requires-Dist: tabulate >=0.8.9
+Requires-Dist: tqdm >4.60.0
+Requires-Dist: monai >=1.0.0
+Requires-Dist: lightning >=2.1.0
+Requires-Dist: scikit-learn >=1.0.0
+Requires-Dist: seaborn >=0.11.0
+Requires-Dist: scikit-image >=0.18.0
+Requires-Dist: overrides >=6.1.0
+Requires-Dist: timm >=0.5.0
+
+# PytorchUtils
+
+This is a package designed for rapid prototyping of a deep learning project using [MONAI](https://github.com/Project-MONAI/MONAI) & [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning).  
+
+**Use with caution!**  
+*Intended for personal use.*
