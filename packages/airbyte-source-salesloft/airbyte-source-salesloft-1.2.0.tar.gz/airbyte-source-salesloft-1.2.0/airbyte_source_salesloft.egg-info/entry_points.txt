@@ -1,0 +1,2 @@
+[console_scripts]
+source-salesloft = source_salesloft.run:run
