@@ -1,0 +1,2 @@
+[console_scripts]
+sendenv = sendenv.main:main
