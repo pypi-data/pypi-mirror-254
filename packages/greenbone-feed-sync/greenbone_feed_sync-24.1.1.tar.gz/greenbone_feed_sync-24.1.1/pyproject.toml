@@ -1,0 +1,94 @@
+[tool.poetry]
+name = "greenbone-feed-sync"
+version = "24.1.1"
+description = "A tool for downloading the Greenbone Community Feed"
+authors = ["Björn Ricks <bjoern.ricks@greenbone.net>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+classifiers = [
+  # Full list: https://pypi.org/pypi?%3Aaction=list_classifiers
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)", # pylint: disable=line-too-long
+  "Environment :: Console",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: OS Independent",
+  "Topic :: Utilities",
+]
+
+packages = [
+  { include = "greenbone" },
+  { include = "tests", format = "sdist" },
+  { include = "poetry.lock", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+rich = ">=13.2.0"
+tomli = { version = ">=2.0.1", python = "<3.11" }
+shtab = ">=1.6.5"
+
+[tool.poetry.group.dev.dependencies]
+autohooks-plugin-black = ">=22.11.0"
+autohooks-plugin-ruff = ">=23.6.0"
+autohooks-plugin-mypy = ">=23.3.0"
+pontos = ">=22.12.2"
+coverage = { extras = ["toml"], version = ">=7.1.0" }
+
+[tool.poetry.scripts]
+greenbone-feed-sync = 'greenbone.feed.sync.main:main'
+greenbone-nvt-sync = 'greenbone.feed.sync.main:main'
+greenbone-scapdata-sync = 'greenbone.feed.sync.main:main'
+greenbone-certdata-sync = 'greenbone.feed.sync.main:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 80
+target-version = ['py39', 'py310', 'py311', 'py312']
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.github
+  | \.vscode
+  | _build
+  | build
+  | dist
+  | docs
+)/
+'''
+
+[tool.autohooks]
+pre-commit = [
+  'autohooks.plugins.black',
+  'autohooks.plugins.ruff',
+  'autohooks.plugins.mypy',
+]
+mode = "poetry"
+
+[tool.pontos.version]
+version-module-file = "greenbone/feed/sync/__version__.py"
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.ruff]
+line-length = 80
+target-version = "py39"
+extend-select = ["I", "PLE", "PLW"]
+
+[tool.coverage.run]
+omit = ["tests/*", "*/__init__.py"]
+source = ["greenbone"]
+
+[tool.mypy]
+files = "greenbone"
+ignore_missing_imports = true
+explicit_package_bases = true
