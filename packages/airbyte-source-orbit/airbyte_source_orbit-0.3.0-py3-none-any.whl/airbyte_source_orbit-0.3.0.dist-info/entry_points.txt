@@ -1,0 +1,2 @@
+[console_scripts]
+source-orbit = source_orbit.run:run
