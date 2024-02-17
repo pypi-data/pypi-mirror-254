@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+pyproject.toml
+smana/__init__.py
+smana/auxiliary_routines.py
+smana/smana.py
+smana/utility.py
+smana.egg-info/PKG-INFO
+smana.egg-info/SOURCES.txt
+smana.egg-info/dependency_links.txt
+smana.egg-info/requires.txt
+smana.egg-info/top_level.txt
