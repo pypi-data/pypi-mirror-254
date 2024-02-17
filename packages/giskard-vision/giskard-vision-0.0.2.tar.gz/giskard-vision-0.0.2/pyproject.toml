@@ -1,0 +1,80 @@
+[project]
+name = "giskard-vision"
+version = "0.0.2"
+description = "The expansion of Giskard into testing computer vision models"
+authors = [{ name = "Giskard AI", email = "hello@giskard.ai" }]
+dependencies = [
+    "opencv-python",
+    "numpy",
+]
+requires-python = ">=3.10,<3.12"
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["giskard_vision*"]
+exclude = ["docs*", "tests*"]
+
+
+[tool.pdm.scripts]
+notebook = "jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser --notebook-dir ./examples --NotebookApp.token=''"
+format.cmd = "bash -c 'ruff ./giskard_vision ./tests --fix && black ./giskard_vision ./examples ./tests  && isort ./giskard_vision ./tests'"
+check-format.cmd = "bash -c 'ruff ./giskard_vision ./tests && black --check ./giskard_vision ./examples ./tests && isort --check ./giskard_vision ./tests'"
+test.cmd = "pytest tests/ -c pyproject.toml --disable-warnings -vvv --durations=0"
+check-notebook = "bash -c 'for dir in $(find ~+/examples -type f -name \"*ipynb\" | sed -E \"s|/[^/]+$||\" |sort -u); do cd $dir && pdm run jupyter nbconvert --to script -y *.ipynb && find . -type f | grep -e \".py$\" | sort | xargs -I {} echo \"pdm run python {} && echo \"Notebook {} OK\" || exit 1\" | sh; done'"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "face-alignment",
+    "opencv-contrib-python",  # needed for lbfmodel
+    "notebook",
+    "matplotlib",
+    "black[jupyter]>=23.7.0",
+    "pytest>=7.4.0",
+    "pip>=23.2.1",
+    "pre-commit>=2.19.0",
+    "ruff",
+    "isort",
+    "sixdrepnet>=0.1.6",
+    "deepface>=0.0.80",
+    "pillow>=10.2.0",
+    "pandas>=2.1.4",
+    "tensorflow>=2.15.0",
+    "tensorflow-datasets>=4.9.4",
+    "scipy>=1.11.4",
+    "tensorflow-io-gcs-filesystem==0.34; platform_machine == 'arm64' and sys_platform == 'darwin'", # The only wheel for ARM64 Mac
+    "giskard>=2.7.0",
+]
+
+[tool.ruff]
+line-length = 120
+ignore = ["E501"]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+# https://github.com/psf/black
+target-version = ['py310', 'py311']
+line-length = 120
+color = true
+
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+    | .history
+)/
+'''
