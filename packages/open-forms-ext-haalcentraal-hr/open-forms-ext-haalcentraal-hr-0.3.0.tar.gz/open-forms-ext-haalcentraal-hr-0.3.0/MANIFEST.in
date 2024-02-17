@@ -1,0 +1,9 @@
+include *.rst
+include LICENSE
+include prefill_haalcentraalhr/py.typed
+recursive-include prefill_haalcentraalhr *.html
+recursive-include prefill_haalcentraalhr *.txt
+recursive-include prefill_haalcentraalhr *.po
+global-exclude __pycache__
+global-exclude *.py[co]
+
