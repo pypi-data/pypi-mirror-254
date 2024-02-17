@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: happy_kostadin
+Version: 0.0.5
+Author-email: Tom Nijhof <tomsspamadress@gmail.com>
+License: MIT
+License-File: LICENSE
+Keywords: checker,crlf,lf,line-ending
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: setuptools>=62
+Requires-Dist: tomli>=1.1.0; python_version < '3.11'
+Requires-Dist: tqdm>=4.66.1
+Description-Content-Type: text/markdown
+
+# Happy Kostadin
+
+Find out if LF or CRLF is used.
+
+# Credits
+
+- Tom Nijhof
