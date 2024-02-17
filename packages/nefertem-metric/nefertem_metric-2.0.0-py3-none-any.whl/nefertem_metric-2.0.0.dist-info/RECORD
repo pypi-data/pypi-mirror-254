@@ -1,0 +1,14 @@
+nefertem_metric/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nefertem_metric/metadata/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nefertem_metric/metadata/report.py,sha256=jODKahRz61SUMj2uyi0jFBNK563ORKkD6YjXIHca2t4,1645
+nefertem_metric/plugins/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nefertem_metric/plugins/builder.py,sha256=0TjROmZ6wSL7tCzSpujCEi2dps-Z8S-E1w5deWHfZp4,473
+nefertem_metric/plugins/metric.py,sha256=xRkyqMHFOpqgx5yzqKcRgIi7xiLDyHXof0Mws5yGwHE,541
+nefertem_metric/plugins/plugin.py,sha256=EwYqiJSrCwerCNc2cBY4VBLl6uf9vF2PevgCYHxIOsU,1361
+nefertem_metric/run/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nefertem_metric/run/run.py,sha256=56lg0f2xlA97EQhl0_1hdVxLyvp-MNds5ktUVw7axS4,3196
+nefertem_metric-2.0.0.dist-info/LICENSE.txt,sha256=ibe6wHqIIi7Qon3vTKTSwnRgjpVFTSr7HOt7drtMa4g,11582
+nefertem_metric-2.0.0.dist-info/METADATA,sha256=300ClmTi01vq_5MG4VZMTNNuJYSc-5aZzAMVIU-SiYQ,14061
+nefertem_metric-2.0.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+nefertem_metric-2.0.0.dist-info/top_level.txt,sha256=svYv0vP8d80v9oHMN7k-hc4PMilnDIZ8CUDekVRH5Hg,16
+nefertem_metric-2.0.0.dist-info/RECORD,,
