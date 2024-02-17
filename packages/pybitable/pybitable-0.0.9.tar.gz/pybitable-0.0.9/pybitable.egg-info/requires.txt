@@ -1,0 +1,13 @@
+pep249
+pyparsing
+mo_sql_parsing
+ca-lark-sdk
+
+[cli]
+docopt
+pygments
+prompt_toolkit>=2
+tabulate
+
+[sqlalchemy]
+sqlalchemy

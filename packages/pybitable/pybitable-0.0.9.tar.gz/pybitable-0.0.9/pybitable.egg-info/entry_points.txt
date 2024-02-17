@@ -1,0 +1,7 @@
+[console_scripts]
+pybitable = pybitable.console:main
+
+[sqlalchemy.dialects]
+bitable = pybitable.dialect:BITableDialect
+bitable.pybitable = pybitable.dialect:BITableDialect
+
