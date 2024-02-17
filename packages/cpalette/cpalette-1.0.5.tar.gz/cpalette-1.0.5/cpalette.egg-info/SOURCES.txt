@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+cpalette/__init__.py
+cpalette/color_converter.py
+cpalette/colors.py
+cpalette/preview.py
+cpalette.egg-info/PKG-INFO
+cpalette.egg-info/SOURCES.txt
+cpalette.egg-info/dependency_links.txt
+cpalette.egg-info/requires.txt
+cpalette.egg-info/top_level.txt
