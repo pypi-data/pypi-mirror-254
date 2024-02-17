@@ -1,0 +1,2 @@
+[console_scripts]
+source-nytimes = source_nytimes.run:run
