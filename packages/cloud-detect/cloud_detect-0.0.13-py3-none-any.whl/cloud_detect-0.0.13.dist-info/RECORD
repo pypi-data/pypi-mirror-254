@@ -1,0 +1,15 @@
+cloud_detect/__init__.py,sha256=4dmNNFtnYgzW8bDw-451xDcA7Cww0xziSCHFY3pBu9c,3587
+cloud_detect/providers/__init__.py,sha256=n8vpRyizTDoEk43XWK9mQ_XpAPNPQihgY343A1Q328E,510
+cloud_detect/providers/alibaba_provider.py,sha256=YUxSUp5StYokdwcUe0B9AUUi3xJMs1qlhOM4atzMAE4,1621
+cloud_detect/providers/aws_provider.py,sha256=TyztfBrqy_rTmkUDGZZc5nxVRimAo4nYWgYIF0akcmA,2674
+cloud_detect/providers/azure_provider.py,sha256=oUGoKSHCG4rf4RAxch8hU9rzMi5hKWpb8q_jyU1_aG0,1702
+cloud_detect/providers/do_provider.py,sha256=O8H59_mrNF0fhlCj0wuDqRPr8h4VFJgltFjT5mpt4vk,1553
+cloud_detect/providers/gcp_provider.py,sha256=-ILhBzETzfneJw0H7d4KzaFsPzCZHxer3cZ_vhSpotM,1592
+cloud_detect/providers/oci_provider.py,sha256=hoGBLW9h3-f3WgRkVWUg6oBHnf3gf3WgWFOnXNb1xyI,1076
+cloud_detect/providers/provider.py,sha256=fEdu1Izo0w5Hiw8a3o_kjKrcevBZUwRxcsdaH-ml9U0,507
+cloud_detect/providers/vultr_provider.py,sha256=lgC16qo-HAFK6W0k-E59-vM0AHsnGWwPA8srqILx70M,1512
+cloud_detect-0.0.13.dist-info/LICENSE.md,sha256=am9NpuENDpGCg8IFc_Z2dTjUjAKR7vixwxZcpe05A40,1079
+cloud_detect-0.0.13.dist-info/METADATA,sha256=6uT61lWoVZml2SBqSR9QVfaxw7mJASJUSq5XfK87Iog,3487
+cloud_detect-0.0.13.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+cloud_detect-0.0.13.dist-info/top_level.txt,sha256=iHdE4Mld9ibEVOoJevrcdhJRrQyNc3keoBhasTV1-cI,13
+cloud_detect-0.0.13.dist-info/RECORD,,
