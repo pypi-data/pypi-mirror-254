@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: fluidsim-core
+Version: 0.8.0rc1
+Summary: Pure-Python core library for FluidSim framework
+Author-email: "pierre.augier" <pierre.augier@univ-grenoble-alpes.fr>
+Requires-Python: >=3.9
+Requires-Dist: fluiddyn
+Requires-Dist: importlib_metadata; python_version < '3.10'
