@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: IRA_vision
+Version: 0.0.1
+Summary: A package for vision tasks
+Author-email: saroj <saroj.debnath@adtran.com>
+Project-URL: Homepage, https://github.com/SarojDebnath
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python ==4.7.0.72
+Requires-Dist: numpy ==1.24.3
+Requires-Dist: torch
+Requires-Dist: tensorflow
+Requires-Dist: easyocr
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: seaborn
+Requires-Dist: pyrealsense2
+
+This package will have the continuation. However, this first generation will have some use in production of visual operation.
