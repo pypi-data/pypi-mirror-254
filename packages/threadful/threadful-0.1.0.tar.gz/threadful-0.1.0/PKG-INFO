@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: threadful
+Version: 0.1.0
+Summary: Python Threads - from Dreadful to Threadful
+Project-URL: Documentation, https://github.com/robinvandernoord/threadful#readme
+Project-URL: Issues, https://github.com/robinvandernoord/threadful/issues
+Project-URL: Source, https://github.com/robinvandernoord/threadful
+Author-email: Robin van der Noord <robinvandernoord@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: result
+Provides-Extra: dev
+Requires-Dist: edwh; extra == 'dev'
+Requires-Dist: hatch; extra == 'dev'
+Requires-Dist: pytest-mypy-testing; extra == 'dev'
+Requires-Dist: python-semantic-release<8; extra == 'dev'
+Requires-Dist: su6[all]; extra == 'dev'
+Description-Content-Type: text/markdown
+
+<div align="center">
+    <img 
+        align="center" 
+        src="https://github.com/robinvandernoord/threadful/assets/2529002/7a0bb4cd-2a02-40c1-a2b6-2eb77996cd48" 
+        alt="Threaded Python"
+        width="400px"
+        />
+    <h1 align="center">Threadful</h1>
+    <small>Python Threads - from Dreadful to Threadful</small>
+</div>
+
+<hr/>
+
+## Installation
+
+```bash
+pip install threadful
+```
+
+## Usage
+
+```python
+from threadful import thread
+
+@thread # with or without ()
+def some_function():
+  time.sleep(10)
+  return " done "
+
+# when ready, it sill call these callback functions.
+some_function().then(lambda result: result.strip().then(lambda result: print(result)) # prints: "done"
+
+promise = some_function() # ThreadWithResult[str] object
+promise.result() # Err(None)
+time.sleep(15) # after the thread is done:
+promise.result() # Ok(" done ")
+
+# alternative to sleep:
+result = promise.join() # Ok(" done ") if success, Err(Exception) if the thread raised an exception
+```
+
+## License
+`threadful` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
+## Changelog
+
+[See CHANGELOG.md](https://github.com/robinvandernoord/threadful/blob/master/CHANGELOG.md)

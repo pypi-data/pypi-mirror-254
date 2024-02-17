@@ -1,0 +1,6 @@
+venv*
+*.bak
+.idea/
+*.pyc
+coverage.*
+.coverage
