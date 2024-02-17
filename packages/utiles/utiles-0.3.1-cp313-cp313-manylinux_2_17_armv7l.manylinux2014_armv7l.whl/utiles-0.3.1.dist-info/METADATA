@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: utiles
+Version: 0.3.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: utiles = (utils + tiles) * rust
+Author: Jesse K. Rubin <jessekrubin@gmail.com>
+Author-email: Jesse Rubin <jessekrubin@gmail.com>
+Maintainer-email: Jesse Rubin <jessekrubin@gmail.com>
+License: MIT OR Apache-2.0
+Requires-Python: >=3.8
