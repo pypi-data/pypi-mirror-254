@@ -1,0 +1,15 @@
+pg_ch_creator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pg_ch_creator/compile_dialect.py,sha256=eqoNiw9QdPD5p6FOBF6na_tqFOE_eYwJ8rYPouvQguQ,1041
+pg_ch_creator/table_creator.py,sha256=i5S1cmIBbsatp4bAVRlgArPSak4G4YaJfloJdaDVdc8,1952
+pg_ch_creator/table_transformer.py,sha256=mDsOjTdI6HaIbWwqgaZ5obODWLGl_CmvIAST3hDY-1I,1616
+pg_ch_sync/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pg_ch_sync/pg_ch_sync.py,sha256=cMBZlpe_V6iO2Eo8xtCXZsrr9IYFIBSG__iGmxnt7w8,3694
+pg_s3_ch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pg_s3_ch/pg_s3_ch.py,sha256=sCZLWymbe31xvPb_ZEjCCiOaZrgKwRGSqHk32oTr6rI,23039
+pg_s3_ch/sql_queries.py,sha256=7JTvi_8ZB6mLvr3oprWdvNfTkWSw_WBE99fpxSGBQ8k,3165
+pg_s3_ch/temp_table_creator_ch.py,sha256=Mx50V_XdagxgGgcM5jRE7mezjvl9R-qGOsjKnLpSP4I,2300
+pg_s3_ch-1.0.1.dist-info/LICENSE.txt,sha256=J4VdPaPwVk6iB0Zq0WQF-JrO_fmZeZZNOYL_7ilcuqk,1068
+pg_s3_ch-1.0.1.dist-info/METADATA,sha256=45j0aYCCQL3tRUuLCrV9MXZjl0IjfwjR0NRO-3GAMjk,797
+pg_s3_ch-1.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+pg_s3_ch-1.0.1.dist-info/top_level.txt,sha256=EOJOf_EXdQ8k6ccjnhgOorott89PkrIHSnB89x3LHmk,34
+pg_s3_ch-1.0.1.dist-info/RECORD,,
