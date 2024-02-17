@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: gammagl
+Version: 0.4.0
+Summary: 
+Home-page: https://github.com/BUPT-GAMMA/GammaGL
+Download-URL: https://github.com/BUPT-GAMMA/GammaGL
+Author: BUPT-GAMMA LAB
+Author-email: tyzhao@bupt.edu.cn
+Maintainer: Tianyu Zhao
+License: Apache-2.0 License
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: numba
+Requires-Dist: scipy
+Requires-Dist: protobuf
+Requires-Dist: pyparsing
+Requires-Dist: rdkit
+Requires-Dist: tensorboardx
+Requires-Dist: pytest
+Requires-Dist: tensorlayerx
+Requires-Dist: rich
+Requires-Dist: tqdm
+Requires-Dist: pybind11
+Requires-Dist: panda
