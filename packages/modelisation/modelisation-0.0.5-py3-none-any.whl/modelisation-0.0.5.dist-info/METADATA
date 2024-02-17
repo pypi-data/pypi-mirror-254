@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: modelisation
+Version: 0.0.5
+Summary: Modéliser des points expérimentaux
+Home-page: https://urlz.fr/pu0X
+Author: LAURENT Stéphane
+License: UNKNOWN
+Keywords: modelisation physique chimie lycée linéaire affine linear regression physical chemistry modeling
+Platform: UNKNOWN
+Classifier: Topic :: Education
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib (>=3.8.0)
+Requires-Dist: numpy (>=1.26.0)
+Requires-Dist: scipy (>=1.11.0)
+Requires-Dist: addcopyfighandler (>=3.0.0)
+
+# Présentation
+
+Cette bibliothèque permet de faire de **la modélisation de points expérimentaux** très simplement en ajoutant seulement deux lignes de code dans votre programme Python.
+
+Avec cette bibliothèque, vous pourrez :
+
+- Afficher la courbe modélisée sur le graphique ainsi que son **équation**.
+- Sélectionner avec le “**lasso**”, les points expérimentaux à utiliser pour la modélisation.
+- Afficher/masquer un **réticule** en appuyant sur la touche “**r**” du clavier.
+- **Copier-coller** le graphique avec les touches Ctrl+C et Ctrl V.
+
+![](https://icn.lycee-valin.fr/images/Exemple_modelisation.gif)
+
+[Description plus détaillée](https://urlz.fr/pu0X)
+
+## Installation
+Utilisez le gestionnaire de packages **pip** pour installer.
+
+```bash
+pip install modelisation
+```
+## Dépendances
+Cette bibliothèque utilise :
+ - matplotlib
+ - numpy
+ - scypy
+ - addcopyfighandler
+## Utilisation
+
+```python
+import matplotlib.pyplot as plt      
+import modelisation                
+ 
+x = [0, 1e-3, 2e-3, 3e-3, 4e-3, 5e-3, 6e-3, 7e-3]  #  saisir les valeurs expérimentales de la grandeur en abscisse
+y = [0, 0.221, 0.440, 0.665, 1.250, 1.105, 1.327, 1.550]  #  saisir les valeurs de la grandeur en ordonnée
+plot(x,y, color='red', marker='+', linestyle='none')  # Afficher les points
+ 
+modelisation.modele("lineaire",x ,y) # modèles disponibles : "lineaire", "affine", "parabole", "exp_croissante", "exp_decroissante", "double_affine"
+ 
+plt.show()
+```
+
+## Auteur
+
+Stéphane LAURENT
+
+Lycée Valin - La Rochelle (17) - France
+
+
