@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ml-hadoop-experiment
+Version: 0.0.5
+Summary: TensorFlow and Pytorch helpers to run experiments on Hadoop
+Home-page: https://github.com/criteo/ml-hadoop-experiment
+Maintainer: Criteo
+Maintainer-email: github@criteo.com
+License: UNKNOWN
+Keywords: tensorflow pytorch yarn
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: psutil
+Requires-Dist: pandas <2
+Requires-Dist: numpy
+Requires-Dist: cluster-pack
+Requires-Dist: tqdm
+Requires-Dist: deprecation
+
+UNKNOWN
+
