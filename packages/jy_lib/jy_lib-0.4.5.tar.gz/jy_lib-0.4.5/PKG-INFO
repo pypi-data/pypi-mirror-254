@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: jy_lib
+Version: 0.4.5
+Summary: Python SDK for jyfund
+Author-email: jyfund <popsars@gmail.com>
+Description-Content-Type: text/markdown
+Requires-Dist: loguru
+Requires-Dist: pypinyin
+Requires-Dist: pysmb
+Requires-Dist: websockets
+
+### jy_lib

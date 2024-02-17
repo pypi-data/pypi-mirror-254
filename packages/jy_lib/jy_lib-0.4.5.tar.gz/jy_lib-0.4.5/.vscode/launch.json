@@ -1,0 +1,9 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  // launch.json 是 Visual Studio Code 中用于配置调试器的文件。它包含了一组配置项，每个配置项定义了一个调试会话的属性
+  "version": "0.2.0", // 调试配置文件的版本号
+  "configurations": [ // 调试配置项的数组
+  ]
+}
