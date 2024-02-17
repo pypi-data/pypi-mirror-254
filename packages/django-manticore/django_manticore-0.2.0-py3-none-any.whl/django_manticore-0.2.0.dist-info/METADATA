@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: django-manticore
+Version: 0.2.0
+Summary: Manticoresearch database backend for Django
+Home-page: https://github.com/just-work/django-manticore
+Author: Sergey Tikhonov
+Author-email: zimbler@gmail.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Framework :: Django :: 3.1
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Classifier: Framework :: Django :: 4.1
+Classifier: Framework :: Django :: 4.2
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Distributed Computing
+Description-Content-Type: text/markdown
+Requires-Dist: Django <4.3,>=3.1
+
+# django-manticore
