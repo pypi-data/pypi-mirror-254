@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "napalm-slither"
+version = "0.1.0"
+description = "Napalm slither plugin"
+authors = ["Joran Honig <joran.honig@consensys.net>"]
+license = "AGPLv3"
+readme = "README.md"
+include = ["templates/**/*"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+slither-analyzer = "^0.10.0"
+loguru = "^0.7.2"
+toolz = "^0.12.1"
+napalm-toolbox = "^0.1.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+pre-commit = "^3.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."slither_analyzer.plugin"]
+"slither napalm" = "napalm_slither.entry_point:napalm_entry_point_slither"
+
+[tool.poetry.plugins."napalm.tool_plugin"]
+"napalm_slither" = "napalm_slither.plugin:SlitherPlugin"
