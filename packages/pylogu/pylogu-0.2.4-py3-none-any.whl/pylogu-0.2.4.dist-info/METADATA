@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: pylogu
+Version: 0.2.4
+Summary: Logu - Python SDK
+Home-page: https://github.com/kevinqz/pylogu
+Author: Kevin Saltarelli
+Author-email: kevinqz@gmail.com
+Requires-Python: >=3.7
+Requires-Dist: httpx >=0.18.2
+
