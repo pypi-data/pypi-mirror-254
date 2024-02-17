@@ -1,0 +1,1 @@
+from .digitalcomponent import DigitalObjectComponent
