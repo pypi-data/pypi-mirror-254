@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+libbash/__init__.py
+libbash/api.py
+libbash/ctypes_bash_command.py
+libbash/test.py
+libbash.egg-info/PKG-INFO
+libbash.egg-info/SOURCES.txt
+libbash.egg-info/dependency_links.txt
+libbash.egg-info/top_level.txt
+libbash/bash_command/__init__.py
+libbash/bash_command/command.py
+libbash/bash_command/flags.py
+libbash/bash_command/util.py
