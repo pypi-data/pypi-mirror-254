@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: llama_model
+Version: 0.0.1
+Summary: Get information from custom text
+Home-page: 
+Author: javad nematollahi
+Author-email: javadnematollahi92@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text.markdown
+
+## LLAMA
+
+This is an openai model that able you to give your own text to it and ask question of that text from model.
+
+To use this model first you need to buy a token from openai.
+
+link of model documentation:
+
+https://docs.llamaindex.ai/
