@@ -1,0 +1,337 @@
+/* Copyright (c) Ansible and contributors */
+/* GNU General Public License v3.0+ (see https://www.gnu.org/licenses/gpl-3.0.txt) */
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+.ansible-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  > * {
+    margin: 2px 4px !important;
+  }
+
+  > li {
+    list-style: none !important;
+
+    > p {
+      display: inline;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 4px 12px;
+
+    cursor: pointer;
+    border-radius: 3px;
+
+    background-color: #5bbdbf;
+    color: white;
+
+    &:hover, &:active, &:focus {
+      background-color: #91d9db;
+    }
+
+    &:focus {
+      outline: 3px solid #204748;
+    }
+  }
+}
+
+// Documentation table (for module options and return values)
+table.documentation-table {
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+
+  th {
+    background-color: #6AB0DE;
+  }
+
+  td, th {
+    padding: 4px;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+  }
+
+  td.elbow-placeholder {
+    border-top: 0;
+    width: 30px;
+    min-width: 30px;
+  }
+
+  // More table formatting
+  td {
+    vertical-align: top;
+  }
+  td:first-child {
+    white-space: nowrap;
+  }
+
+  // Direct links to options / return values
+  tr {
+    .ansibleOptionLink {
+      display: inline-block;
+
+      &::after {
+        content: "🔗";
+        opacity: 0;
+      }
+    }
+
+    &:hover .ansibleOptionLink::after {
+      opacity: 1;
+    }
+
+    &:nth-child(odd) {
+      background-color: #FFFFFF;
+    }
+    &:nth-child(even) {
+      background-color: #E7F2FA;
+    }
+  }
+}
+
+table.ansible-option-table {
+  // This is the default, but for some reason sphinx_ansible_theme sets this to 'display: block',
+  // which totally wrecks the layout. (The height 'hack' below then ensures that the table actually
+  // has height 1px, which basically hides it.)
+  display: table;
+
+  border-color: #000000 !important;
+  
+  // The following is basically ignored, but together with the `height: 100%` for <tr>
+  // and the two `height: inherit`s for <td> and <div> makes sure that the <div> inside
+  // the <td> has full height.
+  height: 1px;
+
+  tr {
+    height: 100%;
+  }
+
+  td, th {
+    border-color: #000000 !important;
+    border-bottom: none !important;
+    vertical-align: top !important;
+  }
+
+  th > p {
+    font-size: initial !important;
+  }
+
+  thead tr {
+    background-color: #6AB0DE;
+  }
+
+  tbody {
+    .row-odd td {
+      background-color: #FFFFFF !important;
+    }
+
+    .row-even td {
+      background-color: #E7F2FA !important;
+    }
+  }
+
+  ul > li > p {
+    margin: 0 !important;
+  }
+
+  ul > li > div[class^="highlight"] {
+    margin-bottom: 4px !important;
+  }
+
+  p.ansible-option-title {
+    display: inline;
+  }
+
+  .ansible-option-type-line {
+    font-size: small;
+    margin-bottom: 0;
+  }
+
+  .ansible-option-type {
+    color: purple;
+  }
+
+  .ansible-option-elements {
+    color: purple;
+  }
+
+  .ansible-option-required {
+    color: red;
+  }
+
+  .ansible-option-versionadded {
+    font-size: small;
+    color: darkgreen;
+  }
+
+  .ansible-option-aliases {
+    color: darkgreen;
+    white-space: normal;
+  }
+
+  .ansible-option-line {
+    margin-top: 8px;
+  }
+
+  .ansible-option-choices-entry {
+  }
+
+  .ansible-option-default, .ansible-option-choices-default-mark {
+    color: blue;
+  }
+
+  .ansible-option-default-bold {
+    color: blue;
+  }
+
+  .ansible-option-sample {
+    color: blue;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .ansible-option-sample-bold {
+    color: black;
+  }
+
+  .ansible-attribute-support-none {
+    color: red;
+  }
+
+  .ansible-attribute-support-partial {
+    color: #a5a500;
+  }
+
+  .ansible-attribute-support-full {
+    color: green;
+  }
+
+  .ansible-attribute-support-na {
+  }
+
+  .ansibleOptionLink {
+    display: inline-block;
+
+    &::after {
+      content: "🔗";
+      opacity: 0;
+    }
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+
+  tr:hover .ansibleOptionLink::after {
+    opacity: 1;
+  }
+
+  td {
+    padding: 0 !important;
+    white-space: normal;
+
+    > div.ansible-option-cell  {
+      padding: 8px 16px;
+      border-top: 1px solid #000000;
+    }
+  }
+
+  td:first-child {
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+
+    > div.ansible-option-cell {
+      height: inherit;
+      flex: 1 0 auto;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+  }
+
+  .ansible-option-indent {
+    margin-left: 2em;
+    border-right: 1px solid #000000;
+  }
+
+  .ansible-attribute-support-label {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  table.ansible-option-table {
+    display: block;
+    height: unset;
+    border: none !important;
+  
+    thead {
+      display: none;
+    }
+  
+    tbody, tr, td {
+      display: block;
+      border: none !important;
+    }
+
+    tbody {
+      .row-odd td {
+        background-color: unset !important;
+      }
+
+      .row-even td {
+        background-color: unset !important;
+      }
+    }
+
+    td {
+      > div.ansible-option-cell {
+        border-top: none;
+      }
+
+      &:first-child > div.ansible-option-cell {
+        background-color: #E7F2FA !important;
+      }
+    }
+
+    td:not(:first-child) {
+      display: flex;
+      flex-direction: row;
+      
+      > div.ansible-option-cell {
+        margin-left: 1em;
+      }
+    }
+
+    .ansible-option-indent, .ansible-option-indent-desc {
+      margin-left: 1em;
+    }
+
+    .ansible-option-indent, .ansible-option-indent-desc {
+      border: none;
+      border-right: solid 3px #E7F2FA;
+    }
+
+    .ansible-attribute-support-label {
+      display: unset;
+    }
+  }
+}
+
+.ansible-version-added {
+  font-style: italic;
+}
+
+.ansible-option, .ansible-option-value, .ansible-return-value {
+  a.reference.internal, a.reference.external {
+    color: unset;
+
+    &:hover {
+      color: unset;
+    }
+  }
+}
