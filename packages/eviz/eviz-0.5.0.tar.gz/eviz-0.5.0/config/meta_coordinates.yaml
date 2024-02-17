@@ -1,0 +1,88 @@
+# Dimension names in each model
+# x-coordinate name
+xc:
+    geos: lon
+    ccm: lon
+    cf: lon
+    era5: lon
+    generic: lon
+    gmi: longitude_dim
+    airnow: Longitude
+    omi: Longitude
+    wrf:
+        dim: west_east
+        coords: XLONG,XLONG_U,XLONG_V
+    lis:
+        dim: east_west
+        coords: lon
+    giss: im
+    test:
+        dim: lon
+        coords: lon
+    spacetime: lon
+    timeseries: time
+# y-coordinate name
+yc:
+    geos: lat
+    ccm: lat
+    cf: lat
+    era5: lat
+    generic: lat
+    gmi: latitude_dim
+    airnow: Latitude
+    omi: Latitude
+    wrf:
+        dim: south_north
+        coords: XLAT,XLAT_U,XLAT_V
+    lis:
+        dim: north_south
+        coords: lat
+    giss: jm
+    test:
+        dim: lat
+        coords: lat
+    spacetime: lat
+    timeseries: location
+# z-coordinate name
+zc:
+    geos: lev
+    ccm: lev
+    cf: lev
+    era5: plev
+    generic: lev
+    gmi: eta_dim
+    airnow: NA
+    omi: NA
+    wrf:
+        dim: bottom_top,bottom_top_stag,soil_layers,soil_layers_stag
+        coords: VERT
+    lis:
+        dim: RelSMC_profiles,SoilTemp_profiles,SoilMoist_profiles,SmLiqFrac_profiles
+    giss: lm
+    test: lev
+    spacetime: lev
+
+# time-coordinate name
+tc:
+    geos: time
+    ccm: time
+    cf: time
+    era5: time
+    generic: time
+    ccm_conv: yes
+    gmi: rec_dim
+    airnow: time
+    omi: Time
+    wrf:
+        dim: Time
+        coords: XTIME
+    lis:
+        dim: time
+        coords: time
+    test: time
+    spacetime: time
+
+# chemical species name
+spec:
+    gmi: species_dim
+
