@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: sphinxcontrib-plot
+Version: 1.1.5
+Summary: Embed gnuplot, ditaa, pyplot, DOT, etc. diagrams in your Sphinx-based documentation.
+Home-page: https://github.com/stathissideris/sphinxcontrib-plot
+Author: Yongping Guo
+Author-email: guoyoooping@163.com
+License: GPLv3
+Platform: any
+License-File: LICENSE
+
+sphinxcontrib-plot
+*********************
+
+This project WILL NOT be maintained and please use the new name: "sphinx-plot-directive":
+
+https://pypi.org/project/sphinx-plot-directive/
+
+The functions are the same but the new name is more intuitive.
+
+Thanks.
+
+
+
