@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: pytroll-runner
+Version: 0.0.3
+License-File: LICENSE
+Requires-Dist: posttroll>=1.10.0
