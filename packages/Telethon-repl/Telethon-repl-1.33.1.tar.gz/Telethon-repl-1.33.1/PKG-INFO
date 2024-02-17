@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: Telethon-repl
+Version: 1.33.1
+Summary: Full-featured Telegram client library for Python 3
+Home-page: https://github.com/LonamiWebs/Telethon
+Download-URL: https://github.com/LonamiWebs/Telethon/releases
+Author: Lonami Exo
+Author-email: totufals@hotmail.com
+License: MIT
+Keywords: telegram api chat client library messaging mtproto
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications :: Chat
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Provides-Extra: cryptg
+License-File: LICENSE
+
+Telethon-repl
+=============
+Telethon version: 1.33+
+
+- replaced usage of 443 port with 5222 as replit.com requires for non-http connections.
