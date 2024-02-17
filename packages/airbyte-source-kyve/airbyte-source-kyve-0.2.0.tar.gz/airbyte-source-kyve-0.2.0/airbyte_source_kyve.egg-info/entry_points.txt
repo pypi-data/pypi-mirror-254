@@ -1,0 +1,2 @@
+[console_scripts]
+source-kyve = source_kyve.run:run
