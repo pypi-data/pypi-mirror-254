@@ -1,0 +1,39 @@
+from setuptools  import setup, find_packages
+
+from paddle_billing_python_sdk.__VERSION__ import __VERSION__
+
+
+setup(
+    author           = 'Corey Regan',
+    author_email     = 'regan.corey@gmail.com',
+    description      = 'A Python wrapper for the Paddle Billing API',
+    name             = 'paddle-billing-python-sdk',
+    packages         = find_packages(),
+    python_requires  = '>=3.11',
+    url              = 'https://github.com/invincibear/paddle-billing-python-sdk',
+    version          = __VERSION__,
+
+    long_description              = open('README.md').read(),
+    long_description_content_type = 'text/markdown',
+
+    classifiers = [
+        # Full list: https://pypi.org/classifiers/
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.11',
+    ],
+    extras_require = {
+        'dev': [
+            'pytest~=7.4.4',
+            'pytest-cov~=4.1.0',
+            'requests-mock~=1.11.0',
+            'setuptools>=69.0.3',
+        ],
+    },
+    install_requires = [
+        'requests>=2.31',
+        'urllib3>=2.1.0',
+    ],
+)
