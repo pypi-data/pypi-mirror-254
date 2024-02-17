@@ -1,0 +1,13 @@
+astropy>=4.0
+pyyaml>=5.1
+click>=7.0
+networkx
+lsst-daf-butler<26.100,>=26.0
+lsst-pipe-base<26.100,>=26.0
+lsst-ctrl-mpexec<26.100,>=26.0
+lsst-utils<26.100,>=26.0
+lsst-resources<26.100,>=26.0
+
+[test]
+pytest>=3.2
+pytest-openfiles>=0.5.0
