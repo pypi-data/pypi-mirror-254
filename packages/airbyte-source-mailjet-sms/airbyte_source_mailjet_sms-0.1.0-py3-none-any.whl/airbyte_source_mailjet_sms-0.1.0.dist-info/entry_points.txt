@@ -1,0 +1,2 @@
+[console_scripts]
+source-mailjet-sms = source_mailjet_sms.run:run
