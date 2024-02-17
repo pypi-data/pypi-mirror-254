@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: tasdos
+Version: 0.0.1
+Summary: Downstream analysis for targetted amplicon sequencing.
+Home-page: https://github.com/KChigira/tasdos/
+Author: Koki Chigira
+Author-email: s211905s@st.go.tuat.ac.jp
+License: MIT
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+

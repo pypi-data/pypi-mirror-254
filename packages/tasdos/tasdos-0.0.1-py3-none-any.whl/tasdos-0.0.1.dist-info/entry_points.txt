@@ -1,0 +1,4 @@
+[console_scripts]
+tasdosA = tasdos.tasdosa:main
+tasdosB = tasdos.tasdosb:main
+tasdosC = tasdos.tasdosc:main
