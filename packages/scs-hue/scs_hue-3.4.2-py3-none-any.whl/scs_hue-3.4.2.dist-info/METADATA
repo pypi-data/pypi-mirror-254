@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: scs-hue
+Version: 3.4.2
+Summary: Connecting Philips Hue light bulbs to South Coast Science environmental data sources
+Home-page: https://github.com/south-coast-science/scs_philips_hue
+Author: South Coast Science
+Author-email: contact@southcoastscience.com
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX
+Requires-Python: >3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: paho-mqtt ~=1.5.0
+Requires-Dist: pytz ~=2020.1
+Requires-Dist: requests ~=2.28.2
+Requires-Dist: setuptools ~=50.3.0
+Requires-Dist: tzlocal ~=2.1
+Requires-Dist: scs-core ~=3.6.0
+Requires-Dist: scs-host-posix ~=3.2.1
+Provides-Extra: dev
+Requires-Dist: pypandoc ; extra == 'dev'
+
+# scs_philips_hue
+_A light bulb moment... connecting Philips Hue light bulbs to South Coast Science environmental data sources_
+
+Detailed information at the [scs_philips_hue wiki](https://github.com/south-coast-science/scs_philips_hue/wiki).
+
+The name Philips Hue is the property of its owner [Signify Holding](https://www.philips-hue.com/en-gb).
