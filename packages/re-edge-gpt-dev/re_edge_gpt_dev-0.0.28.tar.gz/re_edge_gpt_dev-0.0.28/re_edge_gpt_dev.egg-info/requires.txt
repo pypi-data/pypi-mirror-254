@@ -1,0 +1,12 @@
+aiohttp
+certifi
+httpx
+prompt_toolkit
+requests
+rich
+regex
+
+[gui]
+Pyside6
+SpeechRecognition
+pyttsx3
