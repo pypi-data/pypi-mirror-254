@@ -1,0 +1,23 @@
+{% macro optional(field, type) -%}
+{% if python_version == "3.9" -%}
+Optional[{{ type }}] ={% if field.default is defined %} {{ field.default }}{% else %} None {% endif %}
+{%- else -%}
+{{ type }} | None ={% if field.default is defined %} {{ field.default }}{% else %} None {% endif %}
+{%- endif -%}
+{%- endmacro %}
+
+{% macro list_field(name, list_type) -%}
+{% if list_type in ["int", "str"] -%}
+{{ name }}: list[{{ list_type }}]
+{%- else -%}
+{{ name }}: ListOf{{ name | capitalize }}[{{ list_type }}]
+{%- endif -%}
+{%- endmacro %}
+
+{% macro lifecycle_type(type, existing_product_blocks, lifecycle) -%}
+{% if type in existing_product_blocks -%}
+{{ type }}Block{{ lifecycle }}
+{%- else -%}
+{{ type }}
+{%- endif -%}
+{%- endmacro %}
