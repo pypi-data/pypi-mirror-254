@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+embedding_adapter/__init__.py
+embedding_adapter/embedding_adapter.py
+embedding_adapter/utils.py
+embedding_adapter.egg-info/PKG-INFO
+embedding_adapter.egg-info/SOURCES.txt
+embedding_adapter.egg-info/dependency_links.txt
+embedding_adapter.egg-info/requires.txt
+embedding_adapter.egg-info/top_level.txt
