@@ -1,0 +1,11 @@
+[project]
+name = "RSNUM"
+version = "0.0.1"
+authors = [
+  { name="rasheed"},
+]
+description = "A small example package"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
