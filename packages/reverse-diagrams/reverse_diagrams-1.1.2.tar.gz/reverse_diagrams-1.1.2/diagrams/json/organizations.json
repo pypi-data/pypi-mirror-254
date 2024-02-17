@@ -1,0 +1,112 @@
+[
+    {
+        "account": "884478634998",
+        "name": "Log archive",
+        "parents": [
+            {
+                "Id": "ou-w3ow-93hiq3zr",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "835863553119",
+        "name": "SecOps",
+        "parents": [
+            {
+                "Id": "ou-w3ow-oqvta8tc",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "582441254763",
+        "name": "Prod",
+        "parents": [
+            {
+                "Id": "ou-w3ow-4sdr4ejy",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "895882538541",
+        "name": "SecurityTooling",
+        "parents": [
+            {
+                "Id": "ou-w3ow-93hiq3zr",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "105171185823",
+        "name": "DevSecOps",
+        "parents": [
+            {
+                "Id": "ou-w3ow-b334bby6",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "994261317734",
+        "name": "Ops",
+        "parents": [
+            {
+                "Id": "ou-w3ow-9q06w8rz",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "155794986228",
+        "name": "SharedServices",
+        "parents": [
+            {
+                "Id": "ou-w3ow-9q06w8rz",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "904985504252",
+        "name": "ClowPiloto",
+        "parents": [
+            {
+                "Id": "r-w3ow",
+                "Type": "ROOT"
+            }
+        ]
+    },
+    {
+        "account": "029921763173",
+        "name": "LabVel",
+        "parents": [
+            {
+                "Id": "r-w3ow",
+                "Type": "ROOT"
+            }
+        ]
+    },
+    {
+        "account": "837696987585",
+        "name": "OrganizationManager",
+        "parents": [
+            {
+                "Id": "ou-w3ow-oqvta8tc",
+                "Type": "ORGANIZATIONAL_UNIT"
+            }
+        ]
+    },
+    {
+        "account": "571340586587",
+        "name": "Dev",
+        "parents": [
+            {
+                "Id": "r-w3ow",
+                "Type": "ROOT"
+            }
+        ]
+    }
+]
