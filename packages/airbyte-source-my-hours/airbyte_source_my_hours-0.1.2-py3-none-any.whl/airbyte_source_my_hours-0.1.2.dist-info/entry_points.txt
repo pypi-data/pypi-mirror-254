@@ -1,0 +1,2 @@
+[console_scripts]
+source-my-hours = source_my_hours.run:run
