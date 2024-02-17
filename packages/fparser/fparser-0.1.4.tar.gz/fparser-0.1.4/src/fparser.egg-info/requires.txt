@@ -1,0 +1,11 @@
+setuptools_scm
+
+[doc]
+sphinx
+sphinxcontrib.bibtex
+autoapi
+sphinx-autoapi
+sphinx_rtd_theme
+
+[tests]
+pytest>=3.3.0
