@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "protocol"
+dynamic = ["version"]
+description = "generic framework to develop protocols with implementations in neuroscience"
+readme = "README.rst"
+license = "Apache-2.0"
+requires-python = ">=3.8"
+dependencies = [
+    "pydicom",
+    "numpy",
+    "lxml",
+    "nibabel"
+]
+authors = [
+    { name = "Pradeep Reddy Raamana", email = "raamana@gmail.com" },
+    { name = "Harsh Sinha", email = "sinha.harsh@pitt.edu" },
+]
+keywords = [
+    "protocol",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/raamana/protocol"
+
+
+[tool.hatch.build]
+include = [
+    "protocol/*.py",
+]
+exclude = [
+    "protocol/tests/*",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "protocol/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/protocol",
+]
+exclude = [
+  "/.github",
+  "/docs",
+]
+strict-naming = false
