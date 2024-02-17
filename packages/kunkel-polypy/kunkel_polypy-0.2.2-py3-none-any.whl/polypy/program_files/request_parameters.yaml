@@ -1,0 +1,113 @@
+---
+
+# NOTES: 
+# 1. Only change the values under the 'parameters:' key in each endpoint. Changing any other values will break/crash the program.
+# 2. -ALL- values that are mutable (changeable) are to be of <string> type. In other words, put all values within the double "" quotes.
+# 3. If you do not want a value present at all, put the field as 'null'. 
+# 4. If a value is not a string or null, the program will simply give an error and return None, but will not break/crash.
+
+################ ASSETS PARAMETERS #####################
+
+asset_parameters: 
+  options_ticker: "O:SPY241220P00720000"
+  ticker: "AAPL"
+  date: "2023-12-02"
+
+
+################ ENDPOINTS #####################
+
+daily_open_close: 
+  url: "https://api.polygon.io/v1/open-close/{optionsTicker}/{date}?"
+  parameters: 
+    adjusted: "true"
+
+simple_moving_average: 
+  url: "https://api.polygon.io/v1/indicators/sma/{optionsTicker}?"
+  parameters: 
+    timestamp: null
+    timespan: "day"
+    adjusted: "true"
+    window: "200"
+    series_type: null
+    expand_underlying: "true"
+    order: "desc"
+    limit: "10"
+
+exponential_moving_average: 
+  url: "https://api.polygon.io/v1/indicators/ema/{optionsTicker}?"
+  parameters: 
+    timestamp: null
+    timespan: "day"
+    adjusted: "true"
+    window: "50"
+    series_type: "close"
+    expand_underlying: "true"
+    order: "desc"
+    limit: "10"
+
+macd: 
+  url: "https://api.polygon.io/v1/indicators/macd/{optionsTicker}?"
+  parameters:
+    timestamp: null
+    timespan: "day"
+    adjusted: "true"
+    short_window: "12"
+    long_window: "26"
+    signal_window: "9"
+    series_type: "close"
+    expand_underlying: "true"
+    order: "desc"
+    limit: "10"
+
+relative_strength_index: 
+  url: "https://api.polygon.io/v1/indicators/rsi/{optionsTicker}?"
+  parameters:
+    timestamp: "2023-12-22"
+    timespan: "day"
+    adjusted: "true"
+    window: "50"
+    series_type: "close"
+    expand_underlying: "true"
+    order: "desc"
+    limit: "10"  
+
+ticker_v3:
+  url: "https://api.polygon.io/v3/reference/tickers/{ticker}?"
+  parameters:
+    date: null
+
+view_tickers: 
+  url: "https://api.polygon.io/v3/reference/tickers?"
+  parameters: 
+    ticker : null  
+    type : null 
+    market : null 
+    exchange : null 
+    cusip : null 
+    cik : null 
+    date : null 
+    search : null 
+    active : "true" 
+    order : "asc" 
+    limit : "10" 
+    sort : "ticker" 
+
+
+options_contracts: 
+  url: "https://api.polygon.io/v3/reference/options/contracts?" 
+  parameters:  
+    underlying_ticker: null
+    contract_type: null
+    expiration_date: null
+    as_of: null
+    strike_price: null
+    expired: "false"
+    order: null
+    limit: "10"
+    sort: null  
+
+options_contract:
+  url: https://api.polygon.io/v3/reference/options/contracts/{optionsTicker}
+  parameters: 
+    "as_of": null
+  
