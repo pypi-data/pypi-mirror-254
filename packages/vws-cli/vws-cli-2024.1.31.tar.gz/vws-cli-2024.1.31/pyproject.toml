@@ -1,0 +1,290 @@
+[tool.pylint]
+
+    [tool.pylint.'MASTER']
+
+    # Pickle collected data for later comparisons.
+    persistent = true
+
+    # Use multiple processes to speed up Pylint.
+    jobs = 0
+
+    # List of plugins (as comma separated values of python modules names) to load,
+    # usually to register additional checkers.
+    load-plugins = [
+        'pylint.extensions.docparams',
+        'pylint.extensions.no_self_use',
+    ]
+
+    # Allow loading of arbitrary C extensions. Extensions are imported into the
+    # active Python interpreter and may run arbitrary code.
+    unsafe-load-any-extension = false
+
+    ignore = ['_setuptools_scm_version.py']
+
+    [tool.pylint.'MESSAGES CONTROL']
+
+    # Enable the message, report, category or checker with the given id(s). You can
+    # either give multiple identifier separated by comma (,) or put this option
+    # multiple time (only on the command line, not in the configuration file where
+    # it should appear only once). See also the "--disable" option for examples.
+    enable = [
+        'spelling',
+        'useless-suppression',
+    ]
+
+    # Disable the message, report, category or checker with the given id(s). You
+    # can either give multiple identifiers separated by comma (,) or put this
+    # option multiple times (only on the command line, not in the configuration
+    # file where it should appear only once).You can also use "--disable=all" to
+    # disable everything first and then reenable specific checks. For example, if
+    # you want to run only the similarities checker, you can use "--disable=all
+    # --enable=similarities". If you want to run only the classes checker, but have
+    # no Warning level messages displayed, use"--disable=all --enable=classes
+    # --disable=W"
+
+    disable = [
+        'too-few-public-methods',
+        'too-many-locals',
+        'too-many-arguments',
+        'too-many-instance-attributes',
+        'too-many-return-statements',
+        'too-many-lines',
+        'locally-disabled',
+        # Let ruff handle long lines
+        'line-too-long',
+        # Let ruff handle unused imports
+        'unused-import',
+        # Let ruff deal with sorting
+        'ungrouped-imports',
+        # We don't need everything to be documented because of mypy
+        'missing-type-doc',
+        'missing-return-type-doc',
+        # Too difficult to please
+        'duplicate-code',
+        # Let ruff handle imports
+        'wrong-import-order',
+    ]
+
+    [tool.pylint.'FORMAT']
+
+    # Allow the body of an if to be on the same line as the test if there is no
+    # else.
+    single-line-if-stmt = false
+
+    [tool.pylint.'SPELLING']
+
+    # Spelling dictionary name. Available dictionaries: none. To make it working
+    # install python-enchant package.
+    spelling-dict = 'en_US'
+
+    # A path to a file that contains private dictionary; one word per line.
+    spelling-private-dict-file = 'spelling_private_dict.txt'
+
+    # Tells whether to store unknown words to indicated private dictionary in
+    # --spelling-private-dict-file option instead of raising a message.
+    spelling-store-unknown-words = 'no'
+
+[tool.coverage.run]
+
+branch = true
+omit = ['src/vws_cli/_setuptools_scm_version.py']
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
+
+[tool.pytest.ini_options]
+
+xfail_strict = true
+log_cli = true
+
+[tool.check-manifest]
+
+ignore = [
+  "*.enc",
+  "readthedocs.yaml",
+  "admin",
+  "admin/**",
+  "CHANGELOG.rst",
+  "CODE_OF_CONDUCT.rst",
+  "CONTRIBUTING.rst",
+  "LICENSE",
+  "Makefile",
+  "ci",
+  "ci/**",
+  "codecov.yaml",
+  "docs",
+  "docs/**",
+  ".git_archival.txt",
+  "spelling_private_dict.txt",
+  "tests",
+  "tests-pylintrc",
+  "tests/**",
+  "vuforia_secrets.env.example",
+  "lint.mk",
+  "bin",
+  "bin/*",
+  "src/*/_setuptools_scm_version.py",
+]
+
+[tool.doc8]
+
+max_line_length = 2000
+ignore_path = [
+    "./.eggs",
+    "./docs/build",
+    "./docs/build/spelling/output.txt",
+    "./node_modules",
+    "./src/*.egg-info/",
+    "./src/*/_setuptools_scm_version.txt",
+]
+
+[tool.mypy]
+
+strict = true
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "pip",
+    "setuptools",
+    "setuptools_scm[toml]>=8.0.1",
+    "wheel",
+]
+
+[project]
+name = "vws-cli"
+description = "A CLI for the Vuforia Web Services (VWS) API."
+readme = { file = "README.rst", content-type = "text/x-rst"}
+keywords = [
+    "cli",
+    "vuforia",
+    "vws",
+]
+license = { file = "LICENSE" }
+authors = [ { name = "Adam Dangoor", email = "adamdangoor@gmail.com"} ]
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = [
+    "version",
+]
+dependencies = [
+    "click==8.1.7",
+    "PyYAML==6.0.1",
+    "VWS-Python==2023.12.27",
+]
+[project.optional-dependencies]
+dev = [
+    "check-manifest==0.49",
+    "doc8==1.1.1",
+    "docker==7.0.0",
+    "freezegun==1.4.0",
+    "furo==2024.1.29",
+    "homebrew-pypi-poet==0.10",
+    "mypy==1.8.0",
+    "pdm==2.12.2",
+    "pip_check_reqs==2.5.3",
+    "pylint==3.0.3",
+    "pyproject-fmt==1.7.0",
+    "pyright==1.1.349",
+    "pyroma==4.2",
+    "pytest==8.0.0",
+    "pytest-cov==4.1",
+    "ruff==0.1.15",
+    "setuptools-scm==8.0.4",
+    "sphinx==7.2.6",
+    "sphinx-click==5.1.0",
+    "sphinx-inline-tabs==2023.4.21",
+    "sphinx-prompt==1.8",
+    "Sphinx-Substitution-Extensions==2022.2.16",
+    "sphinxcontrib.spelling==8",
+    "types-PyYAML==6.0.12.12",
+    "vulture==2.11",
+    "VWS-Python-Mock==2024.1.21",
+    "VWS-Test-Fixtures==2023.3.5",
+]
+packaging = [
+    "PyInstaller==6.3.0",
+]
+[project.urls]
+Source = "https://github.com/VWS-Python/vws-cli"
+[project.scripts]
+vuforia-cloud-reco = "vws_cli.query:vuforia_cloud_reco"
+vws = "vws_cli:vws_group"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+select = ["ALL"]
+line-length = 79
+
+ignore = [
+    # We are happy to manage our own "complexity".
+    "C901",
+    # Ignore `one-blank-line-before-class` because it is incompatible with
+    # `no-blank-line-before-class` (D211).
+    "D203",
+    # Ignore `multi-line-summary-second-line` because it is incompatible with
+    # `multi-line-summary-first-line` (D212).
+    "D213",
+    # Allow backslashes in a docstring.
+    # See https://click.palletsprojects.com/en/8.0.x/documentation/#preventing-rewrapping.
+    "D301",
+    # It is too much work to make every docstring imperative.
+    "D401",
+    # We ignore some docstyle errors which do not apply to Google style
+    # docstrings.
+    "D406",
+    "D407",
+    "D413",
+    # Let the formatter handle line lengths, and ignore the errors.
+    "E501",
+    # Ignore "too-many-*" errors as they seem to get in the way more than
+    # helping.
+    "PLR0912",
+    "PLR0913",
+    # Allow 'assert' as we use it for tests.
+    "S101",
+    # Allow simple random numbers as we are not using them for cryptography.
+    "S311",
+]
+
+# Do not automatically remove commented out code.
+# We comment out code during development, and with VSCode auto-save, this code
+# is sometimes annoyingly removed.
+unfixable = ["ERA001"]
+
+[tool.ruff.per-file-ignores]
+"tests/test_*.py" = [
+    # Do not require tests to have a one-line summary.
+    "D205",
+]
+
+[tool.setuptools.package-data]
+vws_cli = ["py.typed"]
+
+[tool.setuptools_scm]
+# We write the version to a file so that we can import it.
+# We choose a ``.py`` file so that we can read it without
+# worrying about including the file in MANIFEST.in.
+write_to = "src/vws_cli/_setuptools_scm_version.py"
+
+[tool.pyproject-fmt]
+indent = 4
+keep_full_version = true
+
+[tool.pyright]
+# We would like this to be "strict" but we would need either to ignore errors,
+# or for more of docker to be typed.
+reportUnnecessaryTypeIgnoreComment = true
+typeCheckingMode = "strict"
