@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: faerunian_calendar
+Version: 0.0.1
+Summary: A Python module for calculating Faerunian date information based on the Gregorian calendar.
+Project-URL: Homepage, https://github.com/sebastianbingham/faeruniancalendar-python
+Project-URL: Issues, https://github.com/sebastianbingham/faeruniancalendar-python/issues
+Project-URL: Repository, https://github.com/sebastianbingham/faeruniancalendar-python.git
+Author-email: Sebastian Bingham <sebastian@sebastianbingham.com>
+License: ## MIT License
+        Copyright (c) 2024 - Sebastian Bingham
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        **The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.**
+        
+        THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: date calculation,faerun,faerunian
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# Faerunian Date Calculator
+
+A Python module for calculating Faerunian date information based on the Gregorian calendar.
+
+![Development Status](https://img.shields.io/badge/Development%20Status-3%20Alpha-orange)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/faerunian_calendar)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+
+## Overview
+
+This Python module provides a functionality to calculate various Faerunian date-related information based on a given
+date or the current date in the Gregorian calendar. It includes information such as the Faerunian date, name,
+description, and additional year differences.
+
+## Installation
+
+TODO
+
+## Usage
+
+TODO
+
+## License
+
+This software is distributed under the MIT License. You are free to use, modify, and distribute it according to the
+terms and conditions of the license.
+
+## Development Status
+This software is currently in development and is not yet ready for production use. Please be aware of potential changes
+and updates as development progresses.
+
+
+
