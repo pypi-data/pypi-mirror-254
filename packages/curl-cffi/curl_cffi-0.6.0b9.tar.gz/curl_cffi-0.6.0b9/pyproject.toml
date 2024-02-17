@@ -1,0 +1,117 @@
+[project]
+name = "curl_cffi"
+version = "0.6.0b9"
+authors = [{ name = "Yifei Kong", email = "kong@yifei.me" }]
+description = "libcurl ffi bindings for Python, with impersonation support"
+license = { file = "LICENSE" }
+dependencies = [
+    "cffi >=1.12.0",
+    "certifi",
+]
+readme = "README.md"
+requires-python = ">=3.8"
+urls = { "repository" = "https://github.com/yifeikong/curl_cffi" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "autoflake==1.4",
+    "black==22.8.0",
+    "coverage==6.4.1",
+    "cryptography==38.0.3",
+    "flake8==6.0.0",
+    "flake8-bugbear==22.7.1",
+    "flake8-pie==0.15.0",
+    "httpx==0.23.1",
+    "isort==5.10.1",
+    "mypy==0.971",
+    "types-certifi==2021.10.8.2",
+    "pytest==7.1.2",
+    "pytest-asyncio==0.19.0",
+    "pytest-trio==0.7.0",
+    "trio==0.21.0",
+    "trio-typing==0.7.0",
+    "trustme==0.9.0",
+    "uvicorn==0.18.3",
+    "websockets==11.0.3",
+    "ruff==0.1.14",
+]
+build = [
+    "cibuildwheel",
+    "wheel"
+]
+test = [
+    "cryptography==38.0.3",
+    "httpx==0.23.1",
+    "types-certifi==2021.10.8.2",
+    "pytest==7.1.2",
+    "pytest-asyncio==0.19.0",
+    "pytest-trio==0.7.0",
+    "trio==0.21.0",
+    "trio-typing==0.7.0",
+    "trustme==0.9.0",
+    "uvicorn==0.18.3",
+    "proxy.py==2.4.3",
+    "websockets==11.0.3",
+    "python-multipart==0.0.6",
+    "fastapi==0.100.0",
+]
+
+[tool.ruff.lint]
+# Enable the isort rules.
+extend-select = ["I"]
+
+
+[tool.setuptools]
+packages = ["curl_cffi", "curl_cffi.requests"]
+package-data = { curl_cffi = ["libcurl.dll"] }
+# include-package-data = true
+
+
+[build-system]
+requires = ["wheel", "setuptools", "cffi>=1.12.0"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.cibuildwheel]
+# musllinux(alpine) is not supported because we download the binaries from upstream.
+# TODO build binaries inside musllinux/manylinux
+# skip = ["*-musllinux_*", "*-win32", "*-manylinux_i686"]
+# Building for these platforms is enough since we are using abi3 packages
+build = [
+    "cp38-macosx_x86_64",
+    "cp39-macosx_arm64",
+    "cp38-win_amd64",
+    "cp38-win32",
+    "cp38-manylinux_x86_64",
+    "cp38-manylinux_aarch64",
+]
+before-all = "make preprocess"
+test-requires = "pytest"
+test-command = "python -bb -m pytest {project}/tests/unittest"
+test-extras = ["test"]
+test-skip = "pp*"
+
+# configure cibuildwheel to build native archs ('auto'), and some emulated ones
+[tool.cibuildwheel.linux]
+archs = ["auto", "aarch64"]
+
+
+[tool.cibuildwheel.macos]
+before-all = "gmake preprocess"
+
+
+[tool.pytest.ini_options]
+# pythonpath = [ "." ]
+asyncio_mode = "auto"
