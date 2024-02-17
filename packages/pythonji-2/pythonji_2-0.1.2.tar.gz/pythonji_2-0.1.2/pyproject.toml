@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pythonji-2"
+description = "🐍 - Write Python with Emojis"
+version = "0.1.2"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    { name = "Geir Arne Hjelle", email = "geirarne@gmail.com" },
+    { name = "Pavel Zwerschke", email = "pavelzw@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "emoji"
+]
+
+[project.urls]
+Homepage = "https://github.com/pavelzw/pythonji-2"
+
+[project.scripts]
+pythonji = "pythonji.__main__:main"
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "pythonji",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "pythonji",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+select = [
+    "ALL"
+]
+ignore = [
+    # may cause conflicts with ruff formatter
+    "E501",
+    "W191"
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
