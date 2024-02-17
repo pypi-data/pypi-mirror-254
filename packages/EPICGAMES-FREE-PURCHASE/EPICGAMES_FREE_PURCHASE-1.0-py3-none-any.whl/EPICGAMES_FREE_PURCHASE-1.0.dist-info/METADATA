@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: EPICGAMES-FREE-PURCHASE
+Version: 1.0
+Description-Content-Type: text/markdown
+Requires-Dist: selenium
+Requires-Dist: beautifulsoup4
+
+# EpicGames-FreeGames-
+```
+pip install EPICGAMES-FREE-PURCHASE==0.1.0
+```
