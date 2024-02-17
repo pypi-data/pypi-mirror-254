@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pingan-gpt-client"
+version = "0.1.0"
+description = "sdk for pingan tech gpt"
+authors = ["yanyongwen712 <yanyongwen712@pingan.com.cn>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+grequests = "^0.7.0"
+httpx = "^0.26.0"
+pycryptodome = "^3.20.0"
+
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
