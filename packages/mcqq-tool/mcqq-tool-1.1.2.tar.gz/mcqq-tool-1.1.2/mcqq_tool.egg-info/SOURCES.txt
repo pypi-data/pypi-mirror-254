@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+mcqq_tool/__init__.py
+mcqq_tool/config.py
+mcqq_tool/model.py
+mcqq_tool/parse_qq_msg.py
+mcqq_tool/rule.py
+mcqq_tool/send_to_mc.py
+mcqq_tool/send_to_qq.py
+mcqq_tool.egg-info/PKG-INFO
+mcqq_tool.egg-info/SOURCES.txt
+mcqq_tool.egg-info/dependency_links.txt
+mcqq_tool.egg-info/top_level.txt
