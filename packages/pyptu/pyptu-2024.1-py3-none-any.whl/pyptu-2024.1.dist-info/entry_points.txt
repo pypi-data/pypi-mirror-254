@@ -1,0 +1,2 @@
+[console_scripts]
+pyptu = pyptu.__main__:run_main
