@@ -1,0 +1,6 @@
+[console_scripts]
+med-init-config = medlab:init_config
+med-init-env = medlab:init_enviroment
+med-predict = medlab:predict
+med-test = medlab:test
+med-train = medlab:train

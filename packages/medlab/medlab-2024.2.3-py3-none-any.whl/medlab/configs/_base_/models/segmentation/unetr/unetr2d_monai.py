@@ -1,0 +1,16 @@
+model = dict(
+    type='unetr_monai',
+    in_channels=1,
+    out_channels=1,
+    img_size=(96, 96),
+    feature_size=16,
+    hidden_size=768,
+    mlp_dim=3072,
+    num_heads=12,
+    pos_embed="conv",
+    norm_name="instance",
+    conv_block=True,
+    res_block=True,
+    dropout_rate=0.0,
+    spatial_dims=2,
+    qkv_bias=False)
