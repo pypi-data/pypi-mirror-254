@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Andreani-QA-Selenium
+Version: 0.0.43
+Summary: SeleniumFramework para ejecución de casos automatizados
+Home-page: UNKNOWN
+Author: AndreaniTesting
+Author-email: user_appglatest@andreani.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: allure-behave
+Requires-Dist: allure-pytest
+Requires-Dist: allure-python-commons
+Requires-Dist: Andreani-QA-Parameters
+Requires-Dist: Andreani-QA-Functions
+Requires-Dist: Andreani-QA-Debugger
+Requires-Dist: Andreani-QA-Api
+Requires-Dist: requests
+Requires-Dist: selenium ==4.16.0
+Requires-Dist: webdriver-manager
+Requires-Dist: pywin32
+Requires-Dist: humanize ==4.3.0
+Requires-Dist: loguru ==0.6.0
+Requires-Dist: numpy ==1.23.2
+Requires-Dist: opencv-python ==4.6.0.66
+Requires-Dist: Pillow ==9.2.0
+Requires-Dist: PyAutoGUI ==0.9.53
+Requires-Dist: pyperclip
+
+UNKNOWN
+
