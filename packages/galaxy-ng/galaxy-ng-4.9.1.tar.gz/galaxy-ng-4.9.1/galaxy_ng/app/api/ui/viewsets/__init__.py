@@ -1,0 +1,50 @@
+from .namespace import (
+    NamespaceViewSet,
+)
+
+from .collection import (
+    CollectionViewSet,
+    CollectionVersionViewSet,
+    CollectionImportViewSet,
+    CollectionRemoteViewSet
+)
+from .my_namespace import MyNamespaceViewSet
+from .my_synclist import MySyncListViewSet
+from .tags import (
+    TagsViewSet,
+    CollectionsTagsViewSet,
+    RolesTagsViewSet
+)
+from .user import UserViewSet, CurrentUserViewSet
+from .synclist import SyncListViewSet
+from .root import APIRootView
+from .group import GroupViewSet, GroupUserViewSet
+from .distribution import DistributionViewSet, MyDistributionViewSet
+from .execution_environment import (
+    ContainerRegistryRemoteViewSet,
+    ContainerRemoteViewSet
+)
+
+__all__ = (
+    'NamespaceViewSet',
+    'MyNamespaceViewSet',
+    'MySyncListViewSet',
+    'CollectionViewSet',
+    'CollectionVersionViewSet',
+    'CollectionImportViewSet',
+    'CollectionRemoteViewSet',
+    'TagsViewSet',
+    'CollectionsTagsViewSet',
+    'RolesTagsViewSet',
+    'CurrentUserViewSet',
+    'UserViewSet',
+    'SyncListViewSet',
+    'APIRootView',
+    'GroupViewSet',
+    'GroupUserViewSet',
+    'DistributionViewSet',
+    'MyDistributionViewSet',
+    'ContainerRegistryRemoteViewSet',
+    'ContainerRemoteViewSet',
+    'ContainerTagViewset'
+)
