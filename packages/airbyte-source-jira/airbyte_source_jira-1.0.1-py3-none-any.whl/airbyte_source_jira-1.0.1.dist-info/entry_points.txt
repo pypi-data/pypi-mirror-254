@@ -1,0 +1,2 @@
+[console_scripts]
+source-jira = source_jira.run:run
