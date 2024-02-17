@@ -1,0 +1,2 @@
+[console_scripts]
+source-dockerhub = source_dockerhub.run:run
