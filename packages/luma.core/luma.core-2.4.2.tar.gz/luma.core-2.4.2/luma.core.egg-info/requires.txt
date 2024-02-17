@@ -1,0 +1,22 @@
+pillow>=9.2.0
+smbus2
+pyftdi
+cbor2
+
+[:platform_system == "Linux"]
+RPI.GPIO
+spidev
+
+[docs]
+sphinx>=1.5.1
+sphinx-rtd-theme
+
+[qa]
+flake8
+rstcheck
+
+[test]
+pytest
+pytest-cov
+pytest-timeout
+pytest-watch
