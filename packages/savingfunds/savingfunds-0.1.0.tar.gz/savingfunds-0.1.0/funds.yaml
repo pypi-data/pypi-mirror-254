@@ -1,0 +1,165 @@
+accounts:
+- key: triodos
+  name: Triodos Spaarpotjes
+- key: asn
+  name: ASN Standaard
+funds:
+- funds:
+  - account: triodos
+    balance: '1015.47'
+    key: collegegeld
+    name: Collegegeld
+    target: '2530.00'
+    target_date: '2024-09-01'
+    type: fixed
+  - account: triodos
+    balance: '165.19'
+    key: studie
+    name: Studie
+    target: '400.00'
+    target_date: '2024-09-01'
+    type: fixed
+  - account: asn
+    balance: '54.48'
+    key: tandarts-I
+    name: Tandarts I
+    target: '100.00'
+    target_date: '2024-05-01'
+    type: fixed
+  - account: asn
+    balance: '27.44'
+    key: tandarts-II
+    name: Tandarts II
+    target: '100.00'
+    target_date: '2024-11-01'
+    type: fixed
+  - account: triodos
+    balance: '295.49'
+    key: zorgverzekering
+    name: Zorgverzekering
+    target: '1600.00'
+    target_date: '2024-12-25'
+    type: fixed
+  key: prioriteit
+  monthly-factor: '1.1'
+  name: Prioriteit
+  type: group
+- funds:
+  - account: triodos
+    balance: '136.27'
+    key: studiereis-II
+    name: Studiereis II
+    target: '200.00'
+    target_date: '2024-05-01'
+    type: fixed
+  - account: triodos
+    balance: '352.35'
+    key: vakantie
+    name: Vakantie
+    target: '600.00'
+    target_date: '2024-06-01'
+    type: fixed
+  - account: triodos
+    balance: '144.91'
+    days: 730
+    key: inboedel
+    name: Inboedel
+    target: '1000.00'
+    type: open
+  - funds:
+    - account: triodos
+      balance: '147.04'
+      key: laptop
+      name: Laptop
+      target: '1000.00'
+      target_date: '2029-01-01'
+      type: fixed
+    - account: triodos
+      balance: '100.70'
+      key: telefoon
+      name: Telefoon
+      target: '600.00'
+      target_date: '2027-01-01'
+      type: fixed
+    - account: triodos
+      balance: '102.07'
+      key: koptelefoon
+      name: Koptelefoon
+      target: '250.00'
+      target_date: '2025-01-01'
+      type: fixed
+    - account: triodos
+      balance: '91.81'
+      key: ipad
+      name: iPad
+      target: '1000.00'
+      target_date: '2029-01-01'
+      type: fixed
+    - account: triodos
+      balance: '0.00'
+      key: sporthorloge
+      name: Sporthorloge
+      target: '500.00'
+      target_date: '2032-01-01'
+      type: fixed
+    - account: triodos
+      balance: '0.00'
+      key: hrm
+      name: HRM
+      target: '100.00'
+      target_date: '2026-02-01'
+      type: fixed
+    key: electronica
+    monthly-factor: '1'
+    name: Electronica
+    type: group
+  - funds:
+    - account: asn
+      balance: '17.03'
+      days: 365
+      key: sport-vrij
+      name: Sport vrij besteedbaar
+      target: '100.00'
+      type: open
+    - account: asn
+      balance: '34.06'
+      key: hardloopschoenen
+      name: Hardloopschoenen
+      target: '200.00'
+      target_date: '2024-09-01'
+      type: fixed
+    key: sport
+    monthly-factor: '1'
+    name: Sport
+    type: group
+  key: secundair
+  monthly-factor: '1.05'
+  name: Secundair
+  type: group
+- funds:
+  - account: triodos
+    balance: '208.61'
+    key: ijsland
+    name: IJsland
+    target: '3000.00'
+    target_date: '2029-01-01'
+    type: fixed
+  key: lange-termijn
+  monthly-factor: '1'
+  name: Lange termijn
+  type: group
+- funds:
+  - account: asn
+    balance: '835.61'
+    key: giften
+    name: Giften
+    type: manual
+  - account: asn
+    balance: '3024.53'
+    key: noodfonds
+    name: Noodfonds
+    type: manual
+  key: handmatig
+  monthly-factor: '1'
+  name: Handmatig
+  type: group
