@@ -1,0 +1,17 @@
+src/nebari_plugin_airflow/__about__.py,sha256=sXLh7g3KC4QCFxcZGBTpG2scR7hmmBsMjq6LqRptkRg,22
+src/nebari_plugin_airflow/__init__.py,sha256=eCT24c1XgYAhnZoAkLnDot97-6gezHboK61jHkYb9BY,202
+src/nebari_plugin_airflow/plugin.py,sha256=UQ54hg9vfF47oZqwOx3tc1_oKTUqeci6tC3R2QwheNc,4074
+src/nebari_plugin_airflow/template/main.tf,sha256=i4q9VOefTgJd6WlXbtCwoRdzGELnZrPaM6ZcxAl0D78,6947
+src/nebari_plugin_airflow/template/outputs.tf,sha256=p1NDBZO6BPhA-tdawYyme6B8lwz3b3IkGEcPTJF-tXE,1119
+src/nebari_plugin_airflow/template/variables.tf,sha256=bh_rTBuvuwKvHyfapJcAIVMflo5u4Jia6HgbEjJNekY,2183
+src/nebari_plugin_airflow/template/versions.tf,sha256=naR3Io1dJMu8Wz3Bgjhdazym6Ylmldnj4MpVosa2F0I,461
+src/nebari_plugin_airflow/template/chart/Chart.yaml,sha256=UGhc9wtqvEwPqvE1-uZA-zNtzJxkIPZXbq7tTphJYPA,169
+src/nebari_plugin_airflow/template/chart/values.yaml,sha256=f_NynmgGqxYqvKO2OGxASsvUY41MtqrrBYV0kq1xLBs,334
+src/nebari_plugin_airflow/template/chart/files/webserver_config.py,sha256=6a6cTwFtL7zVHozQrnNGbUBIgrHl4KYvootrUXaewYo,5027
+src/nebari_plugin_airflow/template/chart/templates/ingress.yaml,sha256=FE7Ia8R0N6ZrmOJpd2Klc9l8XAG53jQAm3wTm1l3eN8,777
+src/nebari_plugin_airflow/template/chart/templates/secrets.yaml,sha256=5RKbgTYZBVZsMi-VkHl22TBbc-xR08EPpS6Dfip9QiI,185
+nebari_plugin_airflow-0.0.1.dist-info/METADATA,sha256=QcPw_59Tolo7DNyueFoROZOronvs6QnPY-LkcA2Z-mI,876
+nebari_plugin_airflow-0.0.1.dist-info/WHEEL,sha256=TJPnKdtrSue7xZ_AVGkp9YXcvDrobsjBds1du3Nx6dc,87
+nebari_plugin_airflow-0.0.1.dist-info/entry_points.txt,sha256=Qmd9VOafYC8Wt2Q7b1PIgK10DVsiHWdxUhVOufDa9Vo,59
+nebari_plugin_airflow-0.0.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+nebari_plugin_airflow-0.0.1.dist-info/RECORD,,
