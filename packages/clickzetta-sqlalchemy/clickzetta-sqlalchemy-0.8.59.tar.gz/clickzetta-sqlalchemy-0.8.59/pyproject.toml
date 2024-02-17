@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clickzetta-sqlalchemy"
+description = "clickzetta python sqlalchemy"
+authors = [{name = "hanmiao.li", email = "hanmiao.li@clickzetta.com"}]
+urls = {documentation = "https://www.yunqi.tech/"}
+dynamic = ["version"]
+requires-python = ">=3.7"
+dependencies = [
+    "proto-plus >= 1.22.0, <2.0.0dev",
+    "packaging >= 14.3, <24.0.0dev",
+    "protobuf>=3.19.5,<5.0.0dev,!=3.20.0,!=3.20.1,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5",
+    "python-dateutil >= 2.7.2, <3.0dev",
+    "requests >= 2.21.0, < 3.0.0dev",
+    "sqlalchemy >= 1.4.0, <2.0.0",
+    "future",
+    'clickzetta-connector==0.8.63',
+]
+optional-dependencies = {'pandas'= ['pandas>=1.0.0', 'db-dtypes<2.0.0dev,>=0.3.0'], 'ipywidgets'= ['ipywidgets==7.7.1'], 'geopandas'= ['geopandas<1.0dev,>=0.9.0', 'Shapely<2.0dev,>=1.6.0'], 'ipython'= ['ipython!=8.1.0,>=7.0.1'], 'tqdm'= ['tqdm<5.0.0dev,>=4.7.4'], 'all'= ['pandas>=1.0.0', 'db-dtypes<2.0.0dev,>=0.3.0', 'ipywidgets==7.7.1', 'geopandas<1.0dev,>=0.9.0', 'Shapely<2.0dev,>=1.6.0', 'ipython!=8.1.0,>=7.0.1', 'tqdm<5.0.0dev,>=4.7.4']}
+
+[tool.setuptools]
+packages = ["sqlalchemy_clickzetta"]
+
+[tool.setuptools.dynamic]
+version = {attr = "sqlalchemy_clickzetta.version.__version__"}
+
+[project.entry-points."sqlalchemy.dialects"]
+clickzetta = "sqlalchemy_clickzetta:ClickZettaDialect"
