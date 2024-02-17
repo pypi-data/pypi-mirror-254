@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: lumberman
+Version: 0.41.0
+Summary: Lumberman
+Author-email: Martin Bernstorff <martinbernstorff@gmail.com>
+License: MIT License
+        
+        Copyright © 2023 Martin Bernstorff
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: homepage, https://github.com/MartinBernstorff/lumberman
+Project-URL: repository, https://github.com/MartinBernstorff/lumberman
+Project-URL: documentation, https://MartinBernstorff.github.io/lumberman/
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer ==0.9.0
+Requires-Dist: questionary ==2.0.1
+Requires-Dist: rich ==13.7.0
+Provides-Extra: dev
+Requires-Dist: cruft ; extra == 'dev'
+Requires-Dist: pyright ==1.1.346 ; extra == 'dev'
+Requires-Dist: pytest ==7.4.3 ; extra == 'dev'
+Requires-Dist: pytest-cov ==4.1.0 ; extra == 'dev'
+Requires-Dist: pytest-xdist ==3.5.0 ; extra == 'dev'
+Requires-Dist: pytest-sugar ==0.9.7 ; extra == 'dev'
+Requires-Dist: diff-cover ==8.0.3 ; extra == 'dev'
+Requires-Dist: ruff ==0.1.13 ; extra == 'dev'
+
+# Lumberman
+
+[![Open in Dev Container](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)][dev container]
+[![PyPI](https://img.shields.io/pypi/v/lumberman.svg)][pypi status]
+[![Python Version](https://img.shields.io/pypi/pyversions/lumberman)][pypi status]
+[![Tests](https://github.com/MartinBernstorff/lumberman/actions/workflows/tests.yml/badge.svg)][tests]
+[![Roadmap](https://img.shields.io/badge/Board-Roadmap-green)][roadmap]
+
+[dev container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/MartinBernstorff/lumberman/
+[pypi status]: https://pypi.org/project/lumberman/
+[documentation]: https://MartinBernstorff.github.io/lumberman/
+[tests]: https://github.com/MartinBernstorff/lumberman/actions?workflow=Tests
+[roadmap]: https://github.com/users/MartinBernstorff/projects/5
+
+
+<!-- start short-description -->
+
+TODO: Add a short description of the project
+
+<!-- end short-description -->
+## Installation
+```bash
+pip install lumberman
+```
+## Usage
+To see inline documentation:
+```bash
+lumberman
+```
+
+Or the alias:
+```bash
+lm
+```
+
+Or see the [documentation](./DOCS.md)
+
+### Setting up a development environment
+#### Devcontainer
+1. Install [Orbstack](https://orbstack.dev/) or Docker Desktop. Make sure to complete the full install process before continuing.
+2. If not installed, install VSCode
+3. Press this [link](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/MartinBernstorff/lumberman/)
+4. Complete the setup process
+5. Done! Easy as that.
+
+# 💬 Where to ask questions
+
+| Type                           |                        |
+| ------------------------------ | ---------------------- |
+| 🚨 **Bug Reports**              | [GitHub Issue Tracker] |
+| 🎁 **Feature Requests & Ideas** | [GitHub Issue Tracker] |
+| 👩‍💻 **Usage Questions**          | [GitHub Discussions]   |
+| 🗯 **General Discussion**       | [GitHub Discussions]   |
+
+[github issue tracker]: https://github.com/MartinBernstorff/lumberman/issues
+[github discussions]: https://github.com/MartinBernstorff/lumberman/discussions
