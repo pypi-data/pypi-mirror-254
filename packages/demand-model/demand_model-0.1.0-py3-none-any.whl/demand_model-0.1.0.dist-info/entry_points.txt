@@ -1,0 +1,6 @@
+[console_scripts]
+demand-model=cs_demand_model.__main__:cli
+
+[prpc_python]
+demand-model=cs_demand_model.rpc.api:app
+
