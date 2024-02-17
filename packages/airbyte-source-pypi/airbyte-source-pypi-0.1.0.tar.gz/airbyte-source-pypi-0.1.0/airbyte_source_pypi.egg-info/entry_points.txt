@@ -1,0 +1,2 @@
+[console_scripts]
+source-pypi = source_pypi.run:run
