@@ -1,0 +1,21 @@
+[project]
+name = "bitscalcpro"
+version = "3.0"
+authors = [
+  { name="MuhammadRizwan", email="mrizwan87@proton.me" },
+]
+description = "Comprehensive Numeric Converter & Analyzer"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/muhammadrizwan87/bitscalcpro"
+Issues = "https://github.com/muhammadrizwan87/bitscalcpro/issues"
+
+[project.scripts]
+bcp = "bitscalcpro.main:Main.main"

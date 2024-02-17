@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+bitscalcpro/__init__.py
+bitscalcpro/base_converter.py
+bitscalcpro/float_converter.py
+bitscalcpro/main.py
+bitscalcpro/print_info.py
+bitscalcpro/validator.py
+bitscalcpro/welcome.py
+bitscalcpro.egg-info/PKG-INFO
+bitscalcpro.egg-info/SOURCES.txt
+bitscalcpro.egg-info/dependency_links.txt
+bitscalcpro.egg-info/entry_points.txt
+bitscalcpro.egg-info/top_level.txt
