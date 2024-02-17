@@ -1,0 +1,14 @@
+scripro/Ori_data.py,sha256=Im-87ipdiBxMJhrg1dwlCjsS30zlD8qhOZApzlOzdgY,21717
+scripro/__init__.py,sha256=2ovRfgaJmbffWiFq7vRCk-8L8NECReKFck1K-IHTiv8,71
+scripro/cli.py,sha256=EaX6ujDemj-e1ku5opyD5U3koGXxqX4XAG_Ccwczb2U,15351
+scripro/supercell.py,sha256=I1b4TknWajtSDz7ZHRjnjDkL4b-jHV1TsmrdKz11hn0,5626
+scripro/utils.py,sha256=Ao3RN9OVtff_zhapYhdpJJVvHUkxIRgPa5n8ENN-UDY,11491
+scripro/data/TF_target_RP.h5,sha256=h6yp-eKZwr911Qbgje6tKkV1q5oKWiJJn8OGAR5ncwA,133
+scripro/data/bedGraphToBigWig,sha256=_23NC97kDov2354Lx70wBJT7JUwU-8FGveVlgTfiS48,9552920
+scripro/data/hg38.genome,sha256=tallmGs7iwlrfuWekqjjGLCgsmiMtKDzhvG7sg5q8QI,364
+scripro/data/mm10.genome,sha256=ycu4RMhZ-nQu8GN8QAnSC0j8DGgf5fzDR6DHKzfmGqo,319
+scripro-1.0.18.dist-info/METADATA,sha256=Gu6jtWs0vrBfISJHVh6eWuyOj4ONFiClwzMa5RuV2W8,6548
+scripro-1.0.18.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+scripro-1.0.18.dist-info/entry_points.txt,sha256=jcwEewifHDarwz0RBKqBn8azO-xiSTkvmS22BtXK-Xw,45
+scripro-1.0.18.dist-info/top_level.txt,sha256=q68RMctVhKDt_LkLS7-2SBRW4Mwx88cCwnMYyGv3HoA,8
+scripro-1.0.18.dist-info/RECORD,,

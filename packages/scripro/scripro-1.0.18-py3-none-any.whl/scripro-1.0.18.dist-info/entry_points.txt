@@ -1,0 +1,2 @@
+[console_scripts]
+scripro = scripro.cli:main
