@@ -1,0 +1,3 @@
+[console_scripts]
+lm = lumberman.__main__:app
+lumberman = lumberman.__main__:app
