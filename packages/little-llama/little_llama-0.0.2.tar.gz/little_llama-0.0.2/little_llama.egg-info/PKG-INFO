@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: little_llama
+Version: 0.0.2
+Summary: Get information from custom text
+Home-page: https://git.parstechai.com/parstech-nlp/nlg/parschat-logic/-/tree/feat/sensomatt_doc?ref_type=heads
+Author: javad nematollahi
+Author-email: javadnematollahi92@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: ai_utils
+Requires-Dist: llama_index
+Requires-Dist: pydantic
+Requires-Dist: pydantic_settings
+Requires-Dist: setuptools
+
+## LLAMA
+
+This is an openai model that able you to give your own text to it and ask question of that text from model.
+
+To use this model first you need to buy a token from openai.
+
+link of model documentation:
+
+https://docs.llamaindex.ai/
+
+
+## How to use Model:
+
+```
+lama = llama_model("Your data text file directory, "Your open ai token)
+result = lama.getquery("Your query)
+print(result)
+```
