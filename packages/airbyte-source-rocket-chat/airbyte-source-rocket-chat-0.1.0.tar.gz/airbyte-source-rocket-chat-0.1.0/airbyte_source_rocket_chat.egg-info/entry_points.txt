@@ -1,0 +1,2 @@
+[console_scripts]
+source-rocket-chat = source_rocket_chat.run:run
