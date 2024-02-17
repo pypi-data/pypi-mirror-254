@@ -1,0 +1,9 @@
+dissect.cstruct<4.0.dev,>=3.0.dev
+dissect.util<4.0.dev,>=3.0.dev
+
+[full]
+python-lzo
+zstandard
+
+[gcrc32]
+google-crc32c
