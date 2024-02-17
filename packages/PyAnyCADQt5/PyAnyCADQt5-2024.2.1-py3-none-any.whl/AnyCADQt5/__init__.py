@@ -1,0 +1,2 @@
+
+from . import PyAnyQt5

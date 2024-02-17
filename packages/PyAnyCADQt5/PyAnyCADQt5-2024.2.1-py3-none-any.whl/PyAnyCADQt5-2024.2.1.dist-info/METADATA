@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: PyAnyCADQt5
+Version: 2024.2.1
+Summary: The 3D Graphics/Geometry library for Python Developer
+Home-page: http://www.anycad.cn
+Author: AnyCAD
+Author-email: anycad@anycad.cn
+License: AnyCAD License
+Keywords: AnyCAD,Graphics,OpenGL,Geometry,Modeling
+Requires-Dist: PyQt5 >=5.15.10
+Requires-Dist: PyAnyCAD >=2024.2.1
+
