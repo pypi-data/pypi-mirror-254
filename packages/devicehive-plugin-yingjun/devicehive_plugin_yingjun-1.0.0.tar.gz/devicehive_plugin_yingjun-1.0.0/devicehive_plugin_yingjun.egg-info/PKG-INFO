@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: devicehive-plugin-yingjun
+Version: 1.0.0
+Requires-Dist: websocket-client>=0.47.0
+Requires-Dist: requests>=2.18.4
+Requires-Dist: six>=1.11.0
