@@ -1,0 +1,12 @@
+delayedarray>=0.4.0
+numpy
+h5py
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+setuptools
+pytest
+pytest-cov
+scipy
