@@ -1,0 +1,28 @@
+[build-system]
+requires = ['setuptools>=42']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "idev-steganopy"
+version = "1.3.0"
+authors = [
+  { name="Irtsa", email="irtsa.development@gmail.com" },
+]
+description = "A python script for hiding text into images (steganography)."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "idev-pytermcolor"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/IrtsaDevelopment/Steganopy"
+"Bug Tracker" = "https://github.com/IrtsaDevelopment/Steganopy/issues"
+
+[project.scripts]
+steganopy = "Steganopy:run"

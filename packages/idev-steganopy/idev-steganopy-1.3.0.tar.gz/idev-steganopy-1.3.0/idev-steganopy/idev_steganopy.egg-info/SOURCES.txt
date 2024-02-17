@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+idev-steganopy/Steganopy/__init__.py
+idev-steganopy/Steganopy/steganopy.py
+idev-steganopy/idev_steganopy.egg-info/PKG-INFO
+idev-steganopy/idev_steganopy.egg-info/SOURCES.txt
+idev-steganopy/idev_steganopy.egg-info/dependency_links.txt
+idev-steganopy/idev_steganopy.egg-info/entry_points.txt
+idev-steganopy/idev_steganopy.egg-info/requires.txt
+idev-steganopy/idev_steganopy.egg-info/top_level.txt
