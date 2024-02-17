@@ -1,0 +1,4 @@
+[console_scripts]
+tha3=tha3.app.manual_poser:main
+tha3i=tha3.app.ifacialmocap_puppeteer:main
+
