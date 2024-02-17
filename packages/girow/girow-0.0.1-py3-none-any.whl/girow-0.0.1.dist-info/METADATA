@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: girow
+Version: 0.0.1
+Summary: Girow is a Python-based CLI tool that helps create a workflow so that user can create better functions. It provides functionalities to create a new learning branch, install Jupyter Notebook, create a new Jupyter Notebook file, and merge changes from the learning branch back to the main branch.
+Home-page: https://github.com/DeepeshKalura/girow
+Author: Deepesh Kalura
+Author-email: deepeshkalurs@gmail.com
+License: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click ==8.1.7
+
+# GiRow
+This is a simple cli tool which helps you to create a simple flow for the git 
