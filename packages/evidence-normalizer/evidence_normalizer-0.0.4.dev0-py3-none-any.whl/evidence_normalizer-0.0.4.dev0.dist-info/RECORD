@@ -1,0 +1,17 @@
+evidence/__init__.py,sha256=s-63eWGUCY8wwbi6vCmJ0UrEiLgt92OzfqWj-qXFIz4,1125
+evidence/schemas.py,sha256=rgkNME3hdndQw_YYWyPltaeoo_o-tBIrQyWZ93-28k8,914
+evidence/version.py,sha256=AbXC-03zLtlK-2X6PsW3LbEv8SWplQDF8b5adfFLlpg,68
+evidence/data_sources/__init__.py,sha256=sn6z2ABe1hNfmtnp_4IW0j6k3R1fGQFRQZ_s0m37xC8,105
+evidence/data_sources/base.py,sha256=FIqwOKV1QvifNHNP1-0L79IsDRBZDprjsTJ4sZyet8U,2933
+evidence/data_sources/cancer_hotspots.py,sha256=ouLsiLln0-yquzac7pVZVYC-ffju6ksAErPbu_q_UOE,4155
+evidence/data_sources/cbioportal.py,sha256=sWS4FeDWuftxaRAaj9fuUC0wCCtSMbHr80pqhgsF3eg,5369
+evidence/dev/__init__.py,sha256=wo7E3itw8FEOUfd9a4qwy4gna_YsZ6lQ2SrJXMmFb8Q,23
+evidence/dev/cli.py,sha256=RXSTnTJ6zTiW4TmZPUTnII06K401YTgCQx9KSbp_nlM,1840
+evidence/dev/etl/__init__.py,sha256=-SC9h2ObyDh6CW-q4wJx9vRexuYaoKwCdA-vjJGZrsQ,210
+evidence/dev/etl/cancer_hotspots.py,sha256=pABXYMZ6xdtgJH_HsseXUdp5HSKpJLG4icmArFgbUmM,5799
+evidence/dev/etl/cbioportal.py,sha256=a-vLqIkSp8lYD_hVRI9IdAVmVZsdMmPLXfuqCrwm6FA,4227
+evidence_normalizer-0.0.4.dev0.dist-info/LICENSE,sha256=UKoChBRX50GTfi_kUX1X8lP_Fk8piZgPsGAQkLIiI00,1061
+evidence_normalizer-0.0.4.dev0.dist-info/METADATA,sha256=OsWH7ZKqimjsOcCyQIu1Mr73MKV482_5WoGTwEqeuzo,2623
+evidence_normalizer-0.0.4.dev0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+evidence_normalizer-0.0.4.dev0.dist-info/top_level.txt,sha256=vc9MmUWFr23Wyxz7_3i8xzqyfcMKKZ21u4N2bKBbXeQ,9
+evidence_normalizer-0.0.4.dev0.dist-info/RECORD,,
