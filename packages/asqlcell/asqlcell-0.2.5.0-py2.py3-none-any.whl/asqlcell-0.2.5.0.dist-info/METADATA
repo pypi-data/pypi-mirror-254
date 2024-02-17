@@ -1,0 +1,193 @@
+Metadata-Version: 2.1
+Name: asqlcell
+Version: 0.2.5.0
+Summary: Analytical sql cell for Jupyter
+Home-page: https://github.com/datarho/asqlcell
+Author: qizh
+Author-email: qizh@datarho.tech
+License: BSD
+Keywords: Jupyter,Widgets,IPython
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Jupyter
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: altair ==5.2.0
+Requires-Dist: vegafusion ==1.6.1
+Requires-Dist: vl-convert-python ==1.2.1
+Requires-Dist: vegafusion-python-embed ==1.6.1
+Requires-Dist: duckdb ==0.9.2
+Requires-Dist: duckdb-engine ==0.9.2
+Requires-Dist: pandas ==2.0.3
+Requires-Dist: sqlalchemy ==2.0.19
+Requires-Dist: fastparquet >=2023.4.0
+Requires-Dist: ipywidgets >=8.0.0
+Requires-Dist: jinja2 >=3.1.2
+Requires-Dist: StrEnum >=0.4.15
+Requires-Dist: sqlparse >=0.4.3
+Requires-Dist: openai >=0.27.10
+Requires-Dist: requests >=2.28.1
+Requires-Dist: openpyxl >=3.1.2
+Provides-Extra: docs
+Requires-Dist: jupyter-sphinx ; extra == 'docs'
+Requires-Dist: nbsphinx ; extra == 'docs'
+Requires-Dist: nbsphinx-link ; extra == 'docs'
+Requires-Dist: pytest-check-links ; extra == 'docs'
+Requires-Dist: pypandoc ; extra == 'docs'
+Requires-Dist: recommonmark ; extra == 'docs'
+Requires-Dist: sphinx >=1.5 ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: examples
+Provides-Extra: test
+Requires-Dist: pytest >=4.6 ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: nbval ; extra == 'test'
+
+# Analytical SQL Cell
+
+For the last decade, the data ecosystem has mainly focused on the technologies to store and process big datasets — the bigger the better. Later on, Modern Data Stack emerged as a cloud-native suite of products used for data integration and data analytics by the more technology-forward companies. Data warehouses are now a default piece of the Modern Data Stack and Snowflake’s rapid rise has been the poster child of this trend.
+
+But in real life, most analytical workloads aren’t massive. Users prefer easy and fast answers to their questions instead of waiting for the cloud to spin. Instead of a distributed database in the cloud, most analyses can be handled with an optimized engine on our laptop and the cloud can be leveraged when needed.
+
+To fill the gap, we built Analytical SQL Cell, a free and open-source Jupyter Widget that offers a Personal Data Lake experience for Jupyter Notebook users.
+
+Analytical SQL has the following features:
+
+* Pain-free setup (pip install asqlcell and you are in).
+* Unleash the power of SQL for analytical workloads.
+* Lightning speed for data loading.
+* Built-in visualization.
+* Low footprint for analytical processing.
+* Interleave Python and SQL programming.
+* Free and open source.
+
+## Installation
+
+You can install using `pip`:
+
+```bash
+pip install asqlcell
+```
+
+## Quick Start
+
+Here's a quick example to get you started with Analytical SQL Cell in Jupyter:
+
+```sql
+%%sql
+
+SELECT
+    continent,
+    AVG(life_exp) AS health,
+    AVG(gdp_cap) AS wealth,
+    SUM(population) AS population
+FROM 'gapminder.csv.gz'
+WHERE year=2007
+GROUP BY continent
+```
+
+In the above sample, `%%sql` is a cell magic indicating that the cell block will be executed as a SQL statement. File are used as data source for querying with SQL.
+
+![Screenshot](gapminder.gif)
+
+### Data Load
+
+You can query from Pandas DataFrame, CSV files, compressed (e.g. compressed with gzip) CSV files, as well as Parquet files.
+
+### SQL
+
+DuckDB is the default engine of Analytical SQL Cell. Please find more details at the [SQL Introduction](https://duckdb.org/docs/sql/introduction) of DuckDB.
+
+### Result Table
+
+With the SQL query being executed in an Analytical SQL Cell, the result set is presented as a table.
+
+![Result Table](result-table.png)
+
+### Chart Builder
+
+You can further visualize the result set by clicking the Chart tab.
+
+![Chart Builder](chart-builder.png)
+
+Here are the chart types supported:
+
+* Column chart
+* Bar chart
+* Line chart
+* Area chart
+* Scatter chart
+* Pie chart
+* Combo chart
+* Funnel chart
+* Sunburst chart
+
+### Tutorial
+
+- [Introduction](examples/introduction.ipynb)
+- [World Development in Numbers](examples/gapminder.ipynb)
+- [Visualise Netflix Data With Analytical SQL](examples/netflix.ipynb)
+- [Learn SQL with Jupyter Lab](examples/chinook.sqlite.ipynb)
+- [Business Questions on Chinook Music Store](examples/chinook.duckdb.ipynb)
+- [Use the Right Chart for Data Visualization](examples/visualization.ipynb)
+
+## Development
+
+This widget is developed with conda to ensure a consistent developer experience. The project is developed in both
+Mac OS and Windows Subsystem for Linux.
+
+Please run the following commands to create a conda environment:
+
+```bash
+conda create -n asqlcell -c conda-forge nodejs=18.15 python=3.8 jupyterlab=3.6 jupyter_packaging=0.12
+conda activate asqlcell
+```
+
+### Python
+
+Install the python. This will also build the TypeScript package.
+
+```bash
+pip install -e ".[test, examples, docs]"
+```
+
+### Jupyter
+
+When developing your extensions, you need to manually enable your extensions with the notebook / lab frontend.
+
+For lab, this is done by the command:
+
+```
+jupyter labextension develop --overwrite .
+jlpm run build
+```
+
+#### Typescript
+
+You must start watching the change of the widget:
+
+```bash
+jlpm run watch
+```
+
+Then in another terminal you can run Jupyter Lab (without launching a browser):
+
+```bash
+jupyter lab --no-browser
+```
+
+Now you can open Google Chrome and navigate to [http://localhost:8888](http://localhost:8888) to play with the widget.
+After a change wait for the build to finish and then refresh your browser and the changes should take effect.
+
+If you make a change to the python code then you will need to restart the notebook kernel to have it take effect.
