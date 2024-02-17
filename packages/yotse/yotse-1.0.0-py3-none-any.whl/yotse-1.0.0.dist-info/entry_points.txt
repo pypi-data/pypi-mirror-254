@@ -1,0 +1,6 @@
+[console_scripts]
+blueprint=examples.run_examples:run_blueprint_example
+examples=examples.run_examples:run_examples
+show-cov=tests.run_tests:open_coverage_report
+tests=tests.run_tests:main
+
