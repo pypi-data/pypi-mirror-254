@@ -1,0 +1,7 @@
+regex
+spacy==3.7.2
+numpy
+scipy
+transformers
+pandas
+torch
