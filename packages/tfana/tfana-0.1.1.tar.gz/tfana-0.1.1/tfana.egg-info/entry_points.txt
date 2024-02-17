@@ -1,0 +1,2 @@
+[console_scripts]
+list_rc = tfana.bin.list_rc:main
