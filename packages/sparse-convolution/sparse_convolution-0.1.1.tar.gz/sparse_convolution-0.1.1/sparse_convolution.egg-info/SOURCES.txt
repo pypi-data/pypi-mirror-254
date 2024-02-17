@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+sparse_convolution/__init__.py
+sparse_convolution/sparse_convolution.py
+sparse_convolution.egg-info/PKG-INFO
+sparse_convolution.egg-info/SOURCES.txt
+sparse_convolution.egg-info/dependency_links.txt
+sparse_convolution.egg-info/requires.txt
+sparse_convolution.egg-info/top_level.txt
+tests/test_unit.py
