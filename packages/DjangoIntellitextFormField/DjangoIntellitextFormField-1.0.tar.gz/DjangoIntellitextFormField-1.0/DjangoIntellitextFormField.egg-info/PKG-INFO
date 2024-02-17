@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: DjangoIntellitextFormField
+Version: 1.0
+Summary: adds intellitext forms and fields to a django project
+Home-page: https://github.com/amcsparron2793-Water/DjangoIntellitextFormField
+Download-URL: https://github.com/amcsparron2793-Water/DjangoIntellitextFormField/archive/refs/tags/1.0.tar.gz
+Author: Amcsparron
+Author-email: amcsparron@albanyny.gov
+License: MIT License
+Keywords: Django,Intellitext,PickList
+License-File: LICENSE.txt
