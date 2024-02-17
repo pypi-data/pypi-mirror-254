@@ -1,0 +1,2 @@
+[console_scripts]
+source-gainsight-px = source_gainsight_px.run:run
