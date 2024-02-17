@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: testrail_client
+Version: 0.1.1
+Summary: 
+Author: jiacwjcw
+Author-email: quota0619@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: testrail-api (>=1.13.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Muffin
+Using the testrail-api package, you can fetch information for all test cases under a specific suite. This information is useful for automated testing purposes.
+
+## Requirements
+```
+python 3.6+
+```
+
