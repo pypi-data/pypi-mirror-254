@@ -1,0 +1,90 @@
+[tool.poetry]
+name = "tap-planetscaleapi"
+version = "0.0.1a2"
+description = "`tap-planetscaleapi` is a Singer tap for PlanetScaleAPI, built with the Meltano Singer SDK."
+readme = "README.md"
+authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
+keywords = [
+    "ELT",
+    "PlanetScaleAPI",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+importlib-resources = { version = "==6.1.*", python = "<3.9" }
+fs-s3fs = { version = "~=1.1.1", optional = true }
+singer-sdk = { version="~=0.35.0a4" }
+requests = "~=2.31.0"
+toolz = "~=0.12.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "~=1.8.0"
+pytest = ">=7.4.0"
+requests-cache = {version = "~=1.1.1", python = "<4.0"}
+singer-sdk = { version="~=0.35.0a4", extras = ["testing"] }
+types-requests = "~=2.31.0.6"
+
+[tool.poetry.extras]
+s3 = ["fs-s3fs"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = [
+    "toolz.*",  # https://github.com/pytoolz/toolz/issues/496
+]
+
+[tool.ruff]
+src = ["tap_planetscaleapi"]
+target-version = "py38"
+
+[tool.ruff.lint]
+ignore = [
+    "ANN101",  # missing-type-self
+    "ANN102",  # missing-type-cls
+    "COM812",  # missing-trailing-comma
+    "ISC001",  # single-line-implicit-string-concatenation
+]
+select = ["ALL"]
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["tap_planetscaleapi"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[build-system]
+requires = ["poetry-core==1.8.1", "poetry-dynamic-versioning==1.2.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry.scripts]
+# CLI declaration
+tap-planetscaleapi = 'tap_planetscaleapi.tap:TapPlanetScaleAPI.cli'
+
+[tool.poetry-dynamic-versioning]
+enable = false
+style = "pep440"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "default:Fields in transformed catalog but not in records:UserWarning",
+    "ignore:No records returned in stream:UserWarning",
+    "ignore:No records were available to test:UserWarning",
+]
