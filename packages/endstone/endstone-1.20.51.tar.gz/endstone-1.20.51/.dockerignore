@@ -1,0 +1,8 @@
+.dockerignore
+Dockerfile
+
+bedrock_server
+build
+venv
+wheelhouse
+CMakeUserPresets.json
