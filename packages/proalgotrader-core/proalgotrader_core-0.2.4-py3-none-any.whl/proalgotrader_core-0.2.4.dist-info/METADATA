@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: proalgotrader-core
+Version: 0.2.4
+Summary: ProAlgoTrader Core
+License: MIT
+Author: Krunal Dodiya
+Author-email: kunal.dodiya1@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: apscheduler (>=3.10.4,<4.0.0)
+Requires-Dist: fyers-apiv3 (>=3.0.7,<4.0.0)
+Requires-Dist: logzero (>=1.7.0,<2.0.0)
+Requires-Dist: norenrestapipy (>=0.0.22,<0.0.23)
+Requires-Dist: pandas-market-calendars (>=4.3.3,<5.0.0)
+Requires-Dist: pydantic (>=2.5.3,<3.0.0)
+Requires-Dist: pyotp (>=2.9.0,<3.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: pytz (>=2023.3.post1,<2024.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: smartapi-python (>=1.4.1,<2.0.0)
+Requires-Dist: websockets (>=12.0,<13.0)
+Description-Content-Type: text/markdown
+
+```
+ProAlgoTrader Core
+```
+
