@@ -1,0 +1,14 @@
+README.md
+setup.py
+EPICGAMES_FREE_PURCHASE.egg-info/PKG-INFO
+EPICGAMES_FREE_PURCHASE.egg-info/SOURCES.txt
+EPICGAMES_FREE_PURCHASE.egg-info/dependency_links.txt
+EPICGAMES_FREE_PURCHASE.egg-info/entry_points.txt
+EPICGAMES_FREE_PURCHASE.egg-info/requires.txt
+EPICGAMES_FREE_PURCHASE.egg-info/top_level.txt
+EpicGames_FreeGames_Bot/EpicGamesAutomationApp.py
+EpicGames_FreeGames_Bot/EpicGamesConnect.py
+EpicGames_FreeGames_Bot/WaitHelper.py
+EpicGames_FreeGames_Bot/WebDriverHelper.py
+EpicGames_FreeGames_Bot/__init__.py
+EpicGames_FreeGames_Bot/main.py
