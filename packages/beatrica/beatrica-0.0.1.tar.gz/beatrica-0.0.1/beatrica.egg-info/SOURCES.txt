@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+beatrica/__init__.py
+beatrica/beatrica.py
+beatrica.egg-info/PKG-INFO
+beatrica.egg-info/SOURCES.txt
+beatrica.egg-info/dependency_links.txt
+beatrica.egg-info/top_level.txt
+tests/__init__.py
