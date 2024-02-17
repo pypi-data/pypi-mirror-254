@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: gestureflow
+Version: 0.0.4
+Summary: A library for simplifying the development of gesture based application development
+Home-page: https://github.com/Jay7221/gestureflow
+Author: Jay Shirgupe
+Author-email: jns29072003@gmail.com
+Project-URL: Bug Reports, https://github.com/Jay7221/gestureflow/issues
+Project-URL: Say Thanks!, https://saythanks.io/to/jns29072003
+Project-URL: Source, https://github.com/Jay7221/gestureflow
+Keywords: gesture detection,rapid gesture application development,mediapipe
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Multimedia :: Graphics :: 3D Modeling
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: mediapipe
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+# gestureflow
