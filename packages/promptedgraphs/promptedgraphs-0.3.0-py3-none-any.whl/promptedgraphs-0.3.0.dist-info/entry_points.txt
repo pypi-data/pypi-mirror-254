@@ -1,0 +1,3 @@
+[console_scripts]
+promptedgraphs=promptedgraphs.cli:app
+
