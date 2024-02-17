@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "agentools"
+version = "0.1.0"
+description = ""
+authors = ["Joong-Won Seo <joong.won.seo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "agentools"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.5.1"
+tiktoken = "^0.5.2"
+jsonref = "^1.1.0"
+docstring-parser = "^0.15"
+json-autocomplete = "^0.1.0"
+openai = "^1.5.0"
+jsonschema = "^4.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
