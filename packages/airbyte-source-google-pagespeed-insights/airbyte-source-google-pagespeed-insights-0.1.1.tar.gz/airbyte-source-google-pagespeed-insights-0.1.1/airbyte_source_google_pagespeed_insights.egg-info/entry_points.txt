@@ -1,0 +1,2 @@
+[console_scripts]
+source-google-pagespeed-insights = source_google_pagespeed_insights.run:run
