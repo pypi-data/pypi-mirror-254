@@ -1,0 +1,16 @@
+{% macro render_nav(nav_item) %}
+{% if nav_item.children %}
+<details>
+    <summary class="group">{{ nav_item.title }}</summary>
+    <ul>
+        {% for child_item in nav_item.children %}
+        <li>
+            {{ render_nav(child_item) }}
+        </li>
+        {% endfor %}
+    </ul>
+</details>
+{% else %}
+<a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+{% endif %}
+{% endmacro %}
