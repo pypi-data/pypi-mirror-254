@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: ebx
+Version: 0.5.0
+Summary: Earth Blox Client Library
+Home-page: https://earthblox.io/
+Author-email: EarthBlox Dev Team <support@earthblox.io>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: geojson-pydantic
+Requires-Dist: pandas
+Requires-Dist: httpx
+Requires-Dist: leafmap
+Requires-Dist: plotly
+
+# Earth Blox API Client Library
+Alpha stage, Earth Blox Client Library for Python.
+
+[Earth Blox](https://earthblox.io) - measure climate and nature risk for all your economic assets and facilities worldwide.
+Earth Blox gives sustainability teams satellite imagery analytics to report on climate and biodiversity impacts, risks, and opportunities for millions of assets in minutes.
