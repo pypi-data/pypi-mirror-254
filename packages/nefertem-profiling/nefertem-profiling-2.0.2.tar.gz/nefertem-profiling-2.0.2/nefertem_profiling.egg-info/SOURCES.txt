@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+nefertem_profiling/__init__.py
+nefertem_profiling.egg-info/PKG-INFO
+nefertem_profiling.egg-info/SOURCES.txt
+nefertem_profiling.egg-info/dependency_links.txt
+nefertem_profiling.egg-info/requires.txt
+nefertem_profiling.egg-info/top_level.txt
+nefertem_profiling/metadata/__init__.py
+nefertem_profiling/metadata/report.py
+nefertem_profiling/plugins/__init__.py
+nefertem_profiling/plugins/builder.py
+nefertem_profiling/plugins/plugin.py
+nefertem_profiling/run/__init__.py
+nefertem_profiling/run/run.py
