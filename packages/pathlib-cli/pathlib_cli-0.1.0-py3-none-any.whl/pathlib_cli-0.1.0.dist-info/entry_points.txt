@@ -1,0 +1,3 @@
+[console_scripts]
+pathlib-cli=pathlib_cli.__main__:cli
+
