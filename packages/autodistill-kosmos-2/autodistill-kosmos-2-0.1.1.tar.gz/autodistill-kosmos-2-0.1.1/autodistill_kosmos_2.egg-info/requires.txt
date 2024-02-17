@@ -1,0 +1,13 @@
+transformers
+autodistill
+torch
+Pillow
+numpy
+
+[dev]
+flake8
+black==22.3.0
+isort
+twine
+pytest
+wheel
