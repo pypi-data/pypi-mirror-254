@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+DjPyForms/__init__.py
+DjPyForms/django_integration.py
+DjPyForms/form_generator.py
+DjPyForms/utils.py
+DjPyForms.egg-info/PKG-INFO
+DjPyForms.egg-info/SOURCES.txt
+DjPyForms.egg-info/dependency_links.txt
+DjPyForms.egg-info/entry_points.txt
+DjPyForms.egg-info/requires.txt
+DjPyForms.egg-info/top_level.txt
+DjPyForms/management/__init__.py
+DjPyForms/management/commands/__init__.py
+DjPyForms/management/commands/createform.py
