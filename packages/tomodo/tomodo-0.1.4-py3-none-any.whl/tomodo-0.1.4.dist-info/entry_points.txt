@@ -1,0 +1,5 @@
+[console_scripts]
+build-amd64=tomodo.packager:install_amd64
+build-arm64=tomodo.packager:install_arm64
+tomodo=tomodo.cmd:run
+
