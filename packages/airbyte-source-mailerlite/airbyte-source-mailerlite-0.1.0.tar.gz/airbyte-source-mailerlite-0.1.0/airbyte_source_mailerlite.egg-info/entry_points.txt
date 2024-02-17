@@ -1,0 +1,2 @@
+[console_scripts]
+source-mailerlite = source_mailerlite.run:run
