@@ -1,0 +1,12 @@
+flask<3,>=2.1.0
+
+[dev]
+build
+pytest
+requests
+ruff
+sentry-sdk
+setuptools
+tox
+tox-gh-actions
+twine
