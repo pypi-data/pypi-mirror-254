@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cythonlookupdicts/README.MD
+cythonlookupdicts/__init__.py
+cythonlookupdicts/lookdicy.pyx
+cythonlookupdicts/requirements.txt
+cythonlookupdicts/thirdparty.json
+cythonlookupdicts.egg-info/PKG-INFO
+cythonlookupdicts.egg-info/SOURCES.txt
+cythonlookupdicts.egg-info/dependency_links.txt
+cythonlookupdicts.egg-info/requires.txt
+cythonlookupdicts.egg-info/top_level.txt

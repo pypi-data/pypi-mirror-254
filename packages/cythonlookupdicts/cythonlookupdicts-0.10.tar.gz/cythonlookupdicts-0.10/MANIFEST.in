@@ -1,0 +1,4 @@
+include cythonlookupdicts/requirements.txt
+include cythonlookupdicts/thirdparty.json
+include cythonlookupdicts/README.MD
+include cythonlookupdicts/lookdicy.pyx
