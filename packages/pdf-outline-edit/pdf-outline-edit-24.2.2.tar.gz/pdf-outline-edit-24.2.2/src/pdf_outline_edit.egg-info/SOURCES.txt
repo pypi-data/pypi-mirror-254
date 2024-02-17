@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/pdf_outline_edit.egg-info/PKG-INFO
+src/pdf_outline_edit.egg-info/SOURCES.txt
+src/pdf_outline_edit.egg-info/dependency_links.txt
+src/pdf_outline_edit.egg-info/entry_points.txt
+src/pdf_outline_edit.egg-info/requires.txt
+src/pdf_outline_edit.egg-info/top_level.txt
+src/pdfoe/__init__.py
+src/pdfoe/common.py
+src/pdfoe/gui_pyside_qml.py
+src/pdfoe/gui_tkinter.py
+src/pdfoe/main.py
+src/pdfoe/main.qml
+src/pdfoe/pdf_obj.py
