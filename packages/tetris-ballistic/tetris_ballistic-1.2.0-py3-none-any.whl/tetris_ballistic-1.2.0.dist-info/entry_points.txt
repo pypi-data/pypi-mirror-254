@@ -1,0 +1,3 @@
+[console_scripts]
+tetrisBD = tetris_ballistic.cli.main:cli
+
