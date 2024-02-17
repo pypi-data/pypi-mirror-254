@@ -1,0 +1,16 @@
+anystore/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+anystore/cli.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+anystore/decorators.py,sha256=FNv62r0qeCBaUCBzPymCSJwRwy9GOUH86CWCRwZfgp0,703
+anystore/exceptions.py,sha256=NQOYmH7LIk3jPu1zAgSB98ReQ1vxKb6qNTQFcSJLDz0,48
+anystore/io.py,sha256=4vsHVe3bzaDKBONTVvEK3fk478wsilEA1xJA7zNv4ag,2241
+anystore/mixins.py,sha256=pMKv_GPKmac2p7_EfO8okBFQSDIj5_qcvJpHa2GKr6o,1636
+anystore/serialize.py,sha256=R1m3MlrBgIuNxXp5inG2tzl4J-qa4XjzWXRrompUH7w,498
+anystore/settings.py,sha256=bMl4I6889XoJRJytjdvi1MF7ndNLKR2QGA3kfYgZqUI,320
+anystore/store.py,sha256=zD7COt__wMWJPuOdR6hoGv99hLNmNdJJW7XqYdMxWu8,2292
+anystore/types.py,sha256=xlWrHPRDkyp7ai22b0W2zSCOwYzKLKnw_H8XcTrCvdA,119
+anystore/util.py,sha256=bp8xIiZh44l2Xr-Edt_MmCeLkoLRRYg_snUQ884XCUo,1480
+anystore-0.0.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+anystore-0.0.1.dist-info/METADATA,sha256=-uXu8ivtgIgPjTtnWKEZ8tvnpaY7UklKpyfas--iGYU,3818
+anystore-0.0.1.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+anystore-0.0.1.dist-info/entry_points.txt,sha256=itndaU_6xt3VEMDHRlNNwk8b8bgQobaYuAvO8yevmVQ,45
+anystore-0.0.1.dist-info/RECORD,,
