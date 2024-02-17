@@ -1,0 +1,23 @@
+{
+  "name": "@modelscope-gradio/chatbot",
+  "version": "0.0.0",
+  "private": false,
+  "description": "ModelScope Gradio Components",
+  "repository": "git@gitlab.alibaba-inc.com:sail-web/modelscope_gradio_components.git",
+  "license": "ISC",
+  "type": "module",
+  "exports": {
+    ".": "./Index.svelte",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@gradio/atoms": "0.4.1",
+    "@gradio/client": "0.10.1",
+    "@gradio/icons": "0.3.2",
+    "@gradio/statustracker": "0.4.3",
+    "@gradio/utils": "0.2.0",
+    "@modelscope-gradio/compiled": "workspace:*",
+    "dequal": "^2.0.3"
+  },
+  "main_changeset": true
+}

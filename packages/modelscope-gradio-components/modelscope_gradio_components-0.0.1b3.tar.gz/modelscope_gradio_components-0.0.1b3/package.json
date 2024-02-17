@@ -1,0 +1,39 @@
+{
+  "name": "modelscope_gradio_components",
+  "version": "0.0.0",
+  "private": false,
+  "description": "ModelScope Gradio Components",
+  "repository": "git@gitlab.alibaba-inc.com:sail-web/modelscope_gradio_components.git",
+  "license": "ISC",
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "gradio cc dev",
+    "dev:compiled": "pnpm -F '@modelscope-gradio/compiled' dev",
+    "build": "pnpm -F '@modelscope-gradio/compiled' build && gradio cc build",
+    "lint": "npm-run-all --parallel lint:* && npm run format",
+    "format": "prettier --cache --write '**/*.{js,jsx,tsx,ts,svelte,less,md,yaml,yml,json}' --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --fix  --cache --ext .js,.jsx,.ts,.tsx,.svelte frontend",
+    "lint:ts": "tsc",
+    "lint:style": "stylelint --allow-empty-input --cache --fix \"**/*.{less,css}\" "
+  },
+  "devDependencies": {
+    "@alife/eslint-config-sail": "^2.0.2",
+    "@alife/prettier-config-sail": "^1.0.2",
+    "@alife/stylelint-config-sail": "^2.0.0",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.4",
+    "prettier-plugin-svelte": "^3.1.2",
+    "stylelint": "^16.2.0",
+    "svelte": "^4.2.9",
+    "svelte-eslint-parser": "^0.33.1",
+    "typescript": "^5.3.3"
+  },
+  "main_changeset": true
+}

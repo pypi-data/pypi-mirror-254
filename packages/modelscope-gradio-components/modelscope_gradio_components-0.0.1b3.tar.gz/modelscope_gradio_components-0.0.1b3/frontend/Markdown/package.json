@@ -1,0 +1,21 @@
+{
+  "name": "@modelscope-gradio/markdown",
+  "version": "0.0.0",
+  "private": false,
+  "description": "ModelScope Gradio Components",
+  "repository": "git@gitlab.alibaba-inc.com:sail-web/modelscope_gradio_components.git",
+  "license": "ISC",
+  "type": "module",
+  "exports": {
+    ".": "./Index.svelte",
+    "./example": "./Example.svelte",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@gradio/atoms": "0.4.1",
+    "@gradio/statustracker": "0.4.3",
+    "@gradio/utils": "0.2.0",
+    "@modelscope-gradio/compiled": "workspace:*"
+  },
+  "main_changeset": true
+}
