@@ -1,0 +1,3 @@
+include cycompi/requirements.txt
+include cycompi/thirdparty.json
+include cycompi/README.MD
