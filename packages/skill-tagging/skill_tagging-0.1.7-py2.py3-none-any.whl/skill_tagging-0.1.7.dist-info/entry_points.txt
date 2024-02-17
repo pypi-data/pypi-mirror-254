@@ -1,0 +1,2 @@
+[lms.djangoapp]
+skill_tagging = skill_tagging.apps:SkillTaggingConfig
