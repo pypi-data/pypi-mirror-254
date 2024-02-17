@@ -1,0 +1,3 @@
+[console_scripts]
+test-app=test_app:main
+
