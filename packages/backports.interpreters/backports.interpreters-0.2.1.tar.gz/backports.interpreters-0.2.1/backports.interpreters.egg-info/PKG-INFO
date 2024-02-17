@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: backports.interpreters
+Version: 0.2.1
+Summary: Backport of Python interpreters module described in PEP554
+Home-page: https://github.com/aisk/backports.interpreters
+Author: AN Long
+Requires-Python: >=3.8
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
