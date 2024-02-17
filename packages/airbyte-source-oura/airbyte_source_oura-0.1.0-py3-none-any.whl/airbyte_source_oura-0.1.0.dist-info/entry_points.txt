@@ -1,0 +1,2 @@
+[console_scripts]
+source-oura = source_oura.run:run
