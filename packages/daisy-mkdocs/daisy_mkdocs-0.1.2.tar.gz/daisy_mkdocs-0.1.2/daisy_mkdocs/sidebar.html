@@ -1,0 +1,24 @@
+{% from 'components/menu.html' import render_nav with context %}
+
+{% if nav|length > 1 %}
+<aside class="h-full w-1/4 hidden md:block border-r">
+    <div class="px-4 py-6">
+        <div class="flex items-center">
+            <span class="grid h-10 w-full place-content-center rounded-lg text-xl">
+                {{ config.site_name }}
+            </span>
+        </div>
+        <nav>
+            {% if nav|length > 1 %}
+            <ul class="menu w-full rounded-box">
+                {% for nav_item in nav %}
+                <li>
+                    {{ render_nav(nav_item) }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </nav>
+    </div>
+</aside>
+{% endif %}
