@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: stravawizard
+Version: 0.0.1
+Summary: A package used to deal with Strava authentification and api
+Home-page: https://gitlab.com/KrazyMax/stravawizard
+Author: KrazyMax
+License-File: LICENCE
+Requires-Dist: requests
