@@ -1,0 +1,48 @@
+[project]
+name = "bassist"
+version = "1.2"
+description = "Create borg backups using a config file"
+readme = "README.md"
+authors = [{name = "Rens Oliemans"}]
+license = {text = "GPL-3"}
+requires-python = ">=3.11"
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License (GPL)"
+]
+dependencies = [
+    "click ~= 8.1",
+    "requests ~= 2.31",
+]
+
+[project.urls]
+Homepage = "https://git.sr.ht:~rensoliemans/bassist"
+Changelog = "https://git.sr.ht/~rensoliemans/bassist/refs"
+CI = "https://builds.sr.ht/~rensoliemans/bassist"
+
+[project.entry-points.console_scripts]
+bassist = "bassist.cli:cli"
+
+[project.optional-dependencies]
+test = ["pytest ~= 7.4.4"]
+dev = [
+    "black ~= 22.6.0",
+    "ruff ~= 0.0.267",
+    "mypy ~= 0.971",
+    "types-requests ~= 2.31",
+    "pre-commit ~= 3.1.0",
+    "bassist[test]",
+]
+build = [
+    "build",
+    "setuptools",
+    "twine",
+]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
+
+[tool.mypy]
+files = [
+    "bassist",
+]

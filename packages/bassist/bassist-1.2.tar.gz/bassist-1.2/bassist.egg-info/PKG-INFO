@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: bassist
+Version: 1.2
+Summary: Create borg backups using a config file
+Author: Rens Oliemans
+License: GPL-3
+Project-URL: Homepage, https://git.sr.ht:~rensoliemans/bassist
+Project-URL: Changelog, https://git.sr.ht/~rensoliemans/bassist/refs
+Project-URL: CI, https://builds.sr.ht/~rensoliemans/bassist
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click~=8.1
+Requires-Dist: requests~=2.31
+Provides-Extra: test
+Requires-Dist: pytest~=7.4.4; extra == "test"
+Provides-Extra: dev
+Requires-Dist: black~=22.6.0; extra == "dev"
+Requires-Dist: ruff~=0.0.267; extra == "dev"
+Requires-Dist: mypy~=0.971; extra == "dev"
+Requires-Dist: types-requests~=2.31; extra == "dev"
+Requires-Dist: pre-commit~=3.1.0; extra == "dev"
+Requires-Dist: bassist[test]; extra == "dev"
+Provides-Extra: build
+Requires-Dist: build; extra == "build"
+Requires-Dist: setuptools; extra == "build"
+Requires-Dist: twine; extra == "build"
+
+# bassist
+
+[![PyPI](https://img.shields.io/pypi/v/bassist.svg)](https://pypi.org/project/bassist/)
+[![builds.sr.ht status](https://builds.sr.ht/~rensoliemans/bassist.svg)](https://builds.sr.ht/~rensoliemans/bassist?)
+
+Create borg backups using a config file
+
+## Installation
+
+Install this tool using `pip`:
+
+    pip install bassist
+
+## Usage
+
+For help, run:
+
+    bassist --help
+
+You can also use:
+
+    python -m bassist --help
+
+## Development
+
+	git clone https://git.sr.ht/~rensoliemans/bassist
+	cd bassist
+
+If using [`direnv`](https://direnv.net/):
+
+	echo "layout python" > .envrc
+    direnv allow
+
+Otherwise, create a [virtual
+environment](https://docs.python.org/3/library/venv.html) and activate
+it. Then, install the dependencies and dev dependencies:
+
+    pip install -e '.[dev]'
+
+To run the tests:
+
+    pytest
