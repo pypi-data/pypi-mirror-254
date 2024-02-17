@@ -1,0 +1,3 @@
+[console_scripts]
+plot_SMN1_SMN2_scatter = plot_SMN1_SMN2_scatter:main
+sma_finder = sma_finder:main
