@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: verbs
+Version: 0.1.1
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: eth-utils >=2.3.1
+Requires-Dist: eth-abi >=4.2.1
+Requires-Dist: tqdm >=4.66.1
+Requires-Dist: numpy >=1.26.2
+Requires-Dist: eth-hash[pycryptodome] >=0.5.2
+Requires-Dist: joblib >=1.3.2
+Requires-Dist: py-solc-x >=2.0.2
+License-File: LICENSE
+Summary: Ethereum ABM Library
+Keywords: ethereum,agent-based modelling,simulation,defi
+Author-email: Jordan <jordan@simtopia.ai>, Marc <marc@simtopia.ai>
+Maintainer-email: Jordan <jordan@simtopia.ai>, Marc <marc@simtopia.ai>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: docs, https://simtopia.github.io/verbs/
+Project-URL: documentation, https://simtopia.github.io/verbs/
+Project-URL: source, https://github.com/simtopia/verbs
+
+# VERBS
+
+Python ABM library built around Rust backend.
+
+Full documentation can be found [here](https://simtopia.github.io/verbs/).
+
+## Getting Started
+
+### Installation
+
+VERBS can be installed via pip using
+
+```
+pip install verbs
+```
+
+### Building from Source
+
+Building VERBS requires [maturin to be installed](https://www.maturin.rs/installation).
+
+> :warning: On OSX ``patchelf`` should be manually installed using
+  [homebrew](https://brew.sh)
+
+The Python package can be built using [hatch](https://hatch.pypa.io/latest/)
+by running
+
+```
+hatch run dev:build
+```
+
+### Jupyter Notebook
+
+A jupyter notebook with VERBS installed as a dependency can be
+run using [hatch](https://hatch.pypa.io/latest/)
+
+```
+hatch run notebook:jupyter
+```
+
+### Git Dependency
+
+VERBS can be added as a direct dependency to your projects `pyproject.toml`
+but requires maturin to be added as a build requirement, for example
+
+```
+[build-system]
+requires = ["setuptools >= 61.0", "maturin>=1.2,<2.0"]
+build-backend = "setuptools.build_meta"
+```
+
+## Examples
+
+Examples of models implemented using VERBS can be
+found in `/examples`. Larger examples can also be found in this
+[repo](https://github.com/simtopia/verbs-examples).
+
+## Developers & Contributing
+
+VERBS is under active development, if you notice a problem
+or have a suggestion please [open an issue](https://github.com/simtopia/verbs/issues).
+
+We welcome contributions to this project, see [here](https://github.com/simtopia/verbs/blob/main/.github/docs/developers.md)
+for developer notes.
+
+## Rust Package
+
+The core rust simulation engine can be used to write simulation
+purely in Rust, with a significant gain in performance over
+Python in most cases. See [here](https://github.com/simtopia/verbs/blob/main/.github/docs/rust.md)
+for usage notes.
+
