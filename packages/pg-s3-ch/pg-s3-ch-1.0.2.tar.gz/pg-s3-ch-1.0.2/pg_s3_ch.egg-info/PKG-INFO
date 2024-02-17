@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pg-s3-ch
+Version: 1.0.2
+Summary: PG S3 CH Helper
+Home-page: https://github.com/severgroup-tt/topmind-commons
+Author: Dmitry Utiralov
+Author-email: d.utiralov@netology.tech
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: clickhouse_driver==0.2.0
+Requires-Dist: psycopg2-binary==2.8.5
+Requires-Dist: clickhouse-balanced-talenttech-oss==0.0.1
+Requires-Dist: etl-helper-talenttech==1.7.1
+Requires-Dist: s3-talenttech-oss==0.0.10
+Provides-Extra: dev
+Requires-Dist: pylint==3.0.3; extra == "dev"
+Requires-Dist: pytest==7.4.4; extra == "dev"
+
+```sh
+pip3 install pg-s3-ch-new-talenttech-oss
+```

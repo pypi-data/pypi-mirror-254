@@ -1,0 +1,9 @@
+clickhouse_driver==0.2.0
+psycopg2-binary==2.8.5
+clickhouse-balanced-talenttech-oss==0.0.1
+etl-helper-talenttech==1.7.1
+s3-talenttech-oss==0.0.10
+
+[dev]
+pylint==3.0.3
+pytest==7.4.4
