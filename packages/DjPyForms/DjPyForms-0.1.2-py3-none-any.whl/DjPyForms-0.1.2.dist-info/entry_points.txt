@@ -1,0 +1,2 @@
+[console_scripts]
+DjPyForms = DjPyForms.management.commands.createform:main
