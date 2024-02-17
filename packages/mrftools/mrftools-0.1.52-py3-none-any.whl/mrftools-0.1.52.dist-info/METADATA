@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: mrftools
+Version: 0.1.52
+Summary: Tools for Magnetic Resonance Fingerprinting
+Home-page: https://gitlab.casemri.com/common-resources/mrftools
+Author: Andrew Dupuis
+Author-email: andrew.dupuis@case.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: SimpleITK
+Requires-Dist: azure-storage-blob
+Requires-Dist: fbpca
+Requires-Dist: h5py
+Requires-Dist: ismrmrd
+Requires-Dist: kornia
+Requires-Dist: matplotlib
+Requires-Dist: nibabel
+Requires-Dist: scipy
+Requires-Dist: torch
+Requires-Dist: torchkbnufft
+Requires-Dist: tqdm
+
+# mrftools
+
+Python / pip package for managing MRF sequence definitions, dictionary definitions, bloch simulation results, and more. Utilizes HDF5 interchange format (.mrf files).
+
+
+## WARNING FOR USERS
+
+If you are using mrftools for development, you probably want to start with: https://gitlab.casemri.com/common-resources/mrftools-starter-project
+
+This repository can be used for installation if pip is unavailable, or if you are developing new core modules for mrftools. 
+
+If you are only interested in using the framework in your own project, you should start with the starter project above instead. 
+
+
+## A NOTE ON VERSIONS
+
+Currently, mrftools==0.1.x is the "main" version of the package - this is represented in the "main" branch of this repository. 
+
+If you want to use the modular sequence definition structure while it is still in alpha, use the "addSequenceModules" branch (at your own risk). 
+
+
+## Features
+1. MRF Sequence definitions
+    - Intended to define a sequence for execution on the scanner or within a bloch simulation
+    - Supports timepoints with varying TR, TE, and FA
+    - Supports multiple "beats" with varying RRTime, PrepTime, and PrepID
+    - Can be defined programatically via Python, via .txt import, or via .mrf import
+    - Can be exported to .txt format or .mrf format (** txt export not implemented fully **)
+2. MRF Dictionary definitions 
+    - Intended to define a set of dictionary entries to be used by a bloch simulation
+    - Supports entries with varying T1, T2, and B0 values
+    - Can be defined programatically via Python, via .txt import, or via .mrf import
+    - Can be exported to .txt format or .mrf format
+3. MRF Simulation definitions
+    - Intended to specify and execute a bloch simulation of a specific sequence over a specific dictionary set
+    - Configurable phase range and number of isochromat spins
+    - Can either store all isochromat results or perform averaging before saving dictionary
+    - Results and configuration can be exported to .mrf format
+
+## Installation from pip
+1. pip install mrftools
+
+## Installation from source
+1. git clone https://gitlab.casemri.com/common-resources/mrftools
+2. cd mrftools
+3. pip install .
+
+## Building and Publishing pip Package
+1. python3 setup.py sdist bdist_wheel
+2. twine upload dist/* 
+
