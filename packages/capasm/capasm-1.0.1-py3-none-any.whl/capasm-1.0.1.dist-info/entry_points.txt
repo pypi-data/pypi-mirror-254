@@ -1,0 +1,8 @@
+[console_scripts]
+capasm = capasm:capasm
+capconv = capasm:capconv
+capglo = capasm:capglo
+caplex = capasm:caplex
+caplif = capasm:caplif
+caprom = capasm:caprom
+ncas = capasm:ncas
