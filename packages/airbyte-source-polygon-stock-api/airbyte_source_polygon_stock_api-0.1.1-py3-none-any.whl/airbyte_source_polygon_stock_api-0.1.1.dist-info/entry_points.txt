@@ -1,0 +1,2 @@
+[console_scripts]
+source-polygon-stock-api = source_polygon_stock_api.run:run
