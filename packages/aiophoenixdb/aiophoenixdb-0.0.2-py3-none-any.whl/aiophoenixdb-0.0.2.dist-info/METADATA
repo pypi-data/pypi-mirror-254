@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: aiophoenixdb
+Version: 0.0.2
+Summary: Asyncio with phoenixdb
+Author: Nick Hao
+Author-email: nickwike72@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: betterproto >=2.0.0b6
+Requires-Dist: aiohttp >=3.8.6
+Requires-Dist: requests-gssapi
+Requires-Dist: requests ~=2.31.0
+Requires-Dist: gssapi
+
