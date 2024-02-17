@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: st-spider
+Version: 0.0.1
+Summary: A tools to simulate spatial transcriptomics data.
+Home-page: https://github.com/YANG-ERA/Spider/tree/main
+Author: Jiyuan Yang
+Author-email: 599568651@qq.com
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: anndata
+Requires-Dist: matplotlib
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: PyQt5
+Requires-Dist: scanpy
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: squidpy
+
+
+# Spider: 
+
+Xxx
+
+## Installation
+
+`Spider` is available in [python](https://www.python.org). 
+
+```python
+pip install spider
+```
+
+## Usage
+
+
+
+
+
+## Output files
+
+
+
+
+
+## Citation
