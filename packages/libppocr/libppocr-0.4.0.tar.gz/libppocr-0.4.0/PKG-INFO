@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: libppocr
+Version: 0.4.0
+Summary: add douyin effect to image
+Home-page: https://github.com/MosRat/libppocr
+Author: Hongli Wen
+Author-email: whl2075928012@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow>=5.1.0
+Requires-Dist: numpy>=1.14.4
