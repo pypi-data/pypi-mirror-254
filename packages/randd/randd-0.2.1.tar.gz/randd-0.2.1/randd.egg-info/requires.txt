@@ -1,0 +1,7 @@
+numpy
+scipy
+osqp<1.0.0
+
+[dev]
+flake8
+pytest
