@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: altinn3-test-lib
+Version: 0.0.7
+Summary: A POC project for modular test tools
+Author-email: Anders Hagen <nhk@ssb.no>, Rannveig Aasen <rsa@ssb.no>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: google-cloud-pubsub
+Requires-Dist: pytest-mock
+Requires-Dist: pytest~=7.2.1
+Requires-Dist: ssb-altinn3-util
+Description-Content-Type: text/markdown
+
+# Altinn3-test-lib
+Et Python bibliotek med felles test-funksjoner og mocke-objekt for bruk i altinn3-prosjektene
+
+

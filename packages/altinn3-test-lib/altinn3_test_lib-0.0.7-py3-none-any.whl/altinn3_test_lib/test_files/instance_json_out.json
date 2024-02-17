@@ -1,0 +1,96 @@
+{
+	"id": "50191694/42a867dc-2f7c-4e6b-905e-a456352dbe61",
+	"instanceOwner": {
+		"partyId": "50191694",
+		"organisationNumber": "910452762"
+	},
+	"appId": "ssb/ra0815-01",
+	"org": "ssb",
+	"selfLinks": {
+		"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50191694/42a867dc-2f7c-4e6b-905e-a456352dbe61"
+	},
+	"visibleAfter": "2022-09-22T07:39:07.4788396Z",
+	"process": {
+		"started": "2022-09-22T07:39:07.4180157Z",
+		"startEvent": "StartEvent_1",
+		"ended": "2022-09-22T07:39:19.5992888Z",
+		"endEvent": "EndEvent_1"
+	},
+	"status": {
+		"isArchived": true,
+		"archived": "2022-09-22T07:39:19.5992888Z",
+		"isSoftDeleted": false,
+		"isHardDeleted": false,
+		"readStatus": "Read"
+	},
+	"data": [
+		{
+			"id": "328e8c13-a460-4cc4-9f1c-ec89e3367ccd",
+			"instanceGuid": "42a867dc-2f7c-4e6b-905e-a456352dbe61",
+			"dataType": "A3_RA-0815_M",
+			"contentType": "application/xml",
+			"blobStoragePath": "ssb/ra0815-01/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/328e8c13-a460-4cc4-9f1c-ec89e3367ccd",
+			"selfLinks": {
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50191694/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/328e8c13-a460-4cc4-9f1c-ec89e3367ccd"
+			},
+			"size": 449,
+			"locked": true,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"created": "2022-09-22T07:39:07.8675459Z",
+			"createdBy": "59548",
+			"lastChanged": "2022-09-22T07:39:19.3303943Z",
+			"lastChangedBy": "59548"
+		},
+		{
+			"id": "e66c9e3e-757c-4cbd-a338-8616e62c1a64",
+			"instanceGuid": "42a867dc-2f7c-4e6b-905e-a456352dbe61",
+			"dataType": "62d3cb16-2dcc-4dab-8eee-1205b79314d6",
+			"filename": "test.csv",
+			"contentType": "text/csv",
+			"blobStoragePath": "ssb/ra0815-01/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/e66c9e3e-757c-4cbd-a338-8616e62c1a64",
+			"selfLinks": {
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50191694/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/e66c9e3e-757c-4cbd-a338-8616e62c1a64"
+			},
+			"size": 2394,
+			"locked": true,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"created": "2022-09-22T07:39:13.6772434Z",
+			"createdBy": "59548",
+			"lastChanged": "2022-09-22T07:39:13.6772434Z",
+			"lastChangedBy": "59548"
+		},
+		{
+			"id": "5f6c4bcc-5457-449f-918e-820624013512",
+			"instanceGuid": "42a867dc-2f7c-4e6b-905e-a456352dbe61",
+			"dataType": "ref-data-as-pdf",
+			"filename": "Vedleggsskjema for oljeinvesteringer (RA-0815).pdf",
+			"contentType": "application/pdf",
+			"blobStoragePath": "ssb/ra0815-01/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/5f6c4bcc-5457-449f-918e-820624013512",
+			"selfLinks": {
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50191694/42a867dc-2f7c-4e6b-905e-a456352dbe61/data/5f6c4bcc-5457-449f-918e-820624013512"
+			},
+			"size": 13619,
+			"locked": false,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"created": "2022-09-22T07:39:19.7955334Z",
+			"createdBy": "59548",
+			"lastChanged": "2022-09-22T07:39:19.7955334Z",
+			"lastChangedBy": "59548"
+		}
+	],
+	"presentationTexts": {},
+	"dataValues": {
+		"raNummer": "RA-0815",
+		"skjemaVersjon": "1.0"
+	},
+	"created": "2022-09-22T07:39:07.4788396Z",
+	"createdBy": "59548",
+	"lastChanged": "2022-09-22T07:39:19.9101405Z",
+	"lastChangedBy": "59548"
+}

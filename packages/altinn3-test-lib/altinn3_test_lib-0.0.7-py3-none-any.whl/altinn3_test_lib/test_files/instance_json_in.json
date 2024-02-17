@@ -1,0 +1,119 @@
+{
+	"id": "50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121",
+	"instanceOwner": {
+		"partyId": "50202758",
+		"personNumber": null,
+		"organisationNumber": "910346601",
+		"username": null
+	},
+	"appId": "ssb/ra0595-01",
+	"org": "ssb",
+	"selfLinks": {
+		"apps": "https://ssb.apps.tt02.altinn.no/ssb/ra0595-01/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121",
+		"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121"
+	},
+	"dueBefore": "2022-12-01T00:00:00Z",
+	"visibleAfter": "2022-10-18T00:00:00Z",
+	"process": {
+		"started": "2022-10-21T11:45:24.5779024Z",
+		"startEvent": "StartEvent_1",
+		"currentTask": null,
+		"ended": "2022-10-21T11:47:54.3261836Z",
+		"endEvent": "EndEvent_1"
+	},
+	"status": {
+		"isArchived": true,
+		"archived": "2022-10-21T11:47:54.3261836Z",
+		"isSoftDeleted": false,
+		"softDeleted": null,
+		"isHardDeleted": false,
+		"hardDeleted": null,
+		"readStatus": 1,
+		"substatus": null
+	},
+	"data": [
+		{
+			"id": "be09ac65-237a-4a3f-abaa-1a561c728859",
+			"instanceGuid": "dbe2ef19-6b41-412b-bc42-cfbadbd25121",
+			"dataType": "test-csv",
+			"filename": "test.csv",
+			"contentType": "text/csv",
+			"blobStoragePath": "ssb/ra0595-01/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/be09ac65-237a-4a3f-abaa-1a561c728859",
+			"selfLinks": {
+				"apps": "https://ssb.apps.tt02.altinn.no/ssb/ra0595-01/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/be09ac65-237a-4a3f-abaa-1a561c728859",
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/be09ac65-237a-4a3f-abaa-1a561c728859"
+			},
+			"size": 2394,
+			"locked": true,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"created": "2022-03-29T06:11:01.4975567Z",
+			"createdBy": "58064",
+			"lastChanged": "2022-03-29T06:11:01.4975567Z",
+			"lastChangedBy": "58064"
+		},
+		{
+			"id": "b7b74f37-2f46-4960-8f3a-11291b0d8057",
+			"instanceGuid": "dbe2ef19-6b41-412b-bc42-cfbadbd25121",
+			"dataType": "A3_RA-0595_M",
+			"filename": null,
+			"contentType": "application/xml",
+			"blobStoragePath": "ssb/ra0595-01/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/b7b74f37-2f46-4960-8f3a-11291b0d8057",
+			"selfLinks": {
+				"apps": "https://ssb.apps.tt02.altinn.no/ssb/ra0595-01/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/b7b74f37-2f46-4960-8f3a-11291b0d8057",
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/b7b74f37-2f46-4960-8f3a-11291b0d8057"
+			},
+			"size": 2755,
+			"locked": true,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"deleteStatus": null,
+			"created": "2022-10-21T11:45:24.8417095Z",
+			"createdBy": "971526920",
+			"lastChanged": "2022-10-21T11:47:54.0074279Z",
+			"lastChangedBy": "58601"
+		},
+		{
+			"id": "ecaaa491-33ae-4db4-b243-908e451fa967",
+			"instanceGuid": "dbe2ef19-6b41-412b-bc42-cfbadbd25121",
+			"dataType": "ref-data-as-pdf",
+			"filename": "Ambulansetjenester (RA-0595).pdf",
+			"contentType": "application/pdf",
+			"blobStoragePath": "ssb/ra0595-01/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/ecaaa491-33ae-4db4-b243-908e451fa967",
+			"selfLinks": {
+				"apps": "https://ssb.apps.tt02.altinn.no/ssb/ra0595-01/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/ecaaa491-33ae-4db4-b243-908e451fa967",
+				"platform": "https://platform.tt02.altinn.no/storage/api/v1/instances/50202758/dbe2ef19-6b41-412b-bc42-cfbadbd25121/data/ecaaa491-33ae-4db4-b243-908e451fa967"
+			},
+			"size": 13048,
+			"locked": false,
+			"refs": [],
+			"isRead": true,
+			"tags": [],
+			"deleteStatus": null,
+			"created": "2022-10-21T11:47:54.6821941Z",
+			"createdBy": "58601",
+			"lastChanged": "2022-10-21T11:47:54.6821941Z",
+			"lastChangedBy": "58601"
+		}
+	],
+	"presentationTexts": {
+		"periodeFritekst": "2022"
+	},
+	"dataValues": {
+		"externalShipmentReference": "EXT_REF_202210192000",
+		"sendersReference": "238401",
+		"identifyingFields": "RA-0595A3, 2020, ATF1134660, 238401",
+		"raNummer": "RA-0595",
+		"skjemaVersjon": "1.0",
+		"undersoekelsesNr": "1234",
+		"periodeType": "AAR",
+		"periodeAAr": "2022",
+		"enhetsOrgNr": "984045689"
+	},
+	"created": "2022-10-21T11:45:24.6359151Z",
+	"createdBy": "971526920",
+	"lastChanged": "2022-10-21T11:48:03.2168572Z",
+	"lastChangedBy": "971526920"
+}

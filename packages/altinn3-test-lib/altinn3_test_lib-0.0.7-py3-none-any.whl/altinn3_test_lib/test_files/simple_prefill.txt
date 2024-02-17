@@ -1,0 +1,55 @@
+{
+    "edition": 1,
+    "raNumber": "ra-0815"
+}
+
+
+Content-Type: application/json; charset=utf-8
+Content-Disposition: form-data; name="instance"
+
+
+{
+"instanceOwner": {
+"personNumber": "",
+"organisationNumber": "910452762"
+},
+"DueBefore": "2022-08-05 00:00:00"
+}
+
+
+Content-Type: application/xml
+Content-Disposition: form-data; name="A3_RA-0815_M"
+
+
+<?xml version="1.0"?>
+<melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" dataFormatProvider="SERES" dataFormatId="7062" dataFormatVersion="47280">
+<InternInfo>
+<raNummer>RA-0815</raNummer>
+<undersoekelsesInfoUrl>https://www.ssb.no/innrapportering/</undersoekelsesInfoUrl>
+<delregNr>5656224</delregNr>
+<visOppgaveByrde>0</visOppgaveByrde>
+<visBrukeropplevelse>0</visBrukeropplevelse>
+<periodeFritekst>2. kvartal 2021</periodeFritekst>
+<periodeFomDato>2021-04-01</periodeFomDato>
+<periodeTomDato>2021-16-30</periodeTomDato>
+<periodeType>KVRT</periodeType>
+<periodeNummer>2</periodeNummer>
+<periodeAAr>2021</periodeAAr>
+<periodeDato> </periodeDato>
+<enhetsIdent>ATF1140928</enhetsIdent>
+<enhetsType>FRTK</enhetsType>
+<enhetsOrgNr>974716887</enhetsOrgNr>
+<enhetsNavn>STATISTISK SENTRALBYRÅ</enhetsNavn>
+<enhetsGateadresse>Otervegen 26</enhetsGateadresse>
+<enhetsPostnr>2211</enhetsPostnr>
+<enhetsPoststed>KONGSVINGER</enhetsPoststed>
+<enhetsAvdeling>STATISTISK SENTRALBYRÅ AVD KONGSVINGER</enhetsAvdeling>
+<reporteeOrgNr>810409282</reporteeOrgNr>
+</InternInfo>
+<Kontakt>
+<kontaktPersonNavn>Test Anders2</kontaktPersonNavn>
+<kontaktPersonEpost>post@post.ps</kontaktPersonEpost>
+<kontaktPersonTelefon>12345678</kontaktPersonTelefon>
+<kontaktInfoBekreftet>0</kontaktInfoBekreftet>
+</Kontakt>
+</melding>
