@@ -1,0 +1,16 @@
+doc/build
+build
+doc/source/submodules
+coverage.xml
+.coverage
+.eggs
+.tox
+*.pyc
+*.swp
+*.egg-info
+dist/
+venv/
+.ipynb_checkpoints/
+.idea/
+.vscode
+bluepysnap/_version.py
