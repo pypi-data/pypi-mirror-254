@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+servc_lake.egg-info/PKG-INFO
+servc_lake.egg-info/SOURCES.txt
+servc_lake.egg-info/dependency_links.txt
+servc_lake.egg-info/top_level.txt
+servclake/__init__.py
+servclake/config.py
+servclake/delta/__init__.py
+servclake/parquet/__init__.py
+tests/test_delta.py
+tests/test_parquet.py
