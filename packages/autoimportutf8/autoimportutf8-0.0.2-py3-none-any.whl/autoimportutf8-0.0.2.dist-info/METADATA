@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: autoimportutf8
+Version: 0.0.2
+Summary: autoimportutf8 missing python libraries.
+Author-Email: stageert <stageert@outlook.com>
+License: GPL-3.0-only
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Classifier: Natural Language :: English
+Requires-Python: >=3.8
+Requires-Dist: click>=8.1.3
+Requires-Dist: autoflake>=1.4
+Requires-Dist: pyprojroot>=0.2.0
+Requires-Dist: sh>=1.14.2
+Requires-Dist: maison>=1.4.0
+Requires-Dist: xdg>=6.0.0
+Description-Content-Type: text/markdown
+
+# Autoimportutf8

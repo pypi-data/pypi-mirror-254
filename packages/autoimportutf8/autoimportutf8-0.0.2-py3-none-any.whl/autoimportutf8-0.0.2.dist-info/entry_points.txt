@@ -1,0 +1,3 @@
+[console_scripts]
+autoimportutf8 = autoimportutf8.entrypoints.cli:cli
+
