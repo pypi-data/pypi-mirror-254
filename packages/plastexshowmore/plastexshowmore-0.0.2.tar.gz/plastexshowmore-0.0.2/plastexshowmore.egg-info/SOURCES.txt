@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+plastexshowmore/__init__.py
+plastexshowmore.egg-info/PKG-INFO
+plastexshowmore.egg-info/SOURCES.txt
+plastexshowmore.egg-info/dependency_links.txt
+plastexshowmore.egg-info/not-zip-safe
+plastexshowmore.egg-info/requires.txt
+plastexshowmore.egg-info/top_level.txt
+plastexshowmore/Packages/showmore.py
+plastexshowmore/static/js.cookie.min.js
+plastexshowmore/static/showmore.css
+plastexshowmore/static/showmore.js
