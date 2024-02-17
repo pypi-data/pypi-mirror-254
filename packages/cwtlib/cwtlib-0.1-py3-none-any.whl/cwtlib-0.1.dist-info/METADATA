@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: cwtlib
+Version: 0.1
+Summary: A package for working with the basic calculations of the CWT, RO
+Home-page: https://github.com/fscontrol/cwtlib
+Author: Dmitrii Babaev
+Author-email: babaevdmitri@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy >=1.18.1
+Requires-Dist: requests >=2.22.0
+
