@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: inumet_api
+Version: 0.1.2
+Summary: INUMET Api wrapper for python
+Project-URL: Homepage, https://github.com/aronkahrs-us/inumet-api
+Project-URL: Issues, https://github.com/aronkahrs-us/inumet-api/issues
+Author-email: Aron Kahrs <aronkahrs.us@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# INUMET API
+
+INUMET Api wrapper for python
+
+## Installation
+
+```console
+$ pip install inumet_api
+```
+
+## Example
+
+```py
+# import the module
+from inumet_api import INUMET
+
+print(INUMET().estado_actual())
+```
