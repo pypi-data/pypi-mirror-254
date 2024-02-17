@@ -1,0 +1,6 @@
+fastapi
+PyYAML
+
+[auth]
+boto3
+requests
