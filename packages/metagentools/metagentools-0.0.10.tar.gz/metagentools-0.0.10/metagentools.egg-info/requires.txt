@@ -1,0 +1,10 @@
+fastcore
+numpy
+pandas
+tensorflow
+tqdm
+wandb
+ecutilities
+
+[dev]
+nbdev
