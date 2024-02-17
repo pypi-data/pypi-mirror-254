@@ -1,0 +1,11 @@
+plants-sm==0.0.1
+luigi
+scikit-multilearn
+matplotlib_venn
+
+[testing]
+pytest>=7.1.1
+pytest-cov>=3.0.0
+mypy>=0.942
+flake8>=4.0.1
+tox>=3.25.0
