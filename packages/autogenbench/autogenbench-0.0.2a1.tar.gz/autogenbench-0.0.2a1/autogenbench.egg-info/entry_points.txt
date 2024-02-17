@@ -1,0 +1,2 @@
+[console_scripts]
+autogenbench = autogenbench.cli:main
