@@ -1,0 +1,2 @@
+[console_scripts]
+source-courier = source_courier.run:run
