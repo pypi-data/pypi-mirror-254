@@ -1,0 +1,985 @@
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+# vim: se ts=4 et syn=python:
+
+# created by: matteo.guadrini
+# core -- clocking
+#
+#     Copyright (C) 2024 Matteo Guadrini <matteo.guadrini@hotmail.it>
+#
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"""Module that contains business logic of clocking command line tool"""
+
+# region import
+import os.path
+import sqlite3
+
+from clocking import __version__
+from .exception import WorkingDayError
+from .util import (
+    build_dateid,
+    split_dateid,
+    make_printable_table,
+    sum_rewards,
+    UserConfiguration,
+)
+
+# endregion
+
+__all__ = (
+    "database_exists",
+    "make_database",
+    "delete_database",
+    "get_current_version",
+    "update_version",
+    "create_configuration_table",
+    "add_configuration",
+    "enable_configuration",
+    "reset_configuration",
+    "get_configurations",
+    "get_current_configuration",
+    "get_working_hours",
+    "get_whole_year",
+    "get_whole_month",
+    "get_all_days",
+    "delete_configuration",
+    "insert_working_hours",
+    "remove_working_hours",
+    "delete_working_hours",
+    "delete_whole_year",
+    "delete_whole_month",
+    "delete_user",
+    "print_configurations",
+    "print_working_table",
+    "save_working_table",
+)
+
+
+# region functions
+def database_exists(database):
+    """Check if database exists
+
+    :param database: database file path
+    :return: bool
+    """
+    # SQLite database path exists
+    if not os.path.exists(database):
+        return False
+
+    # SQLite database is file
+    if not os.path.isfile(database):
+        return False
+
+    # SQLite database file header is 100 bytes
+    if os.path.getsize(database) < 100:
+        return False
+
+    # Is a SQLite database
+    return True
+
+
+def make_database(database):
+    """Create a blank database
+
+    :param database: database file path
+    :return: None
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Create clocking version table
+        cur.execute(
+            r"CREATE TABLE IF NOT EXISTS version (version_id TEXT PRIMARY KEY, name TEXT NOT NULL);"
+        )
+        # Insert version into properly table
+        cur.execute("SELECT version_id FROM version")
+        if not cur.fetchone():
+            cur.execute(
+                f"INSERT INTO version (version_id, name) VALUES ('{__version__}', 'clocking');"
+            )
+
+
+def delete_database(database):
+    """Delete all data into database
+
+    :param database: database file path
+    :return: None
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get all tables into database
+        cur.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
+        tables = [row[0] for row in cur.fetchall()]
+
+        # Drop all tables
+        for table in tables:
+            cur.execute(f"DROP TABLE IF EXISTS {table};")
+
+
+def get_current_version(database):
+    """Get clocking version from database
+
+    :param database: database file path
+    :return: string
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get clocking version
+        cur.execute("SELECT version_id FROM version;")
+
+        result = cur.fetchone()[0]
+
+    return result
+
+
+def update_version(database):
+    """Update clocking version into database
+
+    :param database: database file path
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+        # Create new version table
+        cur.execute(
+            "CREATE TABLE IF NOT EXISTS version (version_id TEXT PRIMARY KEY, name TEXT NOT NULL);"
+        )
+        # Insert version into properly table
+        cur.execute(
+            f"INSERT INTO version (version_id, name) VALUES ('{__version__}', 'clocking');"
+        )
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def create_configuration_table(database):
+    """Create configuration table
+
+    :param database: database file path
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Create configuration table
+        cur.execute(
+            r"CREATE TABLE IF NOT EXISTS configuration ("
+            r"id INTEGER PRIMARY KEY,"
+            r"active BOOL NOT NULL,"
+            r"user TEXT NOT NULL,"
+            r"location TEXT NOT NULL,"
+            r"empty_value TEXT NOT NULL,"
+            r"daily_hours FLOAT NOT NULL,"
+            r"working_days TEXT NOT NULL,"
+            r"extraordinary FLOAT NOT NULL,"
+            r"permit_hours FLOAT NOT NULL,"
+            r"disease TEXT NOT NULL,"
+            r"holiday TEXT NOT NULL,"
+            r"currency TEXT NOT NULL,"
+            r"hour_reward FLOAT NOT NULL,"
+            r"extraordinary_reward FLOAT NOT NULL,"
+            r"food_ticket FLOAT NOT NULL,"
+            r"other_hours FLOAT NOT NULL,"
+            r"other_reward FLOAT NOT NULL"
+            r");"
+        )
+
+        # Return boolean if configuration table was created
+        cur.execute("SELECT name FROM sqlite_master WHERE name='configuration'")
+        result = True if cur.fetchone()[0] == "configuration" else False
+
+    return result
+
+
+def add_configuration(
+    database,
+    active,
+    user,
+    location,
+    empty_value,
+    daily_hours,
+    working_days,
+    extraordinary,
+    permit_hours,
+    disease,
+    holiday,
+    currency,
+    hour_reward,
+    extraordinary_reward,
+    food_ticket,
+    other_hours,
+    other_reward,
+):
+    """Add new configuration into database
+
+    :param database: database file path
+    :param active: configuration active boolean
+    :param user: configuration user owner
+    :param location: location name
+    :param empty_value: replacement for empty value
+    :param daily_hours: daily hours value
+    :param working_days: working name's days
+    :param extraordinary: minimum extraordinary value
+    :param permit_hours: minimum permit value
+    :param disease: disease string name
+    :param holiday: holiday string name
+    :param currency: currency char value
+    :param hour_reward: total hour reward
+    :param extraordinary_reward: total extraordinary hour reward
+    :param food_ticket: food ticket reward
+    :param other_hours: other hours value
+    :param other_reward: other hours reward
+    :return: int
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Insert values into configuration table
+        cur.execute(
+            "INSERT INTO configuration("
+            "active, user, location, empty_value, daily_hours, working_days, extraordinary,"
+            "permit_hours, disease, holiday, currency, hour_reward, extraordinary_reward,"
+            "food_ticket, other_hours, other_reward) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+            (
+                active,
+                user,
+                location,
+                empty_value,
+                daily_hours,
+                working_days,
+                extraordinary,
+                permit_hours,
+                disease,
+                holiday,
+                currency,
+                hour_reward,
+                extraordinary_reward,
+                food_ticket,
+                other_hours,
+                other_reward,
+            ),
+        )
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def enable_configuration(database, row_id):
+    """Enable configuration to specific id.
+
+    :param database: database file path
+    :param row_id: row id
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Check if configuration is already enabled
+        cur.execute(r"SELECT active FROM configuration WHERE id = ?;", (row_id,))
+        # Check if id exists
+        result = cur.fetchone()
+        active = result[0] if result else None
+        if not active:
+            # Update active into configuration table
+            cur.execute(
+                r"UPDATE configuration SET active = ? WHERE id = ?;",
+                (True, row_id),
+            )
+            result = True if cur.rowcount > 0 else False
+            # Disable other configuration for user
+            cur.execute(r"SELECT user FROM configuration WHERE id = ?;", (row_id,))
+            ret = cur.fetchone()
+            user = ret[0] if ret else None
+            if user:
+                cur.execute(
+                    r"UPDATE configuration "
+                    r"SET active = ? "
+                    r"WHERE user = ? AND id != ?;",
+                    (False, user, row_id),
+                )
+        else:
+            result = True
+
+    return result
+
+
+def reset_configuration(database):
+    """Reset configuration table with default values
+
+    :param database: database file path
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Delete all rows from table
+        cur.execute("DELETE FROM configuration;")
+
+        result = True if cur.rowcount > 0 else False
+
+    return result
+
+
+def get_configurations(database, user=None, enabled=False):
+    """Get all configurations for user
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param enabled: only enabled user
+    :return: Cursor
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        if user:
+            # Get all configurations for user
+            cur.execute(r"SELECT * FROM configuration WHERE user = ?;", (user,))
+        elif user and enabled:
+            # Get active configuration for user
+            cur.execute(
+                r"SELECT * FROM configuration WHERE user = ? AND active = 1;", (user,)
+            )
+        else:
+            # Get all configurations
+            cur.execute(r"SELECT * FROM configuration;")
+
+        return cur
+
+
+def get_current_configuration(database, user):
+    """Get current enabled configuration for user
+
+    :param database: database file path
+    :param user: user in configuration table
+    :return: tuple
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get active configuration for user
+        cur.execute(
+            r"SELECT * FROM configuration WHERE user = ? AND active = 1;", (user,)
+        )
+        result = cur.fetchone()
+
+        return UserConfiguration(*result) if result else ()
+
+
+def get_working_hours(
+    database,
+    user,
+    date=None,
+    day=None,
+    month=None,
+    year=None,
+    holiday=False,
+    disease=False,
+    extraordinary=False,
+    permit_hours=False,
+    other_hours=False,
+):
+    """Get working day from database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param date: date for insert values
+    :param day: day of the date
+    :param month: month of the date
+    :param year: year of the date
+    :param holiday: select only holiday values
+    :param disease: select only disease values
+    :param extraordinary: select only extraordinary values
+    :param permit_hours: select only permit hour values
+    :param other_hours: select only other hour values
+    :return: Cursor
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get date_id
+        date_id = build_dateid(date, year, month, day)
+
+        # Get working day
+        query = f"SELECT * FROM '{user}' WHERE date_id='{date_id}'"
+        # Check if return only holiday
+        if holiday:
+            query += " AND (holiday IS NOT 0 AND holiday IS NOT NULL)"
+        elif disease:
+            query += " AND (disease IS NOT 0 AND disease IS NOT NULL)"
+        elif extraordinary:
+            query += " AND (extraordinary IS NOT 0 AND extraordinary IS NOT NULL)"
+        elif permit_hours:
+            query += " AND (permit_hours IS NOT 0 AND permit_hours IS NOT NULL)"
+        elif other_hours:
+            query += " AND (other_hours IS NOT 0 AND other_hours IS NOT NULL)"
+        cur.execute(query)
+
+    return cur
+
+
+def get_whole_year(
+    database,
+    user,
+    year,
+    holiday=False,
+    disease=False,
+    extraordinary=False,
+    permit_hours=False,
+    other_hours=False,
+):
+    """Get whole year's working days from database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param year: year of the date
+    :param holiday: select only holiday values
+    :param disease: select only disease values
+    :param extraordinary: select only extraordinary values
+    :param permit_hours: select only permit hour values
+    :param other_hours: select only other hour values
+    :return: Cursor
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get working day from whole year
+        query = f"SELECT * FROM '{user}' WHERE year = ?"
+        # Check if return only holiday
+        if holiday:
+            query += " AND (holiday IS NOT 0 AND holiday IS NOT NULL)"
+        elif disease:
+            query += " AND (disease IS NOT 0 AND disease IS NOT NULL)"
+        elif extraordinary:
+            query += " AND (extraordinary IS NOT 0 AND extraordinary IS NOT NULL)"
+        elif permit_hours:
+            query += " AND (permit_hours IS NOT 0 AND permit_hours IS NOT NULL)"
+        elif other_hours:
+            query += " AND (other_hours IS NOT 0 AND other_hours IS NOT NULL)"
+        cur.execute(query, (year,))
+
+    return cur
+
+
+def get_whole_month(
+    database,
+    user,
+    year,
+    month,
+    holiday=False,
+    disease=False,
+    extraordinary=False,
+    permit_hours=False,
+    other_hours=False,
+):
+    """Get whole month's working days from database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param year: year of the date
+    :param month: month of the date
+    :param holiday: select only holiday values
+    :param disease: select only disease values
+    :param extraordinary: select only extraordinary values
+    :param permit_hours: select only permit hour values
+    :param other_hours: select only other hour values
+    :return: Cursor
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get working day from whole month
+        query = rf"SELECT * FROM '{user}' WHERE year = ? AND month = ?"
+        # Check if return only holiday
+        if holiday:
+            query += " AND (holiday IS NOT 0 AND holiday IS NOT NULL)"
+        elif disease:
+            query += " AND (disease IS NOT 0 AND disease IS NOT NULL)"
+        elif extraordinary:
+            query += " AND (extraordinary IS NOT 0 AND extraordinary IS NOT NULL)"
+        elif permit_hours:
+            query += " AND (permit_hours IS NOT 0 AND permit_hours IS NOT NULL)"
+        elif other_hours:
+            query += " AND (other_hours IS NOT 0 AND other_hours IS NOT NULL)"
+        cur.execute(query, (year, month))
+
+    return cur
+
+
+def get_all_days(
+    database,
+    user,
+    holiday=False,
+    disease=False,
+    extraordinary=False,
+    permit_hours=False,
+    other_hours=False,
+):
+    """Get all days from database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param holiday: select only holiday values
+    :param disease: select only disease values
+    :param extraordinary: select only extraordinary values
+    :param permit_hours: select only permit hour values
+    :param other_hours: select only other hour values
+    :return: Cursor
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get all working days
+        query = rf"SELECT * FROM '{user}'"
+        # Check if return only holiday
+        if holiday:
+            query += " WHERE (holiday IS NOT 0 AND holiday IS NOT NULL)"
+        elif disease:
+            query += " WHERE (disease IS NOT 0 AND disease IS NOT NULL)"
+        elif extraordinary:
+            query += " WHERE (extraordinary IS NOT 0 AND extraordinary IS NOT NULL)"
+        elif permit_hours:
+            query += " WHERE (permit_hours IS NOT 0 AND permit_hours IS NOT NULL)"
+        elif other_hours:
+            query += " WHERE (other_hours IS NOT 0 AND other_hours IS NOT NULL)"
+        cur.execute(query)
+
+    return cur
+
+
+def delete_configuration(database, row_id):
+    """Delete specific configuration
+
+    :param database: database file path
+    :param row_id: row id
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Delete specific configuration
+        cur.execute(r"DELETE FROM configuration WHERE id = ?;", (row_id,))
+
+        result = True if cur.rowcount > 0 else False
+
+    return result
+
+
+def create_working_hours_table(database, user):
+    """Create working hours table
+
+    :param database: database file path
+    :param user: user
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Create user table
+        cur.execute(
+            rf"CREATE TABLE IF NOT EXISTS '{user}' ("
+            r"date_id INTEGER PRIMARY KEY,"
+            r"year INTEGER NOT NULL,"
+            r"month INTEGER NOT NULL,"
+            r"day INTEGER NOT NULL,"
+            r"hours FLOAT NOT NULL,"
+            r"description TEXT,"
+            r"location TEXT,"
+            r"extraordinary FLOAT,"
+            r"permit_hours FLOAT,"
+            r"other_hours FLOAT ,"
+            r"holiday TEXT,"
+            r"disease TEXT"
+            r");"
+        )
+
+        # Return boolean if user table was created
+        cur.execute(f"SELECT name FROM sqlite_master WHERE name='{user}'")
+
+    return bool(cur.fetchone())
+
+
+def insert_working_hours(
+    database,
+    user,
+    hours=0,
+    description=None,
+    location=None,
+    extraordinary=0,
+    permit_hours=0,
+    other_hours=0,
+    holiday=None,
+    disease=None,
+    date=None,
+    day=None,
+    month=None,
+    year=None,
+    empty_value=None,
+):
+    """Insert working day into database
+
+    :param database: database file path
+    :param hours: number of working hours
+    :param user: user in configuration table
+    :param description: description of working day
+    :param location: name of location
+    :param extraordinary: extraordinary hours
+    :param permit_hours: permit hours
+    :param other_hours: other working hours
+    :param holiday: holiday value
+    :param disease: disease value
+    :param date: date for insert values
+    :param day: day of the date
+    :param month: month of the date
+    :param year: year of the date
+    :param empty_value: empty value if worked hours is 0
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Check if user table exists
+        cur.execute(f"SELECT name FROM sqlite_master WHERE name='{user}'")
+        if not cur.fetchone():
+            create_working_hours_table(database, user)
+
+        # Get date_id
+        date_id = build_dateid(date, year, month, day)
+        year, month, day = split_dateid(date_id)
+
+        # Check empty hours
+        hours = hours if hours else empty_value if empty_value else 0
+
+        # Check if date_id exists
+        cur.execute(f"SELECT date_id FROM '{user}' WHERE date_id='{date_id}'")
+        if not cur.fetchone():
+            # Insert into database
+            cur.execute(
+                rf"INSERT INTO '{user}' ("
+                r"date_id, year, month, day, hours, description, location, "
+                r"extraordinary, permit_hours, other_hours, holiday, disease) "
+                r"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+                (
+                    date_id,
+                    year,
+                    month,
+                    day,
+                    hours,
+                    description,
+                    location,
+                    extraordinary,
+                    permit_hours,
+                    other_hours,
+                    holiday,
+                    disease,
+                ),
+            )
+        else:
+            # Update into database
+            cur.execute(
+                rf"UPDATE '{user}' "
+                r"SET hours = ?, description = ?, "
+                r"location = ?, extraordinary = ?, permit_hours = ?, "
+                r"other_hours = ?, holiday = ?, disease = ? "
+                r"WHERE date_id = ?;",
+                (
+                    hours,
+                    description,
+                    location,
+                    extraordinary,
+                    permit_hours,
+                    other_hours,
+                    holiday,
+                    disease,
+                    date_id,
+                ),
+            )
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def remove_working_hours(
+    database, user, date=None, day=None, month=None, year=None, empty_value=None
+):
+    """Remove working day into database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param date: date for insert values
+    :param day: day of the date
+    :param month: month of the date
+    :param year: year of the date
+    :param empty_value: fill empty value
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get date_id
+        date_id = build_dateid(date, year, month, day)
+
+        # Check empty value
+        hours = empty_value if empty_value else 0
+
+        # Check if date_id exists
+        cur.execute(f"SELECT date_id FROM '{user}' WHERE date_id='{date_id}'")
+        if cur.fetchone():
+            # Update empty day into database
+            cur.execute(
+                rf"UPDATE '{user}' "
+                r"SET hours = ?, description = ?, location = ?, extraordinary = ?, permit_hours = ?, "
+                r"other_hours = ?, holiday = ?, disease = ? "
+                r"WHERE date_id = ?;",
+                (hours, None, None, 0, 0, 0, None, None, date_id),
+            )
+
+        else:
+            raise WorkingDayError(
+                f'date_id {date_id} not exists from table "{user}" into database {database}'
+            )
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def delete_working_hours(database, user, date=None, day=None, month=None, year=None):
+    """Delete working day into database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param date: date for insert values
+    :param day: day of the date
+    :param month: month of the date
+    :param year: year of the date
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Get date_id
+        date_id = build_dateid(date, year, month, day)
+
+        # Check if date_id exists
+        cur.execute(f"SELECT date_id FROM '{user}' WHERE date_id='{date_id}'")
+        if cur.fetchone():
+            # Delete day into database
+            cur.execute(rf"DELETE FROM '{user}' " r"WHERE date_id = ?;", (date_id,))
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def delete_whole_year(database, user, year):
+    """Delete whole year values into database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param year: year of the date
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Delete whole year into database
+        cur.execute(rf"DELETE FROM '{user}' " r"WHERE year = ?;", (year,))
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def delete_whole_month(database, user, year, month):
+    """Delete whole month values into database
+
+    :param database: database file path
+    :param user: user in configuration table
+    :param year: year of the date
+    :param month: month of the date
+    :return: bool
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Delete whole month into database
+        cur.execute(
+            rf"DELETE FROM '{user}' " r"WHERE year = ? " r"AND month = ?;",
+            (year, month),
+        )
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def delete_user(database, user):
+    """Delete all user data
+
+    :param database:
+    :param user:
+    :return:
+    """
+    # Create the database connection
+    with sqlite3.connect(database) as conn:
+        # Create cursor
+        cur = conn.cursor()
+
+        # Delete whole month into database
+        cur.execute(rf"DELETE FROM '{user}';")
+
+        result = False if cur.rowcount <= 0 else True
+
+    return result
+
+
+def print_configurations(cursor):
+    """Print in stdout the configuration table
+
+    :param cursor: sqlite3 Cursor object
+    :return: None
+    """
+    # Create table
+    data_table = make_printable_table(cursor)
+    print(data_table.table)
+
+
+def print_working_table(
+    cursor, sort=False, csv=False, json=False, html=False, rewards=None
+):
+    """Print in stdout the working hours table
+
+    :param cursor: sqlite3 Cursor object
+    :param sort: sort by date_id
+    :param csv: CSV format
+    :param json: JSON format
+    :param html: HTML format
+    :param rewards: UserConfiguration tuple
+    :return: None
+    """
+    # Create table
+    data_table = make_printable_table(cursor)
+    working_data = data_table.data
+    working_table = data_table.table
+    # Add rewards column to printed table
+    if rewards:
+        # Calculate total rewards
+        total_rewards = sum_rewards(working_data, rewards)
+        # Add reward column
+        working_table.add_column("rewards", total_rewards)
+    # Sort form date_id
+    if sort:
+        working_table.sortby = "date_id"
+    # Check format to print
+    if csv:
+        print(working_table.get_csv_string())
+    elif json:
+        print(working_table.get_json_string())
+    elif html:
+        print(working_table.get_html_string())
+    else:
+        print(working_table)
+
+
+def save_working_table(
+    cursor, file, sort=False, csv=False, json=False, html=False, rewards=None
+):
+    """Save into file the working hours table
+
+    :param cursor: sqlite3 Cursor object
+    :param file: file path where to save stdout
+    :param sort: sort by date_id
+    :param csv: CSV format
+    :param json: JSON format
+    :param html: HTML format
+    :param rewards: UserConfiguration tuple
+    :return: None
+    """
+    # Create table
+    data_table = make_printable_table(cursor)
+    working_data = data_table.data
+    working_table = data_table.table
+    # Add rewards column to printed table
+    if rewards:
+        # Calculate total rewards
+        total_rewards = sum_rewards(working_data, rewards)
+        # Add reward column
+        working_table.add_column("rewards", total_rewards)
+    # Sort form date_id
+    if sort:
+        working_table.sortby = "date_id"
+    # Write stdout into file
+    with open(file, "wt") as fh:
+        # Check format to print
+        if csv:
+            fh.write(working_table.get_csv_string())
+        elif json:
+            fh.write(working_table.get_json_string())
+        elif html:
+            fh.write(working_table.get_html_string())
+        else:
+            fh.write(working_table.get_string())
+
+
+# endregion

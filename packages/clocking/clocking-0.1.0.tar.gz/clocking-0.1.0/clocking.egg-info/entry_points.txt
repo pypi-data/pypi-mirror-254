@@ -1,0 +1,3 @@
+[console_scripts]
+clk = clocking.cli:main
+clocking = clocking.cli:main
