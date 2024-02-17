@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+prtg_sensor/__init__.py
+prtg_sensor/sensor.py
+prtg_sensor.egg-info/PKG-INFO
+prtg_sensor.egg-info/SOURCES.txt
+prtg_sensor.egg-info/dependency_links.txt
+prtg_sensor.egg-info/top_level.txt
