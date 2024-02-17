@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cycompi/README.MD
+cycompi/__init__.py
+cycompi/requirements.txt
+cycompi/thirdparty.json
+cycompi.egg-info/PKG-INFO
+cycompi.egg-info/SOURCES.txt
+cycompi.egg-info/dependency_links.txt
+cycompi.egg-info/requires.txt
+cycompi.egg-info/top_level.txt
