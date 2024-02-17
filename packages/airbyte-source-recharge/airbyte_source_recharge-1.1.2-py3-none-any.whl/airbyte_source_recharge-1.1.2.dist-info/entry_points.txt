@@ -1,0 +1,2 @@
+[console_scripts]
+source-recharge = source_recharge.run:run
