@@ -1,0 +1,13 @@
+lsst-utils<26.100,>=26.0
+lsst-daf-butler<26.100,>=26.0
+lsst-pex-config<26.100,>=26.0
+lsst-pipe-base<26.100,>=26.0
+click
+astropy
+pydantic<3.0
+networkx
+psutil
+
+[test]
+pytest>=3.2
+pytest-openfiles>=0.5.0
