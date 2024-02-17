@@ -1,0 +1,7 @@
+airbyte-cdk
+requests-oauthlib
+
+[tests]
+pytest~=6.1
+pytest-mock~=3.6.1
+requests-mock
