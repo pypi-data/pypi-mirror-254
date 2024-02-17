@@ -1,0 +1,29 @@
+ # General package configuration can go here
+
+ flash_finder:
+   # Detected flashes have brightness these many stds above the average
+   std_factor: 10
+   # Smoothing window size for piezo positions
+   piezo_smoothing_window_size: 4
+
+ centerline:
+  # Factor to display progress in
+  log_every: 1
+
+ alignment:
+  # Location of the background mat file
+  background_file:
+
+ # A key purely for testing purposes
+ test:
+   string: "Hello"
+   int: 42
+   float: 3.141592653589793
+   none: null
+   nested:
+     bool: true
+     list:
+       - "Blinky"
+       - "Pinky"
+       - "Inky"
+       - "Clyde"
