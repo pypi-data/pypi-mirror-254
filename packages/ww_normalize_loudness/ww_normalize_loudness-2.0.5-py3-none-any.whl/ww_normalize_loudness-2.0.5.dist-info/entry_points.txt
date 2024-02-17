@@ -1,0 +1,3 @@
+[console_scripts]
+ww_normalize_loudness=ww_normalize_loudness.src.ww_normalize_loudness_cli:main
+

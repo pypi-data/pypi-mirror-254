@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "inputArgs": {},
+    "_configArgs": {
+        "root": "",
+        "inclKeywords": [],
+        "inclAllKeywords": false,
+        "exclKeywords": [],
+        "exclAllKeywords": false,
+        "textScope": [
+            "name"
+        ],
+        "masterPlat": "*",
+        "slavePlats": [
+            ""
+        ],
+        "targetLUFS": -16.0,
+        "maxLufsRaise": 10.0,
+        "maxLufsDrop": 10.0,
+        "maxPeakDB": -3.0,
+        "maxPeakOverflowDB": 3.0,
+        "decisionTable": ""
+    }
+}

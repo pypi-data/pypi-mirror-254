@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: ww_normalize_loudness
+Version: 2.0.5
+Summary: 
+Author: bin.luo
+Author-email: bin.luo@mihoyo.com
+Requires-Python: >=3.11,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: kkpyui (>=0.25.3,<0.26.0)
+Requires-Dist: kkpyutil
+Requires-Dist: miautil
+Requires-Dist: p4_checkout
+Requires-Dist: rp_normalize_loudness
+Requires-Dist: ww_find_objs
+Requires-Dist: ww_unlink_srcs

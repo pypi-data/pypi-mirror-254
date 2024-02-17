@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "commands": [
+        {
+            "id": "mihoyo.ww_normalize_loudness.mixer.normalize_loudness",
+            "displayName": "Normalize Loudness",
+            "program": "/Applications/miatech/services/.venv/lib/python3.11/site-packages/ww_normalize_loudness/tool/tool.sh",
+            "args": "",
+            "cwd": "/Applications/miatech/services/.venv/lib/python3.11/site-packages/ww_normalize_loudness",
+            "defaultShortcut": "",
+            "redirectOutputs": false,
+            "startMode": "MultipleSelectionSingleProcessSpaceSeparated",
+            "contextMenu": {
+                "basePath": "miHoYo/mixer",
+                "enabledFor": "Sound",
+                "visibleFor": "Sound"
+            },
+            "mainMenu": {
+                "basePath": "miHoYo/mixer"
+            }
+        }
+    ]
+}
