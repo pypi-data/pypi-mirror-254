@@ -1,0 +1,11 @@
+irisml
+onnx
+Pillow
+scikit-learn
+torch
+torchvision
+tqdm
+
+[azureml]
+azureml-mlflow
+mlflow-skinny
