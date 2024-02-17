@@ -1,0 +1,448 @@
+
+.. code-block:: shell
+                                                                  
+        █████████             █████               ██████              
+       ███░░░░░███           ░░███               ███░░███             
+      ░███    ░░░  █████ ████ ░███  ████████    ░███ ░░░   ██████     
+      ░░█████████ ░░███ ░███  ░███ ░░███░░███  ███████    ███░░███    
+       ░░░░░░░░███ ░███ ░███  ░███  ░███ ░███ ░░░███░    ░███ ░███    
+       ███    ░███ ░███ ░███  ░███  ░███ ░███   ░███     ░███ ░███    
+      ░░█████████  ░░███████  █████ ████ █████  █████    ░░██████     
+       ░░░░░░░░░    ░░░░░███ ░░░░░ ░░░░ ░░░░░  ░░░░░      ░░░░░░      
+                    ███ ░███                                          
+                   ░░██████                                           
+                    ░░░░░░                                            
+                                                                       
+sys_info
+==========
+
+A python based package to get system and network information.
+
+
+How to install  
+--------------  
+
+.. code-block:: shell
+
+	# Install Debian App
+	(root_dir) $ sudo chmod +x install
+	(root_dir) $ sudo ./install
+	(root_dir) $ sudo ./cleanup.sh
+
+	# Install Python Version
+	(root_dir)(virtualenv) $ pip install .
+
+	# Check Install Location
+	$ where syinfo
+	>>> /usr/local/bin/sys_info
+	$ which syinfo
+	>>> /usr/local/bin/sys_info
+	
+	# sudo dpkg --list | grep sys_info
+	# sudo dpkg -r syinfo
+
+  
+How to use  
+----------  
+  
+CLI Version  
+~~~~~~~~~~~  
+
+.. code-block:: shell
+
+	$ sudo syinfo --help
+	>>>
+		Sys-Info
+
+		optional arguments:
+		  -h, --help            show this help message and exit
+		  -c, --contact         show contact
+		  -v, --version         show current version
+		  -d, --device          show information about your device.
+		  -n, --network         show information about your network.
+		  -s, --system          show combined information about your device and network.
+		  -t , --time           int supplement for '-n' or '-s' command (scanning '-t' seconds)
+		  -o, --disable-vendor-search
+		                        supplement for '-n' or '-s' command to stop searching for vendor for the device (mac)
+		  -p, --disable-print   disable printing of the information.
+		  -j, --return-json     return output as json
+
+		GitHub: <https://github.com/MR901>
+
+	$ sudo syinfo --version
+	>>> 0.0.0
+
+	$ sudo syinfo --system 
+	$ sudo syinfo -npj -t 5 | jq -r ".network_info.devices_on_network"
+
+  
+Python Version  
+~~~~~~~~~~~~~~  
+
+.. code-block:: python
+
+	from syinfo.utils import Execute, HumanReadable
+	from syinfo.search_network import search_devices_on_network, get_vendor
+	from syinfo.device_info import DeviceInfo
+	from syinfo.network_info import NetworkInfo
+	from syinfo.syinfo import SysInfo
+
+	device_info = SysInfo.get_all()
+	print(SysInfo.print(device_info))
+
+	network_info = NetworkInfo.get_all()
+	print(NetworkInfo.print(network_info))
+
+
+Sample Output  
+~~~~~~~~~~~~~  
+
+.. code-block:: shell
+
+	======================================== System Information ========================================
+	.
+	├── System Information
+	│   ├── Mac Address ........ xx:xx:xx:xx:xx:xx
+	│   ├── System Type......... laptop
+	│   ├── Static Hostname .... xxxxxxxxxx
+	│   ├── Icon Name .......... computer-laptop
+	│   ├── Operating Software
+	│   │   ├── Full name........... Ubuntu 20.04.6 LTS
+	│   │   ├── Distribution........ Ubuntu
+	│   │   ├── Platform............ Linux-5.15.0-88-generic-x86_64-with-glibc2.31
+	│   │   ├── Version............. 20.04.6 LTS (Focal Fossa)
+	│   │   ├── Update history...... #98~20.04.1-Ubuntu SMP Mon Oct 9 16:43:45 UTC 2023
+	│   │   ├── Id like............. debian
+	│   │   ├── System.............. Linux
+	│   │   ├── Kernel.............. Linux 5.15.0-88-generic
+	│   │   ├── Architecture........ x86-64
+	│   │   ├── Release............. 5.15.0-88-generic
+	│   │   ├── Machine id.......... xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	│   │   └── Boot id............. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	│   ├── Device Manufacturer
+	│   │   ├── bios
+	│   │   │   ├── date............ 06/25/2023
+	│   │   │   ├── release......... 1.35
+	│   │   │   ├── vendor.......... LENOVO
+	│   │   │   └── version......... N3BET57W (1.35 )
+	│   │   ├── board
+	│   │   │   ├── asset_tag....... Not Available
+	│   │   │   ├── name............ 21BTS03300
+	│   │   │   ├── vendor.......... LENOVO
+	│   │   │   └── version......... SDK0T76530 WIN
+	│   │   ├── chassis
+	│   │   │   ├── asset_tag....... No Asset Tag
+	│   │   │   ├── type............ 10
+	│   │   │   ├── vendor.......... LENOVO
+	│   │   │   └── version......... None
+	│   │   ├── ec
+	│   │   │   └── firmware_release 1.15
+	│   │   ├── modalias........ dmi:bvnLENOVO:bvrN3BET57W(1.35):bd06/25/2023:br1.35:efr1.15:svnLENOVO:pn21BTS03300:pvrThinkPadP16sGen1:rvnLENOVO:rn21BTS03300:rvrSDK0T76530WIN:cvnLENOVO:ct10:cvrNone:skuLENOVO_MT_21BT_BU_Think_FM_ThinkPadP16sGen1:
+	│   │   ├── product
+	│   │   │   ├── family.......... ThinkPad P16s Gen 1
+	│   │   │   ├── name............ 21BTS03300
+	│   │   │   ├── sku............. LENOVO_MT_21BT_BU_Think_FM_ThinkPad P16s Gen 1
+	│   │   │   └── version......... ThinkPad P16s Gen 1
+	│   │   ├── sys
+	│   │   │   └── vendor.......... LENOVO
+	│   │   └── uevent.......... MODALIAS=dmi:bvnLENOVO:bvrN3BET57W(1.35):bd06/25/2023:br1.35:efr1.15:svnLENOVO:pn21BTS03300:pvrThinkPadP16sGen1:rvnLENOVO:rn21BTS03300:rvrSDK0T76530WIN:cvnLENOVO:ct10:cvrNone:skuLENOVO_MT_21BT_BU_Think_FM_ThinkPadP16sGen1:
+	│   └── Py Version ..... 3.11.4
+	├── Time
+	│   ├── Current Time
+	│   │   ├── Timestamp ...... 1701065174.4
+	│   │   └── Date/Time ...... 2023/11/27 11:36:14
+	│   ├── Boot Time
+	│   │   ├── Timestamp ...... 1700744255.0
+	│   │   └── Date/Time ...... 2023/11/23 18:27:35
+	│   └── Uptime Time
+	│       ├── Seconds ........ 320919.4
+	│       └── Date/Time ...... 3 day, 17 hr, 8 min, 39 sec, 400.0 ms
+	├── CPU
+	│   ├── Cores
+	│   │   ├── Physical ....... 12
+	│   │   └── Total .......... 16
+	│   ├── Frequency
+	│   │   ├── Min ............ 400.00 Mhz
+	│   │   ├── Max ............ 4050.00 Mhz
+	│   │   └── Current ........ 2562.49 Mhz
+	│   ├── CPU Usage
+	│   │   ├── Total........... 7.6 %
+	│   │   └── CPU Usage Per Core
+	│   │       ├── Core  1 ........ 18.4 %
+	│   │       ├── Core  2 ........  3.1 %
+	│   │       ├── Core  3 ........  5.2 %
+	│   │       ├── Core  4 ........  0.0 %
+	│   │       ├── Core  5 ........ 13.0 %
+	│   │       ├── Core  6 ........  1.0 %
+	│   │       ├── Core  7 ........ 14.3 %
+	│   │       ├── Core  8 ........  0.0 %
+	│   │       ├── Core  9 ........  9.8 %
+	│   │       ├── Core 10 ........ 10.7 %
+	│   │       ├── Core 11 ........  5.1 %
+	│   │       ├── Core 12 ........  2.0 %
+	│   │       ├── Core 13 ........  6.0 %
+	│   │       ├── Core 14 ........  5.9 %
+	│   │       ├── Core 15 ........  2.0 %
+	│   │       └── Core 16 ........  3.1 %
+	│   └── CPU Design
+	│       ├── processor....... 0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15
+	│       ├── vendor_id....... GenuineIntel
+	│       ├── cpu family...... 6
+	│       ├── model........... 154
+	│       ├── model name...... 12th Gen Intel(R) Core(TM) i7-1260P
+	│       ├── stepping........ 3
+	│       ├── microcode....... 1072
+	│       ├── cpu MHz......... 665.516
+	│       ├── cache size...... 18432 KB
+	│       ├── physical id..... 0
+	│       ├── siblings........ 16
+	│       ├── core id......... 0
+	│       ├── cpu cores....... 12
+	│       ├── apicid.......... 0 / 1 / 8 / 9 / 16 / 17 / 24 / 25 / 32 / 34 / 36 / 38 / 40 / 42 / 44 / 46
+	│       ├── initial apicid.. 0 / 1 / 8 / 9 / 16 / 17 / 24 / 25 / 32 / 34 / 36 / 38 / 40 / 42 / 44 / 46
+	│       ├── fpu............. True
+	│       ├── fpu_exception... True
+	│       ├── cpuid level..... 32
+	│       ├── wp.............. True
+	│       ├── flags........... fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize arch_lbr flush_l1d arch_capabilities
+	│       ├── vmx flags....... vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple shadow_vmcs ept_mode_based_exec tsc_scaling usr_wait_pause
+	│       ├── bugs............ spectre_v1 spectre_v2 spec_store_bypass swapgs eibrs_pbrsb
+	│       ├── bogomips........ 4992.0
+	│       ├── clflush size.... 64
+	│       ├── cache_alignment. 64
+	│       ├── address sizes... 39 bits physical, 48 bits virtual
+	│       └── power management None
+	├── Memory
+	│   ├── Virtual
+	│   │   ├── Used ........... 9.2 GB
+	│   │   ├── Free ........... 20.3 GB
+	│   │   ├── Total .......... 31.0 GB
+	│   │   └── Percentage ..... 34.7 %
+	│   ├── Swap
+	│   │   ├── Used ........... 12.5 MB
+	│   │   ├── Free ........... 2.0 GB
+	│   │   ├── Total .......... 2.0 GB
+	│   │   └── Percentage ..... 0.6 %
+	│   └── Design
+	│       ├── VmallocTotal
+	│       │   ├── bytes........... 35184372087808
+	│       │   └── human_readable.. 32.0 TB
+	│       ├── Committed_AS
+	│       │   ├── bytes........... 34392129536
+	│       │   └── human_readable.. 32.0 GB
+	│       ├── MemTotal
+	│       │   ├── bytes........... 33334595584
+	│       │   └── human_readable.. 31.0 GB
+	│       ├── MemAvailable
+	│       │   ├── bytes........... 21756289024
+	│       │   └── human_readable.. 20.3 GB
+	│       ├── CommitLimit
+	│       │   ├── bytes........... 18814775296
+	│       │   └── human_readable.. 17.5 GB
+	│       ├── DirectMap2M
+	│       │   ├── bytes........... 18171822080
+	│       │   └── human_readable.. 16.9 GB
+	│       ├── DirectMap1G
+    │       ...
+	│       └── Hugetlb
+	│           ├── bytes........... 0
+	│           └── human_readable.. 0.0 B
+	├── Disk
+	│   ├── Since Boot
+	│   │   ├── Total Read ..... 10.5 GB
+	│   │   └── Total Write .... 43.8 GB
+	│   └── Drives
+	│       ├── /dev/nvme0n1p5
+	│       │   ├── Mountpoint ..... /
+	│       │   ├── File System .... ext4
+	│       │   └── Space
+	│       │       ├── Used .......... 491.9 GB
+	│       │       ├── Free .......... 82.3 GB
+	│       │       ├── Total ......... 605.0 GB
+	│       │       └── Percent ....... 85.7 %
+	│       ├── /dev/loop0
+	│       │   ├── Mountpoint ..... /snap/bare/5
+	│       │   ├── File System .... squashfs
+	│       │   └── Space
+	│       │       ├── Used .......... 128.0 KB
+	│       │       ├── Free .......... 0.0 B
+	│       │       ├── Total ......... 128.0 KB
+	│       │       └── Percent ....... 100.0 %
+	│       ├── /dev/loop1
+	│       │   ├── Mountpoint ..... /snap/code/146
+	│       │   ├── File System .... squashfs
+	│       │   └── Space
+	│       │       ├── Used .......... 303.4 MB
+	│       │       ├── Free .......... 0.0 B
+	│       │       ├── Total ......... 303.4 MB
+	│       │       └── Percent ....... 100.0 %
+	│        ...
+	│       └── /dev/loop38
+	│           ├── Mountpoint ..... /snap/sublime-text/134
+	│           ├── File System .... squashfs
+	│           └── Space
+	│               ├── Used .......... 64.0 MB
+	│               ├── Free .......... 0.0 B
+	│               ├── Total ......... 64.0 MB
+	│               └── Percent ....... 100.0 %
+	======================================== GPU Details ========================================
+	No GPU Detected
+	None
+
+
+.. code-block:: shell
+
+	└── Network Information
+	    ├── Hostname........ xxxxxxxxxx
+	    ├── Mac Address..... xx:xx:xx:xx:xx:xx
+	    ├── Internet Available True
+	    ├── Data transfer since boot
+	    │   ├── Sent
+	    │   │   ├── Data (Bytes) ... 1789279003
+	    │   │   └── Data ........... 1.7 GB
+	    │   └── Received
+	    │       ├── Data (Bytes) ... 9705240447
+	    │       └── Data ........... 9.0 GB
+	    ├── Physical & Virtual Interfaces
+	    │   ├── Brief
+	    │   │   ├── lo
+	    │   │   │   ├── ip_address...... xxxxxxxxxx
+	    │   │   │   ├── nwtmask......... xxxxxxxxxx
+	    │   │   │   ├── broadcast_ip.... xxxxxxxxxx
+	    │   │   │   ├── mac_address..... xxxxxxxxxx
+	    │   │   │   └── broadcast_mac... xxxxxxxxxx
+	    │   │   ├── wlp0s20f3
+	    │   │   │   ├── ip_address...... xxxxxxxxxx
+	    │   │   │   ├── nwtmask......... xxxxxxxxxx
+	    │   │   │   ├── broadcast_ip.... xxxxxxxxxx
+	    │   │   │   ├── mac_address..... xxxxxxxxxx
+	    │   │   │   └── broadcast_mac... xxxxxxxxxx
+	    │   │   └── enp0s31f6
+	    │   │       ├── mac_address..... xxxxxxxxxx
+	    │   │       ├── nwtmask......... xxxxxxxxxx
+	    │   │       └── broadcast_mac... xxxxxxxxxx
+	    │   └── Detailed
+	    │       ├──  0 ──┐
+	    │       │        ├── general
+	    │       │        │   ├── device.......... wlp0s20f3
+	    │       │        │   ├── type............ wifi
+	    │       │        │   ├── hwaddr.......... xxxxxxxxxx
+	    │       │        │   ├── mtu............. 1500
+	    │       │        │   ├── state........... 100 (connected)
+	    │       │        │   ├── connection...... xxxxxxxxxx
+	    │       │        │   └── con-path........ /org/freedesktop/NetworkManager/ActiveConnection/15
+	    │       │        ├── ip4
+	    │       │        │   ├── address[1]...... xxx.xxx.xxx.xxx/24
+	    │       │        │   ├── gateway......... xxx.xxx.xxx.xxx
+	    │       │        │   ├── route[1]........ dst = 0.0.0.0/0, nh = 192.168.1.1, mt = 600
+	    │       │        │   ├── route[2]........ dst = 192.168.1.0/24, nh = 0.0.0.0, mt = 600
+	    │       │        │   ├── route[3]........ dst = 169.254.0.0/16, nh = 0.0.0.0, mt = 1000
+	    │       │        │   ├── dns[1].......... 205.254.184.15
+	    │       │        │   ├── dns[2].......... 103.56.228.140
+	    │       │        │   └── domain[1]....... hgu_lan
+	    │       │        └── ip6
+	    │       │            ├── address[1]...... xxxx::xxxx:xxxx:xxxx:xxxx/64
+	    │       │            ├── gateway......... --
+	    │       │            └── route[1]........ dst = fe80::/64, nh = ::, mt = 600
+	    │       ├──  1 ──┐
+	    │       │        └── general
+	    │       │            ├── device.......... p2p-dev-wlp0s20f3
+	    │       │            ├── type............ wifi-p2p
+	    │       │            ├── hwaddr.......... (unknown)
+	    │       │            ├── mtu............. 0
+	    │       │            ├── state........... 30 (disconnected)
+	    │       │            ├── connection...... --
+	    │       │            └── con-path........ --
+	    │       ├──  2 ──┐
+	    │       │        ├── general
+	    │       │        │   ├── device.......... enp0s31f6
+	    │       │        │   ├── type............ ethernet
+	    │       │        │   ├── hwaddr.......... xx:xx:xx:xx:xx:xx
+	    │       │        │   ├── mtu............. 1500
+	    │       │        │   ├── state........... 20 (unavailable)
+	    │       │        │   ├── connection...... --
+	    │       │        │   └── con-path........ --
+	    │       │        └── wired-properties
+	    │       │            └── carrier......... False
+	    │       └──  3 ──┐
+	    │                ├── general
+	    │                │   ├── device.......... lo
+	    │                │   ├── type............ loopback
+	    │                │   ├── hwaddr.......... xx:xx:xx:xx:xx:xx
+	    │                │   ├── mtu............. 65536
+	    │                │   ├── state........... 10 (unmanaged)
+	    │                │   ├── connection...... --
+	    │                │   └── con-path........ --
+	    │                ├── ip4
+	    │                │   ├── address[1]...... xxx.xxx.xxx.xxx/8
+	    │                │   └── gateway......... --
+	    │                └── ip6
+	    │                    ├── address[1]...... ::1/128
+	    │                    ├── gateway......... --
+	    │                    └── route[1]........ dst = ::1/128, nh = ::, mt = 256
+	    ├── Wifi Connection
+	    │   ├── Wifi name....... xxxxxxxxxx
+	    │   ├── Password........ xxxxxxxxxx
+	    │   ├── Security........ sudo needed
+	    │   ├── Interface....... wlp0s20f3
+	    │   ├── Frequency....... 2.447 GHz
+	    │   ├── Channel......... 8
+	    │   ├── Signal strength. -43 DBm
+	    │   ├── Signal quality.. [6/7] excellent signal
+	    │   └── Options
+	    │       └── 0 ──┐
+	    │               ├── Network......... xxxxxxxxxx
+	    │               ├── Mode............ Infra
+	    │               ├── Channel......... 6
+	    │               ├── Rate............ 270 Mbit/s
+	    │               ├── Signal.......... 14
+	    │               ├── Bars............ ▂___
+	    │               ├── Security........ WPA1 WPA2
+	    │               ├── In-use.......... True
+	    │               └── Mac............. xxxxxxxxxx
+	    ├── Devices Available on Network
+	    │   ├── xxx.xxx.xxx.xxx
+	    │   │   ├── mac_address..... xxxxxxxxxx
+	    │   │   ├── device_name..... xxxxxxxxxx
+	    │   │   ├── identifier...... current device
+	    │   │   └── vendor.......... Intel Corporate
+	    │   ├── xxx.xxx.xxx.xxx
+	    │   │   ├── mac_address..... xxxxxxxxxx
+	    │   │   ├── identifier...... router
+	    │   │   └── device_vendor... optilink networks pvt ltd
+	    │   └── xxx.xxx.xxx.xxx
+	    │       ├── mac_address..... xxxxxxxxxx
+	    │       ├── identifier...... unknown
+	    │       └── device_vendor... unknown
+	    ├── Current Addresses
+	    │   ├── Isp............. xxxxxxxxxx
+	    │   ├── Public ip....... xxx.xxx.xxx.xxx
+	    │   ├── Ip address host. xxx.xxx.xxx.xxx
+	    │   ├── Ip address...... xxx.xxx.xxx.xxx
+	    │   ├── Gateway......... xxx.xxx.xxx.xxx
+	    │   ├── Dns 1........... xxx.xxx.xxx.xxx
+	    │   └── Dns 2........... xxx.xxx.xxx.xxx
+	    └── Demographic Information
+	        ├── Country......... xxxxxxxxxx
+	        ├── City............ xxxxxxxxxx
+	        ├── Region.......... xxxxxxxxxx
+	        ├── Latitude........ xxxxxxxxxx
+	        ├── Longitude....... xxxxxxxxxx
+	        ├── Zip code........ xxxxxxxxxx
+	        ├── Maps............ https://www.google.com/maps/search/?api=1&query=xxxxxxxxxx
+	        └── Meta
+	            ├── country_code.... xxxxxxxxxx
+	            ├── region_code..... xxxxxxxxxx
+	            ├── countryCapital.. xxxxxxxxxx
+	            ├── time_zone....... xxxxxxxxxx
+	            ├── callingCode..... xxxxxxxxxx
+	            ├── currency........ xxxxxxxxxx
+	            ├── currencySymbol.. xxxxxxxxxx
+	            ├── emojiFlag....... xxxxxxxxxx
+	            ├── flagUrl......... xxxxxxxxxx
+	            ├── public_ip....... xxxxxxxxxx
+	            ├── is_in_european_union xxxxxxxxxx
+	            ├── metro_code...... xxxxxxxxxx
+	            └── suspiciousFactors {'isProxy': False, 'isSpam': False, 'isSuspicious': False, 'isTorNode': False}
+
+
