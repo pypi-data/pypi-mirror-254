@@ -1,0 +1,12 @@
+starlake-orchestration>=0.0.1
+
+[aws]
+
+[azure]
+
+[dagster]
+
+[gcp]
+
+[shell]
+dagster-shell
