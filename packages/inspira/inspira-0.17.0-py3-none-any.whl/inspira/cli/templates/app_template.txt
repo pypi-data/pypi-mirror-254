@@ -1,0 +1,5 @@
+from inspira import Inspira
+
+
+app = Inspira(secret_key="{{secret_key}}")
+

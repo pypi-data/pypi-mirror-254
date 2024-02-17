@@ -1,0 +1,3 @@
+[console_scripts]
+inspira=inspira.cli.cli:cli
+
