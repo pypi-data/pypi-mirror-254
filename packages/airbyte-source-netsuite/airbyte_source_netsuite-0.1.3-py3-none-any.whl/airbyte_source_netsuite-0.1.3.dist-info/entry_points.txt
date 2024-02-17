@@ -1,0 +1,2 @@
+[console_scripts]
+source-netsuite = source_netsuite.run:run
