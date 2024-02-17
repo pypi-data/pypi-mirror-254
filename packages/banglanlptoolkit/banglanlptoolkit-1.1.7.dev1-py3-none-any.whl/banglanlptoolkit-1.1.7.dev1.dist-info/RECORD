@@ -1,0 +1,14 @@
+banglanlptoolkit/__init__.py,sha256=bum9YglOq3ZhFhAVQvBBNwxA52R0w3NCcjG_KftDQuI,335
+banglanlptoolkit/banglaaugmentation.py,sha256=UAzTN3SRZElPcA8T6rJD5Na1fVDi4UFDE1pSXhX-7mY,4843
+banglanlptoolkit/banglapunctuation.py,sha256=CnWt0SIUnNdoVDAzVprZpWlr2z6oMRiQuzXbBgdLlqE,1926
+banglanlptoolkit/banglatextmentation.py,sha256=4S2VWAgqWSkhavSuwnYp-OmkeWNWkqgNAuhruifj-Zs,6814
+banglanlptoolkit/bnnlpnormalizer.py,sha256=Ucr9tDN1ULZPgLgOt17qngr3GIZVC5YrQiALtSs-Qjs,4015
+banglanlptoolkit/bnnlpnormalizerplus.py,sha256=Z-taBaa1ZxMTV9Rn1HN1zemlc7uytssNQtBo7IQ_b48,4529
+banglanlptoolkit/seq2seqaug.py,sha256=M6TmCjxzzj-UX1nQWZGew_HmyvvjQQgmz1AJCt2rvT0,4481
+banglanlptoolkit/sequenceclassificationaug.py,sha256=ZkN42nr6uYGoPikUYnGwnQEXmNbtw-hX3Tg_PANcPbo,4184
+banglanlptoolkit/utils.py,sha256=mH0-FmBRgys6kKNVuZZbWmswZMK3iz-CSut6IOckn-A,309
+banglanlptoolkit-1.1.7.dev1.dist-info/LICENSE.txt,sha256=CQpLSh5ef1I_mLD67I1TihkupDEWQ-I4bRi34tLy-0g,1076
+banglanlptoolkit-1.1.7.dev1.dist-info/METADATA,sha256=sCZ-l-bEzt30XmaxlRQfbeVtpdS563NM8BlMjMN0mUY,5714
+banglanlptoolkit-1.1.7.dev1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+banglanlptoolkit-1.1.7.dev1.dist-info/top_level.txt,sha256=AzAvEtnQwZISbga15naFg-F52jcLi_Le_ymQJrbmK0o,17
+banglanlptoolkit-1.1.7.dev1.dist-info/RECORD,,
