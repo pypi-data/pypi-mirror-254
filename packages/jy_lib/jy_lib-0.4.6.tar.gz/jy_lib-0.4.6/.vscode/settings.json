@@ -1,0 +1,29 @@
+{
+  "git.autofetch": true, // 启用自动获取最新的Git更新
+  "files.eol": "\n", // 设置文件的行尾格式为换行符（\n）
+  "python.analysis.typeCheckingMode": "basic", // 设置Python代码分析的类型检查模式为基本模式
+  "python.analysis.importFormat": "relative", // 设置Python代码分析的导入格式为相对导入
+  "python.formatting.provider": "none", // 禁用Python代码的格式化提供者
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "120"
+  ], // 设置使用Black格式化器的参数，其中--line-length指定每行的最大字符数为120
+  "[python]": { // 针对Python文件的特定配置部分
+    "editor.tabSize": 4, // 设置Python文件的制表符大小为4个空格
+    "editor.formatOnSave": true, // 在保存Python文件时自动进行格式化
+    "editor.formatOnType": true, // 在输入时自动进行格式化
+    "editor.defaultFormatter": "ms-python.black-formatter",  // 设置默认的代码格式化器为ms-python.black-formatter
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.organizeImports.ruff": false
+    } // 在保存时自动组织导入语句，并禁用ruff格式化器
+  },
+  "[json]": { // 针对JSON文件的特定配置部分
+    "editor.tabSize": 2, // 设置JSON文件的制表符大小为2个空格
+    "editor.defaultFormatter": "vscode.json-language-features" // 设置默认的JSON格式化器为vscode.json-language-features
+  },
+  "isort.args": [
+    "--profile",
+    "black"
+  ] // 设置isort工具的参数，其中--profile指定使用Black的配置文件
+}

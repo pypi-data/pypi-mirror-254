@@ -1,0 +1,26 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "jy_lib"
+authors = [{ name = "jyfund", email = "popsars@gmail.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+dynamic = ["version", "description"]
+dependencies = [
+    "loguru",
+    "pypinyin",
+    "pysmb",
+    "websockets"
+]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+profile = "black"
