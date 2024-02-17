@@ -1,0 +1,2 @@
+[console_scripts]
+tamil_ocr = tamil_ocr.tamil_ocr:main
