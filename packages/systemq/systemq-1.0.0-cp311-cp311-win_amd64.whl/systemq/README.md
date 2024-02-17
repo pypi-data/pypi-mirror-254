@@ -1,0 +1,84 @@
+# Copyright Notice for SystemQ
+
+Copyright (C) 2024 by Beijing Academy of Quantum Information and Sciences 
+
+All rights reserved.
+
+## License
+
+SystemQ is distributed under MIT, GPL, Apache Lisence. For more details, see the LICENSE file included with this distribution or visit [link to the license text, if available online].
+
+## Redistribution and Use
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+## Disclaimer
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+# Usage :
+## installation
+\<path\_to\_python\>  -m pip install systemq quark jupyter jupyter\_notebook jupyter\_lab 
+
+## basic usage 
+1. in a jupyter(notebook or lab) environment  :
+```python
+import systemq.kernel as kn
+```
+2. decide the configuration path : the default directory to look at in linux(or windows) usually is at `/home/\<user\_name\>`.
+If there are other wanted path, it is easy to add them with
+```python
+kn.add_config_dir("path to the configuration directory")
+```
+At the configuration directory, a json file called `bootstrap.json` is expected. 
+In which each basic setup to configure the systemq kernel is listed.
+
+3. intialize the system : 
+```python
+kn.init()
+```
+calling this step to initialize the system with previous setups. This setup is safe to run repeatly
+
+
+4. Scanner Usage Example: 
+```python
+qubits=tuple(['Q0301'])
+t = kts.Scan(f'T1_{qubits}',
+                 signal= 'population',             
+                 shots = 1024)
+circ = []
+delay  = 0 
+for qid,qubit in enumerate(qubits):
+    circ.append(('X', qubit))
+    circ.append((('Delay',delay),qubit))
+    circ.append((('R', 0,('with', ('params:phase', 0))), qubit))
+    circ.append((('R', 0,('with', ('params:phase', 0))), qubit))    
+    circ.append((('Delay', 200e-9), qubit))
+    circ.append((('Measure', qid), qubit))  ;
+    
+t["circuit"] = circ
+t["repeat"] =np.linspace(0, 100, 5001)  
+t.run() # non blocking
+t.join() # blocking  the task with join
+```
+5. To cancel a task :
+    If it is not blocked, you can call the task's canceller, for example `t.cancel()` .
+    If it is blocked, in another word there are `t.join()` called in the jupyter cells and the system is waiting there. You can just click the square at the top of jupyter notebook to stop the task
+
+
+## Further notice : 
+This package is under intense development under Beijing Academy of Quantum Information and Sciences Teams. Any usage issue please submit to https://pypi.org/project/systemq. Or contact our staff for advice or problems. Thank you for using our software.
+    
+
+
+
+
+
+
+
