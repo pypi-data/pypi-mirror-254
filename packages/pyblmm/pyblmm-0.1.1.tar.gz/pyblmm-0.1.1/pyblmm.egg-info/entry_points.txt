@@ -1,0 +1,2 @@
+[console_scripts]
+blmm = blmm.blmm_cluster:_main
