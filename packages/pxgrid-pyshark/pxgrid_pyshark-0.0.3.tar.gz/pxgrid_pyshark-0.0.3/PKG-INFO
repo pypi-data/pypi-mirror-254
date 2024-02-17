@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pxgrid_pyshark
+Version: 0.0.3
+Summary: Custom DPI tool used to passively analyze endpoint data and transmit results via Cisco ISE pxGrid messaging for improved endpoint profiling
+Home-page: https://github.com/taylor-cook/pxgrid-pyshark
+Download-URL: https://github.com/taylor-cook/pxgrid-pyshark
+Author: Taylor Cook
+Author-email: aacook@cisco.com
+License: Apache 2.0; Copyright (c) 2024 Cisco and/or its affiliates.
+Keywords: ISE,pxGrid
+Platform: Posix; OS X; Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: netifaces>=0.10.7
+Requires-Dist: psutil>=5.9.8
+Requires-Dist: pxgrid-util>=0.6.0
+Requires-Dist: pyshark>=0.6
+Requires-Dist: requests>=2.31.0
+Requires-Dist: user-agents>=2.2.0
+Requires-Dist: versioneer>=0.29
+
+Custom DPI tool used to passively analyze endpoint data and transmit results via Cisco ISE pxGrid messaging for improved endpoint profiling
