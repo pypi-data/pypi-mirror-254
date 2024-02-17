@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: deser
+Version: 0.0.2
+Summary: Serializer/deserializer to object
+Home-page: https://github.com/rzarajczyk/service-bootstrap
+Author: Rafał Zarajczyk
+Author-email: rzarajczyk@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
