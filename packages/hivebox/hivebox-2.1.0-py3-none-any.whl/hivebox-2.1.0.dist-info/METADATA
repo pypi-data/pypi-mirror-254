@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: hivebox
+Version: 2.1.0
+Summary: HiveBox is a toolset helping in AI/ML/CV and other tasks
+License: Proprietary
+Author: HiveCV
+Author-email: lukasz@hivecv.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: flickrapi (>=2.4.0,<3.0.0)
+Requires-Dist: numpy (>=1.21,<2.0)
+Requires-Dist: opencv-contrib-python (>4)
+Requires-Dist: opencv-python (>4)
+Requires-Dist: requests (>=2.27,<3.0)
+Description-Content-Type: text/markdown
+
+# HiveBox
+
+## Clone
+
+```
+git clone https://hive:gldt-iyMmSHcgufhtxh46HZeq@gitlab.com/hivecv/hivebox.git
+```
+
+## Setup
+
+```
+$ python3 -m pip install -U pip
+$ python3 -m pip install poetry
+$ python3 -m poetry install
+```
+
+## Run example
+
+```
+$ python3 example.py
+```
+Toolset used in various tasks
+
