@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+auto_subtitle_llama/__init__.py
+auto_subtitle_llama/cli.py
+auto_subtitle_llama/utils.py
+auto_subtitle_llama.egg-info/PKG-INFO
+auto_subtitle_llama.egg-info/SOURCES.txt
+auto_subtitle_llama.egg-info/dependency_links.txt
+auto_subtitle_llama.egg-info/entry_points.txt
+auto_subtitle_llama.egg-info/requires.txt
+auto_subtitle_llama.egg-info/top_level.txt
