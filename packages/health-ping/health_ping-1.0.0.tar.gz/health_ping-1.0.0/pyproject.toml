@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["src/**"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
+
+[project]
+name = "health_ping"
+version = "1.0.0"
+authors = [
+  { name="tjtanjin", email="cjtanjin@gmail.com" },
+]
+description = "A lightweight utility package for pinging healthchecks to indicate liveness."
+dependencies = ["crontab>=0.23.0"]
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/tjtanjin/health_ping"
+Issues = "https://github.com/tjtanjin/health_ping/issues"
