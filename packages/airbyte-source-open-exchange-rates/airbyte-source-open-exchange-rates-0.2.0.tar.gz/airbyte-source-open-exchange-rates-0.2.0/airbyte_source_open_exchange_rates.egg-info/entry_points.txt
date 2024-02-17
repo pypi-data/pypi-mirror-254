@@ -1,0 +1,2 @@
+[console_scripts]
+source-open-exchange-rates = source_open_exchange_rates.run:run
