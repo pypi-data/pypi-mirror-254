@@ -1,0 +1,14 @@
+odoo/addons/epi/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/epi/__manifest__.py,sha256=HdEt8aSZBCWUKAHyRj4i_FCcbCBsO-18c1E2Elw4bVg,474
+odoo/addons/epi/i18n/ca_ES.po,sha256=duiBgWt6xq_JgV6aVAWcDOk_47_td1KG2SX9BFOjgfE,5856
+odoo/addons/epi/i18n/es.po,sha256=O_ZLp8l59Yyz03T9eETC86WfowvhPPSElTRU4101Ouc,5844
+odoo/addons/epi/models/__init__.py,sha256=ha5evHWoo5T-DkXYqXtvlOFlra16HKmj705IoxwHZQ8,26
+odoo/addons/epi/models/res_company.py,sha256=YDXPBoZBUqirzEzOJtD7JqZjTjckbO9HYFx643a0Z5I,227
+odoo/addons/epi/views/report_invoice.xml,sha256=QvoxTVLpnTv6BvyHMxyCJPB8D1-y5tWM3THjYQ4JGr4,9375
+odoo/addons/epi/views/report_templates.xml,sha256=Gy9bfvt9FYDbEiKVqn1s_H944PBenKtQ2sFQ9gTVNg8,1387
+odoo/addons/epi/views/res_company_views.xml,sha256=-0Ki43bEh4eOuHqq5EDGwob-L9AgecV8mLmiRLkI3S0,620
+odoo/addons/epi/views/sale_report_templates.xml,sha256=YdgJhY8_6_fij1hyYaaLHVFLICqQVHvfeA24p_pt4tM,10373
+odoo12_addon_epi-12.0.0.1.0.dist-info/METADATA,sha256=tXai_bc7Sp4m1z4efKQvCADMdpDQvW9_ScCVOObvlls,470
+odoo12_addon_epi-12.0.0.1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+odoo12_addon_epi-12.0.0.1.0.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo12_addon_epi-12.0.0.1.0.dist-info/RECORD,,

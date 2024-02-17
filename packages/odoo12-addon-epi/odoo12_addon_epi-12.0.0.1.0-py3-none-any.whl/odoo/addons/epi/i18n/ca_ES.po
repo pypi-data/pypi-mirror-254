@@ -1,0 +1,193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* epi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-16 12:14+0000\n"
+"PO-Revision-Date: 2023-02-16 12:14+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "&amp;nbsp;<span>on</span>"
+msgstr "&amp;nbsp;<span>en</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "<span class=\"font-weight-bold\">NOTE </span>"
+msgstr "<span class=\"font-weight-bold\">NOTA </span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span class=\"font-weight-bold\">NOTE: </span>"
+msgstr "<span class=\"font-weight-bold\">NOTA: </span> "
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span class=\"font-weight-bold\">Order Date </span>"
+msgstr "<span class=\"font-weight-bold\">Data </span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span class=\"font-weight-bold\">Quotation Date </span>"
+msgstr "<span class=\"font-weight-bold\">Data </span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Amount</span>"
+msgstr "<span>Import</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Description</span>"
+msgstr "<span>Descripció</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Discount</span>"
+msgstr "<span>Descompte</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Price</span>"
+msgstr "<span>Preu</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Pro-Forma Invoice </span>"
+msgstr "<span>Factura </span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "<span>Quantity</span>"
+msgstr "<span>Quantitat</span>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "<strong class=\"float-right\">Payment by bank transference</strong>"
+msgstr "<strong class=\"float-right\">Pagament per transferència al compte</strong>"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Acceptació del pressupost"
+msgstr "Acceptació del pressupost"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Cancelled Invoice"
+msgstr "Factura cancel·lada"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Condicions:"
+msgstr "Condicions:"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Credit Note"
+msgstr "Factura rectificativa (abonament)"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "CÀRREC:"
+msgstr "CÀRREC:"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "DATA:"
+msgstr "DATA:"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Draft Invoice"
+msgstr "Factura esborrany"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Due Date"
+msgstr "Data de venciment"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Due date ("
+msgstr "Data de venciment ("
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Firma i Segell Empresa"
+msgstr "Firma i Segell Empresa"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Import total"
+msgstr "Import total"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Invoice Date"
+msgstr "Data "
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Order"
+msgstr "Ordre"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Payment by bank transference"
+msgstr "Pagament per transferència al compte"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Payment conditions"
+msgstr "Condicions de pagament"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Quotation"
+msgstr "Pressupost"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "RAÓ SOCIAL:"
+msgstr "RAÓ SOCIAL:"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "RESPONSABLE:"
+msgstr "RESPONSABLE:"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_saleorder_document
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Vendor Bill"
+msgstr "Factura de proveïdor "
+
+#. module: epi
+#: model_terms:ir.ui.view,arch_db:epi.epi_report_invoice_document
+msgid "Vendor Credit Note"
+msgstr "Nota d'abonament de proveïdor"

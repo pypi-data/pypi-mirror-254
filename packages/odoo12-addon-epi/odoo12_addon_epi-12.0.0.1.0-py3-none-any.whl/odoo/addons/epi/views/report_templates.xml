@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="epi_external_layout_standard" inherit_id="web.external_layout_standard">
+            <xpath expr="//div[1]" position="replace">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-5 mb4">
+                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="width:175px;height:75px" alt="Logo"/>
+                        </div>
+                        <div class="col-7" name="company_address">
+                            <div style="font-size: 14px;">
+                                <p class="m-0 text-right font-weight-bold">EPI ENERGIA POR LA IGUALDAD, SCCL</p>
+                                <p class="m-0 text-right">C. Primer de Maig, 1, 3r B</p>
+                                <p class="m-0 text-right">43870 Amposta, Tarragona</p>
+                                <p class="m-0 text-right">NIF (CIF): F-66799057</p>
+                                <p class="m-0 text-right">www.epi.coop</p>
+                                <p class="m-0 text-right">suma@epi.coop</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer moved to report_invoice.xml -->
+            </xpath>
+        </template>
+    </data>
+</odoo>
