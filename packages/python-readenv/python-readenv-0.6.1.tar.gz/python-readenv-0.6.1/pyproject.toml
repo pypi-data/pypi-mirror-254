@@ -1,0 +1,98 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = "python-readenv"
+description = "read an env file and export to os.environ"
+authors = [
+    {name = "Raffaele Salmaso", email = "raffaele.salmaso@gmail.com"},
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["env", "envvar", "environ", "environment", "environment variable"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: OS Independent",
+    "Environment :: Web Environment",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = [
+    "version",
+]
+
+[project.urls]
+"Home Page" = "https://pypi.org/project/python-readenv/"
+Documentation = "https://github.com/rsalmaso/python-readenv/blob/main/README.md"
+GitHub = "https://github.com/rsalmaso/python-readenv"
+Changelog = "https://github.com/rsalmaso/python-readenv/blob/main/CHANGELOG.md"
+"Bug Reports" = "https://github.com/rsalmaso/python-readenv/discussions"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = {attr = "readenv.__version__"}
+
+[tool.distutils.bdist_wheel]
+universal = false
+
+[tool.ruff]
+exclude = [
+]
+ignore = [
+    "B018", # Found useless expression. Either assign it to a variable or remove it.
+    "B026", # Star-arg unpacking after a keyword argument is strongly discouraged
+    "B904", # Within an except clause, raise exceptions with raise ... from err or raise ... from None to
+            # distinguish them from errors in exception handling.
+    "B905", # zip() without an explicit strict= parameter set. strict=True causes the resulting iterator
+            # to raise a ValueError if the arguments are exhausted at differing lengths.
+    "E722", # Do not use bare except, specify exception instead
+]
+fixable = [
+    "I",
+]
+unfixable = [
+    "F401", # don't remove unused import
+]
+line-length = 120
+select = [
+    "B", # flake8-bugbear
+    "C9", # mccabe
+    "E", # pycodestyle
+    "F", # pyflakes
+    "I", # isort
+    "Q",
+    "W", # pycodestyle
+]
+target-version = "py38"
+
+[tool.ruff.flake8-quotes]
+inline-quotes = "double"
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+
+[tool.ruff.isort]
+combine-as-imports = false
+force-sort-within-sections = true
+force-wrap-aliases = true
+known-first-party = [
+]
+known-third-party = [
+]
+order-by-type = false
+
+[tool.ruff.mccabe]
+max-complexity = 18
