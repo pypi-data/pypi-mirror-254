@@ -1,0 +1,10 @@
+colorama
+ujson
+munch
+typing_extensions
+
+[dev]
+ruff
+mypy
+pytest
+colored_traceback
