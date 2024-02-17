@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stravawizard"
+version = "2024.01.31"
+authors = [
+    {name = "KrazyMax"},
+]
+description = "My package description"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+]
+keywords = ["strava", "api", "oauth", "athlete", "activities", "sport"]
+classifiers = [
+    "Intended Audience :: Developers",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/KrazyMax/stravawizard"
+Repository = "https://gitlab.com/KrazyMax/stravawizard.git"
+Issues = "https://gitlab.com/KrazyMax/stravawizard/-/issues"

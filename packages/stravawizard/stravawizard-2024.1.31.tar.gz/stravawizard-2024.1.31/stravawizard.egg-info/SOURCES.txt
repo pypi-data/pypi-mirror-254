@@ -1,0 +1,16 @@
+.gitignore
+LICENCE
+README.md
+pyproject.toml
+requirements.txt
+stravawizard/__init__.py
+stravawizard.egg-info/PKG-INFO
+stravawizard.egg-info/SOURCES.txt
+stravawizard.egg-info/dependency_links.txt
+stravawizard.egg-info/requires.txt
+stravawizard.egg-info/top_level.txt
+stravawizard/clients/__init__.py
+stravawizard/clients/stravapi_cli.py
+stravawizard/clients/stravauth_cli.py
+stravawizard/tests/__init__.py
+stravawizard/tests/test_stravauth_cli.py
