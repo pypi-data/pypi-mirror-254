@@ -1,0 +1,1187 @@
+{
+    "aga_swarm/actions": {
+        "type": "folder",
+        "name": "actions",
+        "description": "This is the root of the action space",
+        "children": [
+            "aga_swarm/actions/swarm",
+            "aga_swarm/actions/data",
+            "aga_swarm/actions/reasoning",
+            "aga_swarm/actions/math",
+            "aga_swarm/actions/software",
+            "aga_swarm/actions/communication",
+            "aga_swarm/actions/external_apis"
+        ],
+        "parent": null,
+        "folder_path": "aga_swarm/actions",
+        "internal": true
+    },
+    "aga_swarm/actions/swarm": {
+        "type": "folder",
+        "name": "swarm",
+        "description": "This folder contains all actions pertaining to internal swarm operations such as:\n- navigating the action space to find the best action to take\n- navigating the swarm memory to find relevant information\n- documentation to understand internals of the swarm",
+        "children": [
+            "aga_swarm/actions/swarm/documentation",
+            "aga_swarm/actions/swarm/memory",
+            "aga_swarm/actions/swarm/actions"
+        ],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/swarm",
+        "internal": true
+    },
+    "aga_swarm/actions/data": {
+        "type": "folder",
+        "name": "data",
+        "description": "This folder contains all actions pertaining to data operations. File/folder operations on any cloud provider or local machines, database operations, data transformations, data preprocessing, cryptography, validation and compression. ",
+        "children": [
+            "aga_swarm/actions/data/file_operations",
+            "aga_swarm/actions/data/folder_operations",
+            "aga_swarm/actions/data/database_operations",
+            "aga_swarm/actions/data/data_transformations",
+            "aga_swarm/actions/data/data_preprocessing",
+            "aga_swarm/actions/data/cryptography",
+            "aga_swarm/actions/data/data_validation",
+            "aga_swarm/actions/data/data_compression"
+        ],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/data",
+        "internal": true
+    },
+    "aga_swarm/actions/reasoning": {
+        "type": "folder",
+        "name": "reasoning",
+        "description": "This folder contains all actions pertaining to reasoning operations. Decomposing directives, requirements analysis and reviewing reports to see if a directive has been completed.",
+        "children": [
+            "aga_swarm/actions/reasoning/decompose_directive",
+            "aga_swarm/actions/reasoning/requirements_analysis",
+            "aga_swarm/actions/reasoning/review_reports"
+        ],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/reasoning",
+        "internal": true
+    },
+    "aga_swarm/actions/math": {
+        "type": "folder",
+        "name": "math",
+        "description": "This folder is currently empty. It will contain actions pertaining to math.",
+        "children": [],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/math",
+        "internal": true
+    },
+    "aga_swarm/actions/software": {
+        "type": "folder",
+        "name": "software",
+        "description": "This folder contains all actions pertaining to software. Writing, debugging, testing, refactoring or reviewing code. Writing documentation.",
+        "children": [
+            "aga_swarm/actions/software/writing_code",
+            "aga_swarm/actions/software/debugging_code",
+            "aga_swarm/actions/software/testing_code",
+            "aga_swarm/actions/software/refactoring_code",
+            "aga_swarm/actions/software/reviewing_code",
+            "aga_swarm/actions/software/writing_documentation"
+        ],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/software",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis": {
+        "type": "folder",
+        "name": "external_apis",
+        "description": "This folder contains functions to interact with external apis: Cloud providers, openai, web apis",
+        "children": [
+            "aga_swarm/actions/external_apis/cloud_providers",
+            "aga_swarm/actions/external_apis/openai",
+            "aga_swarm/actions/external_apis/web"
+        ],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/external_apis",
+        "internal": true
+    },
+    "aga_swarm/actions/communication": {
+        "type": "folder",
+        "name": "communication",
+        "description": "This folder is currently empty. It will contain actions to communicate with the user",
+        "children": [],
+        "parent": "aga_swarm/actions",
+        "folder_path": "aga_swarm/actions/communication",
+        "internal": true
+    },
+    "aga_swarm/actions/swarm/actions": {
+        "type": "folder",
+        "name": "actions",
+        "description": "This folder contains an action router that takes a directive and routes it to the appropriate action.",
+        "children": [
+            "aga_swarm/actions/swarm/actions/route_to_action"
+        ],
+        "parent": "aga_swarm/actions/swarm",
+        "folder_path": "aga_swarm/actions/swarm/actions",
+        "internal": true
+    },
+    "aga_swarm/actions/swarm/documentation": {
+        "type": "folder",
+        "name": "documentation",
+        "description": "This folder contains all the documentation to understand the internals of the swarm. It is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/swarm",
+        "folder_path": "aga_swarm/actions/swarm/documentation",
+        "internal": true
+    },
+    "aga_swarm/actions/swarm/memory": {
+        "type": "folder",
+        "name": "memory",
+        "description": "This folder contains all the actions to handle each type of memory as well as a memory router to navigate the swarms memory",
+        "children": [],
+        "parent": "aga_swarm/actions/swarm",
+        "folder_path": "aga_swarm/actions/swarm/memory",
+        "internal": true
+    },
+    "aga_swarm/actions/swarm/actions/route_to_action": {
+        "type": "action",
+        "name": "route_to_action.py",
+        "description": "Finds the best action to take given a directive",
+        "input_schema": {
+            "directive": {
+                "type": "str",
+                "description": "The directive to be broken down"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "node_output": {
+                "type": "aga_swarm.core.swarm.types.NodeOutput",
+                "description": "The output of the node"
+            }
+        },
+        "dependencies": [
+            "openai"
+        ],
+        "parent": "aga_swarm/actions/swarm/actions",
+        "script_path": "aga_swarm/actions/swarm/actions/route_to_action/route_to_action.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/reasoning/decompose_directive": {
+        "type": "action",
+        "name": "decompose_directive.py",
+        "description": "Decompose directives into immediate parralel sub-directives.",
+        "input_schema": {
+            "directive": {
+                "type": "str",
+                "description": "The directive to be decomposed"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "node_output": {
+                "type": "aga_swarm.core.swarm.types.NodeOutput",
+                "description": "The output of the node"
+            }
+        },
+        "dependencies": [
+            "openai"
+        ],
+        "parent": "aga_swarm/actions/reasoning",
+        "script_path": "aga_swarm/actions/reasoning/decompose_directive/decompose_directive.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/reasoning/requirements_analysis": {
+        "type": "action",
+        "name": "requirements_analysis.py",
+        "description": "Analyze the requirements of a directive and identify what requirements are unclear or missing. Ask questions to clarify.",
+        "input_schema": {
+            "directive": {
+                "type": "str",
+                "description": "The directive to be analyzed"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "node_output": {
+                "type": "aga_swarm.core.swarm.types.NodeOutput",
+                "description": "The output of the node"
+            }
+        },
+        "dependencies": [
+            "openai"
+        ],
+        "parent": "aga_swarm/actions/reasoning",
+        "script_path": "aga_swarm/actions/reasoning/requirements_analysis/requirements_analysis.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/reasoning/review_reports": {
+        "type": "action",
+        "name": "review_reports.py",
+        "description": "Review reports to see if a directive has been completed.",
+        "input_schema": {
+            "directive": {
+                "type": "str",
+                "description": "The directive to be reviewed"
+            },
+            "reports": {
+                "type": "List[str]",
+                "description": "The reports to be reviewed"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "node_output": {
+                "type": "aga_swarm.core.swarm.types.NodeOutput",
+                "description": "The output of the node"
+            }
+        },
+        "dependencies": [
+            "openai"
+        ],
+        "parent": "aga_swarm/actions/reasoning",
+        "script_path": "aga_swarm/actions/reasoning/review_reports/review_reports.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations": {
+        "type": "folder",
+        "name": "file_operations",
+        "description": "This folder contains all actions pertaining to file operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/upload_file",
+            "aga_swarm/actions/data/file_operations/retrieve_file",
+            "aga_swarm/actions/data/file_operations/delete_file",
+            "aga_swarm/actions/data/file_operations/rename_file",
+            "aga_swarm/actions/data/file_operations/move_file"
+        ],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/file_operations",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations": {
+        "type": "folder",
+        "name": "folder_operations",
+        "description": "This folder contains all actions pertaining to folder operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/make_folder",
+            "aga_swarm/actions/data/folder_operations/delete_folder",
+            "aga_swarm/actions/data/folder_operations/move_folder",
+            "aga_swarm/actions/data/folder_operations/list_folder",
+            "aga_swarm/actions/data/folder_operations/rename_folder"
+        ],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/folder_operations",
+        "internal": true
+    },
+    "aga_swarm/actions/data/database_operations": {
+        "type": "folder",
+        "name": "database_operations",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/database_operations",
+        "internal": true
+    },
+    "aga_swarm/actions/data/data_transformations": {
+        "type": "folder",
+        "name": "data_transformations",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/data_transformations",
+        "internal": true
+    },
+    "aga_swarm/actions/data/data_preprocessing": {
+        "type": "folder",
+        "name": "data_preprocessing",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/data_preprocessing",
+        "internal": true
+    },
+    "aga_swarm/actions/data/cryptography": {
+        "type": "folder",
+        "name": "cryptography",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/cryptography",
+        "internal": true
+    },
+    "aga_swarm/actions/data/data_validation": {
+        "type": "folder",
+        "name": "data_validation",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/data_validation",
+        "internal": true
+    },
+    "aga_swarm/actions/data/data_compression": {
+        "type": "folder",
+        "name": "data_compression",
+        "description": "This folder is currently empty.",
+        "children": [],
+        "parent": "aga_swarm/actions/data",
+        "folder_path": "aga_swarm/actions/data/data_compression",
+        "internal": true
+    },
+    "aga_swarm/actions/software/writing_code": {
+        "type": "folder",
+        "name": "writing_code",
+        "description": "This folder contains all actions pertaining to writing code",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/writing_code",
+        "internal": true
+    },
+    "aga_swarm/actions/software/debugging_code": {
+        "type": "folder",
+        "name": "debugging_code",
+        "description": "This folder contains all actions pertaining to debugging code",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/debugging_code",
+        "internal": true
+    },
+    "aga_swarm/actions/software/testing_code": {
+        "type": "folder",
+        "name": "testing_code",
+        "description": "This folder contains all actions pertaining to testing code",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/testing_code",
+        "internal": true
+    },
+    "aga_swarm/actions/software/refactoring_code": {
+        "type": "folder",
+        "name": "refactoring_code",
+        "description": "This folder contains all actions pertaining to refactoring code",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/refactoring_code",
+        "internal": true
+    },
+    "aga_swarm/actions/software/reviewing_code": {
+        "type": "folder",
+        "name": "reviewing_code",
+        "description": "This folder contains all actions pertaining to reviewing code",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/reviewing_code",
+        "internal": true
+    },
+    "aga_swarm/actions/software/writing_documentation": {
+        "type": "folder",
+        "name": "writing_documentation",
+        "description": "This folder contains all actions pertaining to writing documentation",
+        "children": [],
+        "parent": "aga_swarm/actions/software",
+        "folder_path": "aga_swarm/actions/software/writing_documentation",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/cloud_providers": {
+        "type": "folder",
+        "name": "cloud_providers",
+        "description": "This folder contains all actions pertaining to cloud provider apis",
+        "children": [
+            "aga_swarm/actions/external_apis/cloud_providers/aws",
+            "aga_swarm/actions/external_apis/cloud_providers/azure",
+            "aga_swarm/actions/external_apis/cloud_providers/gcp"
+        ],
+        "parent": "aga_swarm/actions/external_apis",
+        "folder_path": "aga_swarm/actions/external_apis/cloud_providers",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/openai": {
+        "type": "folder",
+        "name": "openai",
+        "description": "This folder contains all actions pertaining to openais api",
+        "children": [],
+        "parent": "aga_swarm/actions/external_apis",
+        "folder_path": "aga_swarm/actions/external_apis/openai",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/web": {
+        "type": "folder",
+        "name": "web",
+        "description": "This folder contains all actions pertaining to web apis",
+        "children": [],
+        "parent": "aga_swarm/actions/external_apis",
+        "folder_path": "aga_swarm/actions/external_apis/web",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/cloud_providers/aws": {
+        "type": "folder",
+        "name": "aws",
+        "description": "This folder contains all actions pertaining to aws apis",
+        "children": [],
+        "parent": "aga_swarm/actions/external_apis/cloud_providers",
+        "folder_path": "aga_swarm/actions/external_apis/cloud_providers/aws",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/cloud_providers/azure": {
+        "type": "folder",
+        "name": "azure",
+        "description": "This folder contains all actions pertaining to azure apis",
+        "children": [],
+        "parent": "aga_swarm/actions/external_apis/cloud_providers",
+        "folder_path": "aga_swarm/actions/external_apis/cloud_providers/azure",
+        "internal": true
+    },
+    "aga_swarm/actions/external_apis/cloud_providers/gcp": {
+        "type": "folder",
+        "name": "gcp",
+        "description": "This folder contains all actions pertaining to gcp apis",
+        "children": [],
+        "parent": "aga_swarm/actions/external_apis/cloud_providers",
+        "folder_path": "aga_swarm/actions/external_apis/cloud_providers/gcp",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/retrieve_file": {
+        "type": "folder",
+        "name": "retrieve_file",
+        "description": "This folder contains all actions pertaining to file retrieval operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/retrieve_file/mac_retrieve_file.py",
+            "aga_swarm/actions/data/file_operations/retrieve_file/retrieve_file.py"
+        ],
+        "parent": "aga_swarm/actions/data/file_operations",
+        "folder_path": "aga_swarm/actions/data/file_operations/retrieve_file",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/upload_file": {
+        "type": "folder",
+        "name": "upload_file",
+        "description": "This folder contains all actions pertaining to file upload operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/upload_file/mac_upload_file.py",
+            "aga_swarm/actions/data/file_operations/upload_file/upload_file.py"
+        ],
+        "parent": "aga_swarm/actions/data/file_operations",
+        "folder_path": "aga_swarm/actions/data/file_operations/upload_file",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/delete_file": {
+        "type": "folder",
+        "name": "delete_file",
+        "description": "This folder contains all actions pertaining to file deletion operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/delete_file/mac_delete_file.py",
+            "aga_swarm/actions/data/file_operations/delete_file/delete_file.py"
+        ],
+        "parent": "aga_swarm/actions/data/file_operations",
+        "folder_path": "aga_swarm/actions/data/file_operations/delete_file",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/rename_file": {
+        "type": "folder",
+        "name": "rename_file",
+        "description": "This folder contains all actions pertaining to file renaming operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/rename_file/mac_rename_file.py",
+            "aga_swarm/actions/data/file_operations/rename_file/rename_file.py"
+        ],
+        "parent": "aga_swarm/actions/data/file_operations",
+        "folder_path": "aga_swarm/actions/data/file_operations/rename_file",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/move_file": {
+        "type": "folder",
+        "name": "move_file",
+        "description": "This folder contains all actions pertaining to file moving operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/file_operations/move_file/mac_move_file.py",
+            "aga_swarm/actions/data/file_operations/move_file/move_file.py"
+        ],
+        "parent": "aga_swarm/actions/data/file_operations",
+        "folder_path": "aga_swarm/actions/data/file_operations/move_file",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/make_folder": {
+        "type": "folder",
+        "name": "make_folder",
+        "description": "This folder contains all actions pertaining to folder creation operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/make_folder/mac_make_folder.py",
+            "aga_swarm/actions/data/folder_operations/make_folder/make_folder.py"
+        ],
+        "parent": "aga_swarm/actions/data/folder_operations",
+        "folder_path": "aga_swarm/actions/data/folder_operations/make_folder",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/delete_folder": {
+        "type": "folder",
+        "name": "delete_folder",
+        "description": "This folder contains all actions pertaining to folder deletion operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/delete_folder/mac_delete_folder.py",
+            "aga_swarm/actions/data/folder_operations/delete_folder/delete_folder.py"
+        ],
+        "parent": "aga_swarm/actions/data/folder_operations",
+        "folder_path": "aga_swarm/actions/data/folder_operations/delete_folder",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/move_folder": {
+        "type": "folder",
+        "name": "move_folder",
+        "description": "This folder contains all actions pertaining to folder moving operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/move_folder/mac_move_folder.py",
+            "aga_swarm/actions/data/folder_operations/move_folder/move_folder.py"
+        ],
+        "parent": "aga_swarm/actions/data/folder_operations",
+        "folder_path": "aga_swarm/actions/data/folder_operations/move_folder",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/list_folder": {
+        "type": "folder",
+        "name": "list_folder",
+        "description": "This folder contains all actions pertaining to folder listing operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/list_folder/mac_list_folder.py",
+            "aga_swarm/actions/data/folder_operations/list_folder/list_folder.py"
+        ],
+        "parent": "aga_swarm/actions/data/folder_operations",
+        "folder_path": "aga_swarm/actions/data/folder_operations/list_folder",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/rename_folder": {
+        "type": "folder",
+        "name": "rename_folder",
+        "description": "This folder contains all actions pertaining to folder renaming operations on any cloud provider or local machines",
+        "children": [
+            "aga_swarm/actions/data/folder_operations/rename_folder/mac_rename_folder.py",
+            "aga_swarm/actions/data/folder_operations/rename_folder/rename_folder.py"
+        ],
+        "parent": "aga_swarm/actions/data/folder_operations",
+        "folder_path": "aga_swarm/actions/data/folder_operations/rename_folder",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/retrieve_file/retrieve_file.py": {
+        "type": "action",
+        "name": "retrieve_file.py",
+        "description": "This action calls the appropriate file retrieval action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be retrieved"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            },
+            "data": {
+                "type": "bytes",
+                "description": "The binary of the file"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/retrieve_file",
+        "script_path": "aga_swarm/actions/data/file_operations/retrieve_file/retrieve_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/retrieve_file/mac_retrieve_file.py": {
+        "type": "action",
+        "name": "mac_retrieve_file.py",
+        "description": "This action retrieves a file from a mac",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be retrieved"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            },
+            "data": {
+                "type": "bytes",
+                "description": "The binary of the file"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/retrieve_file",
+        "script_path": "aga_swarm/actions/data/file_operations/retrieve_file/mac_retrieve_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/upload_file/upload_file.py": {
+        "type": "action",
+        "name": "upload_file.py",
+        "description": "This action calls the appropriate file upload action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be uploaded"
+            },
+            "data": {
+                "type": "bytes",
+                "description": "The binary of the file"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/upload_file",
+        "script_path": "aga_swarm/actions/data/file_operations/upload_file/upload_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/upload_file/mac_upload_file.py": {
+        "type": "action",
+        "name": "mac_upload_file.py",
+        "description": "This action uploads a file to a mac",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be uploaded"
+            },
+            "data": {
+                "type": "bytes",
+                "description": "The binary of the file"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/upload_file",
+        "script_path": "aga_swarm/actions/data/file_operations/upload_file/mac_upload_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/delete_file/delete_file.py": {
+        "type": "action",
+        "name": "delete_file.py",
+        "description": "This action calls the appropriate file deletion action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be deleted"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/delete_file",
+        "script_path": "aga_swarm/actions/data/file_operations/delete_file/delete_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/delete_file/mac_delete_file.py": {
+        "type": "action",
+        "name": "mac_delete_file.py",
+        "description": "This action deletes a file from a mac",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be deleted"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/delete_file",
+        "script_path": "aga_swarm/actions/data/file_operations/delete_file/mac_delete_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/rename_file/rename_file.py": {
+        "type": "action",
+        "name": "rename_file.py",
+        "description": "This action calls the appropriate file rename action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be renamed"
+            },
+            "new_file_name": {
+                "type": "str",
+                "description": "The new name of the file"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/rename_file",
+        "script_path": "aga_swarm/actions/data/file_operations/rename_file/rename_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/rename_file/mac_rename_file.py": {
+        "type": "action",
+        "name": "mac_rename_file.py",
+        "description": "This action renames a file on a mac",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be renamed"
+            },
+            "new_file_name": {
+                "type": "str",
+                "description": "The new name of the file"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/rename_file",
+        "script_path": "aga_swarm/actions/data/file_operations/rename_file/mac_rename_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/move_file/move_file.py": {
+        "type": "action",
+        "name": "move_file.py",
+        "description": "This action calls the appropriate file move action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be moved"
+            },
+            "new_file_path": {
+                "type": "str",
+                "description": "The new path of the file"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/move_file",
+        "script_path": "aga_swarm/actions/data/file_operations/move_file/move_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/file_operations/move_file/mac_move_file.py": {
+        "type": "action",
+        "name": "mac_move_file.py",
+        "description": "This action moves a file on a mac",
+        "input_schema": {
+            "file_path": {
+                "type": "str",
+                "description": "The path to the file to be moved"
+            },
+            "new_file_path": {
+                "type": "str",
+                "description": "The new path of the file"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/file_operations/move_file",
+        "script_path": "aga_swarm/actions/data/file_operations/move_file/mac_move_file.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/make_folder/make_folder.py": {
+        "type": "action",
+        "name": "make_folder.py",
+        "description": "This action makes a folder using the appropriate platform set in swarm config",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be made"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/make_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/make_folder/make_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/make_folder/mac_make_folder.py": {
+        "type": "action",
+        "name": "mac_make_folder.py",
+        "description": "This action makes a folder on a mac",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be made"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/make_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/make_folder/mac_make_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/delete_folder/delete_folder.py": {
+        "type": "action",
+        "name": "delete_folder.py",
+        "description": "This action calls the appropriate folder delete action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be deleted"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/delete_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/delete_folder/delete_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/delete_folder/mac_delete_folder.py": {
+        "type": "action",
+        "name": "mac_delete_folder.py",
+        "description": "This action deletes a folder on a mac",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be deleted"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/delete_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/delete_folder/mac_delete_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/rename_folder/rename_folder.py": {
+        "type": "action",
+        "name": "rename_folder.py",
+        "description": "This action calls the appropriate folder rename action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be moved"
+            },
+            "new_folder_path": {
+                "type": "str",
+                "description": "The new path of the folder"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/rename_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/rename_folder/rename_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/rename_folder/mac_rename_folder.py": {
+        "type": "action",
+        "name": "mac_rename_folder.py",
+        "description": "This action renames a folder on a mac",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be moved"
+            },
+            "new_folder_path": {
+                "type": "str",
+                "description": "The new path of the folder"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/rename_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/rename_folder/mac_rename_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/move_folder/move_folder.py": {
+        "type": "action",
+        "name": "move_folder.py",
+        "description": "This action calls the appropriate folder move action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be moved"
+            },
+            "new_folder_path": {
+                "type": "str",
+                "description": "The new path of the folder"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/move_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/move_folder/move_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/move_folder/mac_move_folder.py": {
+        "type": "action",
+        "name": "mac_move_folder.py",
+        "description": "This action moves a folder on a mac",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be moved"
+            },
+            "new_folder_path": {
+                "type": "str",
+                "description": "The new path of the folder"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is 'Failure'"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/move_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/move_folder/mac_move_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/list_folder/list_folder.py": {
+        "type": "action",
+        "name": "list_folder.py",
+        "description": "This action calls the appropriate folder list action based on the 'platform' param in the swarm config",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be listed"
+            },
+            "swarm_space": {
+                "type": "SwarmSpace",
+                "description": "The swarm id."
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is Failure"
+            },
+            "contents": {
+                "type": "List[str]",
+                "description": "The contents of the folder"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/list_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/list_folder/list_folder.py",
+        "language": "python",
+        "internal": true
+    },
+    "aga_swarm/actions/data/folder_operations/list_folder/mac_list_folder.py": {
+        "type": "action",
+        "name": "mac_list_folder.py",
+        "description": "This action lists the contents of a folder on a mac",
+        "input_schema": {
+            "folder_path": {
+                "type": "str",
+                "description": "The path to the folder to be listed"
+            }
+        },
+        "output_schema": {
+            "status": {
+                "type": "str",
+                "description": "'Success' or 'Failure'"
+            },
+            "error_message": {
+                "type": "str",
+                "description": "Error message if status is Failure"
+            },
+            "contents": {
+                "type": "List[str]",
+                "description": "The contents of the folder"
+            }
+        },
+        "dependencies": [],
+        "parent": "aga_swarm/actions/data/folder_operations/list_folder",
+        "script_path": "aga_swarm/actions/data/folder_operations/list_folder/mac_list_folder.py",
+        "language": "python",
+        "internal": true
+    }
+}
