@@ -1,0 +1,2 @@
+[console_scripts]
+source-convertkit = source_convertkit.run:run
