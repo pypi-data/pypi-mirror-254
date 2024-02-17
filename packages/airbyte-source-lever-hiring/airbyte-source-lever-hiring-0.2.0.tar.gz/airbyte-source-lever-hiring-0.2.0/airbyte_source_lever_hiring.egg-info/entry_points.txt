@@ -1,0 +1,2 @@
+[console_scripts]
+source-lever-hiring = source_lever_hiring.run:run
