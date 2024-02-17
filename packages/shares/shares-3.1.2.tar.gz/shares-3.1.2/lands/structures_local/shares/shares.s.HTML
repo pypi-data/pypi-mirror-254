@@ -1,0 +1,121 @@
+
+
+<style>
+h1, p {
+	padding: 0;
+	margin: 0;
+}
+
+</style>
+
+<h1
+	style="
+		text-align: center;
+		font-size: 5em;
+		padding-bottom: 12px;
+	"
+>shares</h1>
+
+<div
+	style="
+		background: #ddd;
+		padding: 8px;
+		border-radius: 8px;
+	"
+>
+<h2
+	style="
+		text-align: center;
+		background: #eee;
+		padding: 8px;
+		margin: 0;
+		border-radius: 8px;
+	"
+>ZSH code</h2>
+<code 
+	style="
+		font-size: 1.3em;
+		white-space: pre-wrap;
+	"
+>
+	pip install shares	
+</code>
+</div>
+
+
+<div style="height: 12px"></div>
+
+
+<div
+	style="
+		background: #ddd;
+		padding: 8px;
+		border-radius: 8px;
+	"
+>
+<h2
+	style="
+		text-align: center;
+		background: #eee;
+		padding: 8px;
+		margin: 0;
+		border-radius: 8px;
+	"
+>ZSH code</h2>
+<div style="height: 6px"></div>
+<p
+	style="
+		text-align: center;
+		background: #eee;
+		padding: 8px;
+		border-radius: 8px;
+	"
+>Started from the shell, "shares" presents files in the current working directory (cwd) that have extension "s.HTML".</p>
+<code 
+	style="
+		font-size: 1.3em;
+		white-space: pre-wrap;
+	"
+>
+	shares
+	
+</code>
+</div>
+
+<div style="height: 12px"></div>
+
+<div
+	style="
+		background: #ddd;
+		padding: 8px;
+		border-radius: 8px;
+	"
+>
+<h2
+	style="
+		text-align: center;
+		background: #eee;
+		padding: 8px;
+		margin: 0;
+		border-radius: 8px;
+	"
+>python3 code</h2>
+<code 
+	style="
+		font-size: 1.3em;
+		white-space: pre-wrap;
+	"
+>
+	import pathlib
+	from os.path import dirname, join, normpath
+	this_folder = pathlib.Path (__file__).parent.resolve ()
+
+	import shares
+	shares.start ({
+		"directory": str (this_folder) + "/structures/shares",
+		"extension": ".s.HTML",
+		"relative path": str (this_folder) + "/structures/shares"
+	})
+	
+</code>
+</div>

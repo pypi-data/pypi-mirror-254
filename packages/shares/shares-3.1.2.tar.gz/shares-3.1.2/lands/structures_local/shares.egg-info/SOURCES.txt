@@ -1,0 +1,23 @@
+pyproject.toml
+lands/structures_local/shares/__init__.py
+lands/structures_local/shares/_clique.py
+lands/structures_local/shares/module.MD
+lands/structures_local/shares/shares.s.HTML
+lands/structures_local/shares.egg-info/PKG-INFO
+lands/structures_local/shares.egg-info/SOURCES.txt
+lands/structures_local/shares.egg-info/dependency_links.txt
+lands/structures_local/shares.egg-info/entry_points.txt
+lands/structures_local/shares.egg-info/requires.txt
+lands/structures_local/shares.egg-info/top_level.txt
+lands/structures_local/shares/$ company/company.s.HTML
+lands/structures_local/shares/_license/license.s.HTML
+lands/structures_local/shares/_status/status.proc.py
+lands/structures_local/shares/_status/checks/1/status_1.py
+lands/structures_local/shares/_status/checks/1/shares/shares 1.s.HTML
+lands/structures_local/shares/_status/checks/1/shares/shares 2.s.HTML
+lands/structures_local/shares/basin/__init__.py
+lands/structures_local/shares/basin/treasury.py
+lands/structures_local/shares/modules/law_dictionary/__init__.py
+lands/structures_local/shares/modules/law_dictionary/dictionary_laws.s.HTML
+lands/structures_local/shares/modules/law_dictionary/status_1.py
+lands/structures_local/shares/modules/law_dictionary/status_broken_1.py

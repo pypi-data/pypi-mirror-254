@@ -1,0 +1,40 @@
+
+
+
+dictionary laws:
+
+	later:
+		[ ] 
+		
+			dictionary = {
+				"key 1": {
+					"key 2": "/"
+				}
+			}
+		
+			law_dictionary.check (
+				allow_extra_fields = False,
+				laws = {
+					"directory": {
+						"required": True,
+						"allow": law_dictionary.dict ({
+							"key 1": {
+								"required" True
+							}
+						})
+					}
+				},
+				dictionary = {}
+			)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
