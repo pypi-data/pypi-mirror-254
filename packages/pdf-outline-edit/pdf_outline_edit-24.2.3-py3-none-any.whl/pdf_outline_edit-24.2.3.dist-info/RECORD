@@ -1,0 +1,12 @@
+pdfoe/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pdfoe/common.py,sha256=TdrIaIrNQVc4TlwPoqJCprZni5jjoA3zZznw1ImXplw,1208
+pdfoe/gui_pyside_qml.py,sha256=IXRBopaAAWvhWOg2GBc9hjofcRcLUbbzoboEB9IExv4,2559
+pdfoe/gui_tkinter.py,sha256=Q36J-0wV81TQu6316ByNv0BAo0VtMiEoFsLkO32zmsQ,9494
+pdfoe/main.py,sha256=bJ-zHnlbw5fWCxP2Apg-Ufj7GWc9Q2plTRshTauT-fs,264
+pdfoe/main.qml,sha256=ibfN5qm3EhhLA0oToYA6kCfIUyem-dd5J1d2_VslR88,2952
+pdfoe/pdf_obj.py,sha256=uGBlU9FMrd_BwfDgKfQxQYsTWC5QbcjNZBAzU5brVSQ,2125
+pdf_outline_edit-24.2.3.dist-info/METADATA,sha256=boB6_kznFlrfrxSU-67PgEhjhwGpHn48Cqi-OKHTJy4,2111
+pdf_outline_edit-24.2.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+pdf_outline_edit-24.2.3.dist-info/entry_points.txt,sha256=IsoA-B-mvmJxm90HJzSRJVwEkYpgZ2gW-DZiWxv2b8c,49
+pdf_outline_edit-24.2.3.dist-info/top_level.txt,sha256=WtckrW51N7VZ7amUVwaf-kmKkVqpKoPVzgGIh07E1wA,6
+pdf_outline_edit-24.2.3.dist-info/RECORD,,
