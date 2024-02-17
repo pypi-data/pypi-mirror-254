@@ -1,0 +1,2 @@
+[console_scripts]
+source-posthog = source_posthog.run:run
