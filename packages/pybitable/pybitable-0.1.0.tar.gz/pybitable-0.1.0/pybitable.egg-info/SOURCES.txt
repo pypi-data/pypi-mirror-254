@@ -1,0 +1,12 @@
+README.md
+setup.py
+pybitable/__init__.py
+pybitable/console.py
+pybitable/dbapi.py
+pybitable/dialect.py
+pybitable.egg-info/PKG-INFO
+pybitable.egg-info/SOURCES.txt
+pybitable.egg-info/dependency_links.txt
+pybitable.egg-info/entry_points.txt
+pybitable.egg-info/requires.txt
+pybitable.egg-info/top_level.txt
