@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: tidbvec
+Version: 0.0.6
+Summary: 
+License: Apache-2.0
+Author: IANTHEREAL
+Author-email: argregoryian@gmail.com
+Requires-Python: >=3.8.1,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: SQLAlchemy (>=1.4,<3)
+Requires-Dist: numpy (>=1,<2)
+Description-Content-Type: text/markdown
+
+# tidb-vector-python
+
