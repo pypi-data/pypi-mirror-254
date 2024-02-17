@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: yamlstore
+Version: 0.7.1
+Summary: Python package for storing and retrieving YAML documents
+Author-email: Petri Savolainen <petri@koodaamo.fi>
+License: LGPL-2.1-or-later
+Project-URL: Homepage, https://github.com/koodaamo/yamlstore
+Project-URL: Repository, https://github.com/koodaamo/yamlstore
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ruamel.yaml
+Requires-Dist: pathvalidate
+
+# yamlstore
+
+Simple human-readable dict protocol YAML document store
+
+Think folders as databases, YAML files as (data) documents.
+
