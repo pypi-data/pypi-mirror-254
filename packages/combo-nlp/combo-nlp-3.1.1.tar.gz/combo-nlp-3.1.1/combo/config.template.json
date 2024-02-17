@@ -1,0 +1,307 @@
+{
+  "model": {
+    "type": "semantic_multitask",
+    "parameters": {
+      "dependency_relation": {
+        "type": "combo_dependency_parsing_from_vocab",
+        "parameters": {
+          "dependency_projection_layer": {
+            "type": "linear_layer",
+            "parameters": {
+              "activation": { "type": "tanh", "parameters": {} },
+              "dropout_rate": 0.25,
+              "in_features": 1024,
+              "out_features": 128
+            }
+          },
+          "head_predictor": {
+            "type": "head_prediction",
+            "parameters": {
+              "cycle_loss_n": 0,
+              "dependency_projection_layer": {
+                "type": "linear_layer",
+                "parameters": {
+                  "activation": { "type": "tanh", "parameters": {} },
+                  "in_features": 1024,
+                  "out_features": 512
+                }
+              },
+              "head_projection_layer": {
+                "type": "linear_layer",
+                "parameters": {
+                  "activation": { "type": "tanh", "parameters": {} },
+                  "in_features": 1024,
+                  "out_features": 512
+                }
+              }
+            }
+          },
+          "head_projection_layer": {
+            "type": "linear_layer",
+            "parameters": {
+              "activation": { "type": "tanh", "parameters": {} },
+              "dropout_rate": 0.25,
+              "in_features": 1024,
+              "out_features": 128
+            }
+          },
+          "vocab_namespace": "deprel_labels"
+        }
+      },
+      "lemmatizer": {
+        "type": "combo_lemma_predictor_from_vocab",
+        "parameters": {
+          "activations": [
+            { "type": "gelu", "parameters": {} },
+            { "type": "gelu", "parameters": {} },
+            { "type": "gelu", "parameters": {} },
+            { "type": "linear", "parameters": {} }
+          ],
+          "char_vocab_namespace": "token_characters",
+          "dilation": [1, 2, 4, 1],
+          "embedding_dim": 300,
+          "filters": [256, 256, 256],
+          "input_projection_layer": {
+            "type": "linear_layer",
+            "parameters": {
+              "activation": { "type": "tanh", "parameters": {} },
+              "dropout_rate": 0.25,
+              "in_features": 1024,
+              "out_features": 32
+            }
+          },
+          "kernel_size": [3, 3, 3, 1],
+          "lemma_vocab_namespace": "lemma_characters",
+          "padding": [1, 2, 4, 0],
+          "stride": [1, 1, 1, 1]
+        }
+      },
+      "loss_weights": {
+        "deprel": 0.8,
+        "feats": 0.2,
+        "head": 0.2,
+        "lemma": 0.05,
+        "semrel": 0.05,
+        "upostag": 0.05,
+        "xpostag": 0.05
+      },
+      "morphological_feat": {
+        "type": "combo_morpho_from_vocab",
+        "parameters": {
+          "activations": [
+            { "type": "tanh", "parameters": {} },
+            { "type": "linear", "parameters": {} }
+          ],
+          "dropout": [0.25, 0.0],
+          "hidden_dims": [128],
+          "input_dim": 1024,
+          "num_layers": 2,
+          "vocab_namespace": "feats_labels"
+        }
+      },
+      "regularizer": {
+        "type": "base_regularizer",
+        "parameters": {
+          "regexes": [
+            [
+              ".*conv1d.*",
+              { "type": "l2_regularizer", "parameters": { "alpha": 1e-6 } }
+            ],
+            [
+              ".*forward.*",
+              { "type": "l2_regularizer", "parameters": { "alpha": 1e-6 } }
+            ],
+            [
+              ".*backward.*",
+              { "type": "l2_regularizer", "parameters": { "alpha": 1e-6 } }
+            ],
+            [
+              ".*char_embed.*",
+              { "type": "l2_regularizer", "parameters": { "alpha": 1e-5 } }
+            ]
+          ]
+        }
+      },
+      "seq_encoder": {
+        "type": "combo_encoder",
+        "parameters": {
+          "layer_dropout_probability": 0.33,
+          "stacked_bilstm": {
+            "type": "combo_stacked_bilstm",
+            "parameters": {
+              "hidden_size": 512,
+              "input_size": 164,
+              "layer_dropout_probability": 0.33,
+              "num_layers": 2,
+              "recurrent_dropout_probability": 0.33
+            }
+          }
+        }
+      },
+      "text_field_embedder": {
+        "type": "base_text_field_embedder",
+        "parameters": {
+          "token_embedders": {
+            "char": {
+              "type": "char_embeddings_token_embedder",
+              "parameters": {
+                "dilated_cnn_encoder": {
+                  "type": "dilated_cnn",
+                  "parameters": {
+                    "activations": [
+                      { "type": "gelu", "parameters": {} },
+                      { "type": "gelu", "parameters": {} },
+                      { "type": "linear", "parameters": {} }
+                    ],
+                    "dilation": [1, 2, 4],
+                    "filters": [512, 256, 64],
+                    "input_dim": 64,
+                    "kernel_size": [3, 3, 3],
+                    "padding": [1, 2, 4],
+                    "stride": [1, 1, 1]
+                  }
+                },
+                "embedding_dim": 64
+              }
+            },
+            "token": {
+              "type": "transformers_word_embedder",
+              "parameters": { "projection_dim": 100 }
+            }
+          }
+        }
+      },
+      "upos_tagger": {
+        "type": "feedforward_predictor_from_vocab",
+        "parameters": {
+          "vocab_namespace": "upostag_labels",
+          "input_dim": 1024,
+          "num_layers": 2,
+          "hidden_dims": [64],
+          "activations": [
+            { "type": "tanh", "parameters": {} },
+            { "type": "linear", "parameters": {} }
+          ],
+          "dropout": [0.25, 0.0]
+        }
+      },
+      "xpos_tagger": {
+        "type": "feedforward_predictor_from_vocab",
+        "parameters": {
+          "vocab_namespace": "xpostag_labels",
+          "input_dim": 1024,
+          "num_layers": 2,
+          "hidden_dims": [64],
+          "activations": [
+            { "type": "tanh", "parameters": {} },
+            { "type": "linear", "parameters": {} }
+          ],
+          "dropout": [0.25, 0.0]
+        }
+      }
+    }
+  },
+  "data_loader": {
+    "type": "simple_data_loader_from_dataset_reader",
+    "parameters": {
+      "reader": {
+        "type": "conllu_dataset_reader",
+        "parameters": {
+          "features": ["token", "char"],
+          "tokenizer": {
+            "type": "lambo_tokenizer"
+          },
+          "lemma_indexers": {
+            "char": {
+              "type": "characters_const_padding_token_indexer",
+              "parameters": {
+                "tokenizer": {
+                  "type": "character_tokenizer",
+                  "parameters": {
+                    "end_tokens": ["__END__"],
+                    "start_tokens": ["__START__"]
+                  }
+                },
+                "min_padding_length": 32,
+                "namespace": "lemma_characters"
+              }
+            }
+          },
+          "targets": ["deprel", "feats", "head", "lemma", "upostag", "xpostag"],
+          "token_indexers": {
+            "char": {
+              "type": "characters_const_padding_token_indexer",
+              "parameters": {
+                "tokenizer": {
+                  "type": "character_tokenizer",
+                  "parameters": {
+                    "end_tokens": ["__END__"],
+                    "start_tokens": ["__START__"]
+                  }
+                },
+                "min_padding_length": 32
+              }
+            },
+            "token": {
+              "type": "pretrained_transformer_mismatched_fixed_token_indexer",
+              "parameters": { "model_name": "allegro/herbert-base-cased" }
+            }
+          },
+          "use_sem": false
+        }
+      },
+      "batch_size": 1,
+      "shuffle": true,
+      "batches_per_epoch": 64,
+      "quiet": false
+    }
+  },
+  "dataset_reader": {
+    "type": "conllu_dataset_reader",
+    "parameters": {
+      "features": ["token", "char"],
+      "tokenizer": {
+        "type": "lambo_tokenizer"
+      },
+      "lemma_indexers": {
+        "char": {
+          "type": "characters_const_padding_token_indexer",
+          "parameters": {
+            "tokenizer": {
+              "type": "character_tokenizer",
+              "parameters": {
+                "end_tokens": ["__END__"],
+                "start_tokens": ["__START__"]
+              }
+            },
+            "min_padding_length": 32,
+            "namespace": "lemma_characters"
+          }
+        }
+      },
+      "targets": ["deprel", "feats", "head", "lemma", "upostag", "xpostag"],
+      "token_indexers": {
+        "char": {
+          "type": "characters_const_padding_token_indexer",
+          "parameters": {
+            "tokenizer": {
+              "type": "character_tokenizer",
+              "parameters": {
+                "end_tokens": ["__END__"],
+                "start_tokens": ["__START__"]
+              }
+            },
+            "min_padding_length": 32
+          }
+        },
+        "token": {
+          "type": "pretrained_transformer_mismatched_fixed_token_indexer",
+          "parameters": { "model_name": "allegro/herbert-base-cased" }
+        }
+      },
+      "use_sem": false
+    }
+  },
+  "training": {},
+  "model_name": "allegro/herbert-base-cased"
+}

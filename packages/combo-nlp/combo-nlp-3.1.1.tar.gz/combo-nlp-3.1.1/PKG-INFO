@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: combo-nlp
+Version: 3.1.1
+Home-page: https://gitlab.clarin-pl.eu/syntactic-tools/combo
+Author: Maja Jablonska
+Author-email: maja.jablonska@ipipan.waw.pl
+License: GPL-3.0
+Keywords: nlp natural-language-processing dependency-parsing
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Requires-Dist: absl-py~=1.4.0
+Requires-Dist: base58~=2.1.1
+Requires-Dist: cached-path~=1.3.3
+Requires-Dist: conllu~=4.4.1
+Requires-Dist: conllutils~=1.1.4
+Requires-Dist: dill~=0.3.6
+Requires-Dist: importlib-resources~=5.12.0
+Requires-Dist: h5py~=3.9.0
+Requires-Dist: overrides~=7.3.1
+Requires-Dist: torch~=2.0.0
+Requires-Dist: torchtext~=0.15.1
+Requires-Dist: numpy~=1.24.1
+Requires-Dist: pytorch-lightning~=2.0.01
+Requires-Dist: requests~=2.28.2
+Requires-Dist: tqdm~=4.64.1
+Requires-Dist: filelock~=3.9.0
+Requires-Dist: pandas~=2.1.3
+Requires-Dist: pytest~=7.2.2
+Requires-Dist: transformers~=4.27.3
+Requires-Dist: sacremoses~=0.0.53
+Requires-Dist: spacy~=3.3.1
+Requires-Dist: urllib3==1.26.6
