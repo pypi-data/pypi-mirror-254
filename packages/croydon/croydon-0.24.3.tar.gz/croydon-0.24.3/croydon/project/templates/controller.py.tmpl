@@ -1,0 +1,12 @@
+from fastapi import APIRouter, Depends
+from croydon.pagination import pagination_params, PaginationParams, ItemList, PaginatedList
+
+{{ entity_name }}_ctrl = APIRouter(prefix="{{ api_prefix }}/{{ collection }}")
+
+
+@{{ entity_name }}_ctrl.get("/", name="List {{ collection }}")
+async def index(
+    pagination: PaginationParams = Depends(pagination_params)
+) -> PaginatedList[{{ class_name }}] | ItemList[{{ class_name }}]:
+    items = {{ class_name }}.find()
+    return await paginated(items)
