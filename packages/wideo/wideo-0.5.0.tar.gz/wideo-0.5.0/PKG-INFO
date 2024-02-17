@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: wideo
+Version: 0.5.0
+Summary: Add video goodness to your Wagtail website
+License: WTFPL
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: celery (>=5.2,<5.3)
+Requires-Dist: python-magic (>=0.4.27,<0.5.0)
+Requires-Dist: wagtail (>=4.1,<4.2)
+Description-Content-Type: text/markdown
+
+# Model W &mdash; Wideo
+
+This package enables easy video uploading and encoding in Wagtail.
+
+Basic usage:
+1. Add the `wideo` dependency to your `requirements.txt` or `poetry.toml` (and ensure `wagtail` and `celery` are also part of your dependencies)
+2. Add `wideo` to `INSTALLED_APPS` in your Django settings
+3. Optional: set `WIDEO_VIDEO_MODEL` and `WIDEO_RENDER_MODEL` to your own custom models
+4. Optional: add `wideo.tasks.delete_orphan_uploaded_videos` in your `CELERY_BEAT_SCHEDULE` in order to clean up unused uploads
+
+The `demo` folder contains an example project using Model W.
+
+## Documentation
+
+[✨ **Documentation is there** ✨](http://modelw-wideo.rtfd.io/)
+

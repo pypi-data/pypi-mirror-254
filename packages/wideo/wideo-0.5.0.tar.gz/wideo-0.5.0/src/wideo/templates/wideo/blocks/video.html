@@ -1,0 +1,5 @@
+<video width="500" height="500" src="{{ self.video.upload.file.url }}"
+       {% if self.autoplay %}autoplay{% endif %}
+       {% if self.controls %}controls{% endif %}
+       {% if self.muted %}muted{% endif %}
+></video>
