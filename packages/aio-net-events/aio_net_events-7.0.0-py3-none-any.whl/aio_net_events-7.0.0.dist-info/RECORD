@@ -1,0 +1,16 @@
+aio_net_events/__init__.py,sha256=jSparO9nTCSmW6Zek_ITgICBnrwscRSbkC4FbQorAPE,205
+aio_net_events/__main__.py,sha256=aLF3RTkeIfJRXvyNjgR-5ON5g-gTS7vOetQVauP9JBo,241
+aio_net_events/backends/__init__.py,sha256=EPcSvJtGfWPE8hY2IWpcsiT1_FNPEw5p4S9mKK769EM,58
+aio_net_events/backends/autodetect.py,sha256=HSBEcV_PsurrGiCsK-W-SF7R0dH04otvZ4bAkqqJhKg,878
+aio_net_events/backends/base.py,sha256=qEUfT_Ba0S4Au8aAOU7JSlZf9Bdm8gVjiL4E9YBRXsQ,2829
+aio_net_events/backends/macos.py,sha256=pHSK64G4YrGfh5fbtzFyKcRkwgUXv8830BK8hFg5io0,3520
+aio_net_events/backends/netlink.py,sha256=YCiPaMxQU-iiQhkdrbu-2NC2xV7APTiHxb4iIk_KUy8,1663
+aio_net_events/backends/portable.py,sha256=kluWPaaS852gJMOZqWw15UF3IVu4RGwX5a3faAAm4KE,1072
+aio_net_events/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aio_net_events/task.py,sha256=bCm2MAS2-eSBxcOvKlqzesm1vkquEemMz65Cgoxkbfs,12740
+aio_net_events/version.py,sha256=bhrw3FWdMomUlZTgJNFo16OlI06I-TrVlznH1n0ycj4,95
+aio_net_events-7.0.0.dist-info/LICENSE,sha256=ZNDwjqBxqt7bm_cjV8F2NwOQItRX9DC4LznQJAqATTM,1070
+aio_net_events-7.0.0.dist-info/METADATA,sha256=2zn6SfltxzeKVMxlWxTiW_VzGzTq59WpFC18jeXq9kA,1977
+aio_net_events-7.0.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+aio_net_events-7.0.0.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aio_net_events-7.0.0.dist-info/RECORD,,
