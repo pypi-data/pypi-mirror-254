@@ -1,0 +1,55 @@
+stages:
+  - build
+  - test
+  - publish
+
+build-theme:
+  image: node:20
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - ou_book_theme
+    expire_in: 300 seconds
+
+build-package:
+  image: python:3.11
+  stage: build
+  script:
+    - pip install hatch
+    - hatch build
+  dependencies:
+    - build-theme
+  artifacts:
+    paths:
+      - dist
+    expire_in: 300 seconds
+
+run-tests:
+  image: python:3.11
+  stage: test
+  script:
+    - pip install hatch
+    - hatch run cov
+  dependencies:
+    - build-theme
+
+run-lint:
+  image: python:3.11
+  stage: test
+  script:
+    - pip install hatch
+    - hatch run lint:ruff ou_book_theme
+
+publish-package:
+  image: python:3.11
+  stage: publish
+  script:
+    - pip install hatch
+    - hatch publish --user __token__ --auth $PYPI_AUTH_TOKEN
+  dependencies:
+    - build-package
+  #rules:
+  #  - if: $CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+(b[0-9]+)?$/
