@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gmtds-client
+Version: 0.0.1
+Summary: Unofficial Python client for the Global Maritime Traffic Density Service (GMTDS)
+Author: Shunichiro Nomura
+Author-email: nomura@space.t.u-tokyo.ac.jp
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+
