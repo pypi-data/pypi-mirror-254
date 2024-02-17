@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: SuSMoST-Monte-Carlo
+Version: 1.1.304
+Summary: SUrface Science MOdeling and Simulation Toolkit: Monte Carlo package
+Home-page: https://susmost.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: mpi4py (>=2.0.0)
+Requires-Dist: GitPython
+
+Monte Carlo package of the SUrface Science MOdeling and Simulation Toolkit:
+https://doi.org/10.1002/jcc.26370
+SuSMoST: Surface Science Modeling and Simulation Toolkit, S. S. Akimenko, G. D. Anisimova, A. I. Fadeeva, V. F. Fefelov, V. A. Gorbunov, T. R. Kayumova, A. V. Myshlyavtsev, M. D. Myshlyavtseva, and P. V. Stishenko, Journal of Computational Chemistry, 2020
+
