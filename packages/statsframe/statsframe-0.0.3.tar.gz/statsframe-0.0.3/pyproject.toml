@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "statsframe"
+version = "0.0.3"
+description = "Customizable data and model summaries in Python."
+authors = ["Niall Keleher <niall.keleher@gmail.com>"]
+packages = [{ include = "*", from = "src" }]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/NKeleher/statsframe#readme"
+repository = "https://github.com/NKeleher/statsframe"
+keywords = ["tables", "statistics", "econometrics"]
+classifiers = [
+    # https://pypi.org/classifiers/
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Scientific/Engineering",
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+polars = "^0.20.5"
+pandas = "^2.1.4"
+pyarrow = "^15.0.0"
+great-tables = "^0.2.0"
+importlib-metadata = "^7.0.1"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.0"
+ruff = "^0.1.13"
+black = "^23.12.1"
+bandit = "^1.7.6"
+docformatter = "^1.7.5"
+mypy = "^1.8.0"
+jupyterlab = "^4.0.11"
+quartodoc = "^0.7.2"
+jupytext = "^1.16.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = ["-vvv"]
+testpaths = ["tests"]
+
+# docs: https://docs.astral.sh/ruff/configuration/
+[tool.ruff]
+extend-exclude = []
+extend-include = ["*.ipynb"]
+ignore = ["E402"]
+indent-width = 4
+line-length = 90
+select = ["E", "F", "W", "I001"]
+src = ["src/statsframe", "tests", "docs"]
+
+# docs: https://docformatter.readthedocs.io/en/latest/usage.html
+[tool.docformatter]
+style = "sphinx"
+recursive = true
+pre-summary-newline = true
+make-summary-multi-line = true
+wrap-descriptions = 72
+wrap-summaries = 79
+blank = true
+
+[tool.codespell]
+skip = "*.lock"
+ignore-words-list = "ser"
