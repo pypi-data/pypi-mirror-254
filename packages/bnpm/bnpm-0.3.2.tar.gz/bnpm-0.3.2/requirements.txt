@@ -1,0 +1,43 @@
+## Required
+h5py
+eva-decord
+ipywidgets
+kornia
+matplotlib
+natsort
+numba
+numpy
+opencv-contrib-python
+optuna
+pandas
+paramiko
+psutil
+PyYAML
+pytest
+scikit-learn
+tqdm
+sparse
+scipy
+xxhash
+torch
+torchvision
+torchaudio
+
+## Optional / Advanced
+tables
+opt-einsum
+# rolling-quantiles
+pulp
+spconv
+torch-sparse
+av
+pynwb
+sendgrid
+pycuda
+cuml
+cupy
+cudf
+scanimage-tiff-reader
+jupyter
+PyWavelets
+mat73
