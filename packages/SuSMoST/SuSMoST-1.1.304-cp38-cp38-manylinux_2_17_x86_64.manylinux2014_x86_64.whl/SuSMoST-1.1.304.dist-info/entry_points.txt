@@ -1,0 +1,2 @@
+[console_scripts]
+susmost.model-report = susmost.cli:model_report

@@ -1,0 +1,69 @@
+#!python
+
+
+import sys
+import argparse
+from susmost import make_ac_samples
+from susmost.cli import argv2str
+from susmost.acutils import load_samples
+import ase
+
+parser = argparse.ArgumentParser(description="Create surface samples with adsorption complexes (AC's)", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+parser.add_argument('--samples-dir','-d', dest='samples_dir', nargs='?', default='tmp',
+					help='Directory to be created and populated with AC samples and "interactions" file')
+
+parser.add_argument('--r-cut-off','-r',  dest = 'r_cut_off', type=float, nargs='?', default=10.,
+					help="Suggested cut-off radius of lateral interactions - maximal distance between AC's in generated samples, in Angstroms")
+
+parser.add_argument('--symmetry-precission','-p', dest='sym_prec', type=float, nargs='?', default=0.9,
+					help="Tollerance for detection of AC symmetries")
+
+					
+parser.add_argument('--border-x','-x', dest='border_x', type=int, nargs='?',
+					help="Width of border along Ox axis around AC's, in unit cells. If None is specified, then --r-cut-off is used to guess it.")
+
+parser.add_argument('--border-y','-y', dest='border_y', type=int, nargs='?',
+					help="Width of border along Oy axis around AC's, in unit cells. If None is specified, then --r-cut-off is used to guess it.")
+
+parser.add_argument('--slab-size', dest='slab_size', type=int, nargs=4,
+					help="Size of slabs as 2x2 matrix in row-first order, i.e. four integers.")
+
+parser.add_argument('--slab-size-x','-X', dest='slab_size_x', type=int, nargs='?',
+					help="Size of slabs Ox axis, in unit cells. Can be used instead of --border-* keys.")
+
+parser.add_argument('--slab-size-y','-Y', dest='slab_size_y', type=int, nargs='?',
+					help="Size of slabs Oy axis, in unit cells. Can be used instead of --border-* keys.")
+
+
+parser.add_argument('empty', metavar='empty-surf-xyz-file',
+	               help='Name of the file with empty surface in Extended XYZ format')
+parser.add_argument('ACs', metavar='AC-xyz-file', nargs='+',
+	               help='Name of the file with AC in Extended XYZ format')
+
+args = parser.parse_args()
+
+ac_fns = [args.empty] + args.ACs
+
+if None not in [args.border_x, args.border_y]:
+	borders = ('border', args.border_x, args.border_y)
+	assert args.slab_size_x is None
+	assert args.slab_size_y is None
+elif None not in [args.slab_size_x, args.slab_size_y]:
+	borders = ('fixed', args.slab_size_x, 0, 0, args.slab_size_y)
+	assert args.border_x is None
+	assert args.border_y is None
+else:
+	assert args.slab_size_x is None
+	assert args.slab_size_y is None
+	assert args.border_x is None
+	assert args.border_y is None
+	assert args.slab_size is not None
+	borders = ('fixed', *args.slab_size)
+	
+print ("border", borders)
+
+make_ac_samples(args.samples_dir, ac_fns, r_cut_off = args.r_cut_off, max_dimensions=[-1,-1,0], sym_prec=args.sym_prec, borders=borders)
+with open(f"{args.samples_dir}/.log","a") as f:
+	f.write(argv2str()+'\n')
+
