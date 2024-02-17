@@ -1,0 +1,12 @@
+numpy>=1.21.6
+scikit-learn>=0.24.2
+scipy>=1.7.3
+joblib>=0.16.0
+setuptools>=49.0.0
+
+[crlibm]
+crlibm
+
+[docs]
+sphinx>=5.0
+sphinx_rtd_theme>=1.3
