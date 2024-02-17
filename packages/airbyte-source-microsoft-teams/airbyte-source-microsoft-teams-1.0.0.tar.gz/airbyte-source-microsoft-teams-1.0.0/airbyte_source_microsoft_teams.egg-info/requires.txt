@@ -1,0 +1,9 @@
+airbyte-cdk
+requests
+msal==1.7.0
+backoff
+
+[tests]
+requests-mock~=1.9.3
+pytest~=6.1
+pytest-mock~=3.6.1
