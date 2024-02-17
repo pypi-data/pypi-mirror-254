@@ -1,0 +1,106 @@
+[build-system]
+requires = ["poetry_core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+name = "fakeredis"
+packages = [
+    { include = "fakeredis" },
+]
+version = "2.21.0"
+description = "Python implementation of redis API, can be used for testing purposes."
+readme = "README.md"
+keywords = ["redis", "RedisJson", "tests", "redis-stack"]
+authors = [
+    "Daniel Moran <daniel@moransoftware.ca>",
+    "Bruce Merry <bmerry@ska.ac.za>",
+    "James Saryerwinnie <js@jamesls.com>",
+]
+maintainers = [
+    "Daniel Moran <daniel@moransoftware.ca>",
+]
+license = "BSD-3-Clause"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Development Status :: 6 - Mature',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+]
+homepage = "https://github.com/cunla/fakeredis-py"
+repository = "https://github.com/cunla/fakeredis-py"
+documentation = "https://fakeredis.readthedocs.io/"
+include = [
+    { path = "test", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+redis = ">=4"
+sortedcontainers = "^2"
+lupa = { version = ">=1.14,<3.0", optional = true }
+jsonpath-ng = { version = "^1.6", optional = true }
+pyprobables = { version = "^0.6", optional = true }
+
+[tool.poetry.extras]
+lua = ["lupa"]
+json = ["jsonpath-ng"]
+bf = ["pyprobables"]
+cf = ["pyprobables"]
+probabilistic = ["pyprobables"]
+
+[tool.poetry.dev-dependencies]
+coverage = "^7"
+flake8 = { version = "^7", python = ">=3.8.1" }
+flake8-pyproject = { version = "^1", python = ">=3.8.1" }
+hypothesis = "^6.70"
+mypy = "^1"
+pygithub = "^2.1.1"
+pytest = "^7.4"
+pytest-asyncio = "^0.21"
+pytest-cov = "^4.0"
+python-dotenv = { version = "^1", python = ">=3.8.1" }
+pytest-mock = "^3.10"
+types-redis = "^4"
+twine = "^4.0"
+tox = "^4.7"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/cunla/fakeredis-py/issues"
+"Funding" = "https://github.com/sponsors/cunla"
+"Documentation" = "https://fakeredis.moransoftware.ca/"
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "fake: run tests only with fake redis",
+    "real: run tests with a locally running real Redis server",
+    "disconnected",
+    "min_server",
+    "max_server",
+    "decode_responses",
+]
+asyncio_mode = "strict"
+
+[tool.mypy]
+packages = ['fakeredis', ]
+strict = true
+follow_imports = "silent"
+ignore_missing_imports = true
+scripts_are_modules = true
+check_untyped_defs = true
+
+[tool.flake8]
+max-line-length = 119
+exclude = [
+    '.venv',
+    '.github',
+    '__pycache__',
+]
