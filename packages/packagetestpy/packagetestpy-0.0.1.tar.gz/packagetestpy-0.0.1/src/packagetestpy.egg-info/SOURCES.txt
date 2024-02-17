@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/example_package_cortiz/__init__.py
+src/example_package_cortiz/example.py
+src/packagetestpy.egg-info/PKG-INFO
+src/packagetestpy.egg-info/SOURCES.txt
+src/packagetestpy.egg-info/dependency_links.txt
+src/packagetestpy.egg-info/top_level.txt
