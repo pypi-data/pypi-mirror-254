@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: latexToCNF
+Version: 0.1.0
+Summary: python cli program to convert latex input to CNF (conjuctive normal form).
+Home-page: https://github.com/Azgmohammadd/CNFBuilderFromLatex
+Author: azgmohammadd
+Author-email: azgmohammadd@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# CNFBuilderFromLatex
+A repository that checks well-form formula (WFF) and create conjective normal form (CFF) from latex input. 
+
+
