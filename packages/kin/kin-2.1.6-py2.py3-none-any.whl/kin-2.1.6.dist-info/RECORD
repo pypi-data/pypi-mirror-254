@@ -1,0 +1,14 @@
+kin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kin/kin.py,sha256=vZswhA4zCBhy1YAIKaW3bd78_BsoWfoWkebG2-Xe_l4,2327
+kin/kin_error_listener.py,sha256=twHVRXCB1rnPORezzWKoOfXoHAG7rm0Xstoi_WQj_CE,302
+kin/verifier.py,sha256=31-M97lrekia-w8LQzavs2cFUMAHkK8eDgo-LWCgtzM,663
+kin/grammar/PBXProjLexer.py,sha256=yCm3cGaLvzpAnx-BrXXSwDWmU5N3V8UAQpBxj9OXb6M,83562
+kin/grammar/PBXProjListener.py,sha256=dlDaAhSGend2ClC4lN910xEgDqwDs1LkU-ED-IaDwU8,60898
+kin/grammar/PBXProjParser.py,sha256=LMhrgztJZwLuwW1OOSbtTIrfvr3jGJqZWN-KrOTlTG0,451189
+kin/grammar/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kin-2.1.6.dist-info/LICENSE.txt,sha256=tAkwu8-AdEyGxGoSvJ2gVmQdcicWw3j1ZZueVV74M-E,11357
+kin-2.1.6.dist-info/METADATA,sha256=toTwEjzvrx13rSzzszjXVbGKUzYfWNFauQ2sstttJHk,926
+kin-2.1.6.dist-info/WHEEL,sha256=-G_t0oGuE7UD0DrSpVZnq1hHMBV9DD2XkS5v7XpmTnk,110
+kin-2.1.6.dist-info/entry_points.txt,sha256=jBDxybWsNz78vgXOK-81p-JdoFD-8nnl_IvG9UwrmX4,37
+kin-2.1.6.dist-info/top_level.txt,sha256=LOLHVY9XIO6xyTNkW_uUoI2bPXysmOKROpdOV9Jizcc,4
+kin-2.1.6.dist-info/RECORD,,
