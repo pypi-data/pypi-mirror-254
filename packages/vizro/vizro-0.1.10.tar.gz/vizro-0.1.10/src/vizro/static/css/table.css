@@ -1,0 +1,60 @@
+#right-side
+  .dash-table-container
+  .dash-spreadsheet-container
+  .dash-spreadsheet-inner
+  th {
+  background-color: var(--main-container-bg-color);
+  color: var(--text-primary);
+}
+
+#right-side
+  .dash-table-container
+  .dash-spreadsheet-container
+  .dash-spreadsheet-inner
+  td {
+  background-color: var(--main-container-bg-color);
+  color: var(--text-primary);
+}
+
+#right-side
+  .dash-table-container
+  .dash-spreadsheet-container
+  .dash-spreadsheet-inner
+  table {
+  --hover: var(--main-container-bg-color);
+  width: 100%;
+}
+
+#right-side
+  .dash-table-container
+  .dash-spreadsheet-container
+  .dash-spreadsheet-inner
+  td
+  .dash-cell-value.unfocused {
+  font-size: 14px;
+}
+
+#right-side
+  .dash-table-container
+  .dash-spreadsheet-container
+  .dash-spreadsheet-inner
+  .column-header-name {
+  font-size: 14px;
+}
+
+.dash-table-container .previous-next-container .page-number {
+  color: var(--text-primary);
+}
+
+#right-side .dash-table-container .previous-next-container {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 36px);
+  overflow: auto;
+  width: 100%;
+}

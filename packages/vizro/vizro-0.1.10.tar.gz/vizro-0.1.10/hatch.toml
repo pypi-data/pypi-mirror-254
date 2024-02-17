@@ -1,0 +1,88 @@
+[envs.all]
+
+[[envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[envs.all.overrides]
+# Kedro is currently not compatible with Python 3.12 and returns exceptions when trying to run the unit tests on
+# Python 3.12. These exceptions turned out to be difficult to ignore: https://github.com/mckinsey/vizro/pull/216
+matrix.python.features = [
+  {value = "kedro", if = ["3.8", "3.9", "3.10", "3.11"]}
+]
+
+[envs.changelog]
+dependencies = ["scriv"]
+detached = true
+scripts = {add = "scriv create --add", collect = ["scriv collect --add", "- hatch run lint:lint --files=CHANGELOG.md"]}
+
+[envs.default]
+dependencies = [
+  "devtools[pygments]",
+  "coverage[toml]>=6.5",
+  "pytest",
+  "pytest-mock",
+  "dash[testing]",
+  "chromedriver-autoinstaller-fix",
+  "toml",
+  "pyyaml",
+  "openpyxl"
+]
+
+[envs.default.env-vars]
+DASH_DEBUG = "true"
+VIZRO_LOG_LEVEL = "DEBUG"
+
+[envs.default.scripts]
+example = "cd examples/{args:_dev}; python app.py"
+lint = "hatch run lint:lint {args:--all-files}"
+prep-release = [
+  "hatch version release",
+  "hatch run changelog:collect",
+  "hatch run changelog:add",
+  "rm -rf schemas/*json",
+  "schema",
+  "git add schemas",
+  'echo "Now raise a PR to merge into main with title: Release of vizro-core $(hatch version)"'
+]
+pypath = "python -c 'import sys; print(sys.executable)'"
+schema = ["python schemas/generate.py {args}", '- hatch run lint --files="schemas/$(hatch version).json" > /dev/null']
+secrets = "pre-commit run gitleaks --all-files"
+test = "pytest tests --headless {args}"
+test-integration = "pytest tests/integration --headless {args}"
+test-js = "./tools/run_jest.sh {args}"
+test-unit = "pytest tests/unit {args}"
+test-unit-coverage = [
+  "coverage run -m pytest tests/unit {args}",
+  "- coverage combine",
+  "coverage report"
+]
+update-snyk-requirements = "python ../tools/generate_snyk_requirements.py {args}"
+
+[envs.docs]
+dependencies = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocs-git-revision-date-localized-plugin",
+  "mkdocstrings[python]"
+]
+detached = true
+scripts = {serve = "mkdocs serve"}
+
+[envs.lint]
+dependencies = [
+  "pre-commit"
+]
+detached = true
+scripts = {lint = "SKIP=gitleaks pre-commit run {args:--all-files}"}
+
+[envs.lower-bounds]
+extra-dependencies = [
+  "pydantic==1.10.13",
+  "dash==2.14.1"
+]
+
+[publish.index]
+disable = true
+
+[version]
+path = "src/vizro/__init__.py"
