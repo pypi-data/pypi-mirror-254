@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+textmark/TextAnnotation.py
+textmark/Visualizer.py
+textmark/__init__.py
+textmark/tools.py
+textmark.egg-info/PKG-INFO
+textmark.egg-info/SOURCES.txt
+textmark.egg-info/dependency_links.txt
+textmark.egg-info/requires.txt
+textmark.egg-info/top_level.txt
