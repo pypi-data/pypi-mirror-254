@@ -1,0 +1,23 @@
+{
+    "executor": {
+        "type": "quark",
+        "host": "127.0.0.1",
+        "port": 2088
+    },
+    
+		"data": {
+        "path": "",
+        "url": ""
+    },
+    
+		"repo": {
+        "systemq": "C:\\PythonQOS\\Repository\\systemq\\"
+    },
+    
+		"extentions": {
+        "server": "http://172.16.1.252",
+        "modules": {
+            "dev": "dev-v1.0.0.zip"
+        }
+    }
+}
