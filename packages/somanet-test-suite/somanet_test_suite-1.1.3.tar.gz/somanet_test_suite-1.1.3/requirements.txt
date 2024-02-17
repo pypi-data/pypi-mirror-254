@@ -1,0 +1,9 @@
+pyserial>=3.4
+crcmod
+numpy
+labjack-ljm
+xmltodict
+pysoem
+elevate
+canopen>=2.0
+bitstruct
