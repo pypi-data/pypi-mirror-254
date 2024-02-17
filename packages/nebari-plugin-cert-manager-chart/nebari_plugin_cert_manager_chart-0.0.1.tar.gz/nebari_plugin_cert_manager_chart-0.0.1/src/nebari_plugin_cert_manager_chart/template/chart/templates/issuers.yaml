@@ -1,0 +1,34 @@
+{{- range .Values.issuers }}
+
+{{- if eq "cloudflare" .solver.type }}
+
+{{- if eq "letsencrypt" .type }}
+
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ .name }}
+  namespace: {{ .namespace }}
+spec:
+  acme:
+    server: {{ .server }}
+    email: {{ .email | default $.Values.cloudflare.email | quote }}
+    privateKeySecretRef:
+      name: {{ .name }}
+    solvers:
+    - selector:
+        dnsZones:
+        - {{ $.Values.cloudflare.zone | quote }}
+      dns01:
+        cloudflare:
+          email: {{ $.Values.cloudflare.email | quote }}
+          apiTokenSecretRef:
+            name: {{ .solver.existingSecret }}
+            key: key
+
+{{- end }}
+
+{{- end }}
+
+{{- end }}
