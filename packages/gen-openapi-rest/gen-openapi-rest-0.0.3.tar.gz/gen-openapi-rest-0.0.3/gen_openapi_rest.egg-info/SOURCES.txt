@@ -1,0 +1,11 @@
+MANIFEST.in
+readme.md
+setup.py
+gen_openapi_rest/__init__.py
+gen_openapi_rest/__main__.py
+gen_openapi_rest/gen_openapi_rest.py
+gen_openapi_rest.egg-info/PKG-INFO
+gen_openapi_rest.egg-info/SOURCES.txt
+gen_openapi_rest.egg-info/dependency_links.txt
+gen_openapi_rest.egg-info/requires.txt
+gen_openapi_rest.egg-info/top_level.txt
