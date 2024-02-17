@@ -1,0 +1,2 @@
+[console_scripts]
+source-harvest = source_harvest.run:run
