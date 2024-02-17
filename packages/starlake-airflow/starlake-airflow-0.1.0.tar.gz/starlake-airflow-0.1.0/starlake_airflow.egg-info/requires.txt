@@ -1,0 +1,12 @@
+starlake-orchestration>=0.1.0
+
+[airflow]
+airflow>=2.4.0
+
+[aws]
+
+[azure]
+
+[gcp]
+
+[shell]
