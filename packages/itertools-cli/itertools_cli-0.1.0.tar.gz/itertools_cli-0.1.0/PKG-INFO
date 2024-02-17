@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: itertools-cli
+Version: 0.1.0
+Summary: 
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+Pathlib-cli is a command line interface for Python's pathlib library.
+It focuses on extracting parts of paths (stem, suffixes, parents, etc).
+
+Pathlib-cli also includes prefix and prefixes command which are not
+in pathlib. These extricate a substring of the filename up to but
+not including the nth '.'.
+
+Example usage:
+
+```
+readlink -f * | pathlib-cli prefix
+```
+

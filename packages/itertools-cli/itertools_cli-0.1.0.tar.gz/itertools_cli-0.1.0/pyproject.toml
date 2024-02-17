@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "itertools-cli"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+pyyaml = "^6.0.1"
+
+[tool.poetry.scripts]
+itertools-cli = "itertools_cli.__main__:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
