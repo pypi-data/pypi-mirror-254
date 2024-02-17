@@ -1,0 +1,11 @@
+pyproject.toml
+SnoScience.egg-info/PKG-INFO
+SnoScience.egg-info/SOURCES.txt
+SnoScience.egg-info/dependency_links.txt
+SnoScience.egg-info/requires.txt
+SnoScience.egg-info/top_level.txt
+docs/licence.txt
+docs/readme.md
+src/__init__.py
+src/_activation.py
+src/_loss.py
