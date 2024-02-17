@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: supermeter-autowrapt
+Version: 1.1.10
+Summary: Boostrap mechanism for monkey patches for supermeter.
+Home-page: https://github.com/supertenant/supermeter-autowrapt
+Author: SuperTenant Ltd.
+Author-email: info@supertenant.com
+License: BSD
+Platform: any
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: wrapt>=1.10.4
+
+# supermeter-autowrapt
+
+A fork of autowrapt addressing the following:
+
+* Support new Debian-style python distribution `dist-packages` directories
+* Support Python 3.12
+* Specific support for SuperTenant's supermeter package

@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+supermeter-init.pth
+src/__init__.py
+src/bootstrap.py
+supermeter_autowrapt.egg-info/PKG-INFO
+supermeter_autowrapt.egg-info/SOURCES.txt
+supermeter_autowrapt.egg-info/dependency_links.txt
+supermeter_autowrapt.egg-info/requires.txt
+supermeter_autowrapt.egg-info/top_level.txt
+test/test_bootstrap.py
