@@ -1,0 +1,17 @@
+coca_ml/finance/labeling/GetBinsFromTrend.py,sha256=Ed9dnZdgS4_9QgC7PlCbkP1UOFXudsWANH0B_ExJhhg,1625
+coca_ml/finance/labeling/__init__.py,sha256=Fudn9QICkjDVd1ios-05YRhJwWB-yPHbElcMT5jAUb0,32
+coca_ml/finance/preprocessing/bar/CreateCuSumBar.py,sha256=bTf4n0cvd2nwMTDSSbqLXwfKM4w3JnFd_POg416176U,1982
+coca_ml/finance/preprocessing/bar/CreateDollarBar.py,sha256=N9svSw4tUkvW-VCcOBWY3dFKB91xvpg65dTHWbW9zZc,1628
+coca_ml/finance/preprocessing/bar/CreateVolumeBar.py,sha256=ePY4zwr9He0AXWJx9IGnMC3oFkK9XfCRRnQumi6eTGw,1584
+coca_ml/finance/preprocessing/bar/__init__.py,sha256=DlkME1BXQGpI5-uu7bGiPVP4dtpwmZFWIdhB22srNio,92
+coca_ml/finance/preprocessing/diff/FracDiff.py,sha256=kif3qfYRivVg5Awrx3s8faG5q1uqadBBQltO-nMtpik,1458
+coca_ml/finance/preprocessing/diff/FracDiff_FFD.py,sha256=Z1E8EtHShAI2nDmxPb9BcBmNPgrqBPc2ToJ8VY7qqqk,1406
+coca_ml/finance/preprocessing/diff/__init__.py,sha256=8MrtytrLjccdp1YIA1_3ZRCW0BEQvx5V5-3BDX_aTIs,52
+coca_ml/timeseries/DataWindow.py,sha256=3eIyh3UkXZWSNg8wptri7YfGFwAVMZO9Vl8BwTnrE3E,3582
+coca_ml/timeseries/__init__.py,sha256=Fk_VwZGBbQhMGDlpRA7hSyNDTaQedj2SVKiAU9MHcv8,26
+coca_ml/timeseries/models/ARLSTM.py,sha256=Fvn8d6Xm2Cm1QSG0YGNgKHuWo_NaXwE2bGDGKdoF3OY,995
+coca_ml/timeseries/models/BaseLine.py,sha256=mb_j7pMVK0Q30MJ1QV1bC44007fx6yYx3iiJBQJy360,793
+coca_ml/timeseries/models/__init__.py,sha256=ASUHubroW6bR5f3X2BR_DX2JGbBYmRVi5TTHJV9Xx2k,46
+coca_ml-0.0.10.dist-info/METADATA,sha256=SNe0r-oEcnvg-zK2W4xpOLV4a2yvtiVOGIH1SDThXPQ,700
+coca_ml-0.0.10.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+coca_ml-0.0.10.dist-info/RECORD,,

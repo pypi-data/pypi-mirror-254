@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: coca-ml
+Version: 0.0.10
+Summary: 
+Home-page: https://github.com/CocaButon60s/coca_ml
+License: MIT
+Author: Hiroyuki Ikuno
+Author-email: sam2kaikaramegusuri@gmail.com
+Requires-Python: >=3.11,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.8.2,<4.0.0)
+Requires-Dist: numba (>=0.58.1,<0.59.0)
+Requires-Dist: pandas (>=2.1.3,<3.0.0)
+Requires-Dist: pyarrow (>=14.0.2,<15.0.0)
+Requires-Dist: scikit-learn (>=1.3.2,<2.0.0)
+Requires-Dist: scipy (>=1.11.4,<2.0.0)
+Requires-Dist: tensorflow (==2.15.0)
+Description-Content-Type: text/markdown
+
+
