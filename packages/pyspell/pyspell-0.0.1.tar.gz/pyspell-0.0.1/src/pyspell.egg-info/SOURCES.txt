@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/pyspell/__init__.py
+src/pyspell/spellcheck.py
+src/pyspell.egg-info/PKG-INFO
+src/pyspell.egg-info/SOURCES.txt
+src/pyspell.egg-info/dependency_links.txt
+src/pyspell.egg-info/top_level.txt
