@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: wikidata-fast-query
+Version: 2.1.0
+Summary: A container class for easily navigating a Wikidata item.
+License: MIT License
+Project-URL: repository, https://github.com/PythonCoderAS/wikidata-fast-query
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pywikibot
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+
+# wikidata-fast-query
+
+[![PyPI version](https://img.shields.io/pypi/v/wikidata-fast-query.svg)](https://pypi.org/project/wikidata-fast-query/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/wikidata-fast-query.svg)](https://pypi.org/project/wikidata-fast-query/)
+[![PyPI license](https://img.shields.io/pypi/l/wikidata-fast-query.svg)](https://pypi.org/project/wikidata-fast-query/)
