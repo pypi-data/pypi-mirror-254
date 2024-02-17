@@ -1,0 +1,28 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Urz\u0105dzenie jest ju\u017c skonfigurowane"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Nazwa hosta lub adres IP"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "host": "Nazwa hosta lub adres IP"
+                }
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "name": "Wczytaj ponownie"
+        }
+    }
+}

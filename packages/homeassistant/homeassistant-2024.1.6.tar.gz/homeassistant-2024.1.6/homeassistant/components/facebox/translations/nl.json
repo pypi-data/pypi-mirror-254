@@ -1,0 +1,12 @@
+{
+    "services": {
+        "teach_face": {
+            "fields": {
+                "name": {
+                    "description": "Naam van het gezicht om te leren.",
+                    "name": "Naam"
+                }
+            }
+        }
+    }
+}

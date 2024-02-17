@@ -1,0 +1,11 @@
+{
+    "services": {
+        "speedtest": {
+            "fields": {
+                "host": {
+                    "name": "Nazwa hosta lub adres IP"
+                }
+            }
+        }
+    }
+}

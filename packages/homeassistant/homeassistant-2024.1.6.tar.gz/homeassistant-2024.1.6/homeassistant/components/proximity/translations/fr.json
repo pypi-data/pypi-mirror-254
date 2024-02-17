@@ -1,0 +1,19 @@
+{
+    "entity": {
+        "sensor": {
+            "dir_of_travel": {
+                "name": "Direction du d\u00e9placement",
+                "state": {
+                    "arrived": "Arriv\u00e9",
+                    "away_from": "Loin de",
+                    "stationary": "Stationnaire",
+                    "towards": "Vers"
+                }
+            },
+            "nearest": {
+                "name": "Appareil le plus proche"
+            }
+        }
+    },
+    "title": "Proximit\u00e9"
+}

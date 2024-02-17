@@ -1,0 +1,32 @@
+{
+    "entity": {
+        "sensor": {
+            "dir_of_travel": {
+                "name": "Liikumise suund",
+                "state": {
+                    "arrived": "Kohale j\u00f5udnud",
+                    "away_from": "Eemal",
+                    "stationary": "Paigal",
+                    "towards": "Suunas"
+                }
+            },
+            "nearest": {
+                "name": "L\u00e4him seade"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_proximity_entity": {
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "description": "L\u00e4hedusolem ' {entity}' on kasutuselt k\u00f5rvaldatud ja eemaldatakse 2024.8. Kuid seda kasutatakse j\u00e4rgmistes konfiguratsioonides:\n- {used_in}\n\nKohanda k\u00f5iki automaatikaid v\u00f5i skripte, mis kasutavad seda aegunud l\u00e4heduse olemit.\nIga j\u00e4lgitava isiku v\u00f5i seadme jaoks luuakse \u00fcks andur vahemaa ja s\u00f5idusuuna jaoks j\u00e4lgitavasse tsooni / sealt v\u00e4lja. Lisaks luuakse iga l\u00e4heduse konfiguratsiooni jaoks \u00fcks andur, mis n\u00e4itab j\u00e4lgitavale tsoonile l\u00e4himat seadet v\u00f5i inimest. Selle abil saad kasutada Min/Max integratsiooni l\u00e4hima ja kaugeima vahemaa m\u00e4\u00e4ramiseks.",
+                        "title": "L\u00e4heduse olem on aegunud"
+                    }
+                }
+            },
+            "title": "L\u00e4heduse olem on aegunud"
+        }
+    },
+    "title": "L\u00e4hedus"
+}
