@@ -1,0 +1,144 @@
+.gitattributes
+.gitignore
+.pre-commit-config.yaml
+.readthedocs.yaml
+LICENSE.md
+MANIFEST.in
+PVDegradationTools.ipynb
+README.md
+cla-1.0.md
+pyproject.toml
+sign-cla.md
+.github/workflows/publish-to-pypi.yml
+.github/workflows/pytest.yml
+DataLibrary/DegradationDatabase.json
+DataLibrary/kinetic_parameters.json
+DataLibrary/materials.json
+TEMP/.gitignore
+contributors/markcampanelli.md
+contributors/mcbrown042.md
+contributors/shirubana.md
+docs/sphinx/Makefile
+docs/sphinx/make.bat
+docs/sphinx/source/.api.rst.un~
+docs/sphinx/source/.contributing.rst.un~
+docs/sphinx/source/.index.rst.un~
+docs/sphinx/source/.installation.rst.un~
+docs/sphinx/source/.package_overview.rst.un~
+docs/sphinx/source/.whatsnew.rst.un~
+docs/sphinx/source/api.rst
+docs/sphinx/source/api.rst~
+docs/sphinx/source/conf.py
+docs/sphinx/source/conf_old.py
+docs/sphinx/source/index.rst
+docs/sphinx/source/index.rst~
+docs/sphinx/source/installation.rst
+docs/sphinx/source/installation.rst~
+docs/sphinx/source/package_overview.rst
+docs/sphinx/source/package_overview.rst~
+docs/sphinx/source/whatsnew.rst
+docs/sphinx/source/whatsnew.rst~
+docs/sphinx/source/_autosummary/pvdeg.collection.rst
+docs/sphinx/source/_autosummary/pvdeg.degradation.rst
+docs/sphinx/source/_autosummary/pvdeg.design.rst
+docs/sphinx/source/_autosummary/pvdeg.fatigue.rst
+docs/sphinx/source/_autosummary/pvdeg.humidity.rst
+docs/sphinx/source/_autosummary/pvdeg.letid.rst
+docs/sphinx/source/_autosummary/pvdeg.spectral.rst
+docs/sphinx/source/_autosummary/pvdeg.standards.rst
+docs/sphinx/source/_autosummary/pvdeg.temperature.rst
+docs/sphinx/source/_autosummary/pvdeg.utilities.rst
+docs/sphinx/source/_autosummary/pvdeg.weather.rst
+docs/sphinx/source/_static/.gitignore
+docs/sphinx/source/_static/no_scrollbars.css
+docs/sphinx/source/images/PVD_logo.png
+docs/sphinx/source/whatsnew/.v0.1.0.rst.un~
+docs/sphinx/source/whatsnew/.v1.0.rst.swp
+docs/sphinx/source/whatsnew/.v1.0.rst.un~
+docs/sphinx/source/whatsnew/v0.1.0.rst
+docs/sphinx/source/whatsnew/v0.1.0.rst~
+docs/sphinx/source/whatsnew/v1.0.rst~
+pvdeg/__init__.py
+pvdeg/cli.py
+pvdeg/collection.py
+pvdeg/config.py
+pvdeg/degradation.py
+pvdeg/design.py
+pvdeg/fatigue.py
+pvdeg/geospatial.py
+pvdeg/humidity.py
+pvdeg/letid.py
+pvdeg/scenario.py
+pvdeg/spectral.py
+pvdeg/standards.py
+pvdeg/temperature.py
+pvdeg/utilities.py
+pvdeg/weather.py
+pvdeg.egg-info/PKG-INFO
+pvdeg.egg-info/SOURCES.txt
+pvdeg.egg-info/dependency_links.txt
+pvdeg.egg-info/entry_points.txt
+pvdeg.egg-info/requires.txt
+pvdeg.egg-info/top_level.txt
+pvdeg/data/Degradation Database.xlsm
+pvdeg/data/DegradationDatabase.json
+pvdeg/data/OPAL2.pvl
+pvdeg/data/PVL_GenProfile.xlsx
+pvdeg/data/kinetic_parameters.json
+pvdeg/data/materials.json
+pvdeg/data/module test data.csv
+pvdeg/data/psm3.csv
+pvdeg/data/psm3_demo.csv
+pvdeg/data/spectra.csv
+pvdeg/data/wyller data.csv
+pvdeg_tutorials/PVD_logo.png
+pvdeg_tutorials/README.md
+pvdeg_tutorials/_config.yml
+pvdeg_tutorials/_toc.yml
+pvdeg_tutorials/intro.md
+pvdeg_tutorials/pvdeg_logo.png
+pvdeg_tutorials/references.bib
+pvdeg_tutorials/requirements.txt
+pvdeg_tutorials/tutorials/1 - Basics, Humidity, Design.ipynb
+pvdeg_tutorials/tutorials/3 - Spectral Degradation.ipynb
+pvdeg_tutorials/tutorials/4 - Standards.ipynb
+pvdeg_tutorials/tutorials/5 - Weather Database Access.ipynb
+pvdeg_tutorials/tutorials/ASTM Live Demo.ipynb
+pvdeg_tutorials/tutorials/B-O LID - Accelerated Test.ipynb
+pvdeg_tutorials/tutorials/DuraMAT Live Demo.ipynb
+pvdeg_tutorials/tutorials/LETID - Accelerated Test.ipynb
+pvdeg_tutorials/tutorials/LETID - Outdoor Geospatial Demo.ipynb
+pvdeg_tutorials/tutorials/LETID - Outdoor LETID.ipynb
+pvdeg_tutorials/tutorials/LETID - Outdoor Scenario Based on Accelerated Test Result.ipynb
+pvdeg_tutorials/tutorials/LETID - Passivated Wafer.ipynb
+pvdeg_tutorials/tutorials/Van't Hoff Degradation Model.ipynb
+pvdeg_tutorials/tutorials/images/tutorial_1_NSRDB_example.PNG
+pvdeg_tutorials/tutorials/images/xarray.webp
+tests/__init__.py
+tests/sandbox.ipynb
+tests/test_collection.py
+tests/test_degradation.py
+tests/test_design.py
+tests/test_fatigue.py
+tests/test_humidity.py
+tests/test_spectral.py
+tests/test_standards.py
+tests/test_temperature.py
+tests/test_utilities.py
+tests/test_weather.py
+tests/data/WeatherFile_SAM_NREL.csv
+tests/data/epw_pytest.epw
+tests/data/gid_x.csv
+tests/data/gid_x_timeshift.csv
+tests/data/h5_pytest.h5
+tests/data/input_day_pytest.csv
+tests/data/input_year_pytest.csv
+tests/data/materials.json
+tests/data/meta.json
+tests/data/psm3_pytest.csv
+tests/data/pvgis_pytest.csv
+tests/data/spectra_pytest.csv
+tests/data/tmy3_new_pytest.csv
+tests/data/tmy3_pytest.csv
+tests/data/weather_day_pytest.csv
+tests/data/weather_year_pytest.csv
