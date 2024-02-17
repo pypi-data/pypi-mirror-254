@@ -1,0 +1,1 @@
+from .._agg import _st07d as gauss_laguerre
