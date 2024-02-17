@@ -1,0 +1,11 @@
+benchmark>=1.7,<1.8
+binutils
+binutils_linux-64
+build
+cmake>=3.26.1
+gcc==13.*
+gxx==13.*
+libstdcxx-ng=13.*
+ninja
+tbb-devel==2021.6.*
+zstd>=1.5.2,<1.6

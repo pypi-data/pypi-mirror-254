@@ -1,0 +1,45 @@
+package:
+  name: riptide_cpp
+  version: "{{ environ.get('BUILD_VERSION', 'DEV') }}"
+
+source:
+  path: ..
+
+build:
+  number: 0
+  script: "pip install -v --no-deps --no-build-isolation ."
+  # will provide manual run requirements for these
+  ignore_run_exports_from:
+    - tbb-devel
+    - zstd
+
+requirements:
+  host:
+    - benchmark >=1.7,<1.8
+    - cmake >=3.26.1
+    - "{{ compiler('cxx') }}"
+    - ninja >=1.11.0 [unix]
+    - numpy {{ numpy }}
+    - python {{ python }}
+    - scikit-build-core >=0.7.1
+    - setuptools_scm
+    - tbb-devel 2021.6
+    - tbb 2021.6.*
+    - zstd >=1.5,<1.6
+  run:
+    - python {{ python }}
+    - "{{ pin_compatible('numpy', min_pin='x.x', max_pin='x.x') }}"
+    - "{{ pin_compatible('tbb', min_pin='x.x', max_pin='x.x') }}"
+    - "{{ pin_compatible('zstd', min_pin='x.x', max_pin='x.x') }}"
+
+test:
+  imports:
+    - riptide_cpp
+  commands:
+    - 'python -c "import riptide_cpp; print(riptide_cpp, riptide_cpp.__version__)"'
+
+about:
+  home: https://github.com/rtosholdings/riptide_cpp
+  license: BSD 3-Clause License
+  license_file: LICENSE
+  summary: "Python Package with fast math util functions"
