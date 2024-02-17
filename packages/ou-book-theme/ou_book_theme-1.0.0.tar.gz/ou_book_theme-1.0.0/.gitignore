@@ -1,0 +1,9 @@
+_build
+dist
+__pycache__
+node_modules
+ou_book_theme/theme/ou_book_theme/static/scripts
+ou_book_theme/theme/ou_book_theme/static/styles
+.coverage
+.pytest_cache
+.DS_Store
