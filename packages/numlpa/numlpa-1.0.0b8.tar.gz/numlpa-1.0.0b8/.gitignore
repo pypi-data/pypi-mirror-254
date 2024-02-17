@@ -1,0 +1,9 @@
+.venv-path
+__pycache__
+dist
+*.egg-info
+_version.py
+docs/build
+docs/source/package
+build
+*.so
