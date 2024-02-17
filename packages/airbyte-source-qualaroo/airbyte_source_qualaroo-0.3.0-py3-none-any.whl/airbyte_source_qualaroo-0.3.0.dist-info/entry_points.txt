@@ -1,0 +1,2 @@
+[console_scripts]
+source-qualaroo = source_qualaroo.run:run
