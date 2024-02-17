@@ -1,0 +1,17 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/acceptance.py,sha256=VpQhkCpkovNSs0uLNh6iAdJ0WY-gYg0FbSBl8te_D0A,314
+integration_tests/configured_catalog.json,sha256=VnTJT7wD-UygRaFV62N9pghqZcVrz75a7prRLt7Mf5E,241
+integration_tests/invalid_config.json,sha256=Nd4x9wMdI342OQD30yoV49xk9TvXrkskEIEyvwk3vcU,78
+integration_tests/sample_config.json,sha256=0yFb0e8jHcYwk95YW_HVkxTep_4soh-z7MKX3fSvINs,99
+integration_tests/sample_state.json,sha256=yj0WO6sFU4GCciYUBWjzvvfqrBh869doeOC2Pp5EI1Y,3
+source_gutendex/__init__.py,sha256=g5Myk-OTfRXq6inzND-zDVKDR9czg9cqXc0WgjSPAYQ,128
+source_gutendex/manifest.yaml,sha256=UvXGL1cvcipJvlGQi0lycz4mylX_uCpMdus-zN8Nfuc,1232
+source_gutendex/run.py,sha256=3DGyNDr1GvoihyK61RSbjxsffdPb2tg9oygqJmlsGT4,236
+source_gutendex/source.py,sha256=k9ift_epc6mtM-aNjeisc_Ph5Wy836bqp1NzqGDa_ZA,477
+source_gutendex/spec.yaml,sha256=b9VKJQYCP6tO3oX3KD4anGZc6gmTNZQTbY1VAVOR8q0,2411
+source_gutendex/schemas/books.json,sha256=VYo6lz4bNgp8OTahcdrRR5Iv-2tvqTTZ2tFiTW7Q79M,2256
+airbyte_source_gutendex-0.1.0.dist-info/METADATA,sha256=HpdXiSUOND72DS2hbBSEotzFEaSNcN_R6cfm7WKP9Hk,4211
+airbyte_source_gutendex-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_gutendex-0.1.0.dist-info/entry_points.txt,sha256=uJMvwRLwvAM2rhh5eVAaCGYwFnGwrBHT1Fw9060YgP8,60
+airbyte_source_gutendex-0.1.0.dist-info/top_level.txt,sha256=HyRBwvQFJAARBteVqsRleWhHoi1xdqukSAJtKDmetdo,34
+airbyte_source_gutendex-0.1.0.dist-info/RECORD,,
