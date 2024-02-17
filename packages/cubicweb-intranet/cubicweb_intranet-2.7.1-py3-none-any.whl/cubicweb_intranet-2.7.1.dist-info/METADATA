@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: cubicweb-intranet
+Version: 2.7.1
+Summary: an intranet built on the CubicWeb framework
+Home-page: http://cubicweb.org/project/cubicweb-intranet
+Author: Logilab
+Author-email: contact@logilab.fr
+License: LGPL
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
+Requires-Dist: cubicweb <5.0.0,>=4.0.0
+Requires-Dist: cubicweb-api <0.13.0,>=0.12.0
+Requires-Dist: cubicweb-blog <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-book <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-bootstrap <3.0.0,>=2.0.0
+Requires-Dist: cubicweb-card <3.0.0,>=2.0.0
+Requires-Dist: cubicweb-comment <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-editorjs <0.3.0,>=0.2.0
+Requires-Dist: cubicweb-event <3.0.0,>=2.0.0
+Requires-Dist: cubicweb-file <5.0.0,>=4.0.0
+Requires-Dist: cubicweb-folder <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-link <3.0.0,>=2.0.0
+Requires-Dist: cubicweb-localperms <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-oauth2 <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-preview <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-rqlcontroller <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-searchui <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-sentry <2.0.0,>=1.0.0
+Requires-Dist: cubicweb-signedrequest <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-tag <4.0.0,>=3.0.0
+Requires-Dist: cubicweb-task <3.0.0,>=2.0.0
+Requires-Dist: cubicweb-prometheus <0.6.0,>=0.5.0
+
+an intranet built on the CubicWeb framework
