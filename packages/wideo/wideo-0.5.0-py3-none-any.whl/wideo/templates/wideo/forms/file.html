@@ -1,0 +1,118 @@
+{% extends "wagtailadmin/shared/field.html" %}
+{% load i18n %}
+{% load settings %}
+{% block form_field %}
+    <input type="hidden" name="{{ widget.name }}" required>
+
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+
+            return cookieValue;
+        }
+
+        function setSubmitDisabled(disabled) {
+            for (const button of document.getElementsByTagName("input")) {
+                if (button.type === "submit") {
+                    button.disabled = disabled;
+                }
+            }
+        }
+
+        const uploadInputs = document.getElementsByName('{{ widget.name }}');
+        const hiddenInput = uploadInputs.item(uploadInputs.length - 1);
+    </script>
+
+    {% include "django/forms/widgets/input.html" %}
+
+    <span>{# Upload progress or error message #}</span>
+
+    <script>
+        const videoFileInputs = document.getElementsByName('{{ widget.name }}');
+        const videoFileInput = videoFileInputs.item(videoFileInputs.length - 1);
+        const spans = document.getElementsByTagName("span");
+        const progress = spans[spans.length - 1];
+        videoFileInput.removeAttribute("name");
+        videoFileInput.removeAttribute("required");
+
+        async function uploadFile(file) {
+            videoFileInput.disabled = true;
+            progress.innerText = "0%";
+            setSubmitDisabled(true);
+
+            const response = await fetch('{% url "wideo:upload-prepare" %}', {
+                method: "POST",
+                headers: { "x-csrftoken": getCookie("csrftoken") },
+            });
+            const uploadId = await response.text();
+
+            let failures = 0;
+            let index = 0;
+            let offset = 0;
+            const chunkSize = {% settings "WIDEO_CHUNK_SIZE" 5242880 %}; {# 5242880 = 5 * 1024 * 1024 #}
+
+            while (offset < file.size) {
+                const chunk = file.slice(offset, offset + chunkSize);
+                const success = await uploadChunk(uploadId, index, chunk);
+
+                if (success) {
+                    index++;
+                    offset += chunkSize;
+                    progress.innerText = (Math.round(100 * offset / file.size)) + "%";
+                } else {
+                    failures++;
+                    await sleep();
+                }
+
+                if (failures >= 1) {
+                    videoFileInput.disabled = false;
+                    videoFileInput.value = null;
+                    progress.innerText = "Upload failed";
+                    return;
+                }
+            }
+
+            hiddenInput.value = uploadId;
+            videoFileInput.disabled = false;
+            progress.innerText = "";
+            setSubmitDisabled(false);
+            window.dispatchEvent(new CustomEvent(
+                "wideo:video-upload-success",
+                { detail: { id: uploadId } },
+            ));
+        }
+
+        async function uploadChunk(uploadId, index, blob) {
+            const form = new FormData();
+            form.append("upload_id", uploadId);
+            form.append("index", index)
+            form.append("blob", blob);
+            const response = await fetch('{% url "wideo:upload-chunk" %}', {
+                method: "PUT",
+                body: form,
+                headers: { "x-csrftoken": getCookie("csrftoken") },
+            });
+            return response.ok;
+        }
+
+        async function sleep(millis = 1000) {
+            return new Promise(resolve => setTimeout(resolve, millis));
+        }
+
+        videoFileInput.addEventListener("input", event => uploadFile(event.target.files[0]));
+    </script>
+{% endblock %}

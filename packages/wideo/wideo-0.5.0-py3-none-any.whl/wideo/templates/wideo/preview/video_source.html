@@ -1,0 +1,49 @@
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+<script>
+    /**
+     * This script will add an event listener to be able to preview the video
+     * that the user has uploaded.
+     *
+     * It expects to find an HTMLVideoElement with id="player", where the Plyr
+     * video player will be mounted. Add this script at the end of the
+     * template (or at least after declaring the video element container).
+     */
+    const player = new Plyr("#player");
+
+    // Set the fetch endpoint URL using a placeholder ID
+    const baseUrl = '{% url "wideo:get-uploaded-video-render" uploaded_video_id=0 %}';
+
+    /**
+     * Given the ID of an UploadedVideo, fetch its render information and set it
+     * as the source of the Plyr video container.
+     * @param uploadedVideoId ID of the Uploaded Video to fetch.
+     */
+    function setVideoSource(uploadedVideoId) {
+        const url = baseUrl.replace("0", uploadedVideoId);
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "x-csrftoken": getCookie("csrftoken"),
+            },
+        }).then(response => {
+            response.json().then(data => {
+                player.source = data;
+                player.play();
+            });
+        });
+    }
+
+    // Whenever a video file is uploaded, fetch the necessary information to
+    // display it using Plyr.
+    window.addEventListener("wideo:video-upload-success", (event) => {
+        if (!event.detail?.id) return;
+        setVideoSource(`${event.detail.id}`);
+    });
+
+    // If the template comes with a current_video_id (like in the video edit
+    // view), display that video from the beginning
+    {% if current_video_id %}
+        setVideoSource('{{ current_video_id }}')
+    {% endif %}
+</script>

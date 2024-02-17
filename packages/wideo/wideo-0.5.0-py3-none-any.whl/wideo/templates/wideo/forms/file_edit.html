@@ -1,0 +1,6 @@
+{% extends "wideo/forms/file.html" %}
+{% load wagtailadmin_tags %}
+{% block form_field %}
+    <span>Current file: {{ video.upload }}</span>
+    {{ field|render_with_errors }}
+{% endblock %}
