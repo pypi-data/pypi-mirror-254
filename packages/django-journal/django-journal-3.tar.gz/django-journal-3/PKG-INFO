@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: django-journal
+Version: 3
+Summary: Keep a structured -- i.e. not just log strings -- journal of events in your applications
+Home-page: http://dev.entrouvert.org/projects/django-journal/
+Download-URL: http://repos.entrouvert.org/django-journal.git/
+Author: Entr'ouvert
+Author-email: info@entrouvert.com
+License: AGPLv3
