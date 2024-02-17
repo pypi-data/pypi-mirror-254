@@ -1,0 +1,7 @@
+
+[dev]
+ruff
+
+[test]
+pytest
+pytest-cov
