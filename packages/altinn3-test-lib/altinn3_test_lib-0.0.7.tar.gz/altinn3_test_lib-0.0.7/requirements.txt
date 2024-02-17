@@ -1,0 +1,9 @@
+--extra-index-url https://europe-north1-python.pkg.dev/artifact-registry-14da/ssb-python/
+pytest~=7.2.1
+pytest_mock
+ssb-altinn3-util
+google-cloud-pubsub
+toml
+build
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+aiohttp>=3.9.2 # not directly required, pinned by Snyk to avoid a vulnerability

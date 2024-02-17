@@ -1,0 +1,85 @@
+{
+  "id":2463,
+  "instance_id":"50123456/6dd11044-12a5-4251-be6f-30ef1dffda0f",
+  "reportee_id":12,
+  "batch_id":22,
+  "created_at":"2023-01-18T13:29:20.111368",
+  "completed_at":null,
+  "instance_json":{
+    "id":"50169582/5ce8a11d-54a0-4ca6-9741-40af21463a63",
+    "instanceOwner":{
+      "partyId":"50169582",
+      "organisationNumber":"999888777"
+    },
+    "appId":"ssb/ra1000-01",
+    "org":"ssb",
+    "selfLinks":{
+      "platform":"https://platform.tt02.altinn.no/storage/api/v1/instances/50169582/5ce8a11d-54a0-4ca6-9741-40af21463a63"
+    },
+    "dueBefore":"2023-01-01T00:00:00Z",
+    "visibleAfter":"2023-01-01T00:00:00Z",
+    "process":{
+      "started":"2023-01-18T13:29:20.0845801Z",
+      "startEvent":"StartEvent_1",
+      "currentTask":{
+        "flow":2,
+        "started":"2023-01-18T13:29:20.0845895Z",
+        "elementId":"Task_1",
+        "name":"Utfylling",
+        "altinnTaskType":"data",
+        "flowType":"CompleteCurrentMoveToNext"
+      }
+    },
+    "status":{
+      "isArchived":false,
+      "isSoftDeleted":false,
+      "isHardDeleted":false,
+      "readStatus":"Unread"
+    },
+    "data":[
+      {
+        "id":"e71c57b3-e2ec-4ed1-9fc4-1b363a2dc4aa",
+        "instanceGuid":"5ce8a11d-54a0-4ca6-9741-40af21463a63",
+        "dataType":"A3_RA-1000_M",
+        "contentType":"application/xml",
+        "blobStoragePath":"ssb/ra1000-01/5ce8a11d-54a0-4ca6-9741-40af21463a63/data/e71c57b3-e2ec-4ed1-9fc4-1b363a2dc4aa",
+        "selfLinks":{
+          "platform":"https://platform.tt02.altinn.no/storage/api/v1/instances/50169582/5ce8a11d-54a0-4ca6-9741-40af21463a63/data/e71c57b3-e2ec-4ed1-9fc4-1b363a2dc4aa"
+        },
+        "size":1484,
+        "locked":false,
+        "refs":[
+
+        ],
+        "isRead":false,
+        "tags":[
+
+        ],
+        "created":"2023-01-18T13:29:20.3177313Z",
+        "createdBy":"971526920",
+        "lastChanged":"2023-01-18T13:29:20.3177313Z",
+        "lastChangedBy":"971526920"
+      }
+    ],
+    "presentationTexts":{
+      "skjemaNavn":"Utenriksøkonomi (RA-0532)",
+      "periodeFritekst":"juni 2022"
+    },
+    "dataValues":{
+      "externalShipmentReference":"7fbc359b0814bfddd0ce7a1d489c33e7",
+      "sendersReference":"cca77ea5-67ad-4a67-916d-cf7db454f7cb",
+      "identifyingFields":"RA-1000A3, juni 2022, ATB1234567, 239839",
+      "raNummer":"RA-1000",
+      "skjemaVersjon":"1.0",
+      "undersoekelsesNr":"436",
+      "periodeType":"MND",
+      "periodeNummer":"06",
+      "periodeAAr":"2022",
+      "enhetsOrgNr":"999888777"
+    },
+    "created":"2023-01-18T13:29:20.1113685Z",
+    "createdBy":"971526920",
+    "lastChanged":"2023-01-18T13:29:20.4692732Z",
+    "lastChangedBy":"971526920"
+  }
+}
