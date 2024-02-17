@@ -1,0 +1,3 @@
+include README.md
+recursive-include uzbekistan/fixtures *
+recursive-include uzbekistan/migrations *
