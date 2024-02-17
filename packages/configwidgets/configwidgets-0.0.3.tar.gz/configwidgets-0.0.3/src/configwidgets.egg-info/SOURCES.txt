@@ -1,0 +1,13 @@
+LICENSE
+Readme.md
+pyproject.toml
+src/configwidgets/__init__.py
+src/configwidgets/checkbox.py
+src/configwidgets/datetime.py
+src/configwidgets/lineedit.py
+src/configwidgets/spinbox.py
+src/configwidgets.egg-info/PKG-INFO
+src/configwidgets.egg-info/SOURCES.txt
+src/configwidgets.egg-info/dependency_links.txt
+src/configwidgets.egg-info/requires.txt
+src/configwidgets.egg-info/top_level.txt
