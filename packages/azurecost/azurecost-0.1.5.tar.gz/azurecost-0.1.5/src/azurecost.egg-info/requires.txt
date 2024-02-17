@@ -1,0 +1,10 @@
+tabulate
+click>=7.0
+retrying
+azure-identity
+azure-mgmt-core
+azure-mgmt-costmanagement
+azure-mgmt-resource
+
+[test]
+tox
