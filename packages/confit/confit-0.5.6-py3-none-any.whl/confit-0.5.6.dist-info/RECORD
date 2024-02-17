@@ -1,0 +1,17 @@
+confit/__init__.py,sha256=-RPvSpfkXlliOHMwqHy-2GnLbKjXzvYMkc4QVbQVptc,305
+confit/autoreload.py,sha256=wUqleuSXtyedJ2ffUdmUrAbvFrPHFkrbsCFOFRPaUTM,963
+confit/cli.py,sha256=c9PS4FREZRNXfSvRmkdI6rGE613fWWJ9tIO-LYamhUQ,6357
+confit/config.py,sha256=7QSHvvKM4iarohb0frYcl2RLfyqJSaQfrBY2MH5T3Zk,17320
+confit/errors.py,sha256=w36IaEaClpVdowSlQuGD-kH42kXK6dD0odNlkarZWXY,11260
+confit/registry.py,sha256=TdvH6exYs1YLo1xjoVhexVG10KDKlcSpzd1UxoRT_6U,19421
+confit/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+confit/utils/collections.py,sha256=bd0NgWirK_Sz3fYmp23LfiWZNIAnRA6cOEapZj665HY,1982
+confit/utils/eval.py,sha256=qfL9ACCSwjvgV9ajlIIe-mKb7ye8IeyJc4JjCOFPGyE,1940
+confit/utils/random.py,sha256=nAxQJclSDCK9FgIRYMge_s66v_EMo-L6xLCVppcY4Mg,3115
+confit/utils/settings.py,sha256=KOEx-WJhlkti89RVtT5fseVpZy4TglqgWaNb_QXC6No,291
+confit/utils/xjson.py,sha256=_AzVc3-jD2bQok-NLDH4xuMko_Ur7oIwZnsf9EjDt34,7022
+confit-0.5.6.dist-info/LICENSE,sha256=X_IjjaJC1EaHgD7qLLabFb91xhyzY7-Xkq_N6-mpU1c,1485
+confit-0.5.6.dist-info/METADATA,sha256=wHBE__vG8Sgr2J9ZRHmNImKWPVEu1Dfsg06UWbZVbDU,7572
+confit-0.5.6.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+confit-0.5.6.dist-info/top_level.txt,sha256=3RwRiQrp5L4nr6Eli1Z-sYMyhj18gCfXfWNYewb6WA4,7
+confit-0.5.6.dist-info/RECORD,,
