@@ -1,0 +1,27 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# COCO128 dataset https://www.kaggle.com/ultralytics/coco128 (first 128 images from COCO train2017) by Ultralytics
+# Example usage: yolo train data=coco128.yaml
+# parent
+# ├── ultralytics
+# └── datasets
+#     └── coco128  ← downloads here (7 MB)
+
+
+path: /Users/dengfangjin/code/cv/1-classification/classification/outputs/dog10  # dataset root dir
+train: annotations/train.txt # train images (relative to 'path') 118287 images
+val: annotations/val.txt # val images (relative to 'path') 5000 images
+test: annotations/val.txt # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# Classes
+nc: 10
+names:
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+  4: 4
+  5: 5
+  6: 6
+  7: 7
+  8: 8
+  9: 9
