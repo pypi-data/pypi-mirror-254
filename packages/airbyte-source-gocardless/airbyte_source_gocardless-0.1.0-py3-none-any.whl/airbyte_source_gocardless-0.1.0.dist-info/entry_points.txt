@@ -1,0 +1,2 @@
+[console_scripts]
+source-gocardless = source_gocardless.run:run
