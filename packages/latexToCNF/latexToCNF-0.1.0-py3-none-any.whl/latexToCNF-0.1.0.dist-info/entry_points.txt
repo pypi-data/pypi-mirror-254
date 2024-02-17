@@ -1,0 +1,3 @@
+[console_scripts]
+LatexToCNF = LatexToCNF.__main__:main
+
