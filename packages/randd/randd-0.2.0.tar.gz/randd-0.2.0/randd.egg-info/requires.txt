@@ -1,0 +1,9 @@
+numpy
+scipy
+osqp
+
+[dev]
+flake8
+
+[test]
+pytest
