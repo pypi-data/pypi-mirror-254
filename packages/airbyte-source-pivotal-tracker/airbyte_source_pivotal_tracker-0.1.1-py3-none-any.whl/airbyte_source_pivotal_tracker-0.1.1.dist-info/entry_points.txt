@@ -1,0 +1,2 @@
+[console_scripts]
+source-pivotal-tracker = source_pivotal_tracker.run:run
