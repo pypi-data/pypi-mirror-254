@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+setup.py
+gaussian_adaptive_attention/GaussianBlock.py
+gaussian_adaptive_attention/__init__.py
+gaussian_adaptive_attention.egg-info/PKG-INFO
+gaussian_adaptive_attention.egg-info/SOURCES.txt
+gaussian_adaptive_attention.egg-info/dependency_links.txt
+gaussian_adaptive_attention.egg-info/requires.txt
+gaussian_adaptive_attention.egg-info/top_level.txt
+paper/manuscript.pdf
