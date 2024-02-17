@@ -1,0 +1,100 @@
+from typing import Optional
+import time
+import contextvars
+from tatara_logging.utils import _gen_id_from_trace_and_event
+
+from tatara_logging.logging_types import LogType
+from tatara_logging._record_keys import (
+    LOG_FORMAT_VERSION,
+    LOG_RECORD_KEY_HAS_RATING,
+    LOG_RECORD_KEY_ID,
+    LOG_RECORD_KEY_PROJECT,
+    LOG_RECORD_KEY_RATING,
+    LOG_RECORD_KEY_TIMESTAMP,
+    LOG_RECORD_KEY_TYPE,
+    LOG_RECORD_KEY_VERSION,
+)
+from tatara_logging.trace import Trace
+from tatara_logging.span import Span
+from tatara_logging.rating import Rating
+from tatara_logging._background_queue_logger import BackgroundLazyQueueLogger
+from network._tatara_network_client import TataraNetworkClient
+
+DEFAULT_QUEUE_SIZE = 1000
+DEFAULT_FLUSH_INTERVAL = 60.0
+
+_tatara_client_state = None
+
+
+class TataraClientState:
+    current_trace: contextvars.ContextVar[Optional[Trace]]
+    current_span: contextvars.ContextVar[Optional[Span]]
+
+    def __init__(
+        self,
+        project: str,
+        api_key: Optional[str],
+        is_dev: bool = False,
+        queue_size: int = DEFAULT_QUEUE_SIZE,
+        flush_interval: float = DEFAULT_FLUSH_INTERVAL,
+    ):
+        self.project = project
+        self.api_key = api_key
+        self.is_dev = is_dev
+        self.current_trace = contextvars.ContextVar("current_trace", default=None)
+        self.current_span = contextvars.ContextVar("current_span", default=None)
+
+        self.tatara_network_client = TataraNetworkClient(
+            api_key=self.api_key, is_dev=is_dev
+        )
+        self.bglq_logger = BackgroundLazyQueueLogger(
+            queue_size, flush_interval=flush_interval, api_key=api_key
+        )
+
+    def log_rating(
+        self, rating: Rating, trace_id: str, span_event: Optional[str] = None
+    ):
+        id = _gen_id_from_trace_and_event(trace_id, span_event)
+        now = time.time()
+
+        self.bglq_logger.log(
+            {
+                LOG_RECORD_KEY_PROJECT: self.project,
+                LOG_RECORD_KEY_TYPE: LogType.TRACE
+                if span_event is None
+                else LogType.SPAN,
+                LOG_RECORD_KEY_ID: id,
+                LOG_RECORD_KEY_TIMESTAMP: now,
+                LOG_RECORD_KEY_VERSION: LOG_FORMAT_VERSION,
+                LOG_RECORD_KEY_RATING: rating,
+                LOG_RECORD_KEY_HAS_RATING: 1,
+            }
+        )
+
+        if span_event is not None:
+            self.bglq_logger.log(
+                {
+                    LOG_RECORD_KEY_PROJECT: self.project,
+                    LOG_RECORD_KEY_TYPE: LogType.TRACE,
+                    LOG_RECORD_KEY_ID: id,
+                    LOG_RECORD_KEY_TIMESTAMP: now,
+                    LOG_RECORD_KEY_VERSION: LOG_FORMAT_VERSION,
+                    LOG_RECORD_KEY_HAS_RATING: 1,
+                }
+            )
+
+
+def _get_client_state() -> TataraClientState:
+    if _tatara_client_state is None:
+        raise Exception(
+            "Tatara Client State not initialized. Please call init() before using the client."
+        )
+    return _tatara_client_state
+
+
+def _get_network_client() -> TataraNetworkClient:
+    if _tatara_client_state is None:
+        raise Exception(
+            "Tatara Client State not initialized. Please call init() before using the client."
+        )
+    return _tatara_client_state.tatara_network_client
