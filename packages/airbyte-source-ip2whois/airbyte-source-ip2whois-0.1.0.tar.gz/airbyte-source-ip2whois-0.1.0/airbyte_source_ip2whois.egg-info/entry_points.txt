@@ -1,0 +1,2 @@
+[console_scripts]
+source-ip2whois = source_ip2whois.run:run
