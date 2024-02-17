@@ -1,0 +1,16 @@
+create_cohere_connector/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+create_cohere_connector/_templates_/.gitignore.jinja,sha256=k8e-DOj0fYnXYjlLOCHoN5GBgtkNXHAYEfEWr3_YZV0,3238
+create_cohere_connector/_templates_/app.py.jinja,sha256=9dchawkJT_NtQtmfCe7Esuys6tCgXo4dYYc9d4BuygM,1803
+create_cohere_connector/_templates_/client.py.jinja,sha256=Gn4kQKBHtkW0jKV8ivQBOVbVNKwjKFhUO2MBoDTCjiM,1127
+create_cohere_connector/_templates_/datamodels.py.jinja,sha256=np9UWTRKa6ekCvgbfhl-39S4Ot0ygeo3_6ToDy3ViWQ,1578
+create_cohere_connector/_templates_/deploy_template.py.jinja,sha256=-RKKGyFtgJVdxzsrmayO8NJrK0rStz5l0qaDWkxjDXI,376
+create_cohere_connector/_templates_/env_template.jinja,sha256=-lot-GoLs4LfRcsO85AVzE2ajtoAa0v-QwkhV8UmnvE,66
+create_cohere_connector/_templates_/project_template.py.jinja,sha256=WwkXTiwr1zJFOn0B1KqwaNcMSwg1Q9dUcxcGlDstzBc,460
+create_cohere_connector/_templates_/README.md.jinja,sha256=jadGREUvdv-ZBILJZecWdVshURaVDYmYyPulOi9S9d0,1351
+create_cohere_connector/cli.py,sha256=hBHgUTaycapJ5nqJbAdVAbxOZ8mpVEGWJbgOHPQ0928,1193
+create_cohere_connector/scaffold.py,sha256=mU5LwhNeH7HoKnu4Gd6eaD9-8JPktPaYxRyMMeqdids,4366
+create_cohere_connector-0.1.10.dist-info/entry_points.txt,sha256=lggrFyp-RcJCYaeP8kytfUCa84uQ_Sa66Q6v3YFDI2c,75
+create_cohere_connector-0.1.10.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+create_cohere_connector-0.1.10.dist-info/METADATA,sha256=lZwgGSPyhLfsaAX92RqhPTqmgiflHhrGstJ-YrWfUj8,3593
+create_cohere_connector-0.1.10.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+create_cohere_connector-0.1.10.dist-info/RECORD,,
