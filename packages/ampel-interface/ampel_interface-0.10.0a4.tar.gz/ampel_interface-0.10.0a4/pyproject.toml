@@ -1,0 +1,109 @@
+[tool.poetry]
+name = "ampel-interface"
+version = "0.10.0a4"
+description = "Base classes for the Ampel analysis platform"
+authors = ["Valery Brinnel"]
+maintainers = ["Jakob van Santen <jakob.van.santen@desy.de>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+homepage = "https://ampelproject.github.io"
+repository = "https://github.com/AmpelProject/Ampel-interface"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+packages = [{include = "ampel"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2"
+xxhash = "^3.0.0"
+PyYAML = "^6.0.0"
+ujson = "^5.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+mypy = "^1.8.0"
+types-PyYAML = "^6.0.12"
+types-setuptools = "^65.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest-mock = "^3.12.0"
+ruff = "^0.1.13"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "setuptools>=40.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+filterwarnings = [
+    "error",
+    # Expected `list[definition-ref]` but got `tuple` - serialized value may not be as expected
+    "ignore:Pydantic serializer warnings:UserWarning",
+    # UserWarning: Field name "job_sig" shadows an attribute in parent "AbsEventUnit"
+    "ignore:Field name \".*\" shadows an attribute in parent:UserWarning",
+]
+
+[tool.mypy]
+namespace_packages = true
+show_error_codes = true
+check_untyped_defs = true
+disallow_untyped_calls = true
+plugins = [
+    "pydantic.mypy"
+]
+
+[tool.pydantic-mypy]
+init_typed = true
+
+[[tool.mypy.overrides]]
+module = "ampel.abstract.*"
+disable_error_code = "empty-body"
+
+[[tool.mypy.overrides]]
+module = "bson.*"
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py310"
+exclude = [
+    "ampel/base/AlternativeAmpelBaseModel.py"
+]
+
+[tool.ruff.lint]
+select = [
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "I",
+    "UP",
+    "B",
+    "DTZ",
+    "T20",
+    "PT",
+    "RET",
+    "SLF",
+    "SIM",
+    # "ARG", # sometimes your arguments have to conform to an interface
+    # "ERA", # seems to prohibit all comments, that's bad
+    "PL",
+    "PERF",
+    "RUF",
+]
+ignore = [
+    "E741", # ambiguous variable name
+    "UP009", # UTF-8 encoding declaration is unnecessary
+    "PLR09", # too many (arguments|branches)
+    "PLR2004", # Magic value used in comparison
+]
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
