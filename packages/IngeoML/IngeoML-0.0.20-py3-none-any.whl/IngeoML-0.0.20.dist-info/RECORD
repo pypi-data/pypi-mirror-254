@@ -1,0 +1,17 @@
+IngeoML/__init__.py,sha256=QzjdOHufobb-Mp5H1gA7URiAaCnr-Sp7885FA1f5NVs,785
+IngeoML/bootstrap.py,sha256=HVpWKDYMKYs_9hqVemIj1YLN53h3p192JgdNen1SAYI,9237
+IngeoML/cluster.py,sha256=D8K0XF6fj9WA5Yx4YYImUDcyFhqY7e08wUzTw7HI-hw,1556
+IngeoML/feature_selection.py,sha256=BccmgZLgQJ7Va7LJLkK5onXWyRrhjdhsljoSewC6d-s,5834
+IngeoML/optimizer.py,sha256=z5xQDKwtyHOmNgdq5PnZ3W9LVatiW8sRl2a56Ok9tuA,18573
+IngeoML/utils.py,sha256=q_LcsL-EF7qMYNp52xqGsbXTvt1vgkgvqHTTqAFaJ5U,16567
+IngeoML/tests/__init__.py,sha256=UJE6gCjJC-ZAqVAMEBd2oVwuCqMBuyzCnEROFusAT2g,592
+IngeoML/tests/test_bootstrap.py,sha256=Ngvzhjzd_qqw-g3GKzYLv-6TZBee1ztOBYJZ7wE6X18,2881
+IngeoML/tests/test_cluster.py,sha256=QtZZwx50yqK-P4Gz31TJTJrQ5PnxXh6O3sqif1UutrQ,908
+IngeoML/tests/test_feature_selection.py,sha256=YkVZgzPxwDGJKsg4TMVeIM_45j9MywzetLaRpNOD9L0,1837
+IngeoML/tests/test_optimizer.py,sha256=y9ROC4r00CiKK30-EQeah_h2YWkJ3bIhiKP7I4NWYzo,12538
+IngeoML/tests/test_utils.py,sha256=qr3FPhvXtH_NBxn_UBQcOqJGh3-lvkq-HlhJNAps01M,11053
+IngeoML-0.0.20.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+IngeoML-0.0.20.dist-info/METADATA,sha256=uRV2lFYC5ScyWPOgt4iT0KpVyCIaNJiQ9HbqCV1Z3Yo,139
+IngeoML-0.0.20.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+IngeoML-0.0.20.dist-info/top_level.txt,sha256=P_ab82AmCw6O6vzv0C_xrTZBAa7Y-gjYND83OZ1Xf5k,8
+IngeoML-0.0.20.dist-info/RECORD,,
