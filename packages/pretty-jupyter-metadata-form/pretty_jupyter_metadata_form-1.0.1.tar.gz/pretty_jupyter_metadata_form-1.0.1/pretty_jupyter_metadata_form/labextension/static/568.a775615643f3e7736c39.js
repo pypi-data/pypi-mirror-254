@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_jans_code_pretty_jupyter_metadata_form=self.webpackChunk_jans_code_pretty_jupyter_metadata_form||[]).push([[568],{568:(t,a,e)=>{e.r(a),e.d(a,{default:()=>r});const r=[{id:"@jans-code/pretty_jupyter_metadata_form:pjmdf",autoStart:!0,activate:t=>{console.log("Pretty Jupyter metadata-form activated")}}]}}]);
