@@ -1,0 +1,2 @@
+[console_scripts]
+source-firebolt = source_firebolt.run:run
