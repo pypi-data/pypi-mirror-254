@@ -1,0 +1,170 @@
+Metadata-Version: 2.1
+Name: chaosmagpy
+Version: 0.13
+Summary: Evaluates the CHAOS geomagnetic field model and other models of Earth's magnetic field.
+Author-email: Clemens Kloss <ancklo@space.dtu.dk>
+Maintainer-email: Clemens Kloss <ancklo@space.dtu.dk>
+License: 
+        License
+        =======
+        
+        All ChaosMagPy source code and documentation is Copyright (C) Clemens Kloss
+        and, unless explicitly stated, licensed under the MIT license.
+        
+        The exception is with regard to some of the stand-alone example scripts in the
+        ChaosMagPy documentation gallery, which are licensed under the GNU Lesser
+        General Public License as published by the Free Software Foundation, either
+        version 3 of the License, or (at your option) any later version. This is
+        explicitly stated in the header of these example scripts.
+        
+        MIT License
+        -----------
+        
+        Copyright (C) 2024 Clemens Kloss.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/ancklo/ChaosMagPy
+Project-URL: Documentation, https://chaosmagpy.readthedocs.io/en/
+Project-URL: Repository, https://github.com/ancklo/ChaosMagPy.git
+Project-URL: Issues, https://github.com/ancklo/ChaosMagPy/issues
+Project-URL: Changelog, https://github.com/ancklo/ChaosMagPy/blob/master/CHANGELOG.rst
+Keywords: CHAOS,geomagnetic field,spherical harmonics model,secular variation,core field,crustal field,magnetospheric field
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: Cython
+Requires-Dist: h5py
+Requires-Dist: matplotlib >=3
+Requires-Dist: pyshp >=2.3.1
+Requires-Dist: hdf5storage >=0.1.17
+
+
+Overview
+========
+
+ChaosMagPy is a simple Python package for evaluating the CHAOS geomagnetic
+field model and other models of Earth's magnetic field. The latest CHAOS model
+is available at http://www.spacecenter.dk/files/magnetic-models/CHAOS-7/. To
+quickly get started, download the complete working example including the latest
+model under the "Forward code" section.
+
+Documentation
+-------------
+
+The documentation of the current release is available on Read the Docs
+(https://chaosmagpy.readthedocs.io/en/)
+
+|pypi| |docs| |doi| |license|
+
+.. |pypi| image:: https://badge.fury.io/py/chaosmagpy.svg
+   :target: https://badge.fury.io/py/chaosmagpy/
+
+.. |docs| image:: https://readthedocs.org/projects/chaosmagpy/badge/
+   :target: https://chaosmagpy.readthedocs.io/en/
+   :alt: Documentation Status
+
+.. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
+   :target: license.html
+
+.. |doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3352398.svg
+   :target: https://doi.org/10.5281/zenodo.3352398
+
+Citation
+--------
+
+To reference ChaosMagPy in publications, please cite the package itself
+
+https://doi.org/10.5281/zenodo.3352398
+
+and some of the following:
+
+Finlay, C.C., Kloss, C., Olsen, N., Hammer, M. Toeffner-Clausen, L.,
+Grayver, A and Kuvshinov, A. (2020), The CHAOS-7 geomagnetic field model and
+observed changes in the South Atlantic Anomaly, Earth Planets and Space 72,
+doi:10.1186/s40623-020-01252-9
+
+Finlay, C.C., Olsen, N., Kotsiaros, S., Gillet, N. and Toeffner-Clausen, L. (2016),
+Recent geomagnetic secular variation from Swarm and ground observatories
+as estimated in the CHAOS-6 geomagnetic field model Earth Planets Space,
+Vol 68, 112. doi: 10.1186/s40623-016-0486-1
+
+Olsen, N., Luehr, H., Finlay, C.C., Sabaka, T. J., Michaelis, I., Rauberg, J. and Toeffner-Clausen, L. (2014),
+The CHAOS-4 geomagnetic field model, Geophys. J. Int., Vol 197, 815-827,
+doi: 10.1093/gji/ggu033.
+
+Olsen, N., Luehr, H., Sabaka, T.J., Mandea, M. ,Rother, M., Toeffner-Clausen, L. and Choi, S. (2006),
+CHAOS — a model of Earth's magnetic field derived from CHAMP, Ørsted, and SAC-C magnetic satellite data,
+Geophys. J. Int., vol. 166 67-75
+
+Installation
+============
+
+ChaosMagPy relies on the following (some are optional):
+
+* python>=3.6
+* numpy
+* scipy
+* pandas
+* cython
+* h5py
+* hdf5storage>0.1.17
+* matplotlib>=3
+* pyshp>=2.3.1
+* cdflib (optional)
+* lxml (optional)
+
+Specific installation steps using the conda/pip package managers are as follows:
+
+1. Install packages with conda:
+
+   >>> conda install python numpy scipy pandas cython pyshp matplotlib h5py lxml
+
+2. Install remaining packages with pip:
+
+   >>> pip install cdflib hdf5storage
+
+3. Finally install ChaosMagPy either with pip from PyPI:
+
+   >>> pip install chaosmagpy
+
+   Or, if you have downloaded the distribution archives from the Python Package
+   Index (PyPI) at https://pypi.org/project/chaosmagpy/#files, install
+   ChaosMagPy using the built distribution:
+
+   >>> pip install chaosmagpy-x.x-py3-none-any.whl
+
+   replacing  ``x.x`` with the relevant version, or using the source
+   distribution:
+
+   >>> pip install chaosmagpy-x.x.tar.gz
