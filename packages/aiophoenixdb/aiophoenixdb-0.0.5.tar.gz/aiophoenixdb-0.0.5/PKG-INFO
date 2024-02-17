@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: aiophoenixdb
+Version: 0.0.5
+Summary: Asyncio with phoenixdb
+Author: Nick Hao
+Author-email: nickwike72@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: betterproto>=2.0.0b6
+Requires-Dist: aiohttp>=3.8.6
+Requires-Dist: requests-gssapi
+Requires-Dist: requests~=2.31.0
+Requires-Dist: gssapi
+
+===================================
+Quickly start with ``aiophoenixdb``
+===================================
+
+What is ``aiophoenixdb``
+========================
+
+This project is based on the Apache Software Foundation open source
+project Apache-Phoenixdb project to transform the call implementation of
+the Avatica protocol in the code from the original synchronous mode to
+asynchronous call.
+
+Getting started
+===============
+
+How to install
+>>>>>>>>>>>>>>
+
+.. code-block:: shell
+
+   pip install aiophoenixdb
+
+
+How to use
+>>>>>>>>>>
+
+-  Query sample
+
+.. code-block:: python
+
+   import aiophoenixdb
+   import asyncio
+
+   PHOENIX_CONFIG = {
+       'url': 'http://xxxxxxxxxx',
+       'user': 'xxx',
+       'password': 'xxx',
+       'database': 'xxx'
+   }
+
+   async def query_test():
+       conn = await aiophoenixdb.connect(**PHOENIX_CONFIG)
+       async with conn:
+           async with conn.cursor() as ps:
+               # need await
+               await ps.execute("SELECT * FROM xxx WHERE id = ?",  parameters=("1", ))
+               res = await ps.fetchone()
+               print(res)
+
+   # 将查询的协程丢到事件循环中运行
+   asyncio.get_event_loop().run_until_complete(query_test())
+
+-  Query with DictCursor
+
+.. code-block:: python
+
+   import aiophoenixdb
+   import asyncio
+   from aiophoenixdb.cursors import DictCursor
+
+   PHOENIX_CONFIG = {
+       'url': 'http://xxxxxxxxxx',
+       'user': 'xxx',
+       'password': 'xxx',
+       'database': 'xxx'
+   }
+
+   async def query_test():
+       conn = await aiophoenixdb.connect(**PHOENIX_CONFIG)
+       async with conn:
+           async with conn.cursor(cursor_factory=DictCursor) as ps:
+               # need await
+               await ps.execute("SELECT * FROM xxx WHERE id = ?",  parameters=("1", ))
+               res = await ps.fetchone()
+               print(res)
+
+   # 将查询的携程丢到事件循环中运行
+   asyncio.get_event_loop().run_until_complete(query_test())
+
