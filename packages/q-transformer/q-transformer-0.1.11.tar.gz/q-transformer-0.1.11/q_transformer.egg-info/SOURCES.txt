@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+q_transformer/__init__.py
+q_transformer/agent.py
+q_transformer/attend.py
+q_transformer/mocks.py
+q_transformer/optimizer.py
+q_transformer/q_learner.py
+q_transformer/q_robotic_transformer.py
+q_transformer.egg-info/PKG-INFO
+q_transformer.egg-info/SOURCES.txt
+q_transformer.egg-info/dependency_links.txt
+q_transformer.egg-info/requires.txt
+q_transformer.egg-info/top_level.txt
