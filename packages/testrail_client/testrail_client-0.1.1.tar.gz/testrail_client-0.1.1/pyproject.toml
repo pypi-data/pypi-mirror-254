@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "testrail_client"
+version = "0.1.1"
+description = ""
+authors = ["jiacwjcw <quota0619@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+testrail-api = "^1.13.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "testrail_client"
+version = "0.0.1"
+authors = [{ name = "jiacwjcw", email = "quota0619@gmail.com" }]
+description = "Using the testrail-api package, you can fetch information for all test cases under a specific suite. This information is useful for automated testing purposes."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/jiacwjcw/testrail_client"
+Issues = "https://github.com/jiacwjcw/testrail_client/issues"
