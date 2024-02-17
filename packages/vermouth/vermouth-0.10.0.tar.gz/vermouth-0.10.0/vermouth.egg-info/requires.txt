@@ -1,0 +1,7 @@
+pbr
+numpy
+networkx>=2.0
+scipy
+
+[mdtraj]
+mdtraj
