@@ -1,0 +1,6 @@
+igraph
+numba
+optuna
+recbole>=1.2.0
+seaborn>=0.11.2
+wandb
