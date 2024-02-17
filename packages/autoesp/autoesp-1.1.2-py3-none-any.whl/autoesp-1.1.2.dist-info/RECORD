@@ -1,0 +1,13 @@
+autoesp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autoesp/autoesp.py,sha256=JCeiEzI1TmnqeBloRGtPhUWzvTZWHh-aeInF8VPuA4k,6505
+autoesp/firmwares/ESP32_GENERIC-20240105-v1.22.1.bin,sha256=a-cXyOrQbt3NwRmrM13hGxVp9leCMdWMSsduHLc8-eU,1737664
+autoesp/firmwares/ESP32_GENERIC-SPIRAM-20240105-v1.22.1.bin,sha256=-K4rP4WsTmJWX-Z4c4v0uNQaM2p-BvtJ4CdRQ0ASuP4,1614576
+autoesp/firmwares/ESP8266_GENERIC-20240105-v1.22.1.bin,sha256=9ydgf_8F_5Au_TY6MkPnhyFeM38Mvb1MYDEWbSzzojA,641964
+autoesp/firmwares/ESP8266_GENERIC-FLASH_1M-20240105-v1.22.1.bin,sha256=-rD0CkPkpCdAgynmWQNfVclN_ob_h6jUBdF_n_o7PIw,603232
+autoesp/firmwares/LOLIN_S2_MINI-20240105-v1.22.1.uf2,sha256=ESOprf3bh8NL4x2sogXhJ5C2ej7n7m7l6orW7sq7t08,2714112
+autoesp-1.1.2.dist-info/LICENSE,sha256=BYBrL1LdApZ3Xzi1f0_Eg0iymsbfm9IzCD58KPWNA1k,1498
+autoesp-1.1.2.dist-info/METADATA,sha256=TgiBYsaSGlmguZjYTy-OuUsEMwVenrzU1hYreK5ZJ4A,5256
+autoesp-1.1.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+autoesp-1.1.2.dist-info/entry_points.txt,sha256=MEoUxwGg2RfXb6pStb7yOWnp0S3xWNVLIDgU5HxaFtI,49
+autoesp-1.1.2.dist-info/top_level.txt,sha256=ABqsZyVvjcdklFHw4RLOWgmfK4KrgaNbDWCKltBDf1M,8
+autoesp-1.1.2.dist-info/RECORD,,
