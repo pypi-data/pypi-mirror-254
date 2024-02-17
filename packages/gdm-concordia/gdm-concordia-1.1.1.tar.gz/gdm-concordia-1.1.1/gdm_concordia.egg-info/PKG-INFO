@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: gdm-concordia
+Version: 1.1.1
+Summary: A library for building a generative model of social interacions.
+Home-page: https://github.com/google-deepmind/concordia
+Author: DeepMind
+Author-email: noreply@google.com
+License: Apache 2.0
+Download-URL: https://github.com/google-deepmind/concordia/releases
+Keywords: multi-agent agent-based-simulation generative-agents python machine-learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.10
+Provides-Extra: dev
+License-File: LICENSE
+
+UNKNOWN
+
