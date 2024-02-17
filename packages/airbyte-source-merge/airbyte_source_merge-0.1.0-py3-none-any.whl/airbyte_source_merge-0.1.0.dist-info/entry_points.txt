@@ -1,0 +1,2 @@
+[console_scripts]
+source-merge = source_merge.run:run
