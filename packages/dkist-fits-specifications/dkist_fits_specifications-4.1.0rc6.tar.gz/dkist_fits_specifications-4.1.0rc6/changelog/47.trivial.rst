@@ -1,0 +1,3 @@
+Add check that any 214 keys that are copies/renames of a 122 don't try to re-define schema fields that were already
+defined in the 122 key. If the 214 key really needs different values for any of its schema fields then it should be a
+new key (i.e., not a copy/rename).

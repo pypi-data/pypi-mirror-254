@@ -1,0 +1,1 @@
+`spec122.load_spec122` no longer returns an exanded schema. Use `spec122.load_processed_spec122` instead.

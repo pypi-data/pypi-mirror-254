@@ -1,0 +1,2 @@
+Allow conditional requiredness to be applied to the SPEC 122 schema. The processed schema is supplied by the
+`spec122.load_processed_spec122` function.
