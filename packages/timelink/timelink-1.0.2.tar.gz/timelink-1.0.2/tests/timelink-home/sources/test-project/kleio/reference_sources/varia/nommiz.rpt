@@ -1,0 +1,250 @@
+KleioTranslator - server version 12.0 - build 553 2023-09-27 16:03:59
+28-11-2023 7-47
+
+Processing data file nommiz.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto.str
+Prefix: 
+Autorel: 
+Translation count: 
+Obs: 
+Translation count not set or invalid, counting as zero: 
+** Processing source fonte$nommiz
+9: nom$nom1a
+33: nom$nom1
+43: nom$nom2
+73: nom$nom3
+89: nom$nom4
+103: nom$nom5
+127: nom$nom6
+139: nom$nom7
+157: nom$nom8
+173: nom$nom9
+185: nom$nom9a
+201: nom$nom10
+219: nom$nom11
+231: nom$nom12
+249: nom$nom13
+273: nom$nom14
+289: nom$nom15
+303: nom$nom16
+321: nom$nom17
+331: nom$nom18
+341: nom$nom18a
+351: nom$nom19
+361: nom$nom20
+375: nom$nom21
+
+ERROR: nommiz.cli line 381 ** ID already used in this file: nom21
+Near lines: 381 nom$nom21/5/11/1758/13 
+
+387: nom$nom21
+397: nom$nom22
+407: nom$nom23
+415: nom$nom24
+425: nom$nom25
+439: nom$nom26
+447: nom$nom27
+455: nom$nom28
+463: nom$nom29
+475: nom$nom30
+487: nom$nom31
+501: nom$nom32
+513: nom$nom33
+525: nom$nom34
+535: nom$nom35
+545: nom$nom36
+555: nom$nom37
+567: nom$nom38
+575: nom$mon39
+585: nom$nom40
+607: nom$nom41
+617: nom$nom42
+635: nom$nom43
+
+WARNING: nommiz.cli line 823 destination id of "same as" not found. Will check again at the end of file.
+Near lines: 823 		ls$titulo/irmao de maior condicao/data=17380404/obs=o termo de aceitacao foi riscado
+
+
+WARNING: nommiz.cli line 835 destination id of "same as" not found. Will check again at the end of file.
+Near lines: 835 		ls$titulo/irmao de maior condicao/data=17380404/obs=o termo de aceitacao foi riscado 
+
+
+WARNING: nommiz.cli line 1061 destination id of "same as" not found. Will check again at the end of file.
+Near lines: 1061 		ls$titulo/irmao/data=17780412
+
+1103: nom$nom44
+1121: nom$nom45
+1145: nom$nom46
+1161: nom$nom47
+1175: nom$nom48
+1199: nom$nom49
+1219: nom$nom50
+1237: nom$nom51
+1259: nom$nom52
+1273: nom$nom53
+1293: nom$nom53a
+1305: nom$nom54
+1319: nom$nom55
+1333: nom$nom56
+1347: nom$nom57
+1361: nom$nom58
+1379: nom$nom59
+1393: nom$60
+1405: nom$61
+1423: nom$nom62
+1447: nom$nom63
+1461: nom$nom63a
+1469: nom$nom63b
+1477: nom$nom64
+1491: nom$nom64a
+1503: nom$nom65
+1511: nom$nom66
+1531: nom$nom67
+1549: nom$nom68
+1567: nom$nom69
+1589: nom$nom70
+1607: nom$nom71
+1619: nom$nom72
+1639: nom$nom73
+1661: nom$nom74
+1679: nom$nom75
+1697: nom$nom76
+1719: nom$nom77
+1737: nom$nom78
+1759: nom$nom79
+1781: nom$nom80
+1791: nom$nom81
+1817: nom$nom82
+1829: nom$nom83
+1841: nom$nom84
+1853: nom$nom85
+1865: nom$nom86
+1877: nom$nom87
+1889: nom$nom88
+1903: nom$nom89
+1913: nom$nom90
+1962: nom$nom91
+1984: nom$nom92
+1998: nom$nom93
+2010: nom$nom94
+2022: nom$nom95
+2034: nom$nom96
+2048: nom$nom97
+2060: nom$nom98
+2072: nom$nom99
+2086: nom$nom100
+2098: nom$nom101
+2110: nom$nom102
+2124: nom$nom103
+2136: nom$nom104
+2150: nom$nom105
+2162: nom$nom106
+2174: nom$nom107
+2186: nom$nom108
+2198: nom$nom109
+2212: nom$nom110
+2224: nom$nom111
+2236: nom$nom112
+2254: nom$nom113
+2262: nom$nom114
+2276: nom$nom115
+2288: nom$nom116
+2300: nom$nom117
+2312: nom$nom118
+2328: nom$nom119
+2368: nom$nom120
+2382: nom$nom121
+2392: nom$nom122
+2404: nom$nom123
+2424: nom$nom124
+2436: nom$nom125
+2448: nom$nom126
+2458: nom$nom127
+2468: nom$nom128
+2480: nom$nom128a
+2494: nom$nom129
+2506: nom$nom130
+2518: nom$nom131
+2530: nom$nom132
+2542: nom$nom133
+2554: nom$nom134
+2566: nom$nom135
+2578: nom$nom136
+2590: nom$nom137
+2602: nom$nom137a
+2614: nom$nom138
+2626: nom$nom139
+2638: nom$nom140
+2650: nom$nom141
+2662: nom$nom142
+2674: nom$nom143
+2686: nom$nom144
+2698: nom$nom145
+2710: nom$nom146
+2722: nom$nom147
+2734: nom$nom148
+2750: nom$nom149
+2762: nom$nom150
+2782: nom$nom151
+2800: nom$nom152
+2814: nom$nom153
+2828: nom$nom154
+2840: nom$nom155
+2852: nom$nom156
+2864: nom$nom157
+2876: nom$nom158
+2890: nom$nom159
+2904: nom$nom160
+2916: nom$nom161
+2928: nom$nom162
+2940: nom$nom163
+2958: nom$nom164
+2976: nom$nom165
+2988: nom$nom166
+3000: nom$nom167
+3012: nom$nom168
+3024: nom$nom169
+3042: nom$nom179
+3064: nom$nom180
+3076: nom$nom181
+3088: nom$nom182
+3102: nom$nom183
+3114: nom$nom184
+3126: nom$nom185
+3142: nom$nom186
+3156: nom$nom186a
+3168: nom$nom187
+3180: nom$nom188
+3194: nom$nom189
+3212: nom$nom190
+3324: nom$nom191
+3347: nom$nom192
+3351: nom$nom193
+*** End of File
+
+Line 853 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom64-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 859 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom7-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1021 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom29) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1093 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom179-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 3687 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom45-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 3867 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom64-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 3903 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom69-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 3989 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (76) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4111 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom100-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4175 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom1056-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4309 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom123-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4521 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom150-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4529 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom151-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4625 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom163-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 4633 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom164-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+1  errors. 
+3  warnings.
+Translation finished.

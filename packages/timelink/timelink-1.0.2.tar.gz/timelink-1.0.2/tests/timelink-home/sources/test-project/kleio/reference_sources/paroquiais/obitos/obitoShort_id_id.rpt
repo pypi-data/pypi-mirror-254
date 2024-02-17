@@ -1,0 +1,29 @@
+KleioTranslator - server version 12.0 - build 553 2023-09-27 16:03:59
+28-11-2023 7-47
+
+Processing data file obitoShort_id_id.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+
+ERROR: obitoShort_id_id.cli line 2 ** kleio unknown element: id.
+Near lines: 2 kleio$gacto2.str/prefix=soure/id=-kle50
+
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: soure
+Autorel: soure
+Translation count: 
+Obs: 
+Translation count not set or invalid, counting as zero: 
+** Processing source fonte$soure-obitoShort_id_id
+8: obito$soure-o1740.12
+*** End of File
+
+
+1  errors. 
+0  warnings.
+Translation finished.

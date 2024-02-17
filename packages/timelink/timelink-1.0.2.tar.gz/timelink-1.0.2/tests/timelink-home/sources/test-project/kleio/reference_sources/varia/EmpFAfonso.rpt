@@ -1,0 +1,51 @@
+KleioTranslator - server version 12.1 - build 555 2023-12-13 18:54:44
+29-1-2024 6-25
+
+Processing data file EmpFAfonso.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: sj
+Autorel: sj
+Translation count: 2
+Obs: 
+** Processing source fonte$sj-avexplorfa
+
+WARNING: EmpFAfonso.cli line 4 * Warning: Filename should match source Id to avoid errors. File: EmpFAfonso Id: sj-avexplorfa.
+Near lines: 4       escritura$cex1322.1/18/6/1322/emprazamento/fol=cx.6, mc.27, n.620/loc=coimbra, igreja de santa justa/sumario=martim peres, procurador do prior de santa justa, empraza a joao anes, albardeiro, e a maria simoes sua mulher, uma casa na rua de oleiros, por 4 libras/obs=perg., bom, gotico cursivo, sinal notarial.
+
+
+WARNING: EmpFAfonso.cli line 4 Element value exceeds database field length: loc=cx.5, mc.27, n.620;cx.4, mc.23, n.462;cx.2, mc.9, n.172;cx.1, mc.5, n.121;cx.1, mc.5, n.123;cx.4, mc.23, n.459;cx.1, mc.5, n.124;cx.4, mc.25, n.519;cx.6, mc.33, n.755;cx.4, mc.25, n.498;cx.1, mc.6, n.140;. Size:204 limit: 64
+Near lines: 4       escritura$cex1322.1/18/6/1322/emprazamento/fol=cx.6, mc.27, n.620/loc=coimbra, igreja de santa justa/sumario=martim peres, procurador do prior de santa justa, empraza a joao anes, albardeiro, e a maria simoes sua mulher, uma casa na rua de oleiros, por 4 libras/obs=perg., bom, gotico cursivo, sinal notarial.
+
+6: escritura$sj-cex1322.1
+56: escritura$sj-cex1324.1
+96: escritura$sj-cex1324.2
+142: escritura$sj-cex1325.1
+173: escritura$sj-cex1329.1
+220: escritura$sj-cex1330.1
+256: escritura$sj-cex1335.1
+302: escritura$sj-cex1340.1
+348: escritura$sj-cex1344.1
+400: escritura$sj-cex1347.1
+459: escritura$sj-cex1348.1
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/varia/EmpFAfonso.cli
+Original file: /kleio-home/kleio/reference_sources/varia/EmpFAfonso.org
+Previous version: /kleio-home/kleio/reference_sources/varia/EmpFAfonso.old
+Temp file with ids: /kleio-home/kleio/reference_sources/varia/EmpFAfonso.ids
+** - /kleio-home/kleio/reference_sources/varia/EmpFAfonso.cli-renamed to- /kleio-home/kleio/reference_sources/varia/EmpFAfonso.old
+0  errors. 
+2  warnings.
+Translation finished.

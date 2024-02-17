@@ -1,0 +1,31 @@
+KleioTranslator - server version 12.0 - build 553 2023-09-27 16:03:59
+28-11-2023 7-46
+
+Processing data file bap-com-celebrantes.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: lousa
+Autorel: lousa
+Translation count: 
+Obs: 
+Translation count not set or invalid, counting as zero: 
+
+ERROR: bap-com-celebrantes.cli line 2 ** fonte unknown element: type.
+Near lines: 2    fonte$bap-com-celebrantes/localizacao-a.u.c./type=bapt/obs=freguesia de sao silvestre da lousalousa
+
+** Processing source fonte$lousa-bap-com-celebrantes
+6: bap$lousa-b1714-1
+34: bap$lousa-b1714-2
+58: bap$lousa-b1714-3
+*** End of File
+
+
+1  errors. 
+0  warnings.
+Translation finished.

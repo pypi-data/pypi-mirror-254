@@ -1,0 +1,34 @@
+KleioTranslator - server version 12.1 - build 555 2023-12-13 18:54:44
+29-1-2024 6-25
+
+Processing data file cas1714-1722-com-celebrante.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto.str
+Prefix: 
+Autorel: 
+Translation count: 2
+Obs: 
+** Processing source fonte$cas1714-1722-com-celebrante
+6: cas$c1714-1
+28: cas$c1714-2
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.cli
+Original file: /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.org
+Previous version: /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.old
+Temp file with ids: /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.ids
+** - /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.cli-renamed to- /kleio-home/kleio/reference_sources/paroquiais/casamentos/cas1714-1722-com-celebrante.old
+0  errors. 
+0  warnings.
+Translation finished.

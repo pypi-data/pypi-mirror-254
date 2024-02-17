@@ -1,0 +1,33 @@
+KleioTranslator - server version 12.1 - build 555 2023-12-13 18:54:44
+29-1-2024 6-25
+
+Processing data file Devedores.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: 
+Prefix: 
+Autorel: 
+Translation count: 2
+Obs: 
+** Processing source fonte$Devedores
+6: lista$orf-acb-devedores-eiras
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/varia/Devedores.cli
+Original file: /kleio-home/kleio/reference_sources/varia/Devedores.org
+Previous version: /kleio-home/kleio/reference_sources/varia/Devedores.old
+Temp file with ids: /kleio-home/kleio/reference_sources/varia/Devedores.ids
+** - /kleio-home/kleio/reference_sources/varia/Devedores.cli-renamed to- /kleio-home/kleio/reference_sources/varia/Devedores.old
+0  errors. 
+0  warnings.
+Translation finished.

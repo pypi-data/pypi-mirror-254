@@ -1,0 +1,5 @@
+{
+  "test_import_TL.py::test_import_from_kleio_server[dbsystem1]": true,
+  "test_import_TL.py::test_import_sources_with_no_year[dbsystem0]": true,
+  "test_import_TL.py::test_import_sources_with_no_year[dbsystem1]": true
+}

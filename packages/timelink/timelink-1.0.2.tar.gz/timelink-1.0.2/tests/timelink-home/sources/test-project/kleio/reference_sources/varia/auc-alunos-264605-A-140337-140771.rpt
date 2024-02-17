@@ -1,0 +1,33 @@
+KleioTranslator - server version 12.0 - build 553 2023-09-27 16:03:59
+6-12-2023 9-22
+
+Processing data file auc-alunos-264605-A-140337-140771.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 3
+Obs: 
+** Processing source fonte$auc-alunos-264605-A-140337-140771
+30: lista$auc-alumni-A-140337-140771
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.cli
+Original file: /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.org
+Previous version: /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.old
+Temp file with ids: /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.ids
+** - /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.cli-renamed to- /kleio-home/kleio/reference_sources/varia/auc-alunos-264605-A-140337-140771.old
+0  errors. 
+0  warnings.
+Translation finished.

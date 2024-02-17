@@ -1,0 +1,33 @@
+KleioTranslator - server version 12.1 - build 555 2023-12-13 18:54:44
+29-1-2024 6-26
+
+Processing data file rogeriodomingos_bap_problem.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: rd
+Autorel: rd
+Translation count: 1
+Obs: 
+** Processing source fonte$rd-rogeriodomingos_bap_problem
+6: bap$rd-b1714-1b
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.cli
+Original file: /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.org
+Previous version: /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.old
+Temp file with ids: /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.ids
+** - /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.cli-renamed to- /kleio-home/kleio/reference_sources/paroquiais/baptismos/rogeriodomingos_bap_problem.old
+0  errors. 
+0  warnings.
+Translation finished.
