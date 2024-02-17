@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+gbseqextractor/__init__.py
+gbseqextractor/gbseqextractor.py
+gbseqextractor.egg-info/PKG-INFO
+gbseqextractor.egg-info/SOURCES.txt
+gbseqextractor.egg-info/dependency_links.txt
+gbseqextractor.egg-info/entry_points.txt
+gbseqextractor.egg-info/requires.txt
+gbseqextractor.egg-info/top_level.txt

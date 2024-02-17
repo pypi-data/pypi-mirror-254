@@ -1,0 +1,2 @@
+[console_scripts]
+gbseqextractor = gbseqextractor.gbseqextractor:main
