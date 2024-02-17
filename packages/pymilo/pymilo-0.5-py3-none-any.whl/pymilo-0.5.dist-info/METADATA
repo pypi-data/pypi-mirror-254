@@ -1,0 +1,328 @@
+Metadata-Version: 2.1
+Name: pymilo
+Version: 0.5
+Summary: Transportation of ML models
+Home-page: https://github.com/openscilab/pymilo
+Download-URL: https://github.com/openscilab/pymilo/tarball/v0.5
+Author: PyMilo Development Team
+Author-email: info@openscilab.com
+License: MIT
+Project-URL: Source, https://github.com/openscilab/pymilo
+Keywords: python3 python machine_learning ML
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Requires-Dist: numpy >=1.9.0
+Requires-Dist: scikit-learn >=0.22.2
+
+
+<div align="center">
+    <img src="https://github.com/openscilab/pymilo/raw/main/otherfiles/logo.png" width="500" height="300">
+    <br/>
+    <br/>
+    <a href="https://codecov.io/gh/openscilab/pymilo">
+        <img src="https://codecov.io/gh/openscilab/pymilo/branch/main/graph/badge.svg" alt="Codecov"/>
+    </a>
+    <a href="https://badge.fury.io/py/pymilo">
+        <img src="https://badge.fury.io/py/pymilo.svg" alt="PyPI version" height="18">
+    </a>
+    <a href="https://www.python.org/">
+        <img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3">
+    </a>
+    <a href="https://discord.gg/mtuMS8AjDS">
+        <img src="https://img.shields.io/discord/1064533716615049236.svg" alt="Discord Channel">
+    </a>
+</div>
+
+----------
+
+## Table of contents
+
+* [Overview](https://github.com/openscilab/pymilo#overview)
+* [Installation](https://github.com/openscilab/pymilo#installation)
+* [Usage](https://github.com/openscilab/pymilo#usage)
+* [Issues & Bug Reports](https://github.com/openscilab/pymilo#issues--bug-reports)
+* [Todo](https://github.com/openscilab/pymilo/blob/main/TODO.md)
+* [Contribution](https://github.com/openscilab/pymilo/blob/main/.github/CONTRIBUTING.md)
+* [Authors](https://github.com/openscilab/pymilo/blob/main/AUTHORS.md)
+* [License](https://github.com/openscilab/pymilo/blob/main/LICENSE)
+* [Show Your Support](https://github.com/openscilab/pymilo#show-your-support)
+* [Changelog](https://github.com/openscilab/pymilo/blob/main/CHANGELOG.md)
+* [Code of Conduct](https://github.com/openscilab/pymilo/blob/main/.github/CODE_OF_CONDUCT.md)
+
+
+## Overview
+<p align="justify">
+PyMilo is an open source Python package that provides a simple, efficient, and safe way for users to export pre-trained machine learning models in a transparent way. By this, the exported model can be used in other environments, transferred across different platforms, and shared with others. PyMilo allows the users to export the models that are trained using popular Python libraries like scikit-learn, and then use them in deployment environments, or share them without exposing the underlying code or dependencies. The transparency of the exported models ensures reliability and safety for the end users, as it eliminates the risks of binary or pickle formats.
+</p>
+<table>
+    <tr>
+        <td align="center">PyPI Counter</td>
+        <td align="center">
+            <a href="http://pepy.tech/project/pymilo">
+                <img src="http://pepy.tech/badge/pymilo">
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">Github Stars</td>
+        <td align="center">
+            <a href="https://github.com/openscilab/pymilo">
+                <img src="https://img.shields.io/github/stars/openscilab/pymilo.svg?style=social&label=Stars">
+            </a>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr> 
+        <td align="center">Branch</td>
+        <td align="center">main</td>
+        <td align="center">dev</td>
+    </tr>
+    <tr>
+        <td align="center">CI</td>
+        <td align="center">
+            <img src="https://github.com/openscilab/pymilo/workflows/CI/badge.svg?branch=main">
+        </td>
+        <td align="center">
+            <img src="https://github.com/openscilab/pymilo/workflows/CI/badge.svg?branch=dev">
+            </td>
+    </tr>
+</table>
+
+<table>
+	<tr> 
+		<td align="center">Code Quality</td>
+		<td align="center"><a href="https://www.codefactor.io/repository/github/openscilab/pymilo"><img src="https://www.codefactor.io/repository/github/openscilab/pymilo/badge" alt="CodeFactor" /></a></td>
+		<td align="center"><a href="https://app.codacy.com/gh/openscilab/pymilo/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/9eeec99ed11f4d9b86af36dc90f5f753"></a></td>
+		<td align="center"><a href="https://codebeat.co/projects/github-com-openscilab-pymilo-dev"><img alt="codebeat badge" src="https://codebeat.co/badges/1259254f-39fc-4491-8469-17d8a43b6697" /></a></td>
+	</tr>
+</table>
+
+
+## Installation
+
+### PyPI
+
+- Check [Python Packaging User Guide](https://packaging.python.org/installing/)
+- Run `pip install pymilo==0.5`
+### Source code
+- Download [Version 0.5](https://github.com/openscilab/pymilo/archive/v0.5.zip) or [Latest Source](https://github.com/openscilab/pymilo/archive/dev.zip)
+- Run `pip install .`
+
+## Usage
+### Simple Linear Model Preparation 
+```pycon
+>>> from sklearn import datasets
+>>> from pymilo import Export, Import
+>>> from sklearn.linear_model import LinearRegression
+>>> import os
+>>> X, Y = datasets.load_diabetes(return_X_y=True)
+>>> threshold = 20
+>>> X_train, X_test = X[:-threshold], X[-threshold:]
+>>> Y_train, Y_test = Y[:-threshold], Y[-threshold:]
+>>> model = LinearRegression()
+>>> #### Train the model using the training sets
+>>> model.fit(X_train, Y_train)
+```
+### Save Model 
+```pycon
+>>> #### Export the fitted model to a transparent json file
+>>> exported_model = Export(model)
+>>> PATH_TO_JSON_FILE = os.path.join(os.getcwd(),"test.json")
+>>> exported_model.save(PATH_TO_JSON_FILE)
+```
+### Load Model
+```pycon
+>>> #### Import the pymilo-exported model and get a real scikit model
+>>> imported_model = Import(PATH_TO_JSON_FILE)
+```
+### Get the associated Scikit model
+```pycon 
+>>> imported_sklearn_model = imported_model.to_model()
+```
+#### Note: `imported_sklearn_model` has the **exact same** functionality as the `model` object earlier.
+
+## Supported ML Models
+| scikit-learn | PyTorch | 
+| ---------------- | ---------------- | 
+| Linear Models &#x2705; | - | 
+| Neural networks &#x2705; | -  | 
+| Trees &#x2705; | -  | 
+| Clustering &#x2705; | -  | 
+| Naïve Bayes &#x2705; | -  | 
+| Support vector machines (SVMs) &#x274C; | -  | 
+| Nearest Neighbors &#x274C; | -  | 
+| Ensemble Models &#x274C; | - | 
+Details are available in [Supported Models](https://github.com/openscilab/pymilo/blob/main/SUPPORTED_MODELS.md).
+
+## Issues & bug reports
+
+Just fill an issue and describe it. We'll check it ASAP! or send an email to [info@openscilab.com](mailto:info@openscilab.com "info@openscilab.com"). 
+
+- Please complete the issue template
+ 
+You can also join our discord server
+
+<a href="https://discord.gg/mtuMS8AjDS">
+  <img src="https://img.shields.io/discord/1064533716615049236.svg?style=for-the-badge" alt="Discord Channel">
+</a>
+
+
+## Show Your Support
+
+
+### Star this repo
+
+Give a ⭐️ if this project helped you!
+
+### Donate to our project
+If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .			
+
+<a href="https://openscilab.com/#donation" target="_blank"><img src="https://github.com/openscilab/pymilo/raw/main/otherfiles/donation.png" height="90px" width="270px" alt="PyMilo Donation"></a>
+
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+### Added
+### Changed
+## [0.5] - 2024-01-31
+### Added
+- `reset` function in the `Transport` interface
+- `reset` function implementation in `AbstractTransporter`
+- `Gaussian Naive Bayes` declared as `GaussianNB` model 
+- `Multinomial Naive Bayes` model declared as `MultinomialNB` model
+- `Complement Naive Bayes` model declared as `ComplementNB` model
+- `Bernoulli Naive Bayes` model declared as `BernoulliNB` model
+- `Categorical Naive Bayes` model declared as `CategoricalNB` model
+- Naive Bayes models test runner
+- Naive Bayes chain 
+### Changed
+- `Transport` function of `AbstractTransporter` updated
+- fix the order of `CFNode` fields serialization in `CFNodeTransporter`
+- `GeneralDataStructureTransporter` support list of ndarray with different shapes
+- Tests config modified
+- Naive Bayes params initialized in `pymilo_param`
+- Naive Bayes support added to `pymilo_func.py`
+- `SUPPORTED_MODELS.md` updated
+- `README.md` updated
+## [0.4] - 2024-01-22
+### Added
+- `has_named_parameter` method in `util.py`
+- `CFSubcluster` Transporter(inside `CFNode` Transporter)
+- `CFNode` Transporter
+- `Birch` model
+- `SpectralBiclustering` model
+- `SpectralCoclustering` model
+- `MiniBatchKMeans` model
+- `feature_request.yml` template
+- `config.yml` for issue template
+- `BayesianGaussianMixture` model
+- `serialize_tuple` method in `GeneralDataStructureTransporter`
+- `import_function` method in `util.py`
+- `Function` Transporter
+- `FeatureAgglomeration` model
+- `HDBSCAN` model
+- `GaussianMixture` model
+- `OPTICS` model
+- `DBSCAN` model
+- `AgglomerativeClustering` model
+- `SpectralClustering` model
+- `MeanShift` model 
+- `AffinityPropagation` model
+- `Kmeans` model
+- Clustering models test runner
+- Clustering chain 
+### Changed
+- `LossFunctionTransporter` enhanced to handle scikit 1.4.0 `_loss_function_` field
+- Codacy Static Code Analyzer's suggestions applied
+- Spectral Clustering test folder refactored
+- Bug report template modified
+- `GeneralDataStructureTransporter` updated
+- Tests config modified
+- Clustering data set preparation added to `data_exporter.py`
+- Clustering params initialized in `pymilo_param`
+- Clustering support added to `pymilo_func.py`
+- `Python 3.12` added to `test.yml`
+- `dev-requirements.txt` updated
+- Code quality badges added to `README.md`
+- `SUPPORTED_MODELS.md` updated
+- `README.md` updated
+## [0.3] - 2023-09-27
+### Added
+- scikit-learn decision tree models
+- `ExtraTreeClassifier` model
+- `ExtraTreeRegressor` model
+- `DecisionTreeClassifier` model
+- `DecisionTreeRegressor` model
+- `Tree` Transporter
+- Decision Tree chain
+### Changed
+- Tests config modified
+- DecisionTree params initialized in `pymilo_param`
+- Decision Tree support added to `pymilo_func.py`
+## [0.2] - 2023-08-02
+### Added
+- scikit-learn neural network models 
+- `MLP Regressor` model 
+- `MLP Classifier` model
+- `BernoulliRBN` model
+- `SGDOptimizer` transporter
+- `RandomState(MT19937)` transporter
+- `Adamoptimizer` transporter
+- Neural Network chain
+- Neural Network exceptions 
+- `ndarray_to_list` method in `GeneralDataStructureTransporter`
+- `list_to_ndarray` method in `GeneralDataStructureTransporter` 
+- `neural_network_chain.py` chain
+### Changed
+- `GeneralDataStructure` Transporter updated
+- `LabelBinerizer` Transporter updated
+- `linear model` chain updated
+- GeneralDataStructure transporter enhanced
+- LabelBinerizer transporter updated
+- transporters' chain router added to `pymilo func`
+- NeuralNetwork params initialized in `pymilo_param`
+- `pymilo_test` updated to support multiple models
+- `linear_model_chain` refactored
+## [0.1] - 2023-06-29
+### Added
+- scikit-learn linear models support
+- `Export` class
+- `Import` class
+
+[Unreleased]: https://github.com/openscilab/pymilo/compare/v0.5...dev
+[0.5]: https://github.com/openscilab/pymilo/compare/v0.4...v0.5
+[0.4]: https://github.com/openscilab/pymilo/compare/v0.3...v0.4
+[0.3]: https://github.com/openscilab/pymilo/compare/v0.2...v0.3
+[0.2]: https://github.com/openscilab/pymilo/compare/v0.1...v0.2
+[0.1]: https://github.com/openscilab/pymilo/compare/e887108...v0.1
