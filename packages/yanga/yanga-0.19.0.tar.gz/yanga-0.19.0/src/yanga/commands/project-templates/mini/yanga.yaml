@@ -1,0 +1,40 @@
+components:
+  - name: main
+    type: component
+    sources:
+      - main.c
+  - name: greeter
+    type: component
+    sources:
+      - greeter.c
+    test_sources:
+      - greeter_test.cc
+
+variants:
+  - name: EnglishVariant
+    description: Say hello in English.
+    bom:
+      components:
+        - main
+        - greeter
+  - name: GermanVariant
+    description: Say hello in German.
+    bom:
+      components:
+        - main
+        - greeter
+    config_file: "config_de.txt"
+
+pipeline:
+  install:
+    - stage: YangaVEnvInstall
+    - stage: YangaScoopInstall
+      description: Install scoop dependencies
+      timeout_sec: 120
+    - stage: YangaWestInstall
+      description: Install west dependencies
+  gen:
+    - stage: YangaKConfigGen
+  build:
+    - stage: YangaBuildConfigure
+    - stage: YangaBuildRun

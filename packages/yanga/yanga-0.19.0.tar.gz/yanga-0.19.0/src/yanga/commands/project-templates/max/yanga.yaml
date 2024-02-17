@@ -1,0 +1,10 @@
+pipeline:
+  install:
+    - stage: YangaVEnvInstall
+    - stage: YangaScoopInstall
+    - stage: YangaWestInstall
+  build:
+    - stage: MyStage
+      file: stages/my_stage.py
+    - stage: YangaBuildConfigure
+    - stage: YangaBuildRun
