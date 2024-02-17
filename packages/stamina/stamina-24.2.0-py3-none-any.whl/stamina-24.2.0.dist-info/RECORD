@@ -1,0 +1,15 @@
+stamina/__init__.py,sha256=67C57VYWJjlBi7EYJaNwxybhJW9m2VZbtp9u0n8qlOM,797
+stamina/_config.py,sha256=F1fBib_uMpVx5AWP_OdkWIYQtA9VIFWTqBKyM5bZf_8,2468
+stamina/_core.py,sha256=4tqtlOSZss9ge9ioEdyvD67QSOsAT51unJhUC6NkMVQ,17449
+stamina/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+stamina/typing.py,sha256=b54dKDUKpVdgpCmMj50dHy8TCsMyIlK1onfDw_Kkuvg,223
+stamina/instrumentation/__init__.py,sha256=zJUPxE8m_PAb0tH0e7ISrFkDGVLNOGnXPMpz927sBE0,647
+stamina/instrumentation/_data.py,sha256=J239zRo2ug6ST3A7qkrGp9QsHxkjsiA8QDukI3OTwkg,2296
+stamina/instrumentation/_hooks.py,sha256=XH0_CKEGWJkYa-PHmBcrSZ0nxNnftuJm_xPvGuWhA1w,2127
+stamina/instrumentation/_logging.py,sha256=-CcnW2CVpw6GiOZxf4V249aMhQ-KZgEY-FMtp79ZlaA,1158
+stamina/instrumentation/_prometheus.py,sha256=WFkKEiw-O3N-Xb00qh9rxxuhfIAFuk9Jsx40o3t1I3w,1632
+stamina/instrumentation/_structlog.py,sha256=2m3TnDnf_-PZLFiLJ7sv6L-G7ZSbiXyxKdWsXGi3UUI,924
+stamina-24.2.0.dist-info/METADATA,sha256=dgO2sOF6G936AQrnRzPhJF-LzB6oB1wXTISCPW7583I,4732
+stamina-24.2.0.dist-info/WHEEL,sha256=TJPnKdtrSue7xZ_AVGkp9YXcvDrobsjBds1du3Nx6dc,87
+stamina-24.2.0.dist-info/licenses/LICENSE,sha256=vm_ejQmrgTxa8Gnxhp_JSxyja-9_2ZSXA4asa61kYho,1101
+stamina-24.2.0.dist-info/RECORD,,
