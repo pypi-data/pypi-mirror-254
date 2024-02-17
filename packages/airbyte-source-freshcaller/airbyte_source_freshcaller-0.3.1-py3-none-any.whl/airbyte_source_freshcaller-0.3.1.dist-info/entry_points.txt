@@ -1,0 +1,2 @@
+[console_scripts]
+source-freshcaller = source_freshcaller.run:run
