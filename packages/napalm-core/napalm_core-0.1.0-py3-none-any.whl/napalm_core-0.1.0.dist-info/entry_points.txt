@@ -1,0 +1,3 @@
+[napalm.collection]
+napalm-base=napalm_base.napalm:entry_point
+
