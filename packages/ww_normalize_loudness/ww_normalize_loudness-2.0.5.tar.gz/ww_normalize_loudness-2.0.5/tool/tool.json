@@ -1,0 +1,241 @@
+{
+    "version": 2,
+    "template": "form",
+    "instances": 1,
+    "input": {
+        "root": {
+            "group": "Search",
+            "title": "Root Wwise Object",
+            "help": "搜索起点路径，将查找其所有下属对象；默认为当前选中对象",
+            "type": "str",
+            "default": "",
+            "presetable": true
+        },
+        "inclKeywords": {
+            "group": "Search",
+            "title": "Keywords In Text",
+            "help": "用于文本查找的包含规则；可为关键字或正则表达式；多条表达式间为或关系，启用 Include All (-I) 时为与关系；默认为空",
+            "type": "list[str]",
+            "default": [],
+            "presetable": true
+        },
+        "inclAllKeywords": {
+            "group": "Search",
+            "title": "Include All Keywords",
+            "help": "启用后将 includes 中的多条规则视为与关系；默认为或关系",
+            "type": "bool",
+            "default": false,
+            "presetable": true
+        },
+        "exclKeywords": {
+            "group": "Search",
+            "title": "Keywords Not In Text",
+            "help": "用于文本查找的排除规则；可为关键字或正则表达式；多条表达式间为或关系；默认为空；当与包含规则冲突时，排除规则的优先级高于包含规则",
+            "type": "list[str]",
+            "default": [],
+            "presetable": true
+        },
+        "exclAllKeywords": {
+            "group": "Search",
+            "title": "Exclude All Keywords",
+            "help": "启用后将 excludes 中的多条规则视为与关系；默认为或关系",
+            "type": "bool",
+            "default": false,
+            "presetable": true
+        },
+        "textScope": {
+            "group": "Search",
+            "title": "Text Search Scope",
+            "help": "要用关键字搜索的对象属性范围；默认为对象名",
+            "type": "options[str]",
+            "default": [
+                "name"
+            ],
+            "presetable": true,
+            "choices": [
+                "*",
+                "name",
+                "notes",
+                "path"
+            ],
+            "range": [
+                1,
+                null
+            ]
+        },
+        "masterPlat": {
+            "group": "Platform",
+            "title": "Master Platform",
+            "help": "既表示需要断联独立出来的平台，也表示用于建立主从关系的主平台；默认为全部，即断联所有平台且相互独立；若不用默认，则只能选择一个主平台",
+            "type": "option[str]",
+            "default": "*",
+            "presetable": true,
+            "choices": [
+                "*",
+                "Windows",
+                "Mac",
+                "XboxOne",
+                "PS4",
+                "PS5",
+                "Switch",
+                "Android",
+                "iOS"
+            ],
+            "range": [
+                1,
+                1
+            ]
+        },
+        "slavePlats": {
+            "group": "Platform",
+            "title": "Slave Platforms",
+            "help": "主平台的从属平台列表，从属于 --master-platform 对应平台；默认为空，即所有平台相互独立；当 --master-platform 为 * 时，此参数会忽略",
+            "type": "options[str]",
+            "default": [
+                ""
+            ],
+            "presetable": true,
+            "choices": [
+                "",
+                "Windows",
+                "Mac",
+                "XboxOne",
+                "PS4",
+                "PS5",
+                "Switch",
+                "Android",
+                "iOS"
+            ],
+            "range": [
+                1,
+                null
+            ]
+        },
+        "targetLUFS": {
+            "group": "Loudness",
+            "title": "Target Loudness (LUFS)",
+            "help": "输入文件需要达到的目标响度，低于或高于此值的文件将被修正",
+            "type": "float",
+            "default": -16.0,
+            "presetable": true,
+            "range": [
+                -32.0,
+                -14.0
+            ],
+            "step": 0.1,
+            "precision": 1
+        },
+        "maxLufsRaise": {
+            "group": "Loudness",
+            "title": "Max Loudness Gain (LUFS)",
+            "help": "允许的最大响度提升，用来防止错误放大本来应该很轻的声音",
+            "type": "float",
+            "default": 10.0,
+            "presetable": true,
+            "range": [
+                0.0,
+                10.0
+            ],
+            "step": 0.1,
+            "precision": 1
+        },
+        "maxLufsDrop": {
+            "group": "Loudness",
+            "title": "Max Loudness Drop (LUFS)",
+            "help": "允许的最大响度下降，用来防止错误缩小本来应该很响的声音",
+            "type": "float",
+            "default": 10.0,
+            "presetable": true,
+            "range": [
+                0.0,
+                10.0
+            ],
+            "step": 0.1,
+            "precision": 1
+        },
+        "maxPeakDB": {
+            "group": "Loudness",
+            "title": "Target Amplitude Peak (dBFS)",
+            "help": "输入文件需要达到的目标电平峰值，高于此值视为电平溢出",
+            "type": "float",
+            "default": -3.0,
+            "presetable": true,
+            "range": [
+                -18.0,
+                0.0
+            ],
+            "step": 0.1,
+            "precision": 1
+        },
+        "maxPeakOverflowDB": {
+            "group": "Loudness",
+            "title": "Max Amplitude Peak Overflow (dBFS)",
+            "help": "输入文件的最大电平溢出量，溢出高于此值的文件将不参加响度处理",
+            "type": "float",
+            "default": 3.0,
+            "presetable": true,
+            "range": [
+                0.0,
+                7.0
+            ],
+            "step": 0.1,
+            "precision": 1
+        },
+        "decisionTable": {
+            "group": "Search",
+            "title": "Decision Table",
+            "help": "响度决策表（.xlsx 后缀）的路径，采用后将忽略 --root 而直接采用未成功的 Sound SFX 对象作为待处理对象；默认不用",
+            "type": "file",
+            "default": "",
+            "presetable": true,
+            "range": [
+                [
+                    "Loudness Normalization Decision Table",
+                    "*.ln.xlsx"
+                ]
+            ],
+            "startDir": "$HOME$"
+        }
+    },
+    "output": {
+        "wobjListOK": {
+            "group": "output",
+            "title": "Sounds: OK",
+            "help": "响度无须修正的 Wwise 对象路径，保存在此表单文本文件中",
+            "type": "file",
+            "default": "",
+            "presetable": false
+        },
+        "wobjListFixed": {
+            "group": "output",
+            "title": "Sounds: Fixed",
+            "help": "响度修正成功后的 Wwise 对象路径，保存在此表单文本文件中",
+            "type": "file",
+            "default": "",
+            "presetable": false
+        },
+        "wobjListNeedsAdjust": {
+            "group": "output",
+            "title": "Sounds: Needs Adjustment",
+            "help": "响度修正预览失败或修正后仍然失败的 Wwise 对象路径，保存在此表单文本文件中",
+            "type": "file",
+            "default": "",
+            "presetable": false
+        },
+        "report": {
+            "group": "output",
+            "title": "Report",
+            "help": "响度修正结果报表，一般需要后续人工决策",
+            "type": "file",
+            "default": "",
+            "presetable": false
+        }
+    },
+    "appearance": {
+        "title": "Loudness Normalization",
+        "size": [
+            800,
+            600
+        ]
+    }
+}

@@ -1,0 +1,60 @@
+// <CAUTION
+// KEEP ALL TAGGED COMMENTS: // <TAG , // TAG>
+// CAUTION>
+
+syntax = "proto3";
+
+// <PACKAGE
+package wwnormalizeloudness;
+// PACKAGE>
+
+import "backend.proto";
+
+// <SERVICE
+service WwNormalizeLoudness {
+  rpc WwNormalizeLoudness(Request) returns (Reply) {}
+// SERVICE>
+}
+
+// service request to send to backend server
+message Request {
+  // <REQUEST
+  bool saveConfig = 1;
+  string cfgFile = 2;
+  bool dryRun = 3;
+  bool notifyUser = 4;
+  string appSessionID = 5;
+  string root = 6;
+  repeated string inclKeywords = 7;
+  bool inclAllKeywords = 8;
+  repeated string exclKeywords = 9;
+  bool exclAllKeywords = 10;
+  repeated string textScope = 11;
+  string masterPlat = 12;
+  repeated string slavePlats = 13;
+  float targetLUFS = 14;
+  float maxLufsRaise = 15;
+  float maxLufsDrop = 16;
+  float maxPeakDB = 17;
+  float maxPeakOverflowDB = 18;
+  string decisionTable = 19;
+  // REQUEST>
+}
+
+// response from backend server
+message Reply {
+  // execution details
+  backend.Report report = 1;
+  // output as input for next node
+  Output output = 2;
+}
+
+// backend core output
+message Output {
+  // <OUTPUT
+  string wobjListOK = 1;
+  string wobjListFixed = 2;
+  string wobjListNeedsAdjust = 3;
+  string report = 4;
+  // OUTPUT>
+}

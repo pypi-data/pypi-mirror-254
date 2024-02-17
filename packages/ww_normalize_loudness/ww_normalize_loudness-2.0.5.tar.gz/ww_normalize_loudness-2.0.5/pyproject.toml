@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "ww_normalize_loudness"
+version = "2.0.5"
+description = ""
+authors = ["bin.luo <bin.luo@mihoyo.com>"]
+packages = [
+    { include = "ww_normalize_loudness", from = ".." },
+]
+exclude = [
+    ".idea",
+    ".vscode",
+    "gui",
+    "ci",
+    "test",
+    "temp",
+    "pyproject.toml",
+]
+# add pubgrp keywords to indicate pubgrps that contain this package. e.g. keywords = ["pubgrp.flow"]
+keywords = []
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+# <3RD-PARTY>
+kkpyutil = "*"
+# <MIATECH>
+miautil = "*"
+p4_checkout = "*"
+rp_normalize_loudness = "*"
+ww_find_objs = "*"
+ww_unlink_srcs = "*"
+kkpyui = "^0.25.3"
+
+
+[tool.poetry.group.dev.dependencies]
+dev_build_service = {path = "../dev_build_service", develop = true}
+miadevops = {path = "../_devops", develop = true}
+miautil = {path = "../_util", develop = true}
+p4_checkout = {path = "../p4_checkout", develop = true}
+ww_find_objs = {path = "../ww_find_objs", develop = true}
+ww_unlink_srcs = {path = "../ww_unlink_srcs", develop = true}
+rp_normalize_loudness = {path = "../rp_normalize_loudness", develop = true}
+# you can add 3rd-party deps with local source paths below
+# but DO NOT commit to git
+# <3RD-PARTY>
+
+
+[tool.poetry.scripts]
+ww_normalize_loudness = "ww_normalize_loudness.src.ww_normalize_loudness_cli:main"
+
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test"
+]
+pythonpath = [
+    ".."
+]
+
+
+[[tool.poetry.source]]
+name = "miatech_pypi"
+url = "http://mia-store.mihoyo.com:6060/"
+default = true
+secondary = false
+
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>User Guide</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">User Guide</h1>
+</header>
+<script type="text/javascript" src="help_lang.js" type="module"></script>
+<style>
+/*
+  CAUTION: must use embedded style for standalone html with -s
+*/
+/***************
+Global
+***************/
+/*
+ * I add this to html files generated with pandoc.
+ */
+html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+
+/*--scrollbarBG: #CFD8DC;*/
+--scrollbarBG: #2a2f39;
+--thumbBG: #90a4ae;
+background-color: #2a2f39;
+/*CAUTION: must remove height to show bottom text section */
+}
+body {
+color: #e5e5e5;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+line-height: 1.7;
+padding: 1em;
+/* CAUTION: require bottom padding to show last line */
+padding-bottom: 100px;
+margin: auto;
+/*CAUTION: required for html to fill iframe horizontally */
+max-width: 100%;
+/*CAUTION end: required for html to fill iframe horizontally */
+/*CAUTION: required for background parallax */
+background: url('images/bg-next-logo.png') no-repeat top right, #2a2f39;
+height: 100%;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+/*CAUTION end: required for background parallax*/
+}
+a {
+color: #7fb3c9;
+text-decoration: none;
+}
+a:visited {
+color: #7fb3c9;
+}
+a:hover {
+color: #ffffff;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #fff;
+line-height: 125%;
+margin-top: 2em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 2em;
+}
+h3 {
+font-size: 1.5em;
+}
+h4 {
+font-size: 1.2em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #999;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+  }
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+  }
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+  }
+body {
+font-size: 12pt;
+max-width: 100%;
+  }
+a, a:visited {
+text-decoration: underline;
+  }
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+  }
+a[href]:after {
+content: " (" attr(href) ")";
+  }
+abbr[title]:after {
+content: " (" attr(title) ")";
+  }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+  }
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+  }
+tr, img {
+page-break-inside: avoid;
+  }
+img {
+max-width: 100% !important;
+  }
+@page :left {
+margin: 15mm 20mm 15mm 10mm;
+}
+@page :right {
+margin: 15mm 10mm 15mm 20mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+  }
+h2, h3 {
+page-break-after: avoid;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+body::-webkit-scrollbar-track {
+  background: #1b1f26;
+  background-clip: content-box;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #444b5a;
+  width: 6px;
+  border-radius: 16px;
+  /*border: 1px solid #555e70;*/
+  border: 4px solid #1b1f26;
+  background-clip: content-box;
+}
+</style>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-does-each-ui-parameter-mean">What does each UI parameter
+mean?</h3>
+<ul>
+<li>双击参数标题会弹出该参数的帮助文档</li>
+</ul>
+<h3 id="how-to-saveload-presets">How to save/load presets?</h3>
+<ul>
+<li>点菜单: <code>File &gt; Save Preset</code> 或者
+<code>File &gt; Load Preset</code></li>
+</ul>
+<h3 id="how-to-reset-a-parameter-to-default">How to reset a parameter to
+default?</h3>
+<ul>
+<li>右击参数标题，选择 <code>Reset</code></li>
+<li>点击 UI 左下角的 Reset 将重置所有参数</li>
+</ul>
+<h3 id="how-to-search-for-a-parameter">How to search for a
+parameter?</h3>
+<ul>
+<li>点击 UI
+左上角的搜索框，输入关键词；之后右侧的参数列表会自动筛选出匹配的参数</li>
+<li>输入关键字后所有导航页上的参数都会被筛选</li>
+</ul>
+<h3 id="how-to-open-user-guide">How to open User Guide？</h3>
+<ul>
+<li>点菜单: <code>Help &gt; Open Help</code>；或者快捷键
+<code>F1</code></li>
+</ul>
+<h3 id="how-to-debug-a-runtime-issue">How to debug a runtime issue?</h3>
+<ul>
+<li>点菜单: <code>Help &gt; Open Diagnostics</code>
+<ul>
+<li>系统文件管理器会自动打开最近一次执行的 session 文件夹</li>
+</ul></li>
+</ul>
+<h3 id="how-to-report-a-problem">How to report a problem?</h3>
+<ul>
+<li>前提条件：你要有内部 JIRA 和共享盘（Z:）的权限，参考文档 <a
+href="https://km.mihoyo.com/articleBase/4714/420081?sT=Accessing_JIRA#Accessing_JIRA">access
+miHoYo JIRA</a></li>
+<li>点菜单: <code>Help &gt; Report A Problem</code>,
+等待下面的流程自动执行完:
+<ul>
+<li>程序新建 JIRA 工单（issue）在: <a
+href="https://yo-jira.mihoyo.com/secure/Dashboard.jspa">miHoYo
+JIRA</a></li>
+<li>程序打包上传最近执行的 session 诊断信息到共享盘:
+Z:/Audio/Users/_bugreports</li>
+<li>程序发企业微信通知给研发组</li>
+</ul></li>
+<li>之后:
+<ul>
+<li>研发组会有人处理工单</li>
+<li>你会被设为工单的 Reporter</li>
+<li>随后工单更新会自动通知给你，前提是你已经 <a
+href="https://km.mihoyo.com/articleBase/4713/487397">注册了企业微信群机器人</a>
+到 Flow Launcher</li>
+</ul></li>
+<li>若上述都失败了，请联系技术音频组</li>
+</ul>
+<h3 id="about-the-ui-of-flow-tools-why-do-they-all-look-alike">About the
+UI of Flow Tools, why do they all look alike?</h3>
+<ul>
+<li>所有 Flow 服务在 Tool模式下 的 UI
+为代码自动生成，因此看起来都很像</li>
+<li>UI 采用类似的单页应用布局，即左侧导航栏 + 右侧参数列表 +
+底部按钮栏</li>
+<li>参数都有上下文帮助文档</li>
+<li>所有参数可独立重置为默认值，也可全部重置</li>
+<li><code>File</code>
+菜单提供一些常用功能，比如保存/加载参数配置、退出程序等</li>
+<li><code>Help</code>
+菜单提供一些常用功能，比如打开帮助文档、报告问题等</li>
+</ul>
+</body>
+</html>
