@@ -1,0 +1,2 @@
+[console_scripts]
+source-delighted = source_delighted.run:run
