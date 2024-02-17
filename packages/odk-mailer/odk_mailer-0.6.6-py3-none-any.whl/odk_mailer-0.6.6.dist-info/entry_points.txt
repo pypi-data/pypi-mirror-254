@@ -1,0 +1,3 @@
+[console_scripts]
+odk-mailer=odk_mailer.main:app
+
