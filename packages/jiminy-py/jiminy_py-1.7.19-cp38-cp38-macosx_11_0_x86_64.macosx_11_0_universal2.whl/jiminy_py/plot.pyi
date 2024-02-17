@@ -1,0 +1,49 @@
+import numpy as np
+from .core import Model as Model
+from .log import SENSORS_FIELDS as SENSORS_FIELDS, build_robot_from_log as build_robot_from_log, extract_variables_from_log as extract_variables_from_log, read_log as read_log
+from .viewer import interactive_mode as interactive_mode
+from _typeshed import Incomplete
+from matplotlib.artist import Artist as Artist
+from matplotlib.axes import Axes
+from matplotlib.backend_bases import Event as Event
+from matplotlib.legend import Legend as Legend
+from matplotlib.widgets import Button
+from typing import Any, Callable, Dict, List, Optional, Tuple, TypedDict, Union
+from weakref import WeakKeyDictionary
+
+class _ButtonBlit(Button): ...
+
+class TabData(TypedDict, total=True):
+    axes: List[Axes]
+    legend_data: Tuple[List[Artist], List[str]]
+    nav_stack: List[WeakKeyDictionary]
+    nav_pos: int
+    button: _ButtonBlit
+    button_axcut: Axes
+
+class TabbedFigure:
+    sync_tabs: Incomplete
+    offscreen: Incomplete
+    figure: Incomplete
+    legend: Incomplete
+    ref_ax: Incomplete
+    tabs_data: Incomplete
+    tab_active: Incomplete
+    bbox_inches: Incomplete
+    subfigs: Incomplete
+    def __init__(self, sync_tabs: bool = False, window_title: str = 'jiminy', offscreen: bool = False, **kwargs: Any) -> None: ...
+    def close(self) -> None: ...
+    def __del__(self) -> None: ...
+    def adjust_layout(self, event: Optional[Event] = None, *, refresh_canvas: bool = False) -> None: ...
+    def refresh(self) -> None: ...
+    def add_tab(self, tab_name: str, time: np.ndarray, data: Union[np.ndarray, Dict[str, Union[Dict[str, np.ndarray], np.ndarray]]], plot_method: Optional[Union[Callable[..., Any], str]] = None, *, refresh_canvas: bool = True, **kwargs: Any) -> None: ...
+    def select_active_tab(self, tab_name: str) -> None: ...
+    def remove_tab(self, tab_name: str, *, refresh_canvas: bool = True) -> None: ...
+    def clear(self) -> None: ...
+    def save_tab(self, pdf_path: str) -> None: ...
+    def save_all_tabs(self, pdf_path: str) -> None: ...
+    @classmethod
+    def plot(cls, time: np.ndarray, tabs_data: Dict[str, Union[np.ndarray, Dict[str, Union[Dict[str, np.ndarray], np.ndarray]]]], pdf_path: Optional[str] = None, **kwargs: Any) -> TabbedFigure: ...
+
+def plot_log(log_data: Dict[str, Any], robot: Optional[Model] = None, enable_flexiblity_data: bool = False, block: Optional[bool] = None, **kwargs: Any) -> TabbedFigure: ...
+def plot_log_interactive() -> None: ...
