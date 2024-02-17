@@ -1,0 +1,6 @@
+mysql-connector-python
+url_remote
+logger-local>=0.0.80
+database-infrastructure-local>=0.0.19
+language-remote>=0.0.8
+sql-to-code-local>=0.0.2
