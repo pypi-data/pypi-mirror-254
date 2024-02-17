@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: livereload-server
+Version: 0.1.0
+Summary: A static file server that supports the LiveReload protocol
+Author-email: Pradyun Gedam <mail@pradyunsg.me>
+Requires-Python: >= 3.8
+Requires-Dist: aiohttp
+Requires-Dist: watchfiles
+Project-URL: GitHub, https://github.com/pradyunsg/livereload-server
