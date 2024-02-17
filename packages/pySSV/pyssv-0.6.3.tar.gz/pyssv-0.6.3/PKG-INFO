@@ -1,0 +1,203 @@
+Metadata-Version: 2.1
+Name: pySSV
+Version: 0.6.3
+Summary: Leverage the power of shaders for scientific visualisation in Jupyter
+Project-URL: Homepage, https://github.com/space928/Shaders-For-Scientific-Visualisation
+Project-URL: Bug Tracker, https://github.com/space928/Shaders-For-Scientific-Visualisation/issues
+Project-URL: Repository, https://github.com/space928/Shaders-For-Scientific-Visualisation.git
+Author-email: Thomas Mathieson <thomas@mathieson.dev>
+License: MIT License
+        
+        Copyright (c) 2023 Thomas Mathieson
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: Environment :: GPU
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 4
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Multimedia :: Graphics :: 3D Rendering
+Classifier: Topic :: Multimedia :: Graphics :: Viewers
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Requires-Dist: av~=11.0.0
+Requires-Dist: ipywidgets>=8.0.0
+Requires-Dist: moderngl~=5.10.0
+Requires-Dist: numpy>=1.22.0; python_version <= '3.10'
+Requires-Dist: numpy>=1.24.0; python_version == '3.11'
+Requires-Dist: numpy>=1.26.0; python_version == '3.12'
+Requires-Dist: pcpp~=1.30
+Requires-Dist: pillow~=10.1.0
+Requires-Dist: portpicker~=1.6.0
+Requires-Dist: types-pillow~=10.1.0
+Requires-Dist: websockets~=12.0
+Provides-Extra: docs
+Requires-Dist: jupyter-sphinx; extra == 'docs'
+Requires-Dist: nbsphinx; extra == 'docs'
+Requires-Dist: nbsphinx-link; extra == 'docs'
+Requires-Dist: pypandoc; extra == 'docs'
+Requires-Dist: pytest-check-links; extra == 'docs'
+Requires-Dist: recommonmark; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: sphinx>=1.5; extra == 'docs'
+Provides-Extra: examples
+Provides-Extra: test
+Requires-Dist: nbval; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest>=6.0; extra == 'test'
+Description-Content-Type: text/markdown
+
+# Shaders For Scientific Visualisation
+
+**Author:** _Thomas Mathieson_  
+**Student ID:** _2576219m_  
+**Supervisor:** _Dr. John Williamson_
+
+[![Build](https://github.com/space928/Shaders-For-Scientific-Visualisation/actions/workflows/build.yml/badge.svg)](https://github.com/space928/Shaders-For-Scientific-Visualisation/actions/workflows/build.yml)
+[![PyPI - Version](https://img.shields.io/pypi/v/pySSV)](https://pypi.org/project/pySSV/)
+[![Documentation Status](https://readthedocs.org/projects/pyssv/badge/?version=latest)](https://pyssv.readthedocs.io/en/latest/?badge=latest)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/space928/Shaders-For-Scientific-Visualisation/blob/main/examples/introduction.ipynb)
+
+A python library for advanced interactive data visualisation on the GPU. This project is being developed for my Level 4
+Individual Project at the University of Glasgow for my Computing Science degree.
+
+The dissertation and accompanying notes and planning documents can be found
+[here](https://github.com/space928/Shaders-For-Scientific-Visualisation-Notes).
+
+## Installation
+
+You can install using `pip`:
+
+```bash
+pip install pySSV
+```
+
+If you are using Jupyter Notebook 5.2 or earlier, you may also need to enable
+the nbextension:
+
+```bash
+jupyter nbextension enable --py [--sys-prefix|--user|--system] pySSV
+```
+
+## Getting Started
+
+### Try the example notebook
+
+Create a suitable python environment (optional if you already have a python environment with jupyterlab setup) and install the package using `pip`:
+
+```bash
+conda create -n pySSV -c conda-forge python jupyterlab
+conda activate pySSV
+
+pip install pySSV
+```
+
+Download the example notebook from github:
+
+```bash
+curl -o introduction.ipynb https://github.com/space928/Shaders-For-Scientific-Visualisation/raw/main/examples/introduction.ipynb
+```
+
+Start JupyterLab and play around with the notebook:
+
+```bash
+jupyter lab .\introduction.ipynb
+```
+
+## Building From Source
+
+Create a dev environment:
+
+```bash
+conda create -n pySSV-dev -c conda-forge nodejs yarn python jupyterlab=4
+conda activate pySSV-dev
+```
+
+Install the python package. This will also build the TS package.
+
+```bash
+pip install -e ".[test, examples]"
+```
+
+The `jlpm` command is JupyterLab's pinned version of
+[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use `yarn` or `npm` 
+in lieu of `jlpm` below. Using `jlpm` and `yarn` sometimes breaks the package cache
+if this happens, just delete the `yarn.lock` file and the `.yarn` folder and rerun 
+`jlpm install`.
+
+When developing your extensions, you need to manually enable your extensions with the
+notebook / lab frontend. For lab, this is done by the command:
+
+```bash
+jupyter labextension develop --overwrite .
+jlpm run build
+```
+
+For classic notebook, you need to run:
+
+```bash
+jupyter nbextension install --sys-prefix --symlink --overwrite --py pySSV
+jupyter nbextension enable --sys-prefix --py pySSV
+```
+
+Note that the `--symlink` flag **doesn't work on Windows**, so you will here have to run
+the `install` command every time that you rebuild your extension. For certain installations
+you might also need another flag instead of `--sys-prefix`, but we won't cover the meaning
+of those flags here.
+
+### How to see your changes
+
+#### Typescript:
+
+If you use JupyterLab to develop then you can watch the source directory and run JupyterLab at the same time in different
+terminals to watch for changes in the extension's source and automatically rebuild the widget.
+
+```bash
+# Watch the source directory in one terminal, automatically rebuilding when needed
+jlpm run watch
+# Run JupyterLab in another terminal
+jupyter lab
+```
+
+After a change wait for the build to finish and then refresh your browser and the changes should take effect.
+
+#### Python:
+
+If you make a change to the python code then you will need to restart the notebook kernel to have it take effect.
+
+## Acknowledgements
+
+Thanks to Dr. John H. Williamson for his support throughout the project.
+
+This project was made using the fabulous Jupyter Widget template:
+https://github.com/jupyter-widgets/widget-ts-cookiecutter

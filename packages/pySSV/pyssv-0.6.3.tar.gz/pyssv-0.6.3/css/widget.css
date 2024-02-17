@@ -1,0 +1,131 @@
+/*
+ * Copyright (c) 2023-2024 Thomas Mathieson.
+ * Distributed under the terms of the MIT license.
+ */
+
+.ssv-colors {
+  --ssv-bg-color1: var(--jp-layout-color1);
+  --ssv-bg-color2: var(--jp-layout-color2);
+  --ssv-bg-color3: var(--jp-layout-color3);
+  --ssv-bg-color4: var(--jp-layout-color4);
+
+  --ssv-font-color1: var(--jp-ui-font-color1);
+  --ssv-font-color2: var(--jp-ui-font-color2);
+
+  --ssv-error-color1: var(--jp-error-color1);
+  --ssv-error-color2: var(--jp-error-color2);
+  --ssv-warn-color1: var(--jp-warn-color1);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.ssv-colab-support.ssv-colors {
+  /* We need to change some of the colours here since google colab doesn't seem to support all the jupyter colours. */
+  --ssv-bg-color1: var(--colab-primary-surface-color);
+  --ssv-bg-color2: var(--colab-secondary-surface-color);
+  --ssv-bg-color3: var(--colab-highlighted-surface-color);
+  --ssv-bg-color4: var(--colab-border-color);
+
+  --ssv-font-color2: var(--colab-icon-color);
+}
+
+.ssv-render-widget {
+  background-color: var(--ssv-bg-color1); /* #101515;*/
+  padding: 2px;
+}
+
+.ssv-render-viewport {
+  transform: scaleY(-1);
+}
+
+.ssv-status-bar {
+  padding: 4px;
+  background-color: var(--ssv-bg-color2); /* #203030;*/
+  color: var(--ssv-font-color1);
+  display: flex;
+  align-items: center;
+}
+
+.ssv-icon-button {
+  aspect-ratio: 1;
+  font-size: 1rem;
+}
+
+.ssv-icon {
+  fill: var(--ssv-font-color1);
+  stroke-width: 0;
+}
+
+[class^="ssv-status-"] {
+  padding: 2px 20px 2px 2px;
+}
+
+.ssv-status-disconnected {
+  color: var(--ssv-error-color2);
+}
+
+.ssv-log {
+  height: 0;
+  max-height: 20rem;
+  margin: 10px 0 10px 20px;
+  overflow: auto;
+  color: var(--ssv-font-color2);
+  display: none;
+  /*white-space-collapse: preserve;*/
+}
+
+.ssv-log-debug {
+  color: var(--ssv-font-color2);
+}
+
+.ssv-log-info {
+  color: var(--ssv-font-color1);
+}
+
+.ssv-log-warn {
+  color: var(--ssv-warn-color1);
+}
+
+.ssv-log-error {
+  color: var(--ssv-error-color1);
+}
+
+.ssv-log.ssv-log-active {
+  height: auto;
+  display: block;
+}
+
+.ssv-button {
+  padding: 0 0.5rem;
+  margin-right: 2px;
+  font-family: sans-serif;
+  color: var(--ssv-font-color1);
+  background-color: var(--ssv-bg-color3);
+  border: 1px solid #ffffff10;
+  border-radius: 3px;
+  height: 2.4rem;
+}
+
+.ssv-button:hover {
+  background-color: var(--ssv-bg-color4);
+}
+
+.ssv-button:active {
+  background-color: var(--ssv-bg-color2);
+}
+
+.ssv-status-frame-stats table {
+  display: contents;
+}
+
+.ssv-status-frame-stats tbody {
+  text-align: left;
+  font-family: monospace;
+}
+
+.ssv-status-frame-stats td {
+  padding: 0;
+}
+
+.ssv-status-frame-stats td:nth-last-child(n+1) {
+  padding-right: 16px;
+}

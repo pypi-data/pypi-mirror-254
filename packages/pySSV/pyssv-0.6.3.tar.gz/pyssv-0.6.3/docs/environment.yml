@@ -1,0 +1,13 @@
+
+name: pySSV_docs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - nodejs
+  - jupyter_sphinx
+  - sphinx
+  - sphinx_rtd_theme
+  - nbsphinx
+  - nbsphinx-link
