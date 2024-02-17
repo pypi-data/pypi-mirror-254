@@ -1,0 +1,139 @@
+Metadata-Version: 2.1
+Name: panel-jstree
+Version: 0.3.2
+Summary: panel-jstree is a wrapper python wrapper around the javascript library jstree for use in panel. This allows for JSON-like representations of tree data. One very useful implementation provided is a server-side file browser.
+Author: madeline-scyphers
+License: MIT License
+        
+        Copyright (c) 2023 Madeline Scyphers
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: repository, https://github.com/madeline-scyphers/panel-jstree
+Keywords: python,holoviz,panel,dataviz,dataapp,dashboard,datascience,analytics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: panel>1.3
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Provides-Extra: examples
+Requires-Dist: notebook; extra == "examples"
+
+# ✨ panel-jstree
+
+panel-jstree is a wrapper python wrapper around the javascript library [jstree](https://www.jstree.com) for use in [panel](https://panel.holoviz.org/). This allows for JSON-like representations of tree data. One very useful implementation provided is a server-side file browser.
+
+You can install and use the package as simple as.
+
+```bash
+conda install -c conda-forge panel-jstree
+```
+
+or with pip
+
+```bash
+pip install panel-jstree
+```
+
+Add this into a python file to play with the FileTree
+
+```python
+from panel_jstree import FileTree
+
+FileTree().servable()
+```
+
+run it with `panel serve name_of_app.py`
+
+It should run exploring the directory of the file.
+
+![Project Intro](https://raw.githubusercontent.com/madeline-scyphers/panel-jstree/main/assets/videos/project-intro.gif)
+
+## 🚀 Get started in under a minute
+
+```bash
+pip install  panel-jstree
+```
+
+Run the examples
+
+```bash
+panel serve tests/*tree.py --show
+```
+
+Here are some of the examples. You can see a small FileTree app with a text field and controls to directly input a file path, and turn off and on some of the controls.
+
+![FileTree App Example](https://raw.githubusercontent.com/madeline-scyphers/panel-jstree/main/assets/videos/file-tree.gif)
+
+You can make a simple tree where you swap out the data.
+
+![Simple Tree App Example](https://raw.githubusercontent.com/madeline-scyphers/panel-jstree/main/assets/videos/simple_tree.gif)
+
+You can also see a generic Tree app with a custom callback to generate random nodes.
+
+![Random Tree App Example](https://raw.githubusercontent.com/madeline-scyphers/panel-jstree/main/assets/videos/random-tree.gif)
+
+
+## ⭐ Support
+
+Please support [Panel](https://panel.holoviz.org) and
+[panel-jstree](https://github.com/madeline-scyphers/panel-jstree) by giving the projects a star on Github.
+
+Thanks
+
+## ❤️ Contribute
+
+If you are looking to contribute to this project you can find ideas in the [issue tracker](https://github.com/madeline-scyphers/panel-jstree/issues). To get started check out the [DEVELOPER_GUIDE](DEVELOPER_GUIDE.md).
+
+I would love to support and receive your contributions. Thanks.
+
+## Monitor
+
+|                 |                                                                                                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Conda Install   | [![Conda Version](https://anaconda.org/conda-forge/panel-jstree/badges/version.svg)](https://anaconda.org/conda-forge/panel-jstree)                                     |
+| PyPI Install    | [![PyPI version](https://badge.fury.io/py/panel-jstree.svg)](https://pypi.org/project/panel-jstree)                                                                     |
+| Github release  | [![Github tag](https://img.shields.io/github/v/tag/madeline-scyphers/panel-jstree.svg?label=tag&colorB=11ccbb)](https://github.com/madeline-scyphers/panel-jstree/tags) |
+| Python Versions | ![Python Versions](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10-blue)                                                                               |
+| License         | [![License](https://img.shields.io/badge/License-MIT%202.0-blue.svg)](https://opensource.org/licenses/MIT)                                                              |
