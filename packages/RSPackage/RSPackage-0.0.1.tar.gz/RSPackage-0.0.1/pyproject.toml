@@ -1,0 +1,12 @@
+[project]
+name = "RSPackage"
+version = "0.0.1"
+authors = [
+  { name="rasheed"},
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3"
+]

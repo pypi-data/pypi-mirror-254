@@ -1,0 +1,6 @@
+pyproject.toml
+src/RSPackage/example.py
+src/RSPackage.egg-info/PKG-INFO
+src/RSPackage.egg-info/SOURCES.txt
+src/RSPackage.egg-info/dependency_links.txt
+src/RSPackage.egg-info/top_level.txt
