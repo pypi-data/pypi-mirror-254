@@ -1,0 +1,3 @@
+[console_scripts]
+gitautobackup = gitautobackup:__main__
+gitbackup = gitautobackup:__main__

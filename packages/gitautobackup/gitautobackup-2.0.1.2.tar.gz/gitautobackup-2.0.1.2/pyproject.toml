@@ -1,0 +1,71 @@
+#pyproject.toml for gitautobackup python module
+#THX https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points
+#THX https://pypi.org/project/validate-pyproject/
+
+[project]
+    dynamic = ["version", "readme"]
+    name = "gitautobackup"
+    description = "A basic CLI program and python module that allows for quickly making and comming changes to a git repository, along with a few other tools"
+    authors = [{ name = "Markus Hammer", email = "107761433+MarkusHammer@users.noreply.github.com" }]
+    license = { file = "LICENSE" }
+    dependencies = ["pathlib", "GitPython>=3.1.41", "typing-extensions;python_version<'3.8'"]
+    requires-python = ">=3"
+    classifiers = [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "Typing :: Typed",
+        "Natural Language :: English",
+        "Topic :: Software Development :: Version Control",
+        "Topic :: Software Development :: Version Control :: Git",
+        "Topic :: System :: Archiving",
+        "Topic :: System :: Archiving :: Backup",
+        "Topic :: System :: Software Distribution",
+        "Topic :: Utilities",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3"
+    ]
+    keywords = [
+        "backup",
+        "git", 
+        "commit",
+        "managment",
+        "tool",
+        "devtool",
+        "small",
+        "simple",
+        "development",
+        "utility"
+    ]
+    [project.optional-dependencies]
+        cli = ["argparse"]
+        dev = ["setuptools>=64.0.0", "pip-tools", "validate-pyproject[all]", "build", "twine"]
+    [project.scripts] 
+        gitautobackup = "gitautobackup:__main__"
+        gitbackup = "gitautobackup:__main__"
+    [project.urls]
+        Homepage = "https://github.com/MarkusHammer/gitautobackup"
+        Github  = "https://github.com/MarkusHammer/gitautobackup"
+        Issues = "https://github.com/MarkusHammer/gitautobackup/issues"
+        "Pull Requests" = "https://github.com/MarkusHammer/gitautobackup/pulls"
+        Git = "https://github.com/MarkusHammer/gitautobackup.git"
+
+[build-system]
+    requires = ["setuptools>=64.0.0"]
+    build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+    zip-safe = true
+    [tool.setuptools.dynamic]
+        version = {attr = "gitautobackup.__version__"}
+        readme = {file = ["README.md", "SECURITY.md", "LICENSE"], content-type = "text/markdown"}
+
+### NOTE THIS MUST BE BUILT USING A VERSION OF PYTHON >= 3.10, 3.9.1 and 3.8.7 #THX https://github.com/pypa/build/issues/255#issuecomment-794560752
+### below are the commands used on windows
+### py -3.10 -m pip install pip-tools validate-pyproject[all] build twine setuptools
+### validate-pyproject pyproject.toml
+### pip-compile --resolver=backtracking --no-header --upgrade --rebuild pyproject.toml
+### py -3.10 -m build
+### py -3.10 -m twine check dist/*
+### py -3.10 -m twine upload dist/* --verbose --username __token__
