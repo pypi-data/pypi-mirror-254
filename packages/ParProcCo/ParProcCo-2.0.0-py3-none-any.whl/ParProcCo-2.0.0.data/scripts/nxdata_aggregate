@@ -1,0 +1,37 @@
+#!python
+# -*- coding: utf-8 -*-
+
+from __future__ import annotations
+
+import argparse
+import logging
+from pathlib import Path
+
+from ParProcCo.nxdata_aggregator import NXdataAggregator
+
+
+def create_parser():
+    '''
+     $ nxdata_aggregate --output output_file input files ...
+     '''
+    parser = argparse.ArgumentParser(description='NXdata aggregate script for use with ParProcCo')
+    parser.add_argument('--output', help='str: output file', required=True)
+    parser.add_argument("sliced_files", help="str: paths to sliced result files", type=str, nargs="+")
+
+    return parser
+
+
+def run_aggregator(args: argparse.Namespace) -> None:
+    '''
+    Run NXdataAggregator
+    '''
+    args.output = Path(args.output)
+    sliced_file_paths = [Path(x) for x in args.sliced_files]
+
+    NXdataAggregator().aggregate(args.output, sliced_file_paths)
+
+
+if __name__ == '__main__':
+    logging.getLogger().setLevel(logging.INFO)
+    args = create_parser().parse_args()
+    run_aggregator(args)
