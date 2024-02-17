@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: clika-client
+Version: 0.0.0
+Summary: A fake package to warn the user they are not installing the correct package.
+Home-page: https://www.clika.io
+Author: CLIKA Inc.
+Author-email: support@clika.io
+Maintainer: CLIKA Inc.
+Maintainer-email: support@clika.io
+License: Proprietary
+Keywords: compression,neural networks,quantization,pruning,clika,llm,transformer,vision,generative,edge
+Platform: Linux
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+
+
+clika-client
+=====================
+
+**WARNING:** The package you are trying to install is only a placeholder project on PyPI.org repository.
+This package is hosted on CLIKA Python Package Index to which you would need a license key to download.
+
+Please visit us at www.clika.io
