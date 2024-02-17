@@ -1,0 +1,2 @@
+[console_scripts]
+source-plaid = source_plaid.run:run
