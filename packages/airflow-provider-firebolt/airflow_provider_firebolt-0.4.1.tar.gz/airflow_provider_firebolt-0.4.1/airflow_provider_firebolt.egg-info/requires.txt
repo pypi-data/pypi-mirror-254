@@ -1,0 +1,10 @@
+apache-airflow>=1.10.0
+firebolt-sdk>=1.1.0
+
+[dev]
+mypy==1.*
+pre-commit==2.15.0
+pydantic
+pytest
+pytest-cov
+pytest-mock
