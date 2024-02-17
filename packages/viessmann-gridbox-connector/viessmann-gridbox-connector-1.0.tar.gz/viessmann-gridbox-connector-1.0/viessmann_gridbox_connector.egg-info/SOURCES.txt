@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+gridbox_connector/GridboxConnector.py
+gridbox_connector/__init__.py
+gridbox_connector/__main__.py
+viessmann_gridbox_connector.egg-info/PKG-INFO
+viessmann_gridbox_connector.egg-info/SOURCES.txt
+viessmann_gridbox_connector.egg-info/dependency_links.txt
+viessmann_gridbox_connector.egg-info/requires.txt
+viessmann_gridbox_connector.egg-info/top_level.txt
