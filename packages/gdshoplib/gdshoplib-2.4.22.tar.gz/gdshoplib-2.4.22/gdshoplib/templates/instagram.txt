@@ -1,0 +1,16 @@
+{% if product.quantity > 0 %}🏡 В наличии 🏡{% else %}📦 Под заказ 📦{% endif %}
+
+{{ product.name }}{% if product.size %}
+Размер: {{product.size}}{% endif %}
+*Цена: {{product.price.now}} руб
+
+{% if product.specifications %}{% for spec in product.specifications %}
+✨ {{spec}}{% endfor %}{% endif %}
+
+За подробностями пишите в Директ 💌
+
+Артикул: {{product.sku}}
+
+* Цена на момент публикации. Пожалуйста, уточняйте цену у консультанта
+
+{% for tag in product.tags %}#{{tag}} {% endfor %}

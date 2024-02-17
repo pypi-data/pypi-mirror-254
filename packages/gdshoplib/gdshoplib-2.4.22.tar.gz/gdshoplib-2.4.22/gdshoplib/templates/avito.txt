@@ -1,0 +1,25 @@
+<strong>{{ product.name }}</strong>
+
+{% if product.brand %}✨ Бренд: <strong>{{product.brand.title}}</strong>{% endif %}{% if product.collection %}
+✨ Коллекция: {{product.collection}}{% endif %}{% if product.size %}
+✨ Размер: <strong>{{product.size}}</strong>{% endif %}{% if product.color %}
+✨ Цвет: <strong>{{product.color}}</strong>{% endif %}{% if product.quantity == 0 %}
+📦 Под заказ 📦{% else %}
+✅ <strong>В наличии</strong> ✅{% endif %}
+
+{% if product.short_description %}{{product.short_description}}{% endif %}
+{% if product.specifications %}
+<strong>Материалы / Характеристики:</strong>{% for material in product.specifications %}
+➰ {{material}}{% endfor %}{% endif %}{% if product.notes %}
+<strong>Примечания:</strong>{% for note in product.notes %}
+➿ {{note}}{% endfor %}{% endif %}
+
+Службы доставки: СДЭК, Яндекс
+Доставка в любой город России, Казахстана, Белоруссии
+Местонахождение склада, Москва
+Возврат в течении 14 дней с момента получения
+
+<strong>Артикул:</strong> {{product.sku}}
+
+{% if product.tags %}Теги:
+{% for tag in product.tags %}{{tag}}, {% endfor %}{% endif %}
