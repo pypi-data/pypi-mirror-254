@@ -1,0 +1,2 @@
+[console_scripts]
+ez-cli = ezcx.cli:cli
