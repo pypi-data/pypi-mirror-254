@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/subwaysim/__init__.py
+src/subwaysim/sim.py
+src/subwaysim.egg-info/PKG-INFO
+src/subwaysim.egg-info/SOURCES.txt
+src/subwaysim.egg-info/dependency_links.txt
+src/subwaysim.egg-info/requires.txt
+src/subwaysim.egg-info/top_level.txt
