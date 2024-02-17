@@ -1,0 +1,39 @@
+[tool.black]
+line-length = 119
+
+[tool.coverage.run]
+branch = true
+
+[tool.poetry]
+name = "agentforum"
+version = "0.0.7"
+description = """\
+An asynchronous framework for building LLM-based multi-agent systems in Python, \
+with a focus on trees of immutable messages and token streaming.\
+"""
+authors = ["Oleksandr Tereshchenko <toporok@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+pydantic = ">=2.0.0,<3.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+ipython = "*"
+jupyterlab = "*"
+notebook = "*"
+openai = "*"
+pre-commit = "*"
+promptlayer = "*"
+pylint = "*"
+pytest = "<8.0.0"  # TODO Oleksandr: address breaking changes in 8.0.0
+pytest-asyncio = "*"
+pytest-cov = "*"
+python-dotenv = "*"
+tiktoken = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
