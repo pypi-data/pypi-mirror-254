@@ -1,0 +1,2 @@
+[console_scripts]
+source-fastbill = source_fastbill.run:run
