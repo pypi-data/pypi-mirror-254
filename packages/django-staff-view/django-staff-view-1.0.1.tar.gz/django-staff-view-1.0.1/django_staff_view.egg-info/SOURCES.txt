@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+django_staff_view.egg-info/PKG-INFO
+django_staff_view.egg-info/SOURCES.txt
+django_staff_view.egg-info/dependency_links.txt
+django_staff_view.egg-info/not-zip-safe
+django_staff_view.egg-info/requires.txt
+django_staff_view.egg-info/top_level.txt
+staff_view/__init__.py
+staff_view/version.py
+staff_view/views.py
+staff_view/templates/staff_view.html

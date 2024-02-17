@@ -1,0 +1,5 @@
+pytest
+pytest-cov
+pytest-django~=4.5.2
+django~=4.2.9
+pyquery~=2.0.0

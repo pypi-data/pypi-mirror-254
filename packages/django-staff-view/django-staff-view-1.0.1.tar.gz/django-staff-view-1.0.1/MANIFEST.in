@@ -1,0 +1,2 @@
+exclude tests/*.py
+include staff_view/templates/staff_view.html
