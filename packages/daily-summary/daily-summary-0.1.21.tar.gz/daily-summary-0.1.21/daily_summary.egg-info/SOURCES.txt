@@ -1,0 +1,12 @@
+README.md
+setup.py
+daily_summary/__init__.py
+daily_summary/main.py
+daily_summary.egg-info/PKG-INFO
+daily_summary.egg-info/SOURCES.txt
+daily_summary.egg-info/dependency_links.txt
+daily_summary.egg-info/entry_points.txt
+daily_summary.egg-info/requires.txt
+daily_summary.egg-info/top_level.txt
+tests/__init__.py
+tests/test_main.py
