@@ -1,0 +1,2 @@
+[console_scripts]
+source-sap-fieldglass = source_sap_fieldglass.run:run
