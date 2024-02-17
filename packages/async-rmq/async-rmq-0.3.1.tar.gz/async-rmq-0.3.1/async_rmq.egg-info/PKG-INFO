@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: async-rmq
+Version: 0.3.1
+Summary: Module for working with asynchronous RabbitMQ library
+Author-email: Konstantin Zakharov <konstantizaharov@gmail.com>
+Project-URL: Homepage, https://pypi.org/project/async-rmq/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Оглавление  
+
+- [Описание](#description)
+- [Установка и запуск](#launch)
+
+<a name="description">
+
+## Описание  
+
+В данной библиотеке реализовано взаимодействие с асинхронной библиотекой RabbitMQ (создание очередей, точек обмена, абстрактный класс для консюмеров сообщений)
+
+<a name="launch">
+
+## Установка и запуск
+
+Перед запуском необходимо установить [Python](https://www.python.org/downloads/release/python-3107/) вместе с pip.
+
+Далее необходимо скачать библиотеку с GitLab:
+
+```
+git clone https://gitlab.getstream.ru/getstream/r-n-d/rabbitmq-service-python
+```
+
+Открыть из корневой папки проекта командную строку и установить библиотеку в python:
+
+```
+python setup.py install
+```
