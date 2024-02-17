@@ -1,0 +1,10 @@
+pydantic==2.*
+requests
+boto3
+
+[dev]
+variation-normalizer~=0.8.0.dev0
+asyncclick
+openpyxl
+pandas
+xlrd
