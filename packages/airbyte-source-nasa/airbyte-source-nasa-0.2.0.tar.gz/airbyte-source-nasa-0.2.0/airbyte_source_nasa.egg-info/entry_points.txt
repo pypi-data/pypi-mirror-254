@@ -1,0 +1,2 @@
+[console_scripts]
+source-nasa = source_nasa.run:run
