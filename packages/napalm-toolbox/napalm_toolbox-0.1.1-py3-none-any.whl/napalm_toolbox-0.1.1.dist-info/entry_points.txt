@@ -1,0 +1,4 @@
+[console_scripts]
+napalm=napalm.cli.base.main:cli
+napalm-dev=napalm.cli.dev.cli:cli
+
