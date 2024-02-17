@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: arlas-cli
+Version: 0.0.14
+Summary: ARLAS Command line for collection management
+Home-page: UNKNOWN
+Author: Gisaïa
+License: UNKNOWN
+Description: # ARLAS Command line for collection management
+        
+        ```
+        Usage: python -m arlas.cli.cli [OPTIONS] ARLAS_CONFIGURATION COMMAND [ARGS]...
+        
+        Arguments:
+          ARLAS_CONFIGURATION  Name of the ARLAS configuration to use from your
+                               configuration file
+                               (/Users/gaudan/.arlas/cli/configuration.yaml)
+                               [required]
+        
+        Options:
+          --version
+          --install-completion [bash|zsh|fish|powershell|pwsh]
+                                          Install completion for the specified shell.
+          --show-completion [bash|zsh|fish|powershell|pwsh]
+                                          Show completion for the specified shell, to
+                                          copy it or customize the installation.
+          --help                          Show this message and exit.
+        
+        Commands:
+          collections
+          indices
+        ```
+        
+        Actions on collections:
+        
+        ```
+        arlas_cli_versions
+        ```
+        
+Platform: UNKNOWN
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
