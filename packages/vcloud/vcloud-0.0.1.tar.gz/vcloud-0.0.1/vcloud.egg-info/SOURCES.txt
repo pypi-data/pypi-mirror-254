@@ -1,0 +1,13 @@
+README.md
+setup.py
+vcd/__init__.py
+vcd/client.py
+vcd/org.py
+vcd/vapp.py
+vcd/vdc.py
+vcd/vm.py
+vcloud.egg-info/PKG-INFO
+vcloud.egg-info/SOURCES.txt
+vcloud.egg-info/dependency_links.txt
+vcloud.egg-info/requires.txt
+vcloud.egg-info/top_level.txt
