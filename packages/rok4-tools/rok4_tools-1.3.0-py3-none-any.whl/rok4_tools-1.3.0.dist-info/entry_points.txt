@@ -1,0 +1,4 @@
+[console_scripts]
+joincache = rok4_tools.joincache:main
+make-layer = rok4_tools.make_layer:main
+pyr2pyr = rok4_tools.pyr2pyr:main
