@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements-dev.txt
+requirements.txt
+setup.py
+ibm_watsonxdata/__init__.py
+ibm_watsonxdata/common.py
+ibm_watsonxdata/version.py
+ibm_watsonxdata/watsonx_data_v2.py
+ibm_watsonxdata.egg-info/PKG-INFO
+ibm_watsonxdata.egg-info/SOURCES.txt
+ibm_watsonxdata.egg-info/dependency_links.txt
+ibm_watsonxdata.egg-info/requires.txt
+ibm_watsonxdata.egg-info/top_level.txt
+ibm_watsonxdata.egg-info/zip-safe
