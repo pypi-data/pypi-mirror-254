@@ -1,0 +1,2 @@
+[console_scripts]
+source-search-metrics = source_search_metrics.run:run
