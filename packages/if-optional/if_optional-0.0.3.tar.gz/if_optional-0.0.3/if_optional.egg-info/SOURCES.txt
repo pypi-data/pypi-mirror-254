@@ -1,0 +1,10 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+if_.py
+setup.py
+test.py
+if_optional.egg-info/PKG-INFO
+if_optional.egg-info/SOURCES.txt
+if_optional.egg-info/dependency_links.txt
+if_optional.egg-info/top_level.txt
