@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-pydantic-field"
+version = "0.3.2"
+description = "Django JSONField with Pydantic models as a Schema"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Savva Surenkov", email = "savva@surenkov.space" },
+]
+
+keywords = ["django", "pydantic", "json", "schema"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Framework :: Django",
+    "Framework :: Django :: 3",
+    "Framework :: Django :: 3.1",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Pydantic",
+    "Framework :: Pydantic :: 1",
+    "Framework :: Pydantic :: 2",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+requires-python = ">=3.7"
+dependencies = [
+    "pydantic>=1.10,<3",
+    "django>=3.1,<6",
+    "typing_extensions",
+]
+
+[project.optional-dependencies]
+openapi = ["uritemplate"]
+coreapi = ["coreapi"]
+dev = [
+    "build",
+    "black",
+    "isort",
+    "mypy",
+    "pytest~=7.4",
+    "djangorestframework>=3.11,<4",
+    "django-stubs[compatible-mypy]~=4.2",
+    "djangorestframework-stubs[compatible-mypy]~=3.14",
+    "pytest-django>=4.5,<5",
+]
+test = [
+    "django_pydantic_field[openapi,coreapi]",
+    "dj-database-url~=2.0",
+    "djangorestframework>=3,<4",
+    "pyyaml",
+    "syrupy>=3,<5",
+]
+ci = [
+    'psycopg[binary]>=3.1,<4; python_version>="3.9"',
+    'psycopg2-binary>=2.7,<3; python_version<"3.9"',
+    "mysqlclient>=2.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/surenkov/django-pydantic-field"
+Documentation = "https://github.com/surenkov/django-pydantic-field"
+Source = "https://github.com/surenkov/django-pydantic-field"
+Changelog = "https://github.com/surenkov/django-pydantic-field/releases"
+
+[tool.isort]
+py_version = 311
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+force_alphabetical_sort_within_sections = true
+force_grid_wrap = 0
+use_parentheses = true
+skip_glob = [
+    "*/migrations/*",
+]
+
+[tool.black]
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+line-length = 120
+exclude = '''
+/(
+    \.pytest_cache
+  | \.venv
+  | venv
+  | migrations
+)/
+'''
+
+[tool.mypy]
+plugins = [
+    "mypy_django_plugin.main",
+    "mypy_drf_plugin.main"
+]
+exclude = [".env", "tests"]
+enable_incomplete_feature = ["Unpack"]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings.django_test_settings"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings.django_test_settings"
+
+addopts = "--capture=no"
+pythonpath = ["."]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_tests.py"]
+norecursedirs = [".*", "venv"]
+
+[tool.pyright]
+include = ["pydantic"]
