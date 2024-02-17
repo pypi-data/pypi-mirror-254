@@ -1,0 +1,49 @@
+import ghidra.pty
+import ghidra.pty.linux
+import java.lang
+
+
+class LinuxPty(object, ghidra.pty.Pty):
+
+
+
+
+
+
+
+
+    def close(self) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getChild(self) -> ghidra.pty.linux.LinuxPtyChild: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getParent(self) -> ghidra.pty.linux.LinuxPtyParent: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    @staticmethod
+    def openpty() -> ghidra.pty.linux.LinuxPty: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def child(self) -> ghidra.pty.linux.LinuxPtyChild: ...
+
+    @property
+    def parent(self) -> ghidra.pty.linux.LinuxPtyParent: ...
