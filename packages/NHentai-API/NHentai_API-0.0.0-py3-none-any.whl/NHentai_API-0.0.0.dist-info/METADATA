@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: NHentai-API
+Version: 0.0.0
+Summary: Enma is a Python library designed to fetch manga and doujinshi data from many sources.
+Home-page: https://github.com/AlexandreSenpai/Enma
+Author: AlexandreSenpai
+Author-email: alexandrebsramos@hotmail.comW
+License: LICENSE
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests ==2.31.0
+Requires-Dist: beautifulsoup4 ==4.10.0
+Requires-Dist: pydantic ==2.5.3
+
+# THIS PROJECT HAS CHANGED
+
+Previously known as NHentai-API now its called Enma. The features keeps the same. Actually, better!
+
+> **https://github.com/AlexandreSenpai/Enma**
+
+Feel free to give it a try!
+
+<center>
+    <img src="https://cdn.discordapp.com/attachments/877183209933242428/1202319027641258054/enma.png?ex=65cd05da&is=65ba90da&hm=ea11292a8ed6df341888c2dd0fdea4ef131f125846c223cbc57bf3f1276588cf&" align="center" width="50%">
+</center>
