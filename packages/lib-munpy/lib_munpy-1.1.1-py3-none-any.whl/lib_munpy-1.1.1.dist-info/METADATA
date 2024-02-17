@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: lib-munpy
+Version: 1.1.1
+Summary: Package to process MUNICH input/output data
+Author-email: Libelium <n.gomariz@libelium.com>
+Requires-Python: >=3.10
+Requires-Dist: cdsapi ==0.6.1
+Requires-Dist: certifi ==2023.11.17
+Requires-Dist: cftime ==1.6.3
+Requires-Dist: charset-normalizer ==3.3.2
+Requires-Dist: greenlet ==3.0.3
+Requires-Dist: idna ==3.6
+Requires-Dist: netCDF4 ==1.6.5
+Requires-Dist: numpy ==1.26.3
+Requires-Dist: osmium ==3.7.0
+Requires-Dist: pandas ==2.2.0
+Requires-Dist: psycopg ==3.1.17
+Requires-Dist: psycopg-binary ==3.1.17
+Requires-Dist: python-dateutil ==2.8.2
+Requires-Dist: pytz ==2023.4
+Requires-Dist: PyYAML ==6.0.1
+Requires-Dist: requests ==2.31.0
+Requires-Dist: six ==1.16.0
+Requires-Dist: SQLAlchemy ==2.0.25
+Requires-Dist: tqdm ==4.66.1
+Requires-Dist: typing-extensions ==4.9.0
+Requires-Dist: tzdata ==2023.4
+Requires-Dist: urllib3 ==2.2.0
+
