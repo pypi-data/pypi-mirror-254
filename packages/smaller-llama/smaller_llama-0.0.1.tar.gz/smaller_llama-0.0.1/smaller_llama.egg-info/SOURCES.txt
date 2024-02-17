@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+llama/.env
+llama/__init__.py
+llama/settings.py
+llama/starter.py
+smaller_llama.egg-info/PKG-INFO
+smaller_llama.egg-info/SOURCES.txt
+smaller_llama.egg-info/dependency_links.txt
+smaller_llama.egg-info/requires.txt
+smaller_llama.egg-info/top_level.txt
