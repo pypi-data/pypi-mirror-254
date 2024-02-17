@@ -1,0 +1,78 @@
+
+
+
+<b>company</b>
+
+
+<pre>
+<b>later</b>
+
+		[ ] scrape the iframe content to make sure the 
+			correct page is loaded.
+			
+			or use selenium.
+
+		[ ] Another server for "shares" treasures
+		
+			preconfig:
+				&lt;shares treasures server: 2346&gt;
+				&lt;shares directory server: 2345&gt;
+				
+		
+			image src="localhost:2346"
+		
+		
+			[ ] 
+				image src="localhost:2346/shares.CSS"
+				image src="localhost:2346/shares.JS"
+			
+				[ ] maybe:
+				
+					script
+						/*
+							window.shares = {}
+						*/
+						
+						shares.earn ("shares.css")
+						shares.earn ("shares.js")
+					script
+		
+		[ ] Use the name of the directory as the name 
+		
+			for example:
+			
+				/this_is_a_directory
+					module.s.HTML
+					
+				it would say:
+				{this_is_a_directory}
+					
+					in the top left corner.
+					
+				[xonsh] shares
+					
+		
+		[ ] 
+			intranav
+				(websockets?)
+			
+			button
+				onclick="shares.open ('another/note.s.HTML')"
+
+				note
+			
+			button
+
+		[ ] monitor = True, monitors (cwd) for changes, then restarts.
+
+				figures out list of paths in import graph
+
+
+		[ ] preselected port = 9989
+		
+				if unavailable, start searching for ports starting
+				from 9990, etc.
+				
+		
+			
+</pre>
