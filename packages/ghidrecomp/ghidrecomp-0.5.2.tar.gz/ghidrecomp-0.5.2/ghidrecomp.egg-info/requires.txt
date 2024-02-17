@@ -1,0 +1,5 @@
+pyhidra==0.5.4
+
+[testing]
+pytest
+pytest-datadir
