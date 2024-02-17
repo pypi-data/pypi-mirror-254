@@ -1,0 +1,11 @@
+README.md
+setup.py
+monsterclient/__init__.py
+monsterclient/api.py
+monsterclient/monster.py
+monsterclient.egg-info/PKG-INFO
+monsterclient.egg-info/SOURCES.txt
+monsterclient.egg-info/dependency_links.txt
+monsterclient.egg-info/entry_points.txt
+monsterclient.egg-info/requires.txt
+monsterclient.egg-info/top_level.txt
