@@ -1,0 +1,8 @@
+stevedore
+python-slugify
+click
+pyyaml
+Jinja2
+
+[django]
+Django<2.3,>=2.2
