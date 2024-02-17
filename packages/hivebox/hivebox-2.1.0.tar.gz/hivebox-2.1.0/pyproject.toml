@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "hivebox"
+version = "2.1.0"
+description = "HiveBox is a toolset helping in AI/ML/CV and other tasks"
+authors = ["HiveCV <lukasz@hivecv.com>"]
+license = "Proprietary"
+readme = "README.md"
+packages = [{include = "hivebox", from = "src"}]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "piwheels"
+url = "https://www.piwheels.org/simple"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+opencv-python = ">4"
+opencv-contrib-python = ">4"
+flickrapi = "^2.4.0"
+requests = "^2.27"
+numpy = "^1.21"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+twine = "^4.0.2"
+pylint = "^3.0.3"
+black = "^23.12.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ['py39', 'py310', 'py311', 'py312']
+line-length = 88
+include_trailing_comma = false
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint."MESSAGES CONTROL"]
+
+disable = '''no-member,
+missing-module-docstring,
+missing-class-docstring,
+missing-function-docstring,
+'''
