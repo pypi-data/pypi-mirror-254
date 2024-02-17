@@ -1,0 +1,1540 @@
+r"""
+::
+
+      ___ _                           _____                       
+     /   (_) __ _ _ __   __ _  ___   /__   \_   _ _ __   ___ _ __ 
+    / /\ / |/ _` | '_ \ / _` |/ _ \    / /\/ | | | '_ \ / _ \ '__|
+   / /_//| | (_| | | | | (_| | (_) |  / /  | |_| | |_) |  __/ |   
+  /___,'_/ |\__,_|_| |_|\__, |\___/   \/    \__, | .__/ \___|_|   
+       |__/             |___/               |___/|_|              
+
+
+django-typer provides an extension to the base django management command class that
+melds the typer/click infrastructure with the django infrastructure. The result is
+all the ease of specifying commands, groups and options and arguments using typer and
+click in a way that feels like and is interface compatible with django's BaseCommand_
+This should enable a smooth transition for existing django commands and an intuitive
+feel for implementing new commands.
+
+django-typer also supports shell completion for bash, zsh, fish and powershell and
+extends that support to native django management commands as well.
+
+During development of django-typer I've wrestled with a number of encumbrances in the
+aging django management command design. I detail them here mostly to keep track of them
+for possible future refactors of core Django.
+
+1) BaseCommand::execute() prints results to stdout without attempting to convert them
+to strings. This means you've gotta do weird stuff to get a return object out of
+call_command()
+
+2) call_command() converts arguments to strings. There is no official way to pass
+previously parsed arguments through call_command(). This makes it a bit awkward to
+use management commands as callable functions in django code which you should be able
+to easily do. django-typer allows you to invoke the command and group functions
+directly so you can work around this, but it would be nice if call_command() supported
+a general interface that all command libraries could easily implement to.
+
+3) terminal autocompletion is not pluggable. As of this writing (Django<=5)
+autocomplete is implemented for bash only and has no mechanism for passing the buck
+down to command implementations. The result of this in django-typer is that we wrap
+django's autocomplete and pass the buck to it instead of the other way around. This is
+fine but it will be awkward if two django command line apps with their own autocomplete
+infrastructure are used together. Django should be the central coordinating point for
+this. This is the reason for the pluggable --fallback awkwardness in shellcompletion.
+
+4) Too much of the BaseCommand implementation is built assuming argparse. A more
+generalized abstraction of this interface is in order.
+"""
+
+import contextlib
+import inspect
+import sys
+import typing as t
+from copy import deepcopy
+from importlib import import_module
+from types import MethodType, SimpleNamespace
+
+import click
+from click.shell_completion import CompletionItem
+from django.core.management import get_commands
+from django.core.management.base import BaseCommand
+from django.utils.translation import gettext as _
+
+from django_typer import patch
+from django_typer.utils import push_command, traceback_config, with_typehint
+
+patch.apply()
+
+from typer import Typer
+from typer.core import MarkupMode
+from typer.core import TyperCommand as CoreTyperCommand
+from typer.core import TyperGroup as CoreTyperGroup
+from typer.main import get_command as get_typer_command
+from typer.main import get_params_convertors_ctx_param_name_from_function
+from typer.models import CommandFunctionType
+from typer.models import Context as TyperContext
+from typer.models import Default, DefaultPlaceholder
+
+from .types import ForceColor, NoColor, PythonPath, Settings, SkipChecks
+from .types import Style as ColorStyle
+from .types import Traceback, Verbosity, Version
+
+VERSION = (0, 5, "0b")
+
+__title__ = "Django Typer"
+__version__ = ".".join(str(i) for i in VERSION)
+__author__ = "Brian Kohan"
+__license__ = "MIT"
+__copyright__ = "Copyright 2023-2024 Brian Kohan"
+
+
+__all__ = ["TyperCommand", "Context", "initialize", "command", "group", "get_command"]
+
+
+def get_command(
+    command_name: str,
+    *subcommand: str,
+    stdout: t.Optional[t.IO[str]] = None,
+    stderr: t.Optional[t.IO[str]] = None,
+    no_color: bool = False,
+    force_color: bool = False,
+):
+    """
+    Get a django command by its name and instantiate it with the provided options. This
+    will work for normal django commands as well as django_typer commands. If subcommands
+    are listed for a typer command, the method that corresponds to the command name will
+    be returned. This method may then be invoked directly. If no subcommands are listed
+    the command instance will be returned.
+
+    :param command_name: the name of the command to get
+    :param subcommand: the subcommand to get if any
+    :param stdout: the stdout stream to use
+    :param stderr: the stderr stream to use
+    :param no_color: whether to disable color
+    :param force_color: whether to force color
+    :raises ModuleNotFoundError: if the command is not found
+    :raises LookupError: if the subcommand is not found
+    """
+    module = import_module(
+        f"{get_commands()[command_name]}.management.commands.{command_name}"
+    )
+    cmd = module.Command(
+        stdout=stdout, stderr=stderr, no_color=no_color, force_color=force_color
+    )
+    if subcommand:
+        method = cmd.get_subcommand(*subcommand).click_command._callback.__wrapped__
+        return MethodType(method, cmd)  # return the bound method
+    return cmd
+
+
+def _common_options(
+    version: Version = False,
+    verbosity: Verbosity = 1,
+    settings: Settings = "",
+    pythonpath: PythonPath = None,
+    traceback: Traceback = False,
+    no_color: NoColor = False,
+    force_color: ForceColor = False,
+    skip_checks: SkipChecks = False,
+) -> None:
+    """
+    Common django options.
+    """
+
+
+# cache common params to avoid this extra work on every command
+# we cant resolve these at module scope because translations break it
+_common_params: t.Sequence[t.Union[click.Argument, click.Option]] = []
+
+
+def _get_common_params() -> t.Sequence[t.Union[click.Argument, click.Option]]:
+    """Use typer to convert the common options to click options"""
+    global _common_params
+    if not _common_params:
+        _common_params = get_params_convertors_ctx_param_name_from_function(
+            _common_options
+        )[0]
+    return _common_params
+
+
+COMMON_DEFAULTS = {
+    key: value.default
+    for key, value in inspect.signature(_common_options).parameters.items()
+}
+
+
+class _ParsedArgs(SimpleNamespace):  # pylint: disable=too-few-public-methods
+    """
+    Emulate the argparse.Namespace class so that we can pass the parsed arguments
+    into the BaseCommand infrastructure in the way it expects.
+    """
+
+    def __init__(self, args: t.Sequence[t.Any], **kwargs):
+        super().__init__(**kwargs)
+        self.args = args
+
+    def _get_kwargs(self):
+        return {"args": self.args, **COMMON_DEFAULTS}
+
+
+class Context(TyperContext):
+    """
+    An extension of the click.Context class that adds a reference to
+    the TyperCommand instance so that the Django command can be accessed
+    from within click/typer callbacks that take a context. This context
+    also keeps track of parameters that were supplied to the call_command()
+    interface.
+    """
+
+    django_command: "TyperCommand"
+    children: t.List["Context"]
+    _supplied_params: t.Dict[str, t.Any]
+
+    parent: "Context"
+
+    class ParamDict(dict):
+        """
+        An extension of dict we use to block updates to parameters that were supplied
+        when the command was invoked via call_command. This complexity is introduced
+        by the hybrid parsing and option passing inherent to call_command.
+        """
+
+        supplied: t.Sequence[str]
+
+        def __init__(self, *args, supplied: t.Sequence[str]):
+            super().__init__(*args)
+            self.supplied = supplied
+
+        def __setitem__(self, key, value):
+            if key not in self.supplied:
+                super().__setitem__(key, value)
+
+    @property
+    def supplied_params(self) -> t.Dict[str, t.Any]:
+        """
+        Get the parameters that were supplied when the command was invoked via
+        call_command, only the root context has these.
+        """
+        if self.parent:
+            return self.parent.supplied_params
+        return getattr(self, "_supplied_params", {})
+
+    def __init__(
+        self,
+        command: click.Command,  # pylint: disable=redefined-outer-name
+        parent: t.Optional["Context"] = None,
+        django_command: t.Optional["TyperCommand"] = None,
+        supplied_params: t.Optional[t.Dict[str, t.Any]] = None,
+        **kwargs,
+    ):
+        super().__init__(command, parent=parent, **kwargs)
+        if supplied_params:
+            self._supplied_params = supplied_params
+        if django_command:
+            self.django_command = django_command
+        elif parent:
+            self.django_command = parent.django_command
+
+        self.params = self.ParamDict(
+            {**self.params, **self.supplied_params},
+            supplied=list(self.supplied_params.keys()),
+        )
+        self.children = []
+        if parent:
+            parent.children.append(self)
+
+
+class _DjangoAdapterMixin(with_typehint(CoreTyperGroup)):  # type: ignore[misc]
+    """
+    A mixin we use to add additional needed contextual awareness to click Commands
+    and Groups.
+    """
+
+    context_class: t.Type[click.Context] = Context
+    django_command: "TyperCommand"
+    callback_is_method: bool = True
+    param_converters: t.Dict[str, t.Callable[[Context, t.Any], t.Any]] = {}
+
+    def shell_complete(
+        self, ctx: click.Context, incomplete: str
+    ) -> t.List[CompletionItem]:
+        """
+        By default if the incomplete string is a space and there are no completions
+        the click infrastructure will return _files. We'd rather return parameters
+        for the command if there are any available.
+
+        TODO - remove parameters that are already provided and do not allow multiple
+        specifications.
+        """
+        completions = super().shell_complete(ctx, incomplete)
+        if (
+            not completions
+            and (incomplete.isspace() or not incomplete)
+            and getattr(ctx, "_opt_prefixes", None)
+        ):
+            completions = super().shell_complete(ctx, min(ctx._opt_prefixes))
+        return completions
+
+    def common_params(self) -> t.Sequence[t.Union[click.Argument, click.Option]]:
+        """
+        Get the django common options that should be included in this click command.
+        These will very depending on how the base class command is specified so look
+        to individual implementations for details.
+        """
+        return []
+
+    def __init__(
+        self,
+        *args,
+        callback: t.Callable[..., t.Any],
+        params: t.Optional[t.List[click.Parameter]] = None,
+        **kwargs,
+    ):
+        params = params or []
+        self._callback = callback
+        expected = [param.name for param in params[1:] if param.name]
+        self_arg = params[0].name if params and params[0].name else "self"
+
+        def call_with_self(*args, **kwargs):
+            ctx = t.cast(Context, click.get_current_context())
+            return callback(
+                *args,
+                **{
+                    # process supplied parameters incase they need type conversion
+                    param: (
+                        (
+                            self.param_converters[param](ctx, val)
+                            if param in self.param_converters
+                            else val
+                        )
+                        if param in ctx.supplied_params
+                        else val
+                    )
+                    for param, val in kwargs.items()
+                    if param in expected
+                },
+                **(
+                    {self_arg: getattr(ctx, "django_command", None)}
+                    if self.callback_is_method
+                    else {}
+                ),
+            )
+
+        super().__init__(
+            *args,
+            params=[
+                *(params[1:] if self.callback_is_method else params),
+                *[
+                    param
+                    for param in self.common_params()
+                    if param.name not in expected
+                ],
+            ],
+            callback=call_with_self,
+            **kwargs,
+        )
+        self.param_converters = {
+            param.name: param.process_value for param in self.params
+        }
+
+
+class TyperCommandWrapper(_DjangoAdapterMixin, CoreTyperCommand):
+    """
+    This class extends the TyperCommand class to work with the django-typer
+    interfaces. If you need to add functionality to the command class - which
+    you should not - you should inherit from this class.
+    """
+
+    def common_params(self) -> t.Sequence[t.Union[click.Argument, click.Option]]:
+        """
+        Return the common django params that are not suppressed only if the django
+        command has a single command and no callback or other groups. When there are
+        multiple commands and groups - the command parameters are added to a global
+        initialization callback. See the meta class for details.
+        """
+        if (
+            hasattr(self, "django_command")
+            and self.django_command._num_commands < 2
+            and not self.django_command._has_callback
+            and not self.django_command._root_groups
+        ):
+            return [
+                param
+                for param in _get_common_params()
+                if param.name
+                and param.name
+                not in (self.django_command.suppressed_base_arguments or [])
+            ]
+        return super().common_params()
+
+
+class TyperGroupWrapper(_DjangoAdapterMixin, CoreTyperGroup):
+    """
+    This class extends the TyperGroup class to work with the django-typer
+    interfaces. If you need to add functionality to the group class - which
+    you should not - you should inherit from this class.
+    """
+
+    def common_params(self) -> t.Sequence[t.Union[click.Argument, click.Option]]:
+        """
+        Add the common parameters to this group only if this group is the root
+        command's user specified initialize callback.
+        """
+        if (
+            hasattr(self, "django_command") and self.django_command._has_callback
+        ) or getattr(self, "common_init", False):
+            return [
+                param
+                for param in _get_common_params()
+                if param.name
+                if param.name
+                not in (self.django_command.suppressed_base_arguments or [])
+            ]
+        return super().common_params()
+
+
+class GroupFunction(Typer):
+    """
+    Typer adds additional groups of commands by adding Typer apps to parent
+    Typer apps. This class extends the Typer app class so that we can add
+    the additional information necessary to attach this app to the root app
+    and other groups specified on the django command.
+    """
+
+    bound: bool = False
+    django_command_cls: t.Type["TyperCommand"]
+    _callback: t.Callable[..., t.Any]
+
+    def __get__(self, obj, obj_type=None):
+        """
+        Our Typer app wrapper also doubles as a descriptor, so when
+        it is accessed on the instance, we return the wrapped function
+        so it may be called directly - but when accessed on the class
+        the app itself is returned so it can modified by other decorators
+        on the class and subclasses.
+        """
+        if obj is None:
+            return self
+        return MethodType(self._callback, obj)
+
+    def __init__(self, *args, **kwargs):
+        self._callback = kwargs["callback"]
+        super().__init__(*args, **kwargs)
+
+    def bind(self, django_command_cls: t.Type["TyperCommand"]):
+        """
+        Bind this typer app to the given django command class. Only groups at
+        root need to be bound - and will be done so by the meta class, this will
+        happen automatically (See group()) when groups are added to other groups.
+        """
+        self.django_command_cls = django_command_cls
+        # the deepcopy is necessary for instances where classes derive
+        # from Command classes and replace/extend commands on groups
+        # defined in the base class - this avoids the extending class
+        # polluting the base class's command tree
+        self.django_command_cls.typer_app.add_typer(deepcopy(self))
+
+    def callback(self, *args, **kwargs):
+        """
+        callback is not supported because we've adapted the typer interface to be more
+        intuitive for django users. The callback for a group is the function decorated
+        by group().
+        """
+        raise NotImplementedError(
+            _(
+                "callback is not supported - the function decorated by group() is the "
+                "callback."
+            )
+        )
+
+    def command(  # type: ignore
+        self,
+        name: t.Optional[str] = None,
+        *,
+        cls: t.Type[CoreTyperCommand] = TyperCommandWrapper,
+        context_settings: t.Optional[t.Dict[t.Any, t.Any]] = None,
+        help: t.Optional[str] = None,  # pylint: disable=redefined-builtin
+        epilog: t.Optional[str] = None,
+        short_help: t.Optional[str] = None,
+        options_metavar: str = "[OPTIONS]",
+        add_help_option: bool = True,
+        no_args_is_help: bool = False,
+        hidden: bool = False,
+        deprecated: bool = False,
+        # Rich settings
+        rich_help_panel: t.Union[str, None] = Default(None),
+        **kwargs,
+    ):
+        """
+        A function decorator that creates a new command and attaches it to this group.
+        This is a passthrough to Typer.command() and the options are the same, except
+        we swap the default command class for our wrapper.
+
+        The decorated function is the command function. It may also be invoked directly
+        as a method from an instance of the django command class.
+
+        .. code-block:: python
+
+            @group()
+            def group1():
+                pass
+
+            @group1.command()
+            def command1():
+                # do stuff here
+
+        .. note::
+
+            If you need to use a different command class you will need to either
+            inherit from django-typer or make sure yours is interface compatible with
+            our extensions. You shouldn't need to do this though - if the library does
+            not do something you need it to please submit an issue.
+
+        :param name: the name of the command (defaults to the name of the decorated
+            function)
+        :param cls: the command class to use
+        :param context_settings: the context settings to use - see
+            `click docs <https://click.palletsprojects.com/api/#context>`_.
+        :param help: the help string to use, defaults to the function docstring, if
+            you need the help to be translated you should use the help kwarg instead
+            because docstrings will not be translated.
+        :param epilog: the epilog to use in the help output
+        :param short_help: the short help to use in the help output
+        :param options_metavar: the metavar to use for options in the help output
+        :param add_help_option: whether to add the help option to the command
+        :param no_args_is_help: whether to show the help if no arguments are provided
+        :param hidden: whether to hide the command from help output
+        :param deprecated: show a deprecation warning
+        :param rich_help_panel: the rich help panel to use - if rich is installed
+            this can be used to group commands into panels in the help output.
+        """
+        return super().command(
+            name=name,
+            cls=cls,
+            context_settings=context_settings,
+            help=help,
+            epilog=epilog,
+            short_help=short_help,
+            options_metavar=options_metavar,
+            add_help_option=add_help_option,
+            no_args_is_help=no_args_is_help,
+            hidden=hidden,
+            deprecated=deprecated,
+            rich_help_panel=rich_help_panel,
+            **kwargs,
+        )
+
+    def group(
+        self,
+        name: t.Optional[str] = Default(None),
+        cls: t.Type[CoreTyperGroup] = TyperGroupWrapper,
+        invoke_without_command: bool = Default(False),
+        no_args_is_help: bool = Default(False),
+        subcommand_metavar: t.Optional[str] = Default(None),
+        chain: bool = Default(False),
+        result_callback: t.Optional[t.Callable[..., t.Any]] = Default(None),
+        # Command
+        context_settings: t.Optional[t.Dict[t.Any, t.Any]] = Default(None),
+        help: t.Optional[str] = Default(None),  # pylint: disable=redefined-builtin
+        epilog: t.Optional[str] = Default(None),
+        short_help: t.Optional[str] = Default(None),
+        options_metavar: str = Default("[OPTIONS]"),
+        add_help_option: bool = Default(True),
+        hidden: bool = Default(False),
+        deprecated: bool = Default(False),
+        # Rich settings
+        rich_help_panel: t.Union[str, None] = Default(None),
+        **kwargs,
+    ):
+        """
+        Create a new subgroup and attach it to this group. This is like creating a new
+        Typer app and adding it to a parent Typer app. The kwargs are passed through
+        to the Typer() constructor.
+
+        .. code-block:: python
+
+            @group()
+            def group1():
+                pass
+
+            @group1.group()
+            def subgroup():
+                # do common group init stuff here
+
+            @subgroup.command(help=_('My command does good stuff!'))
+            def subcommand():
+                # do command stuff here
+
+
+        :param name: the name of the group
+        :param cls: the group class to use
+        :param invoke_without_command: whether to invoke the group callback if no command was
+            specified.
+        :param no_args_is_help: whether to show the help if no arguments are provided
+        :param subcommand_metavar: the metavar to use for subcommands in the help output
+        :param chain: whether to chain commands, this allows multiple commands from the group
+            to be specified and run in order sequentially in one call from the command line.
+        :param result_callback: a callback to invoke with the result of the command
+        :param context_settings: the click context settings to use - see
+            `click docs <https://click.palletsprojects.com/api/#context>`_.
+        :param help: the help string to use, defaults to the function docstring, if you need
+            to translate the help you should use the help kwarg instead because docstrings
+            will not be translated.
+        :param epilog: the epilog to use in the help output
+        :param short_help: the short help to use in the help output
+        :param options_metavar: the metavar to use for options in the help output
+        :param add_help_option: whether to add the help option to the command
+        :param hidden: whether to hide this group from the help output
+        :param deprecated: show a deprecation warning
+        :param rich_help_panel: the rich help panel to use - if rich is installed
+            this can be used to group commands into panels in the help output.
+        """
+
+        def create_app(func: CommandFunctionType):
+            grp = GroupFunction(  # type: ignore
+                name=name,
+                cls=cls,
+                invoke_without_command=invoke_without_command,
+                no_args_is_help=no_args_is_help,
+                subcommand_metavar=subcommand_metavar,
+                chain=chain,
+                result_callback=result_callback,
+                callback=func,
+                context_settings=context_settings,
+                help=help,
+                epilog=epilog,
+                short_help=short_help,
+                options_metavar=options_metavar,
+                add_help_option=add_help_option,
+                hidden=hidden,
+                deprecated=deprecated,
+                rich_help_panel=rich_help_panel,
+                **kwargs,
+            )
+            self.add_typer(grp)
+            grp.bound = True
+            return grp
+
+        return create_app
+
+
+def initialize(
+    name: t.Optional[str] = Default(None),
+    *,
+    cls: t.Type[TyperGroupWrapper] = TyperGroupWrapper,
+    invoke_without_command: bool = Default(False),
+    no_args_is_help: bool = Default(False),
+    subcommand_metavar: t.Optional[str] = Default(None),
+    chain: bool = Default(False),
+    result_callback: t.Optional[t.Callable[..., t.Any]] = Default(None),
+    # Command
+    context_settings: t.Optional[t.Dict[t.Any, t.Any]] = Default(None),
+    help: t.Optional[str] = Default(None),  # pylint: disable=redefined-builtin
+    epilog: t.Optional[str] = Default(None),
+    short_help: t.Optional[str] = Default(None),
+    options_metavar: str = Default("[OPTIONS]"),
+    add_help_option: bool = Default(True),
+    hidden: bool = Default(False),
+    deprecated: bool = Default(False),
+    # Rich settings
+    rich_help_panel: t.Union[str, None] = Default(None),
+    **kwargs,
+):
+    """
+    A function decorator that creates a typer 'callback'. This decorator wraps
+    the Typer.callback() functionality. We've renamed it to initialize() because
+    callback() is to general and not intuitive. Callbacks in Typer are general
+    functions that can be invoked before a command is invoked and that can accept
+    their own arguments. When an initialize() function is supplied to a django
+    TyperCommand the default django options will be added as parameters. You can
+    specify these parameters (see django_typer.types) as arguments on the wrapped
+    function if you wish to receive them - otherwise they will be intercepted by
+    the base class infrastructure and used to their purpose.
+
+    The parameters are passed through to
+    `Typer.callback() <https://typer.tiangolo.com/tutorial/commands/callback/>`_
+
+    :param name: the name of the callback (defaults to the name of the decorated
+        function)
+    :param cls: the command class to use - (the initialize() function is technically
+        the root command group)
+    :param invoke_without_command: whether to invoke the callback if no command was
+        specified.
+    :param no_args_is_help: whether to show the help if no arguments are provided
+    :param subcommand_metavar: the metavar to use for subcommands in the help output
+    :param chain: whether to chain commands, this allows multiple commands from the group
+        to be specified and run in order sequentially in one call from the command line.
+    :param result_callback: a callback to invoke with the result of the command
+    :param context_settings: the click context settings to use - see
+        `click docs <https://click.palletsprojects.com/api/#context>`_.
+    :param help: the help string to use, defaults to the function docstring, if you need
+        to translate the help you should use the help kwarg instead because docstrings
+        will not be translated.
+    :param epilog: the epilog to use in the help output
+    :param short_help: the short help to use in the help output
+    :param options_metavar: the metavar to use for options in the help output
+    :param add_help_option: whether to add the help option to the command
+    :param hidden: whether to hide this group from the help output
+    :param deprecated: show a deprecation warning
+    :param rich_help_panel: the rich help panel to use - if rich is installed
+        this can be used to group commands into panels in the help output.
+    """
+
+    def decorator(func: CommandFunctionType):
+        setattr(
+            func,
+            "_typer_callback_",
+            lambda cmd, **extra: cmd.typer_app.callback(
+                name=name or extra.pop("name", None),
+                cls=type("_AdaptedCallback", (cls,), {"django_command": cmd}),
+                invoke_without_command=invoke_without_command,
+                subcommand_metavar=subcommand_metavar,
+                chain=chain,
+                result_callback=result_callback,
+                context_settings=context_settings,
+                help=cmd.typer_app.info.help or help,
+                epilog=epilog,
+                short_help=short_help,
+                options_metavar=options_metavar,
+                add_help_option=add_help_option,
+                no_args_is_help=no_args_is_help,
+                hidden=hidden,
+                deprecated=deprecated,
+                rich_help_panel=rich_help_panel,
+                **kwargs,
+                **extra,
+            )(func),
+        )
+        return func
+
+    return decorator
+
+
+def command(  # pylint: disable=keyword-arg-before-vararg
+    name: t.Optional[str] = None,
+    *args,
+    cls: t.Type[TyperCommandWrapper] = TyperCommandWrapper,
+    context_settings: t.Optional[t.Dict[t.Any, t.Any]] = None,
+    help: t.Optional[str] = None,  # pylint: disable=redefined-builtin
+    epilog: t.Optional[str] = None,
+    short_help: t.Optional[str] = None,
+    options_metavar: str = "[OPTIONS]",
+    add_help_option: bool = True,
+    no_args_is_help: bool = False,
+    hidden: bool = False,
+    deprecated: bool = False,
+    # Rich settings
+    rich_help_panel: t.Union[str, None] = Default(None),
+    **kwargs,
+):
+    """
+    A function decorator that creates a new command and attaches it to the root
+    command group. This is a passthrough to Typer.command() and the options are
+    the same, except we swap the default command class for our wrapper.
+
+    The decorated function is the command function. It may also be invoked directly
+    as a method from an instance of the django command class.
+
+    .. code-block:: python
+
+        @command()
+        def command1():
+            # do stuff here
+
+    :param name: the name of the command (defaults to the name of the decorated
+        function)
+    :param cls: the command class to use
+    :param context_settings: the context settings to use - see
+        `click docs <https://click.palletsprojects.com/api/#context>`_.
+    :param help: the help string to use, defaults to the function docstring, if
+        you need the help to be translated you should use the help kwarg instead
+        because docstrings will not be translated.
+    :param epilog: the epilog to use in the help output
+    :param short_help: the short help to use in the help output
+    :param options_metavar: the metavar to use for options in the help output
+    :param add_help_option: whether to add the help option to the command
+    :param no_args_is_help: whether to show the help if no arguments are provided
+    :param hidden: whether to hide the command from help output
+    :param deprecated: show a deprecation warning
+    :param rich_help_panel: the rich help panel to use - if rich is installed
+        this can be used to group commands into panels in the help output.
+    """
+
+    def decorator(func: CommandFunctionType):
+        setattr(
+            func,
+            "_typer_command_",
+            lambda cmd, **extra: cmd.typer_app.command(
+                name=name or extra.pop("name", None),
+                *args,
+                cls=type("_AdaptedCommand", (cls,), {"django_command": cmd}),
+                context_settings=context_settings,
+                help=help,
+                epilog=epilog,
+                short_help=short_help,
+                options_metavar=options_metavar,
+                add_help_option=add_help_option,
+                no_args_is_help=no_args_is_help,
+                hidden=hidden,
+                deprecated=deprecated,
+                # Rich settings
+                rich_help_panel=rich_help_panel,
+                **kwargs,
+                **extra,
+            )(func),
+        )
+        return func
+
+    return decorator
+
+
+def group(
+    name: t.Optional[str] = Default(None),
+    cls: t.Type[TyperGroupWrapper] = TyperGroupWrapper,
+    invoke_without_command: bool = Default(False),
+    no_args_is_help: bool = Default(False),
+    subcommand_metavar: t.Optional[str] = Default(None),
+    chain: bool = Default(False),
+    result_callback: t.Optional[t.Callable[..., t.Any]] = Default(None),
+    # Command
+    context_settings: t.Optional[t.Dict[t.Any, t.Any]] = Default(None),
+    help: t.Optional[str] = Default(None),  # pylint: disable=redefined-builtin
+    epilog: t.Optional[str] = Default(None),
+    short_help: t.Optional[str] = Default(None),
+    options_metavar: str = Default("[OPTIONS]"),
+    add_help_option: bool = Default(True),
+    hidden: bool = Default(False),
+    deprecated: bool = Default(False),
+    # Rich settings
+    rich_help_panel: t.Union[str, None] = Default(None),
+    **kwargs,
+):
+    """
+    A function decorator that creates a new subgroup and attaches it to the root
+    command group. This is like creating a new Typer app and adding it to a parent
+    Typer app. The kwargs are passed through to the Typer() constructor.
+
+    .. code-block:: python
+
+        @group()
+        def group1():
+            # do group init stuff here
+
+    :param name: the name of the group (defaults to the name of the decorated function)
+    :param cls: the group class to use
+    :param invoke_without_command: whether to invoke the group callback if no command
+        was specified.
+    :param no_args_is_help: whether to show the help if no arguments are provided
+    :param subcommand_metavar: the metavar to use for subcommands in the help output
+    :param chain: whether to chain commands, this allows multiple commands from the group
+        to be specified and run in order sequentially in one call from the command line.
+    :param result_callback: a callback to invoke with the result of the command
+    :param context_settings: the click context settings to use - see
+        `click docs <https://click.palletsprojects.com/api/#context>`_.
+    :param help: the help string to use, defaults to the function docstring, if you need
+        to translate the help you should use the help kwarg instead because docstrings
+        will not be translated.
+    :param epilog: the epilog to use in the help output
+    :param short_help: the short help to use in the help output
+    :param options_metavar: the metavar to use for options in the help output
+    :param add_help_option: whether to add the help option to the command
+    :param hidden: whether to hide this group from the help output
+    :param deprecated: show a deprecation warning
+    :param rich_help_panel: the rich help panel to use - if rich is installed
+        this can be used to group commands into panels in the help output.
+    """
+
+    def create_app(func: CommandFunctionType):
+        grp = GroupFunction(  # type: ignore
+            name=name,
+            cls=cls,
+            invoke_without_command=invoke_without_command,
+            no_args_is_help=no_args_is_help,
+            subcommand_metavar=subcommand_metavar,
+            chain=chain,
+            result_callback=result_callback,
+            callback=func,
+            context_settings=context_settings,
+            help=help,
+            epilog=epilog,
+            short_help=short_help,
+            options_metavar=options_metavar,
+            add_help_option=add_help_option,
+            hidden=hidden,
+            deprecated=deprecated,
+            rich_help_panel=rich_help_panel,
+            **kwargs,
+        )
+        return grp
+
+    return create_app
+
+
+class _TyperCommandMeta(type):
+    """
+    The metaclass used to build the TyperCommand class. This metaclass is responsible
+    for building Typer app using the arguments supplied to the TyperCommand constructor.
+    It also discovers if handle() was supplied as the single command implementation.
+
+    .. warning::
+
+        This metaclass is private because it may change substantially in the future to
+        support changes in the upstream libraries. The TyperCommand interface should be
+        considered the stable interface.
+
+    :param name: the name of the class being created
+    :param bases: the base classes of the class being created
+    :param attrs: the attributes of the class being created
+    :param cls: The class to use as the core typer group wrapper
+    :param invoke_without_command: whether to invoke the group callback if no command
+        was specified.
+    :param no_args_is_help: whether to show the help if no arguments are provided
+    :param subcommand_metavar: the metavar to use for subcommands in the help output
+    :param chain: whether to chain commands, this allows multiple commands from the group
+        to be specified and run in order sequentially in one call from the command line.
+    :param result_callback: a callback to invoke with the result of the command
+    :param context_settings: the click context settings to use - see
+        `click docs <https://click.palletsprojects.com/api/#context>`_.
+    :param help: the help string to use, defaults to the function docstring, if you need
+        to translate the help you should use the help kwarg instead because docstrings
+        will not be translated.
+    :param epilog: the epilog to use in the help output
+    :param short_help: the short help to use in the help output
+    :param options_metavar: the metavar to use for options in the help output
+    :param add_help_option: whether to add the help option to the command
+    :param hidden: whether to hide this group from the help output
+    :param deprecated: show a deprecation warning
+    :param rich_markup_mode: the rich markup mode to use - if rich is installed
+        this can be used to enable rich markup or Markdown in the help output. Can
+        be "markdown", "rich" or None to disable markup rendering.
+    :param rich_help_panel: the rich help panel to use - if rich is installed
+        this can be used to group commands into panels in the help output.
+    :param pretty_exceptions_enable: whether to enable pretty exceptions - if rich is
+        installed this can be used to enable pretty exception rendering. This will
+        default to on if the traceback configuration settings installs the rich
+        traceback handler. This allows tracebacks to be configured by the user on a
+        per deployment basis in the settings file. We therefore do not advise
+        hardcoding this value.
+    :param pretty_exceptions_show_locals: whether to show local variables in pretty
+        exceptions - if rich is installed. This will default to the 'show_locals'
+        setting in the traceback configuration setting (on by default). This allows
+        tracebacks to be configured by the user on a per deployment basis in the
+        settings file. We therefore do not advise hardcoding this value.
+    :param pretty_exceptions_short: whether to show short tracebacks in pretty
+        exceptions - if rich is installed. This will default to the 'short' setting
+        in the traceback configuration setting (off by default). This allows tracebacks
+        to be configured by the user on a per deployment basis in the settings file. We
+        therefore do not advise hardcoding this value.
+    """
+
+    style: ColorStyle
+    stdout: t.IO[str]
+    stderr: t.IO[str]
+    requires_system_checks: t.Union[t.Sequence[str], str]
+    suppressed_base_arguments: t.Optional[t.Iterable[str]]
+    typer_app: Typer
+    no_color: bool
+    force_color: bool
+    _num_commands: int = 0
+    _has_callback: bool = False
+    _root_groups: int = 0
+    _handle: t.Optional[t.Callable[..., t.Any]]
+
+    def __new__(
+        mcs,
+        name,
+        bases,
+        attrs,
+        cls: t.Optional[t.Type[CoreTyperGroup]] = TyperGroupWrapper,
+        invoke_without_command: bool = Default(False),
+        no_args_is_help: bool = Default(False),
+        subcommand_metavar: t.Optional[str] = Default(None),
+        chain: bool = Default(False),
+        result_callback: t.Optional[t.Callable[..., t.Any]] = Default(None),
+        context_settings: t.Optional[t.Dict[t.Any, t.Any]] = Default(None),
+        callback: t.Optional[t.Callable[..., t.Any]] = Default(None),
+        help: t.Optional[str] = Default(None),  # pylint: disable=redefined-builtin
+        epilog: t.Optional[str] = Default(None),
+        short_help: t.Optional[str] = Default(None),
+        options_metavar: str = Default("[OPTIONS]"),
+        add_help_option: bool = Default(True),
+        hidden: bool = Default(False),
+        deprecated: bool = Default(False),
+        rich_markup_mode: MarkupMode = None,
+        rich_help_panel: t.Union[str, None] = Default(None),
+        pretty_exceptions_enable: t.Union[DefaultPlaceholder, bool] = Default(True),
+        pretty_exceptions_show_locals: t.Union[DefaultPlaceholder, bool] = Default(
+            True
+        ),
+        pretty_exceptions_short: t.Union[DefaultPlaceholder, bool] = Default(True),
+    ):
+        """
+        This method is called when a new class is created.
+        """
+        try:
+            TyperCommand  # pylint: disable=pointless-statement
+            is_base_init = False
+        except NameError:
+            is_base_init = True
+        typer_app = None
+
+        if not is_base_init:
+            # conform the pretty exception defaults to the settings traceback config
+            tb_config = traceback_config()
+            if isinstance(pretty_exceptions_enable, DefaultPlaceholder):
+                pretty_exceptions_enable = isinstance(tb_config, dict)
+
+            tb_config = tb_config if isinstance(tb_config, dict) else {}
+            if isinstance(pretty_exceptions_show_locals, DefaultPlaceholder):
+                pretty_exceptions_show_locals = tb_config.get(
+                    "show_locals", pretty_exceptions_show_locals
+                )
+            if isinstance(pretty_exceptions_short, DefaultPlaceholder):
+                pretty_exceptions_short = tb_config.get(
+                    "short", pretty_exceptions_short
+                )
+
+            typer_app = Typer(
+                name=mcs.__module__.rsplit(".", maxsplit=1)[-1],
+                cls=cls,
+                help=help or attrs.get("help", Default(None)),
+                invoke_without_command=invoke_without_command,
+                no_args_is_help=no_args_is_help,
+                subcommand_metavar=subcommand_metavar,
+                chain=chain,
+                result_callback=result_callback,
+                context_settings=context_settings,
+                callback=callback,
+                epilog=epilog,
+                short_help=short_help,
+                options_metavar=options_metavar,
+                add_help_option=add_help_option,
+                hidden=hidden,
+                deprecated=deprecated,
+                add_completion=False,  # see autocomplete command instead!
+                rich_markup_mode=rich_markup_mode,
+                rich_help_panel=rich_help_panel,
+                pretty_exceptions_enable=pretty_exceptions_enable,
+                pretty_exceptions_show_locals=t.cast(
+                    bool, pretty_exceptions_show_locals
+                ),
+                pretty_exceptions_short=t.cast(bool, pretty_exceptions_short),
+            )
+
+            attrs = {
+                "_handle": attrs.pop("handle", None),
+                **attrs,
+                "typer_app": typer_app,
+            }
+
+        return super().__new__(mcs, name, bases, attrs)
+
+    def __init__(cls, name, bases, attrs, **kwargs):
+        """
+        This method is called after a new class is created.
+        """
+        if getattr(cls, "typer_app", None):
+            cls.typer_app.info.name = cls.__module__.rsplit(".", maxsplit=1)[-1]
+            cls.suppressed_base_arguments = {
+                arg.lstrip("--").replace("-", "_")
+                for arg in cls.suppressed_base_arguments or []
+            }  # per django docs - allow these to be specified by either the option or param name
+
+            def get_ctor(attr: str) -> t.Optional[t.Callable[..., t.Any]]:
+                return getattr(
+                    attr, "_typer_command_", getattr(attr, "_typer_callback_", None)
+                )
+
+            # because we're mapping a non-class based interface onto a class based
+            # interface, we have to handle this class mro stuff manually here
+            for cmd_cls, cls_attrs in [
+                *[(base, vars(base)) for base in reversed(bases)],
+                (cls, attrs),
+            ]:
+                if not issubclass(cmd_cls, TyperCommand) or cmd_cls is TyperCommand:
+                    continue
+                for attr in [*cls_attrs.values(), cls._handle]:
+                    cls._num_commands += hasattr(attr, "_typer_command_")
+                    cls._has_callback |= hasattr(attr, "_typer_callback_")
+                    if isinstance(attr, GroupFunction) and not attr.bound:
+                        attr.bind(cls)  # type: ignore
+                        cls._root_groups += 1
+
+                if cmd_cls._handle:
+                    ctor = get_ctor(cmd_cls._handle)
+                    if ctor:
+                        ctor(cls, name=cls.typer_app.info.name)
+                    else:
+                        cls._num_commands += 1
+                        cls.typer_app.command(
+                            cls.typer_app.info.name,
+                            cls=type(
+                                "_AdaptedCommand",
+                                (TyperCommandWrapper,),
+                                {"django_command": cls},
+                            ),
+                            help=cls.typer_app.info.help or None,
+                        )(cmd_cls._handle)
+
+                for attr in cls_attrs.values():
+                    (get_ctor(attr) or (lambda _: None))(cls)
+
+            if (
+                cls._num_commands > 1 or cls._root_groups > 0
+            ) and not cls.typer_app.registered_callback:
+                cls.typer_app.callback(
+                    cls=type(
+                        "_AdaptedCallback",
+                        (TyperGroupWrapper,),
+                        {
+                            "django_command": cls,
+                            "callback_is_method": False,
+                            "common_init": True,
+                        },
+                    )
+                )(lambda: None)
+
+        super().__init__(name, bases, attrs, **kwargs)
+
+
+class CommandNode:
+    """
+    A tree node that represents a command in the command tree. This is used to
+    walk the click command hierarchy and produce helps and map command paths
+    to command functions. The command tree is built on TyperCommand initialization.
+
+    :param name: the name of the command or subcommand
+    :param click_command: the click command object
+    :param context: the click context object
+    :param django_command: the django command instance
+    :param parent: the parent node or None if this is a root node
+    """
+
+    name: str
+    click_command: click.Command
+    context: TyperContext
+    django_command: "TyperCommand"
+    parent: t.Optional["CommandNode"] = None
+    children: t.Dict[str, "CommandNode"]
+
+    def __init__(
+        self,
+        name: str,
+        click_command: click.Command,
+        context: TyperContext,
+        django_command: "TyperCommand",
+        parent: t.Optional["CommandNode"] = None,
+    ):
+        self.name = name
+        self.click_command = click_command
+        self.context = context
+        self.django_command = django_command
+        self.parent = parent
+        self.children = {}
+
+    def print_help(self) -> None:
+        """
+        Prints the help for this command to stdout of the django command.
+        """
+        self.click_command.get_help(self.context)
+
+    def get_command(self, *command_path: str) -> "CommandNode":
+        """
+        Return the command node for the given command path at or below
+        this node.
+
+        :param command_path: the path(s) to the command to retrieve
+        :return: the command node at the given path
+        :raises LookupError: if the command path does not exist
+        """
+        if not command_path:
+            return self
+        try:
+            return self.children[command_path[0]].get_command(*command_path[1:])
+        except KeyError as err:
+            raise LookupError(f'No such command "{command_path[0]}"') from err
+
+
+class TyperParser:
+    """
+    A class that conforms to the argparse.ArgumentParser interface that the django
+    base class works with that is returned by BaseCommand.create_parser(). This class
+    does not strictly conform to the argparse interface but does just enough to
+    satisfy the django base class.
+
+    :param django_command: the django command instance
+    :param prog_name: the name of the manage script that invoked the command
+    :param subcommand: the name of the django command
+    """
+
+    class Action:
+        """
+        Emulate the interface of argparse.Action. Partial implementation
+        used to satisfy the django BaseCommand class.
+
+        :param param: the click parameter to wrap as an argparse Action
+        """
+
+        param: click.Parameter
+        required: bool = False
+
+        def __init__(self, param: click.Parameter):
+            self.param = param
+
+        @property
+        def dest(self) -> t.Optional[str]:
+            """
+            The name of the parameter as passed to the command.
+            """
+            return self.param.name
+
+        @property
+        def nargs(self) -> int:
+            """
+            The number of arguments consumed by this parameter or 0 if it is a flag.
+            """
+            return 0 if getattr(self.param, "is_flag", False) else self.param.nargs
+
+        @property
+        def option_strings(self) -> t.List[str]:
+            """
+            The list of allowable command line option strings for this parameter.
+            """
+            return list(self.param.opts) if isinstance(self.param, click.Option) else []
+
+    _actions: t.List[t.Any]
+    _mutually_exclusive_groups: t.List[t.Any] = []
+
+    django_command: "TyperCommand"
+    prog_name: str
+    subcommand: str
+
+    def __init__(self, django_command: "TyperCommand", prog_name, subcommand):
+        self._actions = []
+        self.django_command = django_command
+        self.prog_name = prog_name
+        self.subcommand = subcommand
+
+        def populate_params(node: CommandNode) -> None:
+            for param in node.click_command.params:
+                self._actions.append(self.Action(param))
+            for child in node.children.values():
+                populate_params(child)
+
+        populate_params(self.django_command.command_tree)
+
+    def print_help(self, *command_path: str):
+        """
+        Print the help for the given command path to stdout of the django command.
+        """
+        self.django_command.command_tree.context.info_name = (
+            f"{self.prog_name} {self.subcommand}"
+        )
+        command_node = self.django_command.get_subcommand(*command_path)
+        with contextlib.redirect_stdout(self.django_command.stdout):
+            command_node.print_help()
+
+    def parse_args(self, args=None, namespace=None) -> _ParsedArgs:
+        """
+        Parse the given arguments into a parsed arguments namespace object.
+        If any arguments trigger termination of the command (like --help) then
+        this method will exit the program.
+
+        Parse will also add the common django parameter defaults to the parsed
+        arguments object.
+
+        :param args: the arguments to parse
+        :param namespace: the namespace to populate with the parsed arguments
+            (this is ignored for TyperCommands but is required by the django
+            base class)
+        """
+        try:
+            cmd = get_typer_command(self.django_command.typer_app)
+            with cmd.make_context(
+                info_name=f"{self.prog_name} {self.subcommand}",
+                django_command=self.django_command,
+                args=list(args or []),
+            ) as ctx:
+                return _ParsedArgs(args=args or [], **{**COMMON_DEFAULTS, **ctx.params})
+        except click.exceptions.Exit:
+            sys.exit()
+
+    def add_argument(self, *args, **kwargs):
+        """
+        add_argument() is disabled for TyperCommands because all arguments
+        and parameters are specified as args and kwargs on the function calls.
+        """
+        raise NotImplementedError(_("add_argument() is not supported"))
+
+
+class TyperCommand(BaseCommand, metaclass=_TyperCommandMeta):
+    """
+    A BaseCommand extension class that uses the Typer library to parse
+    arguments and options. This class adapts BaseCommand using a light touch
+    that relies on most of the original BaseCommand implementation to handle
+    default arguments and behaviors.
+
+    The goal of django-typer is to provide full typer style functionality
+    while maintaining compatibility with the Django management command system.
+    This means that the BaseCommand interface is preserved and the Typer
+    interface is added on top of it. This means that this code base is more
+    robust to changes in the Django management command system - because most
+    of the base class functionality is preserved but many typer and click
+    internals are used directly to achieve this. We rely on robust CI to
+    catch breaking changes upstream.
+
+    TyperCommands are built in stages. The metaclass is responsible for finding
+    all the commands and callbacks and building the Typer app. This happens at
+    class definition time (i.e. on module load). When the TyperCommand is instantiated
+    the command tree is built thats used for subcommand resolution in django-typer's
+    get_command method and for help output.
+
+    All of the documented BaseCommand_ functionality works as expected. call_command()
+    also works as expected. TyperCommands however add a few extra features:
+
+    - Simple TyperCommands implemented only using handle() can be invoked directly
+      as a function.
+    - Subcommands can be fetched and invoked directly as functions using get_command()
+
+    :param stdout: the stdout stream to use
+    :param stderr: the stderr stream to use
+    :param no_color: whether to disable color output
+    :param force_color: whether to force color output even if the stream is not a tty
+    """
+
+    style: ColorStyle
+    stdout: t.IO[str]
+    stderr: t.IO[str]
+    requires_system_checks: t.Union[t.Sequence[str], str]
+
+    # we do not use verbosity because the base command does not do anything with it
+    # if users want to use a verbosity flag like the base django command adds
+    # they can use the type from django_typer.types.Verbosity
+    suppressed_base_arguments: t.Optional[t.Iterable[str]] = {"verbosity"}
+
+    typer_app: Typer
+    no_color: bool = False
+    force_color: bool = False
+    _num_commands: int = 0
+    _has_callback: bool = False
+    _root_groups: int = 0
+
+    command_tree: CommandNode
+
+    @property
+    def name(self):
+        """The name of the django command"""
+        return self.typer_app.info.name
+
+    def __init__(
+        self,
+        stdout: t.Optional[t.IO[str]] = None,
+        stderr: t.Optional[t.IO[str]] = None,
+        no_color: bool = no_color,
+        force_color: bool = force_color,
+        **kwargs,
+    ):
+        self.force_color = force_color
+        self.no_color = no_color
+        with push_command(self):
+            super().__init__(
+                stdout=stdout,
+                stderr=stderr,
+                no_color=no_color,
+                force_color=force_color,
+                **kwargs,
+            )
+            self.command_tree = self._build_cmd_tree(get_typer_command(self.typer_app))
+
+    def get_subcommand(self, *command_path: str) -> CommandNode:
+        """Get the CommandNode"""
+        return self.command_tree.get_command(*command_path)
+
+    def _filter_commands(
+        self, ctx: TyperContext, cmd_filter: t.Optional[t.List[str]] = None
+    ):
+        """
+        Fetch subcommand names. Given a click context, return the list of commands
+        that are valid return the list of commands that are valid for the given
+        context.
+
+        :param ctx: the click context
+        :param cmd_filter: a list of command names to filter by, if None no subcommands
+            will be filtered out
+        :return: the list of command names that are valid for the given context
+        """
+        return sorted(
+            [
+                cmd
+                for name, cmd in getattr(
+                    ctx.command,
+                    "commands",
+                    {
+                        name: ctx.command.get_command(ctx, name)  # type: ignore[attr-defined]
+                        for name in (
+                            ctx.command.list_commands(ctx)
+                            if isinstance(ctx.command, click.MultiCommand)
+                            else []
+                        )
+                    },
+                ).items()
+                if not cmd_filter or name in cmd_filter
+            ],
+            key=lambda item: item.name,
+        )
+
+    def _build_cmd_tree(
+        self,
+        cmd: click.Command,
+        parent: t.Optional[Context] = None,
+        info_name: t.Optional[str] = None,
+        node: t.Optional[CommandNode] = None,
+    ):
+        """
+        Recursively build the CommandNode tree used to walk the click command
+        hierarchy.
+
+        :param cmd: the click command to build the tree from
+        :param parent: the parent click context
+        :param info_name: the name of the command
+        :param node: the parent node or None if this is a root node
+        """
+        assert cmd.name
+        ctx = Context(cmd, info_name=info_name, parent=parent, django_command=self)
+        current = CommandNode(cmd.name, cmd, ctx, self, parent=node)
+        if node:
+            node.children[cmd.name] = current
+        for sub_cmd in self._filter_commands(ctx):
+            self._build_cmd_tree(
+                sub_cmd, parent=ctx, info_name=sub_cmd.name, node=current
+            )
+        return current
+
+    def __init_subclass__(cls, **_):
+        """Avoid passing typer arguments up the subclass init chain"""
+        return super().__init_subclass__()
+
+    def create_parser(self, prog_name: str, subcommand: str, **_):
+        """
+        Create a parser for this command. This also sets the command
+        context, so any functions below this call on the stack may
+        use get_current_command() to retrieve the django command instance.
+
+        :param prog_name: the name of the manage script that invoked the command
+        :param subcommand: the name of the django command
+        """
+        with push_command(self):
+            return TyperParser(self, prog_name, subcommand)
+
+    def print_help(self, prog_name: str, subcommand: str, *cmd_path: str):
+        """
+        Print the help message for this command to stdout of the django command.
+
+        :param prog_name: the name of the manage script that invoked the command
+        :param subcommand: the name of the django command
+        :param cmd_path: the path to the command to print the help for. This is
+            an extension to the pase class print_help() interface, required because
+            typer/click have different helps for each subgroup or subcommand.
+        """
+        with push_command(self):
+            parser = self.create_parser(prog_name, subcommand)
+            parser.print_help(*cmd_path)
+
+    def __call__(self, *args, **kwargs):
+        """
+        Call this command's derived class handle() implementation directly. Note this
+        does not call the handle() function below - but the handle() function that
+        was implemented on the deriving class if one exists.
+
+        When simple commands are implemented using only the handle() function we may
+        invoke that handle function directly using this call operator:
+
+        .. code-block:: python
+
+            class Command(TyperCommand):
+
+                def handle(self, option1: bool, option2: bool):
+                    # invoked by this __call__
+
+            my_command = get_command('my_command')
+
+            # invoke the handle() function directly
+            my_command(option1=True, option2=False)
+
+        .. note::
+
+            This only works for commands that implement handle(). Commands that have
+            multiple commands and groups are not required to implement handle() and
+            for those commands the functions should be invoked directly.
+
+        :param args: the arguments to directly pass to handle()
+        :param kwargs: the options to directly pass to handle()
+        """
+        with push_command(self):
+            if getattr(self, "_handle", None):
+                return self._handle(*args, **kwargs)
+            raise NotImplementedError(
+                _(
+                    "{cls} does not implement handle(), you must call the other command "
+                    "functions directly."
+                ).format(cls=self.__class__)
+            )
+
+    def handle(self, *args, **options):
+        """
+        Invoke the underlying Typer app with the given arguments and parameters.
+
+        :param args: the arguments to pass to the command, may be strings needing
+            to be parsed, or already resolved object types the argument ultimately
+            resolves to. TODO - check this is true
+        :param options: the options to pass to the command, may be strings needing
+            to be parsed, or already resolved object types the option ultimately
+            resolves to.
+        :return: Any object returned by the Typer app
+        """
+        return self.typer_app(
+            args=args,
+            standalone_mode=False,
+            supplied_params=options,
+            django_command=self,
+            complete_var=None,
+            prog_name=f"{sys.argv[0]} {self.typer_app.info.name}",
+        )
+
+    def run_from_argv(self, argv):
+        """
+        Wrap the BaseCommand.run_from_argv() method to push the command
+        onto the stack so any code in frames below this can get a reference
+        to the command instance using get_current_command().
+
+        :param argv: the arguments to pass to the command
+        """
+        with push_command(self):
+            return super().run_from_argv(argv)
+
+    def execute(self, *args, **options):
+        """
+        Wrap the BaseCommand.execute() method to set and unset
+        no_color and force_color options.
+
+        This function pushes the command onto the stack so any frame
+        below this call may use get_current_command() to get a reference
+        to the command instance.
+
+        args and options are passed to handle().
+
+        :param args: the arguments to pass to the command
+        :param options: the options to pass to the command
+        :return: Any object returned by the command
+        """
+        no_color = self.no_color
+        force_color = self.force_color
+        if options.get("no_color", None) is not None:
+            self.no_color = options["no_color"]
+        if options.get("force_color", None) is not None:
+            self.force_color = options["force_color"]
+        with push_command(self):
+            result = super().execute(*args, **options)
+        self.no_color = no_color
+        self.force_color = force_color
+        return result

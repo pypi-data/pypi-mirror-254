@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: django-typer
+Version: 0.5.0b0
+Summary: Use Typer to define the CLI for your Django management commands.
+Home-page: https://django-typer.readthedocs.io
+License: MIT
+Keywords: django,CLI,management,Typer,commands
+Author: Brian Kohan
+Author-email: bckohan@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Classifier: Framework :: Django :: 4.1
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: rich
+Requires-Dist: Django (>=3.2,<6.0)
+Requires-Dist: rich (>=10.11.0,<14.0.0) ; extra == "rich"
+Requires-Dist: shellingham (>=1.5.4,<2.0.0)
+Requires-Dist: typer (>=0.9.0,<0.10.0)
+Project-URL: Repository, https://github.com/bckohan/django-typer
+Description-Content-Type: text/x-rst
+
+|MIT license| |PyPI version fury.io| |PyPI pyversions| |PyPi djversions| |PyPI status| |Documentation Status|
+|Code Cov| |Test Status| |Lint Status| |Code Style|
+
+.. |MIT license| image:: https://img.shields.io/badge/License-MIT-blue.svg
+   :target: https://lbesson.mit-license.org/
+
+.. |PyPI version fury.io| image:: https://badge.fury.io/py/django-typer.svg
+   :target: https://pypi.python.org/pypi/django-typer/
+
+.. |PyPI pyversions| image:: https://img.shields.io/pypi/pyversions/django-typer.svg
+   :target: https://pypi.python.org/pypi/django-typer/
+
+.. |PyPI djversions| image:: https://img.shields.io/pypi/djversions/django-typer.svg
+   :target: https://pypi.org/project/django-typer/
+
+.. |PyPI status| image:: https://img.shields.io/pypi/status/django-typer.svg
+   :target: https://pypi.python.org/pypi/django-typer
+
+.. |Documentation Status| image:: https://readthedocs.org/projects/django-typer/badge/?version=latest
+   :target: http://django-typer.readthedocs.io/?badge=latest/
+
+.. |Code Cov| image:: https://codecov.io/gh/bckohan/django-typer/branch/main/graph/badge.svg?token=0IZOKN2DYL
+   :target: https://codecov.io/gh/bckohan/django-typer
+
+.. |Test Status| image:: https://github.com/bckohan/django-typer/workflows/test/badge.svg
+   :target: https://github.com/bckohan/django-typer/actions/workflows/test.yml
+
+.. |Lint Status| image:: https://github.com/bckohan/django-typer/workflows/lint/badge.svg
+   :target: https://github.com/bckohan/django-typer/actions/workflows/lint.yml
+
+.. |Code Style| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+
+
+django-typer
+############
+
+Use Typer to define the CLI for your Django management commands. Provides a TyperCommand class that
+inherits from django.core.management.BaseCommand and allows typer-style annotated function handlers.
+All of the BaseCommand functionality is preserved, so that TyperCommand can be a drop in replacement.
+
+.. warning::
+
+    This is a late beta release. The interface is mostly stable but there may be lingering issues.
+
+
+.. code-block:: python
+
+    from django_typer import TyperCommand
+
+
+    class Command(TyperCommand):
+        
+        help = 'A command that uses Typer'
+
+        def handle(self, arg1: str, arg2: str, arg3: float = 0.5, arg4: int = 1):
+            ...
+
+
