@@ -1,0 +1,2 @@
+[console_scripts]
+source-senseforce = source_senseforce.run:run
