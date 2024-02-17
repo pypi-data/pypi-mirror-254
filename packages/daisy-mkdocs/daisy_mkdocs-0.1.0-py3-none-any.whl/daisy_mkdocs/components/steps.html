@@ -1,0 +1,19 @@
+{% macro steps(page) %}
+<ul class="steps steps-vertical">
+    {% for toc_item in page.toc %}
+    <li class="step"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+    {% for toc_item in toc_item.children %}
+    {{ steps_item(toc_item) }}
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro steps_item(item) %}
+{% if item.children %}
+{% for new_item in item.children %}
+{{ steps_item(new_item) }}
+{% endfor %}
+{% endif %}
+<li class="step"><a href="{{ item.url }}">{{ item.title }}</a></li>
+{% endmacro %}
