@@ -1,0 +1,2 @@
+[console_scripts]
+source-customer-io = source_customer_io.run:run
