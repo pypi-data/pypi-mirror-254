@@ -1,0 +1,23 @@
+---
+- name: "Add EPEL repository (CentOS-7)."
+  become: yes
+  yum:
+    state: present
+    name: epel-release
+
+- name: "Install Python3 (CentOS-7)."
+  become: yes
+  yum:
+    state: present
+    name:
+      # python-packaging and python-setuptools are required to
+      # run the ansible.builtit.pip module on this platform.
+      - python-packaging
+      - python-setuptools
+      - python3
+
+- name: "Set package versions (CentOS-7)."
+  set_fact:
+    robotframework_requirements:
+      - "robotframework<5"
+      - "pyyaml<6"

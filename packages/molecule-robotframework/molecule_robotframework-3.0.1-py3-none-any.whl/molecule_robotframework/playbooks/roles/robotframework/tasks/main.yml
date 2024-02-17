@@ -1,0 +1,31 @@
+---
+- name: "Target system distribution names."
+  debug:
+    msg:
+      - "{{ ansible_distribution }}-{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}"
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_os_family }}"
+      - "{{ ansible_system }}"
+
+- name: "Install system packages."
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - "{{ role_path }}/tasks/packages/{{ ansible_distribution | replace(' ', '_') }}-{{ ansible_distribution_version }}.yml"
+    - "{{ role_path }}/tasks/packages/{{ ansible_distribution | replace(' ', '_') }}-{{ ansible_distribution_major_version }}.yml"
+    - "{{ role_path }}/tasks/packages/{{ ansible_distribution | replace(' ', '_') }}.yml"
+    - "{{ role_path }}/tasks/packages/{{ ansible_os_family }}.yml"
+    - "{{ role_path }}/tasks/packages/unknown.yml"
+
+- name: "Create Python3 virtualenv."
+  pip:
+    state: latest
+    name: pip
+    virtualenv: "{{ robotframework_virtualenv }}"
+    virtualenv_command: "{{ _robotframework_virtualenv_command }}"
+
+- name: "Install Robot Framework."
+  pip:
+    state: present
+    name: "{{ robotframework_requirements + robotframework_libraries }}"
+    virtualenv: "{{ robotframework_virtualenv }}"

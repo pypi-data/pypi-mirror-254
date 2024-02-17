@@ -1,0 +1,10 @@
+---
+- name: "Install Python3 (Debian)."
+  become: yes
+  apt:
+    state: present
+    update_cache: yes
+    name:
+      - python3
+      - python3-packaging
+      - python3-venv

@@ -1,0 +1,5 @@
+[console_scripts]
+patch-molecule-schema = molecule_robotframework.patch_molecule_schema:main
+
+[molecule.verifier]
+robotframework = molecule_robotframework.robotframework:Robotframework
