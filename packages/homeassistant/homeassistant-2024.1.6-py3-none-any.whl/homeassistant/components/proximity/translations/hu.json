@@ -1,0 +1,32 @@
+{
+    "entity": {
+        "sensor": {
+            "dir_of_travel": {
+                "name": "Utaz\u00e1si ir\u00e1ny",
+                "state": {
+                    "arrived": "Meg\u00e9rkezett",
+                    "away_from": "T\u00e1volodik",
+                    "stationary": "\u00c1ll\u00f3, mozdulatlan",
+                    "towards": "K\u00f6zeledik"
+                }
+            },
+            "nearest": {
+                "name": "Legk\u00f6zelebbi eszk\u00f6z"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_proximity_entity": {
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "description": "A(z) `{entity}` k\u00f6zels\u00e9gi entit\u00e1s elavult, \u00e9s a `2024.8` verzi\u00f3ban elt\u00e1vol\u00edt\u00e1sra ker\u00fcl. Azonban a k\u00f6vetkez\u0151 konfigur\u00e1ci\u00f3kban haszn\u00e1latos:\n- {used_in}\n\nM\u00f3dos\u00edtsa azokat az automatiz\u00e1l\u00e1sokat vagy szkripteket, amelyek ezt az elavult k\u00f6zels\u00e9gi entit\u00e1st haszn\u00e1lj\u00e1k.\nMinden nyomon k\u00f6vetett szem\u00e9lyhez vagy eszk\u00f6zh\u00f6z egy \u00e9rz\u00e9kel\u0151 j\u00f6n l\u00e9tre a fel\u00fcgyelt z\u00f3n\u00e1ba val\u00f3 be- \u00e9s kijut\u00e1si t\u00e1vols\u00e1ghoz \u00e9s halad\u00e1si ir\u00e1nyhoz. Ezenk\u00edv\u00fcl minden k\u00f6zels\u00e9gi konfigur\u00e1ci\u00f3hoz l\u00e9trej\u00f6n egy \u00e9rz\u00e9kel\u0151, amely megmutatja a figyelt z\u00f3n\u00e1hoz legk\u00f6zelebbi eszk\u00f6zt vagy szem\u00e9lyt. Ezzel a Min/Max integr\u00e1ci\u00f3val meghat\u00e1rozhatja a legk\u00f6zelebbi \u00e9s legt\u00e1volabbi t\u00e1vols\u00e1got.",
+                        "title": "A k\u00f6zels\u00e9gi entit\u00e1s elavult"
+                    }
+                }
+            },
+            "title": "A k\u00f6zels\u00e9gi entit\u00e1s elavult"
+        }
+    },
+    "title": "K\u00f6zels\u00e9g"
+}

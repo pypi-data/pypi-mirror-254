@@ -1,0 +1,22 @@
+{
+    "services": {
+        "teach_face": {
+            "description": "Opettaa faceboxin kasvot tiedoston avulla.",
+            "fields": {
+                "entity_id": {
+                    "description": "Opetettava facebox-entiteetti.",
+                    "name": "Kohde"
+                },
+                "file_path": {
+                    "description": "Polku kuvatiedostoon.",
+                    "name": "Tiedostopolku"
+                },
+                "name": {
+                    "description": "Opettavien kasvojen nimi.",
+                    "name": "Nimi"
+                }
+            },
+            "name": "Opeta kasvot"
+        }
+    }
+}

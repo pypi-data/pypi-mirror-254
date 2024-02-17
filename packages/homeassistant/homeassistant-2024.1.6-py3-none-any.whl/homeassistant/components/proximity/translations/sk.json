@@ -1,0 +1,32 @@
+{
+    "entity": {
+        "sensor": {
+            "dir_of_travel": {
+                "name": "Smer jazdy",
+                "state": {
+                    "arrived": "Pri\u0161iel",
+                    "away_from": "\u010ealeko od",
+                    "stationary": "Stacion\u00e1rne",
+                    "towards": "Smerom k"
+                }
+            },
+            "nearest": {
+                "name": "Najbli\u017e\u0161ie zariadenie"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_proximity_entity": {
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "description": "Entita bl\u00edzkosti {entity} je zastaran\u00e1 a bude odstr\u00e1nen\u00e1 v roku 2024.8. Pou\u017e\u00edva sa v\u0161ak v nasleduj\u00facich konfigur\u00e1ci\u00e1ch:\n - {used_in} \n\nUpravte v\u0161etky automatiz\u00e1cie alebo skripty, ktor\u00e9 pou\u017e\u00edvaj\u00fa t\u00fato zastaran\u00fa entitu Proximity.\nPre ka\u017ed\u00fa sledovan\u00fa osobu alebo zariadenie je vytvoren\u00fd jeden sn\u00edma\u010d vzdialenosti a smeru jazdy do/z monitorovanej z\u00f3ny. Navy\u0161e pre ka\u017ed\u00fa konfigur\u00e1ciu Proximity je vytvoren\u00fd jeden senzor, ktor\u00fd ukazuje najbli\u017e\u0161ie zariadenie alebo osobu k monitorovanej z\u00f3ne. V\u010faka tomu m\u00f4\u017eete pou\u017ei\u0165 integr\u00e1ciu Min/Max na ur\u010denie najbli\u017e\u0161ej a najvzdialenej\u0161ej vzdialenosti.",
+                        "title": "Entita pribl\u00ed\u017eenia je zastaran\u00e1"
+                    }
+                }
+            },
+            "title": "Entita pribl\u00ed\u017eenia je zastaran\u00e1"
+        }
+    },
+    "title": "Bl\u00edzkos\u0165"
+}
