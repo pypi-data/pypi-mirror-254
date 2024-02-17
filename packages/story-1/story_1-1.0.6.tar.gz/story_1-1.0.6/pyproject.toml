@@ -1,0 +1,75 @@
+
+
+
+
+
+
+#
+#	how to publish:
+#
+#		cp structures/modules/story_1/module.MD readme.md
+#		python3 structures/modules/story_1/_status/status.proc.py
+#		(rm -rf dist && python3 -m build --sdist && twine upload dist/*)
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "story_1"
+version = "1.0.6"
+dependencies = [
+	"clique",
+	"homeostasis",
+	"shares",
+
+	"botanist",
+	"click",
+	"ecdsa",
+	"flask",
+
+	"websockets",
+
+	"pycryptodome",
+	"qrcode"
+]
+
+license = { text = "GPL 3.0 + MongoDB SSPL" }
+
+description = "The dreams that found there way to a canvas."
+readme = "structures/modules/story_1/module.MD"
+
+#
+#	https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#keywords
+#
+keywords = []
+
+[project.scripts]
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from this_module import clique; clique ()
+#
+story_1 = "story_1:clique"
+
+
+[tool.setuptools.packages.find]
+where = [ "structures/modules" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.html", "*.s.HTML" ]
+
+
+#
+#	https://stackoverflow.com/questions/75634466/include-or-exclude-license-files-from-package-data-with-pyproject-toml-and-set
+#	https://stackoverflow.com/questions/608855/excluding-a-top-level-directory-from-a-setuptools-package
+#
+#[tool.setuptools.exclude-package-data]
+#"*" = []
+
+
+
+
