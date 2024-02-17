@@ -1,0 +1,3 @@
+[gui_scripts]
+pdf-outline-edit-qt = pdfoe.gui_pyside_qml:main
+pdf-outline-edit-tk = pdfoe.gui_tkinter:main
