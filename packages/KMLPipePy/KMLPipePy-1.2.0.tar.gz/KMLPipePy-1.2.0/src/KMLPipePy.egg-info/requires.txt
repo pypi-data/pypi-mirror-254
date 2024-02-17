@@ -1,0 +1,15 @@
+requests
+numpy
+opencv-python
+tensorflow_hub
+tensorflow
+roboflow
+torch
+chardet
+
+[dev]
+black
+bumpver
+isort
+pip-tools
+pytest
