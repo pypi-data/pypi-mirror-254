@@ -1,0 +1,3 @@
+[console_scripts]
+ttracker=ttracker.entrypoint:main
+

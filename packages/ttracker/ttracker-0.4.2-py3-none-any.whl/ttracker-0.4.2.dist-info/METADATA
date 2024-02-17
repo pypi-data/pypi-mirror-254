@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ttracker
+Version: 0.4.2
+Summary: 
+License: MIT
+Author: Eugene Prout
+Author-email: eugene.prout1@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Description-Content-Type: text/markdown
+
+# TTimer
+
+A task timer designed to make logging time on Jira easier.
+
+A Python CLI to automate calculating how long you worked on a task.
+
+# Roadmap
