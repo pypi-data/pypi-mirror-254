@@ -1,0 +1,11 @@
+pydata-sphinx-theme==0.14.4
+packaging
+
+[dev]
+pyyaml
+pre-commit
+nox
+napari-sphinx-theme[coverage]
+
+[doc]
+numpydoc
