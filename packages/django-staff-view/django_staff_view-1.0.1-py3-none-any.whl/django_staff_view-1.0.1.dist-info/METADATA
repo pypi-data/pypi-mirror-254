@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: django-staff-view
+Version: 1.0.1
+Summary: Staff views for Django
+Home-page: https://github.com/bboogaard/django-staff-view
+Author: Bram Boogaard
+Author-email: padawan@hetnet.nl
+License: MIT License
+Keywords: Django Staff views
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+Requires-Dist: pytest-cov
+Requires-Dist: pytest-django ~=4.5.2
+Requires-Dist: django ~=4.2.9
+Requires-Dist: pyquery ~=2.0.0
+
+# django-staff-view
+
+Generic non-model related admin views for Django.
+
+## Rationale
+
+Define admin views for Django admin not tied to a ModelAdmin.
+
+## Support
+
+Supports: Python 3.10.
+
+Supports Django Versions: 4.2.9
+
+## Installation
+
+```shell
+$ pip install django-staff-view
+```
+
+## Usage
+
+Add `staff_views` to `INSTALLED_APPS`.
+
+Import the view class from the package, and subclass it like this:
+
+```python
+from django import forms
+from staff_view.views import StaffView
+
+
+class MyForm(forms.Form):
+    
+    text = forms.CharField()
+    
+    
+class MyView(StaffView):
+
+    form_class = MyForm
+
+    def form_valid(self, form):
+        ...  # Return a response object
+```

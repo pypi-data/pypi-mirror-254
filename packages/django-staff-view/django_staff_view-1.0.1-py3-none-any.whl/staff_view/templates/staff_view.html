@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls %}
+
+
+{% block content %}
+    {{ block.super }}
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% block form_content %}
+            {% if confirm_message %}
+            <p>{{ confirm_message }}</p>
+            {% endif %}
+            {{ form.as_p }}
+        {% endblock %}
+        <div>
+            <input type="submit" value="{{ submit_value }}">
+            {% if cancel_url %}
+            <a href="{{ cancel_url }}" class="button cancel-link" style="padding: 10px 15px">{{ cancel_value }}</a>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}
