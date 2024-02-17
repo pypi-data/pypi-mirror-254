@@ -1,0 +1,2 @@
+[console_scripts]
+source-datascope = source_datascope.run:run
