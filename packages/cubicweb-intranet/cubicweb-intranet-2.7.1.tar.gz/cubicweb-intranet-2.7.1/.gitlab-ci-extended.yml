@@ -1,0 +1,18 @@
+variables:
+  DEPLOY_PROD_URL: "https://intranet.logilab.fr/intra/"
+  DEPLOY_PREPROD: "true"
+  DEPLOY_REVIEW: "true"
+
+.helmfile-base:
+  tags:
+    - intra
+
+deploy-preprod:
+  extends: .helm-destroy-and-deploy
+  environment:
+    url: "https://intranet.logilab.fr/preprod/intra/"
+
+deploy-review:
+  extends: .helm-destroy-and-deploy
+  environment:
+    url: "https://intranet.logilab.fr/review/${CI_MERGE_REQUEST_IID}/intra/"
