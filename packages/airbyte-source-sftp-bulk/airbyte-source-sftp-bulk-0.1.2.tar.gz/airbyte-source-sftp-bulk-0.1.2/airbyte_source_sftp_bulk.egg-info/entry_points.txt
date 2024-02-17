@@ -1,0 +1,2 @@
+[console_scripts]
+source-sftp-bulk = source_sftp_bulk.run:run
