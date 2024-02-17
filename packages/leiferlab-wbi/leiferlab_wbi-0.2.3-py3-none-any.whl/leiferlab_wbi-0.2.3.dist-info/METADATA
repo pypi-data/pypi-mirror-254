@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: leiferlab-wbi
+Version: 0.2.3
+Summary: Whole Brain Imaging
+Author-email: Vineet Bansal <vineetb@princeton.edu>, Anushka Acharya <aa9078@princeton.edu>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: jinja2
+Requires-Dist: matplotlib
+Requires-Dist: opencv-python-headless
+Requires-Dist: paramiko
+Requires-Dist: pooch
+Requires-Dist: pillow
+Requires-Dist: pyqt5
+Requires-Dist: pyyaml
+Requires-Dist: pandas
+Requires-Dist: scikit-image
+Requires-Dist: tensorflow
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: myst-parser ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pyright ==1.1.333 ; extra == 'dev'
+Requires-Dist: pytest >=6 ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
