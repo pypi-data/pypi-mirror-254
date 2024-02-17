@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "pre-commit-update"
+version = "0.1.5"
+description = "Simple CLI tool to check and update pre-commit hooks."
+authors = ["Vojko Pribudić <dmanthing@gmail.com>"]
+maintainers = ["Vojko Pribudić <dmanthing@gmail.com>"]
+repository = "https://gitlab.com/vojko.pribudic/pre-commit-update"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Web Environment",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3 :: Only",
+        "Topic :: Software Development :: Libraries",
+]
+include = ["README.md", "LICENSE"]
+exclude = [
+    ".gitignore",
+    ".gitlab-ci.yml",
+]
+
+[tool.poetry.urls]
+"Tracker" = "https://gitlab.com/vojko.pribudic/pre-commit-update/-/issues"
+"Changelog" = "https://gitlab.com/vojko.pribudic/pre-commit-update/-/releases"
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+click = "^8.1"
+GitPython = "^3.1"
+packaging = "^23.2"
+pyproject-parser = "^0.9"
+"ruamel.yaml" = "^0.18"
+
+[tool.poetry.scripts]
+pre-commit-update = "pre_commit_update.cli:cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
