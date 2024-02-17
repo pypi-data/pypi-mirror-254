@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: phenocv
+Version: 0.1.0
+Summary: Rice High Throughput Phenotyping Computer Vision Toolkit
+Author-email: RuLei Chen <chenrulei@cemps.ac.cn>
+Maintainer-email: RuLei Chen <chenrulei@cemps.ac.cn>
+License: AGPL-3.0
+Keywords: machine-learning,deep-learning,computer-vision,ML,DL,AI,YOLO
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: albumentations
+Requires-Dist: catalogue
+Requires-Dist: confection
+Requires-Dist: label_studio_converter==0.0.55
+Requires-Dist: label_studio_ml==1.0.9
+Requires-Dist: label_studio_tools==0.0.3
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: opencv_python
+Requires-Dist: pandas
+Requires-Dist: pycocotools
+Requires-Dist: sahi
+Requires-Dist: scikit_learn
+Requires-Dist: scipy
+Requires-Dist: segment_anything==1.0
+Requires-Dist: segment_anything_hq==0.3
+Requires-Dist: setuptools
+Requires-Dist: timm
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+Requires-Dist: ultralytics>=8.1.0
+Provides-Extra: dev
+Requires-Dist: ipython; extra == "dev"
+Requires-Dist: check-manifest; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: coverage[toml]; extra == "dev"
+Requires-Dist: mkdocs-material; extra == "dev"
+Requires-Dist: mkdocstrings[python]; extra == "dev"
+Requires-Dist: mkdocs-jupyter; extra == "dev"
+Requires-Dist: mkdocs-redirects; extra == "dev"
+Requires-Dist: mkdocs-ultralytics-plugin>=0.0.42; extra == "dev"
+
+# phenocv
+
+## Introduction
+
+**phenocv** is a toolkits for handling preporecess and postprocess for rice high-throught phenotyping images.
+
+**phenocv** is still under development. We will keep refactoring the code and add more features. Any contribution is welcome. If you encounter any problems when using phenocv, please feel free to [raise an issue](https://github.com/r1cheu/phenocv/issues/new)
+
+For label-studio semi-automatic annotation, please refer to [playground](https://github.com/open-mmlab/playground).
+
+For mmdetection training, please refer to [mmdetection](https://github.com/open-mmlab/mmdetection).
+
+For yolo training, please refer to [Ultralytics](https://github.com/ultralytics/ultralytics).
+
+## Installation
+
+Pip install the phenocv package including all [requirements](https://github.com/r1cheu/phenocv/blob/main/pyproject.toml) in a [**Python>=3.8**](https://www.python.org/) environment with [**PyTorch>=1.8**](https://pytorch.org/get-started/locally/).
+
+### Install for developer
+
+if you wish to modify the code, you can install phenocv in developer mode.
+
+```shell
+git clone https://github.com/r1cheu/phenocv.git
+cd phenocv
+pip install -e .
+```
+
+## License
+
+This project is released under the [AGPL-3.0 license](LICENSE).
+
+## Citation
+
+If you find this project useful in your research, please consider cite:
+
+```Bibtex
+@misc{2023phenocv,
+    title={Rice high-throught phenotyping computer vision toolkits},
+    author={RuLei Chen},
+    howpublished = {\url{https://github.com/r1cheu/phenocv}},
+    year={2023}
+}
+```
