@@ -1,0 +1,11 @@
+h5py
+pydantic
+pyyaml
+requests
+
+[dev]
+datamodel-code-generator
+
+[testing]
+parameterized
+pytest
