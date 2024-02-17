@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_requests_debug_toolbar.egg-info/PKG-INFO
+django_requests_debug_toolbar.egg-info/SOURCES.txt
+django_requests_debug_toolbar.egg-info/dependency_links.txt
+django_requests_debug_toolbar.egg-info/requires.txt
+django_requests_debug_toolbar.egg-info/top_level.txt
+requests_panel/__init__.py
+requests_panel/panel.py
+requests_panel/tracker.py
+requests_panel/templates/requests_panel/panel.html
