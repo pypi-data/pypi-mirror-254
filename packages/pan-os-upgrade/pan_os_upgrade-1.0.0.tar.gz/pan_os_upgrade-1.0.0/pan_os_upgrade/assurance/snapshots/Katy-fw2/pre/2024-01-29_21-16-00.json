@@ -1,0 +1,241 @@
+{
+    "hostname": "Katy-fw2",
+    "arp_table": {},
+    "content_version": {
+        "version": "8799-8509"
+    },
+    "ip_sec_tunnels": {},
+    "license": {
+        "Logging Service": {
+            "feature": "Logging Service",
+            "description": "Device Logging Service",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "March 22, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": {
+                "_Log_Storage_TB": "1"
+            }
+        },
+        "Threat Prevention": {
+            "feature": "Threat Prevention",
+            "description": "Threat Prevention",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "WildFire License": {
+            "feature": "WildFire License",
+            "description": "WildFire signature feed, integrated WildFire logs, WildFire API",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "PAN-DB URL Filtering": {
+            "feature": "PAN-DB URL Filtering",
+            "description": "Palo Alto Networks URL Filtering License",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "BrightCloud URL Filtering": {
+            "feature": "BrightCloud URL Filtering",
+            "description": "BrightCloud URL Filtering",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "GlobalProtect Portal": {
+            "feature": "GlobalProtect Portal",
+            "description": "GlobalProtect Portal License",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "Never",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "Adv Threat Prevention": {
+            "feature": "Adv Threat Prevention",
+            "description": "Adv Threat Prevention Sub",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "DNS Security": {
+            "feature": "DNS Security",
+            "description": "Palo Alto Networks DNS Security License",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "GlobalProtect Gateway": {
+            "feature": "GlobalProtect Gateway",
+            "description": "GlobalProtect Gateway License",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "SD WAN": {
+            "feature": "SD WAN",
+            "description": "License to enable SD WAN feature",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "Premium": {
+            "feature": "Premium",
+            "description": "24 x 7 phone support; advanced replacement hardware service",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": "PA-VM",
+            "authcode": null,
+            "custom": null
+        },
+        "PA-VM": {
+            "feature": "PA-VM",
+            "description": "Standard VM-100",
+            "serial": "007054000243915",
+            "issued": "August 07, 2023",
+            "expires": "August 06, 2024",
+            "expired": "no",
+            "base_license_name": null,
+            "authcode": "V6315723",
+            "custom": null
+        }
+    },
+    "nics": {
+        "ethernet1/1": {
+            "status": "up"
+        },
+        "ethernet1/2": {
+            "status": "up"
+        },
+        "ethernet1/3": {
+            "status": "down"
+        },
+        "ethernet1/4": {
+            "status": "down"
+        },
+        "ethernet1/5": {
+            "status": "down"
+        },
+        "loopback": {
+            "status": "up"
+        },
+        "tunnel": {
+            "status": "up"
+        }
+    },
+    "routes": {
+        "cdot.io_172.16.255.4/32_": {
+            "virtual_router": "cdot.io",
+            "destination": "172.16.255.4/32",
+            "nexthop": "0.0.0.0",
+            "metric": "0",
+            "flags": "A H",
+            "age": null,
+            "interface": null,
+            "route_table": "unicast"
+        },
+        "cdot.io_192.168.200.4/32_": {
+            "virtual_router": "cdot.io",
+            "destination": "192.168.200.4/32",
+            "nexthop": "0.0.0.0",
+            "metric": "0",
+            "flags": "A H",
+            "age": null,
+            "interface": null,
+            "route_table": "unicast"
+        }
+    },
+    "session_stats": {
+        "age_accel_thresh": "80",
+        "age_accel_tsf": "2",
+        "age_scan_ssf": "8",
+        "age_scan_thresh": "80",
+        "age_scan_tmo": "10",
+        "cps": "0",
+        "dis_def": "60",
+        "dis_sctp": "30",
+        "dis_tcp": "90",
+        "dis_udp": "60",
+        "icmp_unreachable_rate": "200",
+        "kbps": "1",
+        "max_pending_mcast": "0",
+        "num_active": "0",
+        "num_bcast": "0",
+        "num_gtpc": "0",
+        "num_gtpu_active": "0",
+        "num_gtpu_pending": "0",
+        "num_http2_5gc": "0",
+        "num_icmp": "0",
+        "num_imsi": null,
+        "num_installed": "0",
+        "num_max": "256000",
+        "num_mcast": "0",
+        "num_pfcpc": "0",
+        "num_predict": "0",
+        "num_sctp_assoc": "0",
+        "num_sctp_sess": "0",
+        "num_tcp": "0",
+        "num_udp": "0",
+        "pps": "2",
+        "tcp_cong_ctrl": null,
+        "tcp_reject_siw_thresh": "4",
+        "tmo_5gcdelete": "15",
+        "tmo_cp": "30",
+        "tmo_def": "30",
+        "tmo_icmp": "6",
+        "tmo_sctp": "3600",
+        "tmo_sctpcookie": "60",
+        "tmo_sctpinit": "5",
+        "tmo_sctpshutdown": "60",
+        "tmo_tcp": "3600",
+        "tmo_tcp_delayed_ack": "250",
+        "tmo_tcp_unverif_rst": "30",
+        "tmo_tcphalfclosed": "120",
+        "tmo_tcphandshake": "10",
+        "tmo_tcpinit": "5",
+        "tmo_tcptimewait": "15",
+        "tmo_udp": "30",
+        "vardata_rate": "10485760"
+    }
+}
