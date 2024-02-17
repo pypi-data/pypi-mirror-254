@@ -1,0 +1,8 @@
+recursive-include libppocr *.dll
+recursive-include libppocr/models/ *.txt
+recursive-include libppocr/models/ch_PP-OCRv4_det_infer *.pdiparams
+recursive-include libppocr/models/ch_PP-OCRv4_det_infer *.info
+recursive-include libppocr/models/ch_PP-OCRv4_det_infer *.pdmodel
+recursive-include libppocr/models/ch_PP-OCRv4_rec_infer *.pdiparams
+recursive-include libppocr/models/ch_PP-OCRv4_rec_infer *.info
+recursive-include libppocr/models/ch_PP-OCRv4_rec_infer *.pdmodel
