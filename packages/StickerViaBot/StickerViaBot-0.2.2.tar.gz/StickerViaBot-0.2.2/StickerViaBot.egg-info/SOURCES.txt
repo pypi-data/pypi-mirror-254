@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+./main.py
+./StickerViaBot/__init__.py
+./StickerViaBot/bot.py
+./StickerViaBot/default_pattern.py
+./StickerViaBot/plugin.py
+./StickerViaBot/utils.py
+./plugins/relay.py
+StickerViaBot.egg-info/PKG-INFO
+StickerViaBot.egg-info/SOURCES.txt
+StickerViaBot.egg-info/dependency_links.txt
+StickerViaBot.egg-info/requires.txt
+StickerViaBot.egg-info/top_level.txt
