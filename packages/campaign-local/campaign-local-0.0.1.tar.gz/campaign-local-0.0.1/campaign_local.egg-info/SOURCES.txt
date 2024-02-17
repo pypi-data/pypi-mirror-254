@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+campaign_local.egg-info/PKG-INFO
+campaign_local.egg-info/SOURCES.txt
+campaign_local.egg-info/dependency_links.txt
+campaign_local.egg-info/requires.txt
+campaign_local.egg-info/top_level.txt
+campaign_local/src/CampaignLocal.py
+campaign_local/src/__init__.py
