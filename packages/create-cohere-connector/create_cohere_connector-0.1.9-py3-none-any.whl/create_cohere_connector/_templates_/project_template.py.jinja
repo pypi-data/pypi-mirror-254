@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+cohere = "4.45"
+python-dotenv = "1.0.1"
+fastapi = "0.109.0"
+pydantic = "2.6.0"
+uvicorn = "0.27.0.post1"
+# Add common dependencies here
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
