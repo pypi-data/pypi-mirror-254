@@ -1,0 +1,12 @@
+suds-community>=1.1.2
+colorama
+
+[development]
+black
+isort
+pylint
+wheel
+twine
+
+[tests]
+parameterized
