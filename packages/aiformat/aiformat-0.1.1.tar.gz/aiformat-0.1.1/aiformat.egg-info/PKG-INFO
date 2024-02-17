@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: aiformat
+Version: 0.1.1
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: pyyaml
+Requires-Dist: openai
+Requires-Dist: jinja2

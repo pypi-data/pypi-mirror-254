@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+aiformat/__init__.py
+aiformat/aiformat.py
+aiformat/chatgpt_util.py
+aiformat/diff_util.py
+aiformat/print_util.py
+aiformat.egg-info/PKG-INFO
+aiformat.egg-info/SOURCES.txt
+aiformat.egg-info/dependency_links.txt
+aiformat.egg-info/entry_points.txt
+aiformat.egg-info/requires.txt
+aiformat.egg-info/top_level.txt
+aiformat/prompt/__init__.py
+aiformat/prompt/commands.yaml
