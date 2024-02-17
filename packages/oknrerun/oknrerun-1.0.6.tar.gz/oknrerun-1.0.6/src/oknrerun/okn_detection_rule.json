@@ -1,0 +1,9 @@
+{
+  "rule_set": [
+    {"name": "main1", "min_chain_length": 2, "min_unchained_okn": 3},
+    {"name": "main2", "min_chain_length": 2, "min_unchained_okn": 4},
+    {"name": "main3", "min_chain_length": 3, "min_unchained_okn": 3},
+    {"name": "main4", "min_chain_length": 2, "min_unchained_okn": 2}
+  ],
+  "default_rule_set": "main1"
+}

@@ -1,0 +1,34 @@
+[project]
+name = "oknrerun"
+version = "1.0.6"
+authors = [
+  { name="Zaw Lin Tun", email="zawlintun1511@gmail.com" },
+]
+description = "Python program to rerun eye health diagnostic group's recording data"
+readme = "README.md"
+dependencies = ["setuptools>=61.0", "numpy", "commentjson", "scipy", "matplotlib", "ehdg_tools>=4.0.8", "ehdg_pupil_detector", "okntool", "opencv-python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+oknrerun = "oknrerun.oknrerun:main"
+
+[project.urls]
+"Homepage" = "https://github.com/jtur044/oknrerun"
+"Bug Tracker" = "https://github.com/jtur044/oknrerun/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "numpy", "commentjson", "scipy", "matplotlib", "ehdg_tools>=4.0.8", "ehdg_pupil_detector", "okntool", "opencv-python"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+oknrerun_buildin = ["*"]
