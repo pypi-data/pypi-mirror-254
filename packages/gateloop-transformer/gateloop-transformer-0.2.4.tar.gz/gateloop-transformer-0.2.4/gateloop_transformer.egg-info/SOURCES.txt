@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+gateloop_transformer/__init__.py
+gateloop_transformer/associative_scan.py
+gateloop_transformer/gateloop_transformer.py
+gateloop_transformer/gateloop_transformer_jax.py
+gateloop_transformer/simplified_gate_loop.py
+gateloop_transformer.egg-info/PKG-INFO
+gateloop_transformer.egg-info/SOURCES.txt
+gateloop_transformer.egg-info/dependency_links.txt
+gateloop_transformer.egg-info/requires.txt
+gateloop_transformer.egg-info/top_level.txt
