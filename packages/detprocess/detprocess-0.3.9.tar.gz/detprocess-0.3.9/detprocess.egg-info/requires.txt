@@ -1,0 +1,12 @@
+numpy
+scipy
+matplotlib
+pyyaml
+qetpy>=1.6.4
+pandas
+pytesdaq>=0.3.7
+scikit-image
+iminuit>=2
+seaborn
+humanfriendly
+vaex
