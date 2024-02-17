@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpy_ssv=self.webpackChunkpy_ssv||[]).push([[480],{480:(e,t,s)=>{s.r(t),s.d(t,{default:()=>a});var r=s(829),i=s(427),u=s(657);const a={id:"pySSV:plugin",requires:[r.IJupyterWidgetRegistry],activate:function(e,t){t.registerWidget({name:u.o,version:u.Y,exports:i})},autoStart:!0}}}]);
