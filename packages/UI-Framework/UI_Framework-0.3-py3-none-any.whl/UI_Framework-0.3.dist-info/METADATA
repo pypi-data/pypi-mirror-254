@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: UI_Framework
+Version: 0.3
+Requires-Dist: selenium
+Requires-Dist: pytest
+
