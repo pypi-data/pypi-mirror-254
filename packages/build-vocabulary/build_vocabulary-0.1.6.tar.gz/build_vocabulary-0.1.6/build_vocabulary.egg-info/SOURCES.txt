@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+build_vocabulary/__init__.py
+build_vocabulary/file_reader.py
+build_vocabulary/main.py
+build_vocabulary.egg-info/PKG-INFO
+build_vocabulary.egg-info/SOURCES.txt
+build_vocabulary.egg-info/dependency_links.txt
+build_vocabulary.egg-info/entry_points.txt
+build_vocabulary.egg-info/requires.txt
+build_vocabulary.egg-info/top_level.txt
+build_vocabulary/.assert/60000.txt
