@@ -1,0 +1,1 @@
+from deobfasw.deobfasw import run
