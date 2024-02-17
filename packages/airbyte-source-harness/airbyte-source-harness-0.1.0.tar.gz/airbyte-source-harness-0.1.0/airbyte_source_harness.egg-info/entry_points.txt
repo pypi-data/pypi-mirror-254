@@ -1,0 +1,2 @@
+[console_scripts]
+source-harness = source_harness.run:run
