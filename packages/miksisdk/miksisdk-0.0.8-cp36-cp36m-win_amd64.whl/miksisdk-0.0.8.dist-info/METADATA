@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: miksisdk
+Version: 0.0.8
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pip
+Requires-Dist: setuptools
+Requires-Dist: langchain
+Requires-Dist: sqlalchemy
+Requires-Dist: pymysql
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: plotly
+Requires-Dist: langchain-experimental
+Requires-Dist: scikit-learn
+Requires-Dist: openai
+Requires-Dist: llama-index
+Requires-Dist: numpy
+
+UNKNOWN
+
