@@ -1,0 +1,18 @@
+[project]
+name = "pyspell"
+version = "0.0.2"
+authors = [
+  { name="made-up"},
+]
+description = "A simple spelling tool"
+readme = "README.md"
+requires-python = ">=2.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/vertmit/pyspell/tree/main/0.0.1"
+"Bug Tracker" = "https://github.com/vertmit/pyspell/tree/main/0.0.1/issues"
