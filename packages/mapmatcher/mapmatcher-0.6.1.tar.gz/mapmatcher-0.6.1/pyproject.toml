@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=61.0", "aequilibrae>=0.9.5", "geopandas>=0.14.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'mapmatcher'
+authors = [{ name = "Pedro Camargo" }]
+maintainers = [{ name = "Pedro Camargo", email = "pedro@outerloop.io" }]
+dynamic = ["version"]
+description = "A package to map-match GPS traces onto an arbitrary network"
+license = {text = "MIT"}
+requires-python = ">=3.9.0"
+keywords = ["map-matching", "gps", "network", "routing", "aequilibrae"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    'aequilibrae',
+    'geopandas>=0.14.1',
+    'tqdm'
+]
+
+[project.optional-dependencies]
+testing = ['ruff', 'black', 'pytest']
+build = ["setuptools", "wheel", "build", "tqdm"]
+auxiliary = ['folium', 'notebook']
+docs = ["pyaml",
+        "enum34>=1.1.6",
+        "Sphinx",
+        "pydata-sphinx-theme==0.13.3",
+        "sphinx-book-theme",
+        "myst-parser",
+        "sphinx_autodoc_annotation",
+        "nbsphinx",
+        "pillow",
+        "matplotlib",
+        "folium",
+        "sphinx-gallery",
+        "nbsphinx",
+        "ipython_genutils",
+        "folium",
+        "sphinxcontrib-youtube"]
+dev = ['mapmatcher[testing, auxiliary, build, docs]']
+
+[project.urls]
+Homepage = "https://github.com/pedrocamargo/map_matching"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+"mapmatcher.example_data" = ["*.csv"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests"]
+namespaces = true
+
+[tool.setuptools.dynamic]
+version = { attr = "mapmatcher.__version__" }
+
+[tool.black]
+line-length = 120
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+profile = "black"
+
+
+[tool.ruff]
+
+select = ["B", "C", "E", "F", "W"]
+ignore = ["E501", "F401", "B028"]
+exclude = [
+    ".idea",
+    "__pycache__",
+    "sphinx",
+    ".ipynb_checkpoints",
+    "docs/*",
+    "notebooks",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    ".venv",
+]
+line-length = 120
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+target-version = "py39"
+
+[tool.ruff.mccabe]
+max-complexity = 20
