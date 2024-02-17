@@ -1,0 +1,9 @@
+pyhidra==0.5.4
+mdutils==1.6.0
+
+[testing]
+pytest
+requests
+pytest-datadir
+pytest-forked
+pytest-xdist
