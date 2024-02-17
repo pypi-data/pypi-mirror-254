@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: keeleastrolab
+Version: 0.0.4
+Summary: Convenience functions for Keele astrophysics lab students
+Author-email: Pierre Maxted <p.maxted@keele.ac.uk>
+Project-URL: Homepage, https://github.com/pmaxted/keeleastrolab
+Project-URL: Issues, https://github.com/pmaxted/keeleastrolab/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rawpy
+Requires-Dist: exifread
+Requires-Dist: astropy
+Requires-Dist: astrometry
+Requires-Dist: photutils
+Requires-Dist: scipy >1.7.0
+Requires-Dist: numpy >1.26.0
+
+# keeleastrolab
+
+Provides convenience functions for Keele astrophysics lab students.
