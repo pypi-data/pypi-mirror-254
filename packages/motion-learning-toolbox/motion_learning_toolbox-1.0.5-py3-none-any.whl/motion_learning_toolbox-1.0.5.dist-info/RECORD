@@ -1,0 +1,11 @@
+motion_learning_toolbox/__init__.py,sha256=dQ9vT1UQ18HHz1ckVDceCqX9ihEh-VEs-ZKqdHHRSnM,335
+motion_learning_toolbox/canonicalize_quaternions.py,sha256=1BILeO4hih11BRSAP19EVYQDugl3NnOVl6NQMPsE0Ag,1751
+motion_learning_toolbox/fix_controller_mapping.py,sha256=SXYFcwLEDPlRIpID6Roz3lvnmRUOwq0vj-PJL2TsmAU,2571
+motion_learning_toolbox/resample.py,sha256=VhcYmMIZMRoks8C6xuZ9LKvdngFAB54T6npzgnajPLI,2369
+motion_learning_toolbox/to_acceleration.py,sha256=EYeqCZPoC6AxqiUa29cknDOzWT9BGuKHLP_SvmNZKWE,573
+motion_learning_toolbox/to_body_relative.py,sha256=NJS8Q9hyd3WcyPgKyobNN2Ei0AR_hLSEwUpzPPcwFbs,5003
+motion_learning_toolbox/to_velocity.py,sha256=I5EsN643BvVLeH4q4mM8NUBgawjW2ykHnvfTXpx7xPk,3343
+motion_learning_toolbox-1.0.5.dist-info/METADATA,sha256=pQolKbsJ5_zf-IqyAbq_HiCcQFaqBhm0kJQwr3ZZ4Yo,7637
+motion_learning_toolbox-1.0.5.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+motion_learning_toolbox-1.0.5.dist-info/top_level.txt,sha256=eafxQYnuabG108HaoH8Y_ltCZ1PZpeOyU0Zdox3PGDs,24
+motion_learning_toolbox-1.0.5.dist-info/RECORD,,
