@@ -1,0 +1,2 @@
+[console_scripts]
+source-confluence = source_confluence.run:run
