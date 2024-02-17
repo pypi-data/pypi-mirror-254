@@ -1,0 +1,13 @@
+pgsql2osm/__init__.py,sha256=dG5_8ZVlhQOjwXsx09u2r_Z1g8IsUJN1HAm3iYk_1ug,262
+pgsql2osm/cli.py,sha256=duSIBl6vBQqM5bElWb3XjJ08MgDa0ff6_l3OqWfjanA,1838
+pgsql2osm/dbutils.py,sha256=3_u6vmeyyPGvY8rvC9tl3B3LD_iaM0C9Ka3ULPwEUc8,4652
+pgsql2osm/log.py,sha256=oDlg9nK8ZsDEx1aenvagSDGZFpedrhEw7cjaRJQsstA,11748
+pgsql2osm/pgsql2osm.py,sha256=6tlf2GfoOdQtmm1k0cHZUGNGcwy2ypZjPklu5O5XXMI,37644
+pgsql2osm/regions.csv,sha256=JBB8S46pNGbYZbMYrUGd4hEOmmVzupt0-_Lz0NPR2aA,173820
+pgsql2osm/settings.py,sha256=kBlXBwqW3B8sZ-l4PxqWlqQdNTodaPt3O6MTPTE50ko,9464
+pgsql2osm-1.0.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+pgsql2osm-1.0.1.dist-info/METADATA,sha256=ZIs0XxXyyehfqmb2jAVoXWivJsIuJZAMnwTzbeu17kk,10679
+pgsql2osm-1.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+pgsql2osm-1.0.1.dist-info/entry_points.txt,sha256=DiDa9rMuFSctnb4gTkDeZgGslizROojRpbvURLpc3Go,49
+pgsql2osm-1.0.1.dist-info/top_level.txt,sha256=auyZc38BEhFtieAqK1lQHTcq4QTxtYOoen5p9d3xc_s,10
+pgsql2osm-1.0.1.dist-info/RECORD,,

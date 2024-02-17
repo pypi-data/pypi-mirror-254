@@ -1,0 +1,2 @@
+[console_scripts]
+pgsql2osm = pgsql2osm.cli:main
