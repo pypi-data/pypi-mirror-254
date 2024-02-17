@@ -1,0 +1,17 @@
+README.md
+setup.py
+scripro/Ori_data.py
+scripro/__init__.py
+scripro/cli.py
+scripro/supercell.py
+scripro/utils.py
+scripro.egg-info/PKG-INFO
+scripro.egg-info/SOURCES.txt
+scripro.egg-info/dependency_links.txt
+scripro.egg-info/entry_points.txt
+scripro.egg-info/requires.txt
+scripro.egg-info/top_level.txt
+scripro/data/TF_target_RP.h5
+scripro/data/bedGraphToBigWig
+scripro/data/hg38.genome
+scripro/data/mm10.genome
