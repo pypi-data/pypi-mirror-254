@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pixel-font-build-tools
+Version: 0.0.2
+Summary: A set of tools for building pixel fonts.
+Project-URL: homepage, https://github.com/TakWolf/pixel-font-build-tools
+Project-URL: source, https://github.com/TakWolf/pixel-font-build-tools
+Project-URL: issues, https://github.com/TakWolf/pixel-font-build-tools/issues
+Author: TakWolf
+Maintainer: TakWolf
+License: MIT License
+License-File: LICENSE
+Keywords: font,pixel
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: pixel-font-builder>=0.0.15
+Requires-Dist: pypng>=0.20220715.0
+Requires-Dist: unidata-blocks>=0.0.9
+Description-Content-Type: text/markdown
+
+# Pixel Font Build Tools
+
+[![Python](https://img.shields.io/badge/python-3.11-brightgreen)](https://www.python.org)
+[![PyPI](https://img.shields.io/pypi/v/pixel-font-build-tools)](https://pypi.org/project/pixel-font-build-tools/)
+
+A set of tools for building pixel fonts.
+
+## Installation
+
+```shell
+pip install pixel-font-build-tools
+```
+
+## Dependencies
+
+- [Pixel Font Builder](https://github.com/TakWolf/pixel-font-builder)
+- [Unidata Blocks](https://github.com/TakWolf/unidata-blocks)
+- [PyPNG](https://gitlab.com/drj11/pypng)
+
+## License
+
+Under the [MIT license](LICENSE).
