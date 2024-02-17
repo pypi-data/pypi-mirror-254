@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: netlify-config-generator
+Version: 0.1.2
+Summary: Programatically generate netlify configuration files
+Author: Nonowazu
+Author-email: oowazu.nonowazu@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic <2.0,>=1.1
+Provides-Extra: dev
+Requires-Dist: mypy ==1.8.0 ; extra == 'dev'
+Requires-Dist: pylint ==2.13.4 ; extra == 'dev'
+Requires-Dist: coverage[toml] ==6.5.0 ; extra == 'dev'
+Requires-Dist: black ==22.10.0 ; extra == 'dev'
+
+# Netlify Configuration Generator without an interesting name
+
+## Example:
+
+```python
+import yaml
+
+from netlifyconfig.collection import FolderCollection
+from netlifyconfig.widgets import ColorWidget, ListWidget, MarkdownWidget, NumberWidget, StringWidget
+from netlifyconfig.types import Widgets
+
+class RoleMetadata(FolderCollection):
+    fields: Widgets = [
+        StringWidget(label='Short name', name='title'),
+        StringWidget(label='Role name', name='name'),
+        NumberWidget(label='Display order', name='order'),
+        ColorWidget(label='Color', name='color'),
+        StringWidget(label='Icon', name='icon'),
+        StringWidget(label='Link', name='role_link'),
+        MarkdownWidget(label='Description', name='role_text_md'),
+        ListWidget(
+            label='Job Information',
+            name='jobs',
+            fields=[
+                StringWidget(label='Name', name='name'),
+                StringWidget(label='Link', name='job_link'),
+                StringWidget(label='Icon', name='icon'),
+            ]
+        )
+    ]
+
+r = RoleMetadata(label='Role metadata', name='role-data', folder='data/roles/')
+print(yaml.dump(r.to_dict()))
+```
