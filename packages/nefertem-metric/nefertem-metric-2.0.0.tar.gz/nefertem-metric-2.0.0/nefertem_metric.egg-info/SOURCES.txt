@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+nefertem_metric/__init__.py
+nefertem_metric.egg-info/PKG-INFO
+nefertem_metric.egg-info/SOURCES.txt
+nefertem_metric.egg-info/dependency_links.txt
+nefertem_metric.egg-info/requires.txt
+nefertem_metric.egg-info/top_level.txt
+nefertem_metric/metadata/__init__.py
+nefertem_metric/metadata/report.py
+nefertem_metric/plugins/__init__.py
+nefertem_metric/plugins/builder.py
+nefertem_metric/plugins/metric.py
+nefertem_metric/plugins/plugin.py
+nefertem_metric/run/__init__.py
+nefertem_metric/run/run.py
