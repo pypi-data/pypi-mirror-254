@@ -1,0 +1,10 @@
+markdown
+markdown-customblocks
+ipywidgets>=8.0.4
+pillow>=9.3.0
+anywidget==0.7.1
+tldraw==2.0.2
+
+[extra]
+jupyterlab>=3.5.2
+ipython>=8.7
