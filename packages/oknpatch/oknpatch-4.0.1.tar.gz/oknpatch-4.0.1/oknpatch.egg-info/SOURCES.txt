@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+oknpatch/__init__.py
+oknpatch/gazefilters.json
+oknpatch/okn_detection_rule.json
+oknpatch/okndetector.gaze.config
+oknpatch/oknpatch.py
+oknpatch/oknserver_graph_plot_config.json
+oknpatch/opm_detector_config.json
+oknpatch.egg-info/PKG-INFO
+oknpatch.egg-info/SOURCES.txt
+oknpatch.egg-info/dependency_links.txt
+oknpatch.egg-info/entry_points.txt
+oknpatch.egg-info/not-zip-safe
+oknpatch.egg-info/requires.txt
+oknpatch.egg-info/top_level.txt

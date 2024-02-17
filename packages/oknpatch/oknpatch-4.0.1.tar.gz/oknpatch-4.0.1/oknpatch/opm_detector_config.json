@@ -1,0 +1,10 @@
+{
+  "min_circular_ratio": 0.9,
+  "max_circular_ratio": 1.9,
+  "ksize_height": 13,
+  "ksize_width": 13,
+  "min_binary_threshold": 20,
+  "max_binary_threshold": 255,
+  "reflection_fill_dilation_index" : 25,
+  "reflection_fill_square_dimension" : 200
+}
