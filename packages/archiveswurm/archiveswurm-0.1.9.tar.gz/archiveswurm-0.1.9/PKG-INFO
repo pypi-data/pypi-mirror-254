@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: archiveswurm
+Version: 0.1.9
+Summary: Yet another Python implementation of the ArchivesSpace API
+Home-page: https://github.com/markpbaggett/archiveswurm
+License: MIT
+Keywords: ArchivesSpace
+Author: Mark Baggett
+Author-email: mbagget1@utk.edu
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/markpbaggett/archiveswurm
+Description-Content-Type: text/markdown
+
+# archiveswurm
+
+Yet another client / implementation of the ArchivesSpace API in Python.
+
+## What's here?
+
+Just the parts I've needed for my own projects.  It's not comprehensive (yet).
+
+## Why?
+
+Because I find all the others difficult for implementing in my own projects.
