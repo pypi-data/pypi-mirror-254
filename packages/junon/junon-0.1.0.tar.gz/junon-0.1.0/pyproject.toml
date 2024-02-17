@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "junon"
+version = "0.1.0"
+description = ""
+authors = ["tokoi <mkt.tokoi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "junon", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+jupyter = "^1.0.0"
+openai = "^1.6.1"
+tiktoken = "^0.5.2"
+ipywidgets = "^8.1.1"
+overrides = "^7.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
