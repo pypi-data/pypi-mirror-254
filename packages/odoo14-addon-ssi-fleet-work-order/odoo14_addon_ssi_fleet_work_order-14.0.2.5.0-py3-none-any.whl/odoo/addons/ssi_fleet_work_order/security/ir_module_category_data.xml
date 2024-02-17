@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 OpenSynergy Indonesia
+     Copyright 2023 PT. Simetri Sinergi Indonesia
+     License AGPL-4.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Workflow -->
+    <record id="fleet_work_order_workflow_module_category" model="ir.module.category">
+        <field name="name">Fleet Work Order - Workflow</field>
+        <field
+            name="parent_id"
+            ref="ssi_fleet_management.fleet_management_module_category"
+        />
+    </record>
+
+    <!-- Data Ownership -->
+    <record
+        id="fleet_work_order_data_ownership_module_category"
+        model="ir.module.category"
+    >
+        <field name="name">Fleet Work Order - Data Ownership</field>
+        <field
+            name="parent_id"
+            ref="ssi_fleet_management.fleet_management_module_category"
+        />
+    </record>
+
+    <!-- Configurator -->
+    <record
+        id="fleet_work_order_configurator_module_category"
+        model="ir.module.category"
+    >
+        <field name="name">Fleet Work Order - Configurator</field>
+        <field
+            name="parent_id"
+            ref="ssi_fleet_management.fleet_management_module_category"
+        />
+    </record>
+</odoo>

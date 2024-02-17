@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright 2023 OpenSynergy Indonesia
+Copyright 2023 PT. Simetri Sinergi Indonesia
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="fleet_work_order_type_view_tree" model="ir.ui.view">
+        <field name="name">fleet_work_order_type - Tree</field>
+        <field name="model">fleet_work_order_type</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="fleet_work_order_type_view_search" model="ir.ui.view">
+        <field name="name">fleet_work_order_type - Search</field>
+        <field name="model">fleet_work_order_type</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+
+    <record id="fleet_work_order_type_view_form" model="ir.ui.view">
+        <field name="name">fleet_work_order_type - Form</field>
+        <field name="model">fleet_work_order_type</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after" />
+                <xpath expr="//page[1]" position="before">
+                    <page name="vehicle" string="Vehicles">
+                        <group name="vehicle_1" colspan="4" col="2">
+                            <field
+                                name="vehicle_selection_method"
+                                string="Method"
+                                widget="radio"
+                            />
+                            <field
+                                name="vehicle_ids"
+                                attrs="{'invisible': [('vehicle_selection_method', '=', 'domain')]}"
+                            />
+                            <field
+                                name="vehicle_domain"
+                                string="Domain"
+                                widget="domain"
+                                options="{'model': 'fleet_vehicle', 'in_dialog': true}"
+                                attrs="{'invisible': [('vehicle_selection_method', '=', 'manual')]}"
+                            />
+                            <field
+                                name="allowed_vehicle_ids"
+                                widget="many2many_tags"
+                                invisible="1"
+                            />
+                        </group>
+                    </page>
+                    <page name="route" string="Route Templates">
+                        <group name="route_1" colspan="4" col="2">
+                            <field
+                                name="route_template_selection_method"
+                                string="Method"
+                                widget="radio"
+                            />
+                            <field
+                                name="route_template_ids"
+                                attrs="{'invisible': [('route_template_selection_method', '=', 'domain')]}"
+                            />
+                            <field
+                                name="route_template_domain"
+                                string="Domain"
+                                widget="domain"
+                                options="{'model': 'fleet_work_order_route_template', 'in_dialog': true}"
+                                attrs="{'invisible': [('route_template_selection_method', '=', 'manual')]}"
+                            />
+                            <field
+                                name="allowed_route_template_ids"
+                                widget="many2many_tags"
+                                invisible="1"
+                            />
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="fleet_work_order_type_action" model="ir.actions.act_window">
+        <field name="name">Fleet Work Order Types</field>
+        <field name="res_model">fleet_work_order_type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="fleet_work_order_type_menu"
+        name="Fleet Work Order Types"
+        action="fleet_work_order_type_action"
+        parent="ssi_fleet_management.menu_fleet_management_configuration"
+        groups="fleet_work_order_type_group"
+        sequence="120"
+    />
+</odoo>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright 2023 OpenSynergy Indonesia
+Copyright 2023 PT. Simetri Sinergi Indonesia
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="fleet_work_order_view_tree" model="ir.ui.view">
+        <field name="name">fleet_work_order - Tree</field>
+        <field name="model">fleet_work_order</field>
+        <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="vehicle_id" />
+                    <field name="partner_id" widget="many2one_avatar" />
+                    <field name="type_id" />
+                    <field name="route_template_id" />
+                    <field name="driver_id" widget="many2one_avatar" />
+                    <field name="codriver_id" widget="many2one_avatar" />
+                    <field name="date" />
+                    <field name="estimated_date_depart" optional="hide" />
+                    <field name="estimated_date_arrive" optional="hide" />
+                    <field name="real_date_depart" />
+                    <field name="real_date_arrive" />
+                    <field name="start_odometer" optional="hide" />
+                    <field name="end_odometer" optional="hide" />
+                    <field name="total_distance" optional="hide" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="fleet_work_order_view_search" model="ir.ui.view">
+        <field name="name">fleet_work_order - Search</field>
+        <field name="model">fleet_work_order</field>
+        <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="partner_id" />
+                    <field name="type_id" />
+                    <field name="driver_id" />
+                    <field name="codriver_id" />
+                </xpath>
+                <xpath expr="//group[@name='group_by']" position="inside">
+                    <filter
+                        name="grp_type"
+                        string="Type"
+                        context="{'group_by':'type_id'}"
+                    />
+                    <filter
+                        name="grp_partner_id"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+                    <filter
+                        name="grp_driver_id"
+                        string="Driver"
+                        context="{'group_by':'driver_id'}"
+                    />
+                    <filter
+                        name="grp_codriver_id"
+                        string="Co-Driver"
+                        context="{'group_by':'codriver_id'}"
+                    />
+                    <filter
+                        name="grp_date"
+                        string="Date"
+                        context="{'group_by':'date'}"
+                    />
+                    <filter
+                        name="grp_estimated_date_depart"
+                        string="Estimated Date Depart"
+                        context="{'group_by':'estimated_date_depart'}"
+                    />
+                    <filter
+                        name="grp_estimated_date_arrive"
+                        string="Estimated Date Arrive"
+                        context="{'group_by':'estimated_date_arrive'}"
+                    />
+                    <filter
+                        name="grp_date_depart"
+                        string="Date Depart"
+                        context="{'group_by':'real_date_depart'}"
+                    />
+                    <filter
+                        name="grp_date_arrive"
+                        string="Date Arrive"
+                        context="{'group_by':'real_date_arrive'}"
+                    />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="fleet_work_order_view_form" model="ir.ui.view">
+        <field name="name">fleet_work_order - Form</field>
+        <field name="model">fleet_work_order</field>
+        <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="type_id" />
+                    <field name="date" />
+                    <field
+                        name="allowed_location_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                    <field
+                        name="allowed_vehicle_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                    <field
+                        name="allowed_driver_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                    <field
+                        name="allowed_codriver_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                    <field
+                        name="allowed_route_template_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                </xpath>
+                <xpath expr="//group[@name='header_right']" position="inside">
+                    <field name="partner_id" widget="many2one_avatar" />
+                    <field
+                        name="vehicle_id"
+                        domain="[('id', 'in', allowed_vehicle_ids)]"
+                    />
+                    <field
+                        name="driver_id"
+                        widget="many2one_avatar"
+                        domain="[('id', 'in', allowed_driver_ids)]"
+                    />
+                    <field
+                        name="codriver_id"
+                        widget="many2one_avatar"
+                        domain="[('id', 'in', allowed_codriver_ids)]"
+                    />
+                    <label for="estimated_date_depart" string="Estimated Time" />
+                    <div class="o_row">
+                        <field name="estimated_date_depart" />
+                         -
+                        <field name="estimated_date_arrive" />
+                    </div>
+                    <label for="real_date_depart" string="Real Time" />
+                    <div class="o_row">
+                        <field name="real_date_depart" />
+                         -
+                        <field name="real_date_arrive" />
+                    </div>
+                    <label for="start_odometer" string="Odoometer" />
+                    <div class="o_row">
+                        <field name="start_odometer" />
+                         -
+                        <field name="end_odometer" />
+                    </div>
+                </xpath>
+                <xpath expr="//page[1]" position="before">
+                    <page name="route" string="Routes">
+                        <group name="route_1" colspan="4" col="2">
+                            <field
+                                name="route_template_id"
+                                domain="[('id', 'in', allowed_route_template_ids)]"
+                            />
+                            <field name="route_ids">
+                                <tree editable="top">
+                                    <field name="sequence" widget="handle" />
+                                    <field
+                                        name="start_location_id"
+                                        domain="[('id','in',parent.allowed_location_ids)]"
+                                    />
+                                    <field
+                                        name="end_location_id"
+                                        domain="[('id','in',parent.allowed_location_ids)]"
+                                    />
+                                    <field name="distance" />
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="fleet_work_order_action" model="ir.actions.act_window">
+        <field name="name">Fleet Work Orders</field>
+        <field name="res_model">fleet_work_order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="fleet_work_order_menu"
+        name="Fleet Work Orders"
+        action="fleet_work_order_action"
+        parent="ssi_fleet_management.menu_root_fleet_management"
+        groups="fleet_work_order_viewer_group"
+        sequence="110"
+    />
+</odoo>

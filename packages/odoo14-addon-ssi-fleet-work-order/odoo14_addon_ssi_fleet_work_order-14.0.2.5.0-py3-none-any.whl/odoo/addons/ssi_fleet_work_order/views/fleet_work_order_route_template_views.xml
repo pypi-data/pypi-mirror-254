@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright 2023 OpenSynergy Indonesia
+Copyright 2023 PT. Simetri Sinergi Indonesia
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="fleet_work_order_route_template_view_tree" model="ir.ui.view">
+        <field name="name">fleet_work_order_route_template - Tree</field>
+        <field name="model">fleet_work_order_route_template</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+    <record id="fleet_work_order_route_template_view_search" model="ir.ui.view">
+        <field name="name">fleet_work_order_route_template - Search</field>
+        <field name="model">fleet_work_order_route_template</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data />
+        </field>
+    </record>
+
+
+    <record id="fleet_work_order_route_template_view_form" model="ir.ui.view">
+        <field name="name">fleet_work_order_route_template - Form</field>
+        <field name="model">fleet_work_order_route_template</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after" />
+                <xpath expr="//page[1]" position="before">
+                    <page name="route" string="Routes">
+                        <field name="route_ids">
+                            <tree editable="top">
+                                <field name="sequence" widget="handle" />
+                                <field
+                                    name="start_location_id"
+                                    domain="[('id','in',parent.allowed_location_ids)]"
+                                />
+                                <field
+                                    name="end_location_id"
+                                    domain="[('id','in',parent.allowed_location_ids)]"
+                                />
+                                <field name="distance" />
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="location" string="Locations">
+                        <group name="location_1" colspan="4" col="2">
+                            <field
+                                name="location_selection_method"
+                                string="Method"
+                                widget="radio"
+                            />
+                            <field
+                                name="location_ids"
+                                attrs="{'invisible': [('location_selection_method', '=', 'domain')]}"
+                            />
+                            <field
+                                name="location_domain"
+                                string="Domain"
+                                widget="domain"
+                                options="{'model': 'res.partner', 'in_dialog': true}"
+                                attrs="{'invisible': [('location_selection_method', '=', 'manual')]}"
+                            />
+                            <field
+                                name="allowed_location_ids"
+                                widget="many2many_tags"
+                                invisible="1"
+                            />
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="fleet_work_order_route_template_action" model="ir.actions.act_window">
+        <field name="name">Route Templates</field>
+        <field name="res_model">fleet_work_order_route_template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="fleet_work_order_route_template_menu"
+        name="Route Templates"
+        action="fleet_work_order_route_template_action"
+        parent="ssi_fleet_management.menu_fleet_management_configuration"
+        groups="fleet_work_order_route_template_group"
+        sequence="110"
+    />
+</odoo>
