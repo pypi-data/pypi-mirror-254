@@ -1,0 +1,124 @@
+
+
+<style>
+
+body {
+	background: #234;
+	color: #EDC;
+	
+	
+}
+
+b {
+	font-size: 2em;
+}
+
+h1,h2,h2,p {
+	display: inline-block;
+	margin: 0;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	display: inline-flex;
+	align-items: center;
+	font-size: 2em;
+}
+
+h3 {
+	display: inline-flex;
+	font-size: 1.8em;
+	align-items: center;
+}
+
+p {
+	display: inline;
+	font-size: 1.5em;
+}
+
+</style>
+<pre>
+	
+
+	<h1><b>🏗️</b> The Architecture</h1>
+	
+	<h2>Important</h2>
+	<p>
+		Don't use "onesie" for these modules,
+		
+			"shares",
+			"botanist"
+
+			"body_scan",
+			"botanical"
+	
+	</p>
+	
+	<h2>Principles</h2>
+	<p>
+			The idea is that building codependecies (or cyclic depedencies)
+			into the status assertation framework is a recipe for confusion.
+		
+			As in, onesie perhaps shouldn't include a module that
+			requires onesie for status assertation.
+		
+			Therefore the directed acyclic chart of status check frameworks is:
+				
+				[ unit test, pytest ] -> "body_scan" -> onesie
+				
+			
+			
+				
+	</p>
+	
+	<h2>The Structure</h2>
+		<h3><b>🌐</b> story 4: </h3>
+		<p>	
+				# "ships" is the latest iteration of "botanical" and "botanist"
+		</p>
+	
+		<h3><b>🌐</b> story 3: "onesie"</h3>
+		<p>	
+				requires:
+					{status} "body_scan"
+					
+					"botanical"
+						{status} "body_scan"
+						
+					"shares"
+						{status} "body_scan"
+		</p>
+		
+	
+		<h3><b>🌐</b> story 2: "body_scan"</h3>
+		<p>
+				requires
+					{status} "unittest"
+					
+					"botanist"
+						{status} "unittest"
+		</p>
+
+		<h3><b>🌐</b> story 1: "unittest"</h3>
+		<p>
+				# https://docs.python.org/3/library/unittest.html
+		</p>
+		
+	
+				
+	<h2>journal</h2>
+	<p>
+			1:
+				This is module started as a replica of "body_scan",
+				where it uses "body_scan" as the status monitor.
+				
+				In contrast, "body_scan" uses unittest as the status
+				monitor.	
+	</p>
+			
+		
+		
+</pre>
