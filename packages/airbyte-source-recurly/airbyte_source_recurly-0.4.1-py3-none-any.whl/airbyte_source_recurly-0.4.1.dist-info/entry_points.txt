@@ -1,0 +1,2 @@
+[console_scripts]
+source-recurly = source_recurly.run:run
