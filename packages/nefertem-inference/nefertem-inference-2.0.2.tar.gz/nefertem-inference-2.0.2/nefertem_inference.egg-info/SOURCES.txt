@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+nefertem_inference/__init__.py
+nefertem_inference.egg-info/PKG-INFO
+nefertem_inference.egg-info/SOURCES.txt
+nefertem_inference.egg-info/dependency_links.txt
+nefertem_inference.egg-info/requires.txt
+nefertem_inference.egg-info/top_level.txt
+nefertem_inference/metadata/__init__.py
+nefertem_inference/metadata/report.py
+nefertem_inference/plugins/builder.py
+nefertem_inference/plugins/plugin.py
+nefertem_inference/plugins/utils.py
+nefertem_inference/run/__init__.py
+nefertem_inference/run/run.py
