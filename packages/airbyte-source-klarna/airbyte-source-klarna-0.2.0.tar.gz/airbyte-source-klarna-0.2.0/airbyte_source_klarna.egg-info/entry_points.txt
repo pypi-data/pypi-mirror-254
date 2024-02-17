@@ -1,0 +1,2 @@
+[console_scripts]
+source-klarna = source_klarna.run:run
