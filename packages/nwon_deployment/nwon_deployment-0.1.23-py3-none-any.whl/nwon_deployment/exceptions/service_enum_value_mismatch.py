@@ -1,0 +1,2 @@
+class ServiceEnumValueMismatch(Exception):
+    pass
