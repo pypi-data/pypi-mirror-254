@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: gammaforge
+Version: 0.0.1
+Summary: A package to characterise gamma-ray space detectors.
+Author-email: Jonathan Flunger <jonathan.flunger@gmail.com>
+Project-URL: Homepage, https://github.com/jonathanflunger/gammaforge
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.26
+Requires-Dist: scipy>=1.11
+Requires-Dist: matplotlib>=3.7
+Requires-Dist: pandas>=2.1
+Requires-Dist: datetime>=4.0
+
+Astro OSS Project
+
+[![Documentation Status](https://readthedocs.org/projects/gammaforge/badge/?version=latest)](https://gammaforge.readthedocs.io/en/latest/?badge=latest)
