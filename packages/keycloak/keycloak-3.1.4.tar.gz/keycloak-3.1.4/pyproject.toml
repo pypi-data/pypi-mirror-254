@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "keycloak"
+version = "3.1.4"
+description = "Python client for Keycloak IAM"
+authors = ["Akhil Lawrence <akhilputhiry@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+PyYAML = "^6.0.1"
+cached-property = "^1.5.2"
+Sphinx = {version = "^7.2.6", optional = true}
+sphinx-rtd-theme = {version = "^2.0.0", optional = true}
+Flask = {version = "^3.0.1", optional = true}
+starlette = {version = "^0.36.1", optional = true}
+Django = {version = "^5.0.1", optional = true}
+uvicorn = {version = "^0.27.0", optional = true}
+httpx = "^0.26.0"
+
+[tool.poetry.extras]
+docs = ["Sphinx", "sphinx-rtd-theme"]
+extensions = ["Flask", "starlette", "Django", "uvicorn"]
+
+[tool.poetry.dev-dependencies]
+isort = "^5.13.2"
+black = "^24.1.1"
+mypy = "^1.8.0"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+disallow_untypes_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "*.py"
+python_functions = "test_*"
+addopts = "--cov=keycloak --cov-report term-missing --cov-report xml"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
