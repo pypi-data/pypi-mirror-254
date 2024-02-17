@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Nanopub JSON-LD",
+  "description": "A JSON Schema to guide and validate writing a Nanopublication as JSON-LD",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "items": {
+        "anyOf": [
+          {
+            "type": "array",
+            "properties": {
+              "@id": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "properties": {
+        "@base": {
+          "type": "string"
+        },
+        "np": {
+          "type": "string"
+        },
+        "npx": {
+          "type": "string"
+        },
+        "rdf": {
+          "type": "string"
+        },
+        "rdfs": {
+          "type": "string"
+        },
+        "xsd": {
+          "type": "string"
+        },
+        "foaf": {
+          "type": "string"
+        },
+        "dct": {
+          "type": "string"
+        },
+        "prov": {
+          "type": "string"
+        },
+        "pav": {
+          "type": "string"
+        },
+        "orcid": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@base",
+        "np",
+        "npx",
+        "rdf",
+        "rdfs"
+      ]
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@graph": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "np:hasAssertion": {
+          "$ref": "#/$defs/graph"
+        },
+        "np:hasProvenance": {
+          "$ref": "#/$defs/graph"
+        },
+        "np:hasPublicationInfo": {
+          "$ref": "#/$defs/graph"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "np:hasAssertion",
+        "np:hasProvenance",
+        "np:hasPublicationInfo"
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@id",
+    "@graph"
+  ],
+  "$defs": {
+    "graph": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@context": {
+          "type": "object",
+          "items": {
+            "type": "iri"
+          }
+        },
+        "@graph": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/triple"
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "@graph"
+      ]
+    },
+    "triple": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string"
+        },
+        "@value": {
+          "type": "string"
+        }
+      },
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/triple"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  }
+}
