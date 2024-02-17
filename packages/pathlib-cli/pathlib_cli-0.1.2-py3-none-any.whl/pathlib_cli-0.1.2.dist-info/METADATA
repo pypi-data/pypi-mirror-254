@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pathlib-cli
+Version: 0.1.2
+Summary: Command line interface for subset of Python's pathlib library to filter for parts of filenames and paths
+Author: Ben Skubi
+Author-email: skubi@ohsu.edu
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+Pathlib-cli is a command line interface to a subset of the Python pathlib library used to extract parts of paths.
