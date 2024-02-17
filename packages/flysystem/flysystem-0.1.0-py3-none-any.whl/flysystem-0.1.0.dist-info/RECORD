@@ -1,0 +1,17 @@
+flysystem/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flysystem/error.py,sha256=DyfxIQRK_A16bbnfBk7oqwrwABLnhZkSzISenzqxZO8,6136
+flysystem/filesystem.py,sha256=7jsK3XCBWjrTMvdBlGon6WYfGQEsE14a4b3WOxkGzRQ,8805
+flysystem/path.py,sha256=vS9H_WH-5jzy1xLdJT9qhe7wt_Avp_-xG50FrVEYkf4,920
+flysystem/visibility.py,sha256=IWsD8J64Cx1D7BvhC3WYJAEOj0eIOkLtwf7L1nuKqVM,4729
+flysystem/adapters/__init__.py,sha256=7VRQ_sW6AuAm31k-r-u-Yd3Vv5I13xV8_CFtkgm6ODw,4741
+flysystem/adapters/ftp.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flysystem/adapters/local.py,sha256=KnM-5hAQmLkKvHi2qqUbB0wVC002T_PGn-Y_FwgOFe0,10171
+flysystem/adapters/memory.py,sha256=gwNBMihhOrnYoD1D0lHiy0XeEGZCTXpouJw8EE8hsvQ,6035
+flysystem/adapters/s3.py,sha256=P1FQi6lHgQyLmNwFASZAFBzIHtMTP1Bhl0twH0E2JFc,11638
+flysystem/adapters/sftp.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flysystem/adapters/webdav.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flysystem-0.1.0.dist-info/LICENSE.txt,sha256=URgByNqZzALooRArxWJIY7EvnEA6nVrOuMHFYp8TGbE,1100
+flysystem-0.1.0.dist-info/METADATA,sha256=vetsda86gAM5mjORhR3hIm0zqYdKVgp161UsSjtQmzQ,3113
+flysystem-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+flysystem-0.1.0.dist-info/top_level.txt,sha256=FhkxmUAoDadBTYrloGcorIfp1MFXbrikoI2g4v1ZegA,10
+flysystem-0.1.0.dist-info/RECORD,,
