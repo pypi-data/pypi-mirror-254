@@ -1,0 +1,163 @@
+[project]
+name = "pyprojectx"
+version = "1.2.3"
+description = "Execute scripts from pyproject.toml, installing tools on-the-fly"
+authors = [
+    { name = "Houbie", email = "ivo@houbrechts-it.be" },
+]
+readme = "README.md"
+keywords = [
+    "build",
+    "dependency",
+    "pyprojectx",
+]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "userpath==1.9.1",
+    "virtualenv==20.24.6",
+    "tomlkit>=0.12.3",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+homepage = "https://github.com/pyprojectx/pyprojectx"
+documentation = "https://pyprojectx.github.io"
+
+[project.scripts]
+pyprojectx = "pyprojectx.cli:main"
+
+[tool.pdm]
+plugins = [
+    "pdm-build-locked",
+]
+
+[tool.pdm.build]
+buildlocked = true
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.4.3",
+    "pytest-mock>=3.12.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+line-length = 120
+select = [
+    "ALL",
+]
+fixable = [
+    "ALL",
+]
+ignore = [
+    "ISC001",
+    "ANN",
+    "FA",
+    "FBT",
+    "D100",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D213",
+    "D203",
+    "T201",
+    "TRY003",
+    "EM102",
+    "COM812",
+    "S602",
+    "S603",
+    "S604",
+    "S605",
+    "S607",
+    "S324",
+]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = [
+    "S101",
+    "I001",
+    "INP001",
+]
+"bin/*" = [
+    "INP001",
+]
+
+[tool.pyprojectx.main]
+requirements = [
+    "pdm",
+    "ruff",
+    "pre-commit",
+    "px-utils",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "markdown-include",
+]
+post-install = "pre-commit install"
+
+[tool.pyprojectx.aliases]
+install = "pdm install"
+run = "pdm run pyprojectx -t pyproject.toml "
+update = "pdm update"
+outdated = "pdm update --outdated"
+clean = "pxrm .venv .pytest_cache dist .pdm-build .ruff_cache"
+full-clean = [
+    "@clean",
+    "pxrm .pyprojectx",
+]
+format = [
+    "ruff format",
+    "ruff check --select I --fix",
+]
+lint = [
+    "ruff check",
+]
+unit-test = "pdm run pytest tests/unit"
+integration-test = "pdm run pytest tests/integration"
+test = [
+    "@unit-test",
+    "@integration-test",
+]
+check = [
+    "@lint",
+    "@test",
+]
+build = [
+    "@install",
+    "@check",
+    "pdm build",
+]
+publish = "pdm publish --username __token__"
+generate-usage = "pdm run python -m pyprojectx.wrapper.pw --help > docs/docs/usage.txt"
+
+[tool.pyprojectx.aliases.serve-docs]
+cmd = "mkdocs serve"
+cwd = "docs"
+
+[tool.pyprojectx.aliases.generate-docs]
+cmd = [
+    "@install",
+    "@generate-usage && mkdocs build",
+]
+cwd = "docs"
+
+[tool.pyprojectx.aliases.deploy-docs]
+cmd = "mkdocs gh-deploy"
+cwd = "docs"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
