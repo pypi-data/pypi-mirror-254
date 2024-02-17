@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: langchain-weaviate
+Version: 0.0.1rc5
+Summary: An integration package connecting Weaviate and LangChain
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: langchain-core (>=0.0.12)
+Requires-Dist: numpy (>=1.26.2,<2.0.0)
+Requires-Dist: simsimd (>=3.6.1,<4.0.0)
+Requires-Dist: weaviate-client (>=4.0.0b,<5.0.0)
+Description-Content-Type: text/markdown
+
+# langchain-weaviate
+
+This package contains the LangChain integrations for Weaviate through their `weaviate-client` SDK.
+
+## Installation and Setup
+
+- Install the LangChain partner package
+```bash
+pip install langchain-weaviate
+```
+
