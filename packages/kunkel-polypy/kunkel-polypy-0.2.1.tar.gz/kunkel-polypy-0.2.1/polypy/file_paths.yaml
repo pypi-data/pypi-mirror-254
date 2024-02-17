@@ -1,0 +1,8 @@
+---
+
+api_files: 
+  request_parameters: "/path/to/request_parameters.yaml"
+  api_export: "/path/to/api_response/export/directory/" ## leave trailing slash
+
+program_files:
+  settings: "/path/to/settings.yaml"

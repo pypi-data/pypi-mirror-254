@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69.0.3"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+dependencies = [
+  "requests==2.31.0",
+  "PyYAML==6.0.1",
+]
+name = "kunkel-polypy"
+version = "0.2.1"
+authors = [
+  { name="Branden Kunkel", email="kunkel.branden6130@gmail.com" },
+]
+description = "A small python library for interfacing with, gathering and exporting data from the polygon.io API"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+]
+
+[project.urls]
+Homepage = "https://github.com/Branden-Kunkel/polypy"
