@@ -1,0 +1,2 @@
+[console_scripts]
+source-google-webfonts = source_google_webfonts.run:run

@@ -1,0 +1,17 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/acceptance.py,sha256=8eU9iSDbmHyufPvAouJGhPMgPAFTCP8IKIKHLm7u5TE,435
+integration_tests/catalog.json,sha256=E5LUCno3xXJB5Gxc_KJ-SayFyGHsdKTAPpySyBybuR8,914
+integration_tests/configured_catalog.json,sha256=SViBoDBdu_2PgOh8ScvM6-TD_F8P2o2JRFFa373ftbY,241
+integration_tests/invalid_config.json,sha256=ByVwPZICYL5gDuNcgEDpSA19M6fYgC1Qhzh-UJ6rMiA,150
+integration_tests/sample_config.json,sha256=FLAygtw2cyBUdzbf8XI0mqj1Qcfgn5k7lXS2QALcL_A,118
+source_google_webfonts/__init__.py,sha256=uqXrd9kOBDRiNMhxZ4hVu4qNn9jsMahnWyz6EnUkC8w,140
+source_google_webfonts/manifest.yaml,sha256=0mKK87iE-Gwmy8K6g6vJEO5oHxCWcGMmg1fGb8bcbfA,877
+source_google_webfonts/run.py,sha256=Umwc_h-dGFXpNyzOpWFmpztjpYPD0P91oJJnbE9CYNM,255
+source_google_webfonts/source.py,sha256=yc2r-bX-RuiBxH7M9mG02Hhm7ZFDIkg2d8S6GEMUgRo,483
+source_google_webfonts/spec.yaml,sha256=JM83ZWHYf3vB189Q56Uspk8KHlMhWzLnq0TcAiVMuPg,714
+source_google_webfonts/schemas/fonts.json,sha256=BE5bI-sGfZFH2r02lGKbvBxVzDY09gwc9Y0bJUu1KVA,3056
+airbyte_source_google_webfonts-0.1.0.dist-info/METADATA,sha256=lZLilwOEj7S5QZPNqp_uJNDcDVWbVkTd2Jvcr5QyLjo,5286
+airbyte_source_google_webfonts-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_google_webfonts-0.1.0.dist-info/entry_points.txt,sha256=muKlI7AmzYsz7_cPn77yXClwbSgfI9lhRL9bAPQ_D10,74
+airbyte_source_google_webfonts-0.1.0.dist-info/top_level.txt,sha256=Mo-LLkG-Z46JJJqHtZkr-jTYaUYqU3Oi9PZZ_-OL8BI,41
+airbyte_source_google_webfonts-0.1.0.dist-info/RECORD,,
