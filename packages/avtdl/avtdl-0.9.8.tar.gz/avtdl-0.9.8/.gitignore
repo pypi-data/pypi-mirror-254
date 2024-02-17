@@ -1,0 +1,17 @@
+**/*.swp
+**/*.swo
+**/*~
+
+**/__pycache__/*
+.mypy_cache/**
+
+**/*.sqlite
+config.yml
+*.yml
+tests/**
+logs/**
+db/**
+*.txt
+
+.vscode/**
+.idea/**
