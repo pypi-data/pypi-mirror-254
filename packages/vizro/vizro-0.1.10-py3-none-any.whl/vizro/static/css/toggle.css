@@ -1,0 +1,43 @@
+.toggle-switch {
+  width: 32px;
+}
+
+#page-container .mantine-Switch-track {
+  min-width: 32px;
+  width: 32px;
+  height: 16px;
+  background-color: var(--fill-subtle);
+  border-radius: 16px;
+  border: 1px solid var(--border-enabled);
+}
+
+#page-container .mantine-Switch-track:focus {
+  border: 2px solid var(--focus-focus);
+}
+
+#page-container .mantine-Switch-input {
+  margin: 0;
+}
+
+#page-container .mantine-Switch-trackLabel {
+  margin: 0;
+  width: 32px;
+  height: 16px;
+}
+
+#page-container .mantine-Switch-thumb {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background-color: var(--fill-medium-emphasis);
+}
+
+#page-container input:checked + * > .mantine-11dx59s {
+  left: calc(100% - 12px);
+  background: var(--text-contrast-primary);
+}
+
+#page-container input:checked + * > .mantine-69c9zd {
+  background: var(--text-primary);
+  border-color: var(--border-enabled);
+}
