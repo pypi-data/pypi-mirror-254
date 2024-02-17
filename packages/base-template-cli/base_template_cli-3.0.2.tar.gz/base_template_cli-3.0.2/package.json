@@ -1,0 +1,60 @@
+{
+  "name": "base-template-cli",
+  "version": "3.0.2",
+  "description": "CLI tool of Base Template Repository.",
+  "private": true,
+  "engines": {
+    "node": "^18.15.0",
+    "npm": "^9.6.3"
+  },
+  "scripts": {
+    "lint": "run-s --continue-on-error lint:*",
+    "lint:credentials": "[ \"$CI\" = 'true' ] || secretlint \"**/*\"",
+    "lint:md": "markdownlint . \".?*/**/*.{md,markdown}\"",
+    "lint:prettier": "prettier --check .",
+    "format": "run-s --continue-on-error format:*",
+    "format:md": "npm run lint:md -- --fix",
+    "format:prettier": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz",
+    "cm": "npm run commit",
+    "prepare": "[ \"$CI\" = 'true' ] || husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haru52/base_template_cli.git"
+  },
+  "keywords": [
+    "base-template",
+    "template",
+    "cli"
+  ],
+  "author": {
+    "name": "haru",
+    "url": "https://haru52.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haru52/base_template_cli/issues"
+  },
+  "homepage": "https://github.com/haru52/base_template_cli#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@commitlint/cz-commitlint": "^17.5.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^7.0.7",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "markdownlint-cli": ">=0.33.0 <1.0.0",
+    "npm-check-updates": "^16.10.17",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "secretlint": "^7.0.7",
+    "semantic-release": "^21.0.7"
+  }
+}
