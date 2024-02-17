@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "resumeanalyser"
+version = "1.0.3"
+description = "The ResumeAnalyser package is a comprehensive toolkit designed for automated and efficient parsing, analysis, and evaluation of resumes."
+authors = ["Xiangshen Yu", "Gretel Tan", "Wenyu Nie", "Prabhjit Thind"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11.6"
+matplotlib = "^3.8.2"
+wordcloud = "^1.9.3"
+python-docx = "^1.1.0"
+pypdf = "^3.17.4"
+nltk = "^3.8.1"
+scikit-learn = "1.4.0"
+spacy = "3.7.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+myst-nb = {version = "^1.0.0", python = "^3.11.6"}
+sphinx-autoapi = "^3.0.0"
+sphinx-rtd-theme = "^2.0.0"
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+] 
+branch = "main"                             
+changelog_file = "CHANGELOG.md"             
+build_command = "pip install poetry && poetry build" 
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: resumeanalyser
+Version: 1.0.3
+Summary: The ResumeAnalyser package is a comprehensive toolkit designed for automated and efficient parsing, analysis, and evaluation of resumes.
+License: MIT
+Author: Xiangshen Yu
+Requires-Python: >=3.11.6,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: matplotlib (>=3.8.2,<4.0.0)
+Requires-Dist: nltk (>=3.8.1,<4.0.0)
+Requires-Dist: pypdf (>=3.17.4,<4.0.0)
+Requires-Dist: python-docx (>=1.1.0,<2.0.0)
+Requires-Dist: scikit-learn (==1.4.0)
+Requires-Dist: spacy (==3.7.2)
+Requires-Dist: wordcloud (>=1.9.3,<2.0.0)
+Description-Content-Type: text/markdown
+
+# resumeanalyser
+
+[![Documentation Status](https://readthedocs.org/projects/resume-analyser/badge/?version=latest)](https://resume-analyser.readthedocs.io/en/latest) [![ci-cd](https://github.com/UBC-MDS/resumeanalyser/actions/workflows/ci-cd.yml/badge.svg?branch=main)](https://github.com/UBC-MDS/resumeanalyser/actions/workflows/ci-cd.yml)
+
+The ResumeAnalyser package is a comprehensive toolkit designed for automated and efficient parsing, analysis, and evaluation of resumes. Leveraging advanced algorithms, it extracts key information like educational background, professional experience, skills, and certifications from a variety of resume formats. 
+
+## Features
+This package also includes features for ranking candidates based on customizable criteria, making it an indispensable tool for HR professionals and recruiters seeking to streamline the hiring process. Its intuitive API and compatibility with multiple programming languages ensure easy integration into existing HR systems, significantly enhancing recruitment workflows.
+
+Given the specificity of the goals of our package, we have not come across many popular Python packages which offer exactly the same functionalities we aim to offer. We found one [package which also aims to extract information from resumes](https://pypi.org/project/resume-parser/), but this package does not appear to offer functions to analyse the text and visualise the results.
+
+## Functions
+Our project has 4 parts - the extraction of text from different types of documents (PDF, HTML, docx), the cleaning of the text from these documents, the analysis of the text, and the visualisation of the analysis results. The functions under these parts are as follows:
+
+1. Extraction of text from documents: The goal of all 3 functions under this section is to read text in from different file formats. We have chosen to focus on PDFs and docx files since resumes often come in those formats, and have also chosen to focus on extracting text from websites, where job descriptions are often hosted.
+- pdf_to_text
+- website_to_text
+- docx_to_text
+
+2. Cleaning of text
+- tokenize: Tokenizes the input text into individual words.
+- to_lower: Converts all tokens in the input list to lowercase.
+- remove_stop_words: Removes stop words from the list of tokens.
+- lemmatize: Applies lemmatization to each token in the list.
+- clean_text: Clean text by applying a series of processing steps: tokenization, converting to lower case,
+    removing stop words, and applying lemmatization.
+
+3. Analysis of text
+- SimilarityCV: Calculates cosine-similarity score using CountVectorizer between two strings of text
+- SimilaritySpacy: To calculate cosine-similarity score using Spacy embeddings between two strings of text
+
+4. Visualisation of results
+- plot_wordcloud: Plots the wordcloud of the input resume text.
+- plot_topwords: Plots a bar chart of word counts in the input resume text.
+- plot_suite: Plots the comprehensive plot suite for the input resume text.
+
+
+## Installation
+
+This package is still in the developing process, and therefore it has not been published on PyPI. In order to use this package, please run the instructions provided below.
+
+### Developer Version Installation
+1. Clone this repository:
+   
+```bash
+git clone https://github.com/UBC-MDS/resumeanalyser.git
+```
+
+2. Install poetry for the purpose of managing the developing version of this pacakge [instructions](https://python-poetry.org/docs/#installation).
+
+3. Run the following commands from the project root directory to create a virtual environment and install resumeanalyser through poetry:
+```bash
+conda create --name resumeanalyser python=3.11.6 -y
+conda activate resumeanalyser
+poetry install
+```
+
+### Future Version
+
+This package will be published on PyPI soon. It will be possbile to run the following command to intall resumeanalyser:
+```bash
+$ pip install resumeanalyser
+```
+
+## Usage
+
+`resumeanalyser` provides various functionalities. It covers text extraction from both PDF and docx documents, including handling of formatted text. The text cleaning functions include steps like removing punctuation, tokenization, converting to lower case, removing stop words, and lemmatization, which can be applied step-by-step or using the clean_text function for convenience. For comparing texts, it offers functions for both syntactic and semantic text matching. Additionally, the documentation provides examples of using plotting functions, such as creating word clouds and plotting top-frequency words. This comprehensive guide is designed to help users effectively utilize the resumeanalyser package for analyzing and visualizing resume data.
+
+```python
+from resumeanalyser.text_reading import pdf_to_text, docx_to_text
+from resumeanalyser.text_cleaning import remove_punctuation, tokenize, to_lower, lemmatize, clean_text
+from resumeanalyser.metrics import SimilarityCV
+from resumeanalyser.plotting import plot_wordcloud, plot_topwords, plot_suite
+
+file_path_1 = "test.pdf"  
+file_path_2 = "test2.docx" 
+sample_pdf_text = pdf_to_text(file_path_1)
+sample_docx_text = docx_to_text(file_path_2)
+cleaned_text_1 = clean_text(sample_pdf_text)
+cleaned_text_2 = clean_text(sample_docx_text)
+literal_match_score = SimilarityCV(cleaned_text_1, cleaned_text_2)
+fig1 = plot_wordcloud(cleaned_text_1)
+fig2 = plot_topwords(cleaned_text_1)
+fig3 = plot_suite(cleaned_text_1)
+```
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`resumeanalyser` was created by group14. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`resumeanalyser` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
