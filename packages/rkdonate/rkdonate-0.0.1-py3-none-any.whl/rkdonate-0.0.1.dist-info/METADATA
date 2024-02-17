@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: rkdonate
+Version: 0.0.1
+Summary: Python library made in Visual Studio Code using the rkdonate project https://donate.rkprojects.ru
+Home-page: https://github.com/Random4ikYT/rkdonate
+Download-URL: https://github.com/Random4ikYT/rkdonate/archive/refs/heads/main.zip
+Author: Random4ik
+Author-email: froksibrohs@gmail.com
+License: Apache License, Version 2.0, see LICENSE file
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation
+
+Python module from create and check payments
