@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: vatsim
+Version: 0.1.0
+Summary: Library for interacting with VATSIM APIs and data
+License: MIT
+Author: Franz Pletz
+Author-email: fpletz@fnordicwalking.de
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Games/Entertainment :: Simulation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pydantic (>=2.5,<3.0)
+Requires-Dist: regex (>=2023.12.25,<2024.0.0)
+Requires-Dist: requests (>=2.28,<3.0)
+Description-Content-Type: text/markdown
+
+# python-vatsim
+
+This module aims to provide functionality to interact with VATSIM APIs and the datafeed. In the
+future, it will also include parsers for different file formats like Sectorfiles or ESE files
+for Euroscope as well as additional tooling for processing VATSIM related data.
+
+## Current Features
+
+ * Pydantic models for the VATSIM status endpoints and the VATSIM datafeed
+ * Simple fetchers for endpoints and the datafeed
+
+## Example
+
+```python
+import vatsim
+
+data = vatsim.fetch_vatsim_data()
+```
+
