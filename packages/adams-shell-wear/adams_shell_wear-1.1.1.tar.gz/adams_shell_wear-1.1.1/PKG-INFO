@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: adams_shell_wear
+Version: 1.1.1
+Summary: Python tools for calculating and applying wear to shell geometry in Adams
+Home-page: https://github.com/bthornton191/adams_shell_wear
+Author: Ben Thornton
+Author-email: ben.thornton@hexagon.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Adams Shell Wear
+
+Python tools for calculating and applying wear to shell geometry in [Adams](https://hexagon.com/products/product-groups/computer-aided-engineering-software/adams).
+
+## Installation
+
+Install straight from the repo using pip.
+```
+> pip install adams_shell_wear
+```
+
+## Usage
+> TBD
