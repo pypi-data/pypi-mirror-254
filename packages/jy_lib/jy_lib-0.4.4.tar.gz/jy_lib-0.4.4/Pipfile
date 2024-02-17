@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.doubanio.com/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+loguru = "*"
+pysmb = "*"
+websockets = "*"
+
+[dev-packages]
+loguru = "*"
+pysmb = "*"
+websockets = "*"
+black = "*"
+pytest = "*"
+pipx = "*"
+flit = "*"
+
+[requires]
+python_version = "3.11"
