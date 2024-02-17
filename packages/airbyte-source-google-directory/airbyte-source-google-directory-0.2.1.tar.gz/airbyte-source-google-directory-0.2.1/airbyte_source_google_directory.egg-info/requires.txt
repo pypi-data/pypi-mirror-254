@@ -1,0 +1,10 @@
+airbyte-cdk~=0.1
+google-api-python-client==1.12.8
+google-auth-httplib2==0.0.4
+google-auth-oauthlib==0.4.2
+backoff==1.10.0
+
+[tests]
+requests-mock~=1.9.3
+pytest~=6.1
+pytest-mock~=3.6.1
