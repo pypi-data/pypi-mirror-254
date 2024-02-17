@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "perconet"
+version = "0.2.3"
+description = "Analyze percolation properties of periodic networks"
+authors = ["Chiara Raffaelli, Wouter G. Ellenbroek"]
+homepage = "https://github.com/wouterel/perconet"
+readme = "README.rst"
+license = "EUPL-1.2"
+classifiers = [
+	"Intended Audience :: Science/Research",
+	"Development Status :: 4 - Beta"
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.13"
+numpy = "^1.20.3"
+
+
+[tool.poetry.group.dev.dependencies]
+toml = "^0.10.2"
+sympy = "^1.9"
+Sphinx = "^4.3.0"
+sphinx-rtd-theme = "^1.0.0"
+flake8 = "^4.0.1"
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
