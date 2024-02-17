@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "uzbekistan"
+version = "0.1.0"
+description = ""
+authors = ["jakhongir <ganiyevuzb@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.7"
+setuptools = "^68.2.2"
+wheel = "^0.41.3"
+twine = "^4.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
