@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: labone
+Version: 1.0.0
+Summary: Python API for Zurich Instruments LabOne software.
+Project-URL: homepage, https://zhinst.com
+Project-URL: repository, https://github.com/zhinst/labone-python
+Project-URL: changelog, https://github.com/zhinst/labone-python/blob/main/CHANGELOG.md
+Author-email: Zurich Instruments Development Team <info@zhinst.com>
+License: Apache 2.0
+License-File: LICENSE
+Keywords: zhinst
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+Requires-Dist: asyncio-atexit==1.0.1
+Requires-Dist: deprecation>=2.1.0
+Requires-Dist: numpy>=1.20
+Requires-Dist: pycapnp~=2.0.0b2
+Requires-Dist: typing-extensions>=4.8.0
