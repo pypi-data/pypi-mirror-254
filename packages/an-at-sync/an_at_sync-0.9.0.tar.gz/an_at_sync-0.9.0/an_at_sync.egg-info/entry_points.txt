@@ -1,0 +1,3 @@
+[console_scripts]
+an_at_sync = an_at_sync.cli:main
+
