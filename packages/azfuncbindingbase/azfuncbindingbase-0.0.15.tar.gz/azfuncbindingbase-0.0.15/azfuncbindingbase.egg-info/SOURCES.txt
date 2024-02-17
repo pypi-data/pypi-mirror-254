@@ -1,0 +1,10 @@
+setup.py
+azfuncbindingbase/__init__.py
+azfuncbindingbase/meta.py
+azfuncbindingbase/sdkType.py
+azfuncbindingbase/utils.py
+azfuncbindingbase.egg-info/PKG-INFO
+azfuncbindingbase.egg-info/SOURCES.txt
+azfuncbindingbase.egg-info/dependency_links.txt
+azfuncbindingbase.egg-info/top_level.txt
+tests/__init__.py
