@@ -1,0 +1,3 @@
+[console_scripts]
+jrnl-search=jrnl_search.main:run
+
