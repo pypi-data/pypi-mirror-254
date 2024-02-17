@@ -1,0 +1,7 @@
+__title__ = "ssebowa"
+__description__ = "Ssebowa is an open source Python library that provides generative AI models!"
+__version__ = "2.8"
+__author__ = "Ssebowa Disan"
+__author_email__ = "info@ssebowa.com"
+__license__ = "MIT"
+__url__ = "https://github.com/SsebowaDisan/ssebowa"
