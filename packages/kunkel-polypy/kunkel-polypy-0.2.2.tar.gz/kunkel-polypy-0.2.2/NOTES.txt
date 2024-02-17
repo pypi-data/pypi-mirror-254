@@ -1,0 +1,11 @@
+__Notes for 'polypy' repo__
+
+- To justify putting program in beta:
+    1. Write unit test and pass it!
+    2. Lint python files
+    3. Add all available api endpoints for polygon.io
+
+- Program has internally scripted type checks and existence checks
+
+
+
