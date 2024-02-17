@@ -1,0 +1,9 @@
+[opm.media.audio]
+ovos-media-audio-plugin-qt5=ovos_plugin_qt5:QT5OCPAudioService
+
+[opm.media.video]
+ovos-media-video-plugin-qt5=ovos_plugin_qt5:QT5OCPVideoService
+
+[opm.media.web]
+ovos-media-web-plugin-qt5=ovos_plugin_qt5:QT5OCPWebService
+
