@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: google-contact-local
+Version: 0.0.8
+Summary: PyPI Package for Circles google-contact-local Python
+Home-page: https://github.com/circles-zone/google-contact-local-python-package
+Author: Circles
+Author-email: valeria.e@circ.zone
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: user-context-remote>=0.0.17
+Requires-Dist: python-sdk-local>=0.0.27
+Requires-Dist: importer-local>=0.0.36
+Requires-Dist: entity-type-local>=0.0.13
+Requires-Dist: url-remote>=0.0.65
+
+PyPI Package for Circles google-contact-local Python
