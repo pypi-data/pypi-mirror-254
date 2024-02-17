@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: akflask
+Version: 0.0.7
+Summary: Function time calculator
+Home-page: https://gitee.com/AustinKuture/akflask.git
+Author: Kuture
+Author-email: kuture@163.com
+License: MIT Licence
+Keywords: pip,AKFlask,flask,autoflask,kuture
+Platform: any
+License-File: LICENSE
+
+自动生成flask项目，生成的项目中带有日志管理，蓝图模式等，方便快速上手。
+
