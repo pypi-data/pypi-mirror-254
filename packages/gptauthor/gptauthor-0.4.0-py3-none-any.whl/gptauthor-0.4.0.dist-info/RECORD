@@ -1,0 +1,16 @@
+gptauthor/console.py,sha256=YvoV2I7cfHsbOEz16pu3537YY6HxS-3Tc5xnDArUz-M,4078
+gptauthor/library/classes.py,sha256=NAO39KuhBCR6dSFKzFWhtkROLeN-pe8K_WbRU5EBAOU,45
+gptauthor/library/consts.py,sha256=AhUAwjn2QZeYIbGt3-Stup7GLK36fuYLZg1ckVjJUE4,425
+gptauthor/library/engine.py,sha256=C49PdI12XK3EnRST9ndnbNTkCJzEK5DoPy6rYOEMCBE,11709
+gptauthor/library/env.py,sha256=Die1WPmGp59iFzjlDb3F_6OJAs0Cp9U91ozJaqID_yE,469
+gptauthor/library/llm.py,sha256=T_0uv69YM7uNwv1HFbm70T8wnLGedCRdT3hNQ55G7yM,2168
+gptauthor/library/log.py,sha256=CiJ8h9-wzN43BIalAgYtzbu-9PHJHoKxxkY1vCZk4Ag,387
+gptauthor/library/prompts.py,sha256=YeFOk_PNRs9cdVFL0gfCuqHZzr-cpVtPWnFEOLGpO0s,2319
+gptauthor/library/utils.py,sha256=ccBFrMT-B4Jm9MZSZ_eo0cChh4dTjo4vVN-QyVLoyeg,1961
+gptauthor/prompts-gptauthor-usage.yaml,sha256=MVNIrKfx7PllzWElmcGDyhbC12vttpvfsW24RZDBbqc,3756
+gptauthor/prompts-openai-drama.yaml,sha256=QGmChqm6H839nu9d_QMe_FMF-tTPyJHuUpvVeVT7BL4,7025
+gptauthor-0.4.0.dist-info/LICENSE,sha256=dNNmJbd3Hfe8UCJy_QabLgZooc7UvF1vX02CfBQ1auM,1067
+gptauthor-0.4.0.dist-info/METADATA,sha256=VHB289Gr4gTkGVVs_c3b1D7S2uVr4MIp82-rykq9vCk,3822
+gptauthor-0.4.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+gptauthor-0.4.0.dist-info/entry_points.txt,sha256=azC9bi86gVsRxSYETw0gqCUU8EDu71b4L7h9gn2-bYk,57
+gptauthor-0.4.0.dist-info/RECORD,,
