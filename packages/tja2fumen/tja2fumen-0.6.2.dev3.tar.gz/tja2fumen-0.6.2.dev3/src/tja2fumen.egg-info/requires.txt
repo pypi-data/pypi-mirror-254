@@ -1,0 +1,11 @@
+
+[dev]
+pytest
+build
+pyinstaller
+twine
+toml-cli
+flake8
+pyproject-flake8
+mypy
+pylint
