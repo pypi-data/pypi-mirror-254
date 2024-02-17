@@ -1,0 +1,3 @@
+[console_scripts]
+tdr_convert = tdrconvert.tdr_convert:run
+
