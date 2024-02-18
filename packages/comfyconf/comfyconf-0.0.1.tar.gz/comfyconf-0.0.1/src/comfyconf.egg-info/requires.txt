@@ -1,0 +1,7 @@
+pyyaml
+
+[dev]
+ruamel.yaml
+pytest
+coverage
+black
