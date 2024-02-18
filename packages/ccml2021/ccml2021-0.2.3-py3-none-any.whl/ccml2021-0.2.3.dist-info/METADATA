@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ccml2021
+Version: 0.2.3
+Summary: ccml2021
+Home-page: https://github.com/kmu/ccml2021
+Author: Koki Muraoka
+Author-email: muraok_k@chemsys.t.u-tokyo.ac.jp
+Requires-Dist: numpy
+Requires-Dist: emoji
+
+# ccml2021
+
+```
+pip install twine
+```
