@@ -1,0 +1,8 @@
+rewire
+fastapi
+
+[hypercorn]
+hypercorn
+
+[uvicorn]
+uvicorn
