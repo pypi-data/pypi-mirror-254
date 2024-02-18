@@ -1,0 +1,2 @@
+[console_scripts]
+np = nanopub.__main__:cli
