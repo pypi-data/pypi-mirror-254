@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: © 2023-2024 Decompollaborate
+# SPDX-License-Identifier: MIT
+
+[package]
+name = "mapfile_parser"
+version = "2.3.5"
+edition = "2021"
+authors = ["Anghelo Carvajal <angheloalf95@gmail.com>"]
+description = "Map file parser library focusing decompilation projects"
+readme = "README.md"
+homepage = "https://github.com/Decompollaborate/mapfile_parser"
+repository = "https://github.com/Decompollaborate/mapfile_parser"
+license = "MIT"
+keywords = ["mapfile", "parser", "decomp", "decompilation"]
+exclude = ["tests/output", "*.py", "*.pyi", ".github", ".markdownlint.jsonc", "mypy.ini", "requirements.txt", "pyproject.toml", "tests"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "mapfile_parser"
+path = "src/rs/lib.rs"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+regex = "1.10.2"
+pyo3 = { version = "0.20.0", optional = true }
+lazy_static = "1.4.0"
+
+[features]
+python_bindings = ["dep:pyo3"]
