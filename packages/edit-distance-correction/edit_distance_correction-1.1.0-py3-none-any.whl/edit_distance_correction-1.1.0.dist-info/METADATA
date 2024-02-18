@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: edit-distance-correction
+Version: 1.1.0
+Summary: version
+Home-page: https://pypi.org/project/edit_distance_correction
+Author: huyi
+Author-email: huyi@datagrand.com
+Requires-Python: >=3.6.0
+Requires-Dist: Levenshtein (==0.20.9)
+Requires-Dist: pypinyin (==0.47.1)
+
