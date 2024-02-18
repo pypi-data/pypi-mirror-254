@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: cleric
+Version: 0.0.1
+Summary: A simple spell casting package
+Home-page: https://github.com/clerichq/cleric-pypi
+Author: Willem Pienaar
+Author-email: pypi@cleric.io
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Cleric
+
+A simple Python package for casting spells.
+
+## Usage
+
+```python
+from cleric import cast_spell
+
+print(cast_spell("Healing Light"))
+
