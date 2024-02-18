@@ -1,0 +1,62 @@
+<div id="user-notifications" class="ml-1"
+	 tal:define="js tales:resource_path('pyams_chat.zmi:chat_js')"
+	 data-ams-modules='{
+	 	"events": "events",
+	 	"callbacks": "callbacks",
+	 	"notifications": "notifications",
+	 	"chat": {
+	 		"src": "${js}"
+		}
+	 }'
+	 data-ams-callback="MyAMS.chat.initChat"
+	 data-ams-events-handlers='{"show.bs.dropdown": "MyAMS.notifications.getNotifications"}'
+	 data-ams-events-options='{"localTimestamp": "true"}'
+	 data-ams-jwt-refresh-route="${request.host_url}${view.jwt_refresh_route}"
+	 data-ams-jwt-verify-route="${request.host_url}${view.jwt_verify_route}"
+	 data-ams-notifications-endpoint="${view.ws_endpoint}"
+	 data-ams-notifications-target="#notifications-pane"
+	 data-ams-notifications-source="${request.host_url}/api/chat/notifications"
+	 i18n:domain="pyams_chat">
+	<a href="#" class="btn btn-light pt-2"
+	   data-toggle="dropdown" data-offset="36,7">
+		<i class="fa fa-bell hint"
+		   title="Notifications" i18n:attributes="title"
+		   data-placement="bottom" data-offset="0,10"></i>
+		<b id="notifications-count" data-content="10"
+		   class="badge bg-danger text-white"></b>
+	</a>
+	<div class="dropdown-menu dropdown-menu-right p-1"
+		 data-ams-click-dismiss="false">
+		<div class="position-relative d-flex flex-column h-100">
+			<ul class="nav nav-tabs nav-fill">
+				<li class="nav-item">
+					<a href="#notifications-pane" class="nav-link active"
+					   data-toggle="tab"
+					   data-ams-events-handlers='{"show.bs.tab": "MyAMS.notifications.getNotifications"}'
+					   data-ams-events-options='{"localTimestamp": "true"}'
+					   i18n:translate="">
+						Notifications
+					</a>
+				</li>
+				<li tal:repeat="viewlet view.viewlets">
+					<a href="#pane-${viewlet.__name__}" class="nav-link"
+					   data-toggle="tab">
+						${viewlet.label}
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content flex-grow-1 overflow-hidden p-1 pt-2 border">
+				<div class="tab-pane d-flex flex-column overflow-hidden h-100 fade show active"
+					 id="notifications-pane">
+					<!-- dynamic content -->
+				</div>
+				<tal:loop repeat="viewlet view.viewlets">
+					<div class="tab-pane d-flex flex-column h-100 fade"
+						 id="pane-${viewlet.__name__}">
+						${structure:viewlet.render()}
+					</div>
+				</tal:loop>
+			</div>
+		</div>
+	</div>
+</div>
