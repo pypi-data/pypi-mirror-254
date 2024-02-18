@@ -1,0 +1,3 @@
+[console_scripts]
+sandrock-translator=sandrock_translator.main:cli
+
