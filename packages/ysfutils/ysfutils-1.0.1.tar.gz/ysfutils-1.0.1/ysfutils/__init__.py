@@ -1,0 +1,8 @@
+__version__ = "1.0.1"
+__short_description__ = "My library of frequently used tools."
+__license__ = "MIT"
+__author__ = "ShuFeng Ying"
+__author_email__ = "me@yingsf.com"
+__maintainer__ = "ShuFeng Ying"
+__maintainer_email__ = "me@yingsf.com"
+__github_username__ = "yingsf"
