@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: edr-accessor
+Version: 0.1.4
+Summary: A pandas DataFrame accessor for accessing Enterprise Data Repository (EDR) tables with Spark.
+Author: Peter Boyd
+Author-email: peter.g.boyd@gmail.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# EDR Accessor - Pandas Extension to access the Enterprise Data Repository (EDR) with Spark
+
+The EDR Accessor is a custom pandas DataFrame accessor that simplifies the interaction with Spark, making it easy to list databases, tables, import tables, and write to Delta Lake tables.
+
+## Features
+
+- List all Spark databases and tables
+- Import Spark tables into a pandas DataFrame
+- Retrieve table row counts
+- Write pandas DataFrame to Delta Lake tables
+
+## Installation
+
+To install EDR Accessor, simply use pip:
+
+```bash
+pip install edr-accessor
+```
+
+## Usage
+
+After installation, you can use the extension by accessing the `.edr` attribute on your pandas DataFrame.
+
+```python
+import pandas as pd
+import edr_accessor
+
+# Create an empty DataFrame
+df = pd.DataFrame()
+
+# List all databases
+databases = df.edr.list_databases()
+
+# List all tables in a specific database
+tables = df.edr.list_tables('my_database')
+
+# Import a table from Spark
+df.edr.import_table('my_table', database='my_database')
+
+# Get row counts for tables in a database
+row_counts = df.edr.table_rowcounts(database='my_database')
+
+# Write DataFrame to a Delta Lake table
+df.edr.to_delta_table('my_delta_table', 'my_container', 'my_storage_account')
+```
+
+## Requirements
+
+* Pandas
+* PySpark
+
+## Contributing
+
+Contributions welcome! Feel free to submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
