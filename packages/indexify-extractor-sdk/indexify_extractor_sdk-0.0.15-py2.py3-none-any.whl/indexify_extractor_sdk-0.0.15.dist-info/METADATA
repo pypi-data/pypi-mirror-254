@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: indexify-extractor-sdk
+Version: 0.0.15
+Summary: Content Extractor SDK for Indexify
+Home-page: https://github.com/tensorlakeai/indexify
+Author: Diptanu Choudhury
+Author-email: diptanuc@gmail.com
+License: Apache 2.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: langchain
+Requires-Dist: transformers
+Requires-Dist: dataclasses-json
+Requires-Dist: marshmallow
+Requires-Dist: marshmallow-jsonschema
+Provides-Extra: critique
+Requires-Dist: inspiredco ; extra == 'critique'
+Provides-Extra: dev
+Requires-Dist: black ==22.12.0 ; extra == 'dev'
+Requires-Dist: isort >=5.12.0 ; extra == 'dev'
+Requires-Dist: flake8 >=3.8.4 ; extra == 'dev'
+Requires-Dist: docformatter >=1.4 ; extra == 'dev'
+Requires-Dist: pytest-cov >=2.10.1 ; extra == 'dev'
+Requires-Dist: pre-commit >=2.9.3 ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: pypdfium2 ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Requires-Dist: parameterized ; extra == 'dev'
+Provides-Extra: manifest
+Requires-Dist: manifest-ml ; extra == 'manifest'
+Provides-Extra: profanity
+Requires-Dist: alt-profanity-check ; extra == 'profanity'
+Provides-Extra: test
+Requires-Dist: pypdf ; extra == 'test'
+Requires-Dist: span-marker ; extra == 'test'
+Requires-Dist: parameterized ; extra == 'test'
+
+Content Extractor SDK for Indexify
