@@ -1,0 +1,2 @@
+[console_scripts]
+playon = cs.app.playon:main
