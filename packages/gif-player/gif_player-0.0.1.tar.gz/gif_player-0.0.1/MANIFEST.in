@@ -1,0 +1,11 @@
+include gif_player/gif_player.min.js
+include gif_player/gif_player.min.js.map
+include gif_player/async-*.js
+include gif_player/async-*.js.map
+include gif_player/*-shared.js
+include gif_player/*-shared.js.map
+include gif_player/metadata.json
+include gif_player/package-info.json
+include README.md
+include LICENSE
+include package.json
