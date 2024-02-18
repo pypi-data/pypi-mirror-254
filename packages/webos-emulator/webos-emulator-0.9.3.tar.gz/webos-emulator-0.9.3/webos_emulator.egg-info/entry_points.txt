@@ -1,0 +1,2 @@
+[console_scripts]
+webos-emulator = webos_emulator.cli:main
