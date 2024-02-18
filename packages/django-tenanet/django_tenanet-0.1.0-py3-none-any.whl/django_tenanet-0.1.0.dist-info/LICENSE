@@ -1,0 +1,60 @@
+Django-Tenanet Limited Use License
+
+1. Grant of License
+This Agreement grants the user ("Licensee") a non-exclusive,
+non-transferable right to use django-tenanet ("Software") solely for the
+Licensee's personal, internal business purposes, and as a dependency in a
+commercial Software as a Service (SaaS) platform offered by the Licensee.
+The Licensee is permitted to use the Software as part of the SaaS platform
+provided that the Software is not directly accessible or distributable to the
+end users of the SaaS platform.
+
+2. Restrictions
+The Licensee shall not, and shall not permit any third party to, copy, modify,
+or redistribute the Software as a standalone component outside of its use
+as a dependency in the Licensee's SaaS platform. The Software must remain
+a part of the SaaS platform's backend services and must not be exposed as
+a standalone service or application to any third party. The Licensee shall not
+reverse-engineer, decompile, or disassemble the Software, except and only
+to the extent that such activity is expressly permitted by applicable law
+notwithstanding this limitation.
+
+3. No Warranty
+The Software is provided "as is", without warranty of any kind, express or
+implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose, and non-infringement.
+
+4. Limitation of Liability
+In no event shall the Author of the Software be liable for any claim,
+damages, or other liability arising from the use or inability to use the
+Software.
+
+5. Termination
+This License is effective until terminated. The License will terminate
+immediately without notice from the Author if the Licensee fails to comply
+with any provision of this License.
+
+6. Governing Law
+This Agreement shall be governed by and construed in accordance with the
+laws of Sweden.
+
+7. Expiration
+This License expires on 2024-12-31. The Licensee may not use the Software
+after this date. The Author may extend the expiration date through a new or
+revised license agreement.
+
+8. Entire Agreement
+This Agreement constitutes the entire agreement between the Author and
+the Licensee with respect to the Software and supersedes all prior or
+contemporaneous understandings regarding such subject matter. No
+amendment to or modification of this Agreement will be binding unless in
+writing and signed by the Author.
+
+9. Acceptance
+By using the Software, the Licensee acknowledges that they have read this
+Agreement, understand it, and agree to be bound by its terms and
+conditions.
+
+10. Contact
+If you have any questions about this Agreement, please contact the Author
+at rsjsog@gmail.com.
