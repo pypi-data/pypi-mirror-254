@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: Django-PPM
+Version: 0.0.8b0
+Summary: Private Package Server
+Author-email: Salah aldain alhajj <contact@salahaldain.com>
+Project-URL: Homepage, https://github.com/salah-alhajj/SSubdomains
+Project-URL: Issues, https://github.com/salah-alhajj/SSubdomains/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
