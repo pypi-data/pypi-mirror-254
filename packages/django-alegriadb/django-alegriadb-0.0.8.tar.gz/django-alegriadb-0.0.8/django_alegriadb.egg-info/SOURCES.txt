@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+django_alegriadb.egg-info/PKG-INFO
+django_alegriadb.egg-info/SOURCES.txt
+django_alegriadb.egg-info/dependency_links.txt
+django_alegriadb.egg-info/requires.txt
+django_alegriadb.egg-info/top_level.txt
+migrations/0001_initial.py
+migrations/__init__.py
