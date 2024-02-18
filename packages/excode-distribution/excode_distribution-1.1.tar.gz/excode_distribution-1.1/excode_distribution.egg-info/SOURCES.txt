@@ -1,0 +1,10 @@
+setup.py
+excode_distribution/Binomialdistribution.py
+excode_distribution/Gaussiandistribution.py
+excode_distribution/Generaldistribution.py
+excode_distribution/__init__.py
+excode_distribution.egg-info/PKG-INFO
+excode_distribution.egg-info/SOURCES.txt
+excode_distribution.egg-info/dependency_links.txt
+excode_distribution.egg-info/not-zip-safe
+excode_distribution.egg-info/top_level.txt
