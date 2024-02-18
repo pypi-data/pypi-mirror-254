@@ -1,0 +1,9 @@
+cvxpy>=1.1.1
+efmtool>=0.2.0
+cobra>=0.18.1
+PolyRound>=0.1.5
+psutil>=5.8.0
+enkie>=0.1.2
+
+[test]
+pytest

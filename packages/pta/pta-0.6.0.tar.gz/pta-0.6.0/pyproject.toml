@@ -1,0 +1,95 @@
+[project]
+name = "pta"
+description = "Probabilistic Thermodynamic Analysis of metabolic networks"
+readme = {file = "pta/README.md", content-type = "text/markdown"}
+license = {text = "GPLv3"}
+authors = [{name = "Mattia Gollub", email = "mattia.gollub@gmail.com"}]
+keywords = [
+    "gibbs free energy",
+    "equilibrator",
+    "thermodynamics",
+    "metabolic network",
+    "reaction network",
+    "sampling",
+    "flux sampling",
+    "uniform sampling",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dynamic = ["version"]
+requires-python = ">=3.6"
+dependencies = [
+    "cvxpy>=1.1.1",
+    "efmtool>=0.2.0",
+    "cobra>=0.18.1",
+    "PolyRound>=0.1.5",
+    "psutil>=5.8.0",
+    "enkie>=0.1.2",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+
+[project.urls]
+repository = "https://gitlab.com/csb.ethz/pta"
+documentation = "https://probabilistic-thermodynamic-analysis.readthedocs.io/en/latest/"
+
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "ninja; sys_platform != 'win32'",
+    "cmake>=3.12",
+    "setuptools-git-versioning<2"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+"pta.data.compartment_parameters" = ["*.csv"]
+"pta.data.concentration_priors" = ["*.csv"]
+"pta.data.models" = ["*.xml"]
+
+[tool.setuptools-git-versioning]
+enabled = true
+
+[tool.pylint.MASTER]
+extension-pkg-allow-list = [
+    "_pta_python_binaries"
+]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "invalid-unary-operand-type",       # False positive with -np.vstack()
+    "anomalous-backslash-in-string",    # Needed for math in docstrings.
+    "broad-except",                     # Bad practice, but we do this for simplicity.
+    "invalid-name",                     # We don't want to be so strict. Exceptions are useful to match literature notation.
+    "logging-fstring-interpolation",    # We accept the performance penalty for simplicity, since we don't have performance-critical code in Python.
+    "wrong-import-order",               # Import are managed by isort.    
+]
+
+[tool.pytest.ini_options]
+log_cli=true
+log_cli_level="DEBUG"
+log_cli_format = "[%(levelname)8s] %(message)s"

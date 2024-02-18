@@ -1,0 +1,17 @@
+Metabolite,Compartment,Distribution
+bigg.metabolite:co2,e,LogNormal|-9.210340371976182|0.1
+bigg.metabolite:nh4,e,LogNormal|-4.672378935681541|0.1
+bigg.metabolite:pi,e,LogNormal|-2.887775132048899|0.1
+bigg.metabolite:k,e,LogNormal|-3.816712825623821|0.1
+bigg.metabolite:cl,e,LogNormal|-3.989984546897858|0.1
+bigg.metabolite:mg2,e,LogNormal|-7.600902459542082|0.1
+bigg.metabolite:so4,e,LogNormal|-6.907755278982137|0.1
+bigg.metabolite:ca2,e,LogNormal|-8.111728083308073|0.1
+bigg.metabolite:fe2,e,LogNormal|-11.074670534039074|0.5
+bigg.metabolite:fe3,e,LogNormal|-11.074670534039074|0.5
+bigg.metabolite:zn2,e,LogNormal|-11.990961265913228|0.1
+bigg.metabolite:cu2,e,LogNormal|-14.089947403666034|0.1
+bigg.metabolite:cobalt2,e,LogNormal|-14.683011125668997|0.1
+bigg.metabolite:mn2,e,LogNormal|-16.328816682273974|0.1
+bigg.metabolite:mobd,e,LogNormal|-19.624653548278303|0.1
+,,LogNormal|-8.3371|1.9885
