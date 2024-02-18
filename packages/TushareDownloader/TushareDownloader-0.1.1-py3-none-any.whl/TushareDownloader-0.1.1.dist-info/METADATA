@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: TushareDownloader
+Version: 0.1.1
+Summary: A tool to download China stock market data from Tushare.
+Home-page: https://github.com/Yanzhong-Hub/TushareDownloader
+Author: Yanzhong Huang
+Author-email: yanzhong.huang@outlook.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas ~=2.1.4
+Requires-Dist: sqlalchemy ~=2.0.23
+Requires-Dist: tushare ~=1.3.1
+Requires-Dist: pymysql ~=1.1.0
+Requires-Dist: cryptography ~=41.0.7
+Provides-Extra: dev
+Requires-Dist: pytest >=7.0 ; extra == 'dev'
+Requires-Dist: twine >=4.0.2 ; extra == 'dev'
+
+One step to download data from Tushare and store in MySQL database.
+
+## Installation
+
+
+```bash
+pip install TushareDownloader
+```
+
+
+## Full documents
+
+https://bagelquant.com/tusharedownloader
