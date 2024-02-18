@@ -1,0 +1,61 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+  "hatch-fancy-pypi-readme>=22.5.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "modelscope_gradio_components"
+version = "0.0.1-beta.7"
+description = "Python library for easily interacting with trained machine learning models"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.8"
+authors = [{ name = "YOUR NAME", email = "YOUREMAIL@domain.com" }]
+keywords = ["gradio-custom-component", "modelscope-gradio-components"]
+# Add dependencies here
+dependencies = ["gradio>=4.0,<5.0"]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'License :: OSI Approved :: Apache Software License',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3 :: Only',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Topic :: Scientific/Engineering',
+  'Topic :: Scientific/Engineering :: Artificial Intelligence',
+  'Topic :: Scientific/Engineering :: Visualization',
+]
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+
+[tool.hatch.build]
+artifacts = [
+  "backend/modelscope_gradio_components/components/Chatbot/templates",
+  "backend/modelscope_gradio_components/components/MultimodalInput/templates",
+  "backend/modelscope_gradio_components/components/Markdown/templates",
+  "backend/modelscope_gradio_components/components/Chatbot/templates",
+  "backend/modelscope_gradio_components/components/Markdown/templates",
+  "backend/modelscope_gradio_components/components/MultimodalInput/templates",
+  "backend/modelscope_gradio_components/components/Chatbot/templates",
+  "backend/modelscope_gradio_components/components/Markdown/templates",
+  "backend/modelscope_gradio_components/components/MultimodalInput/templates",
+  "backend/modelscope_gradio_components/components/Chatbot/templates",
+  "backend/modelscope_gradio_components/components/Markdown/templates",
+  "backend/modelscope_gradio_components/components/MultimodalInput/templates",
+  "backend/modelscope_gradio_components/components/Chatbot/templates",
+  "backend/modelscope_gradio_components/components/Markdown/templates",
+  "backend/modelscope_gradio_components/components/MultimodalInput/templates",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["/backend/modelscope_gradio_components"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["/backend/modelscope_gradio_components"]
