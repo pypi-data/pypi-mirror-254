@@ -1,0 +1,9 @@
+
+[test]
+pyarrow
+pytest
+numpy
+
+[verify]
+pytest
+numpy
