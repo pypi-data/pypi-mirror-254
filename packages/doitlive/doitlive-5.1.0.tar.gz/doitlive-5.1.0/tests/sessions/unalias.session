@@ -1,0 +1,6 @@
+#doitlive alias: foo="echo foobarbazquux"
+
+
+#doitlive unalias: foo
+
+foo

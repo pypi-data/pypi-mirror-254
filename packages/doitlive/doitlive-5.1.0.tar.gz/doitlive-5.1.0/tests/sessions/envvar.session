@@ -1,0 +1,3 @@
+#doitlive env: MEANING='fortytwo'
+
+echo $MEANING

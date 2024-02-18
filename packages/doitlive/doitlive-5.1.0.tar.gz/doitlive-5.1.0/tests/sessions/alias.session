@@ -1,0 +1,2 @@
+alias foo="echo $((41+1))"
+foo
