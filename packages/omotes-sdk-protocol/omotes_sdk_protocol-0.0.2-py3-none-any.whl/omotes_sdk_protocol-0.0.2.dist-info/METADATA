@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: omotes-sdk-protocol
+Version: 0.0.2
+Summary: Python implementation of OMOTES SDK protocol through which jobs may be submitted and administered. Messages include checking on progress, cancelling a job and receiving status updates.
+Author-email: Sebastiaan la Fleur <sebastiaan.lafleur@tno.nl>
+Project-URL: homepage, https://www.nwn.nu
+Project-URL: documentation, https://readthedocs.org
+Project-URL: repository, https://github.com/Project-OMOTES/omotes_sdk_protocol/
+Project-URL: changelog, https://github.com/Project-OMOTES/omotes_sdk_protocol/blob/main/CHANGELOG.md
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: protobuf (~=4.25.2)
+Provides-Extra: dev
+Requires-Dist: pip-tools (~=7.3.0) ; extra == 'dev'
+Requires-Dist: build (~=1.0.3) ; extra == 'dev'
+Requires-Dist: setuptools-git-versioning (<2) ; extra == 'dev'
+Requires-Dist: setuptools (~=69.0.3) ; extra == 'dev'
+
+# OMOTES SDK Protocol
+This package contains the protobuf (proto3) message definitions in Python for the OMOTES SDK protocol.
+This protocol specifies job communication between OMOTES and any user of the SDK.
+
+# Example
+```python
+import uuid
+import datetime
+from omotes_sdk_protocol.job_pb2 import JobSubmission
+
+some_message = JobSubmission(uuid=uuid.uuid4(),
+                             timeout_ms=round(datetime.timedelta(seconds=10).total_seconds() * 1000),
+                             workflow_type="grow_optimizer",
+                             esdl=b'your raw esdl encoded as UTF-8 here')
+```
