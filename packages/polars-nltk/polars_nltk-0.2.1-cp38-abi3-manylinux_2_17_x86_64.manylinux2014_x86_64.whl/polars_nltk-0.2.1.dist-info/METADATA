@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: polars_nltk
+Version: 0.2.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: polars >=0.20.6
+Author: Barak David <barak1412@gmail.com>
+Author-email: Barak David <barak1412@gmail.com>
+Requires-Python: >=3.8
