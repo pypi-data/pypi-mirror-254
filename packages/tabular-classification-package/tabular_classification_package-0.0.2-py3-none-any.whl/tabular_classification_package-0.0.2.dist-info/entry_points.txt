@@ -1,0 +1,5 @@
+[dashai.plugins]
+knn = tabular_classification_package.k_neighbors_classifier:KNeighborsClassifier
+random_forest = tabular_classification_package.random_forest_classifier:RandomForestClassifier
+tabularModel = tabular_classification_package.tabular_classification_model:TabularClassificationModel
+tabularTask = tabular_classification_package.tabular_classification_task:TabularClassificationTask
