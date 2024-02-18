@@ -1,0 +1,3 @@
+[console_scripts]
+passoperator=src.operator.daemon:main
+
