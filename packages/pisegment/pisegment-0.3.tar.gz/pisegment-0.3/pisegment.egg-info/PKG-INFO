@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pisegment
+Version: 0.3
+Summary: Light weight semi-supervised image segmentation tool in python.
+Home-page: https://github.com/aGIToz/PiSegment
+Author: Amitoz Azad
+License: MIT
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pyinpaint
+Requires-Dist: pillow
+Requires-Dist: matplotlib

@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+pisegment/__init__.py
+pisegment/annotator.py
+pisegment/cli.py
+pisegment/segmentation.py
+pisegment.egg-info/PKG-INFO
+pisegment.egg-info/SOURCES.txt
+pisegment.egg-info/dependency_links.txt
+pisegment.egg-info/entry_points.txt
+pisegment.egg-info/requires.txt
+pisegment.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+pisegment = pisegment.cli:main
