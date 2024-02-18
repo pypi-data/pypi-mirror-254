@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="sale_order_mitxelena.standar_layout" name="sale_order_mitxelena.standar_layout">
+        <div class="header row border-bottom">            
+            <div class="col-3">
+                <img src="/sale_order_mitxelena/static/report/img/logo-mitxelena.png" alt="Logo" />
+            </div>
+            <div class="col-3">
+                <img src="/sale_order_mitxelena/static/report/img/zerbitzua-euskaraz-zb.png" alt="Euskaraz" height="100px" />
+            </div>
+            <div class="col-3">
+                <img src="/sale_order_mitxelena/static/report/img/AS-9100-bw.tm.jpg" alt="AS-9100" height="100px" />
+            </div>
+            <div class="col-3">
+                <img src="/sale_order_mitxelena/static/report/img/UKAS-AND-ISO-9001-bw.tm.png" alt="UKAS-AND-ISO-9001" height="100px" />
+            </div>
+        </div> 
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{doc.company_id.id}_layout" t-att-data-oe-model="o and doc._name" t-att-data-oe-id="o and doc.id" t-att-data-oe-lang="o and doc.env.context.get('lang')">
+            <t t-raw="0" />
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{doc.company_id.id}_layout">
+            <div class="row" style="border-top: 1px solid black;">
+                <div class="col"><h4>DTM 03.01.01</h4></div>
+            </div>
+        </div>
+    </template>
+</odoo>
