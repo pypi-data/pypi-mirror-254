@@ -1,0 +1,8 @@
+airbyte-cdk
+smartsheet-python-sdk==2.177.1
+urllib3<2.0
+
+[tests]
+requests-mock~=1.9.3
+pytest
+pytest-mock~=3.6.1
