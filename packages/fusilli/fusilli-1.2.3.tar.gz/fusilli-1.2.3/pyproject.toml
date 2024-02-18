@@ -1,0 +1,74 @@
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fusilli"
+authors = [
+    { name = "Florence J Townend", email = "f.j.townend@live.com" },
+]
+description = "Comparing multi-modal data fusion methods. Don't be silly, use Fusilli!"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["multi-modal", "machine learning", "MRI", "data fusion", "multi-view", "graph neural network", "attention", "VAE"]
+dependencies = [
+    "lightning~=2.0",
+    "matplotlib~=3.5",
+    "numpy~=1.25",
+    "pandas~=2.0",
+    "scikit-learn~=1.0",
+    "setuptools~=68.0",
+    "torch~=2.0",
+    "torch-geometric~=2.0",
+    "torchmetrics~=0.0",
+    "tqdm~=4.0",
+    "wandb~=0.0",
+]
+optional-dependencies = { docs = [
+    "protobuf~=3.0",
+    "sphinx",
+    "sphinx-gallery",
+    "sphinx-rtd-theme",
+    "sphinx-wagtail-theme",
+    "sphinxcontrib-applehelp",
+    "sphinxcontrib-devhelp",
+    "sphinxcontrib-htmlhelp",
+    "sphinxcontrib-jquery",
+    "sphinxcontrib-jsmath",
+    "sphinxcontrib-qthelp",
+    "sphinxcontrib-serializinghtml",
+    "renku-sphinx-theme",
+] }
+dynamic = [
+    "version",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:MPS available but not used*:UserWarning",
+    "ignore:GPU available but not used*:UserWarning",
+    "ignore:Layer group*:UserWarning",
+    "ignore:.*Use Resampling.*:DeprecationWarning",
+    "ignore:.*The 'warn' method is deprecated*:DeprecationWarning",
+    "ignore:.*np.find_common_type is deprecated*:DeprecationWarning",
+    "ignore:.*pkg_resources*:DeprecationWarning",
+]
+
+[tool.coverage.run]
+omit = [
+    "*__init__*",
+    "fusilli/utils/mcvae/*",
+]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+write_to = "fusilli/_version.py"
