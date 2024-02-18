@@ -1,0 +1,12 @@
+README.rst
+pyproject.toml
+setup.py
+scripts/theatre-cli
+theatre_cli/__init__.py
+theatre_cli/config.py
+theatre_cli/movie.py
+theatre_cli/player.py
+theatre_cli.egg-info/PKG-INFO
+theatre_cli.egg-info/SOURCES.txt
+theatre_cli.egg-info/dependency_links.txt
+theatre_cli.egg-info/top_level.txt
