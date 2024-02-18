@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools==69.0.3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["pure_utils*"]
+exclude = ["tests*"]
+
+[project]
+name = "pure-utils"
+version = "0.1.1"
+authors = [
+  {name="Peter Bro", email="p3t3rbr0@gmail.com"},
+]
+description = "Yet another python utilities, with the goal of collecting useful bicycles and crutches in one place ;)."
+keywords = ["utilities", "bycycle", "crutches"]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/p3t3rbr0/py3-pure-utils"
+Documentation = "https://p3t3rbr0.github.io/py3-pure-utils/"
+Repository = "https://github.com/p3t3rbr0/py3-pure-utils.git"
+Issues = "https://github.com/p3t3rbr0/py3-pure-utils/issues"
+Changelog = "https://github.com/p3t3rbr0/py3-pure-utils/blob/master/.docs/source/changelog.rst"
+
+[project.optional-dependencies]
+build = ["build==1.0.3", "twine==4.0.2"]
+docs = ["Sphinx==7.2.6", "furo==2024.1.29"]
+dev = [
+    "mypy==1.8.0",
+    "isort==5.13.2",
+    "flake8==6.1.0",
+    "pyproject-flake8==6.1.0",
+    "black==24.1.1",
+    "pydocstyle==6.3.0",
+    "pytest==8.0.0",
+    "pytest-cov==4.1.0",
+]
+
+[tool.flake8]
+max-complexity = 10
+max-line-length = 100
+ignore = ["D"]
+extend-ignore = ["E203", "W503"]
+exclude = [".git", "venv", "__pycache__"]
+
+[tool.mypy]
+exclude = ["tests"]
+ignore_missing_imports = true
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.pydocstyle]
+inherit = false
+convention = "google"
+match-dir = "^(?!tests|.docs).+$"
+
+[tool.pytest.ini_options]
+pythonpath = ["pure_utils"]
+testpaths = "tests"
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pass",
+    "...",
+    "def __str__",
+    "def __getattr__",
+]
+
+[tool.coverage.run]
+branch = true
+omit = ["tests/*"]
+
+[tool.coverage.html]
+directory = "coverage_report"
