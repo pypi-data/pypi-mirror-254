@@ -1,0 +1,3 @@
+[console_scripts]
+admsJSON = pyadms.admsJSON:run
+nstart = pyadms.nstart:run
