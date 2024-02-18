@@ -1,0 +1,12 @@
+sioDict/__init__.py,sha256=eaTDFChrRAQdI-j0g_gEpBdTyGREzDMhx6_sLlubwB4,39
+sioDict/base.py,sha256=v6Js2sAeA3mJjC2ENtdOfbFbKOAUVPXvSeijtm3Z7OU,3984
+sioDict/ext.py,sha256=v5A51zpI01eRksLFMc_4sOdlzOAf33ZikoO_attszn4,2890
+sioDict/variants/__init__.py,sha256=A_9LTeERBB-8m_Rm3-bz1dQqD59tYMaGLdo1J8ah7JQ,513
+sioDict/variants/json.py,sha256=3VqU_EeD_sPYXAZ0IILMc7W0e0pq0G_nYVZVrVayTCc,436
+sioDict/variants/orjson.py,sha256=8KtHUQdL6ErSm1j3MC8VE2GXWm1Trw6y28x4I8c8n7E,809
+sioDict/variants/toml.py,sha256=8nU_AXNdY35RObLe4izEgDKPAQ0g0bXasqvDQG0of2Y,373
+sioDict-0.1.dist-info/LICENSE,sha256=Z_acxgUhHhHVjyiucx3ky2YM_zmYVL_X2NaMXadKJPc,1085
+sioDict-0.1.dist-info/METADATA,sha256=MqDWMvhS0LbouTLViGB6WwlsnJroR8xZpd42ZhZyUuQ,253
+sioDict-0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+sioDict-0.1.dist-info/top_level.txt,sha256=cuZkfeSGcFf7Rjowrzo7iVDPbjywSxREF6NxzAIboKM,8
+sioDict-0.1.dist-info/RECORD,,

@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: sioDict
+Version: 0.1
+Summary: A simple implementation of dict with io : runtime sync
+Author: ZackaryW
+License: MIT
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# io-dict
+ 
