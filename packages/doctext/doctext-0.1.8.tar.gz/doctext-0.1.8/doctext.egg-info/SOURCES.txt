@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+doctext/Capabilities.py
+doctext/Processor.py
+doctext/__init__.py
+doctext/textextract.py
+doctext/utils.py
+doctext.egg-info/PKG-INFO
+doctext.egg-info/SOURCES.txt
+doctext.egg-info/dependency_links.txt
+doctext.egg-info/requires.txt
+doctext.egg-info/top_level.txt
