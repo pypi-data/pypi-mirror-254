@@ -1,0 +1,3 @@
+[console_scripts]
+corecomb=corecomb.__init__:create_xmfa
+
