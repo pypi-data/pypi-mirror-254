@@ -1,0 +1,15 @@
+site_name: RShare Docs
+site_url: https://github.com/jindaxiang/rshare
+nav:
+  - Home: index.md
+  - Rust: rust.md
+  - CI: ci.md
+  - VSCode: vscode.md
+theme:
+  name: mkdocs
+  locale: zh_CN
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - python
