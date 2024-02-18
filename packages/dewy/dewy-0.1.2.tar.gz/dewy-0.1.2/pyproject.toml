@@ -1,0 +1,120 @@
+[tool.poetry]
+name = "dewy"
+version = "0.1.2"
+description = "Knowledge base service."
+authors = ["Ben Chambers <ben.chambers@datastax.com>", "Ryan Michael <ryan.michael@datastax.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+include = [
+    { path = "migrations" },
+    { path = "frontend/dist" },
+]
+
+[tool.poetry.scripts]
+dewy = "dewy.main:run"
+
+[tool.poe.tasks.check-ruff]
+help = "Check ruff formatting and checks."
+sequence = ["check-ruff-format", "check-ruff-checks"]
+
+[tool.poe.tasks.fix-ruff]
+help = "Fix ruff formatting and checks."
+sequence = ["fix-ruff-format", "fix-ruff-checks"]
+
+[tool.poe.tasks.check-ruff-checks]
+cmd = "ruff check"
+
+[tool.poe.tasks.check-ruff-format]
+cmd = "ruff format --check"
+
+[tool.poe.tasks.fix-ruff-checks]
+cmd = "ruff check --fix"
+
+[tool.poe.tasks.fix-ruff-format]
+cmd = "ruff format"
+
+[tool.poe.tasks.test]
+help = "Run unit and feature tests"
+cmd  = "pytest"
+
+[tool.poe.tasks.extract-openapi]
+help = "Update openapi.toml from the swagger docs"
+cmd = "python scripts/extract_openapi.py dewy.main:app"
+
+[tool.poe.tasks.generate-client]
+help = "Generate the openapi client"
+cmd = "openapi-python-client generate --path=openapi.yaml --config=openapi_client_config.yaml"
+
+[tool.poe.tasks.update-client]
+help = "Update the openapi client"
+cmd = "openapi-python-client update --path=openapi.yaml --config=openapi_client_config.yaml"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+fastapi = "^0.108.0"
+uvicorn = "^0.25.0"
+pymupdf = "^1.23.8"
+llama-index = "^0.9.28"
+loguru = "^0.7.2"
+accelerate = "^0.26.1"
+safetensors = "^0.4.1"
+asyncpg = "^0.29.0"
+pgvector = "^0.2.4"
+numpy = "^1.26.3"
+transformers = "^4.37.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.11"
+mypy = "^1.8.0"
+ipykernel = "^6.28.0"
+asyncpg-stubs = "^0.29.1"
+httpx = "^0.26.0"
+pytest = "^7.4.4"
+pytest-asyncio = "^0.21.1"
+pytest-docker-fixtures = {extras = ["pg"], version = "^1.3.18"}
+asgi-lifespan = "^2.1.0"
+openapi-python-client = "^0.17.2"
+poethepoet = "^0.24.4"
+dewy-client = { path = "./dewy-client" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+
+# Enable Pyflakes `E` and `F` codes by default.
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001",
+]
+ignore = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.11.
+target-version = "py311"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+pretty = true
+show_column_numbers = true
+show_error_context = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
