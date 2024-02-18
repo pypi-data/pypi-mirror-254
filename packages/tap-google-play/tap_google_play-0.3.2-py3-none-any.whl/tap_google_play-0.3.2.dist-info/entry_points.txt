@@ -1,0 +1,3 @@
+[console_scripts]
+tap-google-play=tap_google_play.tap:TapGooglePlay.cli
+
