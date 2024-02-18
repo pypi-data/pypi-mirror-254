@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: zulip-emoji-mapping
+Version: 1.0.0
+Summary: A Zulip emoji name mapping
+License: Apache-2.0
+Author: GearKite
+Author-email: emgh@em.id.lv
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+# Zulip emoji mapping
+
+Get emojis by Zulip names
+
+## Example
+
+```python
+>>> from zulip_emoji_mapping import ZulipEmojiMapping
+>>> print(ZulipEmojiMapping.get_emoji_name("🙂"))
+smile
+>>> print(ZulipEmojiMapping.get_emoji_by_name("smile"))
+🙂
+>>> print(ZulipEmojiMapping.get_emoji_by_name("cat"))
+🐈
+```
+

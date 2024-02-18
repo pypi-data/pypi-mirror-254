@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "zulip-emoji-mapping"
+version = "1.0.0"
+description = "A Zulip emoji name mapping"
+authors = ["GearKite <emgh@em.id.lv>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
