@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: classic-container
+Version: 0.3.0
+Summary: Provides container with dependencies resolving
+Home-page: https://github.com/variasov/classic-container
+Author: Sergei Variasov
+Author-email: variasov@gmail.com
+Project-URL: Bug Tracker, https://github.com/variasov/classic-container/issues
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest~=7.2; extra == "dev"
+Requires-Dist: pytest-cov~=4.0; extra == "dev"
+Requires-Dist: twine~=4.0; extra == "dev"
+Requires-Dist: build~=0.10; extra == "dev"
+
+# Classic Container
+
+Библиотека представляет реализацию IoC контейнера.
+## Введение
+
+Библиотека призвана ускорить работу над приложением упрощая запуск приложения и 
+разрешение зависимостей.
+
+При отсутствии множественной реализации интерфейсов ручное разрешение 
+зависимостей крайне монотонное и однообразное действие. 
+
+Пример простого приложения:
+```python
+from abc import ABC
+
+# Интерфейс репозитория
+class Interface(ABC):
+    pass
+
+
+# Реализация репозитория
+class SomeRepository(Interface):
+    pass
+
+
+# Код приложения 
+class SomeService:
+    
+    def __init__(self, repository: Interface):
+        self.repository = repository
+    
+ 
+# Контроллер   
+class SomeController:
+    
+    def __init__(self, service: SomeService):
+        self.service = service
+
+```
+
+Композит для этого приложения при явном описании 
+
+
