@@ -1,0 +1,3 @@
+[console_scripts]
+bab=bpy_addon_build:main
+
