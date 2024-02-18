@@ -1,0 +1,3 @@
+[console_scripts]
+stkterm = securetkterminal.main_ssh:run
+stktermserial = securetkterminal.main_serial:run
