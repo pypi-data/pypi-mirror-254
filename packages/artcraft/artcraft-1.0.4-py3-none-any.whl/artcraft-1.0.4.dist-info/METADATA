@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: artcraft
+Version: 1.0.4
+Summary: Image generation based on diffusers
+Author-email: Yajun Yin <skyblueice234@gmail.com>
+License: Apache 2.0
+Keywords: diffusers,stable diffusion
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: basicsr >=1.4.2
+Requires-Dist: facexlib >=0.2.5
+Requires-Dist: gfpgan >=1.3.5
+Requires-Dist: realesrgan ==0.3.0
+Requires-Dist: gradio ==3.50.2
+Requires-Dist: modelscope ==1.8.3
+Requires-Dist: Pillow ==10.1.0
+Requires-Dist: opencv-python ==4.8.0.76
+Requires-Dist: transformers >=4.35.2
+Requires-Dist: peft >=0.6.2
+Requires-Dist: diffusers ==0.24.0
+Requires-Dist: accelerate ==0.24.1
+Requires-Dist: torch ==2.0.1
+
+## ArtCraft
+A lib of Stable diffusion for image generation.
+
+## Features
+* Text2Image/Image2Image
+* Lora/Text Inversion support
+* Model Manager
+
+## Package
+```python
+python -m build --no-isolation --wheel
+```
