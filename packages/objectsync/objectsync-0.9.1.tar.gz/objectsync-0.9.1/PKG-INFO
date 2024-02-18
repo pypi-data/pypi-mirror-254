@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: objectsync
+Version: 0.9.1
+Summary: 
+Author: peterxcli
+Author-email: peterxcli@gmail.com
+Maintainer: eri24816
+Maintainer-email: a931eric@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: topicsync (>=0.12.0)
