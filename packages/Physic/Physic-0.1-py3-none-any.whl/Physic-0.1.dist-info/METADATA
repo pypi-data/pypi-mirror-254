@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: Physic
+Version: 0.1
+Summary: A programming library specialized in the rules of physics in general, and more precisely the rules of mechanics and electrical physics and their rates, and it is used to shorten complex rates into simple-to-use functions
+Author: Seif Eldein
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE.txt
+
