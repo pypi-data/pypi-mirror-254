@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: botanist
+Version: 0.1.5
+License: GPL 3.0
+Description-Content-Type: text/plain
+Requires-Dist: psutil
+
+
+
+
+
+
+<main>
+	<h1>botanist</h1>
+	
+	<article>
+		<p>
+			This is the generic library that is used by "body_scan"
+			and it should really only be used by "body_scan".
+			
+			As well, the checks in the this one should not utilize
+			"body_scan", and instead should use "pytest" or "unit test".
+			
+			For a more advanced library that is maintained with "body_scan",
+			there is "botany".
+		</p>
+	</article>
+
+			
+	
+	
