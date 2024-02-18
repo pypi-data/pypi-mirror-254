@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+midiloop/__init__.py
+midiloop/__main__.py
+midiloop.egg-info/PKG-INFO
+midiloop.egg-info/SOURCES.txt
+midiloop.egg-info/dependency_links.txt
+midiloop.egg-info/entry_points.txt
+midiloop.egg-info/requires.txt
+midiloop.egg-info/top_level.txt
