@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+gobotics/__init__.py
+gobotics/godotbridge.py
+gobotics/helper.py
+pygobotics.egg-info/PKG-INFO
+pygobotics.egg-info/SOURCES.txt
+pygobotics.egg-info/dependency_links.txt
+pygobotics.egg-info/requires.txt
+pygobotics.egg-info/top_level.txt
