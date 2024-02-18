@@ -1,0 +1,26 @@
+
+
+
+<code><pre>
+
+import botanical.flow.demux_mux as demux_mux
+
+def circuit_1 (investments):
+	def circuit ():
+		print (investments)
+
+	return circuit
+	
+def circuit_2 (investments):
+	def circuit ():
+		print (investments)
+
+	return circuit
+
+proceeds_statement = demux_mux.start ([
+	circuit_1 (200000),
+	circuit_2 (150000000)
+])
+
+
+</pre></code>

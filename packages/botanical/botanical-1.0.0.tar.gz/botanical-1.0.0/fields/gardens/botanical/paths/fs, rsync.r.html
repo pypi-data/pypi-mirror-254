@@ -1,0 +1,23 @@
+
+
+
+
+def RSYNC (
+	FROM_LOCATION,
+	TO_LOCATION
+):
+	from CHROMOSOMES import RSYNC_LOCATION
+
+	print (f'RSYNCING FROM "{ FROM_LOCATION }" TO "{ TO_LOCATION }"')
+
+	'''
+		--archive, -a            archive mode is -rlptgoD (no -A,-X,-U,-N,-H)
+		--verbose, -v            increase verbosity
+	'''
+	SCRIPT = f'{ RSYNC_LOCATION } --progress --delete -av "{ FROM_LOCATION }/" "{ TO_LOCATION }"';
+	PERFORM (
+		SCRIPT,
+		SCRIPT_ONLY = False
+	);
+
+	return;

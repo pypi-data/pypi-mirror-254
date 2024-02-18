@@ -1,0 +1,26 @@
+
+
+
+
+
+FS:
+
+	GET SIZE:
+		def GET_SIZE (
+			FOLDER = ""
+		):
+			import subprocess
+			from os.path import dirname, join, normpath
+			
+			SIZE = subprocess.run (
+				f"du -sh '{ FOLDER }'",
+				
+				shell = True, 
+				check = True,
+				
+				capture_output = True, 
+				text = True,
+				cwd = normpath (join (dirname (__file__)))
+			).stdout.strip ("\n")
+			
+			return SIZE

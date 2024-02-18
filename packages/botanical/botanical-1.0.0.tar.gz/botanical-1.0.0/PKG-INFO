@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: botanical
+Version: 1.0.0
+Summary: various botanical tools
+License: GPL 3.0
+Description-Content-Type: text/plain
+Requires-Dist: psutil
+
+
+
+
+botanical
+
+	This is limited to using "body_scan"
+	and cannot use "vivacious", because
+	this is a requirement of "vivacious".
+	
+	"botany" is checked by "vivacious"
+	and is essentially where "botanical"
+	should be where "botanical" is getting
+	ventures from.
