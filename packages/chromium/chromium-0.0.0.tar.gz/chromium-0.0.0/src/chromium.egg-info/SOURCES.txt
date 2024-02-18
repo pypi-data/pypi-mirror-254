@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/chromium/__init__.py
+src/chromium/example.py
+src/chromium.egg-info/PKG-INFO
+src/chromium.egg-info/SOURCES.txt
+src/chromium.egg-info/dependency_links.txt
+src/chromium.egg-info/top_level.txt
