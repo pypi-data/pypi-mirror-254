@@ -1,0 +1,4 @@
+[console_scripts]
+demo=demo:main
+todo_demo=todo_demo:main
+
