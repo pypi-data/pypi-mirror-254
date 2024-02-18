@@ -1,0 +1,11 @@
+{
+    "PipliteAddon": {
+        "piplite_urls": [
+            "https://files.pythonhosted.org/packages/0e/9b/2987677aa4dfadd8ad2636f2e90c3b1e527cddb8b0789fa6151f47f832fa/itkwasm-1.0b145-py3-none-any.whl",
+            "https://files.pythonhosted.org/packages/80/48/1232756c08ecdc3305fecfec40ef13ac7ea2dd94a6203806595a696cc110/imjoy_rpc-0.5.46-py3-none-any.whl"
+            "https://files.pythonhosted.org/packages/69/d9/5a6c8af2f4b4f49a809ae316ae4c12937d7dfda4e5b2f9e4167df5f15c0e/imjoy_utils-0.1.2-py3-none-any.whl",
+            "https://files.pythonhosted.org/packages/ba/9f/ec8509396a847a34dfba58e7cf5e96750242eda8f7f45cdfe5c04013f204/itkwidgets-1.0a46-py3-none-any.whl",
+            "https://files.pythonhosted.org/packages/b4/ba/2f2cec7283edd5666f9ac912eacc03ab62df3ae3c83b3718db5cd040dd7a/ngff_zarr-0.6.0-py3-none-any.whl"
+        ]
+    }
+}
