@@ -1,0 +1,13 @@
+ashapi
+geopandas
+networkx
+folium
+matplotlib
+mapclassify
+
+[dev]
+build
+twine
+
+[test]
+pytest

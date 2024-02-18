@@ -1,0 +1,66 @@
+[project]
+#
+# $ pip install ashapipro
+#
+# On PyPI: https://pypi.org/project/ashapipro/
+#
+
+name = "ashapipro"
+version = "1.0.0"
+description = "Python library for SimTech simcomplex (autonomous ship handling emulating system) - with tutorials and examples for ashapi usage"
+readme = "README.ashapipro.md"
+
+requires-python = ">=3.8"
+
+license = {file = "LICENSE.txt"}
+
+keywords = ["autonomous", "ship", "vessel", "mass"]
+
+authors = [
+  {name = "Pavel Piontek", email = "pavel.piontek@simtech.spb.ru" },
+  {name = "Vasily Zverkov", email = "vasily.zverkov@simtech.spb.ru" }
+]
+
+maintainers = [
+  {name = "Pavel Piontek", email = "pavel.piontek@simtech.spb.ru" },
+  {name = "Vasily Zverkov", email = "vasily.zverkov@simtech.spb.ru" }
+]
+
+classifiers = [
+
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [ "ashapi", "geopandas", "networkx", "folium", "matplotlib", "mapclassify" ]
+
+#
+#   $ pip install ashapipro[dev]
+#
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+test = ["pytest"]
+
+[project.urls]
+"Homepage" = "https://www.simtech.spb.ru/ipkas"
+"Source" = "https://dev.azure.com/simtechspbru/%D0%98%D0%9F%D0%9A%D0%90%D0%A1/_git/ashapi-library"
+
+
+[build-system]
+
+requires = [
+  "setuptools>=43.0.0",
+  "wheel"
+]
+
+build-backend = "setuptools.build_meta"

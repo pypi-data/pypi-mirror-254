@@ -1,0 +1,15 @@
+from . cargo_keep_course import CourseKeeperTask
+from . cargo_keep_speed import SpeedKeeperTask
+from . object_add import AddObjectTask
+from . object_count_params import ObjectCountParamsTask
+from . object_devices_orders import ObjectDevicesOrdersTask
+from . object_devices_state import ObjectDevicesStateTask
+from . object_get_position import ObjectGetPositionTask
+from . object_get_speeds import ObjectGetSpeedsTask
+from . object_id import ObjectGetIdTask
+from . object_remove import RemoveObjectTask
+from . object_set_orders import ObjectSetOrdersTask
+from . object_set_position import ObjectSetPositionTask
+from . object_set_rotation import ObjectSetRotationTask
+from . object_set_speed import ObjectSetSpeedTask
+from . object_set_values import ObjectSetValuesTask
