@@ -1,0 +1,70 @@
+[tool.black]
+line-length = 79
+
+
+[tool.poetry]
+name = "jwtdown-fastapi"
+version = "0.6.0"
+description = "An easy-to-use authentication library for FastAPI."
+license = "MIT"
+authors = ["Galvanize, Inc. <foss@galvanize.com>"]
+maintainers = [
+	"Daniel Billotte <daniel.billotte@galvanize.com>",
+	"Curtis Schlak <curtis.schlak@galvanize.com",
+	"Andrew Singley <andrew.singley@galvanize.com>"
+]
+readme = "README.md"
+documentation = "https://jwtdown-fastapi.readthedocs.io/"
+repository = "https://gitlab.com/galvanize-inc/foss/jwtdown-fastapi"
+keywords = ["fastapi", "authentication"]
+packages = [{include = "jwtdown_fastapi"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = ">=0.104.1,<=0.109.0"
+python-jose = {version = "^3.3.0", extras = ["cryptography"]}
+passlib = {version = "^1.7.4", extras = ["bcrypt"]}
+python-multipart = "^0.0.6"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+flake8 = "^7.0.0"
+pytest = "^8.0.0"
+tox = "^3.26.0"
+fastapi = {version = "^0.109.0", extras = ["all"]}
+httpx = "^0.26.0"
+semver = "^3.0.2"
+
+
+[tool.poetry.group.docs.dependencies]
+jupyter-book = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = python{39,310,311}-fastapi{01041,01050,01060,01070,01080,01090}
+skipsdist = true
+requires = tox-poetry-installer[poetry]
+
+[testenv]
+deps =
+    python{39,310,311}-fastapi01041: fastapi==0.104.1
+    python{39,310,311}-fastapi01050: fastapi==0.105.0
+    python{39,310,311}-fastapi01060: fastapi==0.106.0
+    python{39,310,311}-fastapi01070: fastapi==0.107.0
+    python{39,310,311}-fastapi01080: fastapi==0.108.0
+    python{39,310,311}-fastapi01090: fastapi==0.109.0
+	pytest>=8.0.0
+description = A testing environment
+install_project_deps = True
+poetry_dep_groups = [dev]
+require_poetry = True
+commands = pytest
+"""
