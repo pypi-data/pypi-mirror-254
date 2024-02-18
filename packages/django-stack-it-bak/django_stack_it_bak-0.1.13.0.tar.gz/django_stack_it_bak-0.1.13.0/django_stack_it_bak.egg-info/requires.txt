@@ -1,0 +1,7 @@
+Django>=2.1
+django-imagekit
+pillow
+django-model-utils
+django-mptt
+django-polymorphic
+django-polymorphic-tree
