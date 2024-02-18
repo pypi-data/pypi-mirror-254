@@ -1,0 +1,110 @@
+[tool.poetry]
+name = "django-slack-tools"
+version = "0.1.0"
+description = "Little helpers working with Slack bot 🤖 in Django."
+authors = ["Yuchan Lee <lasuillard@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "django_slack_tools" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+slack-bolt = ">=1,<2"
+django = ">=3.2,<5"
+pydantic = ">=2,<3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+coverage = "^7.3.2"
+mypy = "^1.7.1"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+pytest-sugar = "^0.9.7"
+ruff = "^0.1.7"
+django-coverage-plugin = "^3.1.0"
+pytest-django = "^4.7.0"
+django-stubs = { extras = ["compatible-mypy"], version = "^4.2.7" }
+ipykernel = "^6.27.1"
+celery = "^5.3.6"
+faker = "^22.0.0"
+factory-boy = "^3.3.0"
+django-extensions = "^3.2.3"
+django-debug-toolbar = "^4.2.0"
+pytest-recording = "^0.13.1"
+mkdocs = "^1.5.3"
+mkdocstrings = { extras = ["python"], version = "^0.24.0" }
+mkdocs-material = "^9.5.3"
+pytest-xdist = "^3.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py38"
+select = ["ALL"]
+ignore = ["ANN101", "ANN401", "TD003", "FIX002", "ANN102", "D105"]
+line-length = 120
+
+[tool.ruff.extend-per-file-ignores]
+"__init__.py" = ["D104"]
+"tests/*" = ["D", "S101", "PLR2004", "SLF001"]
+"testproj/*" = ["D100"]
+"*/migrations/*" = ["RUF012", "D"]
+"examples/*" = ["D100", "D101"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.black]
+target-version = ["py38"]
+line-length = 120
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.8"
+exclude = ['^\.venv/*']
+plugins = ["mypy_django_plugin.main", "pydantic.mypy"]
+namespace_packages = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_return_any = true
+show_error_codes = true
+strict_optional = true
+no_implicit_reexport = true
+explicit_package_bases = true
+
+[tool.django-stubs]
+django_settings_module = "testproj.config.settings"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--numprocesses=auto",
+    "--strict-markers",
+    "--doctest-modules",
+    "--ds=testproj.config.settings",
+    "--reuse-db",
+    "--cov",
+    "--cov-report=term",
+    "--cov-report=xml",
+    "--show-capture=no",
+    "--junitxml=report.xml",
+    "--block-network",
+]
+testpaths = ["tests"]
+markers = ["slack: Tests working with Slack."]
+
+[tool.coverage.run]
+include = ["django_slack_tools/*"]
+omit = ["*/migrations/*", "*tests*"]
+branch = true
+plugins = ["django_coverage_plugin"]
+
+[tool.coverage.report]
+skip_empty = true
+show_missing = true
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING"]
