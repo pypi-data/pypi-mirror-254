@@ -1,0 +1,3 @@
+[console_scripts]
+netlink-keepass-rest-reader=netlink.keepass.cli:reader_cli
+
