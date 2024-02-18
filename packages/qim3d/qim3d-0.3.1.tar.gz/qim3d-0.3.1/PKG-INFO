@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: qim3d
+Version: 0.3.1
+Summary: QIM tools and user interfaces
+Home-page: https://lab.compute.dtu.dk/QIM/tools/qim3d
+Author: Felipe Delestro
+Author-email: fima@dtu.dk
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: albumentations>=1.3.1
+Requires-Dist: gradio>=4.15.0
+Requires-Dist: h5py>=3.9.0
+Requires-Dist: localthickness>=0.1.2
+Requires-Dist: matplotlib>=3.8.0
+Requires-Dist: monai>=1.2.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: outputformat>=0.1.3
+Requires-Dist: Pillow>=10.0.1
+Requires-Dist: plotly>=5.14.1
+Requires-Dist: scipy>=1.11.2
+Requires-Dist: seaborn>=0.12.2
+Requires-Dist: setuptools>=68.0.0
+Requires-Dist: tifffile>=2023.4.12
+Requires-Dist: torch>=2.0.1
+Requires-Dist: torchvision>=0.15.2
+Requires-Dist: torchinfo>=1.8.0
+Requires-Dist: tqdm>=4.65.0
+Requires-Dist: nibabel>=5.2.0
+
+# QIM3D (Quantitative Imaging in 3D)
+
+`qim3D` is a Python library for quantitative imaging analysis in 3D. It provides functionality for handling data, as well as tools for visualization and analysis.
+
+This library contains the tools and functionalities of the QIM platform, accessible at https://qim.dk/platform
+
+## Installation
+
+Install the latest stable version by using pip:
+
+```bash
+pip install qim3d
+```
+
+Or clone this repository for the most recent version.
+
+
+# Usage
+Some basic funtionalites are descibred here. The full documentation is still under development.
+
+## Loading Data
+To load image data from a file, use `qim.io.load()`
+
+```python
+import qim3d
+
+# Load a file
+vol = qim3d.io.load("path/to/file.tif")
+
+# Load a file as a virtual stack
+vol = qim3d.io.load("path/to/file.tif", virtual_stack=True)
+```
+
+## Visualize data
+You can easily check slices from your volume using `slice_viz`
+
+```python
+import qim3d
+
+img = qim3d.examples.fly_150x256x256
+
+# By default shows the middle slice
+qim3d.viz.slice_viz(img)
+
+# Or we can specifly positions
+qim3d.viz.slice_viz(img, position=[0,32,128])
+
+# Parameters for size and colormap are also possible
+qim3d.viz.slice_viz(img, img_width=6, img_height=6, cmap="inferno")
+
+```
+
+
+## GUI Components
+The library also provides GUI components for interactive data analysis and exploration. 
+The `qim3d.gui` module contains various classes for visualization and analysis:
+
+```python
+import qim3d
+
+app = qim3d.gui.iso3d.Interface()
+app.launch()
+```
+
+GUIs can also be launched using the Qim3D CLI:
+```
+$ qim3d gui --data-explorer
+```
+
+# Contributing
+Contributions to `qim3d` are welcome! If you find a bug, have a feature request, or would like to contribute code, please open an issue or submit a pull request.
+
+# License
+This project is licensed under the MIT License.
