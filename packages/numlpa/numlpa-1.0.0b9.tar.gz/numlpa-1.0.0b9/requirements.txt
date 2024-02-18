@@ -1,0 +1,8 @@
+pip
+build
+twine
+sphinx
+sphinx-rtd-theme
+myst-parser
+pylint
+flake8
