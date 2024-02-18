@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: mngs
+Version: 1.0.2
+Summary: For lazy python users (monogusa people in Japanse), especially in ML/DSP fields
+Home-page: https://github.com/ywatanabe1989/mngs
+Author: ywatanabe1989
+Author-email: ywata1989@gmail.com
+License: GPL3.0
+Keywords: utils,utilities,python,machine learning
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: chardet
+Requires-Dist: GitPython
+Requires-Dist: h5py
+Requires-Dist: joblib
+Requires-Dist: matplotlib
+Requires-Dist: natsort
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pymatreader
+Requires-Dist: PyYAML
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: statsmodels
+Requires-Dist: torch
+Requires-Dist: xmltodict
+Requires-Dist: openpyxl
+Requires-Dist: obspy
+Requires-Dist: torchaudio
+Requires-Dist: scikit-learn
+Requires-Dist: psutil
+Requires-Dist: pyedflib
+Requires-Dist: readchar
+Requires-Dist: torchsummary
+Requires-Dist: julius
+Requires-Dist: sympy
+Requires-Dist: mne
+Requires-Dist: wheel
+Requires-Dist: pybids
+Requires-Dist: scikit-image
+Requires-Dist: icecream
+
+![CI](https://github.com/ywatanabe1989/mngs/actions/workflows/pip_install.yml/badge.svg)
+
+## Installation
+``` bash
+$ pip install mngs
+```
+or
+``` bash
+$ pip install git+https://github.com/ywatanabe1989/mngs.git@develop
+```
+
+
+## [`tree.txt`](./tree.txt)
+
+``` bash
+$ tree ./src/mngs > tree.txt
+```
+
+
