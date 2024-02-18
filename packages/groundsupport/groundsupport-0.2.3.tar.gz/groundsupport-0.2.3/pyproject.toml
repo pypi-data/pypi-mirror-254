@@ -1,0 +1,47 @@
+[tool.bandit]
+exclude_dirs = ["tests", "features"]
+
+[tool.black]
+max-line-length = 99
+target-version = ['py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.poetry]
+name = "groundsupport"
+version = "0.2.3"
+description = "Groundsupport helps accomplish tasks in the command line."
+authors = ["Luís Miranda <luistm@gmail.com>"]
+license = "The Unlicence"
+readme = "README.md"
+packages = [{ include = "groundsupport", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+awesome-slugify = "^1.6.5"
+typer = "^0.9.0"
+turbofan = "^0.1.2"
+
+[tool.poetry.group.dev.dependencies]
+bandit = { extras = ["toml"], version = "^1.7.7" }
+behave = "^1.2.6"
+black = "^24.1.1"
+coverage = "^7.4.1"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+nox = "^2023.4.22"
+pre-commit = "^3.6.0"
+pytest = "^8.0.0"
+pytest-bdd = "^7.0.1"
+pytest-xdist = "^3.5.0"
+types-python-slugify = "^8.0.2.20240127"
+
+[tool.poetry.scripts]
+groundsupport = "groundsupport.ui.cli.main:app"
+
+
+[tool.pytest.ini_options]
+markers = ["integration: tags a test as integration tests"]
+
