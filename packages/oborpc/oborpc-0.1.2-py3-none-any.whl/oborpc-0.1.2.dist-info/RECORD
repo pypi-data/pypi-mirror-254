@@ -1,0 +1,17 @@
+oborpc/__init__.py,sha256=hhyhhwN2v7feabORH1T0BUygzi83De6S97ehUe2tFaI,82
+oborpc/decorator.py,sha256=zDBfROSeJPKDm6XdWMQuJDfd0fuT0N-1O3eydt5Tm40,793
+oborpc/exception.py,sha256=lKnt4LQPC2jf6taSyoqjZcGtdXgq1HPGBWdb7et35uM,355
+oborpc/security.py,sha256=mWqsSwC-dUEC67lXts3Gri-bAqPPk9fzGt95AnmJ5cQ,585
+oborpc/base/__init__.py,sha256=pkYalkC4-aMJ_t87kunk1MRRGLcZ5aCFCwOUvmXq_oQ,46
+oborpc/base/meta.py,sha256=AOqDpLK9bfO7efNOvYKywrvuC3zsQcWi0W9sKYpnqn8,745
+oborpc/builder/__init__.py,sha256=9njFFwiltsYYz6gA0dRS2bDTVSgOvwGagLqzVNgJn7U,175
+oborpc/builder/_base.py,sha256=37Gu1n2OL2B7-l680dz2bpD8O9LK0ZkUEOp-rP5Yzf0,1232
+oborpc/builder/_client.py,sha256=cku_o_Q9mOWzEqvNNQr8zRk4ymdg5BHJ2JkSKmFki3U,6138
+oborpc/builder/_fastapi.py,sha256=e7FSCWyqiVkYuzGjuLKeQ0Y-GljKx04blwmi1IFEvLU,3550
+oborpc/builder/_flask.py,sha256=Fr0jTr25-V14isMZhBhEBZtt99X2-uj5TJkIYXzzlvs,2014
+oborpc/builder/_server.py,sha256=Uj_OwFeQ4S42cX3eT1uhP34AAOSk5sOzwTilBxDzA00,2202
+oborpc-0.1.2.dist-info/LICENSE,sha256=xFFnDS41V_Mf40VM-czas3d9rBYvhgyp4kjmDtvJYIM,1072
+oborpc-0.1.2.dist-info/METADATA,sha256=jEspzpSxu6UdKqb39hy0dtsu-dtmeYtH-AdNBRSjMp0,3591
+oborpc-0.1.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+oborpc-0.1.2.dist-info/top_level.txt,sha256=gN5pKx6Dm5mZqfnoGv0mFXtG9xPayOrNoLeJ3I6LQd0,7
+oborpc-0.1.2.dist-info/RECORD,,
