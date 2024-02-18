@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: fastapi-inject
+Version: 0.3.1
+Summary: A simple tool to enhance FastAPI's 'Depends' functionality. Enables usage of 'Depends' outside of endpoints or sub-dependencies.
+Home-page: https://github.com/Chobshaw/fastapi-inject
+License: MIT
+Keywords: fastapi,dependency injection
+Author: Chobshaw
+Author-email: cameron.helsby@live.com
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Dist: fastapi (>=0.109.0,<0.110.0)
+Requires-Dist: httpx (>=0.26.0,<0.27.0)
+Project-URL: Repository, https://github.com/Chobshaw/fastapi-inject
+Description-Content-Type: text/markdown
+
+# fastapi-inject
+A simple tool to enhance FastAPI's 'Depends' functionality. Enables usage of 'Depends' outside of endpoints or sub-dependencies.
+
