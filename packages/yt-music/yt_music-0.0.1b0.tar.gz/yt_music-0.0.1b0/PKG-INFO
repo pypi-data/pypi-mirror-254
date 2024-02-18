@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: yt-music
+Version: 0.0.1b0
+Summary: A command line YouTube Music client.
+License: GPLv3
+Author: DemonKingSwarn
+Author-email: rockingswarn@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: httpx (==0.23.0)
+Requires-Dist: krfzf-py (>=0.0.4,<0.0.5)
+Description-Content-Type: text/plain
+
+
