@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+    nameko-service:
+      image: gitea.bearcatlog.com/bryant/nameko-body-record/nameko-service:latest
+      build:
+          context: .
+          dockerfile: ./Dockerfile

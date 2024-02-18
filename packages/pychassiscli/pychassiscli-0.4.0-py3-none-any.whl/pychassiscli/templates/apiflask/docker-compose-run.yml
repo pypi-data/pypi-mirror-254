@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+    apiflask-api:
+      image: gitea.bearcatlog.com/bryant/apiflask-api:latest
+      env_file:
+        - .apiflaskenv
+        - .apiflask.env
+      ports:
+        - target: 5000
+          published: 6100
+          mode: host
+      deploy:
+        mode: replicated
+        replicas: 2
+        resources:
+          reservations:
+            cpus: '0.05'
+            memory: 100M
+          limits:
+            cpus: '0.40'
+            memory: 300M
+        update_config:
+          parallelism: 1
+          failure_action: rollback
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 1
+          window: 120s
+        placement:
+          constraints:
+            - 'node.role == worker'
+      networks:
+        - apiflask-api-network
+
+networks:
+  apiflask-api-network:
+    driver: overlay

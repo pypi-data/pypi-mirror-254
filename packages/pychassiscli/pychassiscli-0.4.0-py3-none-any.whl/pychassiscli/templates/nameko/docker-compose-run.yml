@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+    nameko-service:
+      image: gitea.bearcatlog.com/bryant/nameko-body-record/nameko-service:latest
+      env_file:
+        - .nameko.env
+      deploy:
+        mode: replicated
+        replicas: 2
+        resources:
+          reservations:
+            cpus: '0.05'
+            memory: 100M
+          limits:
+            cpus: '0.40'
+            memory: 500M
+        update_config:
+          parallelism: 1
+          failure_action: rollback
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 1
+          window: 120s
+        placement:
+          constraints:
+            - 'node.role == worker'
+      networks:
+        - nameko-service
+
+networks:
+  nameko-service:
+    driver: overlay
