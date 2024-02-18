@@ -1,0 +1,168 @@
+Metadata-Version: 2.1
+Name: rmb-client
+Version: 0.7.7
+Summary: RMB SDK.
+Home-page: https://github.com/DataMini/rmb
+Author: lele
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: pybase62
+
+# 元数据大脑 Reliable Meta Brain（RMB）
+[![Docker image](https://github.com/DataMini/rmb/actions/workflows/docker-image.yml/badge.svg)](https://github.com/DataMini/rmb/actions/workflows/docker-image.yml)
+
+# Feature （功能）
+
+- DataSource 支持 MySQL/Hive/Excel
+- 支持以对话方式查询数据 
+- 支持多轮对话
+- 支持更新 Meta（字典/同义词），以识别意图，提高准确率
+- 提供Restful API & Python SDK
+- Excel的跨表关联查询
+- Meta增强（获取数据样例便于生成准确的包含常量的Query语句，比如需要让LLM知道是sex='男'还是sex=1）
+
+
+# Backlog（计划）
+- 支持微信文档中的表格
+- 支持飞书、钉钉表格、Airtable表格
+- 支持跨数据源（MySQL+MySQL,MySQL+Hive）的联合查询
+
+
+# Installation（安装）
+
+- 安装客户端
+```
+pip install rmb-client
+rmb-client -a https://api.rmb.datamini.ai/ -t token01
+```
+![img.png](img.png)
+
+- 安装&运行服务端
+
+方法1：通过pip
+```
+$ brew install chromedriver # or apt-get install chromedriver
+$ pip install rmb-server
+$ rmb-server -h
+$ rmb-client -a https://api.rmb.datamini.ai/ -t token01
+```
+
+方法2：通过docker（推荐）
+镜像维护在 [hub.docker.com](https://hub.docker.com/repository/docker/datamini/rmb-server/general)
+```
+$ docker run -d -p 5000:5000 datamini/rmb-server
+```
+
+
+# API Document（API文档）
+
+可以打开 rmb-server 的服务地址查看
+> 示例地址： https://api.rmb.datamini.ai/
+
+
+
+# Python Client SDK（Python客户端SDK）
+
+
+1. 运行 
+
+- 命令行方式
+```
+$ rmb-client -a https://api.rmb.datamini.ai/ -t token01
+
+----- RMB 客户端初始化完成！您可以使用 'rmb' 来访问RMB的方法。-----
+
+Python 3.11.4 (main, Jun  7 2023, 00:34:59) [Clang 14.0.3 (clang-1403.0.22.14.1)]
+Type 'copyright', 'credits' or 'license' for more information
+
+>>> rmb.version
+```
+
+- import module 方式
+```shell
+$ python
+
+>>> from rmbclient import RMB
+>>> rmb = RMB(api_url='https://api.rmb.datamini.ai/', token='token01')
+>>> rmb.version
+```
+
+2. 继续使用
+```
+# 注册数据源
+>>> datasource1 = rmb.datasources.register(
+    ds_type="MySQL", 
+    ds_name="我的MySQL库",
+    ds_access_config={
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": ""
+    }
+)
+
+# 创建对话
+>>> chat = rmb.chats.create(datasource_ids=[datasource1.id])
+
+# 问问题
+>>> answer = chat.ask(question="你好")
+
+# 查看答案
+>>> answer
+[OK-2s] 你好！有什么数据分析问题可以帮助您解答吗？
+
+>>> answer.to_dict()
+{'status': 'OK',
+ 'elapsed_time': 2,
+ 'answer': '你好！有什么数据分析问题可以帮助您解答吗？',
+ 'structure_queries': ''}
+
+# 查看对话列表
+>>> rmb.chats
+id                           datasource_ids                    created
+chat_5wzSpckh9Ey2qmIXKlk2k6  ['ds_4HLuoRptVCIeeiIFjbYHnL']  1702127009
+chat_62guGYEPQPbGxPZXXlhF3Y  ['ds_4HLuoRptVCIeeiIFjbYHnL']  1702126137
+chat_3mgkSAU9DsO73FO12Tk1iK  ['ds_4HLuoRptVCIeeiIFjbYHnL']  1702126103
+chat_7UE4j5vdOSgp9WxBS98UJz  ['ds_4HLuoRptVCIeeiIFjbYHnL']  1702125586
+
+# 查看数据源列表
+>>> rmb.datasources
+id                         name             type    access_config
+ds_4HLuoRptVCIeeiIFjbYHnL  租房excel(http)  Excel   {'location_type': 'http', 'location_url': 'https:/mb-sample-data.oss-cn-hongkong.aliyuncs.com/house.xlsx'}
+
+# 获取某个数据源
+>>> ds1 = rmb.datasources.get("ds_4HLuoRptVCIeeiIFjbYHnL")
+
+# 获取该数据源的"运行时"元数据（即最新的实时元数据）
+>>> ds1.meta.get('runtime')
+ds_4HLuoRptVCIeeiIFjbYHnL 共有：1 Schema (house), 1 Table (house.中国租房信息数据集), 33 Fields. 
+
+Schemas    Tables              Fields(known/all)
+house      中国租房信息数据集  0/33
+
+# 获取某个数据源
+>>> ds2 = rmb.datasources.get("ds_4s7gIoeonfWXQavRuP5wJ0")
+
+# 获取该数据源的"RMB中维护的"元数据（AI直接使用的元数据）
+>>> ds2.meta.get('in_brain')
+ds_4s7gIoeonfWXQavRuP5wJ0 共有：1 Schema (e_mall_2), 7 Tables, 27 Fields. 
+ Schemas                   Tables                     Fields(known/all)
+e_mall_2(电子商城数据库)  zzzz(未知)                 1/1
+e_mall_2(电子商城数据库)  users(用户信息表)          5/5
+e_mall_2(电子商城数据库)  ttttt1(未知)               1/1
+e_mall_2(电子商城数据库)  products(产品信息表)       5/5
+e_mall_2(电子商城数据库)  orders(订单信息表)         4/4
+e_mall_2(电子商城数据库)  order_details(订单详情表)  4/4
+e_mall_2(电子商城数据库)  job(职位信息表)            7/7
+```
+
+# 参与开发
+
+本地环境启动
+
+1. 先 `git clone ...`
+2. 添加配置文件  在目录 `rmbserver/config/` 下，从 `default.py` 中挑出需要修改的配置保存到 `custom.py`
+3. 启动服务 `python rmbserver/run.py [<host> <port>]`
+4. 运行客户端 `python rmbclient/cli.py [-a http://localhost:5000/ -t token01]`
+5. 
