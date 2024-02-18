@@ -1,0 +1,10 @@
+airbyte-cdk
+pendulum
+requests
+
+[tests]
+requests-mock~=1.9.3
+pytest~=6.1
+pytest-mock
+requests_mock
+freezegun
