@@ -1,0 +1,13 @@
+aiproxy/__init__.py,sha256=cZ5AUARElgxcgWahKlMjoycGbQ44w-IMuq6SRHlB1wE,243
+aiproxy/__main__.py,sha256=Hybtgs6IyKl0Daeo1O4TR7Y51erj-vluWsX7n3Tu1ug,1539
+aiproxy/accesslog.py,sha256=ZWeQqfrAcI1hVe-GkAsNH3osSXuRo_nU_wENsBDyork,9086
+aiproxy/azurequeueclient.py,sha256=uhQNH4ZSlUcFppE2_IB7HG0Hsvf2ZqGgrrJ1D1Pheqk,1337
+aiproxy/chatgpt.py,sha256=FhKhs0lui9OwltalC-WRZJNBjgJmlEbkBgT8OflcihU,21900
+aiproxy/claude2.py,sha256=MIhInTap6BQ_8pfKsSt5gCzgRObiaviSHgVaIh35iYU,16284
+aiproxy/proxy.py,sha256=nUMqvcH0wQQu6OsJpQTNMmIuZ0jVpzzjmOoTMCnUPRk,2165
+aiproxy/queueclient.py,sha256=ODHbPu63JaIyVzc3y--kGREJ_sIm5DAlfH8LDIYuscw,1143
+aiproxy_python-0.3.6.dist-info/LICENSE,sha256=UOZ1F5fFDe3XXvG4oNnkL1-Ecun7zpHzRxjp-XsMeAo,11324
+aiproxy_python-0.3.6.dist-info/METADATA,sha256=ktYAJA2lT2W1AGYWR-2heL3GEBICtFhCLXZa_gFqTXE,13405
+aiproxy_python-0.3.6.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+aiproxy_python-0.3.6.dist-info/top_level.txt,sha256=QdyikybYJCoUrciRj-u1dOhyN3X7K49bma7UAjrvnmo,8
+aiproxy_python-0.3.6.dist-info/RECORD,,
