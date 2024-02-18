@@ -1,0 +1,10 @@
+click
+loguru
+
+[docs]
+sphinx_rtd_theme
+recommonmark
+
+[tests]
+pytest
+pytest-coverage

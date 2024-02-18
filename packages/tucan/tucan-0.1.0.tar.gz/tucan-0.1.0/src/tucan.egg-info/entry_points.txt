@@ -1,0 +1,2 @@
+[console_scripts]
+tucan = tucan.cli:main
