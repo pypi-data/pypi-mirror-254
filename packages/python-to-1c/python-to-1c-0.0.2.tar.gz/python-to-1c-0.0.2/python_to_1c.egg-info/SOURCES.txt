@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+core/__init__.py
+core/apiodata.py
+core/core.py
+python_to_1c.egg-info/PKG-INFO
+python_to_1c.egg-info/SOURCES.txt
+python_to_1c.egg-info/dependency_links.txt
+python_to_1c.egg-info/requires.txt
+python_to_1c.egg-info/top_level.txt
