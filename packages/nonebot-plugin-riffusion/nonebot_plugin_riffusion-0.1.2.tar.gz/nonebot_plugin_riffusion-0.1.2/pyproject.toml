@@ -1,0 +1,35 @@
+[project]
+name = "nonebot-plugin-riffusion"
+dynamic = []
+description = "Template plugin project"
+authors = [
+    { name = "student_2333", email = "lgc2333@126.com" },
+]
+dependencies = [
+    "nonebot2>=2.0.0",
+    "pydantic>=1.10.4,<2",
+    "nonebot-plugin-alconna>=0.34.1",
+    "httpx>=0.24",
+]
+requires-python = ">=3.8,<4.0"
+readme = "README.md"
+version = "0.1.2"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+homepage = "https://github.com/lgc-NB2Dev/nonebot-plugin-riffusion"
+
+[tool.pdm.build]
+includes = []
+
+[tool.pdm.version]
+source = "file"
+path = "nonebot_plugin_riffusion/__init__.py"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
