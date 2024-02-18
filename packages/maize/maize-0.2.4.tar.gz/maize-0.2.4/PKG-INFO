@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: maize
+Version: 0.2.4
+Summary: 一个强大易用的爬虫框架
+Home-page: https://seehar.github.io/maize
+License: MIT
+Author: seehar
+Author-email: seehar@qq.com
+Requires-Python: >=3.10,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: aiohttp (>=3.9.1,<4.0.0)
+Requires-Dist: aiomysql (>=0.2.0,<0.3.0)
+Requires-Dist: aioredis (>=2.0.1,<3.0.0)
+Requires-Dist: httpx (>=0.26.0,<0.27.0)
+Requires-Dist: parsel (>=1.8.1,<2.0.0)
+Requires-Dist: playwright[rpa] (>=1.41.1,<2.0.0)
+Requires-Dist: ujson (>=5.9.0,<6.0.0)
+Project-URL: Documentation, https://seehar.github.io/maize
+Project-URL: Repository, https://github.com/seehar/maize
+Description-Content-Type: text/markdown
+
+# maize
+
+[![codecov](https://codecov.io/gh/seehar/maize/graph/badge.svg?token=ZG5ESDLPX6)](https://codecov.io/gh/seehar/maize)
+
+> 一个 Python 爬虫框架
+
+### 安装
+
+```shell
+pip install maize
+```
+
+### 开发
+
+安装预提交钩子
+
+```shell
+pre-commit install
+```
+
+代码覆盖率
+
+```shell
+pytest --cov=./maize --cov-report=html
+```
+
