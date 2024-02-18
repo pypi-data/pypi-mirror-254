@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "jmanager"
+version = "2.0.2"
+description = "A lightweight Jupyter process manager"
+authors = ["Yasunori Horikoshi <hotoku@users.noreply.github.com>"]
+license = "MIT"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyterlab = "^4"
+click = "^8"
+
+
+[tool.poetry.group.dev.dependencies]
+bump2version = "^1"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+jmanager = "jmanager.cli:main"
