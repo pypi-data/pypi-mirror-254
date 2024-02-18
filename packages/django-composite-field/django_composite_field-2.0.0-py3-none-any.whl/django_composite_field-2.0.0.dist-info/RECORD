@@ -1,0 +1,10 @@
+composite_field/__init__.py,sha256=Kjc8fM-b7rcqyKXhwvRn8qLqjCji8UdWXifM66VTjnA,271
+composite_field/base.py,sha256=h4sCb2D07oOWtKaDRI0SKD-SRLO-J7yh6jPNdxaElAA,6428
+composite_field/complex.py,sha256=Dfe1clmNu_37aMG_Nu1eXWuS_TNb7By4wnTWpHqL-jc,1389
+composite_field/l10n.py,sha256=DtvlbkQhn0HykFWq2Y94D2YLm_MOwOTR-OJ9dUaeL28,4848
+composite_field/models.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+composite_field/rest_framework_support.py,sha256=SJZvdBNIl-Xw7WTaAbvvEseZR1bCjVWnYVJnI6EjCf0,1157
+composite_field/tests.py,sha256=DT5SeWFUd9pT7kB_-Drccdp8kXbwTIvBnBA5ch0hnf4,17642
+django_composite_field-2.0.0.dist-info/METADATA,sha256=ckyKUw8YFC_awtcXhnXuOdsHr-HL7GUa81Z-VndalbA,3551
+django_composite_field-2.0.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+django_composite_field-2.0.0.dist-info/RECORD,,
