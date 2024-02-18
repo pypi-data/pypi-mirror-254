@@ -1,0 +1,3 @@
+recursive-include pybitset *
+recursive-include cbitset  *
+include README.markdown
