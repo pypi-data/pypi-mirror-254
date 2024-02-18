@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+streamlit_auth0_component/__init__.py
+streamlit_auth0_component/frontend/dist/index.html
+streamlit_auth0_component/frontend/dist/assets/index-2Z2JXwfm.css
+streamlit_auth0_component/frontend/dist/assets/index-IHL4brBT.js
+streamlit_auth0_ts.egg-info/PKG-INFO
+streamlit_auth0_ts.egg-info/SOURCES.txt
+streamlit_auth0_ts.egg-info/dependency_links.txt
+streamlit_auth0_ts.egg-info/requires.txt
+streamlit_auth0_ts.egg-info/top_level.txt
