@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: rknn-toolkit2
+Version: 1.4.9
+Summary: rknn
+Author: ErnisMeshi
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: fast-histogram >=0.11
+Requires-Dist: onnx ==1.14.1
+Requires-Dist: onnxoptimizer ==0.2.7
+Requires-Dist: onnxruntime ==1.16.0
+Requires-Dist: opencv-python >=4.5.5.64
+Requires-Dist: protobuf ==3.20.3
+Requires-Dist: psutil >=5.9.0
+Requires-Dist: ruamel.yaml >=0.17.4
+Requires-Dist: scipy >=1.5.4
+Requires-Dist: tensorflow ==2.8.0
+Requires-Dist: torch ==1.10.1
+Requires-Dist: tqdm >=4.64.0
+
