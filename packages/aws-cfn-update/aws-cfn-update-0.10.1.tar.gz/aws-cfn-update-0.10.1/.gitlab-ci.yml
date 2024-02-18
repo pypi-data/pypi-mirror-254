@@ -1,0 +1,10 @@
+stages:
+  - build
+
+addReadme:
+  stage: build
+  script:
+    - echo "This is a README file on $(date)" > README2.md
+    - git config user.email "you@example.com"
+    - git config user.name "Your Name" 
+    - bin/gitlab-commit-and-push "Add README2.md"
