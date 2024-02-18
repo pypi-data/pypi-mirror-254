@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: AminoService
+Version: 1.1.12
+Summary: A library to create Amino bots and scripts
+Home-page: https://github.com/innocentzero143/AminoService
+Download-URL: https://github.com/innocentzero143/AminoService/archive/refs/heads/main.zip
+Author: innocentzero143
+Author-email: innocentzero143@gmail.com
+License: MIT
+Keywords: aminoapps,AminoServiceamino,amino-bot,narvii,api,python,python3,python3.x,innocent-zero
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## AminoService
+ A lib for creating amino bots and scripts ...
+
+# How does this API work?
+
+It works like the Amino.py's API but with added features 
+
+# login SOURCE CODE
+
+```python3
+import AminoService
+
+client = AminoService.Client()
+client.login(email='YOUR EMAIL', password='YOUR PASSWORD')
+
+print(client.profile.nickname)
+```
+# Discover userId , blogId and e.t.c from a link source code 
+
+```python3
+import AminoService
+
+client = AminoService.Client()
+client.login(email='YOUR EMAIL', password='YOUR PASSWORD')
+
+# Url Example
+# https://aminoapps.com/p/EXAMPLE
+
+objectId = client.get_from_code("EXAMPLE").objectId
+print(objectId)
+```
+
+# Send image and audio message source code
+
+```python3
+import AminoService
+
+client = AminoService.Client()
+client.login(email='YOUR EMAIL', password='YOUR PASSWORD')
+subclient = AminoService.SubClient(comId='COMMUNITY ID', profile=client.profile)
+
+# Send Images
+with open('file.png', 'rb') as file:
+    subclient.send_message(message='MESSAGE', chatId='CHAT ID', file=file)
+
+# Send Audios
+with open('file.mp3', 'rb') as file:
+    subclient.send_message(message='MESSAGE', chatId='CHAT ID', file=file, fileType="audio")
+
+```
