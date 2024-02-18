@@ -1,0 +1,2 @@
+[console_scripts]
+jdcli = jdlib.cli:main
