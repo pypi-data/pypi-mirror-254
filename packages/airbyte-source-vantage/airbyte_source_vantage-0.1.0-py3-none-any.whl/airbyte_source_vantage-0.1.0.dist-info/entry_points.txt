@@ -1,0 +1,2 @@
+[console_scripts]
+source-vantage = source_vantage.run:run
