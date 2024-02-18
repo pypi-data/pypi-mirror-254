@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: traffic-taffy
+Version: 0.5.4
+Summary: A tool for doing differential analysis of pcap files
+Project-URL: Homepage, https://github.com/hardaker/traffic-taffy
+Author-email: Wes Hardaker <opensource@hardakers.net>
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: cryptography
+Requires-Dist: dpkt
+Requires-Dist: msgpack
+Requires-Dist: pandas
+Requires-Dist: pcap-parallel
+Requires-Dist: pyfsdb
+Requires-Dist: pyopenssl==22.1.0
+Requires-Dist: pyqt6-charts
+Requires-Dist: rich
+Requires-Dist: scapy
+Requires-Dist: seaborn
+Description-Content-Type: text/markdown
+
+# Traffic Analysis of Fluctuating Flows (TAFFy)
+
+## About
+
+Network and security operators are continually bombarded by strange
+deviations in network traffic that are sometimes operationally
+problematic, sometimes a threat to security, and other times just
+plain odd.  Wouldn't it be wonderful to have a tool that accurately
+tells you exactly what has changed in these traffic profiles?
+This tool is designed to do just that.
+
+## Installation
+
+    pip install traffic-taffy
+
+## Usage
+
+See the online [readthedocs
+documentation](https://traffic-taffy.readthedocs.io/).
+
+# Copyright and License
+
+This project is copyrighted by the University of Southern California,
+Information Sciences institute.  It is released under the Apache 2.0
+license.
+
+# Acknowledgments
+
+We greatly thank Comcast for this project was made possible through
+their Comcast Innovation Fund.
