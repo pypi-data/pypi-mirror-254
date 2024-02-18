@@ -1,0 +1,25 @@
+[tool]
+[tool.poetry]
+name = "lazystream"
+version = "0.1.6"
+description = "Scala-inspired stream for lazy evaluation"
+license = "MIT"
+authors = ["Tan Pinxi <tpinxi@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/FizzyAgent/lazystream"
+keywords = ["stream", "lazy", "functional"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+]
+packages = [{ include = "lazystream" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[build-system]
+requires = ["poetry-core", "twine"]
+build-backend = "poetry.core.masonry.api"
