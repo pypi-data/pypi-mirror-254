@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: vekterdb
+Version: 0.2.1
+Summary: VekterDB turns any SQLAlchemy compliant database into a vector database by utilizing FAISS to index the vectors.
+Home-page: https://github.com/mhendrey/vekterdb
+Author: Matthew Hendrey
+Author-email: matthew.hendrey@gmail.com
+License: GNU GPLv3
+Project-URL: Source, https://github.com/mhendrey/vekterdb
+Project-URL: Documentation, https://mhendrey.github.io/vekterdb
+Keywords: FAISS,vector database,similarity search,SQLAlchemy
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: numcodecs
+Requires-Dist: numpy
+Requires-Dist: sqlalchemy >=2.0
+
+VekterDB
+========
+
+VekterDB turns any SQLAlchemy compliant database into a vector database by utilizing
+FAISS to index the vectors.
+
+
+Installation
+============
+VekterDB may be install using pip
+
+    pip install vekterdb
+
+
+Documentation
+=============
+Documentation can be found at https://mhendrey.github.io/vekterdb
+
