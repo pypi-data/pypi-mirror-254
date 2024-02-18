@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: amazonsessender
+Version: 0.0.3
+Summary: Amazon SES mail sender
+Home-page: UNKNOWN
+Author: Adrián Carrasco Pérez
+Author-email: adrian.carrascoperez@cgi.com
+License: UNKNOWN
+Keywords: python
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Information Technology
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Dist: boto3 (==1.29.1)
+
+Mail sender which uses the Amazon SES client
+
