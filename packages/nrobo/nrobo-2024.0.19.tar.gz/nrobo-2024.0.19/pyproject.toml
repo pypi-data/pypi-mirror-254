@@ -1,0 +1,48 @@
+#[build-system]
+#requires = ["hatchling>=1.21.0"]
+#build-backend = "hatchling.build"
+[build-system]
+requires = [
+  "setuptools >= 40.9.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nrobo"
+version = "2024.0.19"
+authors = [
+  { name="Panchdev Singh Chauhan", email="erpanchdev@gmail.com" },
+]
+description = "Selenium-backed Web Browser Automation Framework in Python"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
+
+[project.scripts]
+nrobo = "nrobo.cli:main"
+#
+## setuptools configuration
+#[tool.setuptools]
+#packages = ["src/nrobo"]
+
+#
+## Hatch configuration
+#[tool.hatch.build.targets.wheel]
+#packages = ["src/nrobo", "*/src/nrobo"]
+#sources = ["src"]
+#
+#[tool.hatch.build.targets.sdist]
+#include = ["src/nrobo", "src", "*/src/nrobo", "*", "**"]
+#exclude = [
+#  "/.github",
+#  "/venv",
+#  "/tests",
+#]
