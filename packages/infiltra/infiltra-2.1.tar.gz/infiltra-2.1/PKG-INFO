@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: infiltra
+Version: 2.1
+Summary: CLI Based to that Automates Various Pentest Tools
+Author: @jivy26
+Author-email: jivy26@gmail.com
+License: MIT
+Keywords: infiltra penetration cybersecurity scanning
+License-File: LICENSE
+Requires-Dist: colorama
