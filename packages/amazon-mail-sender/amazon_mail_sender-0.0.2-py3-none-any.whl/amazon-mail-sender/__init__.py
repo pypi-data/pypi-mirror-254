@@ -1,0 +1,1 @@
+from amazon_mail_sender import send_email_with_attachment_amazon
