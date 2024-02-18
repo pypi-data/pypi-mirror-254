@@ -1,0 +1,4 @@
+include README.md
+include LICENSE.txt
+include starbug2/param/default.param
+graft starbug2/extras

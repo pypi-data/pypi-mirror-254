@@ -1,0 +1,7 @@
+numpy>=1.25
+photutils>=1.10.0
+astropy
+parse
+scipy
+webbpsf
+scikit-image
