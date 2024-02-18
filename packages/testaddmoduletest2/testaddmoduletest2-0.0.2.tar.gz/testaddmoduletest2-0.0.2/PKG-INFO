@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: testaddmoduletest2
+Version: 0.0.2
+Summary: My first Python package
+Author: swagatikap111
+Author-email: <swagatikap111@gmail.com>
+Keywords: python,first package
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+
+My first Python package with a slightly longer description
