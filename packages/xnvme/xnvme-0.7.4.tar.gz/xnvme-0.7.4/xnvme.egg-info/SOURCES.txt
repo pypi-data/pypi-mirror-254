@@ -1,0 +1,17 @@
+README.rst
+pyproject.toml
+setup.py
+bin/xpy_dev_open
+bin/xpy_enumerate
+bin/xpy_libconf
+xnvme.egg-info/PKG-INFO
+xnvme.egg-info/SOURCES.txt
+xnvme.egg-info/dependency_links.txt
+xnvme.egg-info/not-zip-safe
+xnvme.egg-info/requires.txt
+xnvme.egg-info/top_level.txt
+xnvme/ctypes_bindings/__init__.py
+xnvme/ctypes_bindings/api.py
+xnvme/ctypes_bindings/library_loader.py
+xnvme/ctypes_bindings/tests/__init__.py
+xnvme/ctypes_bindings/tests/test_loader.py
