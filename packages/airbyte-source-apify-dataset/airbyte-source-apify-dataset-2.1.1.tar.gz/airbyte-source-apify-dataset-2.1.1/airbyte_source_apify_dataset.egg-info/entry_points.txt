@@ -1,0 +1,2 @@
+[console_scripts]
+source-apify-dataset = source_apify_dataset.run:run
