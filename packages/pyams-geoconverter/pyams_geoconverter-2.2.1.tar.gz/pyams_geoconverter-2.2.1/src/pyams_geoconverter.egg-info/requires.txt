@@ -1,0 +1,12 @@
+setuptools
+colander
+cornice
+geopandas
+pyams_file
+pyams_security
+pyams_utils
+pyramid>=2.0.0
+
+[test]
+pyramid_zcml
+zope.exceptions
