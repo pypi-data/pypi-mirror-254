@@ -1,0 +1,148 @@
+[tool.poetry]
+authors = ["Robert Kaussow <mail@thegeeklab.de>"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Intended Audience :: System Administrators",
+  "Natural Language :: English",
+  "Operating System :: POSIX",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Utilities",
+  "Topic :: Software Development",
+]
+description = "Reviews ansible playbooks, roles and inventories and suggests improvements."
+documentation = "https://ansible-later.geekdocs.de/"
+homepage = "https://ansible-later.geekdocs.de/"
+include = ["LICENSE"]
+keywords = ["ansible", "code", "review"]
+license = "MIT"
+name = "ansible-later"
+packages = [{ include = "ansiblelater" }]
+readme = "README.md"
+repository = "https://github.com/thegeeklab/ansible-later/"
+version = "4.0.1"
+
+[tool.poetry.dependencies]
+PyYAML = "6.0.1"
+ansible-core = { version = "2.14.14", optional = true }
+ansible = { version = "7.7.0", optional = true }
+anyconfig = "0.14.0"
+appdirs = "1.4.4"
+colorama = "0.4.6"
+jsonschema = "4.21.1"
+nested-lookup = "0.2.25"
+pathspec = "0.12.1"
+python = "^3.9.0"
+python-json-logger = "2.0.7"
+toolz = "0.12.1"
+unidiff = "0.7.5"
+yamllint = "1.33.0"
+
+[tool.poetry.extras]
+ansible = ["ansible"]
+ansible-core = ["ansible-core"]
+
+[tool.poetry.scripts]
+ansible-later = "ansiblelater.__main__:main"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.1.14"
+pytest = "8.0.0"
+pytest-mock = "3.12.0"
+pytest-cov = "4.1.0"
+toml = "0.10.2"
+
+[tool.poetry-dynamic-versioning]
+enable = false
+style = "semver"
+vcs = "git"
+
+[tool.pytest.ini_options]
+addopts = "ansiblelater --cov=ansiblelater --cov-report=xml:coverage.xml --cov-report=term --no-cov-on-fail"
+filterwarnings = [
+  "ignore::FutureWarning",
+  "ignore::DeprecationWarning",
+  "ignore:.*pep8.*:FutureWarning",
+]
+
+[tool.coverage.run]
+omit = ["**/test/*"]
+
+[build-system]
+build-backend = "poetry_dynamic_versioning.backend"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+
+[tool.ruff]
+exclude = [
+  ".git",
+  "__pycache__",
+  "build",
+  "dist",
+  "test",
+  "*.pyc",
+  "*.egg-info",
+  ".cache",
+  ".eggs",
+  "env*",
+]
+
+line-length = 99
+indent-width = 4
+
+# Explanation of errors
+#
+# D100: Missing docstring in public module
+# D101: Missing docstring in public class
+# D102: Missing docstring in public method
+# D103: Missing docstring in public function
+# D105: Missing docstring in magic method
+# D107: Missing docstring in __init__
+# D202: No blank lines allowed after function docstring
+# D203: One blank line required before class docstring
+# D212: Multi-line docstring summary should start at the first line
+ignore = [
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D105",
+  "D107",
+  "D202",
+  "D203",
+  "D212",
+  "UP038",
+  "RUF012",
+]
+select = [
+  "D",
+  "E",
+  "F",
+  "Q",
+  "W",
+  "I",
+  "S",
+  "BLE",
+  "N",
+  "UP",
+  "B",
+  "A",
+  "C4",
+  "T20",
+  "SIM",
+  "RET",
+  "ARG",
+  "ERA",
+  "RUF",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
