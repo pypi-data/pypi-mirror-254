@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/praseodymium/__init__.py
+src/praseodymium/example.py
+src/praseodymium.egg-info/PKG-INFO
+src/praseodymium.egg-info/SOURCES.txt
+src/praseodymium.egg-info/dependency_links.txt
+src/praseodymium.egg-info/top_level.txt
