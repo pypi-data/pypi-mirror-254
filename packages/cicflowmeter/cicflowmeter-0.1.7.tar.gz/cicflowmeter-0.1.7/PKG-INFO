@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: cicflowmeter
+Version: 0.1.7
+Summary: CICFlowMeter Python Implementation
+Home-page: https://github.com/hieulw/cicflowmeter
+License: MIT
+Author: Hieu Le
+Author-email: hieulw99@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: numpy (>=1.26.2,<2.0.0)
+Requires-Dist: scapy (>=2.5.0,<3.0.0)
+Requires-Dist: scipy (>=1.11.4,<2.0.0)
+Project-URL: Repository, https://github.com/hieulw/cicflowmeter
+Description-Content-Type: text/markdown
+
+# Python CICFlowMeter
+
+> This project is not maintained actively by me. If you found something wrong (bugs, incorrect results) feel free to create merge request.
+
+### Installation
+
+```sh
+git clone https://gitlab.com/hieulw/cicflowmeter
+cd cicflowmeter
+poetry install
+```
+
+### Usage
+
+```sh
+usage: cicflowmeter [-h] (-i INPUT_INTERFACE | -f INPUT_FILE) [-c] output
+
+positional arguments:
+  output                output file name (in flow mode) or directory (in sequence mode)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT_INTERFACE    capture online data from INPUT_INTERFACE
+  -f INPUT_FILE         capture offline data from INPUT_FILE
+  -c, --csv, --flow     output flows as csv
+```
+
+Convert pcap file to flow csv:
+
+```
+cicflowmeter -f example.pcap -c flows.csv
+```
+
+Sniff packets real-time from interface to flow csv: (**need root permission**)
+
+```
+cicflowmeter -i eth0 -c flows.csv
+```
+
+### Reference: https://www.unb.ca/cic/research/applications.html#CICFlowMeter
+
