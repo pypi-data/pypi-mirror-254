@@ -1,0 +1,9 @@
+django~=4.1
+boto3
+aws-secretsmanager-caching~=1.1.1.5
+
+[mysql]
+mysqlclient~=1.4.0
+
+[postgresql]
+psycopg2~=2.8.4
