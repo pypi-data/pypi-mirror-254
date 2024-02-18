@@ -1,0 +1,3 @@
+[console_scripts]
+itertools-cli=itertools_cli.__main__:cli
+
