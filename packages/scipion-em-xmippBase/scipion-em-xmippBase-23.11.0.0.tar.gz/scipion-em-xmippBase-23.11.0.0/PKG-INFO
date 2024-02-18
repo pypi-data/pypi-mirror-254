@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: scipion-em-xmippBase
+Version: 23.11.0.0
+Summary: Scipion pseudoplugin to deal with the shared xmipp protocols.
+Home-page: https://github.com/I2PC/scipion-em-xmippBase
+Author: I2PC
+Author-email: scipion@cnb.csic.es
+License: UNKNOWN
+Description: ##  What is this
+        Base repository to allocate the shared protocols of scipion-em-xmipp and scipion-em-xmipptomo.
+        
+        ## How it works
+        Each PR to master will generate a pypi package version. The other plugins will include it as requirements
+        
+Keywords: scipion cryoem imageprocessing Xmipp scipion-3.0
+Platform: UNKNOWN

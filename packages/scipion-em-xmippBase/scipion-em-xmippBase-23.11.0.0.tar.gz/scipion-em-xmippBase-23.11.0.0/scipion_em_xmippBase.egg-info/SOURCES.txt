@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+scipion_em_xmippBase.egg-info/PKG-INFO
+scipion_em_xmippBase.egg-info/SOURCES.txt
+scipion_em_xmippBase.egg-info/dependency_links.txt
+scipion_em_xmippBase.egg-info/requires.txt
+scipion_em_xmippBase.egg-info/top_level.txt
+xmippBase/__init__.py
+xmippBase/protocols/__init__.py
+xmippBase/protocols/flexalign.py
+xmippBase/protocols/morphology.py
