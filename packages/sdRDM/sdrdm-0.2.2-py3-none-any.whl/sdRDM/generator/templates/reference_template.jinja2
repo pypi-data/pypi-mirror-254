@@ -1,0 +1,18 @@
+    @field_validator("{{attribute}}")
+    def get_{{attribute}}_reference(cls, value):
+        """Extracts the ID from a given object to create a reference"""
+
+        from .{{object.lower()}} import {{object}}
+        
+        if isinstance(value, {{object}}):
+            return value.{% if target %}{{target}}{% else %}id{% endif %}
+        {%- for type in types %}
+        elif isinstance(value, {{type}}):
+            return value
+        {%- endfor %}
+        {%- if required is false %}
+        elif value is None:
+            return value
+        {%- endif %}
+        else:
+            raise TypeError(f"Expected types [{{object}}, {{", ".join(types)}}] got '{type(value).__name__}' instead.")
