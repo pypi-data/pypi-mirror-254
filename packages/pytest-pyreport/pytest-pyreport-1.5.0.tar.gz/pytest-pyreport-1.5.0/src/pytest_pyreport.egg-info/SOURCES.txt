@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/pytest_pyreport/__init__.py
+src/pytest_pyreport/plugin.py
+src/pytest_pyreport.egg-info/PKG-INFO
+src/pytest_pyreport.egg-info/SOURCES.txt
+src/pytest_pyreport.egg-info/dependency_links.txt
+src/pytest_pyreport.egg-info/entry_points.txt
+src/pytest_pyreport.egg-info/requires.txt
+src/pytest_pyreport.egg-info/top_level.txt
+src/pytest_pyreport/templates/template.html
