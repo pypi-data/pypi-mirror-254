@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: rozetka-api
+Version: 1.6.0
+Summary: Rozetka Python API
+Home-page: https://github.com/ALERTua/rozetka_api
+Keywords: rozetka
+Author: Alexey ALERT Rubasheff
+Author-email: alexey.rubasheff@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: aiohttp-retry
+Requires-Dist: curl-cffi
+Requires-Dist: global-logger
+Requires-Dist: influxdb-client[async]
+Requires-Dist: knockknock
+Requires-Dist: pathlib
+Requires-Dist: pendulum (>=3.0.0)
+Requires-Dist: pip
+Requires-Dist: progress
+Requires-Dist: python-worker
+Requires-Dist: ratelimit
+Requires-Dist: requests
+Project-URL: Bug Tracker, https://github.com/ALERTua/rozetka_api/issues
+Project-URL: Documentation, https://github.com/ALERTua/rozetka_api
+Project-URL: Repository, https://github.com/ALERTua/rozetka_api
+Project-URL: Rozetka API, https://github.com/ALERTua/rozetka_api
+Project-URL: Rozetka Keepa, https://github.com/ALERTua/rozetka_keepa
+Project-URL: Rozetka FastAPI, https://github.com/ALERTua/rozetka_fastapi
+Project-URL: Rozetka UserScript, https://github.com/ALERTua/rozetka_userscript
+Description-Content-Type: text/markdown
+
+Rozetka.ua Python API
+---------------------
+
+Hey-hey, Rozetka employee, I mean no harm. I just wanna know whether your discounts are real. Luvz.
+
+Do not forget to run with `--init` for SIGTERM to correctly forward to child processes.
+
+Examples
+^^^^^^^^
+
+rozetka/examples/example_item.py
+
+rozetka/examples/example_category.py
+
+Github
+^^^^^^^^
+https://github.com/ALERTua/rozetka_api
+
+PyPi
+^^^^^^^^
+https://pypi.org/project/rozetka-api/
+
