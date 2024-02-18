@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: langchain-runpod-llm
+Version: 0.0.0
+Summary: 🐍 | Python library for langchain using RunPod API endpoint as LLM.
+Home-page: https://github.com/tsangwailam/langchain-runpod-llm
+Author: William Tsang
+Author-email: William Tsang <contact@williamtsang.me>
+License: MIT License
+Project-URL: Homepage, https://github.com/tsangwailam/langchain-runpod-llm
+Project-URL: Documentation, https://github.com/tsangwailam/langchain-runpod-llm/blob/main/README.md
+Project-URL: Repository, https://github.com/tsangwailam/langchain-runpod-llm
+Project-URL: Changelog, https://github.com/tsangwailam/langchain-runpod-llm/blob/main/CHANGELOG.md
+Project-URL: Bug Tracker, https://github.com/tsangwailam/langchain-runpod-llm/issues
+Keywords: runpod,ai,langchain,llm,llama2,SDK,API,python,library
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: emoji ==2.9.0
+Requires-Dist: langchain-core ==0.1.18
+Requires-Dist: Requests ==2.31.0
+Requires-Dist: setuptools ==68.2.2
+
+This is a README file
