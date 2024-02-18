@@ -1,0 +1,2 @@
+[console_scripts]
+sqlelf = sqlelf.cli:start
