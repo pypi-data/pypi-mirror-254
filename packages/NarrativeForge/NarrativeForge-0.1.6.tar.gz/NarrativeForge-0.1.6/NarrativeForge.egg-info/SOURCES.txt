@@ -1,0 +1,14 @@
+README.md
+setup.py
+NarrativeForge/__init__.py
+NarrativeForge/speech_to_text.py
+NarrativeForge/text_to_speech.py
+NarrativeForge/text_to_video.py
+NarrativeForge.egg-info/PKG-INFO
+NarrativeForge.egg-info/SOURCES.txt
+NarrativeForge.egg-info/dependency_links.txt
+NarrativeForge.egg-info/entry_points.txt
+NarrativeForge.egg-info/requires.txt
+NarrativeForge.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
