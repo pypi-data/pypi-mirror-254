@@ -1,0 +1,11 @@
+urllib3~=1.25.0
+six~=1.15.0
+certifi
+nulltype~=2.3.0
+python-dateutil~=2.8.0
+versioneer~=0.28.0
+
+[dev]
+build~=0.10.0
+tox~=4.5.0
+twine~=3.3.0
