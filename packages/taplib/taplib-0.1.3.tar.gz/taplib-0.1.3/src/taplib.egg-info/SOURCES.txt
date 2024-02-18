@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/tap/__init__.py
+src/tap/tap.py
+src/taplib.egg-info/PKG-INFO
+src/taplib.egg-info/SOURCES.txt
+src/taplib.egg-info/dependency_links.txt
+src/taplib.egg-info/requires.txt
+src/taplib.egg-info/top_level.txt
