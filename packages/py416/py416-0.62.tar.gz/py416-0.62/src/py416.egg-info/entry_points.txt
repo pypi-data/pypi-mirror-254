@@ -1,0 +1,4 @@
+[console_scripts]
+jsp = py416.scripts:jsp
+rmd = py416.scripts:rmd
+uzd = py416.scripts:uzd
