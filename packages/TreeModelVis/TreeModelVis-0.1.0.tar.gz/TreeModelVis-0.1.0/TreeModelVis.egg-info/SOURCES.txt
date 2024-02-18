@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+TreeModelVis.egg-info/PKG-INFO
+TreeModelVis.egg-info/SOURCES.txt
+TreeModelVis.egg-info/dependency_links.txt
+TreeModelVis.egg-info/requires.txt
+TreeModelVis.egg-info/top_level.txt
+source/TreeModel.py
+source/__init__.py
+source/draw_path.py
+source/tree_visualizer.py
+tests/__init__.py
+tests/test_TreeModel.py
+tests/test_draw_path.py
+tests/test_tree_visualization.py
