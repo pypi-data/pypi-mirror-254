@@ -1,0 +1,15 @@
+pyyaml
+posthog
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[dev]
+pytest
+flake8
+twine
+invoke
+pkgmt
+
+[dev:platform_system == "Windows"]
+pywin32
