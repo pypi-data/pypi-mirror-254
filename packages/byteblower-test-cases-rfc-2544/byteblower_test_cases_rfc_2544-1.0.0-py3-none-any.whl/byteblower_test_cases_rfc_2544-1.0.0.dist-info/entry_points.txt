@@ -1,0 +1,3 @@
+[console_scripts]
+byteblower-test-cases-rfc-2544-throughput=byteblower.test_cases.rfc_2544.cli:main
+
