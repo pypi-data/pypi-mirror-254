@@ -1,0 +1,2 @@
+[console_scripts]
+source-tyntec-sms = source_tyntec_sms.run:run
