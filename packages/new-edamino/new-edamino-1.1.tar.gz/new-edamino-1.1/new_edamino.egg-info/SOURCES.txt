@@ -1,0 +1,15 @@
+README.md
+setup.py
+edamino/__init__.py
+edamino/api.py
+edamino/bot.py
+edamino/client.py
+edamino/context.py
+edamino/logger.py
+edamino/objects.py
+edamino/util.py
+new_edamino.egg-info/PKG-INFO
+new_edamino.egg-info/SOURCES.txt
+new_edamino.egg-info/dependency_links.txt
+new_edamino.egg-info/requires.txt
+new_edamino.egg-info/top_level.txt
