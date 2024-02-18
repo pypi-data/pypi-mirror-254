@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pysampletoolkit
+Version: 1.0.8
+Summary: Python wrapper for sample-luban.
+Home-page: https://github.com/uopensail/sample-luban
+Author: uopensail
+Author-email: 
+License: License :: AGLP 3
+Keywords: feature operator and hasher
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+UNKNOWN
+
