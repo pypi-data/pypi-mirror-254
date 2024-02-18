@@ -1,0 +1,9 @@
+[console_scripts]
+DICOMSorter=nbiatoolkit.dicomsort:DICOMSorter_cli
+NBIAToolkit=nbiatoolkit:version
+downloadSingleSeries=nbiatoolkit.nbia_cli:downloadSingleSeries_cli
+getBodyPartCounts=nbiatoolkit.nbia_cli:getBodyPartCounts_cli
+getCollections=nbiatoolkit.nbia_cli:getCollections_cli
+getPatients=nbiatoolkit.nbia_cli:getPatients_cli
+getSeries=nbiatoolkit.nbia_cli:getSeries_cli
+
