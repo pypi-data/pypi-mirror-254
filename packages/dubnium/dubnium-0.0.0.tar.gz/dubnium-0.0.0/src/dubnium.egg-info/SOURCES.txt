@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/dubnium/__init__.py
+src/dubnium/example.py
+src/dubnium.egg-info/PKG-INFO
+src/dubnium.egg-info/SOURCES.txt
+src/dubnium.egg-info/dependency_links.txt
+src/dubnium.egg-info/top_level.txt
