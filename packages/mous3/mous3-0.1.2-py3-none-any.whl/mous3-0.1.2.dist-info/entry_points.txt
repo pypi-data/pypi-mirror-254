@@ -1,0 +1,2 @@
+[console_scripts]
+mous3 = mous3.__main__:main
