@@ -1,0 +1,155 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Tili on jo m\u00e4\u00e4ritetty"
+        },
+        "error": {
+            "cannot_connect": "Yhteyden muodostaminen ep\u00e4onnistui",
+            "invalid_auth": "Virheellinen todennus",
+            "unknown": "Odottamaton virhe"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "continent": "Manner",
+                    "country": "Maa",
+                    "password": "Salasana",
+                    "username": "K\u00e4ytt\u00e4j\u00e4tunnus"
+                },
+                "data_description": {
+                    "continent": "Kaksikirjaiminen maanosakoodisi (na, eu jne.).",
+                    "country": "Kaksikirjaiminen maakoodisi (us, uk jne.)."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "mop_attached": {
+                "name": "Moppi kiinnitetty"
+            },
+            "water_mop_attached": {
+                "name": "Moppi kiinnitetty"
+            }
+        },
+        "image": {
+            "map": {
+                "name": "Kartta"
+            }
+        },
+        "select": {
+            "water_amount": {
+                "name": "Veden m\u00e4\u00e4r\u00e4",
+                "state": {
+                    "high": "Korkea",
+                    "low": "Alhainen",
+                    "medium": "Keskitaso",
+                    "ultrahigh": "Eritt\u00e4in korkea"
+                }
+            },
+            "work_mode": {
+                "name": "Ty\u00f6tila",
+                "state": {
+                    "mop": "Moppaus",
+                    "mop_after_vacuum": "Moppaus imuroinnin j\u00e4lkeen",
+                    "vacuum": "Imurointi",
+                    "vacuum_and_mop": "Imurointi ja moppaus"
+                }
+            }
+        },
+        "sensor": {
+            "error": {
+                "name": "Virhe",
+                "state_attributes": {
+                    "description": {
+                        "name": "Kuvaus"
+                    }
+                }
+            },
+            "lifespan_brush": {
+                "name": "Harjan k\u00e4ytt\u00f6ik\u00e4"
+            },
+            "lifespan_filter": {
+                "name": "Suodattimen k\u00e4ytt\u00f6ik\u00e4"
+            },
+            "lifespan_side_brush": {
+                "name": "Sivuharjan k\u00e4ytt\u00f6ik\u00e4"
+            },
+            "network_ip": {
+                "name": "IP-osoite"
+            },
+            "network_rssi": {
+                "name": "Wi-Fi RSSI"
+            },
+            "network_ssid": {
+                "name": "Wi-Fi SSID"
+            },
+            "stats_area": {
+                "name": "Alue siivottu"
+            },
+            "stats_time": {
+                "name": "Aika siivottu"
+            },
+            "total_stats_area": {
+                "name": "Siivottu kokonaispinta-ala"
+            },
+            "total_stats_cleanings": {
+                "name": "Siivoukset yhteens\u00e4"
+            },
+            "total_stats_time": {
+                "name": "Siivouksen kokonaisaika"
+            }
+        },
+        "vacuum": {
+            "vacuum": {
+                "state_attributes": {
+                    "fan_speed": {
+                        "state": {
+                            "max": "Max",
+                            "max_plus": "Max+",
+                            "normal": "Normaali",
+                            "quiet": "Hiljainen"
+                        }
+                    },
+                    "rooms": {
+                        "name": "Huoneet"
+                    }
+                }
+            }
+        }
+    },
+    "exceptions": {
+        "vacuum_send_command_params_dict": {
+            "message": "Parametrien on oltava sanasto eik\u00e4 luettelo"
+        },
+        "vacuum_send_command_params_required": {
+            "message": "Parametrit vaaditaan komentoa varten: {command}"
+        }
+    },
+    "issues": {
+        "deprecated_yaml_import_issue_cannot_connect": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiota tuotaessa tapahtui yhteysvirhe.\n\nVarmista, ett\u00e4 sinulla on vakaa internetyhteys ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation m\u00e4\u00e4ritt\u00e4minen]({url}) manuaalisesti.",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        },
+        "deprecated_yaml_import_issue_continent_not_match": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiossa on m\u00e4\u00e4ritetty odottamaton manner.\n\nAnnetusta maasta odotetaan maanosaa '{continent}'. Vaihda maanosa ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation asettamista]({url}) manuaalisesti.\n\nJos sis\u00e4lt\u00f6 '{continent}' ei sovellu, avaa ongelma [GitHubissa]({github_issue_url}).",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        },
+        "deprecated_yaml_import_issue_invalid_auth": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiota tuotaessa tapahtui autentikointivirhe.\n\nKorjaa YAML-konfiguraatio ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation m\u00e4\u00e4ritt\u00e4minen]({url}) manuaalisesti.",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        },
+        "deprecated_yaml_import_issue_invalid_continent_length": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiossa on m\u00e4\u00e4ritetty virheellinen manner.\n\nKorjaa maanosa joksikin {continent_list} ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation asettamista]({url}) manuaalisesti.",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        },
+        "deprecated_yaml_import_issue_invalid_country_length": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiossa on m\u00e4\u00e4ritetty virheellinen maa.\n\nVaihda maa [maasi Alpha-2-koodiksi]({countries_url}) ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation m\u00e4\u00e4ritt\u00e4mist\u00e4]({url}) manuaalisesti.",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        },
+        "deprecated_yaml_import_issue_unknown": {
+            "description": "Ecovacsin konfigurointi YAML:n avulla poistetaan, mutta YAML-konfiguraatiota tuotaessa tapahtui tuntematon virhe.\n\nVarmista, ett\u00e4 YAML-konfiguraatio on oikea, ja k\u00e4ynnist\u00e4 Home Assistant uudelleen yritt\u00e4\u00e4ksesi uudelleen tai poista Ecovacsin YAML-konfiguraatio configuration.yaml-tiedostosta ja jatka [integraation m\u00e4\u00e4ritt\u00e4minen]({url}) manuaalisesti.",
+            "title": "Ecovacs YAML -m\u00e4\u00e4ritysten tuonti ep\u00e4onnistui"
+        }
+    }
+}

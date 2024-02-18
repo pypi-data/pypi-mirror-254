@@ -1,0 +1,35 @@
+{
+    "config": {
+        "abort": {
+            "single_instance_allowed": "Jau sukonfig\u016bruota. Galima tik viena konfig\u016bracija."
+        },
+        "error": {
+            "cannot_connect": "Nepavyko prisijungti",
+            "unknown": "Netik\u0117ta klaida"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "password": "Slapta\u017eodis",
+                    "username": "Prisijungimos vardas"
+                },
+                "data_description": {
+                    "host": "Pagrindinio Lutron kartotuvo pagrindinio kompiuterio pavadinimas arba IP adresas."
+                },
+                "description": "\u012eveskite pagrindinio kartotuvo prisijungimo informacij\u0105",
+                "title": "Pagrindinio kartotuvo nustatymas"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_yaml_import_issue_cannot_connect": {
+            "description": "\u201eLutron\u201c konfig\u016bravimas naudojant YAML pa\u0161alinamas, ta\u010diau importuojant YAML konfig\u016bracij\u0105 \u012fvyko ry\u0161io klaida. \n\n Dalykai, kuriuos galite i\u0161bandyti:\n \u012esitikinkite, kad j\u016bs\u0173 nam\u0173 asistentas gali pasiekti pagrindin\u012f kartotuv\u0105.\n I\u0161 naujo paleiskite pagrindin\u012f kartotuv\u0105 atjungdami j\u012f 60 sekund\u017ei\u0173.\n Pabandykite prisijungti prie pagrindinio kartotuvo interneto nar\u0161ykl\u0117je nurodytu IP adresu ir ta pa\u010dia prisijungimo informacija. \n\n Tada i\u0161 naujo paleiskite \u201eHome Assistant\u201c ir pabandykite dar kart\u0105 importuoti \u0161i\u0105 integracij\u0105. \n\n Arba galite visi\u0161kai pa\u0161alinti \u201eLutron\u201c konfig\u016bracij\u0105 i\u0161 YAML konfig\u016bracijos, i\u0161 naujo paleisti \u201eHome Assistant\u201c ir rankiniu b\u016bdu prid\u0117ti \u201eLutron\u201c integracij\u0105.",
+            "title": "Lutron YAML konfig\u016bracijos importavimas negali prisijungti prie serverio"
+        },
+        "deprecated_yaml_import_issue_unknown": {
+            "description": "\u201eLutron\u201c konfig\u016bravimas naudojant YAML pa\u0161alinamas, ta\u010diau importuojant esam\u0105 konfig\u016bracij\u0105 \u012fvyko ne\u017einoma klaida.\n S\u0105ranka nebus t\u0119siama. \n\n Konkre\u010di\u0105 klaid\u0105 galima rasti \u017eurnaluose. Labiausiai tik\u0117tina prie\u017eastis yra tinklo klaida arba pagrindinis kartotuvas neveikia arba jo konfig\u016bracija netinkama. \n\n Patikrinkite, ar j\u016bs\u0173 \u201eLutron\u201c sistema veikia tinkamai, ir i\u0161 naujo paleiskite \u201eHome Assistant\u201c, kad pabandytum\u0117te importuoti dar kart\u0105. \n\n Arba galite visi\u0161kai pa\u0161alinti \u201eLutron\u201c konfig\u016bracij\u0105 i\u0161 YAML konfig\u016bracijos, i\u0161 naujo paleisti \u201eHome Assistant\u201c ir rankiniu b\u016bdu prid\u0117ti \u201eLutron\u201c integracij\u0105.",
+            "title": "Lutron YAML konfig\u016bracijos importavimo u\u017eklausa nepavyko d\u0117l ne\u017einomos klaidos"
+        }
+    }
+}
