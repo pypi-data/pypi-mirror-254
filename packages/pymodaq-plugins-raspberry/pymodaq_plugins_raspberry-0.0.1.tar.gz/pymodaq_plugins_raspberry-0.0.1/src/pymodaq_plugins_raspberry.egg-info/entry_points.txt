@@ -1,0 +1,5 @@
+[pymodaq.instruments]
+raspberry = pymodaq_plugins_raspberry
+
+[pymodaq.plugins]
+raspberry = pymodaq_plugins_raspberry
