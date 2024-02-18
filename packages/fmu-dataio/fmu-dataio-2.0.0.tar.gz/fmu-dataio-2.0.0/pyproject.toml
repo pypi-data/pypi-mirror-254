@@ -1,0 +1,118 @@
+# NOTE: you have to use single-quoted strings in TOML for regular expressions.
+[build-system]
+requires = ["pip>=19.1.1", "setuptools", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fmu-dataio"
+description = "Facilitate data io in FMU with rich metadata"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache 2.0" }
+authors = [{ name = "Equinor", email = "xxxxx@equinor.com" }]
+keywords = ["fmu", "sumo"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
+dynamic = ["version"]
+dependencies = [
+    "fmu-config>=1.1.0",
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "PyYAML",
+    "xtgeo>=2.16",
+]
+
+[project.urls]
+Homepage = "https://github.com/equinor/fmu-dataio"
+Repository = "https://github.com/equinor/fmu-dataio"
+Issues = "https://github.com/equinor/fmu-dataio/issues"
+Documentation = "https://fmu-dataio.readthedocs.io"
+
+[project.optional-dependencies]
+dev = [
+    "coverage>=4.1",
+    "hypothesis",
+    "jsonschema",
+    "mypy",
+    "pydocstyle",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-runner",
+    "pytest",
+    "rstcheck",
+    "ruff",
+    "termcolor",
+    "types-PyYAML",
+]
+docs = [
+    "autoapi",
+    "myst-parser",
+    "pydocstyle",
+    "sphinx-autodoc-typehints<1.23",
+    "sphinx-rtd-theme",
+    "sphinx-togglebutton",
+    "Sphinx<7",
+    "sphinxcontrib-apidoc",
+    "urllib3<1.27",
+]
+
+[project.entry-points.ert]
+dataio_case_metadata = "fmu.dataio.scripts.create_case_metadata"
+
+[tool.setuptools_scm]
+write_to = "src/fmu/dataio/version.py"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--verbose"
+log_cli = "False"
+log_cli_format = "%(levelname)8s (%(relativeCreated)6.0fms) %(filename)44s [%(funcName)40s()] %(lineno)4d >>   %(message)s"
+log_cli_level = "INFO"
+testpaths = "tests"
+markers = ["integration: marks a test as an integration test"]
+xfail_strict = true
+
+[tool.pydocstyle]
+convention = "google"
+match = '(?!(test_|_)).*\.py'
+
+[tool.ruff]
+ignore = [
+    "C901",
+]
+select = [
+    "C",
+    "E",
+    "F",
+    "I",
+    "PIE",
+    "Q",
+    "RET",
+    "RSE",
+    "SIM",
+    "W",
+    # "C90",
+    # "NPY",
+    # "PD",
+    # "PL",
+]
+line-length = 88
+[tool.ruff.lint.isort]
+combine-as-imports = true
