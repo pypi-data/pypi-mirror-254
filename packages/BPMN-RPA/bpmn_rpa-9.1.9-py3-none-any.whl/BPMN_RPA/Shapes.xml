@@ -1,0 +1,322 @@
+<mxlibrary>[
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"More loop items?\" Function=\"loop_items_check\" Loop_variable=\"\" Shape_description=\"Check if there are more items to loop, or it has reached the end&amp;#10;&amp;#10;loop_variable: The name of the loopvariable to check.&amp;#10;&amp;#10;Return: True: the variable has more items to loop, False: the loop must end\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Are there more loop items?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Does 1st item contain 2nd item?\" Module=\"Compare.py\" Function=\"item1_contains_item2\" First_item=\"\" Second_item=\"\" Shape_description=\"Check if item 1 contains item2.&amp;#10;&amp;#10;item1: The first object.&amp;#10;&amp;#10;item2: The second object.&amp;#10;&amp;#10;Return: True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Does first item contain second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Does List contain any items?\" Module=\"Compare.py\" Function=\"does_list_contain_any_items\" List_object=\"\" Shape_description=\"Check if a list contains items&amp;#10;&amp;#10;list_object: The list object to check&amp;#10;&amp;#10;Return: True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Does list contain any items?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Does List contain item?\" Module=\"Compare.py\" Function=\"does_list_contain_item\" List_object=\"\" Item=\"\" Shape_description=\"Check if list contains an item&amp;#10;&amp;#10;list_object: The list object&amp;#10;&amp;#10;item: The item to check for&amp;#10;&amp;#10;Return: True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Does list contain item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is DateTime less or equal to interval?\" Module=\"Compare.py\" Function=\"is_time_number_of_seconds_ago\" Date_Time=\"\" Interval_in_seconds=\"\" Shape_description=\"Check if the interval of a date-time is less or equal than the given amount of seconds compared to now.&amp;#10;&amp;#10;date_time: The datetime object&amp;#10;&amp;#10;interval_in_seconds: The interval in seconds&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is datetime less or equal to interval?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is DateTime less or equal to number of seconds ago?\" Module=\"Compare.py\" Function=\"is_time_number_of_seconds_ago\" DateTime=\"\" Interval_in_seconds=\"\" Shape_description=\"Check if the interval of a date-time is less or equal than the given amount of seconds compared to now.&amp;#10;&amp;#10;date_time: The datetime object&amp;#10;&amp;#10;interval_in_seconds: The interval in seconds&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is datetime less or equal to number of seconds ago?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is 1st item equal to 2nd item?\" Module=\"Compare.py\" Function=\"is_first_item_equal_to_second_item\" First_item=\"\" Second_item=\"\" Shape_description=\"Compare two items and check if they are equal&amp;#10;&amp;#10;first_item: The first item to compare&amp;#10;&amp;#10;second_item: The second item to compare&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is first item equal to second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is 1st item greater than or equal to 2nd item?\" Module=\"Compare.py\" Function=\"is_first_item_greater_or_equal_than_second_item\" First_item=\"\" Second_item=\"\" Shape_description=\"Check if first item is greater or equal to second item&amp;#10;&amp;#10;first_item: The first item to compare&amp;#10;&amp;#10;second_item: The second item to compare&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is first item greater than or equal to second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is 1st item greater than 2nd item?\" Module=\"Compare.py\" Function=\"is_first_item_greater_than_second_item\" First_item=\"\" Second_item=\"\" Shape_description=\"Check if first item is greater than second item&amp;#10;&amp;#10;first_item: The first item to compare&amp;#10;&amp;#10;second_item: The second item to compare&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is first item greater than second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is 1st item less than or equal to 2nd item?\" Module=\"Compare.py\" Function=\"is_first_item_less_or_equal_than_second_item\" First_item=\"\" Second_item=\"\" Shape_description=\"Check if first item is less or equal to second item&amp;#10;&amp;#10;first_item: The first item to compare&amp;#10;&amp;#10;second_item: The second item to compare&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is first item less or equal to second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is 1st item less than 2nd item?\" Module=\"Compare.py\" Function=\"is_first_item_less_than_second_item\" First_item=\"\" Second_item=\"\" Shape_description=\"Check if first item is less than second item&amp;#10;&amp;#10;first_item: The first item to compare&amp;#10;&amp;#10;second_item: The second item to compare&amp;#10;&amp;#10;Return: Boolean True or False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is first item less than second item?"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is object empty?\" Module=\"Compare.py\" Function=\"is_object_empty\" Shape_description=\"Check if an item is empty&amp;#10;&amp;#10;item: The item to check&amp;#10;&amp;#10;Return: Boolean True or False\" Inspected_object=\"\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Compare - Is object empty"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Create variable\" Module=\"Set_Value.py\" Function=\"value_to_variable\" Convert_to_list=\"True\" Value=\"\" Output_variable=\"%variable%\" Shape_description=\"Function for returning a value to the WorkflowEngine.&amp;#10;&amp;#10;Value: Any value.&amp;#10;&amp;#10;Convert_to_list: Optional. Indicator whether to try to convert the value to a List.&amp;#10;&amp;#10;Return: The original input value.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;strokeColor=black;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Create variable"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Delete file\" Module=\"os\" Function=\"remove\" Path=\"\" Shape_description=\"Remove a file (same as unlink()).&amp;#10;&amp;#10;If dir_fd is not None, it should be a file descriptor open to a directory,&amp;#10;  and path should be relative; path will then be relative to that directory.&amp;#10;dir_fd may not be implemented on your platform.&amp;#10;  If it is unavailable, using it will raise a NotImplementedError.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Delete file"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"End\" Shape_description=\"End the current flow.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=throwing;symbol=general;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "End"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" Type=\"Exclusive Gateway\" Shape_description=\"An exclusive gateway\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;background=gateway;outlineConnect=0;outline=none;symbol=exclusiveGw;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Exclusive Gateway"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Exit with code NOT OK\" Function=\"exitcode_not_ok\" Shape_description=\"Exit the flow with exitcode not OK -1\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=error;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Exit with code Not OK"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Exit with code OK\" Function=\"exitcode_ok\" Shape_description=\"Exit the flow with exitcode OK 0\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=end;symbol=signal;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Exit with code OK"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Get input parameter\" Function=\"get_input_parameter\" Output_variable=\"%input%\" Shape_description=\"Returns the input parameter that was given when creating an instance of the WorkflowEngine.&amp;#10;&amp;#10;As_dictionary: Optional. Indicator whether to treat the given input as a dictionary object (string to dict).&amp;#10;&amp;#10;Return: The input_parameter that was given when creating an instance of the WorkflowEngine\" As_dictionary=\"False\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Get input parameter"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Send keys\" Module=\"Keyboard.py\" Function=\"sendkeys\" Text=\"\" Interval=\"0.05\" Shape_description=\"Send keystrokes to the active window.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;strokeColor=black;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Keyboard - Send keys"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Wait for Hotkey\" Module=\"Keyboard.py\" Function=\"wait_for_hotkey\" Key=\"\" Ctrl=\"False\" Alt=\"False\" Shift=\"False\" Shape_description=\"Wait for a specific hotkey combination to be pressed.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=standard;symbol=conditional;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Keyboard - Wait for hotkey"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Log and Print message\" Function=\"print_log\" Result=\"\" Status=\"\" Shape_description=\"Log progress to the Orchestrator database and print progress on screen&amp;#10;&amp;#10;status: Optional. The status of the step&amp;#10;&amp;#10;result: The result of the step\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Log and print message"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Log out current user\" Module=\"os\" Function=\"system\" Command=\"shutdown -l\" Shape_description=\"Log out the current user.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Logout current user"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Loop files in folder\" Module=\"os\" Function=\"listdir\" Output_variable=\"%files%\" Loopcounter=\"0\" Path=\"\" Shape_description=\"Return a list containing the names of the files in the directory.&amp;#10;&amp;#10;path can be specified as either str, bytes, or a path-like object.  If path is bytes,&amp;#10;  the filenames returned will also be bytes; in all other circumstances&amp;#10;  the filenames returned will be str.&amp;#10;If path is None, uses the path='.'.&amp;#10;On some platforms, path may also be specified as an open file descriptor;\\&amp;#10;  the file descriptor must refer to a directory.&amp;#10;  If this functionality is unavailable, using it raises NotImplementedError.&amp;#10;&amp;#10;The list is in arbitrary order.  It does not include the special&amp;#10;entries '.' and '..' even if they are present in the directory.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Loop files in folder"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Make screenshot\" Module=\"system.py\" Class=\"shell\" Function=\"screenshot\" Path=\"\" Shape_description=\"Make a screenshot and save it to file as PNG&amp;#10;&amp;#10;&amp;#10;path: The full path of the location and filename (including the PNG extension) to save the screenshot&amp;#10;&amp;#10;Return: The pathname of the screenshot file\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Make screenshot"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Drag mouse\" Module=\"Mouse.py\" Function=\"mouse_drag\" X=\"0\" Y=\"0\" Duration=\"0\" Shape_description=\"Simulate a mouse drage event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Drag mouse"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Get mouse position\" Module=\"Mouse.py\" Function=\"get_mouse_position\" X=\"0\" Y=\"0\" Duration=\"0\" Output_variable=\"%mouseposition%\" Shape_description=\"Get the current mouse position (x and y coordinates).\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Get mouse position"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Mouse button down\" Module=\"Mouse.py\" Function=\"mouse_button_down\" Button=\"left\" Shape_description=\"Simulate a mouse button down event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Mouse button down"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Mouse button up\" Module=\"Mouse.py\" Function=\"mouse_button_up\" Button=\"left\" Shape_description=\"Simulate a mouse button up event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Mouse buton up"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Mouse click\" Module=\"Mouse.py\" Function=\"mouse_click\" Button=\"left\" Clicks=\"1\" Interval=\"0.25\" Shape_description=\"Simulate a mouse click.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Mouse click"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Mouse double click\" Module=\"Mouse.py\" Function=\"mouse_doubleclick\" Shape_description=\"Simulate a mouse double click event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Mouse double click"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Move mouse\" Module=\"Mouse.py\" Function=\"mouse_move\" X=\"0\" Y=\"0\" Duration=\"0\" Shape_description=\"Simulate a mouse down event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;align=center;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Mouse - Move mouse"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" Type=\"Parallel Gateway\" Shape_description=\"A parallel gateway\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;background=gateway;outlineConnect=0;outline=none;symbol=parallelGw;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Parallel Gateway"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Run another flow\" Module=\"Code.py\" Function=\"run_flow\" Flow_path=\"\" Flow_input=\"\" Class=\"Code\" Shape_description=\"Run another WorkFlow.&amp;#10;Flow_path: The full path to the flow xml file.&amp;#10;&amp;#10;Flow_input: Optional. Any input (object or string).\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Run another flow"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Run application\" Module=\"os\" Function=\"system\" Command=\"\" Shape_description=\"Run a specific application.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Run application"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Run python code\" Module=\"C:\\PythonProjects\\BPMN_RPA\\BPMN_RPA\\Scripts\\System.py\" Class=\"\" Function=\"run_python_code\" Output_variable=\"\" Code=\"\" Shape_description=\"Dynamically run Python code&amp;#10;&amp;#10;code: The code to run&amp;#10;&amp;#10;Return: OK, or exception when an error occurs\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Run python code"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" Function=\"set_breakpoint\" Shape_description=\"Set a breakpoint to debug the code.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=eventInt;symbol=signal;fillColor=#f8cecc;strokeColor=#CC0000;strokeWidth=2;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Set breakpoint"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Shut down system\" Module=\"os\" Function=\"system\" Command=\"shutdown /s /t 1\" Shape_description=\"Shut down the system.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Shutdown system"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"start\" Shape_description=\"Start event.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=standard;symbol=general;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Start"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Template\" Module=\"\" Function=\"\" Output_variable=\"\" Class=\"\" Shape_description=\"\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Template"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Set foreground window\" Module=\"Windows.py\" Function=\"set_foreground_window\" Window=\"%window%\" Shape_description=\"Set a specific window to the foreground.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;strokeColor=black;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Windows - Set foreground window"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Get Foreground Window\" Module=\"win32gui\" Function=\"GetForegroundWindow\" Output_variable=\"%hwnd%\" Shape_description=\"Get the foreground window as an object.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Windows - Get foreground window"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Get Window Text\" Module=\"win32gui\" Function=\"GetWindowText\" Output_variable=\"%windowtext%\" Hwnd=\"%hwnd%\" Shape_description=\"Get the text of a specific window.\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80,
+    "aspect": "fixed",
+    "title": "Windows - Get window text"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Wait for window to close\" Module=\"Windows.py\" Function=\"wait_for_window\" Case_sensitive=\"False\" Output_variable=\"%window%\" Window_title=\"\" Destroyed=\"True\" Shape_description=\"Wait for a window with a specific title to be closed.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=catching;symbol=conditional;strokeColor=black;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Windows - Wait for window to close"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Wait for window to open\" Module=\"Windows.py\" Function=\"wait_for_window\" Case_sensitive=\"False\" Output_variable=\"%window%\" Window_title=\"\" Destroyed=\"False\" Shape_description=\"Wait for a window with a specific title to open.\" id=\"2\"&gt;&lt;mxCell style=\"shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;outline=catching;symbol=conditional;strokeColor=black;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"50\" height=\"50\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 50,
+    "h": 50,
+    "aspect": "fixed",
+    "title": "Windows - Wait for window to open"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Is object NOT empty?\" Module=\"Compare.py\" Function=\"is_object_not_empty\" Shape_description=\"Check if an item is NOT empty&amp;#10;&amp;#10;item: The item to check&amp;#10;&amp;#10;Return: Boolean True or False\" Inspected_object=\"\" id=\"2\"&gt;&lt;mxCell style=\"shape=ext;rounded=1;html=1;whiteSpace=wrap;\" vertex=\"1\" parent=\"1\"&gt;&lt;mxGeometry width=\"120\" height=\"80\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 80
+  }
+]</mxlibrary>
