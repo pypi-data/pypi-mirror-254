@@ -1,0 +1,2 @@
+[console_scripts]
+ceur-ws = ceurws.ceur_ws_cmd:main
