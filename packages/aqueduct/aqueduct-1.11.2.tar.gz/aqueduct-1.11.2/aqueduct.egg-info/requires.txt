@@ -1,0 +1,7 @@
+cffi==1.15.0
+
+[aiohttp]
+aiohttp
+
+[numpy]
+numpy
