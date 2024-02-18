@@ -1,0 +1,1 @@
+include src/frame2seq/trained_models/*.ckpt
