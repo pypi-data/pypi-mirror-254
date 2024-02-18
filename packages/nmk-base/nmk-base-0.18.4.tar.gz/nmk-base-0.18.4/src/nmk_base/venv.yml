@@ -1,0 +1,62 @@
+config:
+
+    # Venv dependencies list (direct packages dependencies)
+    venvPkgDeps: ["nmk-base"]  # Default: at least nmk-base itself, for buildenv initialization
+
+    # Venv archives list (direct archive dependencies)
+    venvArchiveDeps: []
+
+    # Venv requirement files list
+    venvFileDeps: []
+
+    # Venv requirement files merged content
+    venvFileDepsContent:
+        __resolver__: nmk_base.venv.FileDepsContentResolver
+
+    # Venv folder name
+    venvName: venv
+
+    # Venv merged requirements file
+    venvRequirements: requirements.txt
+    
+    # Venv state file
+    venvState: ${outputDir}/requirements.txt
+
+    # Deprecated, will be removed in future version
+    venvPipArgs: ""
+
+    # Template for merged requirements file
+    venvRequirementsTemplate: ${BASEDIR}/templates/requirements.txt
+
+    # Contribute to ignored files
+    gitIgnoredFiles:
+        - ${venvName}
+
+tasks:
+
+    # Generate merged requirements file
+    py.req:
+        description: Merge python venv requirements
+        emoji: ":snake:.:spiral_notepad: "
+        input:
+            - ${venvFileDeps}
+            - ${venvArchiveDeps}
+            - ${venvRequirementsTemplate}
+        output: ${PROJECTDIR}/${venvRequirements}
+        params:
+            template: ${venvRequirementsTemplate}
+        builder: nmk_base.common.TemplateBuilder
+
+    # Update venv from dependencies
+    py.venv:
+        description: Update python venv
+        emoji: ":snake:.:inbox_tray:"
+        deps:
+            - py.req
+            - out
+        appendToDeps: setup
+        output: 
+            - ${ROOTDIR}/${venvName}
+            - ${venvState}
+        input: ${PROJECTDIR}/${venvRequirements}
+        builder: nmk_base.venv.VenvUpdateBuilder
