@@ -1,0 +1,2 @@
+[console_scripts]
+get-all-interface-info = prisma_sdwan_get_all_interface_info:go
