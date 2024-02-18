@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: setupcode
+Version: 1.1
+Summary: setup configs settings snippets
+License-Expression: MIT
+License-File: LICENSE
+Keywords: configs,settings,setup,snippets
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# setupcode
+
+python setup configs settings snippets
+
+## install
+
+`pip install -e setupcode`
+
+## usage
+
+```python
+import setupcode
+
+setupcode.notebook.autoreload()
+setupcode.notebook.output_transparent()
+setupcode.notebook.plotly_render.default()
+setupcode.notebook.plotly_theme_vbt.github_dark()
+```

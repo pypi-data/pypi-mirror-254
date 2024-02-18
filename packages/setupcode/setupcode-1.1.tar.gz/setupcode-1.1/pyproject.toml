@@ -1,0 +1,33 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+description = 'setup configs settings snippets'
+keywords = ["setup", "configs", "settings", "snippets"]
+license = "MIT"
+name = "setupcode"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "1.1"
+# dependencies = ["ipython", "ipykernel"]
+
+[project.urls]
+# homepage = "https://github.com/1081/setupcode"
+
+[tool.hatch.build.targets.wheel]
+packages = ["setupcode"]
+
+[tool.ruff]
+ignore = ["E741", "E501", "C408", "PD901", "SIM117", "PD011", "B018", "E402"]
+# -> E741 = ambiguous variable name
+# -> E501 = line length violations
+# -> C408 = unnessesary "dict" call e.g. (dict(x=1))
+# -> PD901 = variable name df on-descriptive and prone to name conflicts
+# -> SIM117 = nested with statements
+# -> PD011 = Checks for uses of .values on Pandas Series and Index objects.
+# -> B018 = Useless expression -> required in notebook
+# -> E402 = Import not at top
+line-length = 120
+select = ["E", "W", "N", "I", "UP", "F", "B", "C4", "SIM", "TCH", "PD", "NPY", "DTZ"]
+show-fixes = true
