@@ -1,0 +1,19 @@
+# Copyright (c) 2016 Adam Karpierz
+# Licensed under the MIT License
+# https://opensource.org/license/mit
+
+include README.rst
+include CHANGES.rst
+include LICENSE
+include pyproject.toml
+include .readthedocs.yml
+
+graft docs
+
+graft src
+
+graft tests
+
+global-exclude \#* \#*/**
+global-exclude .build .build/** .build.* .build.*/**
+global-exclude *.py[cod] __pycache__
