@@ -1,0 +1,10 @@
+LICENSE
+setup.py
+shellmate/__init__.py
+shellmate/shellmate.py
+shellmate.egg-info/PKG-INFO
+shellmate.egg-info/SOURCES.txt
+shellmate.egg-info/dependency_links.txt
+shellmate.egg-info/entry_points.txt
+shellmate.egg-info/requires.txt
+shellmate.egg-info/top_level.txt
