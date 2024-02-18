@@ -1,0 +1,3 @@
+recursive-include wordtm/data *
+recursive-include wordtm/dictionary *
+recursive-include wordtm/images *
