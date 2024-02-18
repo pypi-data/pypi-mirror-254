@@ -1,0 +1,2 @@
+[console_scripts]
+ksef-utils = ksef_utils.__main__:main
