@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>trace.py &#8212; SkoolKit 9.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SkoolKit 9.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">trace.py</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="trace-py">
+<h1>trace.py<a class="headerlink" href="#trace-py" title="Permalink to this heading">¶</a></h1>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">trace.py</span></code> [options] FILE [OUTFILE]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">trace.py</span></code> simulates the execution of machine code in a 48K or 128K binary
+(raw memory) file or a SNA, SZX or Z80 snapshot. If FILE is ‘48’ or ‘128’, no
+snapshot is loaded, and the RAM is left blank (all zeroes). If ‘OUTFILE’ is
+given, an SZX or Z80 snapshot is written after execution has completed.</p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this heading">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">--audio</span></kbd></dt>
+<dd><p>Show a list of the delays (in T-states) between changes in the state of the
+ZX Spectrum speaker made by the code that was executed.</p>
+</dd>
+<dt><kbd><span class="option">-c</span>, <span class="option">--cmio</span></kbd></dt>
+<dd><p>Simulate memory contention and I/O contention delays.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>–depth <cite>N</cite></dt><dd><p>Simplify audio delays to this depth (default: 2). When this option is given,
+any sequence of delays up to length <cite>N</cite> that repeats is shown in a simplified
+form. For example, if <cite>N</cite> is 3, the run of delay values [1, 2, 3, 1, 2, 3] is
+reduced to [1, 2, 3]*2.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-D</span>, <span class="option">--decimal</span></kbd></dt>
+<dd><p>Show decimal values in verbose (<code class="docutils literal notranslate"><span class="pre">-v</span></code>, <code class="docutils literal notranslate"><span class="pre">-vv</span></code>) mode.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-I, –ini <cite>param=value</cite></dt><dd><p>Set the value of a configuration parameter (see <code class="docutils literal notranslate"><span class="pre">CONFIGURATION</span></code>),
+overriding any value found in <code class="docutils literal notranslate"><span class="pre">skoolkit.ini</span></code>. This option may be used
+multiple times.</p>
+</dd>
+<dt>-m, –max-operations <cite>MAX</cite></dt><dd><p>Maximum number of instructions to execute. Overrides the <cite>STOP</cite> address (if
+given).</p>
+</dd>
+<dt>-M, –max-tstates <cite>MAX</cite></dt><dd><p>Maximum number of (simulated) T-states to run for. Overrides the <cite>STOP</cite>
+address (if given).</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-n</span>, <span class="option">--no-interrupts</span></kbd></dt>
+<dd><p>Don’t execute interrupt routines.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-o, –org <cite>ORG</cite></dt><dd><p>Specify the origin address of a binary (raw memory) file. The default origin
+address is 65536 minus the length of the file. <cite>ORG</cite> must be a decimal
+number, or a hexadecimal number prefixed by ‘0x’.</p>
+</dd>
+<dt>-p, –poke <cite>[p:]a[-b[-c]],[^+]v</cite></dt><dd><p>POKE N,v in RAM bank p for N in {a, a+c, a+2c…, b}. Prefix ‘v’ with ‘^’ to
+perform an XOR operation, or ‘+’ to perform an ADD operation. This option may
+be used multiple times. ‘a’, ‘b’, ‘c’ and ‘v’ must each be a decimal number,
+or a hexadecimal number prefixed by ‘0x’.</p>
+</dd>
+<dt>-r, –reg <cite>name=value</cite></dt><dd><p>Set the value of a register before execution begins. Do <code class="docutils literal notranslate"><span class="pre">--reg</span> <span class="pre">help</span></code> for
+more information, or see the section on <code class="docutils literal notranslate"><span class="pre">REGISTERS</span></code> below. This option may
+be used multiple times.</p>
+</dd>
+<dt>–rom <cite>FILE</cite></dt><dd><p>Patch in a ROM at address 0 from this file.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">--show-config</span></kbd></dt>
+<dd><p>Show configuration parameter values.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-s, –start <cite>ADDR</cite></dt><dd><p>Start execution at this address. <cite>ADDR</cite> must be a decimal number, or a
+hexadecimal number prefixed by ‘0x’. If this option is omitted, execution
+starts either at the address given by the value of the program counter (for a
+SNA, SZX or Z80 snapshot), or at the origin address of the raw memory file.</p>
+</dd>
+<dt>-S, –stop <cite>ADDR</cite></dt><dd><p>Stop execution at this address. <cite>ADDR</cite> must be a decimal number, or a
+hexadecimal number prefixed by ‘0x’.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">--stats</span></kbd></dt>
+<dd><p>Show statistics after execution.</p>
+</dd>
+<dt><kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></dt>
+<dd><p>Show executed instructions. Repeat this option (<code class="docutils literal notranslate"><span class="pre">-vv</span></code>) to show register
+values too.</p>
+</dd>
+<dt><kbd><span class="option">-V</span>, <span class="option">--version</span></kbd></dt>
+<dd><p>Show SkoolKit version number and exit.</p>
+</dd>
+</dl>
+</section>
+<section id="registers">
+<h2>REGISTERS<a class="headerlink" href="#registers" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">--reg</span></code> option sets the value of a register before execution begins.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--reg</span> <span class="pre">name=value</span></code></div>
+</div>
+</div>
+<p>For example:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--reg</span> <span class="pre">hl=32768</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--reg</span> <span class="pre">b=0x1f</span></code></div>
+</div>
+</div>
+<p>To set the value of an alternate (shadow) register, use the ‘^’ prefix:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--reg</span> <span class="pre">^hl=10072</span></code></div>
+</div>
+</div>
+<p>Recognised register names are:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">^a</span></code>, <code class="docutils literal notranslate"><span class="pre">^b</span></code>, <code class="docutils literal notranslate"><span class="pre">^bc</span></code>, <code class="docutils literal notranslate"><span class="pre">^c</span></code>, <code class="docutils literal notranslate"><span class="pre">^d</span></code>, <code class="docutils literal notranslate"><span class="pre">^de</span></code>, <code class="docutils literal notranslate"><span class="pre">^e</span></code>, <code class="docutils literal notranslate"><span class="pre">^f</span></code>, <code class="docutils literal notranslate"><span class="pre">^h</span></code>, <code class="docutils literal notranslate"><span class="pre">^hl</span></code>, <code class="docutils literal notranslate"><span class="pre">^l</span></code>,</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">bc</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">de</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">hl</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>,</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">ix</span></code>, <code class="docutils literal notranslate"><span class="pre">iy</span></code>, <code class="docutils literal notranslate"><span class="pre">pc</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">sp</span></code></div>
+</div>
+</div>
+</section>
+<section id="configuration">
+<h2>CONFIGURATION<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">trace.py</span></code> will read configuration from a file named <code class="docutils literal notranslate"><span class="pre">skoolkit.ini</span></code> in the
+current working directory or in <code class="docutils literal notranslate"><span class="pre">~/.skoolkit</span></code>, if present. The recognised
+configuration parameters are:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">TraceLine<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The format of each instruction line when <code class="docutils literal notranslate"><span class="pre">-v</span></code> is used
+(default: <code class="docutils literal notranslate"><span class="pre">${pc:04X}</span> <span class="pre">{i}</span></code>).</p>
+</dd>
+<dt class="field-even">TraceLine2<span class="colon">:</span></dt>
+<dd class="field-even"><p>The format of each instruction line when <code class="docutils literal notranslate"><span class="pre">-vv</span></code> is used. Use
+<code class="docutils literal notranslate"><span class="pre">--show-config</span></code> to see the default value.</p>
+</dd>
+<dt class="field-odd">TraceLineDecimal<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The format of each instruction line when <code class="docutils literal notranslate"><span class="pre">-Dv</span></code> is used
+(default: <code class="docutils literal notranslate"><span class="pre">{pc:05}</span> <span class="pre">{i}</span></code>).</p>
+</dd>
+<dt class="field-even">TraceLineDecimal2<span class="colon">:</span></dt>
+<dd class="field-even"><p>The format of each instruction line when <code class="docutils literal notranslate"><span class="pre">-Dvv</span></code> is
+used. Use <code class="docutils literal notranslate"><span class="pre">--show-config</span></code> to see the default value.</p>
+</dd>
+<dt class="field-odd">TraceOperand<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The prefix, byte format, and word format for the numeric
+operands of instructions, separated by commas (default: <code class="docutils literal notranslate"><span class="pre">$,02X,04X</span></code>); the
+byte and word formats are standard Python format specifiers for numeric
+values, and default to empty strings if not supplied.</p>
+</dd>
+<dt class="field-even">TraceOperandDecimal<span class="colon">:</span></dt>
+<dd class="field-even"><p>As <code class="docutils literal notranslate"><span class="pre">TraceOperand</span></code> when <code class="docutils literal notranslate"><span class="pre">-D</span></code> is used (default:
+<code class="docutils literal notranslate"><span class="pre">,,</span></code>).</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">TraceLine*</span></code> parameters are standard Python format strings that recognise
+the following replacement fields:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">i</span></code> - the current instruction</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pc</span></code> - the address of the current instruction (program counter)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r[X]</span></code> - the ‘X’ register (see below)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> - the current timestamp (in T-states)</div>
+</div>
+</div>
+<p>The register name <code class="docutils literal notranslate"><span class="pre">X</span></code> in <code class="docutils literal notranslate"><span class="pre">r[X]</span></code> must be one of the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a b c d e f h l bc de hl
+^a ^b ^c ^d ^e ^f ^h ^l ^bc ^de ^hl
+ix iy ixh iyh ixl iyl
+i r sp
+</pre></div>
+</div>
+<p>The names that begin with <code class="docutils literal notranslate"><span class="pre">^</span></code> denote the shadow registers.</p>
+<p>Wherever <code class="docutils literal notranslate"><span class="pre">\n</span></code> appears in a <code class="docutils literal notranslate"><span class="pre">TraceLine*</span></code> parameter value, it is replaced by
+a newline character.</p>
+<p>Configuration parameters must appear in a <code class="docutils literal notranslate"><span class="pre">[trace]</span></code> section. For example,
+to make <code class="docutils literal notranslate"><span class="pre">trace.py</span></code> write a timestamp for each instruction when <code class="docutils literal notranslate"><span class="pre">-v</span></code> is
+used, add the following section to <code class="docutils literal notranslate"><span class="pre">skoolkit.ini</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[trace]
+TraceLine={t:&gt;10} ${pc:04X} {i}
+</pre></div>
+</div>
+<p>Configuration parameters may also be set on the command line by using the
+<code class="docutils literal notranslate"><span class="pre">--ini</span></code> option. Parameter values set this way will override any found in
+<code class="docutils literal notranslate"><span class="pre">skoolkit.ini</span></code>.</p>
+</section>
+<section id="examples">
+<h2>EXAMPLES<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Execute and show instructions in the routine at 32768-32798 in <code class="docutils literal notranslate"><span class="pre">game.z80</span></code>:</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">trace.py</span> <span class="pre">-v</span> <span class="pre">-s</span> <span class="pre">32768</span> <span class="pre">-S</span> <span class="pre">32798</span> <span class="pre">game.z80</span></code></div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Show delays between changes in the state of the ZX Spectrum speaker produced
+by the sound effect routine at 49152-49193 in <code class="docutils literal notranslate"><span class="pre">game.z80</span></code>:</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">trace.py</span> <span class="pre">--audio</span> <span class="pre">-s</span> <span class="pre">49152</span> <span class="pre">-S</span> <span class="pre">49193</span> <span class="pre">game.z80</span></code></div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">trace.py</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#registers">REGISTERS</a></li>
+<li><a class="reference internal" href="#configuration">CONFIGURATION</a></li>
+<li><a class="reference internal" href="#examples">EXAMPLES</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/man/trace.py.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SkoolKit 9.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">trace.py</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>

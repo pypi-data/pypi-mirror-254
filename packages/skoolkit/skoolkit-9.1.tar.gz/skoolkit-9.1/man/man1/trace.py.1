@@ -1,0 +1,293 @@
+.\" Man page generated from reStructuredText.
+.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.TH "TRACE.PY" "1" "Feb 03, 2024" "9.1" "SkoolKit"
+.SH NAME
+trace.py \- simulate code execution in a 48K or 128K memory snapshot
+.SH SYNOPSIS
+.sp
+\fBtrace.py\fP [options] FILE [OUTFILE]
+.SH DESCRIPTION
+.sp
+\fBtrace.py\fP simulates the execution of machine code in a 48K or 128K binary
+(raw memory) file or a SNA, SZX or Z80 snapshot. If FILE is \(aq48\(aq or \(aq128\(aq, no
+snapshot is loaded, and the RAM is left blank (all zeroes). If \(aqOUTFILE\(aq is
+given, an SZX or Z80 snapshot is written after execution has completed.
+.SH OPTIONS
+.INDENT 0.0
+.TP
+.B  \-\-audio
+Show a list of the delays (in T\-states) between changes in the state of the
+ZX Spectrum speaker made by the code that was executed.
+.TP
+.B  \-c\fP,\fB  \-\-cmio
+Simulate memory contention and I/O contention delays.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-depth \fIN\fP
+Simplify audio delays to this depth (default: 2). When this option is given,
+any sequence of delays up to length \fIN\fP that repeats is shown in a simplified
+form. For example, if \fIN\fP is 3, the run of delay values [1, 2, 3, 1, 2, 3] is
+reduced to [1, 2, 3]*2.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B  \-D\fP,\fB  \-\-decimal
+Show decimal values in verbose (\fB\-v\fP, \fB\-vv\fP) mode.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-I, \-\-ini \fIparam=value\fP
+Set the value of a configuration parameter (see \fBCONFIGURATION\fP),
+overriding any value found in \fBskoolkit.ini\fP\&. This option may be used
+multiple times.
+.TP
+.B \-m, \-\-max\-operations \fIMAX\fP
+Maximum number of instructions to execute. Overrides the \fISTOP\fP address (if
+given).
+.TP
+.B \-M, \-\-max\-tstates \fIMAX\fP
+Maximum number of (simulated) T\-states to run for. Overrides the \fISTOP\fP
+address (if given).
+.UNINDENT
+.INDENT 0.0
+.TP
+.B  \-n\fP,\fB  \-\-no\-interrupts
+Don\(aqt execute interrupt routines.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-o, \-\-org \fIORG\fP
+Specify the origin address of a binary (raw memory) file. The default origin
+address is 65536 minus the length of the file. \fIORG\fP must be a decimal
+number, or a hexadecimal number prefixed by \(aq0x\(aq.
+.TP
+.B \-p, \-\-poke \fI[p:]a[\-b[\-c]],[^+]v\fP
+POKE N,v in RAM bank p for N in {a, a+c, a+2c..., b}. Prefix \(aqv\(aq with \(aq^\(aq to
+perform an XOR operation, or \(aq+\(aq to perform an ADD operation. This option may
+be used multiple times. \(aqa\(aq, \(aqb\(aq, \(aqc\(aq and \(aqv\(aq must each be a decimal number,
+or a hexadecimal number prefixed by \(aq0x\(aq.
+.TP
+.B \-r, \-\-reg \fIname=value\fP
+Set the value of a register before execution begins. Do \fB\-\-reg help\fP for
+more information, or see the section on \fBREGISTERS\fP below. This option may
+be used multiple times.
+.TP
+.B \-\-rom \fIFILE\fP
+Patch in a ROM at address 0 from this file.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B  \-\-show\-config
+Show configuration parameter values.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-s, \-\-start \fIADDR\fP
+Start execution at this address. \fIADDR\fP must be a decimal number, or a
+hexadecimal number prefixed by \(aq0x\(aq. If this option is omitted, execution
+starts either at the address given by the value of the program counter (for a
+SNA, SZX or Z80 snapshot), or at the origin address of the raw memory file.
+.TP
+.B \-S, \-\-stop \fIADDR\fP
+Stop execution at this address. \fIADDR\fP must be a decimal number, or a
+hexadecimal number prefixed by \(aq0x\(aq.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B  \-\-stats
+Show statistics after execution.
+.TP
+.B  \-v\fP,\fB  \-\-verbose
+Show executed instructions. Repeat this option (\fB\-vv\fP) to show register
+values too.
+.TP
+.B  \-V\fP,\fB  \-\-version
+Show SkoolKit version number and exit.
+.UNINDENT
+.SH REGISTERS
+.sp
+The \fB\-\-reg\fP option sets the value of a register before execution begins.
+.nf
+
+.in +2
+\fB\-\-reg name=value\fP
+.in -2
+.fi
+.sp
+.sp
+For example:
+.nf
+
+.in +2
+\fB\-\-reg hl=32768\fP
+\fB\-\-reg b=0x1f\fP
+.in -2
+.fi
+.sp
+.sp
+To set the value of an alternate (shadow) register, use the \(aq^\(aq prefix:
+.nf
+
+.in +2
+\fB\-\-reg ^hl=10072\fP
+.in -2
+.fi
+.sp
+.sp
+Recognised register names are:
+.nf
+
+.in +2
+\fB^a\fP, \fB^b\fP, \fB^bc\fP, \fB^c\fP, \fB^d\fP, \fB^de\fP, \fB^e\fP, \fB^f\fP, \fB^h\fP, \fB^hl\fP, \fB^l\fP,
+\fBa\fP, \fBb\fP, \fBbc\fP, \fBc\fP, \fBd\fP, \fBde\fP, \fBe\fP, \fBf\fP, \fBh\fP, \fBhl\fP, \fBl\fP,
+\fBi\fP, \fBix\fP, \fBiy\fP, \fBpc\fP, \fBr\fP, \fBsp\fP
+.in -2
+.fi
+.sp
+.SH CONFIGURATION
+.sp
+\fBtrace.py\fP will read configuration from a file named \fBskoolkit.ini\fP in the
+current working directory or in \fB~/.skoolkit\fP, if present. The recognised
+configuration parameters are:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.TP
+.B TraceLine
+The format of each instruction line when \fB\-v\fP is used
+(default: \fB${pc:04X} {i}\fP).
+.TP
+.B TraceLine2
+The format of each instruction line when \fB\-vv\fP is used. Use
+\fB\-\-show\-config\fP to see the default value.
+.TP
+.B TraceLineDecimal
+The format of each instruction line when \fB\-Dv\fP is used
+(default: \fB{pc:05} {i}\fP).
+.TP
+.B TraceLineDecimal2
+The format of each instruction line when \fB\-Dvv\fP is
+used. Use \fB\-\-show\-config\fP to see the default value.
+.TP
+.B TraceOperand
+The prefix, byte format, and word format for the numeric
+operands of instructions, separated by commas (default: \fB$,02X,04X\fP); the
+byte and word formats are standard Python format specifiers for numeric
+values, and default to empty strings if not supplied.
+.TP
+.B TraceOperandDecimal
+As \fBTraceOperand\fP when \fB\-D\fP is used (default:
+\fB,,\fP).
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+The \fBTraceLine*\fP parameters are standard Python format strings that recognise
+the following replacement fields:
+.nf
+
+.in +2
+\fBi\fP \- the current instruction
+\fBpc\fP \- the address of the current instruction (program counter)
+\fBr[X]\fP \- the \(aqX\(aq register (see below)
+\fBt\fP \- the current timestamp (in T\-states)
+.in -2
+.fi
+.sp
+.sp
+The register name \fBX\fP in \fBr[X]\fP must be one of the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a b c d e f h l bc de hl
+^a ^b ^c ^d ^e ^f ^h ^l ^bc ^de ^hl
+ix iy ixh iyh ixl iyl
+i r sp
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The names that begin with \fB^\fP denote the shadow registers.
+.sp
+Wherever \fB\en\fP appears in a \fBTraceLine*\fP parameter value, it is replaced by
+a newline character.
+.sp
+Configuration parameters must appear in a \fB[trace]\fP section. For example,
+to make \fBtrace.py\fP write a timestamp for each instruction when \fB\-v\fP is
+used, add the following section to \fBskoolkit.ini\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[trace]
+TraceLine={t:>10} ${pc:04X} {i}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Configuration parameters may also be set on the command line by using the
+\fB\-\-ini\fP option. Parameter values set this way will override any found in
+\fBskoolkit.ini\fP\&.
+.SH EXAMPLES
+.INDENT 0.0
+.IP 1. 3
+Execute and show instructions in the routine at 32768\-32798 in \fBgame.z80\fP:
+.UNINDENT
+.nf
+
+.in +2
+\fBtrace.py \-v \-s 32768 \-S 32798 game.z80\fP
+.in -2
+.fi
+.sp
+.INDENT 0.0
+.IP 2. 3
+Show delays between changes in the state of the ZX Spectrum speaker produced
+by the sound effect routine at 49152\-49193 in \fBgame.z80\fP:
+.UNINDENT
+.nf
+
+.in +2
+\fBtrace.py \-\-audio \-s 49152 \-S 49193 game.z80\fP
+.in -2
+.fi
+.sp
+.SH AUTHOR
+Richard Dymond
+.SH COPYRIGHT
+2024, Richard Dymond
+.\" Generated by docutils manpage writer.
+.

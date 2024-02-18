@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>skool2bin.py &#8212; SkoolKit 9.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SkoolKit 9.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skool2bin.py</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="skool2bin-py">
+<h1>skool2bin.py<a class="headerlink" href="#skool2bin-py" title="Permalink to this heading">¶</a></h1>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">skool2bin.py</span></code> [options] file.skool [file.bin]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">skool2bin.py</span></code> converts a skool file into a binary (raw memory) file.
+‘file.skool’ may be a regular file, or ‘-’ for standard input. If ‘file.bin’ is
+not given, it defaults to the name of the input file with ‘.skool’ replaced by
+‘.bin’. ‘file.bin’ may be a regular file, or ‘-’ for standard output.</p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this heading">¶</a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-B</span>, <span class="option">--banks</span></kbd></dt>
+<dd><p>Process &#64;bank directives and write RAM banks 0-7 to a 128K file.</p>
+</dd>
+<dt><kbd><span class="option">-b</span>, <span class="option">--bfix</span></kbd></dt>
+<dd><p>Apply &#64;ofix and &#64;bfix directives.</p>
+</dd>
+<dt><kbd><span class="option">-d</span>, <span class="option">--data</span></kbd></dt>
+<dd><p>Process &#64;defb, &#64;defs and &#64;defw directives.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-E, –end <cite>ADDR</cite></dt><dd><p>Stop converting at this address. <cite>ADDR</cite> must be a decimal number, or a
+hexadecimal number prefixed by ‘0x’.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-i</span>, <span class="option">--isub</span></kbd></dt>
+<dd><p>Apply &#64;isub directives.</p>
+</dd>
+<dt><kbd><span class="option">-o</span>, <span class="option">--ofix</span></kbd></dt>
+<dd><p>Apply &#64;ofix directives.</p>
+</dd>
+<dt><kbd><span class="option">-r</span>, <span class="option">--rsub</span></kbd></dt>
+<dd><p>Apply &#64;isub, &#64;ssub and &#64;rsub directives (implies <code class="docutils literal notranslate"><span class="pre">--ofix</span></code>).</p>
+</dd>
+<dt><kbd><span class="option">-R</span>, <span class="option">--rfix</span></kbd></dt>
+<dd><p>Apply &#64;ofix, &#64;bfix and &#64;rfix directives (implies <code class="docutils literal notranslate"><span class="pre">--rsub</span></code>).</p>
+</dd>
+<dt><kbd><span class="option">-s</span>, <span class="option">--ssub</span></kbd></dt>
+<dd><p>Apply &#64;isub and &#64;ssub directives.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-S, –start <cite>ADDR</cite></dt><dd><p>Start converting at this address. <cite>ADDR</cite> must be a decimal number, or a
+hexadecimal number prefixed by ‘0x’.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></dt>
+<dd><p>Show info on each converted instruction.</p>
+</dd>
+<dt><kbd><span class="option">-V</span>, <span class="option">--version</span></kbd></dt>
+<dd><p>Show the SkoolKit version number and exit.</p>
+</dd>
+<dt><kbd><span class="option">-w</span>, <span class="option">--no-warnings</span></kbd></dt>
+<dd><p>Suppress warnings.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>EXAMPLES<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Convert <code class="docutils literal notranslate"><span class="pre">game.skool</span></code> into a binary file named <code class="docutils literal notranslate"><span class="pre">game.bin</span></code>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">skool2bin.py</span> <span class="pre">game.skool</span></code></div>
+</div>
+</div>
+</li>
+<li><p>Apply &#64;isub and &#64;ofix directives in <code class="docutils literal notranslate"><span class="pre">game.skool</span></code> and convert it into a
+binary file named <code class="docutils literal notranslate"><span class="pre">game-io.bin</span></code>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">skool2bin.py</span> <span class="pre">-io</span> <span class="pre">game.skool</span> <span class="pre">game-io.bin</span></code></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">skool2bin.py</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#examples">EXAMPLES</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/man/skool2bin.py.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SkoolKit 9.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skool2bin.py</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>
