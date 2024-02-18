@@ -1,0 +1,63 @@
+<h2>Results summary </h2>
+
+<strong>Total test duration</strong>: {{ test_duration|str }}
+
+{{summary_plots[0]}}
+
+
+{{summary_plots[1]}}
+
+<div>
+
+    <table border="1">
+        <tr>
+            <th>Frame size (Bytes)</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Trials</th>
+            <th>Duration</th>
+            <th>Tolerated frame loss (%)</th>
+            <th>Expected throughput (Mb/s)</th>
+            <th>Real throughput (Mb/s)</th>
+            <th>Status</th>
+            <th>Errors</th>
+        </tr>
+
+        {% for result in results %}
+        {% set fr_size = result['frame']['size'] %}
+        {% set nb_errors = (errors[fr_size]|length) %}
+        <tr>
+            <td>{{ fr_size }}</td>
+            <td>{{ source['name'] }}</td>
+            <td>{{ destination['name'] }}</td>
+            {% if result['frame']['trials']|length > 0 %}
+            <td>{{ result['frame']['trials']|length }}</td>
+            <td>{{ result['frame']['test_duration']|str}}</td>
+            <td>{{ result['frame']['tolerated_frame_loss'] * 100 }}</td>
+            <td>{{ '%0.2f' % (result['frame']['expected_bitrate']|float / 1e6) }} Mb/s</td>
+            <td>{{ '%0.2f' % (result['frame']['real_bitrate']|float / 1e6) }} Mb/s</td>
+            {% set frame_section = "#frame_results_" + fr_size|string() %}
+            <td style="margin: auto;">
+                <a href="{{frame_section}}">
+                    {% if result['frame']['real_bitrate']|float >= result['frame']['expected_bitrate']|float %}
+                    <span class="successful"></span>
+                    {% else %}
+                    <span class="failure"></span>
+                    {% endif %}
+                    </span>
+                </a>
+            </td>
+            {% else %}
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td><span class="failure"></span></td>
+            {% endif %}
+            <td>{{ nb_errors }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>

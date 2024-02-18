@@ -1,0 +1,254 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://api.byteblower.com/test-framework/json/test-cases/rfc-2544/config-schema.json",
+    "title": "Test configuration parameters",
+    "description": "Root structure of the JSON configuration file for the ByteBlower RFC 2544 performance Test Case command-line interface.",
+    "type": "object",
+    "properties": {
+        "server": {
+            "$ref": "#/$defs/server_address"
+        },
+        "meeting_point": {
+            "$ref": "#/$defs/meeting_point_address"
+        },
+        "source": {
+            "$ref": "#/$defs/port"
+        },
+        "destination": {
+            "$ref": "#/$defs/port"
+        },
+        "maximum_run_time": {
+            "$ref": "#/$defs/maximum_run_time"
+        },
+        "max_iterations": {
+            "$ref": "#/$defs/max_iterations"
+        },
+        "frame_configs": {
+            "$ref": "#/$defs/frame_configs"
+        }
+    },
+    "required": [
+        "server",
+        "source",
+        "destination"
+    ],
+    "additionalProperties": true,
+    "$defs": {
+        "server_address": {
+            "$$target": "#/$defs/server_address",
+            "title": "ByteBlower server address",
+            "description": "Host name or IP address of the ByteBlower Server.",
+            "type": "string",
+            "oneOf": [
+                {
+                    "format": "hostname"
+                },
+                {
+                    "format": "ipv4"
+                },
+                {
+                    "format": "ipv6"
+                }
+            ]
+        },
+        "meeting_point_address": {
+            "$$target": "#/$defs/meeting_point_address",
+            "title": "ByteBlower meeting point address",
+            "description": "Host name or IP address of the ByteBlower meeting point.\n\n.. versionadded:: 1.0.0\n   Support for ByteBlower Endpoint.",
+            "type": "string",
+            "oneOf": [
+                {
+                    "format": "hostname"
+                },
+                {
+                    "format": "ipv4"
+                },
+                {
+                    "format": "ipv6"
+                }
+            ]
+        },
+        "port": {
+            "$$target": "#/$defs/port",
+            "title": "Configuration parameters for a ByteBlower Port or Endpoint",
+            "description": "Configuration parameters for a ByteBlower Port or Endpoint",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of this ByteBlower port (typically ``Source`` for the tester entity, and ``Destination`` for the NUT)"
+                },
+                "interface": {
+                    "description": "Name of the ByteBlower interface where this ByteBlower port is created (*ByteBlower Port only*). Mutually exclusive with ``\"uuid\"``.",
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "Device identifier of the Endpoint to use (*ByteBlower Endpoint only*).",
+                    "$$description": [
+                        "Mutually exclusive with ``\"interface\"``.",
+                        "",
+                        ".. note::",
+                        "   Using an Endpoint also requires the ``\"meeting_point\"`` to be provided",
+                        "   *and* ``\"ipv4\"`` or ``\"ipv6\"`` set to ``true`` for this port configuration.",
+                        "",
+                        ".. versionadded:: 1.0.0",
+                        "   Support for ByteBlower Endpoint."
+                    ]
+                },
+                "vlans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/vlans"
+                    },
+                    "description": "List of VLAN (stack) configurations. See details in VLAN (stack) configuration.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "ipv4": {
+                    "title": "IPv4 addressing method",
+                    "description": "Enable IPv4 on this traffic endpoint",
+                    "$$description": [
+                        "Supports the following values:",
+                        "",
+                        "- *IPv4 address* for static IPv4 IP address (*ByteBlower Port only*)",
+                        "- ``\"dhcp\"`` for dynamic IPv4 address allocation (*ByteBlower Port only*)",
+                        "- ``true``: To use the IPv4 address(es) of the system (*ByteBlower Endpoint only*).",
+                        "",
+                        "Default: ``\"dhcp\"`` (*ByteBlower Port*) or *undefined* (*ByteBlower Endpoint*).",
+                        "",
+                        ".. note::",
+                        "   For ByteBlower Endpoint, you must specify either ``\"ipv4\": true`` or ``\"ipv6\": true``.",
+                        "",
+                        ".. versionchanged:: 1.0.0",
+                        "   Support for ByteBlower Endpoint."
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "bool"
+                        }
+                    ]
+                },
+                "netmask": {
+                    "type": "string",
+                    "description": "Netmask of the IPv4 network. Default: *Assigned by DHCP* or ``255.255.255.0`` for static IPv4 address configuration.\n\n.. note::\n   Will be supported for IPv6 once manual address configuration is supported by the ByteBlower Test Framework.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "gateway": {
+                    "type": "string",
+                    "description": "(Default) Gateway of the IPv4 network. Default: *Assigned by DHCP* or *none* for static IPv4 address configuration.\n\n.. note::\n   Will be supported for IPv6 once manual address configuration is supported by the ByteBlower Test Framework.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "nat": {
+                    "type": "bool",
+                    "description": "Define whether this port is located behind a NAT gateway. Defaults to ``false``.",
+                    "$$description": [
+                        ".. note::",
+                        "   Enabled by default for ByteBlower Endpoint."
+                    ]
+                },
+                "ipv6": {
+                    "title": "IPv6 addressing method",
+                    "description": "Enable IPv6 on this traffic endpoint",
+                    "$$description": [
+                        "Supports the following values:",
+                        "",
+                        "- ``\"dhcp\"`` to let the port perform DHCPv6 (*ByteBlower Port only*)",
+                        "- ``\"slaac\"`` to let the port perform stateless address auto-configuration (*ByteBlower Port only*)",
+                        "- ``true``: To use the IPv6 address(es) of the system (*ByteBlower Endpoint only*).",
+                        "",
+                        "Default: *undefined*.",
+                        "",
+                        ".. note::",
+                        "   For ByteBlower Endpoint, you must specify either ``\"ipv4\": true`` or ``\"ipv6\": true``.",
+                        "",
+                        ".. versionchanged:: 1.0.0",
+                        "   Support for ByteBlower Endpoint."
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "bool"
+                        }
+                    ]
+                }
+            }
+        },
+        "maximum_run_time": {
+            "$$target": "#/$defs/maximum_run_time",
+            "title": "maximum_run_time",
+            "type": "number",
+            "description": "Maximum run time of a single test trial in seconds",
+            "format": "float"
+        },
+        "max_iterations": {
+            "$$target": "#/$defs/max_iterations",
+            "title": "max_iterations",
+            "type": "number",
+            "description": "Maximum number of iteration to test per frame size",
+            "format": "integer"
+        },
+        "frame_configs": {
+            "$$target": "#/$defs/frame_configs",
+            "type": "object",
+            "properties": {
+                "size": {
+                    "type": "integer",
+                    "description": "Frame length in Bytes without the FCS (Frame Check Sequence, 4 Bytes)"
+                },
+                "initial_bitrate": {
+                    "type": "float",
+                    "description": "Initial bitrate to be used in the first trial of the RFC 2544 throughput test."
+                },
+                "tolerated_frame_loss": {
+                    "type": "float",
+                    "description": "The maximum acceptable frame loss during the test."
+                },
+                "accuracy": {
+                    "type": "float",
+                    "description": "Defines the test accuracy (precision) at which the test should be ended."
+                },
+                "expected_bitrate": {
+                    "type": "string",
+                    "description": "The expected maximum Ethernet layer 2 speed for frames without the 4 bytes of FCS. Usually, it is around the maximum theoretical speed of the tested network."
+                }
+            }
+        },
+        "vlans": {
+            "title": "VLAN (stack) configuration",
+            "$$target": "#/$defs/vlans",
+            "type": "object",
+            "properties": {
+                "protocol_id": {
+                    "type": "integer",
+                    "description": "VLAN protocol ID (TPID). Default value is: \n\n* '0x8100' for a single VLAN configuration \n\n* '0x88a8' for the outer VLAN(s) in a VLAN stack configuration \n\n* '0x8100' for the most inner VLAN in a VLAN stack configuration.\n\nNote: Configuration of the VLAN protocol ID (TPID) requires ByteBlower Server version >= 2.20.0."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "VLAN ID (12-bit; 0-4095)."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "3 bits defining the VLAN PCP bits. Default: 0."
+                },
+                "drop_eligible": {
+                    "type": "integer",
+                    "description": "1-bit flag. Default: 0."
+                }
+            }
+        }
+    }
+}

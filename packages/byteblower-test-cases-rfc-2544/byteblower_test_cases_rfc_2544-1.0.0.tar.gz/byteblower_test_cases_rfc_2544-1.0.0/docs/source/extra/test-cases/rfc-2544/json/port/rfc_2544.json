@@ -1,0 +1,69 @@
+{
+    "server": "byteblower-server.example.com.",
+    "source": {
+        "name": "Source",
+        "interface": "nontrunk-1",
+        "ipv4": "192.168.5.2",
+        "netmask": "255.255.255.0",
+        "gateway": "192.168.5.254"
+    },
+    "destination": {
+        "name": "Destination",
+        "interface": "trunk-1",
+        "ipv4": "dhcp",
+        "nat": true
+    },
+    "duration": 60,
+    "max_iterations": 25,
+    "frame_configs": [
+        {
+            "size": 60,
+            "initial_bitrate": 3e8,
+            "tolerated_frame_loss": 1e-4,
+            "expected_bitrate": 1.7e8,
+            "accuracy": 1e3
+        },
+        {
+            "size": 124,
+            "initial_bitrate": 6e6,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 4.5e8,
+            "accuracy": 1e4
+        },
+        {
+            "size": 252,
+            "initial_bitrate": 8e6,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 5.7e8,
+            "accuracy": 1e3
+        },
+        {
+            "size": 508,
+            "initial_bitrate": 8e8,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 6.6e8,
+            "accuracy": 1e3
+        },
+        {
+            "size": 1020,
+            "initial_bitrate": 1e9,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 7.15e8,
+            "accuracy": 1e2
+        },
+        {
+            "size": 1276,
+            "initial_bitrate": 1e9,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 7.25e8,
+            "accuracy": 1e2
+        },
+        {
+            "size": 1514,
+            "initial_bitrate": 1e9,
+            "tolerated_frame_loss": 1e-3,
+            "expected_bitrate": 7.35e8,
+            "accuracy": 1e2
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+<h3>Test environment</h3>
+<dl>
+    <dt>API Version</dt>
+    <dd>{{ api_version }}</dd>
+</dl>
+<dl>
+    <dt>Test Framework Version</dt>
+    <dd>{{ framework_version }}</dd>
+</dl>
+<dl>
+    <dt>ByteBlower Server</dt>
+    <dd>{{ server }}</dd>
+</dl>
+
+
+<h3>Configuration Summary</h3>
+
+<table style="width: 50%;">
+    <tr>
+        <th style="width:50%;">Max iteration</th>
+        <td>{{ max_ieration }}</td>
+    </tr>
+    <tr>
+        <th style="width:50%;">Duration of one iteration</th>
+        <td>{{ iteration_duration }}</td>
+    </tr>
+
+
+</table>
+
+
+<strong>Source port configuration </strong>
+<p></p>
+<table style="width: 50%;">
+
+    {% for key, value in source.items() %}
+    <tr>
+        <th style="width:50%;">{{key.capitalize()}}</th>
+        <td>{{value}}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<strong>Destination port configuration</strong>
+<p></p>
+<table style="width: 50%;">
+    {% for key, value in destination.items() %}
+    <tr>
+        <th style="width:50%;">{{key.capitalize()}}</th>
+        <td>{{value}}</td>
+    </tr>
+
+    {% endfor %}
+</table>

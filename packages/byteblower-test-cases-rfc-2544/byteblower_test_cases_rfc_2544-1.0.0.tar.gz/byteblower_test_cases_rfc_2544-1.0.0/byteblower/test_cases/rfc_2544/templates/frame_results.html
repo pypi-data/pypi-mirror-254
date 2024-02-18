@@ -1,0 +1,95 @@
+{% for result in results %}
+
+{% if result['frame']['trials']|length > 0 %}
+
+<h2 id="frame_results_{{result['frame']['size']}}">Frame size {{result['frame']['size']}}</h2>
+
+
+<h3>Test Status</h3>
+
+{% if errors[result['frame']['size']]|length > 5 or result['frame']['real_bitrate']|float <
+    result['frame']['expected_bitrate']|float %} <p style="margin-left: 3.5%;font-size: 125%; color:red">FAIL</p>
+
+
+    <ul>
+        {% if result['frame']['real_bitrate']|float < result['frame']['expected_bitrate']|float%} <li>The maximum
+            Ethernet layer 2 tested throughput is less than expected</li>
+            {% endif %}
+
+            {% if errors[result['frame']['size']]|length > 0%}
+            <li>Runtime error(s) occurred during the test. Find more details in the <a href="#error_logs_table">Error
+                    logs</a></li>
+            {% endif %}
+    </ul>
+
+    {% else %}
+    <p style="margin-left: 3.5%; font-size: 125%; color:green">SUCCESS</p>
+
+    {% endif %}
+
+
+    {{result['plot']}}
+
+
+    <h3>Frame configuration summary</h3>
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>Frame size</th>
+                <td>{{result['frame']['size']}} Bytes</td>
+            </tr>
+            <tr>
+                <th>Expected maximum bitrate</th>
+                <td>{{ '%0.2f' % (result['frame']['expected_bitrate']|float / 1e6) }} Mb/s</td>
+            </tr>
+            <tr>
+                <th>Number of iterations</th>
+                <td>{{(result['frame']['trials']|length)}}</td>
+            </tr>
+            <tr>
+                <th>Tolerated frame loss</th>
+                <td>{{result['frame']['tolerated_frame_loss']*100}} %</td>
+            </tr>
+            <tr>
+                <th>Maximum tested bitrate</th>
+                <td>{{ '%0.2f' % (result['frame']['real_bitrate']|float / 1e6) }} Mb/s</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{result['frame']['test_duration']|str}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {%endif%}
+    {% endfor %}
+
+    {% if errors|length > 0 %}
+
+    <h2 id="error_logs_table">Error logs</h2>
+    <table border="1">
+        <thead>
+            <th>Frame size</th>
+            <th>Timestamp</th>
+            <th>Error</th>
+            <th>Message</th>
+        </thead>
+        <tbody>
+            {%for size,logs in errors.items() %}
+            {% for log in logs %}
+            <tr>
+                <td>{{size}}</td>
+                <td>{{(log['timestamp']|iso_format)[:-7]}}</td>
+                <td>{{log['exception']}}</td>
+                <td>{{log['error_msg']}}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+    {% endif %}
