@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+wren/__init__.py
+wren/cli.py
+wren/core.py
+wren/http_server.py
+wren/telegram.py
+wren_notes.egg-info/PKG-INFO
+wren_notes.egg-info/SOURCES.txt
+wren_notes.egg-info/dependency_links.txt
+wren_notes.egg-info/entry_points.txt
+wren_notes.egg-info/requires.txt
+wren_notes.egg-info/top_level.txt
