@@ -1,0 +1,26 @@
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vec3"
+authors = [
+{ name="Angel Yanguas-Gil"}]
+version = "0.1.0"
+description = "A ridiculously simple 3D vector and geometry package"
+readme = "README.md"
+keywords = ["geometry", "vector", "3D"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Utilities"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/anglyan/vec3.git"
+

@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: vec3
+Version: 0.1.0
+Summary: A ridiculously simple 3D vector and geometry package
+Author: Angel Yanguas-Gil
+Project-URL: Homepage, https://github.com/anglyan/vec3.git
+Keywords: geometry,vector,3D
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# vec3
+ridiculously simple 3D vector and geometry package

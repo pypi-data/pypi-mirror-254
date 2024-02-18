@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/vec3/__init__.py
+src/vec3/vec3.py
+src/vec3.egg-info/PKG-INFO
+src/vec3.egg-info/SOURCES.txt
+src/vec3.egg-info/dependency_links.txt
+src/vec3.egg-info/top_level.txt
