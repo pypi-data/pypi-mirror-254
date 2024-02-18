@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+alegriadb.egg-info/PKG-INFO
+alegriadb.egg-info/SOURCES.txt
+alegriadb.egg-info/dependency_links.txt
+alegriadb.egg-info/requires.txt
+alegriadb.egg-info/top_level.txt
+migrations/0001_initial.py
+migrations/0002_auto_20240201_1914.py
+migrations/0003_auto_20240201_1917.py
+migrations/0004_remove_redirectemail_apps.py
+migrations/__init__.py
+utils/alegria_admin_funcitons.py
