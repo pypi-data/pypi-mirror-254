@@ -1,0 +1,16 @@
+common:
+  base_url: null
+  headers: null
+  ocr_service: null
+  web_base_url: https://kjcx-test.qizhidao.com/
+web:
+  browser_name: null
+  cookies:
+  - domain: .qizhidao.com
+    name: accessToken
+    path: /
+    value: eyJhbGciOiJIUzUxMiJ9.ZXlKNmFYQWlPaUpFUlVZaUxDSmhiR2NpT2lKa2FYSWlMQ0psYm1NaU9pSkJNVEk0UTBKRExVaFRNalUySW4wLi5mNS1qNjJRYjZVaERDTmdUQm1ER3BRLk1YRWV5c3ZSaHdHWlREcWJuSVE5RGdZWXJPc2F2R0Z4VElhNjRrZzhyTnp4aVhERUNOOHctWjlBaUZseG12YUpSVU5Sb1F1MTlLTndIS0llczdzR0hQTGtmZEItTDRKeklRbGE4RWF4MUtfbnB4TkthOUZrZUZnUXUzQ2FZNzg1XzlIcGNfeTFFaDQyYjgzbUVkeEFkQUpMb1UwaFNXUlJ2azNoYjdwcUpteVU1aFJJbXJnQVc4VlZYUlh0N29xWWFIUjBXdVI5aU9SOXZkY2hGYjMzeUFfRElpZlhIYkhMOV9hQk96MldqTVEudlpXME9La3h2MW9sOTlSWmdqd25UZw.D9TbvKasWLqa56LZa59hhY6zsF3aQCrSp0vNFUP4eC3DE_mHcfap_Nr6svQ49M7ppzjNnbKAa7Um0fXnhKPtrw
+  headless: false
+  maximized: true
+  state_file: null
+  window_size: null
