@@ -1,0 +1,2 @@
+[console_scripts]
+modterm = modterm.__main__:main
