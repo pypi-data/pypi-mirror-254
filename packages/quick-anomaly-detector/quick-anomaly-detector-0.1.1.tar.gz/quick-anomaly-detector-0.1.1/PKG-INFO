@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: quick-anomaly-detector
+Version: 0.1.1
+Summary: models class for quick Anomaly Detection
+Home-page: https://github.com/cheerzhang/AnomalyDetectionModel
+Author: ZhangLe
+Author-email: zhangle@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/cheerzhang/AnomalyDetectionModel/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AnomalyDetectionModel
+AnomalyDetectionModels
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Overview
+
+`AnomalyDetectionModel` is a python library that includs some simple implementation of an anomaly detection model.   
+For more details, please refer to the document page:   
+[Document](https://read-doc-1.readthedocs.io/en/main/index.html)   
+pypi page link is here:(https://pypi.org/project/df-csv-excel/)   
+
+### Quick Start
+#### Installation
+
+You can install `AnomalyDetectionModel` using pip:
+
+```
+pip install AnomalyDetectionModel
+```
+
