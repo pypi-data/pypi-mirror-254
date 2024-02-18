@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+NVRChannel/__init__.py
+NVRChannel/devices_manifest.json
+NVRChannel.egg-info/PKG-INFO
+NVRChannel.egg-info/SOURCES.txt
+NVRChannel.egg-info/dependency_links.txt
+NVRChannel.egg-info/top_level.txt
+NVRChannel/NVRChannel/__init__.py
+NVRChannel/NVRChannel/labelmap.txt
+NVRChannel/NVRChannel/efficientdet/efficientdet-lite0-f32.tflite
+NVRChannel/onvif/version.txt
