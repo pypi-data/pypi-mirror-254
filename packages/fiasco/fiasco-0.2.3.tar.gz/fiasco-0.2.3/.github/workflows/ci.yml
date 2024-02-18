@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+      - '*.*'
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  test:
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v1
+    with:
+      posargs: '--ascii-dbase-root ~/.chianti'
+      toxdeps: "'tox<4' tox-pypi-filter"
+      envs: |
+        - macos: py38
+        - macos: py310
+        - windows: py38
+        - windows: py310
+        - linux: py38
+        - linux: py39
+        - linux: py310
+      coverage: 'codecov'
+      cache-path: ~/.chianti
+      cache-key: chianti-${{ github.event.number }}
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  test_full_database:
+    needs: [test]
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v1
+    with:
+      posargs: '--ascii-dbase-root ~/.chianti --include-all-files'
+      toxdeps: "'tox<4' tox-pypi-filter"
+      envs: |
+        - linux: py310
+      cache-path: ~/.chianti
+      cache-key: chianti-${{ github.event.number }}
+  precommit:
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v1
+    with:
+      toxdeps: "'tox<4' tox-pypi-filter"
+      envs: |
+        - linux: pre-commit
+  docs:
+    needs: [test]
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v1
+    with:
+      toxdeps: "'tox<4' tox-pypi-filter"
+      envs: |
+        - linux: build_docs
+          python-version: '3.10'
+  publish:
+    # Build wheels when pushing to any branch except main
+    # publish.yml will only publish if tagged ^v.*
+    if: |
+      (
+        github.event_name != 'pull_request' && (
+          github.ref_name != 'main' ||
+          github.event_name == 'workflow_dispatch'
+        )
+      ) || (
+        github.event_name == 'pull_request' &&
+        contains(github.event.pull_request.labels.*.name, 'Run publish')
+      )
+    needs: [test,test_full_database]
+    uses: OpenAstronomy/github-actions-workflows/.github/workflows/publish_pure_python.yml@main
+    with:
+      test_extras: 'dev'
+      test_command: 'pytest -p no:warnings --doctest-rst --pyargs fiasco'
+      submodules: false
+      python-version: '3.10'  # Plasmapy depends on Numba which is not compatible with 3.11
+    secrets:
+      pypi_token: ${{ secrets.PYPI_TOKEN }}
