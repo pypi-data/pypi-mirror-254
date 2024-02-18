@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+clipy_hooks/__init__.py
+clipy_hooks/cli.py
+clipy_hooks.egg-info/PKG-INFO
+clipy_hooks.egg-info/SOURCES.txt
+clipy_hooks.egg-info/dependency_links.txt
+clipy_hooks.egg-info/top_level.txt
+tests/test_cli.py
