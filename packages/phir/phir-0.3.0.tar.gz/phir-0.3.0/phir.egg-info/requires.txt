@@ -1,0 +1,10 @@
+pydantic
+rich
+
+[docs]
+autodoc-pydantic
+pydata_sphinx_theme
+sphinx
+
+[tests]
+pytest
