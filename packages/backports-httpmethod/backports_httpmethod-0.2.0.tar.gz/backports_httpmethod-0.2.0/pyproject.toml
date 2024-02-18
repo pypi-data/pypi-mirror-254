@@ -1,0 +1,148 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatch-vcs",
+  "hatchling",
+]
+
+[project]
+name = "backports-httpmethod"
+description = "A backport of Python 3.11+ `http.HTTPMethod` enum"
+readme = "README.md"
+keywords = [
+  "backports",
+  "enum",
+  "http",
+  "httpmethod",
+]
+license.file = "LICENSE"
+maintainers = [
+  { name = "Edgar Ramírez-Mondragón", email = "edgarrmondragon@hey.com" },
+]
+authors = [
+  { name = "Edgar Ramírez-Mondragón", email = "edgarrmondragon@hey.com" },
+]
+requires-python = ">=3.7"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = [
+  "version",
+]
+dependencies = [
+  'backports.strenum; python_version < "3.11"',
+]
+urls.Documentation = "https://github.com/edgarrmondragon/backports.httpmethod#readme"
+urls.Issues = "https://github.com/edgarrmondragon/backports.httpmethod/issues"
+urls.Source = "https://github.com/edgarrmondragon/backports.httpmethod"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backports"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.envs.default]
+[tool.hatch.envs.default.overrides]
+env.GITHUB_ACTIONS.dev-mode = { value = false, if = ["true"] }
+matrix.python.env-vars = [
+  { key = "COVERAGE_CORE", value = "sysmon", if = ["3.12", "3.13"] }
+]
+[tool.hatch.envs.default.scripts]
+test = "python -Im unittest {args}"
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+
+[tool.hatch.envs.lint]
+dependencies = [
+  "mypy>=1.0.0",
+  "ruff>=0.1.0",
+]
+[tool.hatch.envs.lint.scripts]
+typing = "mypy --install-types --non-interactive --explicit-package-bases {args:src/backports/httpmethod tests}"
+style = [
+  "ruff check {args:.}",
+  "ruff format --check {args:.}",
+]
+fmt = [
+  "ruff check --fix {args:.}",
+  "ruff format {args:.}",
+  "style",
+]
+all = [
+  "style",
+  "typing",
+]
+
+[tool.ruff]
+line-length = 120
+preview = true
+target-version = "py37"
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "ARG",
+  "B",
+  "C",
+  "COM",
+  "DTZ",
+  "E",
+  "EM",
+  "F",
+  "FBT",
+  "I",
+  "ICN",
+  "ISC",
+  "N",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "Q",
+  "RUF",
+  "S",
+  "T",
+  "TID",
+  "UP",
+  "W",
+  "YTT",
+]
+ignore = [
+  # Conflict with the Ruff formatter
+  "COM812", "ISC001",
+]
+unfixable = [
+  # Don't touch unused imports
+  "F401",
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.pyproject-fmt]
+indent = 2
+keep_full_version = true
+max_supported_python = "3.13"
+
+[tool.coverage.report]
+exclude_also = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.mypy]
+mypy_path = "src"
