@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pypz-kafka-io
+Version: 0.9.0b5
+Summary: Provides a Kafka implementation of the ChannelInput/OutputPort in pypz.
+Author-email: Laszlo Anka <laszlo.anka@gmail.com>
+Keywords: pypz,plugin,kafka
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pypz-core
+Requires-Dist: avro ==1.10.1
+Requires-Dist: kafka-python ==2.0.2
+Requires-Dist: avro-validator ==1.2.1
+
+# Local testing
+
+To test it locally, start confluent's pre-made image:
+```shell
+docker run -it --rm -p 9092:9092 confluentinc/confluent-local
+```
+
+For more information refer to: https://hub.docker.com/r/confluentinc/confluent-local
+
+0
