@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/nihonium/__init__.py
+src/nihonium/example.py
+src/nihonium.egg-info/PKG-INFO
+src/nihonium.egg-info/SOURCES.txt
+src/nihonium.egg-info/dependency_links.txt
+src/nihonium.egg-info/top_level.txt
