@@ -1,0 +1,3 @@
+[console_scripts]
+patched-cli=patched_cli.app:main
+
