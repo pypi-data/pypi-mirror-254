@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tgedr-dataops
+Version: 0.0.8
+Summary: data operations related code
+Home-page: https://github.com/jtviegas-sandbox/dataops
+Author: joao tiago viegas
+Author-email: jtviegas@gmail.com
+License: Unlicense
+Keywords: data engineering mlops ml
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: pyarrow==14
+Requires-Dist: pyspark==3.5
