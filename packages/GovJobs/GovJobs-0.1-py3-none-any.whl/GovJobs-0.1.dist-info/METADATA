@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: GovJobs
+Version: 0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: asgiref ==3.7.2
+Requires-Dist: certifi ==2023.11.17
+Requires-Dist: charset-normalizer ==3.3.2
+Requires-Dist: Django <4.0,>=3.2
+Requires-Dist: django-bootstrap3 ==23.6
+Requires-Dist: docopt ==0.6.2
+Requires-Dist: idna ==3.6
+Requires-Dist: pipreqs ==0.4.13
+Requires-Dist: psycopg ==3.1.17
+Requires-Dist: psycopg2-binary ==2.9.9
+Requires-Dist: requests ==2.31.0
+Requires-Dist: sqlparse ==0.4.4
+Requires-Dist: typing-extensions ==4.9.0
+Requires-Dist: urllib3 ==2.1.0
+Requires-Dist: yarg ==0.1.9
+
+UNKNOWN
+
+
