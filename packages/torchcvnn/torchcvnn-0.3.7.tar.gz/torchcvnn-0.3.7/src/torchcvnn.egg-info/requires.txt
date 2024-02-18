@@ -1,0 +1,5 @@
+torch>=2.0
+numpy
+requests>=2.31.0
+tqdm>=4.66.1
+pillow
