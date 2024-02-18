@@ -1,0 +1,16 @@
+fastapi_sqla/__init__.py,sha256=G9bKR6L9EnLgzelE_BLnHgc1cOm0Yu0wMzwLAdyA8iE,1153
+fastapi_sqla/_pytest_plugin.py,sha256=bjPzOuwk32Zo4hoOa_bGjTGhtHGPImh3RyiORqz-J84,5430
+fastapi_sqla/async_pagination.py,sha256=r5APFbE-xpqQPF1aTG19ILOwYDhuIlHql3UF3mYZMt4,3176
+fastapi_sqla/async_sqla.py,sha256=7SXRH3DMsQvpjCQdvCBEjQhDZ4-cPAg175MlgNVBnCg,5888
+fastapi_sqla/aws_aurora_support.py,sha256=4dxLKOqDccgLwFqlz81L6f4HzrOXMZkY7Zuf4t_310U,838
+fastapi_sqla/aws_rds_iam_support.py,sha256=YSJNhrxmhGN-GVk9PLMTmQSWTKZBvuorKkhc_XaoL44,1189
+fastapi_sqla/base.py,sha256=0X7Gbt49rBHPiSFmNy5S2PT0dA4UBNnwrAesYSkaHBc,1606
+fastapi_sqla/models.py,sha256=fesW7BqkwOA4iC345dbybzcV8Kz4-kLwREo38oqy_7A,1108
+fastapi_sqla/pagination.py,sha256=uhsNRf9w2GzJQkF8eUUQZMAudPDi7tN5OCb00kz3Dn4,4515
+fastapi_sqla/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastapi_sqla/sqla.py,sha256=zAkzY07bHEnOrmP7_dwO4Gdar18qm1ZbhB1RD3AZGrA,6427
+fastapi_sqla-3.1.1.dist-info/LICENSE,sha256=8G0-nWLqi3xRYRrtRlTE8n1mkYJcnCRoZGUhv6ZE29c,1064
+fastapi_sqla-3.1.1.dist-info/METADATA,sha256=caalhTVa91W2oBq_rXUhu5xahUzINgBpq39GRlsbvxc,20905
+fastapi_sqla-3.1.1.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+fastapi_sqla-3.1.1.dist-info/entry_points.txt,sha256=haa0EueKcRo8-AlJTpHBMn08wMBiULNGA53nkvaDWj0,53
+fastapi_sqla-3.1.1.dist-info/RECORD,,
