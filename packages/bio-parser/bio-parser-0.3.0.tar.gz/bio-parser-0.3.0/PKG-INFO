@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: bio-parser
+Version: 0.3.0
+Author-email: Oliver Tüselmann <oliver.tueselmann@tu-dortmund.de>, David Villanova Aparisi <davilap@inf.upv.es>, Yoann Schneider <yschneider@teklia.com>, Solène Tarride <starride@teklia.com>
+Maintainer-email: Yoann Schneider <yschneider@teklia.com>, Solène Tarride <starride@teklia.com>
+License: MIT License
+        
+        Copyright (c) 2023 TEKLIA
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://gitlab.teklia.com/ner/metrics/bio-parser
+Project-URL: Documentation, https://ner.pages.teklia.com/metrics/bio-parser
+Project-URL: Repository, https://gitlab.teklia.com/ner/metrics/bio-parser
+Project-URL: Bug Tracker, https://gitlab.teklia.com/ner/metrics/bio-parser/issues
+Keywords: NER,python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: docs
+License-File: LICENSE
+
+# BIO2 Parser
+
+**Disclaimer**: This package only supports BIO2 and doesn't support BIO (yet). More on the distinction between formats in [Wikipedia](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)).
+
+## Documentation
+
+The official documentation for this project is available at <https://ner.pages.teklia.com/bio-parser>.
+
+## Get started
+
+To install this package or to get started with development for this project, visit the related [section](https://ner.pages.teklia.com/metrics/bio-parser/get_started) in the documentation.
