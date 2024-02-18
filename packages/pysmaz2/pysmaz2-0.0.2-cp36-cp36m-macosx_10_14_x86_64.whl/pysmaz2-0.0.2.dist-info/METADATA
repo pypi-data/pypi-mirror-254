@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pysmaz2
+Version: 0.0.2
+Summary: python binding for smaz2
+Home-page: https://github.com/synodriver/pysmaz2
+Author: synodriver
+Author-email: diguohuangjiajinweijun@gmail.com
+License: BSD
+Keywords: smaz2,compress,decompress
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cffi (>=1.0.0)
+
+<h1 align="center"><i>✨ pysmaz2 ✨ </i></h1>
+
+<h3 align="center">The python binding for <a href="https://github.com/antirez/smaz2">smaz2</a> </h3>
+
+[![pypi](https://img.shields.io/pypi/v/pysmaz2.svg)](https://pypi.org/project/pysmaz2/)
+![python](https://img.shields.io/pypi/pyversions/pysmaz2)
+![implementation](https://img.shields.io/pypi/implementation/pysmaz2)
+![wheel](https://img.shields.io/pypi/wheel/pysmaz2)
+![license](https://img.shields.io/github/license/synodriver/pysmaz2.svg)
+![action](https://img.shields.io/github/workflow/status/synodriver/pysmaz2/build%20wheel)
+
+### install
+```bash
+pip install pysmaz2
+```
+
+
+### Usage
+```python
+def compress(inp: bytes, bufsize: int) -> bytes: ...
+def compress_into(inp: bytes, out: bytearray) -> int: ...
+def decompress(inp: bytes, bufsize: int) -> bytes: ...
+def decompress_into(inp: bytes, out: bytearray) -> int: ...
+```
+
