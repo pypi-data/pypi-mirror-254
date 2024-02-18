@@ -1,0 +1,2 @@
+graft ravendb_embedded/target/nuget
+include README.rst
