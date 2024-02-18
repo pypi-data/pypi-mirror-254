@@ -1,0 +1,17 @@
+axon_serve/__init__.py,sha256=EiVJd9kddrftFGe_pfGCBGjYoM6Us1JH6SKPG-i8bjo,110
+axon_serve/options.py,sha256=-tCMTlTl2S_YCa0RyLBdNjB3hSiWFVhESFDVbd2nbzo,142
+axon_serve/client/__init__.py,sha256=0cmP1HQkMuX0450f7tqdlsYzrhQiyLGAtV69vZ08QRw,44
+axon_serve/client/serve_client.py,sha256=MpaVDYqltPFR04o3pc2MN7pTnFHyuOuhayc-Bclq9To,1533
+axon_serve/convert/convert_array.py,sha256=zpr4XbwYpaEtg2xGJTmIXLq-sMAftI782Io--aX9rC4,651
+axon_serve/convert/convert_dict.py,sha256=DyC1jQ9MIPIyVRgdPDhS2A67vOhjM4tJakMA1aJoQLE,495
+axon_serve/proto/service.proto,sha256=d9d6K6pzxOe_M3tqUiF6QUW0B5c73HsnXru3aJg5n5M,410
+axon_serve/proto/generated/service_pb2.py,sha256=8qDE4XKQbaHTHiSHL-nJqOCMtsGGoDMDu0tZEYbLRfE,1838
+axon_serve/proto/generated/service_pb2.pyi,sha256=ZMEcIzrnwUOzfywE9pXSETlvkku4EvyBGrYHNYHb-X0,1374
+axon_serve/proto/generated/service_pb2_grpc.py,sha256=RaO17yMvs5J39z8knN0dSOX529W6Q32sR43o-OTp2-w,2496
+axon_serve/server/__init__.py,sha256=h2lR_b7QE8B3fiu4N81fmcps5GaFKi_KgcYC3WfpeDQ,87
+axon_serve/server/grpc_service.py,sha256=FsIjhNq_uzpF8Iv4BR-0l5m2XXXZHpTfZsz1GTku1jk,824
+axon_serve/server/predict_service.py,sha256=hXczJDlKkW8aIfQDJDI8oa66AY3FE6p-2v6DpmNdolU,1251
+axon_serve-0.0.1.dist-info/METADATA,sha256=o_zUs5YJTNQbO8EwN_5pvFkmOa7DDi52bjVrMN4ZFxE,1902
+axon_serve-0.0.1.dist-info/WHEEL,sha256=TJPnKdtrSue7xZ_AVGkp9YXcvDrobsjBds1du3Nx6dc,87
+axon_serve-0.0.1.dist-info/licenses/LICENCE,sha256=jVHJlItlbFC2KgdWgvqmN8hTv_oyjWIXbxk60om_r00,1087
+axon_serve-0.0.1.dist-info/RECORD,,

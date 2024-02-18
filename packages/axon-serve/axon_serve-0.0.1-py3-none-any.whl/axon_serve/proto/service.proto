@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+service ServeModel {
+    rpc Predict (PredictRequest) returns (PredictResponse) {}
+}
+
+message NDArray {
+    repeated int64 shape = 1;
+    bytes data = 2;
+    string dtype = 3;
+}
+
+message PredictRequest {
+    NDArray input = 1;
+    optional google.protobuf.Struct params = 2;
+}
+
+message PredictResponse {
+    NDArray result = 1;
+}
