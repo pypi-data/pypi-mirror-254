@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: spacy_space
+Version: 0.0.0a1
+Summary: spacy_space : add adequate spaces in-between single sentences via spaCy
+License: MIT
+Keywords: NLP,natural language processing,computational linguistics,linguistics,language,natural language,text analytics
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing
+License-File: LICENSE
+Requires-Dist: spacy<=3.7.2

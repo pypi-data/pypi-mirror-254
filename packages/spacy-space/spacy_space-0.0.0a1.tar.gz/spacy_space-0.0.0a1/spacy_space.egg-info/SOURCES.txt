@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+spacy_space/__init__.py
+spacy_space/engine.py
+spacy_space/entities.py
+spacy_space/resources.py
+spacy_space.egg-info/PKG-INFO
+spacy_space.egg-info/SOURCES.txt
+spacy_space.egg-info/dependency_links.txt
+spacy_space.egg-info/requires.txt
+spacy_space.egg-info/top_level.txt
