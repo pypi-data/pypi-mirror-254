@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: pychassislib
+Version: 0.4.1
+Summary: A lightweight Python distributed microservice library
+Author-Email: BryantHe <bryantsisu@qq.com>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Homepage, https://github.com/Bryanthelol/pychassislib
+Project-URL: Source code, https://github.com/Bryanthelol/pychassislib
+Project-URL: Bug tracker, https://github.com/Bryanthelol/pychassislib/issues
+Requires-Python: >=3.8
+Provides-Extra: nameko
+Provides-Extra: apiflask
+Provides-Extra: ha
+Provides-Extra: ob
+Provides-Extra: log
+Provides-Extra: metric
+Provides-Extra: schema
+Provides-Extra: mysql
+Provides-Extra: mongodb
+Provides-Extra: redis
+Provides-Extra: security
+Provides-Extra: dev
+Requires-Dist: nameko==3.0.0rc11; extra == "nameko"
+Requires-Dist: apiflask>=2.1.0; extra == "apiflask"
+Requires-Dist: gevent>=23.9.1; extra == "apiflask"
+Requires-Dist: gunicorn>=21.2.0; extra == "apiflask"
+Requires-Dist: cachetools==5.3.2; extra == "ha"
+Requires-Dist: circuitbreaker==2.0.0; extra == "ha"
+Requires-Dist: tenacity==8.2.3; extra == "ha"
+Requires-Dist: nameko-sentry==1.0.0; extra == "ob"
+Requires-Dist: nameko-tracer==1.4.0; extra == "ob"
+Requires-Dist: loguru==0.7.2; extra == "log"
+Requires-Dist: statsd==4.0.1; extra == "metric"
+Requires-Dist: marshmallow==3.20.2; extra == "schema"
+Requires-Dist: pymysql>=1.0.3; extra == "mysql"
+Requires-Dist: sqlalchemy>=2.0.15; extra == "mysql"
+Requires-Dist: sqlacodegen>=2.3.0; extra == "mysql"
+Requires-Dist: alembic>=1.11.1; extra == "mysql"
+Requires-Dist: mongoengine==0.27.0; extra == "mongodb"
+Requires-Dist: pottery==3.0.0; extra == "redis"
+Requires-Dist: cryptography>=42.0.2; extra == "security"
+Requires-Dist: environs==9.5.0; extra == "dev"
+Requires-Dist: python-dotenv==1.0.0; extra == "dev"
+Requires-Dist: pdm>=2.10.1; extra == "dev"
+Description-Content-Type: text/markdown
+
+# pychassislib
+
+[![Upload Python Package](https://github.com/Bryanthelol/pychassislib/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Bryanthelol/pychassislib/actions/workflows/python-publish.yml)
+
+A Python library for the lightweight distributed microservice system 
