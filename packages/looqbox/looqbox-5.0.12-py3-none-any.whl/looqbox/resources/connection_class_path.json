@@ -1,0 +1,12 @@
+{
+  "jdbc": {
+    "default": "looqbox.database.connections.connection_jdbc_query_executor.QueryExecutorJDBCConnection",
+    "query_caller": "looqbox.database.connections.connection_jdbc_query_caller.QueryCallerJDBCConnection"
+  },
+  "mongo_db": {
+    "default": "looqbox.database.connections.connection_mongo.MongoConnection"
+  },
+  "big_query": {
+    "default": "looqbox.database.connections.connection_big_query.BigQueryConnection"
+  }
+}
