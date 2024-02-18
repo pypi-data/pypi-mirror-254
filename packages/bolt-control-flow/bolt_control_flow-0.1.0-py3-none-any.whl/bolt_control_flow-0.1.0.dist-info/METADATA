@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: bolt_control_flow
+Version: 0.1.0
+Summary: Utilities and helpers for overriding control flow behaviour in Bolt
+Home-page: https://github.com/vdvman1/bolt-control-flow
+License: MIT
+Keywords: beet,bolt,minecraft,minecraft-commands,mcfunction
+Author: Stefan van der Velden
+Author-email: vdvman1@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: beet (>=0.97.0)
+Requires-Dist: bolt (>=0.41.1)
+Requires-Dist: mecha (>=0.83.0)
+Project-URL: Bug Tracker, https://github.com/vdvman1/bolt-control-flow/issues
+Project-URL: Documentation, https://github.com/vdvman1/bolt-control-flow/wiki
+Project-URL: Repository, https://github.com/vdvman1/bolt-control-flow
+Description-Content-Type: text/markdown
+
+# bolt-control-flow
+
+[![GitHub Actions](https://github.com/vdvman1/bolt-control-flow/workflows/CI/badge.svg)](https://github.com/vdvman1/bolt-control-flow/actions)
+
+> Utilities and helpers for overriding control flow behaviour in Bolt
+
+## Installation
+
+```bash
+pip install bolt_control_flow
+```
+
+---
+
+License - [MIT](https://github.com/vdvman1/bolt-control-flow/blob/main/LICENSE)
+
+
