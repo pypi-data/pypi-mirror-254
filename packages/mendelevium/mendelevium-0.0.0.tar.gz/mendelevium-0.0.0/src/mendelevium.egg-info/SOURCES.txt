@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/mendelevium/__init__.py
+src/mendelevium/example.py
+src/mendelevium.egg-info/PKG-INFO
+src/mendelevium.egg-info/SOURCES.txt
+src/mendelevium.egg-info/dependency_links.txt
+src/mendelevium.egg-info/top_level.txt
