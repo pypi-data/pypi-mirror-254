@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: sklearn_special_ensembles
+Version: 1.1.3
+Summary: A library of specialized ensembles for sklearn-type base models.
+Home-page: https://github.com/ewilk0/sklearn_special_ensembles/tree/v1.1.3
+Author: Ethan Wilk
+Author-email: ejwilk@caltech.edu
+License: MIT
+Download-URL: https://github.com/ewilk0/sklearn_special_ensembles/archive/refs/tags/v1.1.3.tar.gz
+Description: UNKNOWN
+Keywords: sklearn,ensemble,modeling,data analysis,machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
