@@ -1,0 +1,12 @@
+numpy
+scipy>=1.7
+sympy
+matplotlib
+
+[dev]
+flake8
+pytest
+cvxopt
+scikit-sparse
+pypardiso
+jax[cpu]
