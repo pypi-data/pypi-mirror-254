@@ -1,0 +1,16 @@
+azdevops/__init__.py,sha256=_MrDcgw2uWGHFLpcHkdwO8FKsL1DhbUHqyPFxQjCdNE,80
+azdevops/auth.py,sha256=DreR-w7u5Mh3P7Ef7Hy4twQwSrpntNG7EjfFFKzBtZQ,2032
+azdevops/azdev.py,sha256=DA68BA1r0KBjkNseUcTWWIgsVSWwI5DIR1e8h3LW22s,2234
+azdevops/azdev_show.py,sha256=6DV4SVxAF02iyqbK5oajOZldvKkUoE8VfDsqcn3ePi0,4186
+azdevops/azdevclient.py,sha256=tYX1LPBz2W4S19H-R__dD35PNQ_QxdJq4dy-Kwxf_O8,13204
+azdevops/issue.py,sha256=P02Ht-BaMHijJI2C8uA_IUFlOzqtEar1KSDllN7VPGg,2094
+azdevops/misc.py,sha256=YQ0eerOlh4zJwPfzNikzZTZ5PWCE9RD8fFUA2VrzF_g,8286
+azdevops/pipelines.py,sha256=lHG5eFmeBnaaggZNdQehVFpTz7NmIeuqkQBY5A-q2SI,12787
+azdevops/project.py,sha256=zAuDdwOyDoE6BZ4i8PI-_Tv1d_NNFDebuUuFahOmOn4,4074
+azdevops/search.py,sha256=IMAN5MJpk3wZHdTbbLiTuIjWXCE0u2jmyz7MLMekd1c,13055
+azdevops/sprints.py,sha256=Gr1FIpRxBqfeYMv1F-G1eRNaYgiKEiq_C29IqQk-IoY,10157
+goatazdevops-2024.2.1.807.dist-info/METADATA,sha256=JG3URbU9-RhwXxtqrHSQU2q_WBK8RGzwDnePTg2MjT0,452
+goatazdevops-2024.2.1.807.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+goatazdevops-2024.2.1.807.dist-info/entry_points.txt,sha256=XFsXd_0TFZ0u94zPBdU22pMYtzx29QQY1gosMtPx8uw,49
+goatazdevops-2024.2.1.807.dist-info/top_level.txt,sha256=-awcHCddRmE4HDP3t5a8NxnVA7LP75B7ui10MijhxW4,14
+goatazdevops-2024.2.1.807.dist-info/RECORD,,
