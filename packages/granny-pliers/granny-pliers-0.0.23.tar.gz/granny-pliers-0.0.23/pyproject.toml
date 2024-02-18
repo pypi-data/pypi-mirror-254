@@ -1,0 +1,128 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "granny-pliers"
+version = "0.0.23"
+
+authors = [
+    { name = "Dmytro Stepanenko", email = "dmitrijstepanenko@gmail.com" },
+]
+
+license = { file = "LICENSE" }
+
+keywords = [
+    "logging",
+    "configuration",
+    "tools",
+    "tool-belt"
+]
+description = "Set of tools"
+
+readme = "README.md"
+
+requires-python = ">=3.11"
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "aiohttp>=3.9.3",
+    "cryptography>=42.0.2",
+    "dateparser>=1.2.0",
+    "motor==3.3.2",
+    "structlog>=24.1.0",
+    "colorama>=0.4.6",
+    "jsonplus>=0.8.0",
+    "aiofiles>=23.2.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# Dev dependencies.
+dev = [
+    "black>=24.1.1",
+    "coverage>=7.4.1",
+    "pylint>=3.0.3",
+    "pytest>=8.0.0",
+    "pytest-cov==4.1.0",
+    "sphinx_rtd_theme==2.0.0",
+    "lumache"
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/stepanenko-family/shared/granny-pliers.git"
+"Documentation" = "https://gitlab.com/stepanenko-family/shared/granny-pliers.git"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+include = '\.pyi?$' # All Python files
+exclude = '''
+/(
+    \.git
+  | build
+  | dist
+  | tool-belt
+  | .pytest_cache
+  | coverage.html
+  | .cache
+  | ci
+  | docs
+  | venv
+)/
+'''
+[tool.pylint.MASTER]
+fail-under = '9.0'
+[tool.pylint.SIMILARITIES]
+
+ignore-comments = 'yes'
+ignore-docstrings = 'yes'
+ignore-imports = 'no'
+min-similarity-lines = 4
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.DESIGN]
+max-args = 10
+max-attributes = 20
+max-bool-expr = 5
+max-branches = 12
+max-locals = 15
+max-parents = 7
+max-public-methods = 30
+max-returns = 10
+max-statements = 50
+min-public-methods = 1
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "E0602, W0718, R1735, C0209"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-s",
+    "--junitxml=junit.xml",
+    "--cov-report=term",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=html:coverage.html",
+    "--cov=src/granny_pliers"
+]
+cache_dir = ".cache/pytest_cache"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.paths]
+source = ["src/granny_pliers"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "@abstract", "if __name__:*"]
