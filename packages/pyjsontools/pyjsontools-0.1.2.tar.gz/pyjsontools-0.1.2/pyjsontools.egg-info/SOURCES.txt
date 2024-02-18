@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+pyproject.toml
+jsontools/__init__.py
+jsontools/jsontools.py
+jsontools/random_data.py
+pyjsontools.egg-info/PKG-INFO
+pyjsontools.egg-info/SOURCES.txt
+pyjsontools.egg-info/dependency_links.txt
+pyjsontools.egg-info/top_level.txt
