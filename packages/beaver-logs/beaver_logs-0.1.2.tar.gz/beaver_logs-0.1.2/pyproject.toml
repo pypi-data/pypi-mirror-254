@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "beaver_logs"
+version = "0.1.2"
+authors = [
+  {name="Will Priebe", email="wpriebe16124@gmail.com"}
+]
+description = "Client package for python logging with beaver logs"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/beaver-logs"
