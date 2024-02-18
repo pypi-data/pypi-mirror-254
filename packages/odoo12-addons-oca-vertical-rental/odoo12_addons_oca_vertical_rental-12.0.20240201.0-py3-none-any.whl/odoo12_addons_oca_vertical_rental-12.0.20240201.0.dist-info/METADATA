@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: odoo12-addons-oca-vertical-rental
+Version: 12.0.20240201.0
+Summary: Meta package for oca-vertical-rental Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 12.0
+Requires-Dist: odoo12-addon-rental-base
+Requires-Dist: odoo12-addon-rental-check-availability
+Requires-Dist: odoo12-addon-rental-offday
+Requires-Dist: odoo12-addon-rental-pricelist
+Requires-Dist: odoo12-addon-rental-pricelist-interval
+Requires-Dist: odoo12-addon-rental-product-pack
+Requires-Dist: odoo12-addon-rental-timeline
+
+UNKNOWN
+
