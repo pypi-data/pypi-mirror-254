@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+modguard/__init__.py
+modguard/base.py
+modguard.egg-info/PKG-INFO
+modguard.egg-info/SOURCES.txt
+modguard.egg-info/dependency_links.txt
+modguard.egg-info/top_level.txt
+tests/__init__.py
+tests/test_guard.py
