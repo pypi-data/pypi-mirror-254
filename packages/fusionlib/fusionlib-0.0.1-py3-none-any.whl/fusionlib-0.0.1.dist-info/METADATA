@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: fusionlib
+Version: 0.0.1
+Summary: This is a Python package designed to provide functionality related to model fusion.
+Project-URL: repository, https://github.com/tanganke/fusionlib
+Description-Content-Type: text/markdown
+
+# Fusion
+
+This is the Fusion package. It is a Python package designed to provide functionality related to model fusion.
+
+## Installation
+
+You can install Fusion from PyPI:
+
+```bash
+pip install fusion
+```
+
