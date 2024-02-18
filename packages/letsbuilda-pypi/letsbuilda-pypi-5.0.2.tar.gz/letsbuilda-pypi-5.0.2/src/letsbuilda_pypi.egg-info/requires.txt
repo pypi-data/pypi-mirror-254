@@ -1,0 +1,17 @@
+httpx
+xmltodict
+
+[dev]
+pre-commit
+ruff
+mypy
+types-xmltodict
+
+[docs]
+sphinx
+furo
+sphinx-autoapi
+releases
+
+[tests]
+pytest
