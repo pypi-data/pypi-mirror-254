@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frills"
+version = "1.1.0"
+authors = [
+  { name="Seb Gregory", email="sebgregory4@gmail.com" },
+]
+readme = "README.md"
+description = "Helpful utilities for python development"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "opencv-python>=4.9.0.80",
+    "numpy>=1.24.3",
+]
