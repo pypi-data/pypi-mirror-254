@@ -1,0 +1,24 @@
+[project]
+name = "G5toA4"
+version = "0.3"
+authors = [
+    { name = "Massimo Girondi", email = "girondi@kth.se" }
+]
+license = {file = "LICENSE"}
+description = "Convert G5 book PDF into a A4, maintaining the real sizes."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project.urls]
+Homepage = "https://github.com/MassimoGirondi/G5toA4"
+Issues = "https://github.com/MassimoGirondi/G5toA4/issues"
+
