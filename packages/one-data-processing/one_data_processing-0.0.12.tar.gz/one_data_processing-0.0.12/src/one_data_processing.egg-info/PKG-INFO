@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: one-data-processing
+Version: 0.0.12
+Summary: Data Processing is used for data processing through MinIO, databases, Web APIs, etc.
+Home-page: https://github.com/kubeagi/arcadia
+Keywords: PDF WORD WEB parsing preprocessing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Features
+
+Data Processing is used for data processing through MinIO, databases, Web APIs, etc. The data types handled include:
+- txt
+- json  
+- doc
+- html
+- excel
+- csv
+- pdf
+- markdown
+- ppt
+
+## Text Type Processing  
+
+The data processing process includes: cleaning abnormal data, filtering, de-duplication, and anonymization.
