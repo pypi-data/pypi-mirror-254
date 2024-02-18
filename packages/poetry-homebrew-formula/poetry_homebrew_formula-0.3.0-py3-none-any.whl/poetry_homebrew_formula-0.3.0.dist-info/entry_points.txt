@@ -1,0 +1,3 @@
+[poetry.application.plugin]
+homebrew-formula=poetry_homebrew_formula.plugin:PoetryHomebrewFormulaPlugin
+
