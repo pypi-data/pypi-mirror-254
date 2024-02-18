@@ -1,0 +1,7 @@
+protobuf~=4.25.2
+
+[dev]
+pip-tools~=7.3.0
+build~=1.0.3
+setuptools-git-versioning<2
+setuptools~=69.0.3
