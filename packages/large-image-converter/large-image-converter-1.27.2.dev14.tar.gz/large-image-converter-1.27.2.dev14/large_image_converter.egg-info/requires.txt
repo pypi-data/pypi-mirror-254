@@ -1,0 +1,16 @@
+gdal
+large-image-source-tiff>=1.27.2.dev14
+numpy
+psutil
+pyvips
+tifftools
+
+[jp2k]
+glymur
+
+[sources]
+large-image[sources]>=1.27.2.dev14
+
+[stats]
+packaging
+scikit-image
