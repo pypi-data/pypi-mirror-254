@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: coagent
+Version: 0.0.1.dev1
+Summary: A multi-agent framework that facilitates the rapid construction of collaborative teams of agents.
+Home-page: https://github.com/codefuse-ai/codefuse-chatbot
+Author: shanshi
+Author-email: wyp311395@antgroup.com
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: openai ==0.28.1
+Requires-Dist: langchain ==0.0.266
+Requires-Dist: sentence-transformers
+Requires-Dist: loguru
+Requires-Dist: fastapi ~=0.99.1
+Requires-Dist: pandas
+Requires-Dist: jieba
+Requires-Dist: psutil
+Requires-Dist: faiss-cpu
+Requires-Dist: notebook
+Requires-Dist: chromadb ==0.4.17
+Requires-Dist: javalang ==0.13.0
+Requires-Dist: nebula3-python ==3.1.0
+Requires-Dist: duckduckgo-search
+
