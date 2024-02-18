@@ -1,0 +1,45 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # cache the Python environment, including installed dependencies
+      # (unique to each python-version; speeds up tests more than caching pip cache)
+      - name: Cache/Restore the Python env
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-python${{ matrix.python-version }}-env
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}
+      - name: Install pip
+        run: |
+          pip install --upgrade pip
+      - name: Install with test dependencies
+        run: |
+          pip install .[test]
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff check .
+      - name: Check types with MyPy
+        run: |
+          mypy src/as4012_sstr --pretty
+      - name: Run tests
+        run: |
+          pytest
