@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/acrod/__init__.py
+src/acrod/jacobian.py
+src/acrod/urdf_to_robottopologymatrix.py
+src/acrod.egg-info/PKG-INFO
+src/acrod.egg-info/SOURCES.txt
+src/acrod.egg-info/dependency_links.txt
+src/acrod.egg-info/requires.txt
+src/acrod.egg-info/top_level.txt
+tests/test_jacobian.py
