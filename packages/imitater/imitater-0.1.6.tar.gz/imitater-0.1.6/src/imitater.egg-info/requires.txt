@@ -1,0 +1,5 @@
+numpy
+sse-starlette
+transformers>=4.37.2
+vllm>=0.3.0
+infinity-emb[torch]
