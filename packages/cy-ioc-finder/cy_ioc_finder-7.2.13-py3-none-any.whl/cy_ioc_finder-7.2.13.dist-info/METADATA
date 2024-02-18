@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: cy_ioc_finder
+Version: 7.2.13
+Summary: Python package for finding and parsing indicators of compromise from text.
+Home-page: https://github.com/fhightower/ioc-finder
+Author: Floyd Hightower
+Author-email: 
+License: GNU Lesser General Public License v3
+Project-URL: Documentation, https://github.com/fhightower/ioc-finder#ioc-finder
+Project-URL: Say Thanks!, https://saythanks.io/to/floyd.hightower27%40gmail.com
+Project-URL: Source, https://github.com/fhightower/ioc-finder
+Project-URL: Tracker, https://github.com/fhightower/ioc-finder/issues
+Project-URL: PyPi, https://pypi.org/project/ioc-finder/
+Project-URL: CI, https://github.com/fhightower/ioc-finder/actions
+Project-URL: Changelog, https://github.com/fhightower/ioc-finder/blob/main/CHANGELOG.md
+Keywords: iocs,indicators of compromise,parsing,finding,searching,threat intelligence,malware,threat hunting,observables,domains,domain names,asns,cidr,cidr ranges,ips,ip addresses,urls,email addresses,md5,sha1,sha256,google ads,cve,file paths
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+Requires-Dist: click <9.0,>=7.1.2
+Requires-Dist: ioc-fanger <4.0,>=3.0
+Requires-Dist: pyparsing <=3.0.9,>=3.0
+Requires-Dist: d8s-strings <1.0,>=0.5.0
+
+In-house custom Ioc-Finder
