@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/pyugt/__init__.py
+src/pyugt/_version.py
+src/pyugt/config.ini
+src/pyugt/config_internal.ini
+src/pyugt/pyugt.py
+src/pyugt.egg-info/PKG-INFO
+src/pyugt.egg-info/SOURCES.txt
+src/pyugt.egg-info/dependency_links.txt
+src/pyugt.egg-info/entry_points.txt
+src/pyugt.egg-info/requires.txt
+src/pyugt.egg-info/top_level.txt
