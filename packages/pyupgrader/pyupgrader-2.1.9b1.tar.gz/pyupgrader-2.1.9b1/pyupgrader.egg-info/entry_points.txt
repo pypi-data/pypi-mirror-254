@@ -1,0 +1,2 @@
+[console_scripts]
+pyupgrader = pyupgrader.main_cli:cli

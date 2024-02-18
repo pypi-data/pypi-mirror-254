@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pyupgrader
+Version: 2.1.9b1
+Summary: Keep your Python code up to date on client machines.
+Author: Noah Blaszak
+Author-email: technology.misc@gmail.com
+Project-URL: Homepage, https://pypi.org/project/pyupgrader
+Project-URL: Documentation, https://github.com/Trogiken/PyUpgrader/wiki
+Project-URL: Release Notes, https://github.com/Trogiken/PyUpgrader/wiki/Release-Notes
+Project-URL: Source, https://github.com/Trogiken/PyUpgrader
+Project-URL: Issues, https://github.com/Trogiken/PyUpgrader/issues
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: packaging
+Requires-Dist: setuptools
+
+# PyUpgrader
+
+![PyPI - Status](https://img.shields.io/pypi/status/pyupgrader)
+![PyPI - Version](https://img.shields.io/pypi/v/pyupgrader)
+![PyLint](https://github.com/Trogiken/PyUpgrader/actions/workflows/pylint.yml/badge.svg?branch=master)
+![CodeQL](https://github.com/Trogiken/PyUpgrader/actions/workflows/codeql.yml/badge.svg?branch=master)
+![PyTest](https://github.com/Trogiken/PyUpgrader/actions/workflows/python-package.yml/badge.svg?branch=master)
+
+Python library that keeps project files updated on client machines
+
+PyPi page can be found [here](https://pypi.org/project/pyupgrader/)  
+Find the documentation [here](https://github.com/Trogiken/PyUpgrader/wiki/)
