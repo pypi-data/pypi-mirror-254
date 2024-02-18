@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Perform post installation tasks here
+
+# Create links if needed
+{% if link %}
+./links
+{% endif %}
+
+{% if post_install %}
+# Run the user's post-install script
+./custom_postinstall
+{% endif %}
