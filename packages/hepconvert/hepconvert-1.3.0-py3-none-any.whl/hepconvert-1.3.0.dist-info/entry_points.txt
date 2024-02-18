@@ -1,0 +1,2 @@
+[console_scripts]
+hepconvert = hepconvert.__main__:main
