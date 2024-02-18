@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monty"
+authors = [
+    { name = "Shyue Ping Ong", email = "ongsp@ucsd.edu" },
+]
+description = "Monty is the missing complement to Python."
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["usatt", "table tennis"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+
+]
+version = "2024.2.2"
+
+[tool.setuptools]
+packages = ["monty"]
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | tests
+  )/
+)
+'''
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_also = [
+    "@deprecated",
+    "def __repr__",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "pragma: no cover",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "show_plot",
+    "if TYPE_CHECKING:",
+    "if typing.TYPE_CHECKING:",
+    "except ImportError:"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
