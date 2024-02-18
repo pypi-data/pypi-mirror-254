@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/manganese/__init__.py
+src/manganese/example.py
+src/manganese.egg-info/PKG-INFO
+src/manganese.egg-info/SOURCES.txt
+src/manganese.egg-info/dependency_links.txt
+src/manganese.egg-info/top_level.txt
