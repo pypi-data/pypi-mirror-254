@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: playwright-trace-browser
+Version: 1.0.1
+Summary: A TUI app for exploring Playwright traces
+License: MIT
+Author: Nick DeRobertis
+Author-email: derobertis.nick@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: more-itertools (>=10.2.0,<11.0.0)
+Requires-Dist: playwright (>=1.41.1,<2.0.0)
+Requires-Dist: textual (>=0.48.1,<0.49.0)
+Project-URL: documentation, https://nickderobertis.github.io/playwright-trace-browser
+Project-URL: repository, https://github.com/nickderobertis/playwright-trace-browser
+Description-Content-Type: text/markdown
+
+
+
+[![](https://codecov.io/gh/nickderobertis/playwright-trace-browser/branch/main/graph/badge.svg)](https://codecov.io/gh/nickderobertis/playwright-trace-browser)
+[![PyPI](https://img.shields.io/pypi/v/playwright-trace-browser)](https://pypi.org/project/playwright-trace-browser/)
+![PyPI - License](https://img.shields.io/pypi/l/playwright-trace-browser)
+[![Documentation](https://img.shields.io/badge/documentation-pass-green)](https://nickderobertis.github.io/playwright-trace-browser/)
+![Tests Run on Ubuntu Python Versions](https://img.shields.io/badge/Tests%20Ubuntu%2FPython-3.9%20%7C%203.10-blue)
+![Tests Run on Macos Python Versions](https://img.shields.io/badge/Tests%20Macos%2FPython-3.9%20%7C%203.10-blue)
+![Tests Run on Windows Python Versions](https://img.shields.io/badge/Tests%20Windows%2FPython-3.9%20%7C%203.10-blue)
+[![Github Repo](https://img.shields.io/badge/repo-github-informational)](https://github.com/nickderobertis/playwright-trace-browser/)
+
+
+#  playwright-trace-browser
+
+## Overview
+
+A TUI app for exploring Playwright traces
+
+## Getting Started
+
+Install `playwright-trace-browser`:
+
+```
+pip install playwright-trace-browser
+```
+
+A simple example:
+
+```python
+import playwright_trace_browser
+
+# Do something with playwright_trace_browser
+```
+
+See a
+[more in-depth tutorial here.](
+https://nickderobertis.github.io/playwright-trace-browser/tutorial.html
+)
+
+## Links
+
+See the
+[documentation here.](
+https://nickderobertis.github.io/playwright-trace-browser/
+)
+
+## Development Status
+
+This project is currently in early-stage development. There may be
+breaking changes often. While the major version is 0, minor version
+upgrades will often have breaking changes.
+
+## Developing
+
+See the [development guide](
+https://github.com/nickderobertis/playwright-trace-browser/blob/main/DEVELOPING.md
+) for development details.
+
+## Author
+
+Created by Nick DeRobertis. MIT License.
+
+
