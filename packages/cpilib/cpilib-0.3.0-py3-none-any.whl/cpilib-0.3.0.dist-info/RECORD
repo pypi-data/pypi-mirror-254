@@ -1,0 +1,14 @@
+cpilib/__init__.py,sha256=mTObh9zHonowGr_KuWm7j_-7Tn6I4PxKxEY4Q6HPakw,27
+cpilib/constants.py,sha256=Vmnk_cXmfSxHezsPVmwB9XRwR1hy_b0QJ0v_ezoG-CM,412
+cpilib/cpi/__init__.py,sha256=Mkffn7UbFtzZMp_0LfPP7gyIZHgnNdTciHrDO-JYos4,67
+cpilib/cpi/base_classes.py,sha256=ZcF7URHVCn_s3wNO0boZGbd-00-_ghQY1uC_YzRACVQ,4371
+cpilib/cpi/fr_cpi.py,sha256=1rK_TAXs6-irSZiz6JHBiaqXT4owJ0EMNIyRR2gHldY,130
+cpilib/cpi/hicp.py,sha256=rvk1KicAdj5jT4sC0UYJenuFeNHMtgXf--vFvHBWLoo,4507
+cpilib/data/cpi2015.xls,sha256=7mgRm5kpK3DjBjtHZyMVdH2B3Vh8um-ZLG3KflB1wPw,616448
+cpilib/data/hicp_labels.csv,sha256=HZ0WTolLWykdZIddhMoh48PDCLcKo2jfLEXyKKxTTaE,14448
+cpilib/utils/__init__.py,sha256=V_ZX4sdL3JgkdGE6p-JqKV2GVq6n7g9egjalk2q0wh0,78
+cpilib/utils/coicop.py,sha256=oaVu1PFPB05D7v7-vp0_ZCJiNeno-2l0-PqWRT07MSA,188
+cpilib/utils/eurostats.py,sha256=iMYwLsTrd7R3aBw8SNw4l3H8nIgWrCxFlZ_7iJvtPxk,5316
+cpilib-0.3.0.dist-info/METADATA,sha256=K-ccft_LjJJz-wh10FNwpq2pTU1QnNljLixy5Uo7dQo,1376
+cpilib-0.3.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+cpilib-0.3.0.dist-info/RECORD,,
