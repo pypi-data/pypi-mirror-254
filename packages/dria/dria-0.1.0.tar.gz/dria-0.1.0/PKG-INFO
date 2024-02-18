@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: dria
+Version: 0.1.0
+Summary: A Python client for the Dria API.
+Author: Anil Berk Altuner
+Author-email: anil@firstbatch.xyz
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: requests (>=2.25.1,<3.0.0)
