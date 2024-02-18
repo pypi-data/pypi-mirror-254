@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "serasa_sdk"
+version = "0.1.4"
+description = ""
+authors = ["Tecnologia BYX <tecnologia@grupobyx.com.br>"]
+packages = [{include = "serasa_sdk"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+six = "^1.16.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.8"
+coverage = "^7.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
