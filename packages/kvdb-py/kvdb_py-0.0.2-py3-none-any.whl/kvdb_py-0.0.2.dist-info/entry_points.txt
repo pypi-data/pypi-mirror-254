@@ -1,0 +1,2 @@
+[console_scripts]
+kvdb-task = kvdb.tasks.cli:main
