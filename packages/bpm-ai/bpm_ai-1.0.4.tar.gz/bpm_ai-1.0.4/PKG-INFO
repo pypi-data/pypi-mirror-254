@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: bpm-ai
+Version: 1.0.4
+Summary: AI task automation for BPM engines.
+Home-page: https://www.holisticon.de/
+License: Apache-2.0
+Author: Bennet Krause
+Author-email: bennet.krause@holisticon.de
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: bpm-ai-core (==1.0.7)
+Requires-Dist: langfuse (>=2.7.6,<3.0.0)
+Requires-Dist: openai (>=1.11.0,<2.0.0)
+Project-URL: Repository, https://github.com/holunda-io/bpm-ai
+Description-Content-Type: text/markdown
+
+# bpm-ai
