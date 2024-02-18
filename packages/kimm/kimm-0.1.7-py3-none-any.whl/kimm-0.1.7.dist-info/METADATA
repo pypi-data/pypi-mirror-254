@@ -1,0 +1,484 @@
+Metadata-Version: 2.1
+Name: kimm
+Version: 0.1.7
+License: Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: keras
+Provides-Extra: examples
+Requires-Dist: opencv-python ; extra == 'examples'
+Requires-Dist: matplotlib ; extra == 'examples'
+Provides-Extra: tests
+Requires-Dist: tf2onnx ; extra == 'tests'
+Requires-Dist: onnx ; extra == 'tests'
+Requires-Dist: onnxoptimizer ; extra == 'tests'
+Requires-Dist: onnxsim ; extra == 'tests'
+Requires-Dist: isort ; extra == 'tests'
+Requires-Dist: ruff ; extra == 'tests'
+Requires-Dist: black ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: coverage ; extra == 'tests'
+
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD041 -->
+
+<div align="center">
+<img width="50%" src="https://github.com/james77777778/kimm/assets/20734616/b21db8f2-307b-4791-b93d-e913e45fb238" alt="KIMM">
+
+[![Keras](https://img.shields.io/badge/keras-v3.0.4+-success.svg)](https://github.com/keras-team/keras)
+[![PyPI](https://img.shields.io/pypi/v/kimm)](https://pypi.org/project/kimm/)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/james77777778/kimm/issues)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/james77777778/keras-image-models/actions.yml?label=tests)](https://github.com/james77777778/keras-image-models/actions/workflows/actions.yml?query=branch%3Amain++)
+[![codecov](https://codecov.io/gh/james77777778/keras-image-models/graph/badge.svg?token=eEha1SR80D)](https://codecov.io/gh/james77777778/keras-image-models)
+</div>
+
+# Keras Image Models
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Quickstart](#quickstart)
+  - [Image classification with ImageNet weights](#image-classification-using-the-model-pretrained-on-imagenet)
+  - [An end-to-end fine-tuning example: cats vs. dogs dataset](#an-end-to-end-example-fine-tuning-an-image-classification-model-on-a-cats-vs-dogs-dataset)
+  - [Grad-CAM](#grad-cam)
+- [Model Zoo](#model-zoo)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+## Introduction
+
+**K**eras **Im**age **M**odels (`kimm`) is a collection of image models, blocks and layers written in Keras 3. The goal is to offer SOTA models with pretrained weights in a user-friendly manner.
+
+**KIMM** is:
+
+🚀 A model zoo where almost all models come with **pre-trained weights on ImageNet**.
+
+> [!NOTE]
+> The accuracy of the converted models can be found at [results-imagenet.csv (timm)](https://github.com/huggingface/pytorch-image-models/blob/main/results/results-imagenet.csv) and [https://keras.io/api/applications/ (keras)](https://keras.io/api/applications/),
+> and the numerical differences of the converted models can be verified in `tools/convert_*.py`.
+
+✨ Exposing a common API identical to offcial `keras.applications.*`.
+  
+```python
+model = kimm.models.RegNetY002(
+    input_tensor: keras.KerasTensor = None,
+    input_shape: typing.Optional[typing.Sequence[int]] = None,
+    include_preprocessing: bool = True,
+    include_top: bool = True,
+    pooling: typing.Optional[str] = None,
+    dropout_rate: float = 0.0,
+    classes: int = 1000,
+    classifier_activation: str = "softmax",
+    weights: typing.Optional[str] = "imagenet",
+    name: str = "RegNetY002",
+)
+```
+
+🔥 Integrated with **feature extraction** capability.
+
+```python
+model = kimm.models.ConvNeXtAtto(feature_extractor=True)
+x = keras.random.uniform([1, 224, 224, 3])
+y = model.predict(x)
+# y becomes a dict
+for k, v in y.items():
+    print(k, v.shape)
+```
+
+🧰 Providing APIs to export models to `.tflite` and `.onnx`.
+
+```python
+# tensorflow backend
+keras.backend.set_image_data_format("channels_last")
+model = kimm.models.MobileNetV3W050Small()
+kimm.export.export_tflite(model, [224, 224, 3], "model.tflite")
+```
+
+```python
+# torch backend
+keras.backend.set_image_data_format("channels_first")
+model = kimm.models.MobileNetV3W050Small()
+kimm.export.export_onnx(model, [3, 224, 224], "model.onnx")
+```
+
+> [!IMPORTANT]
+> `kimm.export.export_tflite` is currently restricted to `tensorflow` backend and `channels_last`.
+> `kimm.export.export_onnx` is currently restricted to `torch` backend and `channels_first`.
+
+🔧 Supporting the **reparameterization** technique.
+
+```python
+model = kimm.models.RepVGGA0()
+reparameterized_model = kimm.utils.get_reparameterized_model(model)
+# or
+# reparameterized_model = model.get_reparameterized_model()
+model.summary()
+# Total params: 9,132,616 (34.84 MB)
+reparameterized_model.summary()
+# Total params: 8,309,384 (31.70 MB)
+y1 = model.predict(x)
+y2 = reparameterized_model.predict(x)
+np.testing.assert_allclose(y1, y2, atol=1e-5)
+```
+
+## Installation
+
+```bash
+pip install keras kimm -U
+```
+
+## Quickstart
+
+### Image classification using the model pretrained on ImageNet
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14WxYgVjlwCIO9MwqPYW-dskbTL2UHsVN?usp=sharing)
+
+```python
+import keras
+from keras import ops
+from keras import utils
+from keras.applications.imagenet_utils import decode_predictions
+
+import kimm
+
+# Use `kimm.list_models` to get the list of available models
+print(kimm.list_models())
+
+# Specify the name and other arguments to filter the result
+print(kimm.list_models("vision_transformer", weights="imagenet"))  # fuzzy search
+
+# Initialize the model with pretrained weights
+model = kimm.models.VisionTransformerTiny16()
+image_size = (model._default_size, model._default_size)
+
+# Load an image as the model input
+image_path = keras.utils.get_file(
+    "african_elephant.jpg", "https://i.imgur.com/Bvro0YD.png"
+)
+image = utils.load_img(image_path, target_size=image_size)
+image = utils.img_to_array(image)
+x = ops.convert_to_tensor(image)
+x = ops.expand_dims(x, axis=0)
+
+# Predict
+preds = model.predict(x)
+print("Predicted:", decode_predictions(preds, top=3)[0])
+```
+
+```bash
+['ConvMixer1024D20', 'ConvMixer1536D20', 'ConvMixer736D32', 'ConvNeXtAtto', ...]
+['VisionTransformerBase16', 'VisionTransformerBase32', 'VisionTransformerSmall16', ...]
+1/1 ━━━━━━━━━━━━━━━━━━━━ 1s 1s/step
+Predicted: [('n02504458', 'African_elephant', 0.6895825), ('n01871265', 'tusker', 0.17934209), ('n02504013', 'Indian_elephant', 0.12927249)]
+```
+
+### An end-to-end example: fine-tuning an image classification model on a cats vs. dogs dataset
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1IbqfqG2NKEOKvBOznIPT1kjOdVPfThmd?usp=sharing)
+
+Using `kimm.models.EfficientNetLiteB0`:
+
+<div align="center">
+<img width="75%" src="https://github.com/james77777778/kimm/assets/20734616/cbfc0773-a3fa-407d-be9a-fba4f19da6d3" alt="kimm_prediction_0">
+
+<img width="75%" src="https://github.com/james77777778/kimm/assets/20734616/2eac0831-75bb-4790-a3af-412c3e09cf8f" alt="kimm_prediction_1">
+</div>
+
+Reference: [Transfer learning & fine-tuning (keras.io)](https://keras.io/guides/transfer_learning/#an-endtoend-example-finetuning-an-image-classification-model-on-a-cats-vs-dogs-dataset)
+
+### Grad-CAM
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1h25VmsYDOLL6BNbRPEVOh1arIgcEoHu6?usp=sharing)
+
+Using `kimm.models.MobileViTS`:
+
+<div align="center">
+<img width="75%" src="https://github.com/james77777778/kimm/assets/20734616/cb5022a3-aaea-4324-a9cd-3d2e63a0a6b2" alt="grad_cam">
+</div>
+
+Reference: [Grad-CAM class activation visualization (keras.io)](https://keras.io/examples/vision/grad_cam/)
+
+## Model Zoo
+
+|Model|Paper|Weights are ported from|API|
+|-|-|-|-|
+|ConvMixer|[ICLR 2022 Submission](https://arxiv.org/abs/2201.09792)|`timm`|`kimm.models.ConvMixer*`|
+|ConvNeXt|[CVPR 2022](https://arxiv.org/abs/2201.03545)|`timm`|`kimm.models.ConvNeXt*`|
+|DenseNet|[CVPR 2017](https://arxiv.org/abs/1608.06993)|`timm`|`kimm.models.DenseNet*`|
+|EfficientNet|[ICML 2019](https://arxiv.org/abs/1905.11946)|`timm`|`kimm.models.EfficientNet*`|
+|EfficientNetLite|[ICML 2019](https://arxiv.org/abs/1905.11946)|`timm`|`kimm.models.EfficientNetLite*`|
+|EfficientNetV2|[ICML 2021](https://arxiv.org/abs/2104.00298)|`timm`|`kimm.models.EfficientNetV2*`|
+|GhostNet|[CVPR 2020](https://arxiv.org/abs/1911.11907)|`timm`|`kimm.models.GhostNet*`|
+|GhostNetV2|[NeurIPS 2022](https://arxiv.org/abs/2211.12905)|`timm`|`kimm.models.GhostNetV2*`|
+|InceptionNeXt|[arXiv 2023](https://arxiv.org/abs/2303.16900)|`timm`|`kimm.models.InceptionNeXt*`|
+|InceptionV3|[CVPR 2016](https://arxiv.org/abs/1512.00567)|`timm`|`kimm.models.InceptionV3`|
+|LCNet|[arXiv 2021](https://arxiv.org/abs/2109.15099)|`timm`|`kimm.models.LCNet*`|
+|MobileNetV2|[CVPR 2018](https://arxiv.org/abs/1801.04381)|`timm`|`kimm.models.MobileNetV2*`|
+|MobileNetV3|[ICCV 2019](https://arxiv.org/abs/1905.02244)|`timm`|`kimm.models.MobileNetV3*`|
+|MobileOne|[CVPR 2023](https://arxiv.org/abs/2206.04040)|`timm`|`kimm.models.MobileOne*`|
+|MobileViT|[ICLR 2022](https://arxiv.org/abs/2110.02178)|`timm`|`kimm.models.MobileViT*`|
+|MobileViTV2|[arXiv 2022](https://arxiv.org/abs/2206.02680)|`timm`|`kimm.models.MobileViTV2*`|
+|RegNet|[CVPR 2020](https://arxiv.org/abs/2003.13678)|`timm`|`kimm.models.RegNet*`|
+|RepVGG|[CVPR 2021](https://arxiv.org/abs/2101.03697)|`timm`|`kimm.models.RepVGG*`|
+|ResNet|[CVPR 2015](https://arxiv.org/abs/1512.03385)|`timm`|`kimm.models.ResNet*`|
+|TinyNet|[NeurIPS 2020](https://arxiv.org/abs/2010.14819)|`timm`|`kimm.models.TinyNet*`|
+|VGG|[ICLR 2015](https://arxiv.org/abs/1409.1556)|`timm`|`kimm.models.VGG*`|
+|ViT|[ICLR 2021](https://arxiv.org/abs/2010.11929)|`timm`|`kimm.models.VisionTransformer*`|
+|Xception|[CVPR 2017](https://arxiv.org/abs/1610.02357)|`keras`|`kimm.models.Xception`|
+
+The export scripts can be found in `tools/convert_*.py`.
+
+## License
+
+Please refer to [timm](https://github.com/huggingface/pytorch-image-models#licenses) as this project is built upon it.
+
+### `kimm` Code
+
+The code here is licensed Apache 2.0.
+
+## Acknowledgements
+
+Thanks for these awesome projects that were used in `kimm`
+
+- [https://github.com/keras-team/keras](https://github.com/keras-team/keras)
+- [https://github.com/huggingface/pytorch-image-models](https://github.com/huggingface/pytorch-image-models)
+
+## Citing
+
+### BibTeX
+
+```bash
+@misc{rw2019timm,
+  author = {Ross Wightman},
+  title = {PyTorch Image Models},
+  year = {2019},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  doi = {10.5281/zenodo.4414861},
+  howpublished = {\url{https://github.com/rwightman/pytorch-image-models}}
+}
+```
+
+```bash
+@misc{hy2024kimm,
+  author = {Hongyu Chiu},
+  title = {Keras Image Models},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/james77777778/kimm}}
+}
+```
