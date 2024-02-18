@@ -1,0 +1,5 @@
+numpy
+sysv_ipc
+
+[mpi]
+mpi4py>=3.0
