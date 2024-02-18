@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: sv-logger
+Version: 0.1.6
+Summary: A simple logging library for Python
+Home-page: 
+Author: pternali
+Author-email: patrizio.ternali15@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+
+## License
+
+This project is released under the MIT License. For more details, see the [LICENSE] file.
