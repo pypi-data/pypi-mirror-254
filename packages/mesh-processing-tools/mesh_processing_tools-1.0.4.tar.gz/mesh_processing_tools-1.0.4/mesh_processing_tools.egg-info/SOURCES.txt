@@ -1,0 +1,13 @@
+README.md
+setup.py
+mesh_processing_tools.egg-info/PKG-INFO
+mesh_processing_tools.egg-info/SOURCES.txt
+mesh_processing_tools.egg-info/dependency_links.txt
+mesh_processing_tools.egg-info/requires.txt
+mesh_processing_tools.egg-info/top_level.txt
+mesh_tools/__init__.py
+mesh_tools/compartment_utils.py
+mesh_tools/meshlab.py
+mesh_tools/meshparty_skeletonize.py
+mesh_tools/skeleton_utils.py
+mesh_tools/trimesh_utils.py
