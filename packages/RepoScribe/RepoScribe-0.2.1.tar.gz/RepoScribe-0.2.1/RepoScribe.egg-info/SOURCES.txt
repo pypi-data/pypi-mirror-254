@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+reposcribe_logo.png
+setup.py
+RepoScribe.egg-info/PKG-INFO
+RepoScribe.egg-info/SOURCES.txt
+RepoScribe.egg-info/dependency_links.txt
+RepoScribe.egg-info/entry_points.txt
+RepoScribe.egg-info/top_level.txt
+reposcribe/__init__.py
+reposcribe/cli.py
+reposcribe/core.py
+reposcribe/ignore.txt
+tests/test_core.py
+tests/test_ignore.txt
