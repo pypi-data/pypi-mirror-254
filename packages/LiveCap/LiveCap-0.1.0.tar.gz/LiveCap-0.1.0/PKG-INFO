@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: LiveCap
+Version: 0.1.0
+Summary: Nothing to see here.
+Home-page: https://github.com/MosRat/
+Author: Hongli Wen
+Author-email: whl2075928012@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python>=4.8.1.78
+Requires-Dist: numpy>=1.26.3
+Requires-Dist: winsdk
