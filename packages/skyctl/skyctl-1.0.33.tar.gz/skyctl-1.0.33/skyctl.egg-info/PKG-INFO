@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: skyctl
+Version: 1.0.33
+Summary: 联云迁移工具
+Author: XieJunWei
+Author-email: 643657447@qq.com
+License: MIT
+Requires-Python: >=3
+License-File: license.txt
+Requires-Dist: pypinyin
+Requires-Dist: opencv-python
+Requires-Dist: requests
+Requires-Dist: configparser
+Requires-Dist: Click
