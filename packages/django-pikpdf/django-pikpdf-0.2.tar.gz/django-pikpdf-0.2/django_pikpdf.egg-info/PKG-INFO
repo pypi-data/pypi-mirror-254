@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: django-pikpdf
+Version: 0.2
+Summary: A Django app to convert html to pdf
+Home-page: https://www.pikutis.lt/
+Author: Tadas Pikutis
+Author-email: tadas@pikutis.lt
+License: MIT
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+============
+pikpdf - propper html to pdf generator
+============
+
+django-pikpdf is a Django app to generate pdfs from html templates.
+This app will capture the html from a template and convert it to a pdf file 
+with all styles in tact.
+
+Detailed documentation is in the "docs" directory.
+
+Quick start
+-----------
+
+1. Add "django-pikpdf" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...,
+        "django-pikpdf",
+    ]
+
