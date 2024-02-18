@@ -1,0 +1,6 @@
+#!python
+
+import sys
+import db_facts
+
+exit(db_facts.Runner().run(sys.argv))
