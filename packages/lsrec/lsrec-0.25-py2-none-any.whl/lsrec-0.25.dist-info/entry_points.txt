@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        lsrec=lsrec:cli
+    
