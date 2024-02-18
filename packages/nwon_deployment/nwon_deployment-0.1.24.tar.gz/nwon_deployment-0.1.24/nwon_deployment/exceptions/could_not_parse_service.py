@@ -1,0 +1,2 @@
+class CouldNotParseService(Exception):
+    pass
