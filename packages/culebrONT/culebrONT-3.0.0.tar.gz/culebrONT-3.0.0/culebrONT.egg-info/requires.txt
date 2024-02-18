@@ -1,0 +1,17 @@
+pandas
+matplotlib
+tabulate
+ipython
+biopython
+pysam
+numpy
+snakecdysis>=1.0.0
+snakemake<=8
+setuptools>=68.2.0
+nbformat
+
+[dev]
+sphinx_click
+sphinx_copybutton
+sphinx_rtd_theme
+tox

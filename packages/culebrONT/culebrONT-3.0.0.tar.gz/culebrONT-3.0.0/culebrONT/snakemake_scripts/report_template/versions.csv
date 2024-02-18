@@ -1,0 +1,28 @@
+Tool,Secondary,cmd_version,citation
+CANU,None,canu --version, @canu
+FLYE,None,flye --version,@flye
+MINIASM,None,miniasm -V,@miniasm
+MINIMAP2,None,minimap2 --version,@minimap2
+MINIPOLISH,None,minipolish --version,@minipolish
+RACON,None,racon --version,@racon
+RAVEN,None,raven --version,@raven
+SHASTA,None,shasta --version,@shasta
+SMARTDENOVO,None,echo 'smartdenovo [unknown]',@smartdenovo
+ASSEMBLYTICS,None,whereis Assemblytics,@assemblytics
+BLOBTOOLS,None,blobtools --version,@blobtools
+BLOBTOOLS,DIAMOND,diamond --version,@diamond
+BLOBTOOLS,MINIMAP2,minimap2 --version,@minimap2
+BLOBTOOLS,SAMTOOLS,samtools --version | head -1,@samtools
+BUSCO,None,busco --version,@busco
+BUSCO,AUGUSTUS,augustus --version 2>&1 | head -1,@augustus
+CIRCLATOR,None,echo "circlator version fail from singularity",@circlator
+FLAGSTATS,BWA,bwa 2>&1 | grep "Version",@bwa
+FLAGSTATS,SAMTOOLS,samtools --version | head -1,@samtools
+KAT,None,kat --version,@kat
+MAUVE,None,echo 'MAUVE [unknown]',@mauve
+MEDAKA,None,medaka --version,@medaka
+MUMMER,None,nucmer --version 2>&1,@mummer
+SAMTOOLS,None,samtools --version | head -1,@samtools
+PILON,None,pilon --version,@pilon
+QUAST,None,quast --version | tail -1,@quast
+MERQURY,None,meryl --version 2>&1,@merqury

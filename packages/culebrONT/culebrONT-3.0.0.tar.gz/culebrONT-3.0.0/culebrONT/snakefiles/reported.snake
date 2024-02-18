@@ -1,0 +1,207 @@
+def get_inputs_benchmark(wildcards):
+    dico_benchmark_inputs = {
+            "assembly_list": expand(f"{output_dir}{{{{fastq}}}}/BENCHMARK/ASSEMBLER/{{assemblers}}.txt",
+                                    assemblers=[ass for ass in culebront.assembly_tools_activated if ass not in ["MINIASM"]]),
+    }
+    if culebront.assembly_tools_activated:
+        if "MINIASM" in culebront.assembly_tools_activated:
+            dico_benchmark_inputs["assembly_list"].append(f"{output_dir}{{fastq}}/BENCHMARK/ASSEMBLER/MINIASM_MINIPOLISH.txt"),
+
+    if culebront.polishing_tools_activated:
+        dico_benchmark_inputs["polishers_list"] = expand(f"{output_dir}{{fastq}}/BENCHMARK/POLISHING/{{assemblers}}_{{polishers}}{{nb}}.txt",
+                    assemblers=[ass for ass in culebront.assembly_tools_activated if ass not in ["MINIASM"]],
+                    polishers=culebront.polishing_tools_activated,
+                    nb = range(1, int(nb_racon_rounds)+1),
+                    fastq ="{fastq}"
+        )
+
+    if culebront.correction_tools_activated:
+        dico_benchmark_inputs["correction_list"] = expand(f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/{{correction}}/{{assemblers}}.txt",
+                    assemblers=culebront.assembly_tools_activated,
+                    correction=[ass for ass in culebront.correction_tools_activated if ass not in ["PILON"]],
+                    fastq ="{fastq}"
+        )
+        if "PILON" in culebront.correction_tools_activated:
+            dico_benchmark_inputs["correction_list_pilon"] = expand(f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/PILON/{{assemblers}}_PILON{{nb}}.txt",
+                        assemblers=culebront.assembly_tools_activated,
+                        correction=['PILON'],
+                        nb = range(1, int(nb_pilon_rounds)+1),
+                        fastq ="{fastq}"
+            )
+    return dico_benchmark_inputs
+
+rule run_benchmark_time:
+    """
+    run benchmark
+    """
+    threads: get_threads('run_benchmark_time', 1)
+    input:
+        unpack(get_inputs_benchmark)
+    output:
+        stat_time = f"{output_dir}{{fastq}}/REPORT/{{fastq}}_time.csv"
+    params:
+        out_dir = f"{output_dir}{{fastq}}",
+        sample = f"{{fastq}}"
+    log:
+        output = f"{output_dir}{{fastq}}/REPORT/LOGS/{{fastq}}_BENCHMARK-TIME.o",
+        error = f"{output_dir}{{fastq}}/REPORT/LOGS/{{fastq}}_BENCHMARK-TIME.e"
+    message:
+        """
+        unpacking final dico and benchmark
+        """
+    script:
+        f"{culebront.snakemake_scripts}/get_benchmark.py"
+
+
+rule stats_assembly:
+    """ build stats on assembly"""
+    threads: get_threads('stats_assembly', 1)
+    input:
+        fasta_list = expand(rules.preparing_fasta_to_quality.output.renamed,fastq='{fastq}',assemblers=culebront.assembly_tools_activated,quality_step=culebront.quality_step)
+    output:
+        csv = f"{output_dir}REPORT/all_stats_{{fastq}}.csv"
+    params:
+        sample = '{fastq}'
+    log:
+        output = f"{output_dir}REPORT/LOGS/{{fastq}}_STATS-ASSEMBLIES.o",
+        error = f"{output_dir}REPORT/LOGS/{{fastq}}_STATS-ASSEMBLIES.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             fasta_list : {input.fasta_list}
+        output:
+             csv : {output.csv}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/assembly-stats.py"
+
+
+rule rule_graph:
+    """
+    run dag on {rule}
+    """
+    threads: get_threads('rule_graph', 1)
+    input:
+        #quarto = rules.edit_quarto.output.quarto_conf,
+        quarto_conf = f"{output_dir}REPORT/QMD/_quarto.yml",
+        config = f"{output_dir}config_corrected.yaml"
+    params:
+        tmp = f"{output_dir}REPORT/dag.tmp",
+        cmd = culebront.string_to_dag
+    output:
+        dag = f"{output_dir}REPORT/QMD/dag.png",
+    log:
+        output = f"{output_dir}REPORT/LOGS/GRAPH.o",
+        error = f"{output_dir}REPORT/LOGS/GRAPH.e"
+    message:
+        """
+        making dag ...
+        {params.cmd} --configfile {input.config} > {params.tmp}
+        dot -Tpng {params.tmp} > {output.dag}
+        """
+    shell:
+        """
+        ({params.cmd} --configfile {input.config} > {params.tmp}
+        dot -Tpng {params.tmp} > {output.dag}) 1>{log.output} 2>{log.error}
+        rm {params.tmp}
+        """
+
+rule run_report_snakemake:
+    """
+    run dag on {rule}
+    """
+    threads: get_threads('run_report_snakemake', 1)
+    input:
+        #quarto = rules.edit_quarto.output.quarto_conf,
+        quarto_conf = f"{output_dir}REPORT/QMD/_quarto.yml",
+        config = f"{output_dir}config_corrected.yaml"
+    output:
+        report_snakemake = f"{output_dir}REPORT/Book/snake_report.html"
+    params:
+        cmd = culebront.string_to_dag
+    log:
+        output = f"{output_dir}REPORT/LOGS/REPORT-SNAKE.o",
+        error = f"{output_dir}REPORT/LOGS/REPORT-SNAKE.e"
+    message:
+        """
+        making report ...
+        """
+    shell:
+        """
+        cd {culebront.install_path}/
+        {params.cmd} --configfile {input.config} --report {output.report_snakemake} 1>{log.output} 2>{log.error}
+        """
+
+rule run_flagstats_stats:
+    """
+    run stat for flagstats
+    """
+    threads: get_threads('run_stats', 1)
+    input:
+        summary = expand(rules.run_flagstat.output.txt, fastq='{fastq}', assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list)
+    output:
+        stat = f"{output_dir}{{fastq}}/REPORT/{{fastq}}_flagstats.csv"
+    params:
+        quality_list = culebront.quality_step,
+        assembly_list = culebront.assembly_tools_activated,
+        out_dir = directory(f"{output_dir}{{fastq}}/")
+    log:
+        output = f"{output_dir}{{fastq}}/REPORT/LOGS/run_flagstats_stats/{{fastq}}.o",
+        error = f"{output_dir}{{fastq}}/REPORT/LOGS/run_flagstats_stats/{{fastq}}.e"
+    message:
+        """
+        make stats from flagstats
+    Launching {rule} ...
+        input:
+            summary: {input.summary}
+        params:
+            quality_list: {params.quality_list}
+            assembly_list : {params.assembly_list}
+            out_dir: {params.out_dir}
+        output:
+            stat: {output.stat}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/get_stats_flagstats.py"
+
+rule run_busco_stats:
+    """
+    compile BUSCO result for all step of sample
+    """
+    threads: get_threads('run_stats', 1)
+    input:
+        summary = expand(rules.run_busco.output.summary, fastq='{fastq}', assemblers=culebront.assembly_tools_activated, quality_step=culebront.quality_step)
+    output:
+        stat = f"{output_dir}{{fastq}}/REPORT/{{fastq}}_busco.csv"
+    params:
+        quality_list = culebront.quality_step,
+        assembly_list = culebront.assembly_tools_activated,
+        out_dir = directory(f"{output_dir}{{fastq}}/")
+    log:
+        output = f"{output_dir}{{fastq}}/REPORT/LOGS/{{fastq}}_BUSCO-STATS.o",
+        error = f"{output_dir}{{fastq}}/REPORT/LOGS/{{fastq}}_BUSCO-STATS.e"
+    message:
+        """
+     Launching {rule} ...
+        input:
+            summary: {input.summary}
+        params:
+            quality_list: {params.quality_list}
+            assembly_list : {params.assembly_list}
+            out_dir: {params.out_dir}
+        output:
+            stat: {output.stat}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/get_stats_busco.py"

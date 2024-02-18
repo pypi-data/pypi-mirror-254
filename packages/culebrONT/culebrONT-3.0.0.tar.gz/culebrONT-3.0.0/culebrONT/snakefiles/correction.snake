@@ -1,0 +1,280 @@
+################################ MEDAKA ###################################
+rule index_fasta_to_correction:
+    """
+    create a .fai and a .mmi for each assembly fasta
+    Use for medaka only
+    """
+    threads: get_threads('index_fasta_to_correction', 8)
+    input:
+        draft = draft_to_correction
+    output:
+        index_fai = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/FASTA/assembly.fasta.fai",
+        index_mmi = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/FASTA/assembly.fasta.mmi",
+        fasta = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/FASTA/assembly.fasta"
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}-INDEX-MEDAKA.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}-INDEX-MEDAKA.e"
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MINIMAP2"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (ln -s {input.draft} {output.fasta};
+        samtools faidx {output.fasta}
+        minimap2 -t {threads} -d {output.index_mmi} {output.fasta}) 1>{log.output} 2>{log.error}
+        """
+
+
+rule run_minialign_to_medaka:
+    """
+    launching minialign to medaka
+    """
+    threads: get_threads('run_medaka_train', 8)
+    input:
+        draft = rules.index_fasta_to_correction.output.fasta,
+        fastq = get_fastq,
+    output:
+        calls2draftbam = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/calls2draft.bam",
+    params:
+        calls2draft = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/calls2draft",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA_TRAIN.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA_TRAIN.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/MEDAKA/{{assemblers}}_MINIALIGN.txt",
+    message:
+        """
+        Launching {rule}
+        threads: {threads}
+        input:
+            draft: {input.draft}
+            fastq: {input.fastq}
+        params:
+            calls2draft: {params.calls2draft}
+        output:
+            calls2draftbam: {output.calls2draftbam}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MEDAKA"]
+    shell:
+        """
+        mini_align -t {threads} -m -r {input.draft} -i {input.fastq} -p {params.calls2draft} 1>{log.output} 2>{log.error}
+        """
+
+
+rule run_medaka_train:
+    """
+    launching Medaka Train with fasta reference_file
+    """
+    threads: get_threads('run_medaka_train', 8)
+    input:
+        fastq = get_fastq,
+        reference_file = reference_file,
+        draft = rules.index_fasta_to_correction.output.fasta,
+        index_fai = rules.index_fasta_to_correction.output.index_fai,
+        index_fmmi = rules.index_fasta_to_correction.output.index_mmi,
+        calls2draftbam = rules.run_minialign_to_medaka.output.calls2draftbam
+    output:
+        fasta_cat_acc = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/training/model.best.cat_acc.tar.gz",
+        fasta_val_cat_acc = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/training/model.best.val_cat_acc.tar.gz",
+    params:
+        out_name = directory(f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/"),
+        options_features = config['params']['MEDAKA']['MEDAKA_FEATURES_OPTIONS'],
+        options_training = config['params']['MEDAKA']['MEDAKA_TRAIN_OPTIONS'],
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA_TRAIN.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA_TRAIN.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/MEDAKA/{{assemblers}}_TRAIN.txt"
+    message:
+        """
+        Launching {rule}
+        threads: {threads}
+        input:
+            draft: {input.draft}
+            fastq: {input.fastq}
+            reference_file: {input.reference_file}
+            index_fai: {input.index_fai}
+            index_fmmi: {input.index_fmmi}
+            calls2draftbam:{input.calls2draftbam}
+        output:
+            fasta_cat_acc: {output.fasta_cat_acc}
+            fasta_val_cat_acc: {output.fasta_val_cat_acc}
+        params:
+            out_name: {params.out_name}
+            options_features: {params.options_features}
+            options_training: {params.options_training}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MEDAKA"]
+    shell:
+        """
+        (mini_align -t {threads} -m -r {input.draft} -i {input.reference_file} -p {params.out_name}truth2draft;
+        medaka features {input.calls2draftbam} {params.out_name}train_features.hdf --truth {params.out_name}truth2draft.bam --threads {threads} {params.options_features};
+        medaka train --threads_io {threads} {params.out_name}train_features.hdf --train_name {params.out_name}training {params.options_training})  1>{log.output} 2>{log.error}
+        """
+
+rule run_medaka_consensus:
+    """
+    launching Medaka Consensus (medaka version >=1.2)for a fasta
+    """
+    threads: get_threads('run_medaka_consensus', 4)
+    input:
+        draft = rules.index_fasta_to_correction.output.fasta,
+        fastq= get_fastq,
+    output:
+        fasta = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/consensus.fasta",
+    params:
+        dir = directory(f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA"),
+        options = config['params']['MEDAKA']['MEDAKA_CONSENSUS_OPTIONS'],
+        model = f"{rules.run_medaka_train.output.fasta_val_cat_acc if config['params']['MEDAKA']['MEDAKA_TRAIN_WITH_REF'] else config['params']['MEDAKA']['MEDAKA_MODEL_PATH']}",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA.o",
+        error=f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/MEDAKA/LOGS/{{fastq}}_{{assemblers}}_MEDAKA.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/MEDAKA/{{assemblers}}.txt",
+    message:
+        """
+        Launching {rule}.
+        threads: {threads}
+        input:
+            draft: {input.draft}
+            fastq: {input.fastq}
+        output:
+            consensus: {output.fasta}
+        params:
+            model: {params.model}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MEDAKA"]
+    shell:
+        """
+        (cd {params.dir};
+        medaka_consensus -i {input.fastq} -d {input.draft} -o {params.dir} -t {threads} -m {params.model}) 1>{log.output} 2>{log.error}
+        """
+
+################################ PILON ###################################
+
+rule run_pilon_first_round:
+    """
+    launching pilon
+    """
+    threads: get_threads('run_pilon', 2)
+    input:
+        draft = draft_to_correction
+    params:
+        #java_mem = "-Xmx8G", # 8 min
+        options = config["params"]["PILON"]["OPTIONS"],
+        illumina = get_illumina,
+        rep = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_1/assembly_pilon.pilon1",
+        bam = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_1/assembly_pilon.pilon1.bam",
+    output:
+        pilon = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_1/assembly_pilon.pilon1.fasta",
+        corrected = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_1/assembly.pilon1.fasta",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/LOGS/{{fastq}}_{{assemblers}}_PILON1.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/LOGS/{{fastq}}_{{assemblers}}_PILON1.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/PILON/{{assemblers}}_PILON1.txt",
+    message:
+        """
+        Launching {rule}.
+        threads: {threads}
+        input:
+            draft: {input.draft}
+        params:
+            illumina: {params.illumina}
+            bam: {params.bam}
+        output:
+            corrected: {output.corrected}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["PILON"],
+        tools_config["ENVMODULE"]["BWA"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (bwa index {input.draft}
+        bwa mem -t {threads} {input.draft} {params.illumina} | samtools view - -Sb -h | samtools sort - -@{threads} -o {params.bam}
+        samtools index -@ {threads} {params.bam}
+        pilon --genome {input.draft} --fix all --changes --bam {params.bam} --threads {threads} {params.options} --output {params.rep} ) 1>{log.output} 2>{log.error}
+        sed 's/_pilon//g' {output.pilon} > {output.corrected}
+        """
+
+#java {params.java_mem} -jar /pilon-1.24.jar
+
+rule run_pilon:
+    """
+    launching pilon
+    """
+    threads: get_threads('run_pilon', 2)
+    input:
+        draft = draft_to_pilon
+    params:
+        java_mem = "-Xmx8G",
+        options = config["params"]["PILON"]["OPTIONS"],
+        illumina = get_illumina,
+        #illumina = culebront.get_illumina,
+        rep = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{{nbp}}/assembly_pilon.pilon{{nbp}}",
+        bam = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{{nbp}}/assembly_pilon.pilon{{nbp}}.bam",
+    output:
+        pilon = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{{nbp}}/assembly_pilon.pilon{{nbp}}.fasta",
+        corrected = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{{nbp}}/assembly.pilon{{nbp}}.fasta"
+    wildcard_constraints:
+        nbp = "[2-9]",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/LOGS/{{fastq}}_{{assemblers}}_PILON{{nbp}}.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/LOGS/{{fastq}}_{{assemblers}}_PILON{{nbp}}.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/BENCHMARK/CORRECTION/PILON/{{assemblers}}_PILON{{nbp}}.txt",
+    message:
+        """
+        Launching {rule}.
+        threads: {threads}
+        input:
+            draft: {input.draft}
+        params:
+            illumina: {params.illumina}
+            bam: {params.bam}
+        output:
+            corrected: {output.corrected}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["PILON"],
+        tools_config["ENVMODULE"]["BWA"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (bwa index {input.draft}
+        bwa mem -t {threads} {input.draft} {params.illumina} | samtools view -h -@ {threads}-Sb | samtools sort -@ {threads} -o {params.bam}
+        samtools index -@ {threads} {params.bam}
+        pilon --genome {input.draft} --fix all --changes --bam {params.bam} --threads {threads} --output {params.rep} {params.options}) 1>{log.output} 2>{log.error}
+        sed 's/_pilon//g' {output.pilon} > {output.corrected}
+        """

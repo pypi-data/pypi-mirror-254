@@ -1,0 +1,155 @@
+# Build system backend to create package to upload on pypi
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=68.2.0",
+    "setuptools_scm[toml]>=8.0.0",
+    "build>=1.0.0"
+]
+
+# configuration of setuptools_scm to use tag version autoincrementation
+[tool.setuptools_scm]
+write_to = "culebrONT/_version.py"
+version_scheme = "release-branch-semver"
+tag_regex = "^(\\d.\\d.\\d)-*\\w*\\d*$"
+local_scheme = "no-local-version"
+
+# define Project settings
+[project]
+name = "culebrONT"
+dynamic = ["version"]
+description = """CulebrONT is an open-source, scalable, modular and traceable Snakemake pipeline, able to launch multiple
+assembly tools in parallel, giving you the possibility of circularise, polish, and correct assemblies, checking quality.
+CulebrONT can help to choose the best assembly between all possibilities."""
+authors = [
+    { name = "Orjuela Julie (IRD)", email = "julie.orjuela@ird.fr" },
+    { name = "Comte Aurore (IRD)", email = "aurore.comte@ird.fr" },
+    { name = "Ravel Sebastien (CIRAD)", email = "sebastien.ravel@cirad.fr" },
+    { name = "Charriat Florian (INRAE)", email = "florian.charriat@cirad.fr" },
+    { name = "Tram Vi Bao (IRD)"},
+    { name = "Sabot François (IRD)", email = "francois.sabot@ird.fr" },
+    { name = "Cunnac Sebastien (IRD)", email = "sebastien.cunnac@ird.fr" }
+]
+maintainers = [
+    { name = "Orjuela Julie (IRD)", email = "julie.orjuela@ird.fr" },
+    { name = "Comte Aurore (IRD)", email = "aurore.comte@ird.fr" },
+    { name = "Ravel Sebastien (CIRAD)", email = "sebastien.ravel@cirad.fr" },
+    { name = "Charriat Florian (INRAE)", email = "florian.charriat@cirad.fr" },
+]
+dependencies = ["pandas",
+                "matplotlib",
+                "tabulate",
+                "ipython",
+                "biopython",
+                "pysam",
+                "numpy",
+                "snakecdysis>=1.0.0",
+                "snakemake<=8",
+                "setuptools>=68.2.0",
+                "nbformat"
+]
+requires-python = ">=3.8"
+readme = "README.rst"
+license = { file = "LICENCE" }
+keywords = ["snakemake", "assembly", "workflow", "HPC"]
+classifiers = [
+            'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+            'License :: CeCILL-C Free Software License Agreement (CECILL-C)',
+            'License :: Free for non-commercial use',
+            'Development Status :: 5 - Production/Stable',
+            'Intended Audience :: Developers',
+            'Intended Audience :: End Users/Desktop',
+            'Operating System :: POSIX :: Linux',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+            'Programming Language :: R',
+            'Natural Language :: English',
+            'Topic :: Scientific/Engineering',
+            'Topic :: Scientific/Engineering :: Bio-Informatics',
+            'Topic :: Software Development :: Assemblers'
+]
+
+[project.urls]
+Homepage = "https://forge.ird.fr/diade/culebront_pipeline"
+Downloads = "https://forge.ird.fr/diade/culebront_pipeline/archive/"
+"Bug Tracker" = "https://forge.ird.fr/diade/culebront_pipeline/issues"
+Documentation = "https://snakecdysis.readthedocs.io/en/latest/"
+"Source Code" = "https://forge.ird.fr/diade/culebront_pipeline"
+
+[project.optional-dependencies]
+dev = [
+    "sphinx_click",
+    "sphinx_copybutton",
+    "sphinx_rtd_theme",
+    "tox",
+]
+
+# setup scripts links
+[project.scripts]
+culebrONT = "culebrONT.main:main"
+
+[project.entry-points.culebrONT]
+culebrONT = "__init__"
+
+# Try to link sphinx to file
+[tool.sphinx]
+source-dir = "docs/source"
+build-dir = "docs/build"
+config-dir = "docs/source"
+
+#### TOX PART TO MOVE ON GITLAB-CI.YAML
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+min_version = 3.0
+envlist = py{310}
+skip_missing_interpreters = True
+skipsdist=False
+isolated_build=True
+
+[gh-actions]
+python = 3.10: py310
+
+[testenv:py{310}]
+description = Run the install in Python 3.10
+skip_install = False
+changedir={envdir}
+allowlist_externals =
+    bash
+    echo
+envdir =
+    py310: {toxworkdir}/py310
+setenv =
+    PATH = {toxinidir}{:}{env:PATH}
+commands =
+    culebrONT --help
+    bash -ec 'echo `pwd`'
+    bash -ec 'CPDIR="{envdir}/lib/python3.10/site-packages/culebrONT/containers/"; DIR="/usr/local/culebrONT/Containers"; if [[ -d $DIR ]]; then ls $DIR;  echo "copy Containers files in $DIR to $CPDIR"; ln -sf $DIR/* $CPDIR; fi'
+    culebrONT install_local
+
+
+[run]
+description = Run Installation culebrONT install_local
+changedir={envdir}
+skipsdist=True
+skip_install=True
+commands =
+    culebrONT install_local
+    culebrONT test_install -d test
+    culebrONT run_local --threads 14 --config {posargs} --singularity-args '--bind /builds:/builds'
+
+
+[testenv:py310-run]
+description = Run workflow pass on args to culebrONT
+envdir =
+    py310: {toxworkdir}/py310
+setenv =
+    PATH = {toxinidir}{:}{env:PATH}
+changedir={envdir}
+skipsdist=True
+skip_install=True
+commands = {[run]commands}
+
+"""

@@ -1,0 +1,38 @@
+#INFORMATION
+#MAINTAINER Julie Orjuela & Francois Sabot (Docker)
+#version="1.0"
+#software="all Culebront dependencies"
+#description="All dependencies used to launch CulebrONT in LOCAL mode"
+#website="https://culebront-pipeline.readthedocs.io/en/latest/"
+
+FROM ubuntu:latest
+USER root
+
+# ENVIRONMENT
+
+# INSTALL, Global
+
+RUN DEBIAN_FRONTEND=noninteractive
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN apt-get update && apt-get upgrade -y
+RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime
+RUN apt-get install -y apt-utils dialog
+RUN apt-get install -y tzdata
+RUN dpkg-reconfigure --frontend noninteractive tzdata
+RUN apt-get -y install keyboard-configuration git vim curl wget less locate graphviz python3-pip software-properties-common
+RUN apt-get -y install python3.10 python3.10-dev
+# Install for Python
+RUN echo 'export LC_ALL=C.UTF-8' >> /environment
+RUN echo 'export LANG=C.UTF-8' >> /environment
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+RUN python3.10 -m pip install -U build setuptools pip
+
+# installing apptainer
+RUN add-apt-repository -y ppa:apptainer/ppa
+RUN apt update
+RUN apt install -y apptainer
+RUN apt-get clean
+
+# Download apptainer_of culebront
+RUN mkdir -p /usr/local/culebrONT/Containers && cd /usr/local/culebrONT/Containers && apptainer pull apptainer.culebront_tools.sif  oras://registry.forge.ird.fr/diade/culebront_pipeline/apptainer/apptainer.culebront_tools.sif:0.0.1
