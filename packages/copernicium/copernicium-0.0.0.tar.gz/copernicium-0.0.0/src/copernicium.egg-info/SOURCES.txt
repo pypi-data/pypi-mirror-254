@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/copernicium/__init__.py
+src/copernicium/example.py
+src/copernicium.egg-info/PKG-INFO
+src/copernicium.egg-info/SOURCES.txt
+src/copernicium.egg-info/dependency_links.txt
+src/copernicium.egg-info/top_level.txt
