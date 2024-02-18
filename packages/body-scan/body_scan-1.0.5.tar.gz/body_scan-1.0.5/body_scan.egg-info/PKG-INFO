@@ -1,0 +1,250 @@
+Metadata-Version: 2.1
+Name: body_scan
+Version: 1.0.5
+License: GPL 3.0
+Project-URL: GitLab, https://gitlab.com/reptilian_climates/body_scan.git
+Description-Content-Type: text/plain
+Requires-Dist: botanist
+Requires-Dist: click
+Requires-Dist: flask
+Requires-Dist: pdoc3
+Requires-Dist: requests
+Requires-Dist: textual
+Requires-Dist: tinydb
+
+
+
+<body>
+	<header>
+		<address>body scan</address>
+	</header>
+
+	<main>
+		<address>quick start</address>
+
+		<p>How to start the status checks</p>
+		<code python3>
+
+		'''
+			The example is based on this structure:
+			
+			/example_module_a
+				/status
+					/modules_pip			# the location of body_scan
+					
+					modules_pip.UTF8 		# The requirements of the modules required to check
+											# the status of the module being developed.
+											#
+											# This includes "body_scan"
+											#
+											# pip install -r modules_pip.UTF8 -t modules_pip
+		
+					status.py				# this is the file where body_scan is called from.
+			
+				/structures
+					/modules_pip			# the location of the requirements of "example_module_a" 
+					
+					/modules
+						/example_module_a	# The module being developed
+							__init__.py
+							
+							
+					modules_pip.UTF8 		# The requirements of example_module_a
+											# pip install -r modules_pip.UTF8 -t modules_pip
+					
+					
+		'''
+		
+		#
+		#	status.py
+		#
+		import body_scan
+		import pathlib
+		from os.path import dirname, join, normpath
+		
+		this_folder = pathlib.Path (__file__).parent.resolve ()
+		
+		structures = normpath (join (this_folder, "../structures")
+		the_module = normpath (join (structures, "modules/example_module_a")
+
+		scan = body_scan.start (
+			#
+			# required
+			#
+			glob_string = str (the_module) + '/**/status_*.py',
+			
+			#
+			# optional
+			#
+			module_paths = [
+				normpath (join (structures, "modules"),
+				normpath (join (structures, "modules_pip")				
+			],
+			simultaneous = True,
+			relative_path = normpath (join (structures, "modules")),
+			db_directory = normpath (join (this_folder, "DB"),
+			
+
+			before = normpath (join (this_folder, "before.py")),
+			after = normpath (join (this_folder, "after.py"))
+		)
+
+		status = scan ["status"]
+		paths = status ["paths"]
+		
+		</code>
+
+		<b>body_scan.start options</b>
+		<code>
+			required
+
+			#
+			#	This is the recursive glob of all the files that are sent to the scanner.
+			#
+			glob_string = search + '/**/status_*.py',
+
+		</code>
+
+		<code>
+			optional
+			
+			#
+			#	This runs all the checks in a thread pool,
+			#	so maybe at the same time, more or less.
+			#
+			#	If False, then checks are run one at a time
+			#
+			simultaneous = True,
+
+			#
+			#	These are the required modules of the module being developed.
+			#
+			module_paths = [
+				normpath (join (search, "modules_pip"))
+			],
+
+			#
+			#	This is the folder path to remove from the paths in the output.
+			#
+			relative_path = search
+			
+			
+			#
+			#	This saves the stats of each body_scan run,
+			#	that way easier to know if checks have been lost or something.
+			#
+			db_directory
+			
+			#
+			#	This is a checks file that is run before all the other checks,
+			# 	for like building databases, etc.
+			#
+			before
+			
+			#
+			#	This is a checks file that is run after all the other checks.
+			#
+			after
+
+		</code>
+
+		<b>How to write checks</b>
+		<code python3>
+			def check_1 ():
+				print ("check 1")
+				
+			def check_2 ():
+				raise Exception ("NOT 100%")
+				
+
+			checks = {
+				"check 1": check_1,
+				"check 2": check_2
+			}
+		</code>
+
+
+		<b>output</b>
+
+		output is printed in 3 sections:
+			status:
+				empty = true -> no "checks" were found
+				parsed = true -> the python3 exec compiler could parse the file
+			
+			alarms
+			stats
+
+		<code python3>
+		status: {
+			"paths": [
+				{
+					"path": "guarantee_1.py",
+					"empty": false,
+					"parsed": true,
+					"stats": {
+						"passes": 1,
+						"alarms": 1
+					},
+					"checks": [
+						{
+							"check": "check 1",
+							"passed": true,
+							"elapsed": [
+								1.07790001493413e-05,
+								"SECONDS"
+							]
+						},
+						{
+							"check": "check 2",
+							"passed": false,
+							"exception": "Exception('NOT 100%')",
+							"exception trace": [
+								"Traceback (most recent call last):",
+								"  File \"/body_scan/processes/scan/keg/scan.py\", line 68, in scan",
+								"    checks [ check ] ()",
+								"  File \"<string>\", line 10, in check_2",
+								"Exception: NOT 100%"
+							]
+						}
+					]
+				}
+			],
+			"stats": {
+				"alarms": 0,
+				"empty": 0,
+				"checks": {
+					"passes": 1,
+					"alarms": 1
+				}
+			}
+		}
+		alarms: [
+			{
+				"path": "guarantee_1.py",
+				"checks": [
+					{
+						"check": "check 2",
+						"passed": false,
+						"exception": "Exception('NOT 100%')",
+						"exception trace": [
+							"Traceback (most recent call last):",
+							"  File \"/body_scan/structure/modules/body_scan/processes/scan/keg/scan.py\", line 68, in scan",
+							"    checks [ check ] ()",
+							"  File \"<string>\", line 10, in check_2",
+							"Exception: NOT 100%"
+						]
+					}
+				]
+			}
+		]
+		stats: {
+			"alarms": 0,
+			"empty": 0,
+			"checks": {
+				"passes": 1,
+				"alarms": 1
+			}
+		}
+		</code>
+	</main>
+</body>
