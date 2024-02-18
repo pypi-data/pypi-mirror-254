@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: anacostia_pipeline
+Version: 0.0.1
+Summary: A framework for building MLOps pipelines
+Author: Minh-Quan Do
+Author-email: mdo9@gmu.edu
+Requires-Dist: networkx==3.1
+Requires-Dist: pydantic
+Requires-Dist: rich
+Provides-Extra: web
+Requires-Dist: fastapi; extra == "web"
+Requires-Dist: uvicorn[standard]; extra == "web"
+Requires-Dist: Jinja2; extra == "web"
+Requires-Dist: requests; extra == "web"
+Requires-Dist: beautifulsoup4; extra == "web"
