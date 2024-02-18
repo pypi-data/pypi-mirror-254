@@ -1,0 +1,10 @@
+spacy>=3.7.2
+
+[dev]
+spacy>=3.7.2
+label-studio-ml
+wheel
+setuptools
+twine
+pytest
+pytest-runner
