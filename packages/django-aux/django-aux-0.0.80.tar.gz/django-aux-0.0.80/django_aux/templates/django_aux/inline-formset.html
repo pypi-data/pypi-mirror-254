@@ -1,0 +1,65 @@
+{% extends extend_str %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load aux_tags %}
+
+{% block content %}
+{% if header %}<h1 class="text-center"> {{ header }} </h1>
+<hr>{% endif %}
+{% if sub_header %}<h2 class="text-center"> {{ sub_header }} </h2>
+<hr>{% endif %}
+
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% if form_helper %}
+    {% crispy form form_helper %}
+    {% else %}
+    {% crispy form %}
+    {% endif %}
+    {% for fd in factories %}
+    <h5>{{ fd.header }}</h5>
+    {% if fd.helper %}
+    {% crispy fd.factory fd.helper %}
+    {% else %}
+    {% crispy fd.factory %}
+    {% endif %}
+    {% endfor %}
+    <div class="row ml-2">
+        <div class="form-actions m-2">
+            <input type="submit" name="save" value="{{ save_btn_value|null_default:'Save' }}" class="{{ save_btn_class|null_default:'btn btn-primary' }}" id="submit-save">
+        </div>
+        {% if add_addlines_btn %}
+            <div class="form-actions m-2">
+                <input  class="{{ addlines_btn_class|null_default:'btn btn-warning' }}" name="addlines" type="button" value="Add Lines"
+                    onclick="location.href = '{{ addlines_url|null_default:'#'}}'">
+            </div>
+        {% endif %}
+        {% if add_removelines_btn %}
+            <div class="form-actions m-2">
+                <input class="{{ removelines_btn_class|null_default:'btn btn-warning' }}" name="removelines" type="button" value="Remove Lines"
+                    onclick="location.href = '{{ removelines_url|null_default:'#'}}'">
+            </div>
+        {% endif %}
+
+        {% if add_cancel_btn %}
+            <div class="form-actions m-2">
+                <input class="btn btn-danger" name="cancel" type="button" value="{{ cancel_btn_value|null_default:'Cancel' }}" 
+                onclick="{{ cancel_on_click|null_default:'history.back()' }}">
+            </div>
+        {% endif %}
+    </div>
+</form>
+
+{% if table %}
+    <h4>{{ table_header }}</h4>
+    {% render_table table %}
+{% endif %}
+
+{% endblock content %}
+
+{% block extra_javascript %}
+    
+    {% for ejs in extra_js %}
+        <script src="{% static ejs %}"></script>
+    {% endfor %}
+{% endblock %}
