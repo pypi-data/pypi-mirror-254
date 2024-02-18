@@ -1,0 +1,2 @@
+[console_scripts]
+source-zendesk-talk = source_zendesk_talk.run:run
