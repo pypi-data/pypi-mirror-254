@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pydictionaria
+Version: 2.2
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Robert Forkel
+Author-email: forkel@shh.mpg.de
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: data linguistics
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: dev
+Provides-Extra: test
