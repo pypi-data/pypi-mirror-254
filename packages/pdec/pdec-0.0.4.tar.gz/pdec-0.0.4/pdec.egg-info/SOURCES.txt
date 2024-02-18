@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+pdec/__init__.py
+pdec/_modidx.py
+pdec/_tmp.py
+pdec/core.py
+pdec.egg-info/PKG-INFO
+pdec.egg-info/SOURCES.txt
+pdec.egg-info/dependency_links.txt
+pdec.egg-info/entry_points.txt
+pdec.egg-info/not-zip-safe
+pdec.egg-info/requires.txt
+pdec.egg-info/top_level.txt
