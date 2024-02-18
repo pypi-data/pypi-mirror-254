@@ -1,0 +1,10 @@
+pyyaml
+requests
+pandoc
+jinja2
+
+[dev]
+pytest
+flake8
+check-manifest
+requests-cache
