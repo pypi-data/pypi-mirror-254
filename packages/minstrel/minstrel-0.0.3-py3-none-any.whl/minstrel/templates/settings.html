@@ -1,0 +1,161 @@
+{% extends 'base.htm' %}
+{% block title %}Settings{% endblock %}
+{% block nav %}{% endblock %}
+{% block main %}
+<section>
+    <h2 id="sequences">Sequences</h2>
+    <p>
+        Define a combination of <a href="#states">state</a>, <a href="#instruments">instrument</a> and <a href="#commands">command</a> to be called.
+        Sequences are called in the order of which they are created for a respective state and instrument. 
+    </p>
+    <table>
+        <tr>
+            <th>Sequence Tree</th>
+            <th style="width:1em;text-align:center">
+                <a class="outline" href="{{ url_for('settings.create_sequence') }}">New</a>
+            </th>
+        </tr>
+        {% for state_title, g1 in sequences|sort(attribute='state_title')|groupby('state_title') %}
+        <tr>
+            <td colspan="2">
+                <details>
+                    <summary>{{ state_title }}</summary>
+                    <table>
+                        <tr>
+                            <th colspan="2">Instruments</th>
+                        </tr>
+                        {% for instrument_title, g2 in g1|sort(attribute='instrument_title')|groupby('instrument_title') %}
+                        <tr>
+                            <td colspan="2">
+                                <details>
+                                    <summary>{{ instrument_title }}</summary>
+                                    <table>
+                                        <tr>
+                                            <th colspan="2">Commands</th>
+                                        </tr>
+                                        {% for sequence in g2 %}
+                                        <tr>
+                                            <td>
+                                                <a href="{{ url_for('settings.update_sequence', id=sequence['id']) }}">
+                                                    {{ sequence.command_title }}
+                                                </a>
+                                            </td>
+                                            <td style="width:1em;text-align:center">
+                                                <a href="{{ url_for('settings.delete_sequence', id=sequence['id']) }}">
+                                                    <span class="material-symbols material-symbols--close">close</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </details>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </details>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+<section>
+    <h2 id="states">States</h2>
+    <p>
+        Define a collection of sequences that will be run when selected from the home screen.
+        Changes to a states parameters has a global affect.
+    </p>
+    <table>
+        <tr>
+            <th>State</th>
+            <th style="width:1em;text-align:center">
+                <a class="outline" href="{{ url_for('settings.create_state') }}">New</th>
+        </tr>
+        {% for state in states|sort(attribute='title') %}
+        <tr>
+            <td>
+                <a href="{{ url_for('settings.update_state', id=state['id']) }}">{{ state.title }}</a>
+            </td>
+            <td style="width:1em;text-align:center">
+                <a href="{{ url_for('settings.delete_state', id=state['id']) }}">
+                    <span class="material-symbols material-symbols--close">close</span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+<section>
+    <h2 id="instruments">Instruments</h2>
+    <p>
+        Define the network interface by which a command will be sent when a sequence is called.
+        Changes to an instruments parameters has a global affect.
+    </p>
+    <table>
+        <tr>
+            <th>Instrument</th>
+            <th style="width:1em;text-align:center">
+                <a class="outline" href="{{ url_for('settings.create_instrument') }}">New</a>
+            </th>
+        </tr>
+        {% for instrument in instruments|sort(attribute='title') %}
+        <tr>
+            <td>
+                <a href="{{ url_for('settings.update_instrument', id=instrument['id']) }}">{{ instrument.title }}</a>
+            </td>
+            <td style="width:1em;text-align:center">
+                <a href="{{ url_for('settings.delete_instrument', id=instrument['id']) }}">
+                    <span class="material-symbols material-symbols--close">close</span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+<section>
+    <h2 id="commands">Commands</h2>
+    <p>
+        Define the raw string that will be sent to the instrumentation hardware when a sequence is called.
+        Changes to a commands parameters has a global affect.
+    </p>
+    <table>
+        <tr>
+            <th>Command</th>
+            <th style="width:1em;text-align:center">
+                <a class="outline" href="{{ url_for('settings.create_command') }}">New</a>
+            </th>
+        </tr>
+        {% for command in commands|sort(attribute='title') %}
+        <tr>
+            <td>
+                <a href="{{ url_for('settings.update_command', id=command['id']) }}">{{ command.title }}</a>
+            </td>
+            <td style="width:1em;text-align:center">
+                <a href="{{ url_for('settings.delete_command', id=command['id']) }}">
+                    <span class="material-symbols material-symbols--close">close</span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+<button id="scroll-top" title="Return To Top" onclick="userScrollTop()">
+    <span class="material-symbols material-symbols--arrow-upward">arrow_upward</span>
+</button>
+<script>
+    let scrollTopButton = document.getElementById("scroll-top");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              scrollTopButton.style.display = "flex";
+        } else {
+              scrollTopButton.style.display = "none";
+        }
+    }
+
+    function userScrollTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+{% endblock %}

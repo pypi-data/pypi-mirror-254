@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" />
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home.index') }}" style="display: flex">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" preserveAspectRatio="xMidYMid meet" width="35" height="35">
+                    <defs>
+                        <linearGradient id="grad" gradientTransform="rotate(90)">
+                            <stop offset="5%" stop-color="rgb(26, 115, 232)" />
+                            <stop offset="95%" stop-color="rgb(13, 101, 45)" />
+                        </linearGradient>
+                    </defs>
+                    <g>
+                        <path fill="url('#grad')" d="M 0 17.5 A 17.5 17.5 180 0 1 35 17.5 A 8.75 8.75 0 0 1 17.5 17.5 A 8.75 8.75 180 0 0 0 17.5 Z" transform="rotate(-45, 17.5, 17.5)" />
+                        <path fill="rgb(52, 168, 83)" d="M 0 17.5 A 8.75 8.75 180 0 1 17.5 17.5 A 8.75 8.75 0 0 0 35 17.5 A 17.5 17.5 0 0 1 0 17.5 Z" transform="rotate(-45, 17.5, 17.5)" />
+                    </g>
+                </svg>
+            </a>
+            {% block nav %}{% endblock %}
+            <a href="{{ url_for('settings.index') }}" class="action-icon">
+                <span class="material-symbols material-symbols--settings">settings</span>
+            </a>
+        </header>
+        <main>
+            {% block main %}{% endblock %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </main>
+    </body>
+</html>
