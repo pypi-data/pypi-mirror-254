@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: h2ogpte
+Version: 1.3.5
+Summary: Client library for Enterprise h2oGPTe
+Author-email: Prithvi Prabhu <prithvi.prabhu@gmail.com>, Arno Candel <arno.candel@gmail.com>
+Project-URL: Source, https://github.com/h2oai/h2ogpte
+Project-URL: Issues, https://github.com/h2oai/h2ogpte/issues
+Project-URL: Documentation, https://h2oai.github.io/h2ogpte/
+Keywords: information-retrieval,LLM,large-language-models,question-answering,search,semantic-search,analytical-search,lexical-search,document-search,natural-language-querying
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiofiles ==23.2.1
+Requires-Dist: pydantic[dotenv] ==2.5.2
+Requires-Dist: pydantic-settings ==2.0.3
+Requires-Dist: requests ==2.31.0
+Requires-Dist: websockets ==11.0.3
+Requires-Dist: beautifulsoup4 ==4.12.2
+Requires-Dist: bs4 ==0.0.1
+Requires-Dist: lxml ==4.9.3
+Requires-Dist: pandas >=1.3.5
+Requires-Dist: httpx ==0.24.1
+Requires-Dist: packaging
+
+# H2O H2OGPTE Python Client
+
+## Install
+
+```bash
+pip install h2ogpte
+```
+
+## Usage
+
+```python
+from h2ogpte import H2OGPTE
+
+h2ogpte = H2OGPTE(address='https://h2ogpte.h2o.ai', api_key='sk-xxxxxx')
+
+# Create a new collection
+collection_id = h2ogpte.create_collection(name='Contracts', description='Paper clip supply contracts')
+
+# Upload documents
+with open('/path/to/dunder_mifflin.pdf', 'rb') as f:
+    dunder_mifflin = h2ogpte.upload('Dunder Mifflin.pdf', f)
+with open('/path/to/wernham_hogg.pdf', 'rb') as f:
+    initech = h2ogpte.upload('Wernham Hogg.pdf', f)
+
+# Ingest documents
+h2ogpte.ingest_uploads(collection_id, [dunder_mifflin, initech])
+
+# Create a chat session
+chat_session_id = h2ogpte.create_chat_session(collection_id)
+
+# Query the collection
+with h2ogpte.connect(chat_session_id) as session:
+    reply = session.query('How many paper clips were shipped to Scranton?', timeout=10)
+    print(reply.content)
+    
+    reply = session.query('Did David Brent co-sign the contract with Initech?', timeout=10)
+    print(reply.content)
+```
+
