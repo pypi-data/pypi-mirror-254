@@ -1,0 +1,2 @@
+[console_scripts]
+txtpresso-hello = txtpresso.hello_world:main
