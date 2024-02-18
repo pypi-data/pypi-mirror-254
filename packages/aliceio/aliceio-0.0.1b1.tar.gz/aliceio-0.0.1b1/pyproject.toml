@@ -1,0 +1,261 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aliceio"
+description = "Asynchronous framework for Alice from Yandex Dialogs"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [{ name = "K1rL3s - Kirill Lesovoy" }]
+maintainers = [{ name = "K1rL3s - Kirill Lesovoy" }]
+keywords = [
+  "alice",
+  "yandex",
+  "aliceio",
+  "bot",
+  "api",
+  "framework",
+  "wrapper",
+  "asyncio",
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Framework :: AsyncIO",
+  "Typing :: Typed",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Communications :: Chat",
+]
+dependencies = [
+  "aiofiles~=23.2.1",
+  "aiohttp~=3.9.0",
+  "certifi>=2023.7.22",
+  "magic-filter>=1.0.12,<1.1",
+  "pydantic>=2.4.1,<2.6",
+  "typing-extensions>=4.7.0,<=5.0",
+]
+
+dynamic = ["version"]
+[tool.hatch.version]
+path = "aliceio/__meta__.py"
+
+[project.optional-dependencies]
+fast = [
+  "uvloop>=0.17.0; (sys_platform == 'darwin' or sys_platform == 'linux') and platform_python_implementation != 'PyPy'",
+  "aiodns>=3.0.0",
+]
+redis = [
+  "redis[hiredis]~=5.0.1",
+]
+proxy = [
+  "aiohttp-socks~=0.8.3",
+]
+test = [
+  "pytest~=7.4.2",
+  "pytest-html~=4.0.2",
+  "pytest-asyncio~=0.21.1",
+  "pytest-lazy-fixture~=0.6.3",
+  "pytest-mock~=3.12.0",
+  "pytest-mypy~=0.10.3",
+  "pytest-cov~=4.1.0",
+  "pytest-aiohttp~=1.0.5",
+  "aresponses~=2.1.6",
+  "pytz~=2023.3",
+  "pycryptodomex~=3.19.0",
+]
+dev = [
+  "black~=23.10.0",
+  "isort~=5.12.0",
+  "ruff~=0.1.1",
+  "mypy~=1.6.1",
+  "toml~=0.10.2",
+  "pre-commit~=3.5.0",
+  "packaging~=23.1",
+]
+docs = [
+  "mkdocs~=1.5.3",
+  "mkdocs_material~=9.5.5",
+  "mkdocstrings~=0.24.0",
+  "mkdocstrings_python~=1.8.0"
+]
+
+[project.urls]
+Documentation = "https://aliceio.rtfd.io"
+Repository = "https://github.com/K1rL3s/aliceio"
+
+[tool.hatch.envs.default]
+features = [
+  "dev",
+  "fast",
+  "redis",
+  "proxy",
+]
+post-install-commands = [
+  "pre-commit install",
+]
+
+[tool.hatch.envs.default.scripts]
+reformat = [
+  "black aliceio tests",
+  "isort aliceio tests",
+]
+lint = "ruff aliceio"
+
+[tool.hatch.envs.docs]
+features = [
+  "fast",
+  "redis",
+  "proxy",
+  "docs",
+]
+
+[tool.hatch.envs.dev]
+python = "3.12"
+features = [
+  "dev",
+  "fast",
+  "redis",
+  "proxy",
+  "test",
+]
+
+[tool.hatch.envs.test]
+features = [
+  "fast",
+  "redis",
+  "proxy",
+  "test",
+]
+
+[tool.hatch.envs.test.scripts]
+cov = [
+  "pytest --cov-config pyproject.toml --cov=aliceio --html=reports/py{matrix:python}/tests/index.html {args}",
+  "coverage html -d reports/py{matrix:python}/coverage",
+]
+cov-redis = [
+  "pytest --cov-config pyproject.toml --cov=aliceio --html=reports/py{matrix:python}/tests/index.html --redis {env:REDIS_DNS:'redis://localhost:6379'} {args}",
+  "coverage html -d reports/py{matrix:python}/coverage",
+]
+view-cov = "google-chrome-stable reports/py{matrix:python}/coverage/index.html"
+
+
+[[tool.hatch.envs.test.matrix]]
+python = ["38", "39", "310", "311", "312"]
+
+[tool.ruff]
+line-length = 88
+select = [
+  "C",
+  "C4",
+  "E",
+  "F",
+  "T10",
+  "T20",
+  "Q",
+  "RET",
+]
+ignore = [
+  "F401"
+]
+src = ["aliceio", "tests"]
+exclude = [
+  ".git",
+  "build",
+  "dist",
+  "venv",
+  ".venv",
+  "docs",
+  "tests",
+  "dev",
+  "scripts",
+  "*.egg-info",
+]
+target-version = "py38"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = [
+  "tests",
+]
+filterwarnings = [
+  "error",
+  "ignore::pytest.PytestUnraisableExceptionWarning",
+]
+
+[tool.coverage.run]
+branch = false
+parallel = true
+omit = [
+  "aliceio/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "if __name__ == .__main__.:",
+  "pragma: no cover",
+  "if TYPE_CHECKING:",
+  "@abstractmethod",
+  "@overload",
+]
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+python_version = "3.8"
+show_error_codes = true
+show_error_context = true
+pretty = true
+ignore_missing_imports = false
+warn_unused_configs = true
+disallow_subclassing_any = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+follow_imports_for_stubs = true
+namespace_packages = true
+show_absolute_path = true
+
+[[tool.mypy.overrides]]
+module = [
+  "aiofiles",
+  "async_lru",
+  "uvloop",
+  "redis.*",
+]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+exclude = '''
+(
+    \.eggs
+  | \.git
+  | \.tox
+  | build
+  | dist
+  | venv
+  | docs
+)
+'''
+
+[tool.isort]
+profile = "black"
