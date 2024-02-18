@@ -1,0 +1,34 @@
+# sketch of tql to create a union out of software and tool
+# needs fixing to work
+
+define
+  attack-software sub stix-domain-object,
+    plays domain-object-union:object; # or truth/reference/main/?
+
+  software-malware
+    plays domain-object-union:secondary; # or member/view/?
+  software-tool
+    plays domain-object-union:secondary;
+
+  domain-object-union sub relation,
+    relates object,
+    relates secondary;
+
+rule transfer-union-attrs:
+when {
+  $x isa stix-domain-object;
+  $y isa stix-domain-object, has attribute $a;
+  (object: $x, secondary: $y) isa domain-object-union;
+} then {
+  $x has $a;
+};
+
+rule transfer-union-rels:
+when {
+  $x isa stix-domain-object;
+  $y isa stix-domain-object;
+  (object: $x, secondary: $y) isa domain-object-union;
+  ($role-y: $y, $role-z: $z) isa! $rel-type; $rel-type relates $role-y; $rel-type relates $role-z;
+} then {
+  ($role-y: $x, $role-z) isa $rel-type;
+};

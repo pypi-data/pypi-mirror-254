@@ -1,0 +1,18 @@
+{
+  "determination" : "determination",
+  "extension_type" : "extension-type",
+  "investigation_status" : "investigation-status",
+  "criticality" : "criticality",
+  "blocked" : "blocked",
+  "malicious" : "malicious",
+  "impacted_entity_counts" : "",
+  "recoverability" : "recoverability",
+  "scores" : "",
+  "incident_types" : "incident-types",
+  "sequence_start_refs": "",
+  "sequence_refs": "",
+  "task_refs" : "",
+  "event_refs" : "",
+  "impact_refs" : "",
+  "other_object_refs" : ""
+}
