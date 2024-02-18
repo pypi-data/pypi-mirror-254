@@ -1,0 +1,9 @@
+immutabledict<4.1.1
+typing-extensions<5,>=4.7
+ordered-set==4.1.0
+
+[extras]
+riscemu==2.2.5
+wgpu==0.13.2
+textual==0.47.1
+pyclip==0.7
