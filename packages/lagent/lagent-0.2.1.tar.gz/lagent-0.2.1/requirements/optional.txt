@@ -1,0 +1,4 @@
+lmdeploy>=0.2.2
+streamlit
+torch
+transformers>=4.34
