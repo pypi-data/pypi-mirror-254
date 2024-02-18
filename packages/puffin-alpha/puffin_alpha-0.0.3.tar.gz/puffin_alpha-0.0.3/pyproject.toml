@@ -1,0 +1,25 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "puffin-alpha"
+version = "0.0.3"
+authors = [{ name = "Puffin" }]
+requires-python = ">=3.7"
+keywords = []
+classifiers = []
+readme = "README.md"
+
+[project.urls]
+Repository = "https://pypi.org/project/puffin-alpha/"
+Documentation = "https://pypi.org/project/puffin-alpha/"
+Changelog = "https://pypi.org/project/puffin-alpha/"
+
+[tool.maturin]
+bindings = "bin"
+manifest-path = "crates/puffin/Cargo.toml"
+module-name = "puffin"
+python-source = "python"
+strip = true
+include = ["rust-toolchain.toml"]
