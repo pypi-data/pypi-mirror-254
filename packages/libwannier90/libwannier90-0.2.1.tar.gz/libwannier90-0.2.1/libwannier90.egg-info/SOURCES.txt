@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+libwannier90.egg-info/PKG-INFO
+libwannier90.egg-info/SOURCES.txt
+libwannier90.egg-info/dependency_links.txt
+libwannier90.egg-info/requires.txt
+libwannier90.egg-info/top_level.txt
+src/libwannier90.cpp
