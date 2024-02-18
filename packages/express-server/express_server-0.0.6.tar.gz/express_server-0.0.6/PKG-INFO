@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: express_server
+Version: 0.0.6
+Summary: Express-Server is a lightweight and fast web server for Python, inspired by the simplicity of Express.js.
+Home-page: https://example.com/
+Author: Avinash Tare
+Author-email: avinashtare.work@gmail.com
+License: (The MIT License)
+        
+        Copyright (c) 2024-2100 Avinash Tare <avinashtare.work@gmail.com>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Project-URL: Documentation, https://example.com/
+Project-URL: Source, https://github.com/avinashtare/express-server-python
+Keywords: express,python-express,express-python,express-server,server-express
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Express-Server
+
+Express-Server is a lightweight and fast web server for Python, inspired by the simplicity  of Express.js.
+
+![images](https://camo.githubusercontent.com/f6128b6a17c28ec054b7ab67e595d39f503a0e17b116901141c05e1a1016985a/68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67)
+
+**Simple Syntax**
+```python
+from express_server import express
+app = express()
+
+def home(req,res,next):
+    return res.send("Hello World")
+
+app.get("/",home)
+
+app.listen(3000)
+```
+
+### Installation
+
+This is a [Python](https://python.org/) library available through the pip registry.
+
+Before installing, download and install [python](https://www.python.org/downloads/). Python 3.1 or higher is required.
+
+Installation is done using the pip command:
+```shell
+$ pip install express-server
+```
+
+#### 🛠️ **This project is currently in development! Use For Fun**
+
+We are actively working on improving and expanding this project. While many features are functional, there may be bugs or incomplete functionality. If you encounter any issues or have suggestions, feel free to open an issue or contribute to the development.
+
+#### Security Notice
+
+🔒 **This project is not intended for production use, and it may not be secure.**
+
+As a work in progress, security considerations have not been fully addressed. Avoid using this project in a production environment or with sensitive data.
+
+#### Links
+* PyPI Releases: https://pypi.org/project/express-server/
+* Github Code: https://github.com/avinashtare/express-server-python
