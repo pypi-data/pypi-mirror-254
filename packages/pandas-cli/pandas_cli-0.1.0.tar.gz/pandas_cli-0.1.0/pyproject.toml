@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pandas-cli"
+version = "0.1.0"
+description = ""
+authors = ["Ben Skubi <skubi@ohsu.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0.1"
+numpy = "^1.26.3"
+click = "^8.1.7"
+
+[tool.poetry.scripts]
+pandas-cli = "pandas_cli.__main__:cli"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

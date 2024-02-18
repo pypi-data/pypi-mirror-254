@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pandas-cli
+Version: 0.1.0
+Summary: 
+Author: Ben Skubi
+Author-email: skubi@ohsu.edu
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: numpy (>=1.26.3,<2.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+Pandas-cli loads a YAMLized tensor into a pandas DataFrame called 'df', then executes arbitrary Python code passed in as an argument. Finally, it outputs 'df' in YAML.
+
