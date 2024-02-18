@@ -1,0 +1,15 @@
+starlette_admin_fields/__about__.py,sha256=IQ8dxgC6zuOKUghM5woGX6HGqIfQtcICLbfTPSzfIvE,138
+starlette_admin_fields/__init__.py,sha256=PK1KJWONDNsDrzeZiPT5iJfioeYCTm3JUoLyoZKpf9k,478
+starlette_admin_fields/base.py,sha256=y0ZtnGexBaBRQCCdLXPLHLEtT9CMLiVVm-ARTnif83k,1692
+starlette_admin_fields/fields/__init__.py,sha256=H5pngyItbwRYS_U4yQNkoMwbMu-JsHBYIvKwDnrJqEI,271
+starlette_admin_fields/fields/bootstrap_show_password.py,sha256=cVCZmigPnPUNeDgJD1NGn576xSv4TRK2jwOO0AexNCQ,2279
+starlette_admin_fields/fields/ckeditor4.py,sha256=FNjHY_U2MFiZNcTWSshDQxFEDBLMWOUpym3kZHHQIW0,1970
+starlette_admin_fields/fields/ckeditor5.py,sha256=jml-6janKmq6dGyoUeBwGsGNETE_4aG3u5jyJvynxzk,1569
+starlette_admin_fields/fields/simplemde.py,sha256=7XYrO_bVCl4JWoydwY3l-sLbM6WwHrdSpbOwuOy_4Gc,2569
+starlette_admin_fields/statics/css/ckeditor5.css,sha256=AMiWSU9XAgaxhjaWvwYC2VzpwBjhwRSQ93U26LyoJvQ,233
+starlette_admin_fields/statics/js/form-extra.js,sha256=rmx0voDMysDYddCCMHQWYMjOIoGzhk3KBRIT_hTf5gw,1033
+starlette_admin_fields/templates/__placeholder__.html,sha256=jOpuxoIIR69dND32fz9CwkBa5G-vclwSHxMFWGL6RxI,23
+starlette_admin_fields-0.1.0.dist-info/METADATA,sha256=Ke6RB-ljhqSh0gZuE-l485vSJdub91Y_DfctUNfi7F8,5660
+starlette_admin_fields-0.1.0.dist-info/WHEEL,sha256=TJPnKdtrSue7xZ_AVGkp9YXcvDrobsjBds1du3Nx6dc,87
+starlette_admin_fields-0.1.0.dist-info/licenses/LICENSE,sha256=P_9NRzDCpOGjeKt-dFHkLcqk-cxF7szL182VMYd2uRk,1075
+starlette_admin_fields-0.1.0.dist-info/RECORD,,

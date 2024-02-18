@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: starlette-admin-fields
+Version: 0.1.0
+Summary: Extra fields to use with Starlette Admin
+Project-URL: Homepage, https://github.com/hasansezertasan/starlette-admin-fields
+Project-URL: Documentation, https://github.com/hasansezertasan/starlette-admin-fields#readme
+Project-URL: Source, https://github.com/hasansezertasan/starlette-admin-fields
+Project-URL: Changelog, https://hasansezertasan.github.io/starlette-admin-fields/changelog
+Project-URL: Issues, https://github.com/hasansezertasan/starlette-admin-fields/issues
+Author-email: Hasan Sezer Taşan <hasansezertasan@gmail.com>
+Maintainer-email: Hasan Sezer Taşan <hasansezertasan@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: admin,ckeditor4,ckeditor5,dashboard,fastapi,fields,jinja2,simplemde,starlette,starlette-admin,template
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Requires-Dist: starlette-admin
+Provides-Extra: cov
+Requires-Dist: coverage[toml]<7.4.0,>=7.0.0; extra == 'cov'
+Provides-Extra: dev
+Requires-Dist: pre-commit<4.0.0,>=2.20.0; extra == 'dev'
+Requires-Dist: uvicorn<0.26.0,>=0.20.0; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: mkdocs-material<10.0.0,>=9.0.0; extra == 'doc'
+Requires-Dist: mkdocs-static-i18n<0.57.0,>=0.53.0; extra == 'doc'
+Requires-Dist: mkdocs<2.0.0,>=1.4.2; extra == 'doc'
+Requires-Dist: mkdocstrings[python]<0.25.0,>=0.19.0; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: black==24.1.1; extra == 'test'
+Requires-Dist: httpx<0.27.0,>=0.23.3; extra == 'test'
+Requires-Dist: mypy==1.8.0; extra == 'test'
+Requires-Dist: pytest<7.5.0,>=7.2.0; extra == 'test'
+Requires-Dist: ruff==0.1.15; extra == 'test'
+Description-Content-Type: text/markdown
+
+# starlette-admin-fields
+
+[![CI](https://github.com/hasansezertasan/starlette-admin-fields/actions/workflows/ci.yml/badge.svg)](https://github.com/hasansezertasan/starlette-admin-fields/actions?query=event%3Apush+branch%3Amain+workflow%3ACI)
+[![PyPI - Version](https://img.shields.io/pypi/v/starlette-admin-fields.svg)](https://pypi.org/project/starlette-admin-fields)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/starlette-admin-fields.svg)](https://pypi.org/project/starlette-admin-fields)
+[![License](https://img.shields.io/github/license/hasansezertasan/starlette-admin-fields.svg)](https://github.com/hasansezertasan/starlette-admin-fields/blob/main/LICENSE)
+[![Latest Commit](https://img.shields.io/github/last-commit/hasansezertasan/starlette-admin-fields)](https://github.com/hasansezertasan/starlette-admin-fields)
+
+[![Downloads](https://pepy.tech/badge/starlette-admin-fields)](https://pepy.tech/project/starlette-admin-fields)
+[![Downloads/Month](https://pepy.tech/badge/starlette-admin-fields/month)](https://pepy.tech/project/starlette-admin-fields)
+[![Downloads/Week](https://pepy.tech/badge/starlette-admin-fields/week)](https://pepy.tech/project/starlette-admin-fields)
+
+Extra fields to use with Starlette Admin
+
+-----
+
+**Table of Contents**
+
+- [starlette-admin-fields](#starlette-admin-fields)
+  - [Features](#features)
+    - [Fields](#fields)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Motivation](#motivation)
+  - [Author](#author)
+  - [License](#license)
+
+## Features
+
+- Quick integration with Starlette Admin
+- Zero dependencies
+- Fully typed
+
+### Fields
+
+| Field                                                                        | Name                         |
+| ---------------------------------------------------------------------------- | ---------------------------- |
+| [Bootstrap Show Password](https://bootstrap-show-password.wenzhixin.net.cn/) | `BootstrapShowPasswordField` |
+| [CKEditor4](https://ckeditor.com/)                                           | `CKEditor4Field`             |
+| [CKEditor5](https://ckeditor.com/)                                           | `CKEditor5Field`             |
+| [SimpleMDE](https://simplemde.com/)                                          | `SimpleMDEField`             |
+
+## Installation
+
+> Latest Release
+
+```console
+pip install starlette-admin-fields
+```
+
+> Development Version
+
+```console
+pip install git+https://github.com/hasansezertasan/starlette-admin-fields.git
+```
+
+## Usage
+
+I didn't write the documentation yet but it's pretty straightforward. You can check the [example](https://github.com/hasansezertasan/starlette-admin-fields/tree/main/example) directory for usage.
+
+## Motivation
+
+I implemented these fields for my own projects and decided to share them.
+
+## Author
+
+- [Hasan Sezer Tasan](https://www.github.com/hasansezertasan), It's me :wave:
+
+## License
+
+`starlette-admin-fields` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
