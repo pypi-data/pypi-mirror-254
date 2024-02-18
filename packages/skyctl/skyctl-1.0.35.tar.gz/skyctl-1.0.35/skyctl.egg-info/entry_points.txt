@@ -1,0 +1,3 @@
+[console_scripts]
+skyctl = ctl.terminal:ctl
+test = file_config.test:login
