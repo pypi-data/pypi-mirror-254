@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: maldinio-ai
+Version: 0.1.5
+Summary: A utility package for AI prompt management and prompt processing.
+Author: Mehdi Nabhani
+Author-email: mehdi@nabhani.de
+Keywords: AI,NLP,LLM,Prompt Management
+License-File: LICENSE
+Requires-Dist: tiktoken >=0.4.0
+Requires-Dist: openai >=1.3.7
+
