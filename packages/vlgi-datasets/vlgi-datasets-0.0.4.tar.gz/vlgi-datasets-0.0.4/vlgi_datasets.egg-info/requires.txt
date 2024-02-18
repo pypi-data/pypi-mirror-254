@@ -1,0 +1,4 @@
+pandas>=0.23.4
+kedro~=0.18.2
+SQLAlchemy==1.4.39
+Office365-REST-Python-Client==2.3.16
