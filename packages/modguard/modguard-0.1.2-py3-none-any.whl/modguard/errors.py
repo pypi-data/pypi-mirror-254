@@ -1,0 +1,6 @@
+class ModguardError(Exception):
+    ...
+
+
+class ModguardParseError(Exception):
+    ...
