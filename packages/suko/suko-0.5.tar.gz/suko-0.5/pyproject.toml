@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "suko"
+authors = [{name = "calcuis", email = "calculatics@gmail.com"}]
+description = "Suko is a popular logic-based number-placement puzzle where the objective is to fill a 3x3 grid with digits that compose the grid (often called regions or boxes) contain all of the digits from 1 to 9 without repetition; this generator is able to generate a complete suko item with random digits, sums and color patterns"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/calcuis/suko-generator"
+Issues = "https://github.com/calcuis/suko-generator/issues"
+
+[project.scripts]
+suko = "suko.__init__:__init__"
