@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: simetrix
+Version: 0.0.1
+Project-URL: Homepage, https://www.simetrix.co.uk
+Author-email: SIMetrix Technologies Ltd <support@simetrix.co.uk>
+License-File: LICENSE.txt
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# simetrix
+
+[![PyPI - Version](https://img.shields.io/pypi/v/simetrix.svg)](https://pypi.org/project/simetrix)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simetrix.svg)](https://pypi.org/project/simetrix)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install simetrix
+```
+
+## License
+
+`simetrix` is distributed under the terms of the [SIMetrix and SIMetrix/SIMPLIS End User License Agreement](https://www.simetrix.co.uk/eula.html).
