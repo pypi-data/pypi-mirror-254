@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+whatsapp_message_vonage_local.egg-info/PKG-INFO
+whatsapp_message_vonage_local.egg-info/SOURCES.txt
+whatsapp_message_vonage_local.egg-info/dependency_links.txt
+whatsapp_message_vonage_local.egg-info/requires.txt
+whatsapp_message_vonage_local.egg-info/top_level.txt
+whatsapp_message_vonage_local/src/__init__.py
+whatsapp_message_vonage_local/src/vonage_whatsapp_message_local.py
