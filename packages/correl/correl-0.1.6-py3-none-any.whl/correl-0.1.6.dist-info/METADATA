@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: correl
+Version: 0.1.6
+Summary: Library for w2dynamics (DMFT) postprocessing and for solving correlated electron problems.
+Author-email: Matthias Reitner <matthias.reitner@tuwien.ac.at>, Emin Moghadas <emin.moghadas@tuwien.ac.at>
+Maintainer-email: Matthias Reitner <matthias.reitner@tuwien.ac.at>, Emin Moghadas <emin.moghadas@tuwien.ac.at>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: h5py
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+# correl
+Library for [w2dynamics](https://github.com/w2dynamics/) (DMFT) postprocessing and for solving correlated electron problems.
