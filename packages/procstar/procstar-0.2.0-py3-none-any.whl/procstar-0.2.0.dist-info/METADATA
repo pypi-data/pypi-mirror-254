@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: procstar
+Version: 0.2.0
+Summary: Run my stuff!
+Author-email: Alex Samuel <alex@alexsamuel.net>
+License: BSD-3-Clause
+Project-URL: Repository, https://github.com/alexhsamuel/procstar
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: orjson >=3
+Requires-Dist: websockets >=10
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Requires-Dist: bump-my-version ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+
