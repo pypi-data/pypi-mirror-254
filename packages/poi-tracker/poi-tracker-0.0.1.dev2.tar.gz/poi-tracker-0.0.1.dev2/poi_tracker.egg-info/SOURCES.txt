@@ -1,0 +1,15 @@
+COPYING.md
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+poi_tracker/__init__.py
+poi_tracker/cli.py
+poi_tracker/exporters.py
+poi_tracker/inventory.py
+poi_tracker.egg-info/PKG-INFO
+poi_tracker.egg-info/SOURCES.txt
+poi_tracker.egg-info/dependency_links.txt
+poi_tracker.egg-info/entry_points.txt
+poi_tracker.egg-info/requires.txt
+poi_tracker.egg-info/top_level.txt

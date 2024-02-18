@@ -1,0 +1,14 @@
+click
+email-validator
+pydantic>=2.0.0
+pyyaml
+
+[dev]
+black
+build
+pip-tools
+pytest
+pytest-cov
+
+[test]
+pytest
