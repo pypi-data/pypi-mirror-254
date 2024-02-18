@@ -1,0 +1,8 @@
+
+[:python_version == "3.7"]
+typing_extensions
+
+[dev]
+pytest
+flake8
+mypy
