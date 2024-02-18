@@ -1,0 +1,28 @@
+version: '3.7'
+
+
+services:
+  db:
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: konviktion_db
+      POSTGRES_PASSWORD: fostgres
+      POSTGRES_USER: postgres
+    image: jhnnsrs/daten:next
+    labels:
+      - "arkitekt.default.service=dbnew"
+  redis:
+    image: redis:latest
+    labels:
+      - "arkitekt.default.service=redis"
+  konviktion:
+    depends_on:
+    - redis
+    - db
+    image: jhnnsrs/konviktion:latest
+    command: bash run-debug.sh
+    ports:
+      - 7766:80
+    volumes:
+      - ./configs/config.yaml:/workspace/config.yaml
+    labels:
+      - "arkitekt.default.service=port_next"
