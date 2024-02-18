@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: mesh-processing-tools
+Version: 1.0.4
+Summary: Utility functions for mesh representation objects (like trimesh) and manipulations using 3rd party packages (CGAL, Meshlab, etc.)
+Home-page: UNKNOWN
+Author: Brendan Celii
+Author-email: brendanacelii@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/reimerlab/mesh_tools
+Project-URL: Documentation, https://reimerlab.github.io/mesh_tools/
+Platform: UNKNOWN
+Requires-Dist: numpy (>=1.19.5)
+Requires-Dist: pykdtree (>=1.3.1)
+Requires-Dist: pandas (>=1.1.5)
+Requires-Dist: meshparty (>=1.10.0)
+Requires-Dist: cloud-volume (>=8.24.2)
+Requires-Dist: h5py (>=3.1.0)
+Requires-Dist: ipyvolume (>=0.5.2)
+Requires-Dist: matplotlib (>=3.3.4)
+Requires-Dist: networkx (>=2.5)
+Requires-Dist: open3d (==0.11.2)
+Requires-Dist: pymeshfix (>=0.13.4)
+Requires-Dist: datasci-stdlib-tools (>=1.0.1)
+Requires-Dist: machine-learning-tools (>=1.0.0)
+Requires-Dist: scipy (>=1.5.4)
+Requires-Dist: tqdm (>=4.62.2)
+Requires-Dist: trimesh (>=3.9.0)
+Requires-Dist: ipython
+Requires-Dist: ipython-genutils
+
+UNKNOWN
+

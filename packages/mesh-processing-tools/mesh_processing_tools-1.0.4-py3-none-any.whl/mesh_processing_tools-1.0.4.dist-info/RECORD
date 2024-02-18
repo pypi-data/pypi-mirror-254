@@ -1,0 +1,12 @@
+mesh_processing_tools-1.0.4.dist-info/DESCRIPTION.rst,sha256=zS54wBVgy3CfSq8q7qh-JWLsjwhGW64lUZGRcMV_tdQ,9
+mesh_processing_tools-1.0.4.dist-info/METADATA,sha256=kHoTE8Nd53CXkBnvVPu39eS54eZa_6KChe-R5T3C1nM,1076
+mesh_processing_tools-1.0.4.dist-info/RECORD,,
+mesh_processing_tools-1.0.4.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+mesh_processing_tools-1.0.4.dist-info/metadata.json,sha256=ZO5vnfMGp-oHz28Ae8qNUKdUFeSpErg7MfuEIMGHxqc,963
+mesh_processing_tools-1.0.4.dist-info/top_level.txt,sha256=mRtp-_fNIp5zywNiYFIFgXc5h0JodEHDKVPGlfc3EdQ,11
+mesh_tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mesh_tools/compartment_utils.py,sha256=5AzZnFRp4bIVSI17_LhDiN0IQEbHT3LvDcvNNjINGPA,78365
+mesh_tools/meshlab.py,sha256=7wNQwcMgCEkiPZ2VVst1B6TXQ5tDAjVmtl_nGN3EEG8,33374
+mesh_tools/meshparty_skeletonize.py,sha256=-EJGQQwuIwnpXpD18XzKDAxJeSm_8dnrQexgkiNPppI,56706
+mesh_tools/skeleton_utils.py,sha256=dRlEE3obt52oefiP-5fx78nTti3EZoFkQilexVTLodE,319233
+mesh_tools/trimesh_utils.py,sha256=xj_R9pi3kPB0YpIRx2hbo_AN0x88bz21qofxXqbIpjY,253468
