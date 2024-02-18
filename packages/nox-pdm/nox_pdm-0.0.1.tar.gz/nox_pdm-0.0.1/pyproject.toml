@@ -1,0 +1,30 @@
+[project]
+name = "nox-pdm"
+version = "0.0.1"
+description = "Use PDM inside Nox sessions"
+authors = [
+    { name = "Ashwin V. Mohanan", email = "dev@fluid.quest" },
+]
+dependencies = [
+    "nox>=2023.4.22",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+
+[project.license]
+text = "Apache-2.0"
+
+[project.optional-dependencies]
+tests = [
+    "pytest>=8.0.0",
+    "urllib3==2.1.0",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
