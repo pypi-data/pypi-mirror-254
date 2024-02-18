@@ -1,0 +1,28 @@
+[build-system]
+requires = ['setuptools>=42']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "idev-pipall"
+version = "1.0.0"
+authors = [
+  { name="Irtsa", email="irtsa.development@gmail.com" },
+]
+description = "A python script for executing pip commands across many or all packages."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "idev-pytermcolor"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/IrtsaDevelopment/pipall"
+"Bug Tracker" = "https://github.com/IrtsaDevelopment/pipall/issues"
+
+[project.scripts]
+pipall = "pipall:run"

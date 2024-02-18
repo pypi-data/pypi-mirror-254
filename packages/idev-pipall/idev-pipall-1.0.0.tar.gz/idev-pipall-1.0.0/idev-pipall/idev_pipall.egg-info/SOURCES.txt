@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+idev-pipall/idev_pipall.egg-info/PKG-INFO
+idev-pipall/idev_pipall.egg-info/SOURCES.txt
+idev-pipall/idev_pipall.egg-info/dependency_links.txt
+idev-pipall/idev_pipall.egg-info/entry_points.txt
+idev-pipall/idev_pipall.egg-info/requires.txt
+idev-pipall/idev_pipall.egg-info/top_level.txt
+idev-pipall/pipall/__init__.py
+idev-pipall/pipall/pipall.py
+idev-pipall/pipall/pipallBackground.py

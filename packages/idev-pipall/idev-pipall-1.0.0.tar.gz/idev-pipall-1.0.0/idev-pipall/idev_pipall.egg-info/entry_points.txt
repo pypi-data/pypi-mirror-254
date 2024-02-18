@@ -1,0 +1,2 @@
+[console_scripts]
+pipall = pipall:run
