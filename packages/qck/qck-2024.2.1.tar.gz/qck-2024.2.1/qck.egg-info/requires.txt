@@ -1,0 +1,7 @@
+click
+duckdb
+jinja2
+
+[devel]
+black
+ruff
