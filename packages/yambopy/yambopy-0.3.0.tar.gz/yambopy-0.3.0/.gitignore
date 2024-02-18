@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+*.swp
+build
+*.coverage
+*.bak
+*.egg-info
+.cache
+tags
