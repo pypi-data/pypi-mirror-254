@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pyromocc
+Version: 0.0.7
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Andreas Oestvik
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Requires-Dist: wheel
+Requires-Dist: numpy
+Provides-Extra: examples
+Requires-Dist: matplotlib ; extra == 'examples'
+
+UNKNOWN
+
+
