@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>pd4web Template html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PureData patch compiled using pd4web by Charles K. Neimog"
+    />
+    <meta property="og:title" content="Pd4web Patch" />
+    <meta property="og:url" content="https://charlesneimog.github.io/pd4web/" />
+    <meta property="og:site_name" content="Pd4web Compiler" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script src="./enable-threads.js"></script>
+    <!-- TODO: Try to remove font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dejavu.css" />
+    <script src="./main.js"></script>
+    <script src="./libpd.js"></script>
+  </head>
+  <body>
+    <div
+      id="pdbuttons"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      "
+    >
+      <a id="Start-Audio-Button">
+        <i id="SoundIcon" class="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>
+      </a>
+    </div>
+    <hr />
+
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(130, 130, 130, 0.3) 0px 0px 0px 1px;
+        height: 50vh;
+      "
+    >
+      <svg
+        id="canvas"
+        width="100%"
+        height="100%"
+        viewBox="0 0 450 300"
+        preserveAspectRatio="xMidYMin meet"
+      ></svg>
+    </div>
+    <script src="./gui.js"></script>
+  </body>
+</html>
