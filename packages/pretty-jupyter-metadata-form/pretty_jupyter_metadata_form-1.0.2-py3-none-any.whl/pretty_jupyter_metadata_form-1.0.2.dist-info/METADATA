@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pretty_jupyter_metadata_form
+Version: 1.0.2
+Summary: Pretty jupyter metadata forms extension for jupyterlab.
+Project-URL: Homepage, https://github.com/jans-code/pretty_jupyter_metadata_form
+Project-URL: Bug Tracker, https://github.com/jans-code/pretty_jupyter_metadata_form/issues
+Project-URL: Repository, https://github.com/jans-code/pretty_jupyter_metadata_form.git
+Author: Project Jupyter Contributors
+License: BSD-3-Clause License
+License-File: LICENSE
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 4
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Pretty jupyter metadata forms extension for jupyterlab
+
+![preview](https://raw.githubusercontent.com/jans-code/pretty_jupyter_metadata_form/main/pretty_jupyter_metadata_form.png)
+
+This jupyterlab extension adds all cell and notebook metadata attributes of [Pretty Jupyter](https://github.com/JanPalasek/pretty-jupyter) to the property inspector.
+
+## Installation
+
+`pip install pretty_jupyter_metadata_form`
+
+## Uninstall
+
+`pip uninstall pretty_jupyter_metadata_form`
