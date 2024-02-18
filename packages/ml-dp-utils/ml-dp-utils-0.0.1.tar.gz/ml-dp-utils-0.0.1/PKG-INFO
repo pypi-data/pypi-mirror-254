@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ml-dp-utils
+Version: 0.0.1
+Summary: Pacote utilidades Deep Learning
+Home-page: UNKNOWN
+Author: Victor Gomes
+Author-email: victor.gomes.almeida.vg@gmail.com
+License: UNKNOWN
+Keywords: python,deeplearn,pytorch
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier:  Operating System :: POSIX :: Linux
+
+Um pacote com as funções mais utilizadas para facilitar nossa vida!
+
