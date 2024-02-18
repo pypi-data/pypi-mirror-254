@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/rezq/__init__.py
+src/rezq.egg-info/PKG-INFO
+src/rezq.egg-info/SOURCES.txt
+src/rezq.egg-info/dependency_links.txt
+src/rezq.egg-info/requires.txt
+src/rezq.egg-info/top_level.txt
+tests/test.py
