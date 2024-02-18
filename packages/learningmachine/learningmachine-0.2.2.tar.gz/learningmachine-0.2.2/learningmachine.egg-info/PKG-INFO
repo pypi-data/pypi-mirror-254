@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: learningmachine
+Version: 0.2.2
+Summary: Machine Learning with uncertainty quantification and interpretability
+Home-page: https://github.com/Techtonique/learningmachine
+Author: T. Moudiki
+Author-email: thierry.moudiki@gmail.com
+License: BSD Clause Clear license
+Keywords: learningmachine
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+License-File: LICENSE
+
+Machine Learning with uncertainty quantification and interpretability.
+
