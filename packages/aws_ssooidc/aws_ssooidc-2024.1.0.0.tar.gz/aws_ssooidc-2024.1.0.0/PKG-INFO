@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: aws_ssooidc
+Version: 2024.1.0.0
+Summary: Create temporary credentials for AWS SSO-OIDC.
+Home-page: https://gitlab.com/fer1035_python/modules/pypi-ssooidc
+License: GPL-2.0-only
+Keywords: AWS,SSO,OIDC
+Author: Ahmad Ferdaus Abd Razak
+Author-email: ahmad.ferdaus.abd.razak@ni.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: boto3 (>=1.17.78,<2.0.0)
+Project-URL: Repository, https://gitlab.com/fer1035_python/modules/pypi-ssooidc
+Description-Content-Type: text/x-rst
+
+===============
+**aws_ssooidc**
+===============
+
+Overview
+--------
+
+Create temporary credentials with AWS SSO-OIDC access tokens.
+
+Prerequisites
+-------------
+
+- *Python >= 3.6*
+- *boto3 (https://pypi.org/project/boto3/) >= 1.17.78*
+
+Required (Positional) Arguments
+-------------------------------
+
+- Position 1: sso_url (the start URL for your AWS SSO login)
+
+Optional (Keyword) Arguments
+----------------------------
+
+- client_name
+    - Description: Arbitrary name of the SSO client to create.
+    - Type: String
+    - Default: 'ssoclient'
+- region
+    - Description: Your AWS region.
+    - Type: String
+    - Default: 'us-east-1'
+- timeout
+    - Description: Number of tries before giving up.
+    - Type: Integer
+    - Default: 30
+
+Usage
+-----
+
+Installation:
+
+.. code-block:: BASH
+
+   pip3 install aws-ssooidc
+   # or
+   python3 -m pip install aws-ssooidc
+
+In Python3:
+
+.. code-block:: PYTHON
+
+   import aws_ssooidc as sso
+
+   response = sso.gettoken('<sso_url>')
+   access_token = response['accessToken']
+
+In BASH:
+
+.. code-block:: BASH
+
+   python [/path/to/]aws_ssooidc \
+   -u <sso_url>
+
