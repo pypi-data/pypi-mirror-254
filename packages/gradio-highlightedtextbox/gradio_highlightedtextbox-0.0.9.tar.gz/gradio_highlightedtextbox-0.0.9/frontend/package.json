@@ -1,0 +1,21 @@
+{
+  "name": "gradio_highlightedtextbox",
+  "version": "0.1.6",
+  "description": "Gradio UI packages",
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "private": false,
+  "main_changeset": true,
+  "exports": {
+    ".": "./Index.svelte",
+    "./example": "./Example.svelte",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@gradio/atoms": "0.4.1",
+    "@gradio/icons": "0.3.2",
+    "@gradio/statustracker": "0.4.3",
+    "@gradio/utils": "0.2.0"
+  }
+}
