@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: odk-mailer
+Version: 0.7.3
+Summary: A simple CLI for sending form related mails in the context of Open Data Kit (ODK) 
+Author: tertek
+Author-email: ekin.tertemiz@swisstph.ch
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: email-validator (>=2.1.0.post1,<3.0.0)
+Requires-Dist: inquirer (>=3.1.4,<4.0.0)
+Requires-Dist: python-crontab (>=3.0.0,<4.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# ODK Mailer
+
+A simple CLI to send Mails for ODK.
+Built with Typer and packaged with Poetry.
+
+## Requirements
+- Python 3
+- PIP
+- cron
+
+## Setup
+**Install the cli via pip**
+```bash
+pip install odk-mailer
+```
+
+**Configuration example**
+Config location: `~/.env`:
+```
+    SMTP_HOST=smtp.freesmtpservers.com
+    SMTP_PORT=25
+    SMTP_USER=
+    SMTP_PASS=
+    CRON_FREQUENCY=15
+    NOTIFY_TO=foo@bar.com,faz@baz.com
+    NOTIFY_FROM=odk-mailer@freesmtpservers.com
+    ODK_HOST=https://your.odk-central.host.tld
+```
+
+## Usage
+**Create and run a new mail job**
+```bash
+    # Create a new mail job with a unique ID
+    odk-mailer jobs create
+
+    # Run the job by ID
+    odk-mailer jobs run <job-id>
+
+    # Remove a job
+    odk-mailer jobs delete <job-id>
+```
+
+**List mail jobs and evaluate them**
+```bash
+    # Show all jobs
+    odk-mailer jobs list
+
+    # Run all jobs that are ready to be sent
+    odk-mailer jobs evaluate
+```
+
+**Initiate crontab to periodically evaluate mailjobs and run them directly after**
+```bash
+    odk-mailer cron init
+```
+
+## Development
+Building a Package - Guide: https://typer.tiangolo.com/tutorial/package/#create-your-app
+
+**Requirements**
+- Python 3.10
+- Poetry 1.7
+
+```bash
+    # clone the repo and cd into
+    poetry shell
+    poetry install
+    # Run it with
+    poetry run odk-mailer 
+```
+
+**Push to PyPi**
+
+```
+    poetry build
+    poetry publish
+    # requires credentials to be setup: poetry config pypi-token.pypi <my-token>
+```
