@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: mubicryy
+Version: 0.3
+Summary: Funcoes usadas no dia a dia
+Home-page: 
+Author: Fabricio Leal
+Author-email: 
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+Biblioteca com funcoes usadas no dia a dia, com o objetivo de simplificar os codigos da empresa.
+
+Por enquanto temos as seguintes funcoes:
+
+gerar_rotulo(caminho_salvo) -> caminho em que a planilha xlsx que sera inputado o rotulo esta salva.
+
+RO(caminho_dbf,caminho_salvar,nome,mes,ano) -> Onde sera feita a validacao do RO, tendo que inputar informacoes tipo
+caminho do arquivo dbf em analise, caminho do arquivo que sera salvo com a validacao, nome do arquivo RO, mes e ano em analise
+
+validacao_base_darwin(caminho_base, caminho_a_salvar, ano, mes) -> Funcao que valida base do Darwin, sendo os inputs:
+caminho_base = caminho aonde esta salva a base do darwin, caminho_a_salvar = caminho que sera salvo o resultado,
+mes e ano em analise
+
+Change Log
+## v0.1 ## (20/01/2024)
+
+Primeira versao com funÃ§Ã£o de gerar rotulo.
+
+## v0.2 ## (22/01/2024)
+
+Inclusao da funcao que valida o RO
+
+## v0.3 ## (01/02/2024)
+
+Inclusao da funcao que valida a base do Darwin
