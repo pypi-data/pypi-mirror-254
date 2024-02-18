@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/EpicStuff/__init__.py
+src/EpicStuff/bar.py
+src/EpicStuff/dict.py
+src/EpicStuff/version.py
+src/EpicStuff.egg-info/PKG-INFO
+src/EpicStuff.egg-info/SOURCES.txt
+src/EpicStuff.egg-info/dependency_links.txt
+src/EpicStuff.egg-info/requires.txt
+src/EpicStuff.egg-info/top_level.txt
+tests/test.py

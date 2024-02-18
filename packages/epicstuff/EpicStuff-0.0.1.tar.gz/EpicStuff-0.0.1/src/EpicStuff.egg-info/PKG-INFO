@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: EpicStuff
+Version: 0.0.1
+Summary: a few somewhat useful objects
+Author-email: EpicStuff <EpicStuff@users.noreply.github.com>
+Project-URL: Homepage, https://github.com/EpicStuff/EpicStuff
+Project-URL: Issues, https://github.com/EpicStuff/EpicStuff/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich
+
+### EpicStuff
+
+a few somewhat useful objects
