@@ -1,0 +1,14 @@
+flardl-0.0.8.2.dist-info/METADATA,sha256=hK3JLYRaAiTJfJF-_ALMNrJzpwFNqho1FHBnyyP3hYg,17466
+flardl-0.0.8.2.dist-info/WHEEL,sha256=N2J68yzZqJh3mI_Wg92rwhw0rtJDFpZj9bwQIMJgaVg,90
+flardl-0.0.8.2.dist-info/licenses/LICENSE,sha256=WxDD-KCP0br9dhUZoIeKWzpvWXDjH7nwYTLdcchkShk,1958
+flardl-0.0.8.2.dist-info/licenses/LICENSE.logo.txt,sha256=YMNq--_MHVORQBeQt06sbzHtI0HejJfg9aNhFFsb2u8,243
+flardl/__init__.py,sha256=hAgyfnY8A9njKs5TIRVpkJxdt2mab-RlBtj5S0v3CNU,479
+flardl/common.py,sha256=Qiw9awWpoRtsqTXKEm92wgJJE2dBVwUZzVHTiEq6pJs,3868
+flardl/dict_to_indexed_list.py,sha256=yS_6RDlRHZnP3S5AHz9ExWo8TLYOqDzClfn3RUUBthc,1567
+flardl/downloader.py,sha256=B6KUk8WUIuJxbp5ZrPSJFmuwchJxxE-x4LRLftHLr1w,8452
+flardl/instrumented_streams.py,sha256=5WYBimZb5S0svhRN-GQICLo8TRmPguEFRYJWWYt9jD0,4554
+flardl/multidispatcher.py,sha256=8ow8UFGueqxq-nzj3o1FLnLoekimhMEogvx5VFT52H4,7773
+flardl/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flardl/server_defs.py,sha256=JMeAVAU6aj1B8H9P_axJNKhX7nL1mgM9hv0I6vtkctI,637
+flardl/stream_stats.py,sha256=LCmeq1ZNFMsZlKEUX8eWZogg_7qG3-BB9lWLgncV7lM,11802
+flardl-0.0.8.2.dist-info/RECORD,,
