@@ -1,0 +1,10 @@
+pyserial
+jupyterlab
+matplotlib
+numpy
+panel
+pandas
+hvplot
+pycryptodome>=3.19.0
+jupyter-bokeh
+ipykernel
