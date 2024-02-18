@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "balltree"
+dynamic = ["version"]
+authors = [
+    {name = "Jan Luca van den Busch", email = "jlvdb@astro.ruhr-uni-bochum.de"},
+]
+description = "Fast balltree implementation for 3-dim data."
+readme = "README.rst"
+license = {text = "GPL-3.0-or-later"}
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Programming Language :: C",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy>=1.21",
+]
+
+[project.urls]
+source = "https://github.com/jlvdb/balltree.git"
+documentation = "https://balltree.readthedocs.io/"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+docs = [
+    "sphinx",
+    "sphinx-design",
+    "sphinx-copybutton",
+    "pydata-sphinx-theme",
+]
+dev = [
+    "balltree[test]",
+    "balltree[docs]",
+    "isort",
+    "black",
+    "flake8",
+    "pre-commit",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "balltree.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+include = ".pyi?$"
+exclude = """
+/(
+    .git
+    | .hg
+    | .mypy_cache
+    | .tox
+    | .venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+"""
