@@ -1,0 +1,15 @@
+keydnn/__init__.py,sha256=oj31_piPcTtcMN2MyiLWE9eU77K6LEJADiGFI1-k9qg,222
+keydnn/activations.py,sha256=T5Hk06SweiktD6gwie6gWBXXjPNvP-Ir2R411kzRW2Q,9670
+keydnn/conv_utils.py,sha256=iLzPgyNG3RjOwmMfZLd2ajMnL6GjV1NcAQngQJnrpLg,15742
+keydnn/layers.py,sha256=nmpGd2PddOwKB8SUd5efXunyA6Xp8kTJz_XOcF_QKR4,28692
+keydnn/losses.py,sha256=Ud_RtFA_bPHUSl4zuuXPaJjUL-hmPZhypxzY8hLBhX0,5976
+keydnn/models.py,sha256=Pvwy7Mlzc4x4ZNKBnFRe7spszrACoNx1TugLg-rYzW8,9592
+keydnn/threading_utils.py,sha256=HvfTHkrpVGEgLRZ1Ca9mDeIWKtCiTmbtGiFZG5tbc0c,2506
+keydnn/utilities.py,sha256=fghgN2arGo5Lk4kGJmLC21eapkb0ZsJUDyOsyLqzgxY,15395
+keydnn/bin/conv_lib_linux.so,sha256=epAjyP0YkKyVpjrn0Fc3SkFla_rkJduZAx2P4m0zzXI,20120
+keydnn/bin/conv_lib_windows.dll,sha256=EfPv3r8LsCip1Sj7QwnwuPULuQ91mnnEab0Bo63Z-Yg,57715
+KeyDnn-0.11.0.dist-info/LICENSE,sha256=3J8S_r84oySZ9mlKcH7D2TIfUlw2bdGL4LGFwxrZ6Jo,1066
+KeyDnn-0.11.0.dist-info/METADATA,sha256=KQl1rb32CdfTx7nkllEhu4soiy5pybblICq402jXWgA,763
+KeyDnn-0.11.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+KeyDnn-0.11.0.dist-info/top_level.txt,sha256=Ac15T5oDZKCZdmBt40A4PQRe13_ZKaeNPX1lwKzBCzQ,7
+KeyDnn-0.11.0.dist-info/RECORD,,
