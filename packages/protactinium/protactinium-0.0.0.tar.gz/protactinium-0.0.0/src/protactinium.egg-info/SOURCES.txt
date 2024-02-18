@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/protactinium/__init__.py
+src/protactinium/example.py
+src/protactinium.egg-info/PKG-INFO
+src/protactinium.egg-info/SOURCES.txt
+src/protactinium.egg-info/dependency_links.txt
+src/protactinium.egg-info/top_level.txt
