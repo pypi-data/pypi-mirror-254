@@ -1,0 +1,168 @@
+Metadata-Version: 2.1
+Name: molflux
+Version: 0.2.0
+Summary: A foundational package for molecular predictive modelling
+Author: Exscientia
+Maintainer: Exscientia
+Project-URL: documentation, https://github.com/exscientia/molflux/issues
+Project-URL: repository, https://github.com/exscientia/molflux.git
+Project-URL: issue-tracker, https://github.com/exscientia/molflux/issues
+Project-URL: changelog, https://github.com/exscientia/molflux/src/main/CHANGELOG.md
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3
+Requires-Dist: botocore
+Requires-Dist: cloudpathlib[s3]
+Requires-Dist: colorama
+Requires-Dist: datasets>=2.16.0
+Requires-Dist: evaluate
+Requires-Dist: fsspec>=2022.5.0
+Requires-Dist: h5py
+Requires-Dist: joblib
+Requires-Dist: mergedeep
+Requires-Dist: more-itertools
+Requires-Dist: numpy<2.0.0
+Requires-Dist: pandas
+Requires-Dist: pyarrow>=11.0.0
+Requires-Dist: pydantic<2.0.0,>=1.9.0
+Requires-Dist: python-dateutil
+Requires-Dist: pyyaml
+Requires-Dist: qlient
+Requires-Dist: requests
+Requires-Dist: scikit-learn>=1.2.1
+Requires-Dist: scikit-learn>=1.4.0; python_version > "3.8"
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: tenacity
+Requires-Dist: thefuzz[speedup]
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions
+Provides-Extra: openeye
+Requires-Dist: openeye-toolkits<2023.0.0; python_version == "3.8" and extra == "openeye"
+Requires-Dist: openeye-toolkits; extra == "openeye"
+Provides-Extra: rdkit
+Requires-Dist: mhfp; extra == "rdkit"
+Requires-Dist: rdkit>=2023.9.1; extra == "rdkit"
+Provides-Extra: catboost
+Requires-Dist: catboost>=1.2.0; python_version >= "3.11" and extra == "catboost"
+Requires-Dist: catboost; extra == "catboost"
+Provides-Extra: ensemble
+Requires-Dist: scikit-learn>=1.2.1; extra == "ensemble"
+Provides-Extra: lightning
+Requires-Dist: torch<2.1,>=2.0; extra == "lightning"
+Requires-Dist: lightning>=2.1; extra == "lightning"
+Provides-Extra: mapie
+Requires-Dist: mapie; extra == "mapie"
+Requires-Dist: scikit-learn>=1.2.1; extra == "mapie"
+Provides-Extra: pyod
+Requires-Dist: combo; extra == "pyod"
+Requires-Dist: pyod; extra == "pyod"
+Provides-Extra: pystan
+Requires-Dist: pystan; extra == "pystan"
+Provides-Extra: sklearn
+Requires-Dist: scikit-learn>=1.2.1; extra == "sklearn"
+Provides-Extra: xgboost
+Requires-Dist: scikit-learn>=1.2.1; extra == "xgboost"
+Requires-Dist: xgboost<2.0.0; extra == "xgboost"
+Provides-Extra: dev
+Requires-Dist: nox; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx!=5.1.0; extra == "docs"
+Requires-Dist: sphinx-sitemap; extra == "docs"
+Requires-Dist: sphinx-inline-tabs; extra == "docs"
+Requires-Dist: sphinx-book-theme; extra == "docs"
+Requires-Dist: sphinx_design; extra == "docs"
+Requires-Dist: sphinx-toolbox; extra == "docs"
+Requires-Dist: sphinx_togglebutton; extra == "docs"
+Requires-Dist: jupytext>=1.11.2; extra == "docs"
+Requires-Dist: myst-nb; extra == "docs"
+Requires-Dist: ipywidgets; extra == "docs"
+Requires-Dist: rdkit>=2023.9.1; extra == "docs"
+Requires-Dist: matplotlib; extra == "docs"
+Requires-Dist: catboost>=1.2.0; extra == "docs"
+Requires-Dist: mapie; extra == "docs"
+Provides-Extra: tests
+Requires-Dist: coverage[toml]; extra == "tests"
+Requires-Dist: moto[server]; extra == "tests"
+Requires-Dist: pytest; extra == "tests"
+Requires-Dist: mock; extra == "tests"
+Provides-Extra: typing
+Requires-Dist: mypy; extra == "typing"
+Requires-Dist: types-pytz; extra == "typing"
+Requires-Dist: types-PyYAML; extra == "typing"
+Requires-Dist: types-setuptools; extra == "typing"
+Requires-Dist: types-python-dateutil; extra == "typing"
+Requires-Dist: types-mock; extra == "typing"
+Requires-Dist: types-requests; extra == "typing"
+
+![Logo Dark](docs/source/_static/MolFlux_logo_final_MolFlux%20logo%20name-cropped.svg#gh-dark-mode-only)
+![Logo Light](docs/source/_static/MolFlux_logo_final_MolFlux%20logo%20name%20Grey-cropped.svg#gh-light-mode-only)
+
+---
+
+[![PyPI version](https://img.shields.io/pypi/v/molflux)](https://pypi.org/project/molflux/)
+[![Supported Python versions](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg)](https://docs.python.org/3/whatsnew/index.html)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/charliermarsh/ruff)
+[![Checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](http://mypy-lang.org/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+
+---
+
+## What is MolFlux?
+
+MolFlux is a foundational package for molecular predictive modelling. From data to features to models, MolFlux provides
+you with a complete ecosystem for building and handling machine learning models!
+
+## Installation
+### With pip
+
+```bash
+pip install molflux
+```
+
+#### Optional Dependencies
+
+Some functionalities in `molflux` require additional dependencies, which you can install as needed. For example
+
+```bash
+pip install molflux[rdkit]
+```
+
+## Documentation
+
+To learn more about how to use ``molflux``, see the [documentation](https://exscientia.github.io/molflux/).
+
+## Contribution guidelines
+
+Anyone is welcome to submit PRs for new functionality or fixes! Just create a pull request and we will review and get back to
+you.
+
+## License
+[MIT License](LICENSE)
+
+## Acknowledgements
+
+The ``molflux`` package has been developed by researchers and engineers at Exscientia
+
+* Alan Bilsland
+* Julia Buhmann
+* Ward Haddadin
+* Jonathan Harrison
+* Dom Miketa
+* Emil Nichita
+* Stefanie Speichert
+* Hagen Triendl
+* Alvise Vianello
