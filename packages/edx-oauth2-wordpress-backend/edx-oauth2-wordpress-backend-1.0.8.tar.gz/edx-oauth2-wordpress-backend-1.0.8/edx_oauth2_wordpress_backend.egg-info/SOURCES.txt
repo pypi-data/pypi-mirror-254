@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+edx_oauth2_wordpress_backend.egg-info/PKG-INFO
+edx_oauth2_wordpress_backend.egg-info/SOURCES.txt
+edx_oauth2_wordpress_backend.egg-info/dependency_links.txt
+edx_oauth2_wordpress_backend.egg-info/not-zip-safe
+edx_oauth2_wordpress_backend.egg-info/requires.txt
+edx_oauth2_wordpress_backend.egg-info/top_level.txt
+oauth2_wordpress/__about__.py
+oauth2_wordpress/__init__.py
+oauth2_wordpress/wp_oauth.py
+tests/tests.py
