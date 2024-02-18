@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/nobelium/__init__.py
+src/nobelium/example.py
+src/nobelium.egg-info/PKG-INFO
+src/nobelium.egg-info/SOURCES.txt
+src/nobelium.egg-info/dependency_links.txt
+src/nobelium.egg-info/top_level.txt
