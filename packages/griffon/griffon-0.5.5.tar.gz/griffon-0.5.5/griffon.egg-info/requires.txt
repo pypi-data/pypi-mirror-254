@@ -1,0 +1,6 @@
+click
+click-completion
+packageurl-python
+rich
+component-registry-bindings>=1.4.0
+osidb-bindings>=3.5.1
