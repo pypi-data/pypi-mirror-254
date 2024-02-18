@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cytobench
+Version: 0.1.19
+Summary: Benchmarking library for generative algorithms in omics data
+Author: Nicolo' Lazzaro
+Author-email: nlazzaro@fbk.eu
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy ==1.23.5
+Requires-Dist: pandas ==1.5.3
+Requires-Dist: scipy ==1.11.4
+Requires-Dist: xgboost ==2.0.3
+Requires-Dist: scikit-learn ==1.2.2
+Requires-Dist: requests
+Requires-Dist: mega.py
+
+Install environment and test
+
+```
+mamba create -n cbtest --file library/requirements.txt
+mamba activate cbtest
+jupyter lab
+```
