@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "propel-client"
+version = "v0.0.12"
+description = "Propel service client"
+authors = ["Yuri Turchenkov <yuri.turchenkov@valory.xyz>"]
+readme = "README.md"
+packages = [{ include = "propel_client" }]
+
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+click = "*"
+requests = "*"
+open-autonomy = "^0.14.3.post1"
+
+
+[tool.poetry.group.dev.dependencies]
+tomte = { version = "0.2.4", extras = [
+    "black",
+    "flake8",
+    "isort",
+    "mypy",
+    "pylint",
+] }
+types-requests = "*"
+tox = "^3.0"
+pytest = "*"
+pytest-coverage = "^0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+propel = "propel_client:cli.cli"
+
+
+[tool.pylint.basic]
+good-names = ["e"]
