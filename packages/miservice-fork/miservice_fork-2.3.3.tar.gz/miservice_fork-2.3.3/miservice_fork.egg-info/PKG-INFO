@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: miservice_fork
+Version: 2.3.3
+Summary: XiaoMi Cloud Service fork from https://github.com/Yonsm/MiService
+Home-page: https://github.com/yihong0618/MiService
+Author: Yonsm, yihong0618
+Author-email: Yonsm@qq.com, zouzou0208@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: mutagen
