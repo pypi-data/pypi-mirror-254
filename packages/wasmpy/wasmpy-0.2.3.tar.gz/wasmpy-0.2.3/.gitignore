@@ -1,0 +1,13 @@
+wasmpy.egg-info
+wasmpy/arch/*/*
+!wasmpy/arch/*
+!wasmpy/arch/*/*.s
+!wasmpy/arch/*/lib/
+**/opcodes.cpp
+__pycache__
+.vscode
+*.pyd
+build
+dist
+.env
+*.so

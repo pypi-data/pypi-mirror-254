@@ -1,0 +1,6 @@
+
+[:python_version == "3.6"]
+sexpdata==1.0.0
+
+[:python_version >= "3.7"]
+sexpdata>=1.0.1
