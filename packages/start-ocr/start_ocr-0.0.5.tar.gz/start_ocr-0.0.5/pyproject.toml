@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "start-ocr"
+description = "Applying pdfplumber + opencv + pytesseract to extract content and metadata from formal PDF files."
+version = "0.0.5"
+authors = ["Marcelino G. Veloso III <hi@mv3.dev>"]
+readme = "README.md"
+homepage = "https://mv3.dev"
+repository = "https://github.com/justmars/start-ocr"
+documentation = "https://justmars.github.io/start-ocr"
+classifiers = [
+  "Programming Language :: Python :: 3.11",
+  "Typing :: Typed",
+  "Development Status :: 4 - Beta",
+  "Framework :: Pytest",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0"
+pdfplumber = "^0.10.3"
+opencv-python = "^4.9"
+pytesseract = "^0.3.10"
+rich = "^13.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+pytest-env = "^0.8.1"
+pytest-datadir = "^1.4"
+pytest-cov = "^4.1"
+pre-commit = "^3.3"
+mkdocs = "^1.5"
+mkdocstrings = { extras = ["python"], version = "^0.22" }
+mkdocs-material = "^9.5"
+ipykernel = "^6.23"
+
+[tool.pytest.ini_options]
+env = ["MAGICK_HOME=/opt/homebrew/Cellar/imagemagick/7.1.1-27"]
+minversion = "7.3"
+addopts = "-v -x -ra -q --cov --doctest-modules"
+testpaths = ["tests", "start_ocr"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+ignore = ["F401", "F403"]
+fixable = ["F", "E", "W", "I001"]
+select = ["F", "E", "W", "I001"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: start-ocr
+Version: 0.0.5
+Summary: Applying pdfplumber + opencv + pytesseract to extract content and metadata from formal PDF files.
+Home-page: https://mv3.dev
+Author: Marcelino G. Veloso III
+Author-email: hi@mv3.dev
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Typing :: Typed
+Requires-Dist: opencv-python (>=4.9,<5.0)
+Requires-Dist: pdfplumber (>=0.10.3,<0.11.0)
+Requires-Dist: pytesseract (>=0.3.10,<0.4.0)
+Requires-Dist: python-dotenv (>=1.0,<2.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Project-URL: Documentation, https://justmars.github.io/start-ocr
+Project-URL: Repository, https://github.com/justmars/start-ocr
+Description-Content-Type: text/markdown
+
+# start-ocr
+
+![Github CI](https://github.com/justmars/start-ocr/actions/workflows/main.yml/badge.svg)
+
+## Development
+
+See [documentation](https://justmars.github.io/start-ocr).
+
+1. Run `poetry install`
+2. Run `poetry shell`
+3. Run `pytest`
+
