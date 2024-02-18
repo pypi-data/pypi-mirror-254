@@ -1,0 +1,9 @@
+moviepy<1.1,>=1.0
+pydantic<1.11,>=1.10
+yt-dlp==2023.12.30
+click<8.2,>=8.1
+pandas<1.6,>=1.5
+
+[docs]
+sphinx<5.4,>=5.3
+sphinx_rtd_theme<1.2,>=1.1
