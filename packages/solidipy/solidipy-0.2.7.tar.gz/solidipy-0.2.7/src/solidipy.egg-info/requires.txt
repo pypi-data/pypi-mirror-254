@@ -1,0 +1,13 @@
+
+[dev]
+SQLAlchemy
+pydantic
+Flask
+
+[test]
+pytest
+coverage
+pytest-asyncio
+SQLAlchemy
+pydantic
+Flask
