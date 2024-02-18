@@ -1,0 +1,19 @@
+{
+    "entity": {
+        "sensor": {
+            "dir_of_travel": {
+                "name": "Kelion\u0117s kryptis",
+                "state": {
+                    "arrived": "Atvyko",
+                    "away_from": "Toliau nuo",
+                    "stationary": "Stacionarus",
+                    "towards": "Link"
+                }
+            },
+            "nearest": {
+                "name": "Artimiausias \u012frenginys"
+            }
+        }
+    },
+    "title": "Artumas"
+}

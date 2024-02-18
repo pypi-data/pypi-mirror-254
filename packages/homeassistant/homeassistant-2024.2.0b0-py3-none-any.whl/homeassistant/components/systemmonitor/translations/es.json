@@ -1,0 +1,25 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "El servicio ya est\u00e1 configurado"
+        },
+        "step": {
+            "user": {
+                "description": "Pulsa enviar para la configuraci\u00f3n inicial. En la entrada de configuraci\u00f3n creada, pulsa configurar para a\u00f1adir sensores a los procesos seleccionados."
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "process": "Procesos a a\u00f1adir como sensor(es)"
+                },
+                "data_description": {
+                    "process": "Selecciona un proceso en ejecuci\u00f3n de la lista o a\u00f1ade un valor personalizado. Se admiten m\u00faltiples selecciones/valores personalizados"
+                },
+                "description": "Configurar un sensor de monitorizaci\u00f3n para un proceso en ejecuci\u00f3n"
+            }
+        }
+    }
+}
