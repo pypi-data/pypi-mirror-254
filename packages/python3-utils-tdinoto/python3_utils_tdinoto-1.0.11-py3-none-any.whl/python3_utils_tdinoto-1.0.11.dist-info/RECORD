@@ -1,0 +1,15 @@
+utils_tdinoto/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+utils_tdinoto/numeric.py,sha256=E5pWCcgXvERw0cv_-DTSsguGI2fecPs9r2ohdfTyzxI,2609
+utils_tdinoto/utils_bids_dcm_dataset.py,sha256=eVWuOluvcXnpIc1A66BhU_EcgDbEGA6OmoVp6HgyHjY,10483
+utils_tdinoto/utils_dict.py,sha256=Y4DKLeXDSsxGpd1NQ4BqzRvzPu60pdab1zTW_LUrpsI,1641
+utils_tdinoto/utils_io.py,sha256=YvlBosJSm7H2wZ0Tgrr_yYoux7OZQyKnnQbl0PqWGjU,337
+utils_tdinoto/utils_lists.py,sha256=nrnogRS_LoulLB4BgVwf2zkgHZOOeEkKL6CZygEtDCs,13227
+utils_tdinoto/utils_nifti_dicom.py,sha256=qBbGzrjX6nG89A4S1kcKEHWaWTNowcDjoyM3AZ5g-0k,16794
+utils_tdinoto/utils_numpy.py,sha256=LyxrRxRmp2a_wzj0wH4tpby2Mkvggizpq548FO2_PYQ,6549
+utils_tdinoto/utils_plots.py,sha256=lFK12t6o_XmTFZi5qCjIe9Gou23GqjssnhmsmGKYwps,7216
+utils_tdinoto/utils_strings.py,sha256=AbANacqXrGWnqRENU-d4iVHmvPj-G4m-NLAUji5okzA,4646
+python3_utils_tdinoto-1.0.11.dist-info/LICENSE,sha256=VHWOdFVkyfwXtMvGcP79cEitf2Ot8LYgoqT-b2yE4AU,1087
+python3_utils_tdinoto-1.0.11.dist-info/METADATA,sha256=xZQ31Pgztrqt4wB376t2UIdcDyUGMriu3qKX7BxzNak,2705
+python3_utils_tdinoto-1.0.11.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+python3_utils_tdinoto-1.0.11.dist-info/top_level.txt,sha256=fwkuaNrcInw-Urx9nEf3-4ZVDdte_L_iGxcB8ugkIWA,14
+python3_utils_tdinoto-1.0.11.dist-info/RECORD,,
