@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "memobj"
+version = "0.10.1"
+description = "A library for defining objects in memory"
+authors = ["StarrFox <starrfox6312@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/StarrFox/memobj"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+regex = "^2023.8.8"
+iced-x86 = "^1.20.0"
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
