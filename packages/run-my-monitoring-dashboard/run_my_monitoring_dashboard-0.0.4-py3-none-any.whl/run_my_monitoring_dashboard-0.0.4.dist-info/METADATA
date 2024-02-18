@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: run-my-monitoring-dashboard
+Version: 0.0.4
+Summary: A very basic monitoring package
+Author: Ritik Saxena
+Author-email: ritiksaxena90@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: streamlit
+Requires-Dist: datetime
+Requires-Dist: numpy
+Requires-Dist: streamlit-option-menu
+
+UNKNOWN
+
