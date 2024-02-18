@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: trustyai
+Version: 0.5.0
+Summary: Python bindings to the TrustyAI explainability library.
+Author-email: Rui Vieira <rui@redhat.com>
+License: Apache License Version 2.0
+Project-URL: homepage, https://github.com/trustyai-explainability/trustyai-explainability-python
+Project-URL: documentation, https://trustyai-explainability-python.readthedocs.io/en/latest/
+Project-URL: repository, https://github.com/trustyai-explainability/trustyai-explainability-python
+Keywords: trustyai,xai,explainability,ml
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Java
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Java Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Jpype1 ==1.4.1
+Requires-Dist: pyarrow ==14.0.1
+Requires-Dist: matplotlib ~=3.6.3
+Requires-Dist: pandas ~=1.5.3
+Requires-Dist: numpy ~=1.24.1
+Requires-Dist: jupyter-bokeh ~=3.0.5
+Provides-Extra: detoxify
+Requires-Dist: transformers ~=4.36.2 ; extra == 'detoxify'
+Requires-Dist: datasets ; extra == 'detoxify'
+Requires-Dist: scipy ; extra == 'detoxify'
+Requires-Dist: torch ; extra == 'detoxify'
+Requires-Dist: iter-tools ; extra == 'detoxify'
+Requires-Dist: evaluate ; extra == 'detoxify'
+Requires-Dist: trl ; extra == 'detoxify'
+Provides-Extra: dev
+Requires-Dist: JPype1 ==1.4.1 ; extra == 'dev'
+Requires-Dist: black ~=22.12.0 ; extra == 'dev'
+Requires-Dist: click ==8.0.4 ; extra == 'dev'
+Requires-Dist: joblib ~=1.2.0 ; extra == 'dev'
+Requires-Dist: jupyterlab ~=3.5.3 ; extra == 'dev'
+Requires-Dist: numpydoc ==1.5.0 ; extra == 'dev'
+Requires-Dist: pyarrow ==14.0.1 ; extra == 'dev'
+Requires-Dist: pylint ==2.15.6 ; extra == 'dev'
+Requires-Dist: pytest ~=7.2.1 ; extra == 'dev'
+Requires-Dist: pytest-benchmark ==4.0.0 ; extra == 'dev'
+Requires-Dist: pytest-forked ~=1.6.0 ; extra == 'dev'
+Requires-Dist: scikit-learn ~=1.2.1 ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Requires-Dist: twine ==3.4.2 ; extra == 'dev'
+Requires-Dist: wheel ~=0.38.4 ; extra == 'dev'
+Requires-Dist: xgboost ==1.4.2 ; extra == 'dev'
+Provides-Extra: extras
+Requires-Dist: aix360[default,tsice,tslime,tssaliency] ==0.3.0 ; extra == 'extras'
+
+![version](https://img.shields.io/badge/version-0.4.0-green) [![Tests](https://github.com/trustyai-python/module/actions/workflows/workflow.yml/badge.svg)](https://github.com/trustyai-python/examples/actions/workflows/workflow.yml)
+
+# python-trustyai
+
+Python bindings to [TrustyAI](https://kogito.kie.org/trustyai/)'s explainability library.
+
+## Setup
+
+### PyPi
+
+Install from PyPi with
+
+```shell
+pip install trustyai
+```
+
+To install additional experimental features, also use
+
+```shell
+pip install trustyai[extras]
+```
+
+### Local
+
+The minimum dependencies can be installed (from the root directory) with
+
+```shell
+pip install .
+```
+
+If running the examples or developing, also install the development dependencies:
+
+```shell
+pip install '.[dev]'
+```
+
+### Docker
+
+Alternatively create a container image and run it using
+
+```shell
+$ docker build -f Dockerfile -t python-trustyai:latest .
+$ docker run --rm -it -p 8888:8888 python-trustyai:latest
+```
+
+The Jupyter server will be available at `localhost:8888`.
+
+### Binder
+
+You can also run the example Jupyter notebooks
+using `mybinder.org`: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trustyai-python/trustyai-explainability-python-examples/main?labpath=examples)
+
+## Documentation
+
+Check out the [ReadTheDocs page](https://trustyai-explainability-python.readthedocs.io/en/latest/) for API references
+and examples.
+
+## Getting started
+
+### Examples
+
+There are several working examples available in the [examples](https://github.com/trustyai-explainability/trustyai-explainability-python-examples/tree/main/examples) repository.
+
+## Contributing
+
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for instructions on how to contribute to this project.
