@@ -1,0 +1,35 @@
+```mermaid
+classDiagram
+    {%- for inherit in inherits %}
+    {{inherit.parent}} <-- {{inherit.child}}
+    {%- endfor %}
+    
+    {%- for composition in compositions %}
+    {{composition.container}} *-- {{composition.module}}
+    {%- endfor %}
+    {% for class in classes%}
+    class {{class.name}} {
+    
+        {%- for attr in class.attributes %}
+        +{{", ".join(attr.type)}}{% if "multiple" in attr %}[0..*]{% endif %} {{attr.name}}{% if attr.required %}*{% endif %}
+        {%- endfor %}
+    }
+    {% endfor %}
+
+    {%- for enum in enums %}
+    class {{enum.name}} {
+        << Enumeration >>
+        {%- for mapping in enum.mappings %}
+        +{{mapping.key}}
+        {%- endfor %}
+    }
+    {% endfor %}
+
+
+    {%- for name, adress in externals.items() %}
+    class {{name}} {
+        << External Object >>
+        +Repository {{adress}}
+    }
+    {% endfor %}
+```
