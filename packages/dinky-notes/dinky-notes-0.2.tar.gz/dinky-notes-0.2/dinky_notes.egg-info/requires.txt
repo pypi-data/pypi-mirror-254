@@ -1,0 +1,8 @@
+dinky
+pluggy
+Pillow
+requests
+setuptools
+
+[test]
+pytest

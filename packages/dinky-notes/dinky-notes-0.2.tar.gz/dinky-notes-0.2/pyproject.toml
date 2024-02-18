@@ -1,0 +1,22 @@
+[project]
+name = "dinky-notes"
+version = "0.2"
+description = "Notes widget for the dinky dashboard"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Julian Prester"}]
+license = {text = "MIT"}
+dependencies = [
+    "dinky",
+    "pluggy",
+    "Pillow",
+    "requests",
+    "setuptools"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
