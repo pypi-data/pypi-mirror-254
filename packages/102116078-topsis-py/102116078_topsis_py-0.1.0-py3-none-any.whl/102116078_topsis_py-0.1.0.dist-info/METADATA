@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: 102116078_topsis-py
+Version: 0.1.0
+Summary: Implementation of Topsis in Python
+Author: Dhruv
+Author-email: dkikan_be21@thapar.edu
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+# Topsis-Py
+
+Implementation of Topsis in Python by rno. 102116078
+
+## Installation
+
+```bash
+pip install topsis-py
+```
+## Usage
+
+```bash
+topsis <InputDataFile> <Weights> <Impacts> <ResultFileName>
+```
+
+Where
+```
+<InputDataFile>: Path to the input CSV file.
+
+<Weights>: Comma-separated weights for each criterion.
+
+<Impacts>: Comma-separated impacts ('+' for maximization, '-' for minimization).
+
+<ResultFileName>: Name of the file to save the results.
+```
+
+# Example
+```bash
+python topsis input.csv '1,1,2,1' '+,+,-,+' results.csv
+```
