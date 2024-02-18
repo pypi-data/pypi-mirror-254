@@ -1,0 +1,170 @@
+[fsspec.specs]
+s3 = molflux.datasets.filesystems.S3FileSystem
+
+[molflux.datasets.plugins.core]
+ani1x = molflux.datasets.builders.ani1x.ani1x
+ani2x = molflux.datasets.builders.ani2x.ani2x
+esol = molflux.datasets.builders.esol.esol
+gdb9 = molflux.datasets.builders.gdb9.gdb9
+pcqm4m_v2 = molflux.datasets.builders.pcqm4m_v2.pcqm4m_v2
+spice = molflux.datasets.builders.spice.spice
+
+[molflux.features.plugins.core]
+character_count = molflux.features.representations.core.generic.character_count:CharacterCount
+exploded = molflux.features.representations.core.generic.exploded:Exploded
+
+[molflux.features.plugins.openeye]
+aromatic_ring_count = molflux.features.representations.openeye.descriptors.aromatic_ring_count:AromaticRingCount
+canonical_oemol = molflux.features.representations.openeye.canonical.oemol:CanonicalOemol
+canonical_smiles = molflux.features.representations.openeye.canonical.smiles:CanonicalSmiles
+circular = molflux.features.representations.openeye.fingerprints.circular:Circular
+hermite = molflux.features.representations.openeye.shape.hermite:Hermite
+lingo = molflux.features.representations.openeye.fingerprints.lingo:Lingo
+maccs = molflux.features.representations.openeye.fingerprints.maccs:MACCS
+molecular_weight = molflux.features.representations.openeye.descriptors.molecular_weight:MolecularWeight
+net_charge = molflux.features.representations.openeye.descriptors.net_charge:NetCharge
+num_acceptors = molflux.features.representations.openeye.descriptors.num_acceptors:NumAcceptors
+num_donors = molflux.features.representations.openeye.descriptors.num_donors:NumDonors
+path = molflux.features.representations.openeye.fingerprints.path:Path
+rotatable_bonds = molflux.features.representations.openeye.descriptors.rotatable_bonds:RotatableBonds
+sd_feature = molflux.features.representations.openeye.sd.sd_feature:SDFeature
+tpsa = molflux.features.representations.openeye.descriptors.tpsa:TPSA
+tree = molflux.features.representations.openeye.fingerprints.tree:Tree
+x_log_p = molflux.features.representations.openeye.descriptors.x_log_p:XLogP
+
+[molflux.features.plugins.rdkit]
+atom_pair = molflux.features.representations.rdkit.fingerprints.atom_pair:AtomPair
+atom_pair_unfolded = molflux.features.representations.rdkit.fingerprints.atom_pair_unfolded:AtomPairUnfolded
+avalon = molflux.features.representations.rdkit.fingerprints.avalon:Avalon
+drfp = molflux.features.representations.rdkit.reaction.drfp:DRFP
+layered = molflux.features.representations.rdkit.fingerprints.layered:Layered
+maccs_rdkit = molflux.features.representations.rdkit.fingerprints.maccs:MACCSRdkit
+mhfp = molflux.features.representations.rdkit.fingerprints.mhfp:MHFP
+mhfp_unfolded = molflux.features.representations.rdkit.fingerprints.mhfp_unfolded:MHFPUnfolded
+morgan = molflux.features.representations.rdkit.fingerprints.morgan:Morgan
+morgan_unfolded = molflux.features.representations.rdkit.fingerprints.morgan_unfolded:MorganUnfolded
+pattern = molflux.features.representations.rdkit.fingerprints.pattern:Pattern
+rdkit_descriptors_2d = molflux.features.representations.rdkit.descriptors.rdkit_descriptors_2d:RdkitDescriptors_2d
+topological = molflux.features.representations.rdkit.fingerprints.topological:Topological
+topological_torsion = molflux.features.representations.rdkit.fingerprints.topological_torsion:TopologicalTorsion
+topological_torsion_unfolded = molflux.features.representations.rdkit.fingerprints.topological_torsion_unfolded:TopologicalTorsionUnfolded
+toxicophores = molflux.features.representations.rdkit.fingerprints.toxicophores:Toxicophores
+
+[molflux.metrics.plugins.classification]
+accuracy = molflux.metrics.classification.accuracy:Accuracy
+average_precision = molflux.metrics.classification.average_precision:AveragePrecision
+balanced_accuracy = molflux.metrics.classification.balanced_accuracy:BalancedAccuracy
+diversity_roc = molflux.metrics.classification.diversity_roc:DiversityRoc
+f1_score = molflux.metrics.classification.f1_score:F1Score
+matthews_corrcoef = molflux.metrics.classification.matthews_corrcoef:MatthewsCorrcoef
+precision = molflux.metrics.classification.precision:Precision
+recall = molflux.metrics.classification.recall:Recall
+roc_auc = molflux.metrics.classification.roc_auc:RocAuc
+top_k_accuracy = molflux.metrics.classification.top_k_accuracy:TopKAccuracy
+top_k_accuracy_roc = molflux.metrics.classification.top_k_accuracy_roc:TopKAccuracyRoc
+validity_roc = molflux.metrics.classification.validity_roc:ValidityRoc
+
+[molflux.metrics.plugins.regression]
+explained_variance = molflux.metrics.regression.explained_variance:ExplainedVariance
+max_error = molflux.metrics.regression.max_error:MaxError
+mean_absolute_error = molflux.metrics.regression.mean_absolute_error:MeanAbsoluteError
+mean_squared_error = molflux.metrics.regression.mean_squared_error:MeanSquaredError
+median_absolute_error = molflux.metrics.regression.median_absolute_error:MedianAbsoluteError
+pearson = molflux.metrics.regression.pearson:Pearson
+proportion_within_fold = molflux.metrics.regression.proportion_within_fold:ProportionWithinFold
+r2 = molflux.metrics.regression.r2:R2
+root_mean_squared_error = molflux.metrics.regression.root_mean_squared_error:RootMeanSquaredError
+spearman = molflux.metrics.regression.spearman:Spearman
+
+[molflux.metrics.plugins.uncertainty]
+coefficient_of_variation = molflux.metrics.uncertainty.coefficient_of_variation:CoefficientOfVariation
+expected_calibration_error = molflux.metrics.uncertainty.expected_calibration_error:ExpectedCalibrationError
+gaussian_nll = molflux.metrics.uncertainty.gaussian_nll:GaussianNLL
+prediction_interval_coverage = molflux.metrics.uncertainty.prediction_interval_coverage:PredictionIntervalCoverage
+prediction_interval_width = molflux.metrics.uncertainty.prediction_interval_width:PredictionIntervalWidth
+uncertainty_based_rejection = molflux.metrics.uncertainty.uncertainty_based_rejection:UncertaintyBasedRejection
+
+[molflux.modelzoo.plugins.catboost]
+cat_boost_classifier = molflux.modelzoo.models.catboost.catboost_classifier:CatBoostClassifier
+cat_boost_regressor = molflux.modelzoo.models.catboost.catboost_regressor:CatBoostRegressor
+
+[molflux.modelzoo.plugins.core]
+average_regressor = molflux.modelzoo.models.core.average_regressor:AverageRegressor
+
+[molflux.modelzoo.plugins.ensemble]
+ensemble_classifier = molflux.modelzoo.models.ensemble.ensemble_classifier:EnsembleClassifier
+ensemble_regressor = molflux.modelzoo.models.ensemble.ensemble_regressor:EnsembleRegressor
+
+[molflux.modelzoo.plugins.fortuna]
+fortuna_mlp_regressor = molflux.modelzoo.models.fortuna.fortuna_mlp_regressor:FortunaMLPRegressor
+
+[molflux.modelzoo.plugins.lightning]
+lightning_mlp_regressor = molflux.modelzoo.models.lightning.mlp_regressor.mlp_model:LightningMLPRegressor
+
+[molflux.modelzoo.plugins.mapie]
+mapie_regressor = molflux.modelzoo.models.mapie.mapie_regressor:MapieRegressor
+
+[molflux.modelzoo.plugins.pyod]
+abod_detector = molflux.modelzoo.models.pyod.abod_detector:ABODDetector
+cblof_detector = molflux.modelzoo.models.pyod.cblof_detector:CBLOFDetector
+hbos_detector = molflux.modelzoo.models.pyod.hbos_detector:HBOSDetector
+isolation_forest_detector = molflux.modelzoo.models.pyod.isolation_forest_detector:IsolationForestDetector
+knn_detector = molflux.modelzoo.models.pyod.knn_detector:KNNDetector
+mcd_detector = molflux.modelzoo.models.pyod.mcd_detector:MCDDetector
+ocsvm_detector = molflux.modelzoo.models.pyod.ocsvm_detector:OCSVMDetector
+pca_detector = molflux.modelzoo.models.pyod.pca_detector:PCADetector
+
+[molflux.modelzoo.plugins.pystan]
+sparse_linear_regressor = molflux.modelzoo.models.pystan.sparse_linear_regressor:SparseLinearRegressor
+
+[molflux.modelzoo.plugins.sklearn]
+bernoulli_nb_classifier = molflux.modelzoo.models.sklearn.bernoulli_nb_classifier:BernoulliNBClassifier
+corrected_nb_classifier = molflux.modelzoo.models.sklearn.corrected_nb_classifier:CorrectedNBClassifier
+coverage_nb_classifier = molflux.modelzoo.models.sklearn.coverage_nb_classifier:CoverageNBClassifier
+dummy_classifier = molflux.modelzoo.models.sklearn.dummy_classifier:DummyClassifier
+extra_trees_classifier = molflux.modelzoo.models.sklearn.extra_trees_classifier:ExtraTreesClassifier
+extra_trees_regressor = molflux.modelzoo.models.sklearn.extra_trees_regressor:ExtraTreesRegressor
+gradient_boosting_classifier = molflux.modelzoo.models.sklearn.gradient_boosting_classifier:GradientBoostingClassifier
+gradient_boosting_regressor = molflux.modelzoo.models.sklearn.gradient_boosting_regressor:GradientBoostingRegressor
+kernel_ridge_regressor = molflux.modelzoo.models.sklearn.kernel_ridge_regressor:KernelRidgeRegressor
+knn_classifier = molflux.modelzoo.models.sklearn.knn_classifier:KNNClassifier
+knn_regressor = molflux.modelzoo.models.sklearn.knn_regressor:KNNRegressor
+linear_discriminant_analysis_classifier = molflux.modelzoo.models.sklearn.linear_discriminant_analysis_classifier:LinearDiscriminantAnalysisClassifier
+linear_regressor = molflux.modelzoo.models.sklearn.linear_regressor:LinearRegressor
+logistic_regressor = molflux.modelzoo.models.sklearn.logistic_regressor:LogisticRegressor
+mlp_classifier = molflux.modelzoo.models.sklearn.mlp_classifier:MLPClassifier
+mlp_regressor = molflux.modelzoo.models.sklearn.mlp_regressor:MLPRegressor
+pipeline_pilot_nb_classifier = molflux.modelzoo.models.sklearn.pipeline_pilot_nb_classifier:PipelinePilotNBClassifier
+pls_regressor = molflux.modelzoo.models.sklearn.pls_regressor:PLSRegressor
+random_forest_classifier = molflux.modelzoo.models.sklearn.random_forest_classifier:RandomForestClassifier
+random_forest_regressor = molflux.modelzoo.models.sklearn.random_forest_regressor:RandomForestRegressor
+ridge_regressor = molflux.modelzoo.models.sklearn.ridge_regressor:RidgeRegressor
+sklearn_pipeline_classifier = molflux.modelzoo.models.sklearn.sklearn_pipeline.sklearn_pipeline_classifier:SklearnPipelineClassifier
+sklearn_pipeline_regressor = molflux.modelzoo.models.sklearn.sklearn_pipeline.sklearn_pipeline_regressor:SklearnPipelineRegressor
+support_vector_classifier = molflux.modelzoo.models.sklearn.support_vector_classifier:SupportVectorClassifier
+support_vector_regressor = molflux.modelzoo.models.sklearn.support_vector_regressor:SupportVectorRegressor
+
+[molflux.modelzoo.plugins.xgboost]
+xg_boost_classifier = molflux.modelzoo.models.xgboost.xgboost_classifier:XGBoostClassifier
+xg_boost_regressor = molflux.modelzoo.models.xgboost.xgboost_regressor:XGBoostRegressor
+
+[molflux.splits.plugins.core]
+group_k_fold = molflux.splits.strategies.core.group_k_fold:GroupKFold
+group_shuffle_split = molflux.splits.strategies.core.group_shuffle_split:GroupShuffleSplit
+k_fold = molflux.splits.strategies.core.k_fold:KFold
+leave_one_group_out = molflux.splits.strategies.core.leave_one_group_out:LeaveOneGroupOut
+leave_p_groups_out = molflux.splits.strategies.core.leave_p_groups_out:LeavePGroupsOut
+linear_split = molflux.splits.strategies.core.linear_split:LinearSplit
+ordered_split = molflux.splits.strategies.core.ordered_split:OrderedSplit
+shuffle_split = molflux.splits.strategies.core.shuffle_split:ShuffleSplit
+stratified_k_fold = molflux.splits.strategies.core.stratified_k_fold:StratifiedKFold
+stratified_ordered_split = molflux.splits.strategies.core.stratified_ordered_split:StratifiedOrderedSplit
+stratified_shuffle_split = molflux.splits.strategies.core.stratified_shuffle_split:StratifiedShuffleSplit
+time_series_split = molflux.splits.strategies.core.time_series_split:TimeSeriesSplit
+
+[molflux.splits.plugins.openeye]
+scaffold = molflux.splits.strategies.openeye.scaffold:Scaffold
+
+[molflux.splits.plugins.rdkit]
+scaffold_rdkit = molflux.splits.strategies.rdkit.scaffold:Scaffold
+tanimoto_rdkit = molflux.splits.strategies.rdkit.tanimoto:Tanimoto
