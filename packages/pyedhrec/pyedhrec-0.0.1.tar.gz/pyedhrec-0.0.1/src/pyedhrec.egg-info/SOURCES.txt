@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/edhrec/__init__.py
+src/edhrec/caching.py
+src/edhrec/pyedhrec.py
+src/edhrec/utils.py
+src/pyedhrec.egg-info/PKG-INFO
+src/pyedhrec.egg-info/SOURCES.txt
+src/pyedhrec.egg-info/dependency_links.txt
+src/pyedhrec.egg-info/requires.txt
+src/pyedhrec.egg-info/top_level.txt
