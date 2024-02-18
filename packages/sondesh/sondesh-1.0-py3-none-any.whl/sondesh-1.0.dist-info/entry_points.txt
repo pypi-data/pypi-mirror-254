@@ -1,0 +1,2 @@
+[console_scripts]
+sondesh = sondesh.apps.cli_app:main_app

@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: sondesh
+Version: 1.0
+Summary: parse sql , compare two .sql file , generate optimization hint for your sql and various other utilities
+Home-page: https://github.com/koustreak/dot.parser
+Author: Koushik Dutta
+Author-email: dot.py@yahoo.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colorama (==0.4.6)
+Requires-Dist: commonmark (==0.9.1)
+Requires-Dist: ply (==3.11)
+Requires-Dist: pyfiglet (==0.8.post1)
+Requires-Dist: Pygments (==2.14.0)
+Requires-Dist: rich (==13.0.1)
+Requires-Dist: tqdm (==4.64.1)
+
+
+# Project : Sondesh 
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+![Maintainer](https://img.shields.io/badge/maintainer-Koushik-blue)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Generic badge](https://img.shields.io/badge/release-1.0-green.svg)](https://shields.io/)
+<br>
+![logo.png](https://i.ibb.co/x596NHL/logo.png)    
+
+## Description
+
+Sondesh is the name of my cat . I love him very much 
+so i've decided to name this project after him.
+
+This project is all about a parser and comparator . 
+Question is what it is parsing ? 
+- It parse SQL statements , but only DDL statements
+- It supports many sql dialects , example oracle , postgresql , sparksql , hive .. 
+- There is a cli app ( cli_app.py ), it compares two DDL statements and show you the differences in terminal
+
+![compare_result.png](https://i.ibb.co/94VWWTy/compare-result.png)
+
+### Dependencies
+
+* Windows 10 , Debian , BSD these are the supported platform 
+* Python version >=  3.8
+
+### Installing
+
+* ddl_compare can be installed using pip 
+
+```
+pip install ddl-parse
+```
+
+### Usage
+
+```python
+from sondesh import ddl_parser
+import pprint
+
+result = ddl_parser.parse_from_file('/home/koushik/sample_ddl.sql')
+pprint.pprint(result)
+``` 
+
+Using the CLI APP . 
+
+1. Just Open the Terminal 
+2. type sondesh
+3. VOALAA !!!!! 
+
+![logo_terminal.png](https://i.ibb.co/F67hnjf/cli-app-terminal.png)
+
+## What Next :
+
+1. Integration to remote file system to load .sql from there and parse it
+2. Integration with data-catalogues like spark catalogue or hive metastore and compare ddl.
+
+
+
