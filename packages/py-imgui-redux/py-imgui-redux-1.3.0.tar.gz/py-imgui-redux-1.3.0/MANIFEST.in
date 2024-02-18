@@ -1,0 +1,5 @@
+include CMakeLists.txt
+include pybind11_stubgen.py
+recursive-include bind-imgui *
+recursive-include third-party *
+prune test
