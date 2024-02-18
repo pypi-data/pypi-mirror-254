@@ -1,0 +1,3 @@
+[console_scripts]
+playwright-trace-browser=playwright_trace_browser.__main__:main
+
