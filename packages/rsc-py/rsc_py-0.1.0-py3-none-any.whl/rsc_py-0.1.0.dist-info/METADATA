@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: rsc-py
+Version: 0.1.0
+Summary: A library for controlling PowerPoint via Remote Show Control using Python
+Home-page: https://github.com/deffuseyou/rsc_py
+Author: deffuseyou
+Author-email: kriulindmitry@mail.ru
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# RSCPy: PowerPoint Remote Show Control Library
+
+`RSCPy` is a Python library designed to remotely control PowerPoint presentations using the Remote Show Control add-in. This library enables the sending of commands to control PowerPoint presentations over network connections using both UDP and TCP protocols.
+
+## Features
+
+- Open and close PowerPoint presentations
+- Start and stop presentations
+- Navigate through slides (next, previous, go to specific slide)
+- Set the desktop background to the current slide (experimental feature)
+- Find PowerPoint files within a specified directory
+
+## Installation
+
+To install `RSCPy`, simply use pip:
+
+```pip install rsc_py```
+
+## Requirements
+
+- Python 3.6 or higher
+- PowerPoint with the [Remote Show Control](https://www.irisdown.co.uk/rsc.html) add-in installed
+
+## Usage
+
+Here's a quick start to control PowerPoint presentations:
+
+```python
+from rsc_py import RSCPy
+import time
+
+# Initialize the controller with the IP address of the PowerPoint PC
+controller = RSCPy('192.168.1.1', protocol='TCP')
+
+# Open a presentation
+controller.open_presentation('path/to/presentation.pptx')
+
+# Start the presentation and wait
+controller.run_presentation()
+time.sleep(3)
+
+# Go to the next slide and wait
+controller.next_slide()
+time.sleep(3)
+
+# Close the presentation
+controller.close_presentation('path/to/presentation.pptx')
+```
+
+## Supported Commands
+- ```open_presentation(filename)```: Opens a specified presentation.
+- ```close_presentation(filename=None)```: Closes the specified or all presentations.
+- ```run_presentation(filename=None)```: Starts the presentation.
+- ```run_current()```: Starts the presentation from the current slide.
+- ```stop_presentation(filename=None)```: Stops the presentation.
+- ```prev_slide()```: Moves to the previous slide.
+- ```next_slide()```: Moves to the next slide.
+- ```go_to_slide(slide)```: Moves to a specified slide.
+- ```set_background()```: Sets the desktop background to the current slide (will not work on Automatic in PPT 2013+).
+- ```find_files(path)```: Finds PowerPoint files in the specified path.
+
+## Contributing
+Contributions to RSCPy are welcome! Feel free to fork the repository, make your changes, and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the `LICENSE` file for details.
