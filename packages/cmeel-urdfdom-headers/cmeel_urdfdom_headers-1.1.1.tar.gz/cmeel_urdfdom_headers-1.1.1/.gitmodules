@@ -1,0 +1,3 @@
+[submodule "urdfdom_headers"]
+	path = urdfdom_headers
+	url = https://github.com/ros/urdfdom_headers
