@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+JCompare/__init__.py
+JCompare/compare.py
+JCompare/folder.py
+JCompare/hash.py
+JCompare/mcs.py
+JCompare/metrics.py
+JCompare/mode.py
+JCompare/similarity.py
+JCompare/tree.py
+JCompare.egg-info/PKG-INFO
+JCompare.egg-info/SOURCES.txt
+JCompare.egg-info/dependency_links.txt
+JCompare.egg-info/requires.txt
+JCompare.egg-info/top_level.txt
