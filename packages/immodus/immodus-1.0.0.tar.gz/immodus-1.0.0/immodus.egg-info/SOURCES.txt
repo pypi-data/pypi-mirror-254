@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+immodus/__init__.py
+immodus/immodus.py
+immodus.egg-info/PKG-INFO
+immodus.egg-info/SOURCES.txt
+immodus.egg-info/dependency_links.txt
+immodus.egg-info/requires.txt
+immodus.egg-info/top_level.txt

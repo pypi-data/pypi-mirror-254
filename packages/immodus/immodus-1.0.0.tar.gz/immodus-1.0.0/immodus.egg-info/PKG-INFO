@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: immodus
+Version: 1.0.0
+Summary: Image modifier by user settings.
+Home-page: https://github.com/yvvolkov/ImModUS
+Author: yvolkov
+Author-email: yvvvolkov@mail.ru
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+
+RGB to HSL transformation. Changing the color of the image
