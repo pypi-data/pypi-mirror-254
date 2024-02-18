@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+
+"""
+Setup script.
+
+Use this script to install the core of the retico simulation framework. Usage:
+    $ python3 setup.py install
+
+Author: Thilo Michael (uhlomuhlo@gmail.com)
+"""
+
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from distutils.core import setup
+
+exec(open("retico_core/version.py").read())
+
+import pathlib
+
+here = pathlib.Path(__file__).parent.resolve()
+
+long_description = (here / "README.md").read_text(encoding="utf-8")
+'''
+config = {
+    "description": "A framework for real time incremental dialogue processing.",
+    "long_description": long_description,
+    "long_description_content_type": "text/markdown",
+    "author": "Thilo Michael",
+    "author_email": "uhlomuhlo@gmail.com",
+    "url": "https://github.com/retico-team/retico-core",
+    "download_url": "https://github.com/retico-team/retico-core",
+    "version": __version__,
+    "python_requires": ">=3.6, <4",
+    "keywords": "retico, framework, incremental, dialogue, dialog",
+    "install_requires": ["pyaudio>=0.2.12"],
+    "packages": find_packages(include=['huggingface', 'psi', 'rasa', 'sds_class', 'slim']),
+    "py_modules": ["abstract", "audio", "debug", "dialogue", "network", "text", "version", "visual"],
+    "name": "pacheco-core",
+    "classifiers": [
+        "Development Status :: 2 - Pre-Alpha",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache Software License",
+    ],
+}
+'''
+config = {
+    "description": "A framework for real time incremental dialogue processing.",
+    "long_description": long_description,
+    "long_description_content_type": "text/markdown",
+    "author": "Thilo Michael",
+    "author_email": "uhlomuhlo@gmail.com",
+    "version": "0.2.01",
+    "python_requires": ">=3.6, <4",
+    "keywords": "retico, framework, incremental, dialogue, dialog",
+    "install_requires": ["pyaudio>=0.2.12"],
+    "packages": find_packages(include=['retico_core/huggingface', 'retico_core/psi', 'retico_core/rasa', 'retico_core/sds_class', 'retico_core/slim']),
+    "py_modules": ["retico_core/abstract", "retico_core/audio", "retico_core/debug", "retico_core/dialogue", "retico_core/network", "retico_core/text", "retico_core/version", "retico_core/visual"],
+    "name": "pacheco-core",
+    "classifiers": [
+        "Development Status :: 2 - Pre-Alpha",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache Software License",
+    ],
+}
+
+setup(**config)
