@@ -1,0 +1,3 @@
+[console_scripts]
+pyretailscience=pyretailscience.data.cli:generate
+
