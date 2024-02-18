@@ -1,0 +1,3 @@
+[console_scripts]
+ecb-scraper=ecb_scraper.cli:main
+
