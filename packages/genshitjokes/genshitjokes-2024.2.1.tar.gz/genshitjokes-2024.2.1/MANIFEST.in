@@ -1,0 +1,3 @@
+include README.md
+recursive-include readme_img *
+recursive-include genshitjokes *
