@@ -1,0 +1,2 @@
+[console_scripts]
+source-xero = source_xero.run:run
