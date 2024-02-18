@@ -1,0 +1,6 @@
+pyocd==0.34.3
+cmsis-pack-manager==0.5.2
+intelhex==2.3.0
+PySide6==6.5.2
+crc==1.3.0
+requests==2.31.0
