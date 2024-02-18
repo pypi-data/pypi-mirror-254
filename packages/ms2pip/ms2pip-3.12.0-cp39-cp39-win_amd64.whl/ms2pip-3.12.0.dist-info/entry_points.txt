@@ -1,0 +1,4 @@
+[console_scripts]
+fasta2speclib = fasta2speclib.fasta2speclib:main
+ms2pip = ms2pip.__main__:main
+ms2pip-single-prediction = ms2pip.single_prediction:_main
