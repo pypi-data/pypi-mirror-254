@@ -1,0 +1,3 @@
+[console_scripts]
+ftract = ftract:run
+mefetch = mefetch:run
