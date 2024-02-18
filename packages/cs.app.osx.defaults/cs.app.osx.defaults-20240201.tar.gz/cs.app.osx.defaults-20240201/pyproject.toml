@@ -1,0 +1,71 @@
+[project]
+name = "cs.app.osx.defaults"
+description = "Access the MacOS degfaults via the `defaults` command."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python3",
+]
+dependencies = [
+    "cs.app.osx.plist>=20221228",
+    "cs.deco>=20231129",
+    "cs.lex>=20231018",
+    "cs.psutils>=20231129",
+    "typeguard",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20240201"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+Access the MacOS degfaults via the `defaults` command.
+
+*Latest release 20240201*:
+Initial PyPI release.
+
+## Class `Defaults`
+
+A view of the defaults.
+
+## Function `defaults(argv, *, host=None, doit=True, **subp)`
+
+Run the `defaults` command with the arguments `argv`.
+If the optional `host` parameter is supplied,
+a value of `'.'` uses the `-currentHost` option
+and other values are used with the `-host` option.
+Return the `CompletedProcess` result or `None` if `doit` is false.
+
+## Class `DomainDefaults`
+
+A view of the defaults for a particular domain.
+
+# Release Log
+
+
+
+*Release 20240201*:
+Initial PyPI release."""
+content-type = "text/markdown"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]

@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: cs.app.osx.defaults
+Version: 20240201
+Summary: Access the MacOS degfaults via the `defaults` command.
+Author-email: Cameron Simpson <cs@cskk.id.au>
+License: GNU General Public License v3 or later (GPLv3+)
+Project-URL: URL, https://bitbucket.org/cameron_simpson/css/commits/all
+Keywords: python3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: text/markdown
+Requires-Dist: cs.app.osx.plist>=20221228
+Requires-Dist: cs.deco>=20231129
+Requires-Dist: cs.lex>=20231018
+Requires-Dist: cs.psutils>=20231129
+Requires-Dist: typeguard
+
+Access the MacOS degfaults via the `defaults` command.
+
+*Latest release 20240201*:
+Initial PyPI release.
+
+## Class `Defaults`
+
+A view of the defaults.
+
+## Function `defaults(argv, *, host=None, doit=True, **subp)`
+
+Run the `defaults` command with the arguments `argv`.
+If the optional `host` parameter is supplied,
+a value of `'.'` uses the `-currentHost` option
+and other values are used with the `-host` option.
+Return the `CompletedProcess` result or `None` if `doit` is false.
+
+## Class `DomainDefaults`
+
+A view of the defaults for a particular domain.
+
+# Release Log
+
+
+
+*Release 20240201*:
+Initial PyPI release.
