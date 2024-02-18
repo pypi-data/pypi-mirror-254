@@ -1,0 +1,2 @@
+[console_scripts]
+source-twitter = source_twitter.run:run

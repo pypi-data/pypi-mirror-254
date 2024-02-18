@@ -1,0 +1,17 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/abnormal_state.json,sha256=jaLZk38-S2kjiivSu3aPJ8fdRzAKLBoOvdrFS8ERZH0,200
+integration_tests/acceptance.py,sha256=8eU9iSDbmHyufPvAouJGhPMgPAFTCP8IKIKHLm7u5TE,435
+integration_tests/configured_catalog.json,sha256=eK9SlovCocmG4B6EZXIhVSd-SM75ORpO9gBYikoCyfA,460
+integration_tests/invalid_config.json,sha256=qDpbwUOQSb-yKrEiBrrdL1O3KBk3HGaa7w7Hgx-P3rg,95
+integration_tests/sample_config.json,sha256=rXWK9V6s3cp4xX_098TcZXWqrOcRnaCCNq3vMP8oNPs,142
+source_twitter/__init__.py,sha256=rsKkBqDgNwRmzT1Ltu07RWeDBkay5ei8q-Z0YuaoYcI,126
+source_twitter/manifest.yaml,sha256=uSdI4FaMm4ZB3bvanEa-346QFxqv0qX6pjtXDPZx108,2066
+source_twitter/run.py,sha256=cqg1evut8E6mmTEVMFyjQkSpWZ_yxKqTfE0mLBIC_Mk,233
+source_twitter/source.py,sha256=Mdjj-KITdGihZSy-r00c2P-3iB7QMgoQjTC_CPamqF0,476
+source_twitter/spec.yaml,sha256=EVLLpF5640engQdqe8IUaBQeGC_9fxHU-sjlxBF4IJQ,1258
+source_twitter/schemas/tweets.json,sha256=wrvvjr_hd6hearoyAlNGcOt48B81v-3w5E36f_qVnJs,665
+airbyte_source_twitter-0.1.2.dist-info/METADATA,sha256=Mqyc3hpjVD9Ef4GDdoOo1UWHKS6vlQOkQQsHlXWsnbU,4193
+airbyte_source_twitter-0.1.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_twitter-0.1.2.dist-info/entry_points.txt,sha256=a0fvykOmtF7h8sRkhuM0390qQBXr9oCJJWPJBYxRKkA,58
+airbyte_source_twitter-0.1.2.dist-info/top_level.txt,sha256=302vdxwYgLHbpBbGHD2HCMPU6wg0s2vVOQFMiU_hQ5c,33
+airbyte_source_twitter-0.1.2.dist-info/RECORD,,
