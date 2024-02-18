@@ -1,0 +1,7 @@
+pydantic
+pluggy
+Pillow
+
+[test]
+pytest
+pytest-mock

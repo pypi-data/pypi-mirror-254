@@ -1,0 +1,23 @@
+[project]
+name = "dinky"
+version = "0.2"
+description = "Home dashboard for the Inkyframe"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Julian Prester"}]
+license = {text = "MIT"}
+dependencies = [
+    "pydantic",
+    "pluggy",
+    "Pillow"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-mock"
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
