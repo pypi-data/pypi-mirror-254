@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: cacheline
+Version: 0.0.2.dev10
+Summary: 
+Author: cache-missing
+Author-email: cache@cache-miss.tech
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aiofiles (>=23.2.1,<24.0.0)
+Requires-Dist: aiohttp (>=3.0.0,<4.0.0)
+Requires-Dist: better-exceptions (>=0.3.3,<0.4.0)
+Requires-Dist: colorlog (==6.7.0)
+Description-Content-Type: text/markdown
+
+
