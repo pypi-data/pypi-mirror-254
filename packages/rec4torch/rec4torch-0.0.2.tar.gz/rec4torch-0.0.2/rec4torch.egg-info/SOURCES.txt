@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+rec4torch/__init__.py
+rec4torch/activations.py
+rec4torch/callbacks.py
+rec4torch/inputs.py
+rec4torch/layers.py
+rec4torch/models.py
+rec4torch/snippets.py
+rec4torch.egg-info/PKG-INFO
+rec4torch.egg-info/SOURCES.txt
+rec4torch.egg-info/dependency_links.txt
+rec4torch.egg-info/requires.txt
+rec4torch.egg-info/top_level.txt
