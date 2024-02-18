@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visarchpy"
+version = "1.0.4"
+authors = [
+    {name = "Manuel Garcia", email = "m.g.garciaalvarez@tudelft.nl"},
+]
+description = "Data pipelines for extraction, transformation and visualization of architectural visuals in Python."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["data pipelines", "visuals", "architecture",
+            "pdf", "ETL", "computer vision", "dino", "TU Delft"]
+license = {text = "MIT"}
+classifiers = ["Development Status :: 5 - Production/Stable",
+ "Intended Audience :: Science/Research",
+ "Operating System :: OS Independent",
+ "Programming Language :: Python :: 3.10",
+ "Programming Language :: Python :: 3.11",
+ "Environment :: Console",
+ "Framework :: Pytest",
+ "License :: OSI Approved :: MIT License",
+ "Intended Audience :: Science/Research",
+ "Topic :: Utilities",
+]
+
+dependencies = [
+    "Pillow",
+    "requests",
+    "pdfminer.six[image]",
+    "beautifulsoup4",
+    "shapely",
+    "pandas",
+    "pymods",
+    "tqdm",
+    "pdf2image",
+    "pytesseract",
+    "matplotlib",
+    "typer",
+    "transformers",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+  dev = [
+    "pytest",
+    "Sphinx",
+    "sphinx-rtd-theme",
+    "sphinx-copybutton==0.5.2",
+    "sphinx-tabs==3.4.4",
+]
+
+[tool.setuptools.package-data]
+visarchpy = ['src/visarchpy']
+
+[project.urls]
+Documentation = "https://visarchpy.readthedocs.io"
+Repository = "https://github.com/AiDAPT-A/VisArchPy.git"
+"Bug Tracker" = "https://github.com/AiDAPT-A/VisArchPy/issues"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = [
+    "--import-mode=importlib",
+]
+
+[project.scripts]
+visarch = "visarchpy.cli.main:app"
