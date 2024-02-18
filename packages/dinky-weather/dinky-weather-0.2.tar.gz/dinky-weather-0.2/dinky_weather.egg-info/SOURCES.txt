@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+.github/workflows/publish.yml
+.github/workflows/test.yml
+dinky_weather/__init__.py
+dinky_weather/assets.py
+dinky_weather.egg-info/PKG-INFO
+dinky_weather.egg-info/SOURCES.txt
+dinky_weather.egg-info/dependency_links.txt
+dinky_weather.egg-info/requires.txt
+dinky_weather.egg-info/top_level.txt
+dinky_weather/fonts/Roboto-Bold.ttf
+dinky_weather/fonts/Roboto-Regular.ttf
+dinky_weather/fonts/__init__.py
+tests/test_dinky_weather_plugin.py
