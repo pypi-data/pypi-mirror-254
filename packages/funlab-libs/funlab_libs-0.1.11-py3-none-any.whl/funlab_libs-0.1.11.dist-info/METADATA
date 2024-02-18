@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: funlab-libs
+Version: 0.1.11
+Summary: The core library for funlab-flaskr.
+License: MIT
+Author: SunnyLin
+Author-email: 013.lin@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: colorama (>=0.4.6,<0.5.0)
+Requires-Dist: pandas (>=2.0.3,<3.0.0)
+Requires-Dist: sqlalchemy (>=2.0.17,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Funlab-Libs - A common library for FunLab framework
+
+## Installation
+
+poetry add funlab-libs or pip install funlab-libs
+
+## Reqirements
+
+- colorama = "^0.4.6"
+- sqlalchemy = "^2.0.17"
+- pandas = "^2.0.3"
+
+## Refactoring/ToDo
+
+- config.toml, 各plugin package 可有其自己default的config.toml的設定值，但只有在參數列的config.toml
+  無相同值設定時，才加使用/加入該值，如已存在應使用最外部的設定值
+  - 取消get_app_path_file的作用, 在命令列未指定時, 此應是funlab.flaskr下的config.toml, 內容應只有flask相關的設定
+- finfun-libs為獨立package, 不放入funlab-flaskr, 是為供其它如plugins為開發時可以使用，避免circle import,
+  還在思考是否應放回flaskr即可
+- dsdt.py module應可都用python-dateutil取代即可, 它也是pandas的dependency, 不需再另外install
+- dbmgr.py 應改為sadb.py module
+  - 增加一class decorator, 可統一將dataclass改為entity style的宣告
+  - 學習修改宣告的decorator
+  - 在lang.py中有create_entity_from_dataclass等, 應改移到此
+- plugin.py 在fundmgr plugin中, 原本有思考要用此也建立supported_brokers = load_plugins(group='finfun-broker'),
+但後來mark掉, 沒做了, 為何
+
