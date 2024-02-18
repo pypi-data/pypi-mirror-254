@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+VERSION
+setup.py
+bibrecord/__init__.py
+bibrecord/bibtex.py
+bibrecord/database.py
+bibrecord/record.py
+bibrecord.egg-info/PKG-INFO
+bibrecord.egg-info/SOURCES.txt
+bibrecord.egg-info/dependency_links.txt
+bibrecord.egg-info/requires.txt
+bibrecord.egg-info/top_level.txt
+tests/test_bibtex.py
+tests/test_database.py
+tests/test_record.py

@@ -1,0 +1,16 @@
+
+[deployment]
+build
+twine
+
+[dev]
+prospector
+pyroma
+bandit
+black
+pymetacode
+
+[docs]
+sphinx
+sphinx-rtd-theme
+sphinx_multiversion
