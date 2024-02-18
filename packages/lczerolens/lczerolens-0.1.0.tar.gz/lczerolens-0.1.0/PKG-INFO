@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: lczerolens
+Version: 0.1.0
+Summary: Interpretability for LeelaChessZero networks.
+License: MIT
+Author: Yoann Poupart
+Author-email: yoann.poupart@ens-lyon.org
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.8.2,<4.0.0)
+Requires-Dist: onnx2torch (>=1.5.13,<2.0.0)
+Requires-Dist: python-chess (>=1.999,<2.0)
+Requires-Dist: tensordict (>=0.2.1,<0.3.0)
+Requires-Dist: torch (>=2.1.2,<3.0.0)
+Requires-Dist: torchviz (>=0.0.2,<0.0.3)
+Requires-Dist: zennit (>=0.5.1,<0.6.0)
+Description-Content-Type: text/markdown
+
+# Leela Chess Zero (lc0) Lens
+
+Set of utilities to make the analysis of Leela Chess Zero networks easy.
+
