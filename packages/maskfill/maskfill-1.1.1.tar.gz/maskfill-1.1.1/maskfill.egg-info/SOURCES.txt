@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+maskfill/__init__.py
+maskfill/maskfill.py
+maskfill.egg-info/PKG-INFO
+maskfill.egg-info/SOURCES.txt
+maskfill.egg-info/dependency_links.txt
+maskfill.egg-info/entry_points.txt
+maskfill.egg-info/requires.txt
+maskfill.egg-info/top_level.txt
+tests/__init__.py
+tests/test_maskfill.py

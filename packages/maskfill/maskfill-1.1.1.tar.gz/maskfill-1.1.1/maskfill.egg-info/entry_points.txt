@@ -1,0 +1,2 @@
+[console_scripts]
+maskfill = maskfill.maskfill:cli
