@@ -1,0 +1,2 @@
+[console_scripts]
+ubuntu-package-buildinfo = ubuntu_package_buildinfo.cli:ubuntu_package_buildinfo

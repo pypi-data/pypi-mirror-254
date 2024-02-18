@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: ubuntu-package-buildinfo
+Version: 0.0.4
+Summary: Tool to retrieve Ubuntu Package Buildinfo
+Home-page: https://github.com/canonical/ubuntu-package-buildinfo
+Author: Phil Roche
+Author-email: phil.roche@canonical.com
+License: GNU General Public License v3
+Keywords: ubuntu-package-buildinfo
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: Click (>=7.0)
+Requires-Dist: launchpadlib
+
+============================
+Ubuntu Package BuilInfo
+============================
+
+
+.. image:: https://img.shields.io/pypi/v/ubuntu-package-buildinfo.svg
+        :target: https://pypi.python.org/pypi/ubuntu-package-buildinfo
+
+.. image:: https://img.shields.io/travis/canonical/ubuntu-package-buildinfo.svg
+        :target: https://travis-ci.com/canonical/ubuntu-package-buildinfo
+
+.. image:: https://readthedocs.org/projects/ubuntu-package-buildlog-info/badge/?version=latest
+        :target: https://ubuntu-package-buildlog-info.readthedocs.io/en/latest/?version=latest
+        :alt: Documentation Status
+
+
+
+
+Tool to retrieve Ubuntu Package Buildinfo
+
+This script downloads the changes file, the buildlog file and the buildinfo file and verifies
+that the buildinfo file is correct based on the checksum in the .changes file.
+
+See https://wiki.debian.org/ReproducibleBuilds/BuildinfoFiles for more information on buildinfo files.
+
+
+* Free software: GNU General Public License v3
+* Documentation: https://ubuntu-package-buildlog-info.readthedocs.io.
+
+Example Usage
+-------------
+
+::
+
+    ubuntu-package-buildinfo --series jammy --package-version 3.0.4-2ubuntu2.2 --package-name apparmor
+
+
+Features
+--------
+
+Downloads the changes file, the buildlog file and the buildinfo file for a given package and version in a given
+Ubuntu series.
+
+It also verifies that the buildinfo file is correct based on the checksum in the .changes file.
+
+TODO
+----
+
+* Code cleanup now that we have a working version
+* Write tests
+* Complete support for querying PPAs
+* Add support for querying latest version of a package in a series if no version is specified
+* Create snapcraft.yaml to build a snap package for easy distribution
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.0.4 (2024-02-01)
+------------------
+
+* Fix for querying by source package even if the package was a copy from a previous Ubuntu release.
+
+0.0.3 (2024-01-31)
+------------------
+
+* Allow for querying by source package.
+
+0.0.2 (2024-01-24)
+------------------
+
+* No longer iterate over pocket and publication status for much quicker query times.
+
+0.0.1 (2024-01-24)
+------------------
+
+* First release on PyPI.
