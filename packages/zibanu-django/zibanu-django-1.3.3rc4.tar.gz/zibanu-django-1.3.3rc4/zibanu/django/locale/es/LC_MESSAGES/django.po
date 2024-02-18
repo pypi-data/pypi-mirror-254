@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-17 00:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: zibanu/django/db/models/dated_model.py:23
+msgid "Created at"
+msgstr "Creado el"
+
+#: zibanu/django/db/models/dated_model.py:24
+msgid "Modified at"
+msgstr "Modificado el"
+
+#: zibanu/django/db/models/manager.py:52
+msgid "OASIS Error. The object does not exists."
+msgstr "El objeto no existe."
+
+#: zibanu/django/rest_framework/decorators.py:55
+msgid "Permission name or tuple is required."
+msgstr "Nombre del permiso o lista de permisos es requerida."
+
+#: zibanu/django/rest_framework/decorators.py:64
+#: zibanu/django/rest_framework/exceptions/api_exception.py:26
+msgid "You do not have permission to perform this action."
+msgstr "No posee permisos para ejecutar esta acción."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:23
+msgid "Object has not been created."
+msgstr "El objeto no ha sido creado."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:24
+msgid "Generic error."
+msgstr "Error genérico."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:25
+msgid "You are not authorized for this resource."
+msgstr "No está autorizado para utilizar este recurso."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:27
+msgid "Object does not exists."
+msgstr "El objeto no existe."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:28
+msgid "Data validation error."
+msgstr "Error en validación de datos."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:29
+msgid "Data required not found."
+msgstr "El dato requerido no existe."
+
+#: zibanu/django/rest_framework/exceptions/api_exception.py:30
+#, fuzzy
+#| msgid "Not controlled exception error."
+msgid "Not controlled exception error. Please contact administrator."
+msgstr "Error de excepción no controlada."
+
+#: zibanu/django/rest_framework/exceptions/api_not_implemented_exception.py:23
+msgid "Service not implemented"
+msgstr "Servicio no implementado"
+
+#: zibanu/django/rest_framework/fields/hybrid_image.py:24
+msgid "The width or height of the file is invalid."
+msgstr "El ancho o alto del archivo es inválido."
+
+#: zibanu/django/utils/code_generator.py:175
+msgid "The generated values are invalid."
+msgstr "El valor generado es inválido."
+
+#: zibanu/django/utils/error_messages.py:21
+msgid "Error! The field is required."
+msgstr "Error! El campo es requerido."
+
+#: zibanu/django/utils/error_messages.py:22
+msgid "Error! Record has not been created."
+msgstr "Error! El registro no ha sido creado."
+
+#: zibanu/django/utils/error_messages.py:23
+msgid "Error! Record has not been updated."
+msgstr "Error! El registro no ha sido actualizado."
+
+#: zibanu/django/utils/error_messages.py:24
+msgid "Error! There is not record matching."
+msgstr "Error! No existen registros que coincidan."
+
+#: zibanu/django/utils/error_messages.py:25
+msgid "Error! Record can not be deleted."
+msgstr "Error! El registro no ha sido eliminado."
+
+#: zibanu/django/utils/error_messages.py:26
+msgid "Error! The data required not found."
+msgstr "Error! Los datos requeridos no se encuentran."
+
+#: zibanu/django/utils/error_messages.py:27
+msgid "Error at database."
+msgstr "Error genérico en la base de datos."
+
+#: zibanu/django/utils/error_messages.py:28
+msgid "Data required at request not found."
+msgstr "El dato requerido no existe."
+
+#: zibanu/django/utils/error_messages.py:29
+msgid "Error! Exception not controlled."
+msgstr "Excepción no controlada"
+
+#: zibanu/django/utils/mail.py:59
+#, python-format
+msgid "Error sending mail: %(error_str)s with code: %(error_code)d."
+msgstr "Error enviando el correo: %(error_str)s con el código: %(error_code)d."
+
+#: zibanu/django/utils/mail.py:60
+#, fuzzy, python-format
+#| msgid "Syntax error loading template '{}'"
+msgid "Syntax error loading template %(template)s."
+msgstr "Error de sintaxis cargando la plantilla '{}'"
+
+#: zibanu/django/utils/mail.py:61
+#, fuzzy, python-format
+#| msgid "Template '{}' does not exist."
+msgid "Template %(template)s does not exists."
+msgstr "La plantilla %(template)s no existe."
+
+#~ msgid "Error sending email."
+#~ msgstr "Error enviando el correo."
+
+#~ msgid "Data request not found."
+#~ msgstr "El dato requerido no existe."
