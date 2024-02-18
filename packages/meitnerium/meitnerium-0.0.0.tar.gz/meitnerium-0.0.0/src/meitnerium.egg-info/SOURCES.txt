@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/meitnerium/__init__.py
+src/meitnerium/example.py
+src/meitnerium.egg-info/PKG-INFO
+src/meitnerium.egg-info/SOURCES.txt
+src/meitnerium.egg-info/dependency_links.txt
+src/meitnerium.egg-info/top_level.txt
