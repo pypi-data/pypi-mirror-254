@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: onsapi
+Version: 0.0.1
+Summary: A package for interacting with the UK Civil Service Office for National Statistics' Beta API.
+Project-URL: Homepage, https://github.com/Pooleyo/onsapi
+Project-URL: Issues, https://github.com/Pooleyo/onsapi/issues
+Author-email: Ashley Poole <apoole@tcd.ie>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# onsapi
