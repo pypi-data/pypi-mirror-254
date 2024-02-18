@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "rezipe"
+version = "0.2.0"
+description = "A way to write down your cooking/baking recipes in Python. This is an actual library, no joke (period). Made with ❤ for everyone with minimum coding literacy."
+authors = ["Nutchanon Ninyawee <nutchanon@codustry.com>"]
+license = "ISC"
+repository = "https://github.com/CircleOnCircles/recipe"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pint = "^0.23"
+pydantic = "^2.6.0"
+marvin = "^2.1.3"
+pandas = "^2.2.0"
+rich = "^13.7.0"
+tabulate = "^0.9.0"
+pint-pandas = "^0.5"
+joblib = "^1.3.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
