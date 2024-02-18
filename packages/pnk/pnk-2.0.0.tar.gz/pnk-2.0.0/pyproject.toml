@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "pnk.__version__"}
+
+[project]
+name = "pnk"
+dynamic = ["version"]
+authors = [
+  { name="Zhdanov Kirill", email="storenth@yandex.ru" },
+]
+description = "Generates permutations on provided subdomains"
+keywords = [
+"permutations",
+"enumeration",
+"recon",
+"itertool",
+"subdomains",
+"bugbounty",
+"subdomain-enumeration",
+"infosec",
+]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/storenth/pnk"
+Issues = "https://github.com/storenth/pnk/issues"
+
+[project.scripts]
+pnk = "pnk.__main__:main"
+
+[tool.ruff]
+extend-exclude = ["src/tests", "src/pnk/__main__.py"]
+ignore = ["E402"]
