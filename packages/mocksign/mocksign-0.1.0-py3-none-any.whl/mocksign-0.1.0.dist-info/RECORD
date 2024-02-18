@@ -1,0 +1,16 @@
+mocksign/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mocksign/filter.py,sha256=8v8JXwHJhXMU6Cg0Mv8MNniHvSUq__f9Ruf9arTadgk,2543
+mocksign/mocksign.py,sha256=FP9ZOoV0dtlO5ItQyDwdjcNtyI_5WFV04heBhpQ9Zk0,20348
+mocksign/pdf.py,sha256=JaPx2ini66WPz5RYRqfpde2cPOjFoKy1mmjFa-wiiRk,3366
+mocksign/signature.py,sha256=tsW7JnKbr2PlGIjsrB9fKID3jEGhrEp4wSUDYAWCjcQ,2290
+mocksign/signatures/Signature 1.png,sha256=bE_kZ7tviOz8LmU_zyMt6p1zRCcqJTNcACLTO1Sjrm0,6669
+mocksign/signatures/Signature 2.png,sha256=C7oRqMweU_Yj09mKQHNyZ5ztqpgtsonfYjBZG7yAmXE,5746
+mocksign/signatures/Signature 3.png,sha256=uRg6eDcZ8XST3UHp-qQSwyEAM_-zpRUq1tluLtLfhwE,6188
+mocksign/signatures/Signature 4.png,sha256=CufVz_XCJGaMIiZuQqJb4XeFDrwvX_RlKCPedacqjsw,6097
+mocksign/signatures/Signature 5.png,sha256=hhpeaqBKMO1TJlxaGCArb5fjjN6oa0gVBZVjWy3RQU8,6161
+mocksign/utils.py,sha256=l7XBrP76b5drGPRllQK98Y1bHKZfai-EQpGYqOlKMVo,1845
+mocksign-0.1.0.dist-info/LICENSE,sha256=I7gEecb_ER1NyDW1-gaWMyn3GV-zMuNvbVPWX5KA2zI,1062
+mocksign-0.1.0.dist-info/METADATA,sha256=2thhX_L6qDhjxJ7C2qhqF6tNhAAQJyul_NVzr9Ekpjc,2011
+mocksign-0.1.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+mocksign-0.1.0.dist-info/entry_points.txt,sha256=X0otWAgRY81Wc2u8ysmnErYYrxkI6tkJ8e-EwUYL3oo,51
+mocksign-0.1.0.dist-info/RECORD,,

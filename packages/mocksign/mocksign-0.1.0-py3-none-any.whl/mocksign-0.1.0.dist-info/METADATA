@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: mocksign
+Version: 0.1.0
+Summary: 
+License: MIT
+Author: Stephan Rumswinkel
+Author-email: 17520641+srwi@users.noreply.github.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: Pillow (==9.3.0)
+Requires-Dist: PyMuPDF (==1.21.0)
+Requires-Dist: PySimpleGUI (==4.60.4)
+Requires-Dist: opencv-python (==4.9.0.80)
+Description-Content-Type: text/markdown
+
+# MockSign
+
+![Build](https://github.com/srwi/MockSign/actions/workflows/github-actions.yml/badge.svg)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/srwi/MockSign/blob/master/LICENSE)
+
+Simulate the look of hand-signed and scanned documents. MockSign is a simple tool to help you shortcut the tedious process of printing, hand-signing and scanning documents.
+
+<p align="center">
+  <img src='https://github.com/srwi/MockSign/assets/17520641/b787a307-4d77-473a-8d45-c61643dc68c8' width='80%'>
+</p>
+
+## Installation
+
+Use pip to install MockSign with
+
+```bash
+pip install mocksign
+```
+
+## Usage
+
+Before using MockSign, a collection of real signature images is needed. This can be
+achieved by scanning and cropping signatures using an image editing program like [Gimp](https://www.gimp.org/) and saving them into a designated folder.
+
+Afterwards, MockSign can be started with `mocksign`.
+
+<p align="center">
+  <img src='https://github.com/srwi/FalsiSignPy/assets/17520641/2ec12a25-ec97-4dca-a551-27a4d44c2602' width='80%'>
+</p>
+
+## License & Attribution
+
+MockSign is licensed under the [MIT](https://github.com/srwi/MockSign/blob/master/LICENSE) license and draws inspiration from [FalsiSign](https://gitlab.com/edouardklein/falsisign) by Edouard Klein.
+
