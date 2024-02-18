@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: wxtools
+Version: 0.1a1
+Summary: jy's own wheels!
+Author-email: yingjiang <yingjiang.jy@gmail.com>
+Maintainer-email: yingjiang <yingjiang.jy@gmail.com>
+License: MIT License
+        
+        Copyright (c) [2024]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/terancejiang/wxtools
+Project-URL: Documentation, https://github.com/terancejiang/wxtools
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# wxtools
+
+`wxtools` is a comprehensive Python toolkit designed to streamline workflows in image processing, file I/O operations, and similarity computations. 
+
+The Goal of this project is to speed up my own working and research pipelines. Feel free to use or contribute to this project. 
+
+This toolkit is crafted to enhance productivity and efficiency for developers dealing with a wide range of tasks including image enhancements, file management, and analysis of vector similarities.
+
+## Installation
+
+To install `wxtools`, you can clone this repository and install the required dependencies.
+
+```bash
+pip install wxtools
+```
+
+## Modules
+wxtools is composed of three main modules:
+
+`io_utils`: Provides a set of functions for efficient file I/O operations, path manipulations, and batch file processing.
+
+`img_utils`: Offers a collection of image processing utilities to perform tasks such as contrast enhancement, drawing on images, and image transformations.
+
+`similarity`: Includes functions for calculating and analyzing the similarity between vectors, facilitating operations such as cosine similarity computations.
+
+`others`: Other functions that are not included in the above modules.
+
+## Usage
+Below are brief examples of how to use each module in wxtools. For detailed usage, refer to the individual function documentation within each module.
+
+### io_utils
+```python
+from wxtools.io_utils import read_txt, replace_root_extension
+
+# Read text file
+lines = read_txt('your_file_path.txt')
+
+# Replace root and extension of a path
+new_path = replace_root_extension('/src_root/a/b/c.txt', '/dst_root', src_extension='.txt', dst_extension='.jpg')
+```
+
+### img_utils
+```python
+from wxtools.img_utils import contrast_boost, draw_bbox
+
+# Enhance image contrast
+enhanced_img = contrast_boost(image, mode=1)
+
+# Draw bounding box on an image
+img_with_bbox = draw_bbox(image, bbox=[x, y, w, h], color=(255, 0, 0), thickness=2, xywh=True)
+```
+
+### similarity
+```python
+from wxtools.similarity import base_cos_sim, feature_cross_sims
+
+# Calculate cosine similarity between two vectors
+similarity = base_cos_sim(vector1, vector2)
+
+# Cross calculation of similarity matrix
+similar_pairs = feature_cross_sims(matrix_dict, threshold=0.8)
+```
