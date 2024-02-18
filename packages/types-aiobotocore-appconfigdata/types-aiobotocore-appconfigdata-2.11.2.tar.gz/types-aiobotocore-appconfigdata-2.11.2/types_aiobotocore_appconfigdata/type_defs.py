@@ -1,0 +1,79 @@
+"""
+Type annotations for appconfigdata service type definitions.
+
+[Open documentation](https://youtype.github.io/types_aiobotocore_docs/types_aiobotocore_appconfigdata/type_defs/)
+
+Usage::
+
+    ```python
+    from types_aiobotocore_appconfigdata.type_defs import GetLatestConfigurationRequestRequestTypeDef
+
+    data: GetLatestConfigurationRequestRequestTypeDef = ...
+    ```
+"""
+
+import sys
+from typing import Dict
+
+from aiobotocore.response import StreamingBody
+
+if sys.version_info >= (3, 12):
+    from typing import NotRequired
+else:
+    from typing_extensions import NotRequired
+if sys.version_info >= (3, 12):
+    from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
+
+__all__ = (
+    "GetLatestConfigurationRequestRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartConfigurationSessionRequestRequestTypeDef",
+    "GetLatestConfigurationResponseTypeDef",
+    "StartConfigurationSessionResponseTypeDef",
+)
+
+GetLatestConfigurationRequestRequestTypeDef = TypedDict(
+    "GetLatestConfigurationRequestRequestTypeDef",
+    {
+        "ConfigurationToken": str,
+    },
+)
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, str],
+        "RetryAttempts": int,
+    },
+)
+StartConfigurationSessionRequestRequestTypeDef = TypedDict(
+    "StartConfigurationSessionRequestRequestTypeDef",
+    {
+        "ApplicationIdentifier": str,
+        "EnvironmentIdentifier": str,
+        "ConfigurationProfileIdentifier": str,
+        "RequiredMinimumPollIntervalInSeconds": NotRequired[int],
+    },
+)
+GetLatestConfigurationResponseTypeDef = TypedDict(
+    "GetLatestConfigurationResponseTypeDef",
+    {
+        "NextPollConfigurationToken": str,
+        "NextPollIntervalInSeconds": int,
+        "ContentType": str,
+        "Configuration": StreamingBody,
+        "VersionLabel": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartConfigurationSessionResponseTypeDef = TypedDict(
+    "StartConfigurationSessionResponseTypeDef",
+    {
+        "InitialConfigurationToken": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
