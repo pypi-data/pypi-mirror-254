@@ -1,0 +1,5 @@
+urllib3<2.1.0,>=1.25.3
+python-dateutil
+pydantic<2,>=1.10.5
+aenum
+sseclient-py>=1.8.0
