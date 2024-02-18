@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: acclaimbadge-xblock
+Version: 1.3.1
+Summary: XBlock used to retrieve badges from acclaim
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache License 2.0
+Platform: UNKNOWN
+Requires-Dist: XBlock
+Requires-Dist: requests
+
+UNKNOWN
+
+

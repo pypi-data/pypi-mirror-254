@@ -1,0 +1,54 @@
+<%!
+from django.utils.translation import gettext as _
+from django.conf import settings
+%>
+
+<div class="acclaimbadge">
+  <h2>${_("Get your badge")}</h2>
+
+  <p class="acclaimbadge--loading" v-if="showLoader">
+    ${_("Loading badge information...")}
+  </p>
+
+  <template v-else>
+    <div class="acclaimbadge--error" v-if="error">
+      <h4>${_("Something went wrong....")}</h4>
+
+      <p class="acclaimbadge--error-msg">
+        {{ error }}
+      </p>
+    </div>
+
+    <p v-html="text"></p>
+
+    <div class="acclaimbadge--wrapper" v-if="badge">
+      <img :src="badge.image_url" class="acclaimbadge--image" />
+
+      <h4 class="acclaimbadge--name">
+        {{ badge.name }}
+      </h4>
+
+      <p class="acclaimbadge--description">
+        {{ badge.description }}
+      </p>
+
+      <p class="acclaimbadge--agreement" v-if="showButton">
+        ${
+          _("{platform_name} leverages the services of Credly, Inc. to assist in the administration of badges. "
+              "By clicking 'Claim badge' below, you (1) consent to {platform_name} sharing your first name, "
+              "email address, and badge eligibility with Credly for the purpose of Credly administering "
+              "your badge and contacting you about your badge by email, and (2) acknowledge that you "
+              "will be required to have an account with Credly to accept your badge and "
+              "that your activity on the Credly website is subject to Credly's Terms of Service and Privacy Policy. "
+              "You have the right to withdraw your consent at any time by contacting the {platform_name} support team."
+          ).format(platform_name=settings.PLATFORM_NAME)
+        }
+      </p>
+
+      <button type="button" class="acclaimbadge--button" v-if="showButton" v-on:click="requestBadge">
+        ${_("Claim badge")}
+      </button>
+      <img src="${ribbon_icon_url}" class="acclaimbadge--ribbon-icon" v-if="showRibbon" />
+    </div>
+  </template>
+</div>

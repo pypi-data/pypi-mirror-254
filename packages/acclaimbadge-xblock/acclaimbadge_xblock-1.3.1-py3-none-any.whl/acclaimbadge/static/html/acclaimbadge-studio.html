@@ -1,0 +1,26 @@
+<%!
+from django.utils.translation import gettext as _
+%>
+
+<div class="acclaimbadge">
+  <h2>${_("Get your badge")}</h2>
+
+  % if badge:
+    <div class="acclaimbadge--wrapper">
+      % if badge['image_url']:
+        <img src="${badge['image_url']}" class="acclaimbadge--image" />
+      % endif
+
+      <h4 class="acclaimbadge--name">${badge['name']}</h4>
+      <p class="acclaimbadge--description">${badge['description']}</p>
+
+      <button type="button" class="acclaimbadge--button">${_('Claim badge')}</button>
+    </div>
+  % else:
+    <div class="acclaimbadge--error">
+      <p class="acclaimbadge--error-msg">
+        ${_("Failed to retrieve badge information.")}
+      </p>
+    </div>
+  % endif
+</div>
