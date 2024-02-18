@@ -1,0 +1,2 @@
+[console_scripts]
+sgen = slurmgen.script:run_script
