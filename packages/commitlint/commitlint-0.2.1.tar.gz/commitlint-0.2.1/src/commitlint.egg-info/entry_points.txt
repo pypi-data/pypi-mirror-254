@@ -1,0 +1,2 @@
+[console_scripts]
+commitlint = commitlint.cli:main
