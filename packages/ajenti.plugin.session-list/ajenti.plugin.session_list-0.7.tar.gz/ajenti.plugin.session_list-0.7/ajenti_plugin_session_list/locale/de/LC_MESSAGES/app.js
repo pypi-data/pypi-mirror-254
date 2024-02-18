@@ -1,0 +1,1 @@
+{"": "", "Authenticated users": "Authentifizierte Benutzer", "IP": "IP", "Logged in": "Angemeldet", "Timeout": "Timeout", "User <span class=\\\"badge\\\">{{number}}</span>": "Benutzer <span class=\\\"badge\\\">{{number}}</span>", "Sessions": "Sitzungen", "Session list": "Sitzungsliste", "List all sessions": "Alle Sitzungen auflisten"}

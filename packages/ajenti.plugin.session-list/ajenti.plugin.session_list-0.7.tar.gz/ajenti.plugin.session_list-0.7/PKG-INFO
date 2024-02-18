@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: ajenti.plugin.session_list
+Version: 0.7
+Summary: Session list
+Home-page: https://ajenti.org
+Author: Arnaud Kientz
+Author-email: arnaud@linuxmuster.net
+Requires-Python: >=3
+
+A Session list plugin for Ajenti panel

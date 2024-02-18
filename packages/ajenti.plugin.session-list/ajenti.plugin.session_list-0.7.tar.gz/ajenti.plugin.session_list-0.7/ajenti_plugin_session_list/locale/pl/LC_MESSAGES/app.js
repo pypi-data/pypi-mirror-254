@@ -1,0 +1,1 @@
+{"": "", "Authenticated users": "Uwierzytelnieni u\u017cytkownicy", "IP": "IP", "Logged in": "Zalogowany", "Timeout": "Limit czasu", "User <span class=\\\"badge\\\">{{number}}</span>": "U\u017cytkownik <span class=\\\"badge\\\">{{number}}</span>", "Sessions": "Sesje", "Session list": "Lista sesji", "List all sessions": "Lista wszystkich sesji"}

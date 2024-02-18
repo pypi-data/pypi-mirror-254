@@ -1,0 +1,1 @@
+{"": "", "Authenticated users": "Utilizatori autentifica\u021bi", "IP": "IP", "Logged in": "Conectat", "Timeout": "Expirare", "User <span class=\\\"badge\\\">{{number}}</span>": "Utilizatorul <span class=\\\"badge\\\">{{number}}</span>", "Sessions": "Sesiuni", "Session list": "Lista de sesiuni", "List all sessions": "Listeaz\u0103 toate sesiunile"}

@@ -1,0 +1,7 @@
+
+recursive-include ajenti_plugin_session_list * *.*
+recursive-exclude ajenti_plugin_session_list *.pyc
+include ajenti_plugin_session_list/plugin.yml
+include MANIFEST.in
+include requirements.txt
+    
