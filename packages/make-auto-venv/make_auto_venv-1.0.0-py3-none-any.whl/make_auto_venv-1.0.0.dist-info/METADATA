@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: make-auto-venv
+Version: 1.0.0
+Summary: make venv automaticaly
+Home-page: https://github.com/sungjujjang/autovenv
+Author: Eu4ng
+Author-email: hanbe7220@gmail.com
+License: MIT
+Requires-Python: >=3
+
