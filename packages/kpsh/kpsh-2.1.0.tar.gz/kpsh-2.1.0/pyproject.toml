@@ -1,0 +1,60 @@
+[build-system]
+requires = ["poetry-core>=1.1.0a5"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "kpsh"
+version = "2.1.0"
+description = "KeePass shell interface and daemon"
+authors = ["Michal Goral <dev@goral.net.pl>"]
+license = "GPL-3.0-or-later"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: POSIX",
+    "Topic :: Utilities"
+]
+readme = "README.md"
+homepage = "https://git.goral.net.pl/mgoral/keepass-shell"
+repository = "https://git.goral.net.pl/mgoral/keepass-shell"
+documentation = "https://git.goral.net.pl/mgoral/keepass-shell/src/branch/master/docs"
+
+keywords = ["keepass", "shell", "password", "cli", "tui"]
+
+include = [
+    { path = "tests", format = "sdist" },
+    { path = "docs", format = "sdist" },
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pykeepass = "^4.0.0"
+prompt_toolkit = "^3.0.21"
+importlib-metadata = {version = "^1.0", python = "^3.8"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+pytest-xdist = "^2.4.0"
+pytest-sugar = ">=0.9"
+black = "21.9b0"
+
+[tool.poetry.scripts]
+kpsh = "kpsh.app:main"
+kpsh-client = { reference="contrib/kpsh-client", type="file" }
+kpsh-detect-backend-sway = { reference="contrib/kpsh-detect-backend-sway", type="file" }
+kpsh-menu = { reference="contrib/kpsh-menu", type="file" }
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:.*imp module*:DeprecationWarning"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+]
