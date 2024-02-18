@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: arrtype
+Version: 0.1.0
+Summary: A type dumper for pirate101
+Home-page: https://github.com/wizspoil/arrtype
+License: MIT
+Author: StarrFox
+Author-email: starrfox6312@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: iced-x86 (>=1.17.0,<2.0.0)
+Requires-Dist: memobj (>=0.10.0,<0.11.0)
+Project-URL: Repository, https://github.com/wizspoil/arrtype
+Description-Content-Type: text/markdown
+
+# arrtype
+A type dumper for pirate101
+
+## install
+`pip install arrtype`
+
+## usage
+an instance of pirate101 must be open for all commands
+
+```shell
+# generate a normal dump in the current directory named after the current revision
+$ arrtype
+# generate a dump with indent level 4 (for human reading)
+$ arrtype --indent 4
+# generate a version 1 dump (wizwalker)
+$ arrtype --version 1 --indent 4
+```
+
+## support
+discord: https://discord.gg/2u7bGvhYcJ
+
+## json spec
+
+```json5
+{
+  "version": 2,
+  "classes": {
+    "class hash (as string)": {
+      "bases": ["class base classes"],
+      "name": "class name",
+      "singleton": true,
+      "properties": {
+        "property name": {
+          "type": "property type",
+          "id": 123,
+          "offset": 123,
+          "flags": 123,
+          "container": "container name",
+          "dynamic": true,
+          "pointer": true,
+          "hash": 123,
+          "enum_options": {
+            "option name": 123,
+            // __DEFAULT is a string
+            "__DEFAULT": "option name",
+            // __BASECLASS is a string
+            "__BASECLASS": "option name",
+          }
+        }
+      }
+    }
+  }
+}
+```
+

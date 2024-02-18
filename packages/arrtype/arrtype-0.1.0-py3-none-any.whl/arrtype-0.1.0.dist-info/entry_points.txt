@@ -1,0 +1,3 @@
+[console_scripts]
+arrtype=arrtype.__main__:main
+
