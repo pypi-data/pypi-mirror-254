@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: skyline2isocor
+Version: 0.2.0
+Summary: Convert skyline output to IsoCor input format
+Author: legregam
+Author-email: legregam@insa-toulouse.fr
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pandas (>=2.1.4,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Skyline2IsoCor
+Preparing skyline output data for use in IsoCor software
+

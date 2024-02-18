@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "skyline2isocor"
+version = "0.2.0"
+description = "Convert skyline output to IsoCor input format"
+authors = ["legregam <legregam@insa-toulouse.fr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.1.4"
+
+[tool.poetry.scripts]
+skyline2isocor = 'skyline2isocor.cli:start_cli'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
