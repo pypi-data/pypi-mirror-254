@@ -1,0 +1,7 @@
+aiohttp
+websockets~=11.0.3
+orjson
+
+# dev
+twine
+setuptools

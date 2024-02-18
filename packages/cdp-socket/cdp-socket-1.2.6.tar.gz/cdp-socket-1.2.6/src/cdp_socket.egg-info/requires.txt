@@ -1,0 +1,6 @@
+aiohttp
+websockets
+orjson
+
+[dev]
+check-manifest
