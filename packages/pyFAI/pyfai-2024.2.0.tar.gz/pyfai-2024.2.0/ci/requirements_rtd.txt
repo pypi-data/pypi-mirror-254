@@ -1,0 +1,13 @@
+numpy >= 1.10
+h5py
+fabio
+sphinx
+scipy
+cython >=0.29.31
+pygments[plugins]
+sphinxcontrib-programoutput
+silx >= 2
+nbsphinx
+sphinx-rtd-theme
+docutils<0.20
+ipython_genutils
