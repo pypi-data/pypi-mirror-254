@@ -1,0 +1,13 @@
+langadaptprompt/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+langadaptprompt/constants.py,sha256=kNR5Qk0KaRellS1AjICkSFtEVtCHWaRteZmHRRFslIk,9880
+langadaptprompt/paraphraser.py,sha256=bo1FXdyuZBmVAi-wdkaBnHBVpAtFrn8rLJsytZYhGnA,2125
+langadaptprompt/promptbuilder.py,sha256=3te91YGTbug0M9QBpgukakuShPhflx2_NHlH1VCZTEU,11818
+langadaptprompt/selfprompter.py,sha256=a68ac1qgEboWJWZnflWQG4RJo46OGw7kA5oe_xkPsqo,2180
+langadaptprompt/simulacra.py,sha256=vZLOA-VwJR7HlECybLcc3YHLyLSu_Xy0KlUe0n2EZyo,21466
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/dialogue.py,sha256=TVayiDUTIFOfWAz5pTPEaxxH3TOA9Ivzlcc96y6s25I,5298
+langadaptprompt-2.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+langadaptprompt-2.3.dist-info/METADATA,sha256=Rj32Fl-ppO1w53jIqGxpWADePBLEazROcUgd1e1mH64,765
+langadaptprompt-2.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+langadaptprompt-2.3.dist-info/top_level.txt,sha256=mqBlbq2jaSGioTlfi3BN1ZLtrEgAx4GZAZzwWTMw3Nw,21
+langadaptprompt-2.3.dist-info/RECORD,,

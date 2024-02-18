@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: langadaptprompt
+Version: 2.3
+Summary: Port of LangChain prompting into pure Python functions.
+Home-page: https://github.com/SpyrosMouselinos/langadaptprompt
+Author: Spyridon Mouselinos
+Author-email: mouselinos.spur.kw@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: openai ==0.28
+Requires-Dist: pandas
+Requires-Dist: transformers
+Requires-Dist: sentence-transformers
+Requires-Dist: torch
+Requires-Dist: scipy
+Requires-Dist: python-Levenshtein
+Requires-Dist: Levenshtein
+Requires-Dist: scikit-learn
+Requires-Dist: vertexai
+Requires-Dist: tqdm
+
