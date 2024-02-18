@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: nextline-alert
+Version: 0.0.2
+Summary: A plugin of nextline-graphql. Emit alerts to Campana
+Project-URL: Documentation, https://github.com/simonsobs/nextline-alert#readme
+Project-URL: Issues, https://github.com/simonsobs/nextline-alert/issues
+Project-URL: Source, https://github.com/simonsobs/nextline-alert
+Author-email: Simons Observatory <so_software@simonsobservatory.org>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.31
+Provides-Extra: tests
+Requires-Dist: pytest-asyncio>=0.23; extra == 'tests'
+Requires-Dist: pytest-cov>=4.1; extra == 'tests'
+Requires-Dist: pytest-timeout>=2.2; extra == 'tests'
+Requires-Dist: pytest>=7.4; extra == 'tests'
+Description-Content-Type: text/markdown
+
+# Nextline Alert
+
+[![PyPI - Version](https://img.shields.io/pypi/v/nextline-alert.svg)](https://pypi.org/project/nextline-alert)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nextline-alert.svg)](https://pypi.org/project/nextline-alert)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install nextline-alert
+```
+
+## License
+
+`nextline-alert` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
