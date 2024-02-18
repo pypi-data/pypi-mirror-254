@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+label_message_local.egg-info/PKG-INFO
+label_message_local.egg-info/SOURCES.txt
+label_message_local.egg-info/dependency_links.txt
+label_message_local.egg-info/requires.txt
+label_message_local.egg-info/top_level.txt
+label_message_local/src/LabelConstants.py
+label_message_local/src/LabelMessage.py
+label_message_local/src/__init__.py

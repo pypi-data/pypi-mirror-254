@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: label-message-local
+Version: 0.0.4
+Summary: PyPI Package for Circles label-message-local Python
+Home-page: https://github.com/circles-zone/label-message-local-python-package
+Author: Circles
+Author-email: info@circlez.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: logger-local
+Requires-Dist: database-mysql-local
+
+PyPI Package for Circles label-message-local Python
