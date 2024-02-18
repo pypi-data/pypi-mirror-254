@@ -1,0 +1,2 @@
+[console_scripts]
+hfinder = hfinder.__main__:main
