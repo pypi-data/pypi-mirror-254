@@ -1,0 +1,17 @@
+belvys/__init__.py,sha256=rLrwL7PyO83Oum9bapKe8qC4O-sjMKW1jcpneKjAVFY,421
+belvys/adjustment.py,sha256=E9jcksByCzOjQlONEhRZ02UZUpnaIhszYWzzHEX_VPg,3677
+belvys/api.py,sha256=T675MNjAVzkxCa96gJG9SctMaEjeMfdVCBQgrRSLsL4,16532
+belvys/common.py,sha256=TnhaRg8Mt1qwVBz5PDEBS-p1cx9NhDhuWqYy99iJ4iw,178
+belvys/docs/BelVis REST Schnittstelle V2.pdf,sha256=s4kjCN3IhYIBMLBro98IjysQRA12V0YowlVguJ_OT6w,88713
+belvys/docs/BelVis-REST-API_V3_DE.pdf,sha256=054MSFiST6JhKTUZLm894xqQ8olEGnSAJj8PsvZ66R4,1988380
+belvys/example.py,sha256=Bvp-uRJqBYZiXCsyxlCSj0dhcEn65FN9svR5zcZDO4Q,2272
+belvys/example_api_basic.yaml,sha256=IQMrJC3QFeOWEbef-KvqNn8LrEf7vZyA9uIuyFbrNy4,138
+belvys/example_api_complex.yaml,sha256=Gxte8jCYG41gWVkPZ0ziQ6KpQKjLDB8LLv0BSm7xN7c,711
+belvys/example_structure_basic.yaml,sha256=ZKc5FiufxSaWyDrSjFzaMSmxdCJxggVqPceJVCua5Cc,2497
+belvys/example_structure_complex.yaml,sha256=-WAiF_qTQCJStKxruhSWlKw2BGiJuWK-Y-OC15Z9YKM,5477
+belvys/structure.py,sha256=mjmN0IsiP9Eg5rJxhDrdclfgThe44UvCkxLIlwvCq_A,11975
+belvys/tenant.py,sha256=t8uqBjXyBtF5s9RitKLzbkOqLP1TD_zWOVe-zM9Xf3A,13076
+belvys-0.2.8.dist-info/LICENSE,sha256=jeQQiPkjkO40IX62yLR7tx0osBcaLXD17PTRvk23zgk,1518
+belvys-0.2.8.dist-info/METADATA,sha256=AUcqhm4VSBWCNUS1IuUVASCfGpzPCql01QCN6e5wXvk,3906
+belvys-0.2.8.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+belvys-0.2.8.dist-info/RECORD,,
