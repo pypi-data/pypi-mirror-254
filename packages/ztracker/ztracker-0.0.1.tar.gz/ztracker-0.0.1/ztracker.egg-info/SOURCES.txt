@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.dev.txt
+setup.py
+test/test_ztrack.py
+ztracker/__init__.py
+ztracker/datatype.py
+ztracker/event_recorder.py
+ztracker/reader.py
+ztracker/tracker.py
+ztracker.egg-info/PKG-INFO
+ztracker.egg-info/SOURCES.txt
+ztracker.egg-info/dependency_links.txt
+ztracker.egg-info/top_level.txt
+ztracker/processor/__init__.py
