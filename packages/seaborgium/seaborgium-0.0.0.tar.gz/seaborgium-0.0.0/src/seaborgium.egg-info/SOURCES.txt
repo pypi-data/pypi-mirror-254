@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/seaborgium/__init__.py
+src/seaborgium/example.py
+src/seaborgium.egg-info/PKG-INFO
+src/seaborgium.egg-info/SOURCES.txt
+src/seaborgium.egg-info/dependency_links.txt
+src/seaborgium.egg-info/top_level.txt
