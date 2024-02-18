@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/moscovium/__init__.py
+src/moscovium/example.py
+src/moscovium.egg-info/PKG-INFO
+src/moscovium.egg-info/SOURCES.txt
+src/moscovium.egg-info/dependency_links.txt
+src/moscovium.egg-info/top_level.txt
