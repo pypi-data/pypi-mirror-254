@@ -1,0 +1,9 @@
+networkx>=2.8
+numpy>=1.22
+scipy!=1.11.0,!=1.11.1,>=1.9
+
+[doc]
+sphinx>=7
+pydata-sphinx-theme>=0.13
+sphinx-gallery>=0.14
+numpydoc>=1.6
