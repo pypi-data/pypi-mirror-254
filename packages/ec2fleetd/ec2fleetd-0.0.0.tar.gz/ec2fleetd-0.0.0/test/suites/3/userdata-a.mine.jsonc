@@ -1,0 +1,45 @@
+{
+	"$schema": "http://schema.si-magic.com/fleet-init/json/userdata/0",
+
+	"timeout": 600, // 10 minutes
+
+	"set-hostname": "ec2fleetd",
+
+	"domains": {
+		"A.test.ec2fleetd": {
+			"exec": [
+				{
+					"lines": [
+						{ "argv": [ "/usr/bin/echo", "{daemon_state}" ] }
+					]
+				},
+				{
+					"on": [ "started" ],
+					"lines": [
+						{ "argv": [ "/usr/bin/echo", "ahoy!" ] }
+					]
+				}
+			],
+
+			"notify": [
+				{
+					"backend": "ans-sqs",
+					"options": {
+						"queue-url": "https://sqs.ap-northeast-2.amazonaws.com/018576890487/ec2fleetd-test_a"
+					}
+				},
+				{
+					"backend": "aws-sns",
+					"matrix": {
+						"started": { "enabled": false },
+						"stopping": { "enabled": false }
+					},
+					"options": {
+						"region": "ap-northeast-1",
+						"topic": "arn:aws:sns:ap-northeast-1:018576890487:ec2fleetd-test_a"
+					}
+				}
+			]
+		}
+	}
+}

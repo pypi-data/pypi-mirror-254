@@ -1,0 +1,45 @@
+{
+	"$schema": "http://schema.si-magic.com/fleet-init/json/userdata/0",
+
+	"timeout": 600, // 10 minutes
+
+	"set-hostname": "ec2fleetd",
+
+	"domains": {
+		"A.test.ec2fleetd": {
+			"exec": [
+				{
+					"lines": [
+						{ "argv": [ "/usr/bin/echo", "{daemon_state}" ] }
+					]
+				},
+				{
+					"on": [ "started" ],
+					"lines": [
+						{ "argv": [ "/usr/bin/echo", "ahoy!" ] }
+					]
+				}
+			],
+
+			"notify": [
+				{
+					"backend": "ans-sqs",
+					"options": {
+						"queue-url": "QUEUE_URL"
+					}
+				},
+				{
+					"backend": "aws-sns",
+					"matrix": {
+						"started": { "enabled": false },
+						"stopping": { "enabled": false }
+					},
+					"options": {
+						"region": "REGION",
+						"topic": "TOPIC_ARN"
+					}
+				}
+			]
+		}
+	}
+}
