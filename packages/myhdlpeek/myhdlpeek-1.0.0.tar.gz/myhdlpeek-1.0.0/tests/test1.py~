@@ -1,0 +1,59 @@
+from random import randrange
+
+from myhdl import Signal, Simulation, always_comb, block, delay, instance, intbv, now
+
+from myhdlpeek import Peeker, show_text_table
+
+
+@block
+def Mux(z, a, b, sel):
+    """ Multiplexer.
+
+    z -- mux output
+    a, b -- data inputs
+    sel -- control input: select a if asserted, otherwise b
+
+    """
+
+    @always_comb
+    def muxLogic():
+        if sel == 1:
+            z.next = a
+        else:
+            z.next = b
+
+    Peeker.create(z, "r")
+    Peeker.create(a, "a")
+    Peeker.create(b, "b")
+    Peeker.create(sel, "sel")
+
+    return muxLogic
+
+
+@block
+def tb():
+    # Once we've created some signals...
+    z, a, b, z2 = [Signal(intbv(0, min=0, max=8)) for i in range(4)]
+    sel = Signal(bool(0))
+
+    Peeker.clear()
+
+    # ...it can be instantiated as follows
+    mux_1 = Mux(z, a, b, sel)
+    mux_2 = Mux(z2, b, a, sel)
+
+    @instance
+    def stimulus():
+        for i in range(8):
+            a.next, b.next, sel.next = randrange(8), randrange(8), randrange(2)
+            yield delay(2)
+
+    return (stimulus, mux_1, mux_2, *Peeker.instances())
+
+
+tb().run_sim()
+for p in Peeker.peekers():
+    print(p.trace)
+print(Peeker.to_wavejson('sel[0]', 'a[0]', 'b[0]', 'r[0]', start_time=3, stop_time=7))
+show_text_table()
+print(Peeker.to_wavejson())

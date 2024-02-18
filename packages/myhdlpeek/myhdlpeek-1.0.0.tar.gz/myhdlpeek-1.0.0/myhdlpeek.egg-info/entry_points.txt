@@ -1,0 +1,2 @@
+[console_scripts]
+myhdlpeek = myhdlpeek.__main__:main

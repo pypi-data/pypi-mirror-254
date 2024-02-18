@@ -1,0 +1,141 @@
+Metadata-Version: 2.1
+Name: myhdlpeek
+Version: 1.0.0
+Summary: Peek at signals in a MyHDL or Amaranth digital system simulation.
+Home-page: https://github.com/devbisme/myhdlpeek
+Author: Dave Vandenbout
+Author-email: dave@vdb.name
+License: MIT
+Keywords: myhdlpeek
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+License-File: LICENSE
+License-File: AUTHORS.rst
+
+===============================
+myhdlpeek
+===============================
+
+.. image:: https://img.shields.io/pypi/v/myhdlpeek.svg
+        :target: https://pypi.python.org/pypi/myhdlpeek
+
+
+A module that lets you monitor signals in a 
+`MyHDL <http://www.myhdl.org/>`_ or `Amaranth <https://github.com/amaranth-lang>`_
+digital system simulation and display them as waveforms in a Jupyter notebook.
+Make changes to your digital design and see the results reflected immediately in the
+waveforms of your notebook!
+
+`myhdlpeek` implements a `Peeker` object that monitors a signal and records
+the time and value when it changes.
+Just add multiple Peekers where you want to monitor something (even at sub-levels
+of a hierarchical design) and then view the collected timing waveforms
+with a single command.
+You can also select which signals are shown, set the beginning and
+ending times of the display, and much more.
+
+`[This Jupyter notebook] <https://github.com/devbisme/myhdlpeek/blob/master/examples/complete.ipynb>`_ 
+shows how to use myhdlpeek.
+
+|
+
+* Free software: MIT license
+* Documentation: http://devbisme.github.io/myhdlpeek
+
+Features
+--------
+
+* Captures timing traces of signals in a MyHDL/Amaranth digital design.
+* Works at the top-level and sub-levels of a hierarchical design.
+* All signals or a selected subset can be displayed.
+* The beginning and ending points of the waveform display can be set.
+* Timing marks can be turned on or off.
+* Titles and captions are supported.
+* Tabular output in Jupyter and console.
+* Trigger expressions allow the display of a selected portion of traces.
+
+
+
+
+History
+-------
+
+
+1.0.0 (2024-02-01)
+______________________
+
+* Ported from nmigen to Amaranth (by Steven Armour).
+* Bumped release to 1.0.0 and classified it as stable because this thing is seven years old.
+
+
+0.0.10 (2021-07-06)
+______________________
+
+* Moved ownership from xesscorp to devbisme (Dave Vandenbout).
+
+
+0.0.9 (2021-01-05)
+______________________
+
+* Added support for nMigen.
+* Waveforms can now be drawn using wavedrom or matplotlib.
+
+
+0.0.8 (2018-09-25)
+______________________
+
+* Now works with the newer JupyterLab by default. Older Jupyter notebooks are still supported by setting ``myhdlpeek.USE_JUPYTERLAB = False``.
+* Updated documentation.
+
+
+0.0.7 (2018-04-13)
+______________________
+
+* Added functions to export signal traces into a Pandas dataframe.
+* Updated documentation.
+
+
+0.0.6 (2017-10-11)
+______________________
+
+* The skin can now be set for waveform traces (either 'default' or 'narrow').
+* clear_traces() was added to remove signal trace data from Peekers without removing the Peekers so another simulation can be run.
+* Updated documentation.
+* Removed unused __main__.py.
+
+
+0.0.5 (2017-08-25)
+______________________
+
+* Added PeekerGroup class to allow grouping of Peekers.
+* Trace objects now only return integer values.
+
+
+0.0.4 (2017-07-04)
+______________________
+
+* Added trigger capability to select a portion of traces for display.
+* Extended waveform & table display to both Peekers and Traces.
+
+
+0.0.3 (2017-06-23)
+______________________
+
+* Made compatible with Python 2.7.
+* Added tabular output of Peeker data traces.
+
+
+0.0.2 (2017-06-12)
+______________________
+
+* Added static HTML pages to display what myhdlpeek can do. (Notebook rendering with nbconvert won't show waveforms.)
+
+
+0.0.1 (2017-06-10)
+______________________
+
+* First release on PyPI.
