@@ -1,0 +1,14 @@
+AUTHORS
+LICENSE
+README.md
+pyproject.toml
+setup.py
+fish2pano/__init__.py
+fish2pano/fast.c
+fish2pano/fast.py
+fish2pano.egg-info/PKG-INFO
+fish2pano.egg-info/SOURCES.txt
+fish2pano.egg-info/dependency_links.txt
+fish2pano.egg-info/requires.txt
+fish2pano.egg-info/top_level.txt
+fish2pano/tests/__init__.py
