@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/libnotems/__init__.py
+src/libnotems/libnotems.py
+src/libnotems.egg-info/PKG-INFO
+src/libnotems.egg-info/SOURCES.txt
+src/libnotems.egg-info/dependency_links.txt
+src/libnotems.egg-info/requires.txt
+src/libnotems.egg-info/top_level.txt

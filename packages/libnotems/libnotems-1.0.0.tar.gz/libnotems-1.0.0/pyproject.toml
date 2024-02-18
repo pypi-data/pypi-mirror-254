@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libnotems"
+version = "1.0.0"
+authors = [
+  { name="Ect07", email="ect@vivaldi.net" },
+]
+description = "Note.ms library"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'beautifulsoup4',
+  'selenium',
+]
+
+[project.urls]
+Homepage = "https://github.com/rHanbowChic/Notemon"
+Issues = "https://github.com/rHanbowChic/Notemon/issues"
