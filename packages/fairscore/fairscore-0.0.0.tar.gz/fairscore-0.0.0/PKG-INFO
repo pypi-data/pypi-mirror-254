@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: fairscore
+Version: 0.0.0
+Summary: Out-of-the-box anonymization for NLP.
+Home-page: https://github.com/FairNLP/fairscore
+Author: FairNLP
+Author-email: info@fairnlp.com
+License: Apache Software License 2.0
+Keywords: fairscore
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Provides-Extra: dev
+
+UNKNOWN
+
