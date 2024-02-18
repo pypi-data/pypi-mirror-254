@@ -1,0 +1,17 @@
+LbAPCommon>=0.10.3
+LbDiracWrappers
+LbEnv
+LbProdRun~=1.3
+apd>=0.6.0
+click
+consolemd
+mplhep
+requests
+setuptools
+
+[testing]
+pytest
+pytest-cov
+pytest-mock
+pytest-recording
+pytest-timeout
