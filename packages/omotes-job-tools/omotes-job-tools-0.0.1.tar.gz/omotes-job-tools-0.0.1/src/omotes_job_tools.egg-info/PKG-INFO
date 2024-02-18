@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: omotes-job-tools
+Version: 0.0.1
+Summary: Python implementation of the OMOTES Job Tools which provides common tooling used by OMOTES orchestrator and workers.
+Author-email: Sebastiaan la Fleur <sebastiaan.lafleur@tno.nl>
+Project-URL: homepage, https://www.nwn.nu
+Project-URL: documentation, https://readthedocs.org
+Project-URL: repository, https://github.com/Nieuwe-Warmte-Nu/omotes-job-tools
+Project-URL: changelog, https://github.com/Nieuwe-Warmte-Nu/omotes-job-tools/blob/main/CHANGELOG.md
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aio-pika~=9.3.1
+Provides-Extra: dev
+Requires-Dist: setuptools~=69.0.3; extra == "dev"
+Requires-Dist: black~=22.1.0; extra == "dev"
+Requires-Dist: flake8==6.0.0; extra == "dev"
+Requires-Dist: Flake8-pyproject==1.2.3; extra == "dev"
+Requires-Dist: pytest~=7.3.1; extra == "dev"
+Requires-Dist: pytest-cov~=4.0.0; extra == "dev"
+Requires-Dist: bump2version==1.0.1; extra == "dev"
+Requires-Dist: mypy~=1.5.1; extra == "dev"
+Requires-Dist: isort==5.13.2; extra == "dev"
+Requires-Dist: build~=1.0.3; extra == "dev"
+
+# OMOTES Job Tools
+
+This repository is part of the 'Nieuwe Warmte Nu Design Toolkit' project. 
+
+Provides common tools for processing jobs at the OMOTES orchestrator and workers.
