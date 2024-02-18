@@ -1,0 +1,17 @@
+numpy
+scikit-image
+dask-image
+opencv-python
+matplotlib
+pandas
+torch
+torchvision
+segmentation-models-pytorch
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5
