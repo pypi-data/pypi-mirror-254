@@ -1,0 +1,15 @@
+antlr4-tools==0.2
+antlr4-python3-runtime==4.13.0
+numpy>=1.25.1
+pooch>=1.7.0
+confuse>=2.0.1
+loguru>=0.7.2
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[hdf5]
+h5py==3.10.0
+
+[test]
+gputil==1.4.0

@@ -1,0 +1,3 @@
+[console_scripts]
+mcstas-antlr = mccode_antlr.commands:mcstas
+mcxtrace-antlr = mccode_antlr.commands:mcxtrace

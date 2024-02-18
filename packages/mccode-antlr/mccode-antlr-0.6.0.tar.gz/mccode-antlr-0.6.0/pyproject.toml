@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mccode-antlr"
+dependencies = [
+    'antlr4-tools==0.2',
+    'antlr4-python3-runtime==4.13.0',
+    'numpy>=1.25.1',
+    'pooch>=1.7.0',
+    'confuse>=2.0.1',
+    'loguru>=0.7.2,',
+    "importlib_metadata; python_version<'3.8'",
+]
+description = "ANTLR4 grammars for McStas and McXtrace"
+readme = "README.md"
+authors = [
+    { name = "Gregory Tucker", email = "gregory.tucker@ess.eu" },
+]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["gputil==1.4.0"]
+hdf5 = ["h5py==3.10.0"]
+
+[project.urls]
+"Homepage" = "https://github.com/McStasMcXtrace/mccode-antlr"
+
+[project.scripts]
+mcstas-antlr = "mccode_antlr.commands:mcstas"
+mcxtrace-antlr = "mccode_antlr.commands:mcxtrace"
+
+[tool.setuptools_scm]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mccode_antlr*"]
