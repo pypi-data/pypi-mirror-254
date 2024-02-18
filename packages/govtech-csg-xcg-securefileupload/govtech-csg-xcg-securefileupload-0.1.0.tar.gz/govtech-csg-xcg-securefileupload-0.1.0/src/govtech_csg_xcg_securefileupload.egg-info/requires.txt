@@ -1,0 +1,27 @@
+django~=4.1
+exifread
+Pillow
+clamd
+
+[:platform_system != "Windows"]
+python-magic
+
+[:platform_system == "Windows"]
+python-magic-bin==0.4.14
+
+[quicksand]
+quicksand
+
+[quicksand:platform_system != "Windows" and platform_system != "Darwin"]
+yara-python
+
+[quicksand:platform_system == "Windows" or platform_system == "Darwin"]
+yara-python==4.2.3
+
+[yara]
+
+[yara:platform_system != "Windows" and platform_system != "Darwin"]
+yara-python
+
+[yara:platform_system == "Windows" or platform_system == "Darwin"]
+yara-python==4.2.3
