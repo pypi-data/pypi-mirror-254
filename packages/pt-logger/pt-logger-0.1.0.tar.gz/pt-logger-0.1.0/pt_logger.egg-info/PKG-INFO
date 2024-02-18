@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pt-logger
+Version: 0.1.0
+Summary: A simple logger library for Python
+Home-page: https://helpsocialbot.xyz
+Author: pternali
+Author-email: patrizio.ternali15@gmail.com
+License: The Unlicense
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
