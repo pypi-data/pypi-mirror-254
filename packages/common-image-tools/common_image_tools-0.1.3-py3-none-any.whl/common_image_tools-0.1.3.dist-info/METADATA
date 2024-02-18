@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: common-image-tools
+Version: 0.1.3
+Summary: 
+Author: Federico Lanzani
+Author-email: federico@federicolanzani.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: color-transfer (>=0.1,<0.2)
+Requires-Dist: dlib (>=19.24.2,<20.0.0)
+Requires-Dist: opencv-python (>=4.8.0.76,<4.9.0.0)
+Requires-Dist: pillow (>=9.5.0)
+Requires-Dist: scikit-image (>=0.21.0,<0.22.0)
+Description-Content-Type: text/markdown
+
+# Common Image Tools
+
+## Description
+common_image_tools is a repository containing a curated collection of commonly used image manipulation functions for 
+computer vision projects. These tools provide a set of handy functions for performing various image processing tasks, 
+such as resizing, cropping, filtering, and more.
+
+## Installation
+To install common_image_tools, simply run the following command:
+```bash
+pip install common-image-tools
+```
+
+## Usage
+
+### Tool
+
+### Conversion
+
+### Visualization
+
+
+## Contributing
+Contributions are welcome! If you have any suggestions, improvements, or new features to add, please open an issue or 
+submit a pull request. Make sure to follow the existing coding style and include appropriate tests.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
