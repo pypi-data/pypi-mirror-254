@@ -1,0 +1,8 @@
+accelerate
+audiolm-pytorch>=1.2.8
+beartype
+classifier-free-guidance-pytorch>=0.1.5
+gateloop-transformer>=0.1.1
+einops>=0.6.1
+spear-tts-pytorch>=0.4.0
+torch>=1.6
