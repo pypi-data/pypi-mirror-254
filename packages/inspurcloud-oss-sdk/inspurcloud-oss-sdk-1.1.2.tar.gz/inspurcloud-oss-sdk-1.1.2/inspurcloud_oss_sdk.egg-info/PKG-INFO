@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: inspurcloud-oss-sdk
+Version: 1.1.2
+Summary: Inspur OSS Python SDK
+Home-page: https://cloud.inspur.com/
+Author: Inspur Cloud
+Author-email: 
+Requires-Dist: requests!=2.9.0
+Requires-Dist: crcmod>=1.7
+
+# inspur-oss-python-sdk
+
