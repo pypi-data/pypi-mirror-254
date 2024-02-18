@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: lemmymodbot-test
+Version: 0.3.10
+Summary: A bot framework to automate Lemmy moderation tasks
+Home-page: https://github.com/BenMMcLean/LemmyModBot
+Project-URL: Bug Tracker, https://github.com/BenMMcLean/LemmyModBot/issues
+Project-URL: Changelog, https://github.com/BenMMcLean/LemmyModBot/releases
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
