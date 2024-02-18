@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: MeepMeep
+Version: 0.6.2
+Summary: Fast Keplerian orbit computation using Taylor series expansions.
+Author-email: Hannu Parviainen <hpparvi@gmail.com>
+Project-URL: homepage, https://github.com/hpparvi/meepmeep
+Keywords: astronomy,astrophysics,exoplanets
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: numba
+Requires-Dist: scipy
