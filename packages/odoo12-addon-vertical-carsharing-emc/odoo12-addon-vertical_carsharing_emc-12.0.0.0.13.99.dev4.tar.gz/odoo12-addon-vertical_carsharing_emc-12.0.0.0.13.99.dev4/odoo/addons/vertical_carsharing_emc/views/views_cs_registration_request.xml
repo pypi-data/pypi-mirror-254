@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_registration_request_form" model="ir.ui.view">
+    <field name="name">vertical_carsharing_emc.registration_request.form</field>
+    <field name="model">sm_partago_user.carsharing_registration_request</field>
+    <field name="inherit_id" ref="sm_partago_user.view_registration_request_form" />
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='related_cs_update_data_id']"  position="after">
+        <field name="related_subscription_id"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
