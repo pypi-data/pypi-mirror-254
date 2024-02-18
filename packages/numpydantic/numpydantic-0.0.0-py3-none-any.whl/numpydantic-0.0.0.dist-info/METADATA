@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: numpydantic
+Version: 0.0.0
+Summary: Type and shape validation and serialization for numpy arrays in pydantic models
+License: MIT
+Author: sneakers-the-rat
+Author-email: sneakers-the-rat@protonmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# numpydantic
+Type and shape validation and serialization for numpy arrays in pydantic models
+
