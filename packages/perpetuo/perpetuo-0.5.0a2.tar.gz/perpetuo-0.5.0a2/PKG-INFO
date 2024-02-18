@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: perpetuo
+Version: 0.5.0a2
+Summary: A stall tracker for Python's GIL and Trio tasks
+Author-email: "Nathaniel J. Smith" <njs@pobox.com>
+License: MIT OR Apache-2.0
+Project-URL: repository, https://github.com/njsmith/perpetuo
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE.APACHE2
+License-File: LICENSE.MIT
+
+# Perpetuo
+
+> *perpetuo*, verb: To cause to continue uninterruptedly, to proceed with
+> continually
+
+Perpetuo is a stall tracker for Python. Specifically, it can detect when:
+
+- One thread is holding the GIL for too long, blocking other threads from having
+  a chance to run (requires an instrumented version of CPython)
+
+- One Trio task is running too long without checkpointing, blocking other tasks
+  from having a chance to run
+
+The actual monitoring is done from a separate process, using a customized
+version of [py-spy](https://github.com/benfred/py-spy). So the monitoring is
+very low overhead and should not interfere with the monitored process at all.
+The goal is to be able to use this in production.
+
+
+## Quickstart
+
+1. `pip install perpetuo`
+2. Optional: patch CPython (see below)
+3. `import perpetuo`
+4. If you're using Trio: call `perpetuo.dwim()` inside `trio.run`
+
+   If you're not using Trio: call `perpetuo.dwim()` anywhere 
+5. Optional: log `perpetuo.dwim()`'s return value to see what it did
+
+
+## Available API
+
+`perpetuo.start_watcher()`: Spawns the monitoring process in the background. 
+
+`perpetuo.instrument_gil()`: Enables GIL instrumentation, or raises
+`RuntimeError` if you don't have the patched version of CPython.
+
+`perpetuo.instrument_trio()`: Enables Trio instrumentation. Must be called
+inside `trio.run`.
+
+`perpetuo.dwim()`: Attempts to call all the above functions as appropriate, and
+returns a list of strings describing which operations it actually performed. If
+you're using Trio, make sure to call it inside `trio.run`.
+
+`StallTracker`: Low-level class that allows you to add custom instrumentation to
+other things. See source for details.
+
+
+## Patching CPython to instrument the GIL
+
+Currently the patch is only available for CPython version 3.10.*. It can be
+downloaded here: 
+
+  https://github.com/python/cpython/compare/3.10...njsmith:cpython:njs/perpetuo-gil.diff
+
+
+## Bonus
+
+[Niccolò Paganini's *Moto Perpetuo*, performed by Antal Zalai](https://www.youtube.com/watch?v=D-TAO7U6rtg)
