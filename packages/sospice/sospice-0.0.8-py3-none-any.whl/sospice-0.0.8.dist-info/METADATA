@@ -1,0 +1,138 @@
+Metadata-Version: 2.1
+Name: sospice
+Version: 0.0.8
+Summary: Python data analysis tools for Solar Orbiter/SPICE
+Author-email: SPICE consortium <spice-github.ias@universite-paris-saclay.fr>
+Project-URL: Homepage, https://github.com/solo-spice/sospice/
+Project-URL: Bug Tracker, https://github.com/solo-spice/sospice/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: astropy >=4.0
+Requires-Dist: beautifulsoup4 >=4.0
+Requires-Dist: black >=23.0
+Requires-Dist: build >=0.9.0
+Requires-Dist: drms >=0.7.0
+Requires-Dist: flake8 >=6.0
+Requires-Dist: matplotlib >=3.7.0
+Requires-Dist: numpy >=1.24.0
+Requires-Dist: numpydoc >=1.4
+Requires-Dist: pandas >=2.0
+Requires-Dist: parfive >=2.0
+Requires-Dist: portion >=2.4
+Requires-Dist: pre-commit >=3.0
+Requires-Dist: pytest >=7.0
+Requires-Dist: pytest-cov >=4.0
+Requires-Dist: requests >=2.30
+Requires-Dist: scipy >=1.10
+Requires-Dist: setuptools >=61
+Requires-Dist: setuptools-scm[toml] >=8.0
+Requires-Dist: Sphinx <7.0,>=6.2
+Requires-Dist: sphinx-rtd-theme >=1.2.0
+Requires-Dist: sunpy >=4.0
+Requires-Dist: sunpy-soar >=1.10
+Requires-Dist: towncrier >=22.0.0
+Requires-Dist: twine >=4.0
+Requires-Dist: zeep >=4.0
+
+sospice: Python data analysis tools for Solar Orbiter/SPICE
+===========================================================
+
+|Latest version| |Docs| |python| |CI|
+
+.. |Latest version| image:: https://img.shields.io/pypi/v/sospice.svg
+   :target: https://pypi.org/project/sospice/
+   :alt: Latest version on PyPI
+.. |Docs| image:: https://readthedocs.org/projects/sospice/badge/?version=latest
+    :target: https://sospice.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+.. |python| image:: https://img.shields.io/pypi/pyversions/sunpy
+   :alt: PyPI - Python Version
+.. |CI| image:: https://github.com/solo-spice/sospice/actions/workflows/python-package.yml/badge.svg?branch=main
+   :target: https://github.com/solo-spice/sospice/actions/workflows/python-package.yml
+
+`SPICE <https://spice.ias.u-psud.fr/>`__ is an extreme-UV imaging
+spectrometer on board the `Solar
+Orbiter <http://sci.esa.int/solar-orbiter/>`__ mission.
+A generic SPICE data analysis user’s manual (including Python and IDL
+tips) is available `on the IAS
+wiki <https://spice-wiki.ias.u-psud.fr/doku.php/data:data_analysis_manual>`__.
+
+``sospice`` is intended to be a simple way of accessing all necessary
+instrument-specific functionalities required for day-to-day SPICE data analysis,
+in complement to more generic Python packages such as
+`sunpy <https://sunpy.org/>`__ and
+`sunraster <https://github.com/sunpy/sunraster/>`__.
+
+This package is in its early stages of development. Please see the
+`issues <https://github.com/solo-spice/sospice/issues>`__ to see how you
+can contribute.
+
+Documentation for this package is available on `Read the Docs <https://sospice.readthedocs.io/en/latest/>`__.
+
+
+``sospice`` functionalities
+---------------------------
+
+-  Calibration: ``calibrate``
+
+   -  ``spice_error``: Computation of uncertainties on data, coming from
+      different noise components.
+
+- Catalog: ``catalog``
+
+   -  ``Catalog``: access and read catalog, find files in catalog.
+   -  ``Release``: find and access releases.
+   -  ``FileMetadata``: file metadata and download.
+
+-  Instrument modelling: ``instrument_modelling``
+
+   -  ``Spice``: instrument calibration parameters, effective area,
+      quantum efficiency...
+   -  ``Study``: study parameters.
+   -  ``Observation``: a SPICE observation with some study (including
+      low-level functions used to compute the uncertainties on the
+      data).
+
+- Other utilities: ``util``
+
+   - ``sigma_clipping``: sigma clipping (for cosmic rays removal).
+   - ``fov``: plot SPICE field-of-views on a background map.
+
+
+Package philosophy
+------------------
+
+We want ``sospice`` to be:
+
+-  Convenient to install. It is installable by ``pip`` and it is
+   published on `PyPI <https://pypi.org/>`__
+-  Useful, providing a single package for all SPICE-specific steps of
+   your data analysis.
+-  Easy to use, with simple interface functions to operations performed
+   by lower-level functions.
+-  Well documented. We use ``sphinx`` to build documentation from the
+   Python docstrings.
+-  Thoroughly tested. We use ``pytest`` and aim at a high test coverage
+   ratio. Tests are run automatically with Github actions.
+-  Well integrated in the `SunPy <https://sunpy.org>`__ ecosystem. In
+   the long term, we aim at getting the `SunPy affiliated
+   package <https://sunpy.org/project/affiliated>`__ status.
+
+Contributions from the community are welcome, in particular as
+`issues <https://github.com/solo-spice/sospice/issues>`__ or `pull
+requests <https://github.com/solo-spice/sospice/pulls>`__.
+
+Citation
+--------
+
+See the `citation <sospice/CITATION.rst>`__ file.
