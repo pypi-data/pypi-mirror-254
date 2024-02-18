@@ -1,0 +1,39 @@
+[package]
+name = "rustgi"
+version = "0.1.14"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "rustgi"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+http = "1.0.0"
+lazy_static = "1.4.0"
+pyo3 = "0.20.2"
+pyo3-log = { version = "0.9.0"}
+log = { version = "0.4.17" }
+tokio = { version = "1.32.0", features = ["net", "signal", "rt", "macros", "io-util"] }
+hyper = { version = "1.1.0", features = ["server", "http1"] }
+http-body-util = "0.1.0"
+hyper-util = { features = ["tokio", "http1", "server", "service"], version = "0.1.3" }
+tower = "0.4.13"
+tower-http = { version = "0.5.0", features = ["limit"] }
+futures = "0.3.29"
+
+[dev-dependencies]
+rustgi = { path = ".", features = ["python"] }
+
+[features]
+python = ["pyo3/extension-module"]
+
+[profile.release]
+lto = true
+opt-level = 3
+strip = true
+codegen-units = 1
+debug = false
+
+[profile.dev]
+debug = true
