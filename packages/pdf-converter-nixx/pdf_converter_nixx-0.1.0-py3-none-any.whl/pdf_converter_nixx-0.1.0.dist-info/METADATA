@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pdf-converter-nixx
+Version: 0.1.0
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: pdf2image
+Requires-Dist: pillow
+Requires-Dist: progressbar2
+Requires-Dist: pymupdf
+Requires-Dist: pymupdfb
+Requires-Dist: pytesseract
+Requires-Dist: python-utils
+Requires-Dist: typing-extensions
+Requires-Dist: flask
+Requires-Dist: flask-cors
+
