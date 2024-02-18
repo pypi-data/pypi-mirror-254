@@ -1,0 +1,7 @@
+outpostkit>=0.0.26
+click
+rich
+
+[dev]
+ruff
+black
