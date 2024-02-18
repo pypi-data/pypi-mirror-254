@@ -1,0 +1,14 @@
+pdf_maker/__init__.py,sha256=rLP0EE9Yd3cfb0n67vgCBrZeD3VfGCUuaDRiDP9lXlY,240
+pdf_maker/core/__init__.py,sha256=O7IcfykvhjuzIJsDZlBLt8Dj0FpVZIWauI3kmrg-AOM,208
+pdf_maker/core/_global.py,sha256=FAhJ0NLPVcDovwaGfcmyf1vrt0BxjF_GgrSgiXa9Ks4,878
+pdf_maker/core/base.py,sha256=Hx7YO-94O5gGnJMUPyXeuQyHEYHOy6EfC2TiDJZOgr0,483
+pdf_maker/core/crf.py,sha256=TLYqr6bw5Lv910V_jQkQPWXrnpkq2hHlc7xGtBRh1XA,1460
+pdf_maker/core/main.py,sha256=AoMuTHEmilNwhsN35pGsVoPIFNtpsdM7amsMKD_36i4,9913
+pdf_maker/core/objs.py,sha256=QtQ0SRaxMtnmNBJ3pQ2wh73xkqNmD9JCi91B1mQMvLA,19919
+tests/__init__.py,sha256=O7IcfykvhjuzIJsDZlBLt8Dj0FpVZIWauI3kmrg-AOM,208
+tests/test.py,sha256=mDC_n0wXvVNzXiK2NV36_Py-gY-UUVh6WXE4cEfic5k,794
+pdf_maker-0.0.1.dist-info/LICENSE,sha256=Ipd60UW4cJptAmcWMGYW0hxN9IjYt1IPjuUpPhSq2q8,1090
+pdf_maker-0.0.1.dist-info/METADATA,sha256=YcjI5rrzmbV1rEB-S4sT_F9UddLaohNQOh6UhNkkGIM,2784
+pdf_maker-0.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+pdf_maker-0.0.1.dist-info/top_level.txt,sha256=stmmbHpoAy0wdzWkLRvaHiT-HsXa4Yf7LQinvA0NeT0,16
+pdf_maker-0.0.1.dist-info/RECORD,,
