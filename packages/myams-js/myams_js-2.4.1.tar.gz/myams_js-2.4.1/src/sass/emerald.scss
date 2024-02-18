@@ -1,0 +1,37 @@
+/**
+ * MyAMS main SCSS file
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@import 'emerald/variables';
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import 'myams/animations';
+
+@import 'myams/misc';
+@import 'emerald/icons';
+@import 'myams/alerts';
+@import 'emerald/modals';
+@import 'emerald/buttons';
+@import 'myams/caret';
+@import 'emerald/forms';
+@import 'myams/switcher';
+@import 'emerald/select2';
+@import 'myams/tables';
+@import 'myams/tree';
+@import "myams/calendar";
+
+@import 'myams/top';
+@import 'emerald/ribbon';
+@import "emerald/nav";
+@import "myams/tabs";
+@import "myams/viewport";
+@import "emerald/layout";
+
+@import "myams/scrollbars";
+
+
+/** Version: $version$ */
