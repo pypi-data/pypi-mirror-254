@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: schema_automator
+Version: 0.4.0
+Summary: Infer models, enrich with meaning for terms including enum permissible values
+License: BSD 3-Clause
+Author: Chris Mungall
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: docs
+Provides-Extra: mariadb
+Requires-Dist: click-default-group (>=1.2.4,<2.0.0)
+Requires-Dist: click-log (>=0.4.0)
+Requires-Dist: funowl (>=0.2.3)
+Requires-Dist: inflect (>=6.0.0)
+Requires-Dist: jsonpatch (>=1.32)
+Requires-Dist: linkml (>=1.6.7)
+Requires-Dist: mkdocs (>=1.2.3)
+Requires-Dist: oaklib (>=0.5.25)
+Requires-Dist: pandas (>=1.3.5)
+Requires-Dist: pandera (>=0.12.0)
+Requires-Dist: psycopg2-binary (>=2.9.2,<3.0.0)
+Requires-Dist: python-dateutil (>=2.8.2)
+Requires-Dist: quantulum3 (>=0.7.9)
+Requires-Dist: requests (>=2.26.0)
+Requires-Dist: schemasheets (>=0.1.24)
+Requires-Dist: strsimpy (>=0.2.1)
+Requires-Dist: tomlkit (>=0.11.4)
+Requires-Dist: xmltodict (>=0.13.0,<0.14.0)
+Description-Content-Type: text/markdown
+
+# LinkML Schema Automator
+
+This is a toolkit that assists with the generation and enhancement of [LinkML](https://linkml.io/linkml) schemas
+
+## Install
+
+```bash
+pip install schema-automator
+```
+
+## Command Line
+
+See [CLI docs](https://linkml.io/schema-automator/cli)
+
+Generalizing:
+
+```bash
+schemauto generalize-tsv my-data.tsv > my-schema.yaml
+```
+
+Importing:
+
+```bash
+schemauto import-json-schema their.schema.json > my-schema.yaml
+```
+
+Annotating:
+
+```bash
+schemauto annotate-schema my-schema.yaml
+```
+
+## Full Documentation
+
+[linkml.io/schema-automator](https://linkml.io/schema-automator/)
+
