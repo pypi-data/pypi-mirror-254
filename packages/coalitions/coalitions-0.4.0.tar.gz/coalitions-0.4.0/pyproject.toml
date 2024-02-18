@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "coalitions"
+version = "0.4.0"
+authors = [
+  { name="George Weinberg", email="gmweinberg@fastmail.fm" },
+]
+dependencies = [
+]
+description = "Utilities for Coalitional Games"
+license = {file = "LICENSE"}
+readme = {file = "README.rst", content-type="text/x-rst"}
+requires-python = ">=3.8"
+keywords = ["game theory", "coalitional games", "shapley", "banzhaf"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/gmweinberg/coalitions"
+Issues = "https://github.com/gmweinberg/coalitions/issues"
+
