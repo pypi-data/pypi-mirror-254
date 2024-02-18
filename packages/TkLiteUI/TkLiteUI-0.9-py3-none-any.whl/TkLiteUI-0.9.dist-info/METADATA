@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: TkLiteUI
+Version: 0.9
+Summary: Kolay bir Tkinter kullanıcı arayüz kütüphanesi
+Author-email: Adem Ulker <ademulker055@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2024 Adem ULKER
+        
+        Burada bedelsiz olarak herkese bu yazılım ve ilgili dokümantasyon dosyaları ("TkLiteUI") ile ilgili kullanım, kopyalama, değiştirme, birleştirme, yayınlama, dağıtma, alt lisans verme ve/veya satma hakları verilir ve kişilere Yazılım'ı sağlandığı şekilde kullanmalarına izin verilir, şu koşullar altında:
+        
+        Yukarıdaki telif hakkı bildirimi ve bu izin bildirimi, Yazılım'ın tüm kopyalarına veya önemli parçalarına dahil edilecektir.
+        
+        YAZILIM "OLDUĞU GİBİ" SAĞLANMAKTADIR, HİÇBİR TÜRDE AÇIK VEYA ÖRTÜLÜ GARANTİ İÇERMEZ; TİCARİ ELVERİŞLİLİK, BELİRLİ BİR AMACA UYGUNLUK VE İHLAL ETMEME GARANTİLERİ DE DAHİL ANCAK BUNLARLA SINIRLI OLMAYAN ÖRTÜLÜ GARANTİLERİ VE KOŞULLARI REDDEDER. YAZARLAR VEYA TELİF HAKKI SAHİPLERİ, SÖZLEŞME, HAKSIZ FİİL VEYA DİĞER EYLEMLERDEN KAYNAKLANAN, YAZILIM'IN KULLANIMI VEYA DİĞER İŞLEMLERİNDEN KAYNAKLANAN HERHANGİ BİR TALEP, ZARAR VEYA DİĞER SORUMLULUKLARDAN SORUMLU TUTULAMAZ.
+        
+Keywords: tkinter,GUI,user interface
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# TkLiteUI
+
+`TkLiteUI` kütüphanesi, Python'un Tkinter kütüphanesi kullanılarak grafik kullanıcı arayüzleri (GUI) geliştirirken kod kalabalığını azaltmayı ve arayüz tasarımını kolaylaştırmayı amaçlar. Temel Tkinter widget'ları üzerine inşa edilmiş bu kütüphane, daha az kod ile daha hızlı ve okunaklı GUI uygulamaları oluşturmanıza olanak tanır.
+
+## Özellikler
+
+- **Pencere Yönetimi:** Kolayca ana pencere veya yardımcı pencereler oluşturun.
+- **Widget Yönetimi:** Butonlar, etiketler ve giriş alanları gibi temel widget'ları hızlıca ekleyin.
+- **Kullanıcı Etkileşimi:** Basit bir API ile widget'ların etkileşimlerini yönetin.
+- **Esneklik:** Uygulamanızın ihtiyaçlarına göre özelleştirilebilir widget özellikleri.
+
+## Kurulum
+
+`TkLiteUI` kütüphanesini Python `pip` aracılığıyla aşağıdaki komutu kullanarak kurabilirsiniz:
+
+pip install TkLiteUI
+
+
+## Kullanım
+
+Kütüphaneyi kullanmaya başlamak için, ilk önce `ui` sınıfını projenize dahil edin:
+
+```python
+import TkLiteUI as tl
+
+# Ardından, ui sınıfının bir örneğini oluşturarak bir pencere ve bazı widget'lar ekleyebilirsiniz:
+
+# UI örneğini oluştur
+ui = tl.ui()
+
+# Pencere oluştur
+pencere = ui.create_window(title="Merhaba TkLiteUI")
+
+# Buton ekle
+buton = ui.add_button(pencere=pencere, text="Buton", button_x=10, button_y=10,
+                      on_click={'action': lambda: print("Tıklama yapıldı")})
+
+# Uygulamayı başlat
+pencere.mainloop()
+
+```
+
+Geliştirme
+Bu kütüphane açık kaynaklıdır ve geliştirme için katkıda bulunabilirsiniz. GitHub üzerinden TkLiteUI reposuna giderek issue açabilir, pull request gönderebilir ve kütüphanenin gelişimine yardımcı olabilirsiniz.
+
+Lisans
+Bu proje `MIT` Lisansı altında lisanslanmıştır.
+
+Yazar
+Adem Ulker
+
+
+`TkLiteUI` ile hızlı ve etkili GUI geliştirmenin keyfini çıkarın!
