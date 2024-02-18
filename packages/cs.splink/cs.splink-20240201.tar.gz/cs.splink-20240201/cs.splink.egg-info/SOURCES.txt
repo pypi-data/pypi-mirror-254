@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.splink.egg-info/PKG-INFO
+cs.splink.egg-info/SOURCES.txt
+cs.splink.egg-info/dependency_links.txt
+cs.splink.egg-info/entry_points.txt
+cs.splink.egg-info/requires.txt
+cs.splink.egg-info/top_level.txt
+lib/python/cs/splink.py
