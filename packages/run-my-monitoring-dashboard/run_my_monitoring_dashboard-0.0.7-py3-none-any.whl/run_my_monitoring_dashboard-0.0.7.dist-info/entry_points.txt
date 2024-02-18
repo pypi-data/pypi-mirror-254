@@ -1,0 +1,2 @@
+[console_scripts]
+run_my_monitoring_dashboard = run_my_monitoring_dashboard.main:main
