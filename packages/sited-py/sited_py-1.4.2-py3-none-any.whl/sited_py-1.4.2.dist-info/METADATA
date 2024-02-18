@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: sited_py
+Version: 1.4.2
+Summary: SiteD Engine for Python version.
+Home-page: https://github.com/wistn/sited_py
+Author: wistn
+Author-email: wistn@qq.com
+License: Apache Software License
+Keywords: sited,plugin,engine,ddcat
+Platform: Windows
+Platform: Linux
+Platform: MacOS
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp >=3.7.3
+Requires-Dist: lxml >=4.5.0
+Requires-Dist: pyChakraCore >=0.2.0
+
+SiteD Engine for Python version.
+
+[ [README-EN](https://github.com/wistn/sited_py/blob/main/sited_py/README_EN.md)]
