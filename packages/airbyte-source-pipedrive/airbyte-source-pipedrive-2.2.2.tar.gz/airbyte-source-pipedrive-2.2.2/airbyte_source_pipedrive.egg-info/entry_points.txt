@@ -1,0 +1,2 @@
+[console_scripts]
+source-pipedrive = source_pipedrive.run:run
