@@ -1,0 +1,2 @@
+[console_scripts]
+nrfapy_get_ts = nrfapy.nrfapy_get_ts:main
