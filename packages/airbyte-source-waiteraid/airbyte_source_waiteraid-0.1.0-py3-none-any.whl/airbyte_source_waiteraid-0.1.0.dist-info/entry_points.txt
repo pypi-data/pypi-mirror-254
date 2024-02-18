@@ -1,0 +1,2 @@
+[console_scripts]
+source-waiteraid = source_waiteraid.run:run
