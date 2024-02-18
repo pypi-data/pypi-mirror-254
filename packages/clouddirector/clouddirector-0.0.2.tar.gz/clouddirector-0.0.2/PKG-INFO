@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: clouddirector
+Version: 0.0.2
+Summary: Package to get data from cloud director
+Author: Shubham Rawat
+Author-email: <shivamrawat829@gmail.com>
+Keywords: python
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Dist: requests
+Requires-Dist: lxml
