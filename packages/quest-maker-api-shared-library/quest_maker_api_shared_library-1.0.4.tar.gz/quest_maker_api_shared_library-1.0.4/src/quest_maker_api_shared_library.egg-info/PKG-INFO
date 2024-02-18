@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: quest_maker_api_shared_library
+Version: 1.0.4
+Summary: This package contains code shared by the Quest Maker microservices.
+Author-email: Akinola Abiodun Emmanuel <akinolaemmanuel49@gmail.com>
+Project-URL: Homepage, https://github.com/akinolaemmanuel49/QuestMakerAPISharedLibrary
+Project-URL: Issues, https://github.com/akinolaemmanuel49/QuestMakerAPISharedLibrary/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bson
+Requires-Dist: pydantic
+Requires-Dist: PyJWT
+Requires-Dist: pytest
+
+# Quest Maker API Shared Library
+
+The Quest Maker API Shared Library provides a set of reusable components and utilities for building applications using the Quest Maker API. This library aims to simplify common tasks, enhance code consistency, and facilitate the development of projects related to quest management.
