@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/dysprosium/__init__.py
+src/dysprosium/example.py
+src/dysprosium.egg-info/PKG-INFO
+src/dysprosium.egg-info/SOURCES.txt
+src/dysprosium.egg-info/dependency_links.txt
+src/dysprosium.egg-info/top_level.txt
