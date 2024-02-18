@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+tests/test_whittaker.py
+tests/testdata.py
+vam.whittaker.egg-info/PKG-INFO
+vam.whittaker.egg-info/SOURCES.txt
+vam.whittaker.egg-info/dependency_links.txt
+vam.whittaker.egg-info/requires.txt
+vam.whittaker.egg-info/top_level.txt
+vam/whittaker/__init__.py
+vam/whittaker/_whittaker.pyx
+vam/whittaker/_version/__init__.py
