@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: melobot
+Version: 2.0.0rc1
+Summary: A qbot module with friendly interface, session control and plugin-supported.
+Author: AiCorein
+Author-email: melodyecho@glowmem.com
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: toml>=0.10.2
+Requires-Dist: websockets>=10.4
+Requires-Dist: colorlog>=6.7.0
+Requires-Dist: uvloop>=0.17.0; platform_system == "Linux"
