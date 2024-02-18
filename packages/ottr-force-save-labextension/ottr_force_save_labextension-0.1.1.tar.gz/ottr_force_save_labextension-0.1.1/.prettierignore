@@ -1,0 +1,7 @@
+node_modules
+**/node_modules
+**/lib
+**/package.json
+!/package.json
+ottr_force_save_labextension
+**/tsconfig.json

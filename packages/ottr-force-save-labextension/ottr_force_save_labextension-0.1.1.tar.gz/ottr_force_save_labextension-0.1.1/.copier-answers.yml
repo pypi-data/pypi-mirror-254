@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.5
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: cpyles@berkeley.edu
+author_name: Chris Pyles
+data_format: string
+file_extension: ''
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: ottr-force-save-labextension
+mimetype: ''
+mimetype_name: ''
+project_short_description: A JupyterLab extension for force-saving notebooks from
+    ottr, the Otter-Grader R client.
+python_name: ottr_force_save_labextension
+repository: ''
+test: false
+viewer_name: ''
+
