@@ -1,0 +1,35 @@
+[project]
+name = "py360convert-modified"
+version = "1.0.1"
+authors = [
+  { name="Andrea Lombardo", email="andrealombardo2m@gmail.com" },
+]
+description = "Convertion between cubemap and equirectangular and also to perspective planar."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.7"
+dependencies = [
+    "numpy",
+    "scipy",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Artistic Software",
+    "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["py360convert"]
+
+[project.urls]
+Homepage = "https://github.com/imandrealombardo/py360convert"
+Issues = "https://github.com/imandrealombardo/py360convert/issues"
+
+[project.scripts]
+convert360 = "convert360:main"
