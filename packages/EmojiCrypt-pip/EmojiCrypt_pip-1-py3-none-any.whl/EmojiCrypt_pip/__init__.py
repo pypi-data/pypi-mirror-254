@@ -1,0 +1,1 @@
+from EmojiCrypt_pip.EmojiCrypt import encrypt, decrypt
