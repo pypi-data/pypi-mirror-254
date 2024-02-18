@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: criminalip
+Version: 0.0.1
+Summary: Simple Python wrapper around the CriminalIP.io API
+Author-email: Jon Heise <j.heise@gmail.com>
+Project-URL: Homepage, https://github.com/jheise/pycriminalip
+Project-URL: Bug Tracker, https://github.com/jheise/pycriminalip/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: typing
+
+# pyCriminalIP
+---
+Simple Python wrapper around the [CriminalIP](https://www.criminalip.io) API
+
+## Sample usage
+
+``` python
+from criminalip.client import Client
+
+API_KEY = <ADD YOUR UNIQUE KEY HERE>
+
+crimip = Client(API_KEY)
+print(crimip.banner_search("ssh"))
+```
+
+
