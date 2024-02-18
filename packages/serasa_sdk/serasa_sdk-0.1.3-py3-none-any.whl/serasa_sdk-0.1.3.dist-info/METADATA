@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: serasa_sdk
+Version: 0.1.3
+Summary: 
+Author: Tecnologia BYX
+Author-email: tecnologia@grupobyx.com.br
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: six (>=1.16.0,<2.0.0)
