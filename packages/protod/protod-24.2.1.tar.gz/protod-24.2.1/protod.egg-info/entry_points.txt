@@ -1,0 +1,2 @@
+[console_scripts]
+protod = protod.main:dummy
