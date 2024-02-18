@@ -1,0 +1,8 @@
+[plover.command]
+open_url = plover_practice_plugin.command:open_url
+
+[plover.extension]
+plover_practice_plugin = plover_practice_plugin.extension:PracticePlugin
+
+[plover.meta]
+random_number = plover_practice_plugin.meta:random_number
