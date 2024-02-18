@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "datapak"
+version = "0.0.1"
+description = "DATAPAK"
+authors = ["Michele Dallachiesa <michele.dallachiesa@sigforge.com>"]
+license = "BSD-3"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved",
+    "Intended Audience :: Science/Research",
+]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
