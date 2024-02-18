@@ -1,0 +1,3 @@
+[console_scripts]
+four_dim_exp1 = ccml2021.gp:one
+four_dim_exp2 = ccml2021.gp:multi
