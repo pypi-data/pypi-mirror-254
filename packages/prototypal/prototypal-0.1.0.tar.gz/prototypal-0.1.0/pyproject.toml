@@ -1,0 +1,22 @@
+[project]
+name = "prototypal"
+version = "0.1.0"
+description = "Javascript-like prototypes for Python."
+authors = [
+    { name = "bitnom", email = "14287229+bitnom@users.noreply.github.com" },
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
