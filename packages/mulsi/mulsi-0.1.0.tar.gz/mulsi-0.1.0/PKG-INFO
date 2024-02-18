@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: mulsi
+Version: 0.1.0
+Summary: Safe inference using representation engineering.
+License: MIT
+Author: Yoann Poupart
+Author-email: yoann.poupart@ens-lyon.org
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: torch (>=2.1.2,<3.0.0)
+Requires-Dist: transformers (>=4.37.2,<5.0.0)
+Description-Content-Type: text/markdown
+
+# MUltimodal Llm Safe Inference
+
+Safe inference using representation engineering.
+
