@@ -1,0 +1,131 @@
+## InfraSonar docker-compose.yml file
+##
+## Set the correct TOKEN variables in the .env file before starting.
+
+x-infrasonar-template: &infrasonar
+  network_mode: host
+  restart: always
+  logging:
+    options:
+      max-size: 5m
+  volumes:
+    - ./data:/data/
+  labels:
+    ## We opt to only update our own containers using the AGENTCORE token to identiy the scope
+    com.centurylinklabs.watchtower.scope: ${AGENTCORE_TOKEN}
+
+services:
+  ## Auto Update service
+  watchtower:
+    << : *infrasonar
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      WATCHTOWER_CLEANUP: TRUE
+      WATCHTOWER_INCLUDE_RESTARTING: TRUE
+      ## We update every 6 hours
+      WATCHTOWER_POLL_INTERVAL: 21600
+      ## Identies the scope for updating
+      WATCHTOWER_SCOPE: ${AGENTCORE_TOKEN}
+  ## InfraSonar agents
+  docker-agent:
+    << : *infrasonar
+    image: ghcr.io/infrasonar/docker-agent
+    environment:
+      TOKEN: ${AGENT_TOKEN}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data/
+  # If you want the Speedtest collector:
+  # (the asset will be created automatically unless a specific ASSET_ID is given)
+  #
+  #    speedtest-agent:
+  #      << : *infrasonar
+  #      image: ghcr.io/infrasonar/speedtest-agent
+  #      environment:
+  #        TOKEN: ${AGENT_TOKEN}
+  #      volumes:
+  #        - ./data:/data/
+
+  ## InfraSonar probes
+  agentcore:
+    << : *infrasonar
+    image: ghcr.io/infrasonar/agentcore
+    environment:
+      TOKEN: ${AGENTCORE_TOKEN}
+      AGENTCORE_ZONE: ${AGENTCORE_ZONE_ID}
+      HUB_HOST: devhub.infrasonar.com  
+  #dns-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/dns-probe
+  #eaton-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/eaton-probe
+  #esx-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/esx-probe
+  # eventlog-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/eventlog-probe
+  # hpilo-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/hpilo-probe
+  #hpprocurve-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/hpprocurve-probe
+  http-probe:
+    << : *infrasonar
+    image: ghcr.io/infrasonar/http-probe
+  # hyperv-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/hyperv-probe
+  #hypervguest-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/hypervguest-probe
+  #idrac-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/idrac-probe
+  #mssql-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/mssql-probe
+  #mysql-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/mysql-probe
+  #netapp-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/netapp-probe
+  #paloalto-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/paloalto-probe
+  ping-probe:
+    << : *infrasonar
+    image: ghcr.io/infrasonar/ping-probe
+  #snmp-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/snmp-probe
+  #santricity-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/santricity-probe
+  #synology-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/synology-probe
+  #tcp-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/tcp-probe
+  #unifi-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/unifi-probe
+  #unificontroller-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/unificontroller-probe
+  #unifidevice-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/unifidevice-probe
+  #vcenter-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/vcenter-probe
+  #wmi-probe:
+  #  << : *infrasonar
+  #  image: ghcr.io/infrasonar/wmi-probe

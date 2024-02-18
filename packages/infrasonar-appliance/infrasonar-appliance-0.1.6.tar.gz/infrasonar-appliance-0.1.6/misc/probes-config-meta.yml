@@ -1,0 +1,161 @@
+# InfraSonar - probes configuration meta data (.CONST.PROBES_CONFIG_META_YML)
+x-env-basic: &envbasic
+  environment:
+  - list: LOG_LEVEL
+    options:
+    - "debug"
+    - "info"
+    - "warning"
+    - "error"
+    - "critical"
+    default: "warning"
+
+x-env-advanced: &envadvanced
+  environment:
+  - int: MAX_PACKAGE_SIZE
+    min: 1
+    max: 2000
+    default: 500
+  - int: MAX_CHECK_TIMEOUT
+    min: 1
+    max: 1800
+    default: 300
+  - list: LOG_LEVEL
+    options:
+    - "debug"
+    - "info"
+    - "warning"
+    - "error"
+    - "critical"
+    default: "warning"
+
+snmp: &snmp
+  << : *envbasic
+  config:
+  - list: version
+    options:
+    - "2c"
+    - "3"
+    default: "2c"
+  - section: community
+    items:
+    - str: secret
+      default: public
+  - str: username
+    if: config.version==3
+  - section: auth
+    if: config.version==3
+    items:
+    - list: type
+      options:
+      - USM_AUTH_NONE
+      - USM_AUTH_HMAC96_MD5
+      - USM_AUTH_HMAC96_SHA
+    - str: password
+      if: config.auth.type!=USM_AUTH_NONE
+  - section: priv
+    if: config.version==3
+    items:
+    - list: type
+      options:
+      - USM_AUTH_NONE
+      - USM_AUTH_HMAC96_MD5
+      - USM_AUTH_HMAC96_SHA
+    - str: password
+      if: config.priv.type!=USM_AUTH_NONE
+
+apcups:
+  << : *snmp
+
+eaton:
+  << : *snmp
+
+hpilo:
+  << : *snmp
+
+hpprocurve:
+  << : *snmp
+
+idrac:
+  << : *snmp
+
+synology:
+  << : *snmp
+
+unify:
+  << : *snmp
+
+wmi: &wmi
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+eventlog:
+  << : *wmi
+
+hyperv:
+  << : *wmi
+
+hypervguest:
+  << : *wmi
+
+mssql:
+  << : *wmi
+
+mysql:
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+netapp:
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+santricity:
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+esx:
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+vcenter: &vcenter
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+vmwareguest:
+  << : *vcenter
+
+paloalto:
+  << : *envbasic
+  config:
+  - str: secret
+  help: |
+    The PaloAlto probe requires an API key for authentication and must be configured as "config.secret".
+    See the documention page for more information: https://docs.infrasonar.com/collectors/probes/paloalto/
+
+ping:
+  << : *envbasic
+
+http:
+  << : *envbasic
+
+unificontroller: &unificontroller
+  << : *envbasic
+  config:
+  - str: username
+  - str: password
+
+unifidevice:
+  << : *unificontroller
+

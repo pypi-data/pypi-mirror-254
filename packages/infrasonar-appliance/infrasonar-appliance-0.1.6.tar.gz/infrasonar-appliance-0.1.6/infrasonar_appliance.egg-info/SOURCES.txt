@@ -1,0 +1,16 @@
+.gitignore
+README.md
+requirements.txt
+setup.py
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/feature_request.md
+.github/workflows/ci.yml
+bin/appliance
+infrasonar_appliance.egg-info/PKG-INFO
+infrasonar_appliance.egg-info/SOURCES.txt
+infrasonar_appliance.egg-info/dependency_links.txt
+infrasonar_appliance.egg-info/requires.txt
+infrasonar_appliance.egg-info/top_level.txt
+misc/deploy.sh
+misc/docker-compose.yml
+misc/probes-config-meta.yml
