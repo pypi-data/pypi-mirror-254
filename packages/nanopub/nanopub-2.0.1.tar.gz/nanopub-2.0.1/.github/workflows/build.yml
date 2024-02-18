@@ -1,0 +1,71 @@
+name: Tests and update docs
+
+on: [push, pull_request]
+
+jobs:
+
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, '3.10']
+        rdflib-version:
+          - rdflib==6.0.2
+          - rdflib>6.0.2,<7.0.0
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies with ${{ matrix.rdflib-version }}
+        env:
+          RDFLIB_VERSION: ${{ matrix.rdflib-version }}
+        run: |
+          pip install ".[test,dev]" "$RDFLIB_VERSION"
+
+      - name: Lint with flake8, isort and mypy
+        run: bash scripts/lint.sh
+
+      - name: Setup nanopub profile (including RSA keys)
+        run: |
+          np setup --orcid-id https://orcid.org/0000-0000-0000-0000 --no-publish --name test --newkeys
+
+      - name: Test with pytest
+        run: |
+          pytest --cov
+
+      - name: Publish coverage to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        if: ${{ env.COVERALLS_REPO_TOKEN }}
+        run: |
+          coverage xml
+          coveralls
+
+
+  build-docs:
+    needs: [ tests ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          pip install ".[doc]"
+
+      - name: Deploy mkdocs on GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git pull
+          mkdocs gh-deploy
