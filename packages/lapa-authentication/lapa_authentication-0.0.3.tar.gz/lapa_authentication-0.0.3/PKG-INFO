@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: lapa_authentication
+Version: 0.0.3
+Summary: authentication service for my personal server.
+Home-page: https://github.com/lavvsharma/lapa_authentication
+Author: Lav Sharma, thePmSquare
+Author-email: lavsharma2016@gmail.com, thepmsquare@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+# lapa_authentication
+
+## About
+
+Authentication service
+
+## Installation
+
+> pip install lapa_authentication
+
+## Env
+
+- python>=3.12.0
+
+## Changelog
+
+### v0.0.3
+
+- use lapa_commons to read config.
+
+### v0.0.2
+
+- move logger to configuration.py.
+- remove unused dependencies.
+- add lapa_database_helper.
+
+### v0.0.1
+
+1. /register endpoint added.
+    1. Before adding user into the authentication server. It will first check if the user's email-id is already present
+       in the database or not.
+        1. If Yes -> Do not create entry in the database. Return message saying user already exists.
+        2. If No -> Create entry in the database. Return message saying user created successfully.
+
+
