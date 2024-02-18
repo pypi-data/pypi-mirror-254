@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "lazyOfAPI"
+version = "0.1.1"
+description = "一个简单的用于请求OpenFrp API的库"
+authors = ["MojaveHao <HTTcode2020@126.com>"]
+license = "AGPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+requests = "*"
+
+[[tool.poetry.source]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "default"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
