@@ -1,0 +1,10 @@
+django>=3.2
+
+[test]
+pytest-cov
+pytest-django
+flake8
+ipdb
+libcst
+isort
+black
