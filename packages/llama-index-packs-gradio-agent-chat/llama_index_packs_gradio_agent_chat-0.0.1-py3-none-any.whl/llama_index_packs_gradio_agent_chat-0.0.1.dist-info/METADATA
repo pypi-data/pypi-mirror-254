@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: llama-index-packs-gradio-agent-chat
+Version: 0.0.1
+Summary: llama-index packs gradio_agent_chat integration
+License: MIT
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.8.1,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: llama-index-core (>=0.9.32,<0.10.0)
+Description-Content-Type: text/markdown
+
+# Gradio Chat With Your LlamaIndex Agent
+
+Create a LlamaIndex Agent (i.e., `BaseAgent`) and quickly chat with it using
+this pack's Gradio Chatbot interface.
+
+## CLI Usage
+
+You can download llamapacks directly using `llamaindex-cli`, which comes installed with the `llama-index` python package:
+
+```bash
+llamaindex-cli download-llamapack GradioAgentChatPack --download-dir ./gradio_agent_chat
+```
+
+You can then inspect the files at `./gradio_agent_chat` and use them as a template for your own project!
+
+To run the app directly, use in your terminal:
+
+```bash
+export OPENAI_API_KEY="sk-...
+python ./gradio_agent_chat/base.py
+```
+
