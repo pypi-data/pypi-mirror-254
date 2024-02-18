@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "tylisten"
+version = "2.1.4"
+description = "A tiny hook specification library with typing support."
+authors = ["JamzumSum <zzzzss990315@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/JamzumSum/tylisten"
+repository = "https://github.com/JamzumSum/tylisten"
+documentation = "https://jamzumsum.github.io/tylisten"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/JamzumSum/tylisten/issues"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typing_extensions = ">=4.6.0"
+
+# dependency groups
+[tool.poetry.group.test]
+optional = false
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.1"
+pytest-asyncio = "~0.23.4"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "*"
+black = "*"
+isort = ">=5.13.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^7.0.1"
+sphinx-autodoc-typehints = "*"
+furo = "*"
+sphinx-intl = "*"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+# customize begin
+[tool.pytest.ini_options]
+pythonpath = 'src'
+log_cli = 1
+log_cli_level = 'WARNING'
+
+[tool.isort]
+profile = "black"
+line_length = 99
+
+[tool.black]
+line-length = 99
+target-version = ['py38']
+
+[tool.pyright]
+pythonVersion = "3.8"
+pythonPlatform = "All"
