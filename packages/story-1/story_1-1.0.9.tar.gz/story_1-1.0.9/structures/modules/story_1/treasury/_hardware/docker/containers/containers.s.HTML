@@ -1,0 +1,50 @@
+
+
+
+<pre>
+
+containers:
+
+	open container from an image archive:
+		[xonsh] docker container list
+		[xonsh] docker import EC_Book_4.tar
+		
+		xor:
+			[xonsh] docker run -it {image ID} /bin/bash
+			[xonsh] docker run -v /path_inside_host:/path_inside_container -it {image ID} /bin/bash
+
+	save container as image archive:
+		[xonsh] docker export --output="EC_Book_4.tar" {container ID}
+
+
+	save changes to a container:
+		[xonsh] 
+
+
+	delete:
+		[xonsh] docker container rm {CONTAINER ID}
+	
+	delete every non-running container:
+		[xonsh] docker container prune -f
+	
+	
+	list every:
+		[xonsh] docker container list --all
+	
+	list:
+		[xonsh] docker container list
+	
+	
+	
+		
+	
+
+
+
+
+
+
+
+
+
+</pre>
