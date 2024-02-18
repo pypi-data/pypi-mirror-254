@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: booli_crawler
+Version: 1.0.2
+Summary: A crawler of booli.se - a Swedish housing platform.
+Author-email: Oscar Goldring <hello@goldring.dev>
+Project-URL: Homepage, https://github.com/real-tintin/booli-crawler
+Project-URL: Issues, https://github.com/real-tintin/booli-crawler/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: bs4
+Requires-Dist: tqdm
+Provides-Extra: examples
+Requires-Dist: plotly ; extra == 'examples'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+# Booli crawler
+
+A crawler of [booli.se](https://booli.se) - a Swedish housing platform.
+
+## Examples
+Examples and usage of the crawler can be found in ``booli_crawler.examples``. The
+examples might use some additional dependencies which can be installed by:
+
+```bash
+pip install booli-crawler[examples]
+```
+
+![](https://raw.githubusercontent.com/real-tintin/booli-crawler/main/example.png)
