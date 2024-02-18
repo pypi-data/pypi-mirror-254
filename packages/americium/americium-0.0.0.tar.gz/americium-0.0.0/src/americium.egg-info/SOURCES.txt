@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/americium/__init__.py
+src/americium/example.py
+src/americium.egg-info/PKG-INFO
+src/americium.egg-info/SOURCES.txt
+src/americium.egg-info/dependency_links.txt
+src/americium.egg-info/top_level.txt
