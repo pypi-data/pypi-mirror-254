@@ -1,0 +1,15 @@
+cardimpose/__init__.py,sha256=AxUkybaq9bxWDyyBmPcdWcs3OvLWQPT8Pp0nLkGpJx8,44
+cardimpose/__main__.py,sha256=p6vUYSF9JjypFF6EBM_ckGNttdz00785gXqCVeU-Edk,4324
+cardimpose/cardimpose.py,sha256=16das3qbg6zcSTz7LQAymGkhjv2L5Gg9ZNvY9zuIs_U,10329
+cardimpose/layout.py,sha256=CD6IrXDFzG3Os7cak3xpFcET7R6uEnc8rU2XYEwpwkA,3429
+cardimpose/parse.py,sha256=13sHAc6m_WL_NYRoMoKYDfFbMfVLquUOZNhDEjwLghU,2743
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_impose.py,sha256=7QUXz0p7PVembchjfXNFsEuwdo0xDzBlRr8d73mhM1o,3001
+tests/test_layout.py,sha256=S8WTKrQVLc0w8Vge_yCoiyw_U5Yw8kjuQT7td-bHzd8,3302
+tests/test_parser.py,sha256=nid4Je-nhK7vhUAXGjMshgqo85G-sMVgSKgZJIcGxF8,3221
+cardimpose-0.2.1.dist-info/LICENSE.md,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+cardimpose-0.2.1.dist-info/METADATA,sha256=tXhQBxJQNHfEWH7c0ja62WRwj6egGu6sSh-bElCSO1U,8015
+cardimpose-0.2.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+cardimpose-0.2.1.dist-info/entry_points.txt,sha256=sdzMIBzCJIS3dCMOX61KUDnQJZgo_9x16IlbOSBDkNo,56
+cardimpose-0.2.1.dist-info/top_level.txt,sha256=vDhOxPdaGzW27OyIVX710SiBP9vwNkz8xSufopumh4Y,17
+cardimpose-0.2.1.dist-info/RECORD,,
