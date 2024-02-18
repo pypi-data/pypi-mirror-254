@@ -1,0 +1,3 @@
+[console_scripts]
+plx_false_positives = plx_false_positives:main
+sample = app:main
