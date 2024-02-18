@@ -1,0 +1,4 @@
+[console_scripts]
+bashmator=bshm.bashmator:main
+bshm=bshm.bashmator:main
+
