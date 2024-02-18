@@ -1,0 +1,2 @@
+[console_scripts]
+source-zenloop = source_zenloop.run:run
