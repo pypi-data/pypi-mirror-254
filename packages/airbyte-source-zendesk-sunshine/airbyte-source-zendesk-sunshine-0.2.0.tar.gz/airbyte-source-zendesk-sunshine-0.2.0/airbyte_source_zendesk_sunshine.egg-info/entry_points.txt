@@ -1,0 +1,2 @@
+[console_scripts]
+source-zendesk-sunshine = source_zendesk_sunshine.run:run
