@@ -1,0 +1,112 @@
+{
+    "server": "byteblower-server.example.com.",
+    "ports": [
+        {
+            "name": "NSI",
+            "port_group": [
+                "classic_nsi"
+            ],
+            "interface": "trunk-1-17",
+            "ipv4": "10.10.10.10",
+            "gateway": "10.10.10.254"
+        },
+        {
+            "name": "CPE",
+            "port_group": [
+                "classic_cpe"
+            ],
+            "interface": "trunk-1-18",
+            "ipv4": "10.10.10.11",
+            "gateway": "10.10.10.254"
+        }
+    ],
+    "flows": [
+        {
+            "name": "UDP Flow",
+            "type": "frame_blasting",
+            "source": {
+                "port_group": [
+                    "classic_nsi"
+                ]
+            },
+            "destination": {
+                "port_group": [
+                    "classic_cpe"
+                ]
+            },
+            "initial_time_to_wait": 5,
+            "bitrate": 5e6,
+            "duration": 15,
+            "analysis": {
+                "latency": true
+            }
+        },
+        {
+            "name": "Gaming Flow",
+            "type": "gaming",
+            "dscp": "0x2B",
+            "source": {
+                "port_group": [
+                    "classic_nsi"
+                ]
+            },
+            "duration": 15,
+            "destination": {
+                "port_group": [
+                    "classic_cpe"
+                ]
+            },
+            "udp_src": 55579,
+            "udp_dest": 50022,
+            "initial_time_to_wait": 5,
+            "analysis": {
+                "latency": true
+            }
+        },
+        {
+            "name": "Voice Flow",
+            "type": "voice",
+            "dscp": "0x2B",
+            "source": {
+                "port_group": [
+                    "classic_nsi"
+                ]
+            },
+            "destination": {
+                "port_group": [
+                    "classic_cpe"
+                ]
+            },
+            "udp_src": 55579,
+            "udp_dest": 50022,
+            "number_of_frames": 5020,
+            "analysis": {
+                "mos": true
+            }
+        },
+        {
+            "name": "HTTP Flow",
+            "type": "http",
+            "source": {
+                "port_group": [
+                    "classic_nsi"
+                ]
+            },
+            "destination": {
+                "port_group": [
+                    "classic_cpe"
+                ]
+            },
+            "initial_time_to_wait": 2.0,
+            "duration": 40.0,
+            "receive_window_scaling": 12
+        }
+    ],
+    "report": {
+        "html_report": true,
+        "json_report": true,
+        "junit_xml_report": false
+    },
+    "enable_scouting_flows": true,
+    "maximum_run_time": 30.0
+}

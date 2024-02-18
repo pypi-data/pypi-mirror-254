@@ -1,0 +1,1408 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://api.byteblower.com/test-framework/json/test-cases/low-latency/config-schema.json",
+    "title": "Test configuration parameters",
+    "description": "Root structure of the JSON configuration file for the ByteBlower Low Latency Test Case command-line interface.",
+    "type": "object",
+    "properties": {
+        "server": {
+            "$ref": "#/$defs/server_address"
+        },
+        "meeting_point": {
+            "$ref": "#/$defs/meeting_point_address"
+        },
+        "ports": {
+            "$ref": "#/$defs/port_list"
+        },
+        "flow": {
+            "$ref": "#/$defs/flow_list"
+        },
+        "maximum_run_time": {
+            "$ref": "#/$defs/maximum_run_time"
+        },
+        "report": {
+            "$ref": "#/$defs/reporting_parameters"
+        },
+        "enable_scouting_flows": {
+            "$ref": "#/$defs/enable_scouting_flows"
+        }
+    },
+    "required": [
+        "server",
+        "ports",
+        "flows"
+    ],
+    "additionalProperties": true,
+    "$defs": {
+        "server_address": {
+            "$$target": "#/$defs/server_address",
+            "title": "ByteBlower server address",
+            "description": "Host name or IP address of the ByteBlower Server.",
+            "type": "string",
+            "oneOf": [
+                {
+                    "format": "hostname"
+                },
+                {
+                    "format": "ipv4"
+                },
+                {
+                    "format": "ipv6"
+                }
+            ]
+        },
+        "meeting_point_address": {
+            "$$target": "#/$defs/meeting_point_address",
+            "title": "ByteBlower meeting point address",
+            "description": "Host name or IP address of the ByteBlower meeting point.\n\n.. versionadded:: 1.1.0\n   Support for ByteBlower Endpoint.",
+            "type": "string",
+            "oneOf": [
+                {
+                    "format": "hostname"
+                },
+                {
+                    "format": "ipv4"
+                },
+                {
+                    "format": "ipv6"
+                }
+            ]
+        },
+        "port_list": {
+            "$$target": "#/$defs/port_list",
+            "title": "Port definitions",
+            "description": "Flat list of ports.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/port"
+            }
+        },
+        "flow_list": {
+            "$$target": "#/$defs/flow_list",
+            "title": "Flow definition list",
+            "description": "Flat list of flow definitions",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/$defs/frame_blasting"
+                    },
+                    {
+                        "$ref": "#/$defs/dynamic_frame_blasting"
+                    },
+                    {
+                        "$ref": "#/$defs/l4s_frame_blasting"
+                    },
+                    {
+                        "$ref": "#/$defs/voice_flow"
+                    },
+                    {
+                        "$ref": "#/$defs/video_flow"
+                    },
+                    {
+                        "$ref": "#/$defs/gaming_flow"
+                    },
+                    {
+                        "$ref": "#/$defs/conference_flow"
+                    },
+                    {
+                        "$ref": "#/$defs/http_flow"
+                    }
+                ]
+            }
+        },
+        "maximum_run_time": {
+            "$$target": "#/$defs/maximum_run_time",
+            "title": "Maximum run time",
+            "type": "number",
+            "description": "Maximum run time of the scenario in seconds",
+            "format": "float"
+        },
+        "enable_scouting_flows": {
+            "$$target": "#/$defs/enable_scouting_flows",
+            "title": "Enable scouting flows",
+            "type": "bool",
+            "description": "Enable scouting flows for network entries initialization",
+            "$$description": [
+                ".. note::",
+                "   Not enabled for traffic originating from a ByteBlower Endpoint."
+            ]
+        },
+        "reporting_parameters": {
+            "$$target": "#/$defs/reporting_parameters",
+            "title": "Report configuration parameters",
+            "type": "object",
+            "properties": {
+                "html": {
+                    "title": "Create HTML report",
+                    "type": "boolean",
+                    "description": "Enable/Disable reporting in HTML format"
+                },
+                "json": {
+                    "title": "Create JSON report",
+                    "type": "boolean",
+                    "description": "Enable/Disable reporting in JSON format"
+                },
+                "junit_xml": {
+                    "title": "Create JUnit XML report",
+                    "type": "boolean",
+                    "description": "Enable/Disable reporting in JUnit XML format"
+                }
+            }
+        },
+        "port_group": {
+            "$$target": "#/$defs/port_group",
+            "title": "Port group",
+            "description": "Definition of a port group",
+            "type": "string"
+        },
+        "port": {
+            "$$target": "#/$defs/port",
+            "title": "Configuration parameters for a ByteBlower Port or Endpoint",
+            "description": "Configuration parameters for a ByteBlower Port or Endpoint",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of this ByteBlower traffic endpoint (a friendly name to identify this endpoint)"
+                },
+                "port_group": {
+                    "description": "List of port group where this port belongs to. Used to identify to which flows this port will be part of (either as source or destination).",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/port_group"
+                    }
+                },
+                "interface": {
+                    "description": "Name of the ByteBlower interface where this ByteBlower port is created (*ByteBlower Port only*). Mutually exclusive with ``\"uuid\"``.",
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "Device identifier of the Endpoint to use (*ByteBlower Endpoint only*).",
+                    "$$description": [
+                        "Mutually exclusive with ``\"interface\"``.",
+                        "",
+                        ".. note::",
+                        "   Using an Endpoint also requires the ``\"meeting_point\"`` to be provided",
+                        "   *and* ``\"ipv4\"`` or ``\"ipv6\"`` set to ``true`` for this port configuration.",
+                        "",
+                        ".. versionadded:: 1.1.0",
+                        "   Support for ByteBlower Endpoint."
+                    ]
+                },
+                "vlans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/vlans"
+                    },
+                    "description": "List of VLAN (stack) configurations. See details in VLAN (stack) configuration.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "ipv4": {
+                    "title": "IPv4 addressing method",
+                    "description": "Enable IPv4 on this traffic endpoint",
+                    "$$description": [
+                        "Supports the following values:",
+                        "",
+                        "- *IPv4 address* for static IPv4 IP address (*ByteBlower Port only*)",
+                        "- ``\"dhcp\"`` for dynamic IPv4 address allocation (*ByteBlower Port only*)",
+                        "- ``true``: To use the IPv4 address(es) of the system (*ByteBlower Endpoint only*).",
+                        "",
+                        "Default: ``\"dhcp\"`` (*ByteBlower Port*) or *undefined* (*ByteBlower Endpoint*).",
+                        "",
+                        ".. note::",
+                        "   For ByteBlower Endpoint, you must specify either ``\"ipv4\": true`` or ``\"ipv6\": true``.",
+                        "",
+                        ".. versionchanged:: 1.1.0",
+                        "   Support for ByteBlower Endpoint."
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "bool"
+                        }
+                    ]
+                },
+                "netmask": {
+                    "type": "string",
+                    "description": "Netmask of the IPv4 network. Default: *Assigned by DHCP* or ``255.255.255.0`` for static IPv4 address configuration.\n\n.. note::\n   Will be supported for IPv6 once manual address configuration is supported by the ByteBlower Test Framework.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "gateway": {
+                    "type": "string",
+                    "description": "(Default) Gateway of the IPv4 network. Default: *Assigned by DHCP* or *none* for static IPv4 address configuration.\n\n.. note::\n   Will be supported for IPv6 once manual address configuration is supported by the ByteBlower Test Framework.",
+                    "$$description": [
+                        ".. note::",
+                        "   Not supported by ByteBlower Endpoint."
+                    ]
+                },
+                "nat": {
+                    "type": "bool",
+                    "description": "Define whether this port is located behind a NAT gateway. Defaults to ``false``.",
+                    "$$description": [
+                        ".. note::",
+                        "   Enabled by default for ByteBlower Endpoint."
+                    ]
+                },
+                "ipv6": {
+                    "title": "IPv6 addressing method",
+                    "description": "Enable IPv6 on this traffic endpoint",
+                    "$$description": [
+                        "Supports the following values:",
+                        "",
+                        "- ``\"dhcp\"`` to let the port perform DHCPv6 (*ByteBlower Port only*)",
+                        "- ``\"slaac\"`` to let the port perform stateless address auto-configuration (*ByteBlower Port only*)",
+                        "- ``true``: To use the IPv6 address(es) of the system (*ByteBlower Endpoint only*).",
+                        "",
+                        "Default: *undefined*.",
+                        "",
+                        ".. note::",
+                        "   For ByteBlower Endpoint, you must specify either ``\"ipv4\": true`` or ``\"ipv6\": true``.",
+                        "",
+                        ".. versionchanged:: 1.1.0",
+                        "   Support for ByteBlower Endpoint."
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "bool"
+                        }
+                    ]
+                }
+            }
+        },
+        "vlans": {
+            "title": "VLAN (stack) configuration",
+            "$$target": "#/$defs/vlans",
+            "type": "object",
+            "properties": {
+                "protocol_id": {
+                    "type": "integer",
+                    "description": "VLAN protocol ID (TPID). Default value is: \n\n* '0x8100' for a single VLAN configuration \n\n* '0x88a8' for the outer VLAN(s) in a VLAN stack configuration \n\n* '0x8100' for the most inner VLAN in a VLAN stack configuration.\n\nNote: Configuration of the VLAN protocol ID (TPID) requires ByteBlower Server version >= 2.20.0."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "VLAN ID (12-bit; 0-4095)."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "3-bits defining the VLAN PCP bits. Default: 0."
+                },
+                "drop_eligible": {
+                    "type": "integer",
+                    "description": "1-bit flag. Default: 0."
+                }
+            }
+        },
+        "udp_flows": {
+            "$$target": "#/$defs/udp_flows",
+            "title": "UDP flow types",
+            "description": "Supported UDP-based flows. Description of all UDP-based flow parameters are given hereafter",
+            "type": "object",
+            "oneOf": [
+                {
+                    "type": "frame_blasting"
+                },
+                {
+                    "type": "dynamic_frame_blasting"
+                },
+                {
+                    "type": "l4s_frame_blasting"
+                },
+                {
+                    "type": "voice"
+                },
+                {
+                    "type": "video"
+                },
+                {
+                    "type": "gaming"
+                },
+                {
+                    "type": "conference"
+                }
+            ]
+        },
+        "frame_blasting": {
+            "$$target": "#/$defs/frame_blasting",
+            "title": "Frame blasting flow",
+            "description": "Specific parameters for frame blasting flow. The ``type`` MUST be defined as ``frame_blasting``.",
+            "type": "object",
+            "properties": {
+                "type": "frame_blasting",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "initial_time_to_wait": {
+                    "type": "number",
+                    "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)"
+                },
+                "bitrate": {
+                    "type": "string",
+                    "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                },
+                "frame_size": {
+                    "type": "number",
+                    "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                },
+                "frame_rate": {
+                    "type": "number",
+                    "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                },
+                "number_of_frames": {
+                    "type": "string",
+                    "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                },
+                "udp_src": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "udp_dest": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "nat_keep_alive": {
+                    "description": "Enable a flow to keep Network Address (and Port) Translation (NAT/NAPT) entries alive. The direction will be from the endpoint behind a NAT/NAPT gateway to the port at the public side of the NAT/NAPT gateway, defaults to ``false``.\n\nWe always enable the NAT/NAPT keep alive when the user asks for it, even when:\n\n* the *reverse flow* is enabled and source and destination UDP ports are the same\n* the source is the *endpoint behind the NAT/NAPT gateway*: An *initial time to wait* on the flow can still cause the NAPT entries at the gateway might still timeout before the traffic starts. This might cause the NAPT gateway to create a new (*and maybe different!*) NAPT entry, causing our traffic analysis to fail (with 100% loss).",
+                    "type": "boolean"
+                },
+                "napt_keep_alive": {
+                    "description": ".. deprecated:: v1.1.0\n   Use ``nat_keep_alive`` instead. Will be removed in v1.3.0.",
+                    "type": "boolean"
+                },
+                "analysis": {
+                    "description": "Sets latency related analysis configuration parameters",
+                    "oneOf": [
+                        {
+                            "$ref": "#/$defs/frame_loss_analysis"
+                        },
+                        {
+                            "$ref": "#/$defs/l4s"
+                        },
+                        {
+                            "$ref": "#/$defs/mos"
+                        },
+                        {
+                            "$ref": "#/$defs/latency_loss_analysis"
+                        }
+                    ]
+                }
+            }
+        },
+        "dynamic_frame_blasting": {
+            "$$target": "#/$defs/dynamic_frame_blasting",
+            "title": "Dynamic frame blasting flow",
+            "description": "Specific parameters for dynamic frame blasting flow. The ``type`` MUST be defined as ``dynamic_frame_blasting``.",
+            "$$description": [
+                ".. note::",
+                "   Not supported by ByteBlower Endpoint."
+            ],
+            "type": "object",
+            "properties": {
+                "type": "dynamic_frame_blasting",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "initial_time_to_wait": {
+                    "type": "number",
+                    "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)"
+                },
+                "bitrate": {
+                    "type": "string",
+                    "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                },
+                "frame_size": {
+                    "type": "number",
+                    "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                },
+                "frame_rate": {
+                    "type": "number",
+                    "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                },
+                "number_of_frames": {
+                    "type": "string",
+                    "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                },
+                "udp_src": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "udp_dest": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "nat_keep_alive": {
+                    "description": "Enable a flow to keep Network Address (and Port) Translation (NAT/NAPT) entries alive. The direction will be from the endpoint behind a NAT/NAPT gateway to the port at the public side of the NAT/NAPT gateway, defaults to ``false``.\n\nWe always enable the NAT/NAPT keep alive when the user asks for it, even when:\n\n* the *reverse flow* is enabled and source and destination UDP ports are the same\n* the source is the *endpoint behind the NAT/NAPT gateway*: An *initial time to wait* on the flow can still cause the NAPT entries at the gateway might still timeout before the traffic starts. This might cause the NAPT gateway to create a new (*and maybe different!*) NAPT entry, causing our traffic analysis to fail (with 100% loss).",
+                    "type": "boolean"
+                },
+                "napt_keep_alive": {
+                    "description": ".. deprecated:: v1.1.0\n   Use ``nat_keep_alive`` instead. Will be removed in v1.3.0.",
+                    "type": "boolean"
+                },
+                "max_bitrate": {
+                    "description": "Maximum bitrate threshold that the dynamic flow could reach in bits/s, defaults to ``MAX_BITRATE_THRESHOLD `` (``5e7`` or ``50 Mb/s``)",
+                    "type": "number"
+                },
+                "min_bitrate": {
+                    "description": "Minimum bitrate threshold that the dynamic flow could reach in bits/s, defaults to ``MIN_BITRATE_THRESHOLD`` (``5e6`` or ``5 Mb/s``)",
+                    "type": "number"
+                },
+                "scaling_interval": {
+                    "description": "Scaling window on which the flow's bitrate will be updated in seconds, defaults to ``DEFAULT_SCALING_INTERVAL``",
+                    "type": "number"
+                },
+                "scaling_rate": {
+                    "description": "Scaling rate at which the flow's bitrate will be updated in %, defaults to ``DEFAULT_SCALING_RATE`` (``5%``))",
+                    "type": "number"
+                },
+                "analysis": {
+                    "description": "Sets latency related analysis configuration parameters",
+                    "oneOf": [
+                        {
+                            "$ref": "#/$defs/frame_loss_analysis"
+                        },
+                        {
+                            "$ref": "#/$defs/latency_loss_analysis"
+                        }
+                    ]
+                }
+            }
+        },
+        "l4s_frame_blasting": {
+            "$$target": "#/$defs/l4s_frame_blasting",
+            "title": "L4S frame blasting flow",
+            "description": "Specific parameters for L4S frame blasting flow. The ``type`` MUST be defined as ``l4s_frame_blasting``.",
+            "$$description": [
+                ".. note::",
+                "   Not supported by ByteBlower Endpoint."
+            ],
+            "type": "object",
+            "properties": {
+                "type": "l4s_frame_blasting",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "l4s_ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "initial_time_to_wait": {
+                    "type": "number",
+                    "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)."
+                },
+                "bitrate": {
+                    "type": "string",
+                    "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                },
+                "frame_size": {
+                    "type": "number",
+                    "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                },
+                "frame_rate": {
+                    "type": "number",
+                    "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                },
+                "number_of_frames": {
+                    "type": "string",
+                    "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                },
+                "udp_src": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "udp_dest": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "nat_keep_alive": {
+                    "description": "Enable a flow to keep Network Address (and Port) Translation (NAT/NAPT) entries alive. The direction will be from the endpoint behind a NAT/NAPT gateway to the port at the public side of the NAT/NAPT gateway, defaults to ``false``.\n\nWe always enable the NAT/NAPT keep alive when the user asks for it, even when:\n\n* the *reverse flow* is enabled and source and destination UDP ports are the same\n* the source is the *endpoint behind the NAT/NAPT gateway*: An *initial time to wait* on the flow can still cause the NAPT entries at the gateway might still timeout before the traffic starts. This might cause the NAPT gateway to create a new (*and maybe different!*) NAPT entry, causing our traffic analysis to fail (with 100% loss).",
+                    "type": "boolean"
+                },
+                "napt_keep_alive": {
+                    "description": ".. deprecated:: v1.1.0\n   Use ``nat_keep_alive`` instead. Will be removed in v1.3.0.",
+                    "type": "boolean"
+                },
+                "analysis": {
+                    "description": "Sets latency related analysis configuration parameters",
+                    "oneOf": [
+                        {
+                            "$ref": "#/$defs/frame_loss_analysis"
+                        },
+                        {
+                            "$ref": "#/$defs/latency_loss_analysis"
+                        }
+                    ]
+                }
+            }
+        },
+        "voice_flow": {
+            "$$target": "#/$defs/voice_flow",
+            "title": "Voice flow",
+            "description": "Specific parameters for voice flow. The ``type`` MUST be defined as ``voice``.",
+            "type": "object",
+            "properties": {
+                "type": "voice",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "udp_src": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "udp_dest": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "initial_time_to_wait": {
+                    "type": "number",
+                    "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)."
+                },
+                "number_of_frames": {
+                    "type": "string",
+                    "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                },
+                "packetization": {
+                    "description": "Packetization time of the RTP packets in milliseconds, defaults to ``none`` ",
+                    "type": "int"
+                },
+                "analysis": {
+                    "description": "Sets latency related analysis configuration parameters",
+                    "$ref": "#/$defs/mos"
+                }
+            }
+        },
+        "video_flow": {
+            "$$target": "#/$defs/video_flow",
+            "title": "Video flow",
+            "description": "Specific parameters for video flow. The ``type`` MUST be defined as ``video``.",
+            "$$description": [
+                ".. note::",
+                "   Not supported by ByteBlower Endpoint."
+            ],
+            "type": "object",
+            "properties": {
+                "type": "video",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "segment_size": {
+                    "type": "number",
+                    "description": "Size of each individual segment of data that is encoded and transmitted in bits/s, defaults to (``2 Mb``)"
+                },
+                "segment_duration": {
+                    "type": "string",
+                    "description": "Length of time that each segment of data represents in the video stream in seconds, defaults to ``2.5s``"
+                },
+                "buffering_goal": {
+                    "type": "number",
+                    "description": "The amount of video data that the playback device should be able to buffer in seconds, defaults to ``60s``"
+                },
+                "play_goal": {
+                    "type": "number",
+                    "description": "The minimum amount of video data that should be buffered before starting playback in seconds, defaults to ``5s``"
+                }
+            }
+        },
+        "gaming_flow": {
+            "$$target": "#/$defs/gaming_flow",
+            "title": "Gaming flow",
+            "description": "Specific parameters for gaming flow. The ``type`` MUST be defined as ``gaming``.",
+            "type": "object",
+            "properties": {
+                "type": "gaming",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                },
+                "packet_length": {
+                    "type": "number",
+                    "description": "Mean UDP length of the frames we are going to send, defaults to ``110``"
+                },
+                "packet_length_deviation": {
+                    "type": "number",
+                    "description": "Deviation of the frame length, defaults to ``20``"
+                },
+                "packet_length_min": {
+                    "type": "number",
+                    "description": "Minimum UDP packet length, defaults to ``22``"
+                },
+                "packet_length_max": {
+                    "type": "number",
+                    "description": "Maximum UDP packet length, defaults to ``1480``"
+                },
+                "frame_rate": {
+                    "type": "number",
+                    "description": "Packet rate at which we will send these frames, defaults to ``30``"
+                },
+                "imix_number_of_frames": {
+                    "type": "number",
+                    "description": " Add ``<x>`` frames with a length which is normally distributed, defaults to ``20``"
+                },
+                "udp_src": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to ``udp_dynamic_port``"
+                },
+                "udp_dest": {
+                    "type": "number",
+                    "description": "UDP port number in range [49152,65534] , defaults to ``udp_dynamic_port``"
+                },
+                "analysis": {
+                    "description": "Sets latency related analysis configuration parameters",
+                    "$ref": "#/$defs/latency_loss_analysis/properties/max_threshold_latency"
+                }
+            }
+        },
+        "conference_flow": {
+            "$$target": "#/$defs/conference_flow",
+            "title": "Conference flow",
+            "description": "Specific parameters for conference flow. The ``type`` MUST be defined as ``conference``.",
+            "type": "object",
+            "properties": {
+                "type": "conference",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "video": {
+                    "description": "Configuration of the simulated *Video* UDP flow",
+                    "type": "object",
+                    "properties": {
+                        "initial_time_to_wait": {
+                            "type": "number",
+                            "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)."
+                        },
+                        "bitrate": {
+                            "type": "string",
+                            "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                        },
+                        "frame_size": {
+                            "type": "number",
+                            "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                        },
+                        "frame_rate": {
+                            "type": "number",
+                            "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                        },
+                        "number_of_frames": {
+                            "type": "string",
+                            "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                        },
+                        "duration": {
+                            "type": "string",
+                            "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                        },
+                        "udp_src": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "udp_dest": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "analysis": {
+                            "description": "Sets latency related analysis configuration parameters",
+                            "oneOf": [
+                                {
+                                    "$ref": "#/$defs/frame_loss_analysis"
+                                },
+                                {
+                                    "$ref": "#/$defs/latency_loss_analysis"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "voice": {
+                    "description": "Configuration of the simulated *Voice* UDP flow",
+                    "type": "object",
+                    "properties": {
+                        "initial_time_to_wait": {
+                            "type": "number",
+                            "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)."
+                        },
+                        "bitrate": {
+                            "type": "string",
+                            "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                        },
+                        "frame_size": {
+                            "type": "number",
+                            "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                        },
+                        "frame_rate": {
+                            "type": "number",
+                            "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                        },
+                        "number_of_frames": {
+                            "type": "string",
+                            "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                        },
+                        "duration": {
+                            "type": "string",
+                            "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                        },
+                        "udp_src": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "udp_dest": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "analysis": {
+                            "description": "Sets latency related analysis configuration parameters",
+                            "$ref": "#/$defs/mos"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "screenshare": {
+                    "description": "Configuration of the simulated *Screenshare* UDP flow",
+                    "type": "object",
+                    "properties": {
+                        "initial_time_to_wait": {
+                            "type": "number",
+                            "description": " Initial time to wait to start the flow in seconds, defaults to 0 (start immediately)."
+                        },
+                        "bitrate": {
+                            "type": "string",
+                            "description": "Rate at which the bits are transmitted in bits/s. Excludes the VLAN tag bytes (*when applicable*), mutual exclusive with ``frame_rate``, defaults to ``none``"
+                        },
+                        "frame_size": {
+                            "type": "number",
+                            "description": "Frame size in Bytes without CRC, defaults to ``none``"
+                        },
+                        "frame_rate": {
+                            "type": "number",
+                            "description": "Rate at which the frames are transmitted (in frames per second), mutual exclusive with ``bitrate``, defaults to :const:`DEFAULT_FRAME_RATE` (``100``) when ``bitrate`` is not provided."
+                        },
+                        "number_of_frames": {
+                            "type": "string",
+                            "description": "Number of frames to transmit, defaults to :const:`DEFAULT_NUMBER_OF_FRAMES` (``none`` == *defined by scenario maximum run time*)."
+                        },
+                        "duration": {
+                            "type": "string",
+                            "description": "Duration of the flow in seconds, defaults to ``none`` (use ``number_of_frames`` instead)"
+                        },
+                        "udp_src": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "udp_dest": {
+                            "type": "number",
+                            "description": "UDP port number in range [49152,65534] , defaults to udp_dynamic_port"
+                        },
+                        "analysis": {
+                            "description": "Sets latency related analysis configuration parameters",
+                            "oneOf": [
+                                {
+                                    "$ref": "#/$defs/frame_loss_analysis"
+                                },
+                                {
+                                    "$ref": "#/$defs/latency_loss_analysis"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                }
+            }
+        },
+        "http_flow": {
+            "$$target": "#/$defs/http_flow",
+            "title": "HTTP flow parameters",
+            "description": "Specific parameters for HTTP flow. The ``type`` MUST be defined as ``http``.",
+            "type": "object",
+            "properties": {
+                "type": "http",
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Flow, defaults to auto-generated name when set to ``none``"
+                },
+                "source": {
+                    "description": "Specifying the source of transmitted data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the transmitting ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "destination": {
+                    "description": "Specifying the destination for receiving data for this flow",
+                    "type": "object",
+                    "properties": {
+                        "port_group": {
+                            "description": "List of port groups specifying the receiving ports",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/port_group"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "ecn": {
+                    "title": "IP ECN",
+                    "description": "Explicit Congestion Notification code point, defaults to :const:`DEFAULT_IP_ECN` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "dscp": {
+                    "title": "IP DSCP",
+                    "description": "Differentiated Services Code Point, defaults to :const:`DEFAULT_IP_DSCP` (``0x00``)",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "tcp_server_port": {
+                    "type": "number",
+                    "description": "Port number of the TCP server, defaults to ``none``"
+                },
+                "tcp_client_port": {
+                    "type": "number",
+                    "description": "Port number of the TCP client, defaults to ``none``"
+                },
+                "duration": {
+                    "type": "number",
+                    "description": "The time it takes for a TCP request to be completed , mutual exclusive with ``request_size``,  defaults to ``none``"
+                },
+                "request_size": {
+                    "type": "number",
+                    "description": "The size of the TCP request packet in bytes, mutual exclusive with ``duration``, defaults to ``none``"
+                },
+                "rate_limit": {
+                    "type": "number",
+                    "description": "Limit the data traffic rate (in Bytes per second), defaults to ``none`` (== *no limit*).",
+                    "$$description": [
+                        "Mutual exclusive with ``maximum_bitrate``",
+                        "",
+                        ".. deprecated:: 1.1.0",
+                        "   Deprecated ``rate_limit`` in favor of ``maximum_bitrate``.",
+                        "   Will be removed in the next release."
+                    ]
+                },
+                "maximum_bitrate": {
+                    "type": "number",
+                    "description": "Limit the data traffic rate (in bits per second), defaults to ``none`` (== *no limit*).",
+                    "$$description": [
+                        "Mutual exclusive with ``rate_limit``",
+                        "",
+                        ".. versionadded:: 1.1.0",
+                        "   Added ``maximum_bitrate`` deprecating ``rate_limit``."
+                    ]
+                },
+                "receive_window_scaling": {
+                    "type": "number",
+                    "description": "When given, enable receive window scaling with the given scale factor , defaults to ``none``",
+                    "$$description": [
+                        "When ByteBlower Endpoints are involved, this setting will not be",
+                        "applied on them, but only on the HTTP Server on the ByteBlower Port.",
+                        "The ByteBlower Endpoint has no control over the TCP parameters of",
+                        "the host operating system's. It is then up to the Endpoint's host",
+                        "configuration whether this setting will be applicable or not."
+                    ]
+                },
+                "slow_start_threshold": {
+                    "type": "number",
+                    "description": "TCP Slow start threshold value, defaults to ``none``",
+                    "$$description": [
+                        "When ByteBlower Endpoints are involved, this setting will not be",
+                        "applied on them, but only on the HTTP Server on the ByteBlower Port.",
+                        "The ByteBlower Endpoint has no control over the TCP parameters of",
+                        "the host operating system's. It is then up to the Endpoint's host",
+                        "configuration whether this setting will be applicable or not."
+                    ]
+                },
+                "add_reverse_direction": {
+                    "type": "string",
+                    "description": "Enables adding a flow in the reverse direction of the original flow with the same configuration, defaults to ``false``"
+                }
+            }
+        },
+        "frame_loss_analysis": {
+            "$$target": "#/$defs/frame_loss_analysis",
+            "title": "Frame loss analysis parameters",
+            "description": "Specific frame loss analysis related parameters",
+            "type": "object",
+            "properties": {
+                "max_loss_percentage": {
+                    "type": "number",
+                    "description": "Maximum allowed frame/byte loss in %, defaults to :const:`DEFAULT_LOSS_PERCENTAGE` (``1.0``)"
+                }
+            }
+        },
+        "latency_loss_analysis": {
+            "$$target": "#/$defs/latency_loss_analysis",
+            "title": "Latency & frame loss analysis parameters",
+            "description": "Specific latency & frame loss analysis related parameters",
+            "type": "object",
+            "properties": {
+                "latency": {
+                    "type": "bool",
+                    "description": "Set to ``true`` to enable latency analysis (latency statistics over time, distribution, CDF, CCDF, ...), mutual exclusive with ``l4s`` and ``mos``, defaults to ``false``"
+                },
+                "max_loss_percentage": {
+                    "type": "number",
+                    "description": "Maximum allowed frame/byte loss in %, defaults to :const:`DEFAULT_LOSS_PERCENTAGE` (``1.0``)"
+                },
+                "max_threshold_latency": {
+                    "type": "number",
+                    "title": "Maximum threshold latency",
+                    "description": "Maximum allowed latency in milliseconds, defaults to :const:`DEFAULT_MAX_LATENCY_THRESHOLD` (``5.0``)"
+                },
+                "quantile": {
+                    "type": "number",
+                    "description": "Quantile for which the latency must be less than the given maximum latency, defaults to :const:`DEFAULT_QUANTILE` (``99.9``)"
+                },
+                "min_percentile": {
+                    "type": "number",
+                    "description": "Lowest percentile boundary of outliers latencies (all latencies < min_percentile are considered as outliers), defaults to :const:`MIN_PERCENTILE` (10th percentile)"
+                },
+                "max_percentile": {
+                    "type": "number",
+                    "description": "Highest percentile boundary of outliers latencies (all latencies > max_percentile are considered as outliers), defaults to :const:`MAX_PERCENTILE` (90th percentile)"
+                }
+            }
+        },
+        "l4s": {
+            "$$target": "#/$defs/l4s",
+            "title": "L4S markings analysis",
+            "description": "Enables L4S markings analysis based on the ECN codepoint",
+            "$$description": [
+                ".. note::",
+                "   Not supported by ByteBlower Endpoint."
+            ],
+            "type": "object",
+            "properties": {
+                "l4s": {
+                    "type": "string",
+                    "description": "When set, specifies the type of L4S markings to analyse, mutual exclusive with ``latency`` and ``mos``. Could only be set to: ``congestion`` or ``marking``, defaults to ``none``"
+                }
+            }
+        },
+        "mos": {
+            "$$target": "#/$defs/mos",
+            "title": "Mean Opinion Score (MOS) analysis",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "mos": {
+                    "type": "bool",
+                    "description": "Enables calculating Mean Opinion Score (MOS) to indicate the quality of the voice flow, mutual exclusive with ``latency`` and ``l4s``, defaults to ``False``"
+                }
+            }
+        }
+    }
+}
