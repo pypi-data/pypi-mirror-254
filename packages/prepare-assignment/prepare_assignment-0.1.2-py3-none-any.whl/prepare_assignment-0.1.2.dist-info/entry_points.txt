@@ -1,0 +1,3 @@
+[console_scripts]
+prepare=prepare_assignment.cli.main:app
+
