@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pytest-aws-fixtures
+Version: 1.0.0
+Summary: A series of fixtures to use in integration tests involving actual AWS services.
+Home-page: https://gitlab.com/munipal-oss/pytest-aws-fixtures
+License: MIT
+Author: Ryan Causey
+Author-email: ryan.causey@munipal.io
+Requires-Python: >=3.9,<4.0
+Classifier: Framework :: Pytest
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: boto3 (>=1.34.0,<2.0.0)
+Requires-Dist: pytest (>=8.0.0,<9.0.0)
+Requires-Dist: tenacity (>=8.2.3,<9.0.0)
+Project-URL: Repository, https://gitlab.com/munipal-oss/pytest-aws-fixtures
+Description-Content-Type: text/markdown
+
+# Pytest AWS fixtures
+
+This is a collection of fixtures we've been using to perform integration tests using
+real AWS services.
+
+Usage of any of these fixture requires that the credentials be configured for boto3 via
+one of the following documented methods that does not involve setting the credentials on
+the client or session objects:
+
+https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html
+
+The fixtures themselves are heavily documented so please view their docstrings for more
+information on their usage.
+
