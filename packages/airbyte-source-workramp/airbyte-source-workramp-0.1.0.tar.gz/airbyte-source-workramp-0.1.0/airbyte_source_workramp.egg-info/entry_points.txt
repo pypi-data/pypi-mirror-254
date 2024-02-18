@@ -1,0 +1,2 @@
+[console_scripts]
+source-workramp = source_workramp.run:run
