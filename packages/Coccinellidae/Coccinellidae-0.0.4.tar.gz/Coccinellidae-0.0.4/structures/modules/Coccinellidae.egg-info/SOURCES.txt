@@ -1,0 +1,11 @@
+license.txt
+pyproject.toml
+structures/modules/Coccinellidae/__init__.py
+structures/modules/Coccinellidae/status_1.py
+structures/modules/Coccinellidae.egg-info/PKG-INFO
+structures/modules/Coccinellidae.egg-info/SOURCES.txt
+structures/modules/Coccinellidae.egg-info/dependency_links.txt
+structures/modules/Coccinellidae.egg-info/top_level.txt
+structures/modules/Coccinellidae/_clique/__init__.py
+structures/modules/Coccinellidae/_clique/group/__init__.py
+structures/modules/Coccinellidae/_status/status.proc.py
