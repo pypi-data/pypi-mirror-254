@@ -1,0 +1,80 @@
+# XlDemerge
+
+XlDemerge is a Python library designed to facilitate working with Excel files by offering utilities to unmerge cells and manipulate data using `openpyxl`, `pandas`, and `numpy`. It provides a set of functions that allow users to unmerge cells in Excel sheets, either entirely, by rows, or by columns, and then process the data into a pandas DataFrame for further analysis or manipulation.
+
+## Installation
+
+To install XlDemerge, simply use pip:
+
+```bash
+pip install XlDemerge
+```
+
+## Dependencies
+
+XlDemerge requires the following Python libraries:
+- openpyxl==3.1.2
+- pandas==1.5.3
+- numpy==1.23.5
+
+Ensure these are installed in your environment to use XlDemerge effectively.
+
+## Usage
+
+Here are some examples of how to use XlDemerge:
+
+### Unmerging All Cells in a Sheet
+
+```python
+from XlDemerge import cell_unmerge
+
+# Path to your Excel file and the sheet name
+file_path = "path/to/your/excel.xlsx"
+sheet_name = "Sheet1"
+
+# Unmerge all cells and get data as a pandas DataFrame
+df = cell_unmerge(file_path, sheet_name)
+print(df)
+```
+
+### Unmerging Rows Only
+
+```python
+from XlDemerge import rows_unmerge
+
+df = rows_unmerge(file_path, sheet_name)
+print(df)
+```
+
+### Unmerging Columns Only
+
+```python
+from XlDemerge import columns_unmerge
+
+df = columns_unmerge(file_path, sheet_name)
+print(df)
+```
+
+### Getting a List of Merged Cell Ranges
+
+```python
+from XlDemerge import merged_cell_range
+
+merged_ranges = merged_cell_range(file_path, sheet_name)
+print(merged_ranges)
+```
+
+## Features
+
+- Unmerge cells in an Excel sheet and fill with the original top-left value.
+- Support for unmerging by rows, columns, or all merged cells.
+- Conversion of Excel data to pandas DataFrame post-unmerge.
+- Identification of merged cell ranges in a sheet.
+
+## Acknowledgments
+
+- Thanks to the creators and contributors of openpyxl, pandas, and numpy for their amazing libraries that made this project possible.
+
+## Contact Information
+
+For help or inquiries about XlDemerge, reach out to (pyclique.1206@gmail.com).
