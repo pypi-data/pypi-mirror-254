@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ecoindex_cli
+Version: 2.24.0
+Summary: `ecoindex-cli` is a CLI tool that let you make ecoindex tests on given pages
+Home-page: http://www.ecoindex.fr
+License: Creative Commons BY-NC-ND
+Author: Vincent Vatelot
+Author-email: vincent.vatelot@ik.me
+Requires-Python: >=3.10,<3.13
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aiofile (>=3.8.8,<4.0.0)
+Requires-Dist: click-spinner (>=0.1.10,<0.2.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: matplotlib (>=3.8.0,<4.0.0)
+Requires-Dist: pandas (>=2.1.2,<3.0.0)
+Requires-Dist: playwright (>=1.39.0,<2.0.0)
+Requires-Dist: playwright-stealth (>=1.0.6,<2.0.0)
+Requires-Dist: pydantic (>=2.4.2,<3.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: rich (>=13.6.0,<14.0.0)
+Requires-Dist: scrapy (>=2.11.0,<3.0.0)
+Requires-Dist: typer (>=0.9.0,<0.10.0)
+Project-URL: Repository, https://github.com/cnumr/ecoindex_cli
