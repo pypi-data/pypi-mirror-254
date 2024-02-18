@@ -1,0 +1,13 @@
+{
+  "versions": ["0.2"],
+  "name": "Open Funder Registry Reconciliation Service",
+  "view": {
+    "url": "{+id}"
+  },
+  "defaultTypes": [
+    {
+      "id": "/fundref/funder_name",
+      "name": "Open Funder ID"
+    }
+  ]
+}

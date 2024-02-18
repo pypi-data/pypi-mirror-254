@@ -1,0 +1,7 @@
+{
+    "versions": ["0.1"],
+    "name": "VIAF",
+    "view": {
+        "url": "https://viaf.org/viaf/{id}"
+    }
+}
