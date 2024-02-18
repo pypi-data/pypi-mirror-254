@@ -1,0 +1,3 @@
+[console_scripts]
+pandas-cli=pandas_cli.__main__:cli
+
