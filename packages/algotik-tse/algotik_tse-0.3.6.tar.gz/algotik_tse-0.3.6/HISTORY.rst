@@ -1,0 +1,40 @@
+=======
+History
+=======
+
+0.2.8 (2023-12-17)
+------------------
+
+* First release on PyPI.
+
+
+0.2.9 (2023-12-18)
+------------------
+* Second release on PyPI.
+* fix bug in returns
+
+
+0.3.2 (2024-01-05)
+------------------
+* Third release on PyPI.
+* Add Shareholders
+
+0.3.3 (2024-01-05)
+------------------
+* Third release on PyPI.
+* Fix bug in change_amount of shareholders
+
+0.3.4 (2024-01-11)
+------------------
+* Fourth release on PyPI.
+* Add Capital Increase in simple method
+
+0.3.5 (2024-01-18)
+------------------
+* Fifth release on PyPI.
+* Add stock information in beta phase.
+
+0.3.6 (2024-02-02)
+------------------
+* sixth release on PyPI.
+* Add stock statistics in beta phase.
