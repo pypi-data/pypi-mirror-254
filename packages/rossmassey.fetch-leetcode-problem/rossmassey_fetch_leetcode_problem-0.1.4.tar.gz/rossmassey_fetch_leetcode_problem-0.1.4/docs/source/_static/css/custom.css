@@ -1,0 +1,9 @@
+/* Change inline code formatting */
+code.literal {
+    font-weight: bold;
+}
+
+/* Add extra space to scroll at bottom */
+div.wy-nav-content {
+    padding-bottom: 500px;
+}
