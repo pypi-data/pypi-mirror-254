@@ -1,0 +1,2 @@
+[console_scripts]
+source-twilio-taskrouter = source_twilio_taskrouter.run:run
