@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ofdc-tollkit"
+version = "0.1.3"
+description = "Kit de ferramentas Ofdc"
+authors = ["Isaac da Silva Farias <adm.mis@oficinadecredito.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^1.3.3"
+psycopg2 = "^2.9.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
