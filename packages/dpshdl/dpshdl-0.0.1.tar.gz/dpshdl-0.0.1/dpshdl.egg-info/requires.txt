@@ -1,0 +1,11 @@
+numpy
+Pillow
+
+[dev]
+black
+darglint
+mypy
+pytest
+ruff
+types-Pillow
+types-requests

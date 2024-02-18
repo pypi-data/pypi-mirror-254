@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: dpshdl
+Version: 0.0.1
+Summary: Framework-agnostic library for loading data
+Home-page: https://github.com/dpshai/dpshdl
+Author: Benjamin Bolte
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: darglint; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: types-Pillow; extra == "dev"
+Requires-Dist: types-requests; extra == "dev"
+
+# dpshdl
+
+A framework-agnostic library for loading data.
+
+## Installation
+
+```bash
+pip install dpshdl
+```
+
+## Usage
+
+Datasets should override a single method, `next`, which returns a single sample.
+
+```python
+import dpshdl as dl
+import numpy as np
+
+class MyDataset(dl.Dataset[np.ndarray]):
+    def next(self) -> np.ndarray:
+        return np.random.rand(10)
+
+loader = dl.Dataloader(MyDataset(), batch_size=2)
+
+# Loops forever.
+for sample in loader:
+    print(sample)
+```
