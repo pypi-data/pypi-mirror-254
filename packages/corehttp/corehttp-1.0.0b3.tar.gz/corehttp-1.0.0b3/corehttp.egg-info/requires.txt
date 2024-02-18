@@ -1,0 +1,10 @@
+typing-extensions>=4.6.0
+
+[aiohttp]
+aiohttp>=3.0
+
+[httpx]
+httpx>=0.25.0
+
+[requests]
+requests>=2.18.4
