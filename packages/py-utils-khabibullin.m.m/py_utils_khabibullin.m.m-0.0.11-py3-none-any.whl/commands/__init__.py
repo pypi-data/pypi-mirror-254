@@ -1,0 +1,19 @@
+import argparse
+
+from commands.list_command import list_commands
+
+
+def main():
+  parser = argparse.ArgumentParser(
+    prog="commands",
+    description="",
+  )
+
+  parser.add_argument("-l", "--list", action="store_false")
+
+  args = parser.parse_args()
+
+  if args.list == True:
+    list_commands()
+
+  print(f"No command was found for the arguments: {args._get_args()}")
