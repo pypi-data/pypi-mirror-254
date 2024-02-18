@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+bin/sideways
+sideways/__init__.py
+sideways/sideways.py
+sideways/splitstream.py
+sideways.egg-info/PKG-INFO
+sideways.egg-info/SOURCES.txt
+sideways.egg-info/dependency_links.txt
+sideways.egg-info/requires.txt
+sideways.egg-info/top_level.txt
