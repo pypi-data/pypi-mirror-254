@@ -1,0 +1,12 @@
+dash>=2.0
+
+[dependencies]
+dash>=2.0
+
+[tests]
+bandit
+black<24,>=22.12
+dash[testing]
+flask<2.3
+pylint
+selenium<=4.2.0,>=3.141.0
