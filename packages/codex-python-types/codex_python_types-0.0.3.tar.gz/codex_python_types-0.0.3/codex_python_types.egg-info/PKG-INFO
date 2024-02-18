@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: codex-python-types
+Version: 0.0.3
+Requires-Dist: annotated-types==0.6.0
+Requires-Dist: pydantic==2.6.0
+Requires-Dist: pydantic_core==2.16.1
+Requires-Dist: typing_extensions==4.9.0
