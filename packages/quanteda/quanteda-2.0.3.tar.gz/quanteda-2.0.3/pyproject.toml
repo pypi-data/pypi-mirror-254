@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "quanteda"
+version = "2.0.3"
+description = "Perform exploratory data analysis (EDA) on quantitative data."
+authors = ["Doris (Yun Yi) Cai, Jake Barnabe, John Shiu, Merete Lutz"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "2.1.4"
+altair = "5.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.4.4"
+pytest-cov = "^4.1.0"
+jupyter = "^1.0.0"
+myst-nb = {version = "^1.0.0", python = "^3.9"}
+sphinx-autoapi = "^3.0.0"
+sphinx-rtd-theme = "^2.0.0"
+ipykernel = "^6.29.0"
+openpyxl = "^3.1.2"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+] # version location
+branch = "main"                             # branch to make releases of
+changelog_file = "CHANGELOG.md"             # changelog file
+build_command = "pip install poetry && poetry build"              # build dists
+#upload_to_release = true                    # auto-create GitHub release
+#upload_to_pypi = true                      # don't auto-upload to PyPI
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
