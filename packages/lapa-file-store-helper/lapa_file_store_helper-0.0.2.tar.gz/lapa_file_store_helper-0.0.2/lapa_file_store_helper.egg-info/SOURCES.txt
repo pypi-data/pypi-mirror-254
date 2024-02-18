@@ -1,0 +1,11 @@
+README.md
+setup.py
+lapa_file_store_helper/__init__.py
+lapa_file_store_helper/configuration.py
+lapa_file_store_helper/main.py
+lapa_file_store_helper.egg-info/PKG-INFO
+lapa_file_store_helper.egg-info/SOURCES.txt
+lapa_file_store_helper.egg-info/dependency_links.txt
+lapa_file_store_helper.egg-info/requires.txt
+lapa_file_store_helper.egg-info/top_level.txt
+lapa_file_store_helper/data/config.ini
