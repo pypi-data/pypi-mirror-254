@@ -1,0 +1,5 @@
+PyYAML<7,>=6.0
+unicode-rbnf==1.0.0
+
+[:python_version<"3.9"]
+importlib_resources
