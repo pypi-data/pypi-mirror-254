@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+version = "1.0.2"
+name = "VUnit-helpers"
+description = "Common tools and helpers to simplify the VUnit run scripts"
+authors = [
+  { name="Markus Leiter", email="leiter@p2l2.com" },
+]
+license = {file="LICENCE"}
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+]
+keywords = ["VUnit", "unit testing"]
+dependencies = [
+    "pathlib",
+    "glob2",
+    "toml>=0.10.2"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/p2l2/VUnit-helpers"
+"Bug Tracker" = "https://github.com/p2l2/VUnit-helpers/issues"
