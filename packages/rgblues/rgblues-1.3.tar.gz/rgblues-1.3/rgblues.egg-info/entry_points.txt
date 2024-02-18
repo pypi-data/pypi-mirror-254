@@ -1,0 +1,2 @@
+[console_scripts]
+rgblues = rgblues.__main__:main
