@@ -1,0 +1,29 @@
+Horizontal {
+    height: auto;
+
+    Input {
+        width: 3fr;
+    }
+
+    Select {
+        width: 1fr;
+    }
+}
+
+SelectionList {
+    height: 1fr;
+}
+
+ModalScreen {
+    align: center middle;
+}
+
+ListView {
+    width: 75%;
+    height: auto;
+    margin: 2 2;
+}
+
+Label {
+    padding: 1 2;
+}
