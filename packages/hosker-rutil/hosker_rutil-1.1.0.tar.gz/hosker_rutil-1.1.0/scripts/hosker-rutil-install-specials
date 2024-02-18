@@ -1,0 +1,27 @@
+#!/bin/python3
+
+"""
+This code defines a script which:
+    (1) Installs Cargo, which includes Rust.
+    (2) Compiles the necessary executables from Rust source code.
+"""
+
+# Non-standard imports.
+from hosker_utils import install_apt_package
+
+# Custom imports.
+from hosker_rutil.rust_utils import compile_rust_packages
+
+##############
+# RUN SCRIPT #
+##############
+
+def run():
+    """ Run this file. """
+    if install_apt_package("cargo"):
+        return compile_rust_packages()
+    print("There was a problem installing cargo. Abort mission.")
+    return False
+
+if __name__ == "__main__":
+    run()
