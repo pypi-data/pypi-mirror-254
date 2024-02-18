@@ -1,0 +1,77 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch ESBMC-AI on Open File",
+      "type": "python",
+      "request": "launch",
+      "module": "esbmc_ai",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "${file}"
+      ]
+    },
+    {
+      "name": "Fix Code on Open File",
+      "type": "python",
+      "request": "launch",
+      "module": "esbmc_ai",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "-c",
+        "fix-code",
+        "-v",
+        "${file}"
+      ]
+    },
+    {
+      "name": "Optimize Code on Open File",
+      "type": "python",
+      "request": "launch",
+      "module": "esbmc_ai",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "-c",
+        "optimize-code",
+        "${file}"
+      ]
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Run tests",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "-v"
+      ]
+    },
+    {
+      "name": "Run coverage tests",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "-v",
+        "--cov"
+      ]
+    }
+  ]
+}
