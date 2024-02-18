@@ -1,0 +1,2 @@
+[console_scripts]
+agentlego-server = agentlego.server.server:cli
