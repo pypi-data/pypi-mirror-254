@@ -1,0 +1,26 @@
+{#
+  Define a BGP neighbor
+#}
+{% macro neighbor(n,ip,bgp) %}
+!
+  neighbor {{ ip }} remote-as {{ n.as }}
+  neighbor {{ ip }} description {{ n.name }}
+{%     if n.local_as is defined %}
+  neighbor {{ ip }} local-as {{ n.local_as }} no-prepend replace-as
+{%     endif %}
+{%     if n.type == 'ibgp' %}
+  neighbor {{ ip }} update-source Loopback0
+{%     endif %}
+{%     if n.type == 'localas_ibgp' %}
+  neighbor {{ ip }} next-hop-peer
+{%     endif %}
+{%     if 'ibgp' in n.type %}
+{%       if bgp.rr|default('') and not n.rr|default('') %}
+  neighbor {{ ip }} route-reflector-client
+{%       endif %}
+{%     endif %}
+{%     if n.type in bgp.community|default({}) %}
+  neighbor {{ ip }} send-community {% 
+    for ckw in bgp._cprop_order if ckw in bgp.community[n.type] %}{{ ckw }} {% endfor %}
+{%     endif %}
+{%- endmacro %}
