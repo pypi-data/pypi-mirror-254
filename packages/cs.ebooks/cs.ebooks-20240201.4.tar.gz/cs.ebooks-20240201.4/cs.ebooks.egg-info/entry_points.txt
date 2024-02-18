@@ -1,0 +1,2 @@
+[console_scripts]
+ebooks = cs.ebooks.__main__:main
