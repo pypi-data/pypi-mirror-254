@@ -1,0 +1,23 @@
+[project]
+name = "impo"
+version = "1.1.1"
+authors = [
+  { name="PyKeys", email="py-keys@hotmail.com" },
+]
+description = " check if imported or if number name"
+readme = "README.md"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Issues = "https://github.com/PyKeys/impo/issues"
+Twitter = "https://twitter.com/py_keys"
+PythonDiscord = "https://discord.gg/python"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
