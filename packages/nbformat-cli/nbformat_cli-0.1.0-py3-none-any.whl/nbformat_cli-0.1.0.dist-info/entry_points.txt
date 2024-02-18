@@ -1,0 +1,3 @@
+[console_scripts]
+nbformat-cli=nbformat_cli.__main__:cli
+
