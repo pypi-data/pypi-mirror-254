@@ -1,0 +1,444 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-7.2.0, pluggy-1.0.0
+rootdir: /home/spirali/projects/nelsie, configfile: pytest.ini
+plugins: anyio-3.6.2
+collected 34 items / 33 deselected / 1 selected
+
+tests/test_layout.py F                                                   [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_layout_padding ______________________________
+
+new_dir = '/tmp/pytest-of-spirali/pytest-18/test_layout_padding0/layout_padding'
+old_dir = '/home/spirali/projects/nelsie/tests/checks/layout_padding'
+n_slides = 1, threshold = 0.001
+
+    def compare_images(new_dir, old_dir, n_slides, threshold):
+        new_names = os.listdir(new_dir)
+        new_names.sort()
+        if len(new_names) != n_slides:
+            raise Exception(f"Expected to produce {n_slides} but {len(new_names)} produced")
+        try:
+>           old_names = os.listdir(old_dir)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/spirali/projects/nelsie/tests/checks/layout_padding'
+
+tests/testutils.py:34: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-spirali/pytest-18/test_layout_padding0')
+deck = <nelsie.slidedeck.SlideDeck object at 0x7fc1fd8c9420>, args = ()
+kwargs = {}
+f = <_io.TextIOWrapper name='/tmp/pytest-of-spirali/pytest-18/test_layout_padding0/check.txt' mode='w' encoding='UTF-8'>
+
+    def helper(tmp_path, deck, *args, **kwargs):
+        with change_workdir(tmp_path):
+            fn(deck)
+            if error is not None:
+                with pytest.raises(error, match=error_match):
+                    deck.render(output_png=name)
+            else:
+                deck.render(output_png=name)
+                with open(os.path.join(tmp_path, "check.txt"), "w") as f:
+                    f.write(name)
+>               compare_images(
+                    os.path.join(tmp_path, name),
+                    os.path.join(CHECKS_DIR, name),
+                    n_slides,
+                    threshold=0.001,
+                )
+
+tests/testutils.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+new_dir = '/tmp/pytest-of-spirali/pytest-18/test_layout_padding0/layout_padding'
+old_dir = '/home/spirali/projects/nelsie/tests/checks/layout_padding'
+n_slides = 1, threshold = 0.001
+
+    def compare_images(new_dir, old_dir, n_slides, threshold):
+        new_names = os.listdir(new_dir)
+        new_names.sort()
+        if len(new_names) != n_slides:
+            raise Exception(f"Expected to produce {n_slides} but {len(new_names)} produced")
+        try:
+            old_names = os.listdir(old_dir)
+        except FileNotFoundError:
+>           raise Exception(f"Checks {old_dir} does not exists")
+E           Exception: Checks /home/spirali/projects/nelsie/tests/checks/layout_padding does not exists
+
+tests/testutils.py:36: Exception
+----------------------------- Captured stdout call -----------------------------
+XXX 0
+XXX 0
+XXX 0
+{
+  "slides": [
+    {
+      "width": 150,
+      "height": 150,
+      "n_steps": 1,
+      "node": {
+        "node_id": 1,
+        "name": "",
+        "debug_layout": null,
+        "x": {
+          "const": null
+        },
+        "y": {
+          "const": null
+        },
+        "z_level": {
+          "const": 0
+        },
+        "width": {
+          "const": {
+            "value": 150.0,
+            "type": "points"
+          }
+        },
+        "height": {
+          "const": {
+            "value": 150.0,
+            "type": "points"
+          }
+        },
+        "padding_left": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "padding_right": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "padding_top": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "padding_bottom": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "margin_left": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "margin_right": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "margin_top": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "margin_bottom": {
+          "const": {
+            "value": 0.0,
+            "type": "points"
+          }
+        },
+        "show": {
+          "const": true
+        },
+        "row": {
+          "const": false
+        },
+        "reverse": {
+          "const": false
+        },
+        "bg_color": {
+          "const": "white"
+        },
+        "content": {
+          "const": null
+        },
+        "children": [
+          {
+            "node_id": 2,
+            "name": "",
+            "debug_layout": null,
+            "x": {
+              "const": null
+            },
+            "y": {
+              "const": null
+            },
+            "z_level": {
+              "const": 0
+            },
+            "width": {
+              "const": null
+            },
+            "height": {
+              "const": null
+            },
+            "padding_left": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "padding_right": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "padding_top": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "padding_bottom": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "margin_left": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "margin_right": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "margin_top": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "margin_bottom": {
+              "const": {
+                "value": 0.0,
+                "type": "points"
+              }
+            },
+            "show": {
+              "const": true
+            },
+            "row": {
+              "const": false
+            },
+            "reverse": {
+              "const": false
+            },
+            "bg_color": {
+              "const": "gray"
+            },
+            "content": {
+              "const": null
+            },
+            "children": [
+              {
+                "node_id": 3,
+                "name": "",
+                "debug_layout": null,
+                "x": {
+                  "const": null
+                },
+                "y": {
+                  "const": null
+                },
+                "z_level": {
+                  "const": 0
+                },
+                "width": {
+                  "const": {
+                    "value": 15.0,
+                    "type": "points"
+                  }
+                },
+                "height": {
+                  "const": {
+                    "value": 15.0,
+                    "type": "points"
+                  }
+                },
+                "padding_left": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "padding_right": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "padding_top": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "padding_bottom": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "margin_left": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "margin_right": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "margin_top": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "margin_bottom": {
+                  "const": {
+                    "value": 0.0,
+                    "type": "points"
+                  }
+                },
+                "show": {
+                  "const": true
+                },
+                "row": {
+                  "const": false
+                },
+                "reverse": {
+                  "const": false
+                },
+                "bg_color": {
+                  "const": "red"
+                },
+                "content": {
+                  "const": null
+                },
+                "children": [],
+                "type": "node"
+              }
+            ],
+            "type": "node"
+          }
+        ],
+        "type": "node"
+      }
+    }
+  ]
+}
+Building slides ...
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+
+... done
+Building slides ...
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+[src/render/layout.rs:180] &padding = Rect {
+    left: Points(
+        0.0,
+    ),
+    right: Points(
+        0.0,
+    ),
+    top: Points(
+        0.0,
+    ),
+    bottom: Points(
+        0.0,
+    ),
+}
+
+... done
+=========================== short test summary info ============================
+FAILED tests/test_layout.py::test_layout_padding - Exception: Checks /home/sp...
+======================= 1 failed, 33 deselected in 0.35s =======================
