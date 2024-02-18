@@ -1,0 +1,133 @@
+[
+    {
+        "rootId": "r-w3ow",
+        "masterAccountId": "029921763173",
+        "noOutAccounts": [
+            {
+                "account": "904985504252",
+                "name": "ClowPiloto"
+            },
+            {
+                "account": "029921763173",
+                "name": "LabVel"
+            },
+            {
+                "account": "571340586587",
+                "name": "Dev"
+            }
+        ],
+        "organizationalUnits": {
+            "Sandbox": {
+                "Id": "ou-w3ow-1sumtdvp",
+                "Name": "Sandbox",
+                "accounts": {},
+                "nestedOus": {}
+            },
+            "Security": {
+                "Id": "ou-w3ow-oqvta8tc",
+                "Name": "Security",
+                "accounts": {
+                    "SecOps": {
+                        "account": "835863553119",
+                        "name": "SecOps"
+                    },
+                    "OrganizationManager": {
+                        "account": "837696987585",
+                        "name": "OrganizationManager"
+                    }
+                },
+                "nestedOus": {}
+            },
+            "Workloads": {
+                "Id": "ou-w3ow-1lpmyfug",
+                "Name": "Workloads",
+                "accounts": {},
+                "nestedOus": {
+                    "BU-Lab": {
+                        "Id": "ou-w3ow-qa633svy",
+                        "Name": "BU-Lab",
+                        "accounts": [],
+                        "nestedOus": {}
+                    },
+                    "Prod": {
+                        "Id": "ou-w3ow-4sdr4ejy",
+                        "Name": "Prod",
+                        "accounts": [],
+                        "nestedOus": {}
+                    },
+                    "SDLC": {
+                        "Id": "ou-w3ow-vop5vccd",
+                        "Name": "SDLC",
+                        "accounts": [],
+                        "nestedOus": {}
+                    }
+                }
+            },
+            "Dev": {
+                "Id": "ou-w3ow-k24p2opx",
+                "Name": "Dev",
+                "accounts": {},
+                "nestedOus": {}
+            },
+            "DevSecOps": {
+                "Id": "ou-w3ow-b334bby6",
+                "Name": "DevSecOps",
+                "accounts": {
+                    "DevSecOps": {
+                        "account": "105171185823",
+                        "name": "DevSecOps"
+                    }
+                },
+                "nestedOus": {}
+            },
+            "Core": {
+                "Id": "ou-w3ow-93hiq3zr",
+                "Name": "Core",
+                "accounts": {
+                    "Log archive": {
+                        "account": "884478634998",
+                        "name": "Log archive"
+                    },
+                    "SecurityTooling": {
+                        "account": "895882538541",
+                        "name": "SecurityTooling"
+                    }
+                },
+                "nestedOus": {}
+            },
+            "Policy Staging": {
+                "Id": "ou-w3ow-18verpsm",
+                "Name": "Policy Staging",
+                "accounts": {},
+                "nestedOus": {}
+            },
+            "Suspended": {
+                "Id": "ou-w3ow-7vunsbkd",
+                "Name": "Suspended",
+                "accounts": {},
+                "nestedOus": {}
+            },
+            "Shared": {
+                "Id": "ou-w3ow-w7dzhzcz",
+                "Name": "Shared",
+                "accounts": {},
+                "nestedOus": {}
+            },
+            "Infrastructure": {
+                "Id": "ou-w3ow-9q06w8rz",
+                "Name": "Infrastructure",
+                "accounts": {
+                    "Ops": {
+                        "account": "994261317734",
+                        "name": "Ops"
+                    },
+                    "SharedServices": {
+                        "account": "155794986228",
+                        "name": "SharedServices"
+                    }
+                },
+                "nestedOus": {}
+            }
+        }
+    }
+]
