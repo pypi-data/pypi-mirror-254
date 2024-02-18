@@ -1,0 +1,3 @@
+[console_scripts]
+fhir_converter_cli=fhir_converter.__main__:entrypoint
+
