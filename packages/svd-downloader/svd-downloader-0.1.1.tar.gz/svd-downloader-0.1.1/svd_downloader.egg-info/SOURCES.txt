@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+svd_downloader/__main__.py
+svd_downloader/downloader.py
+svd_downloader.egg-info/PKG-INFO
+svd_downloader.egg-info/SOURCES.txt
+svd_downloader.egg-info/dependency_links.txt
+svd_downloader.egg-info/requires.txt
+svd_downloader.egg-info/top_level.txt
