@@ -1,0 +1,110 @@
+[project]
+name = "cs.ffmpegutils"
+description = "Convenience facilities for using FFmpeg (ffmpeg.org), with invocation via `ffmpeg-python`."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python3",
+]
+dependencies = [
+    "cs.dockerutils>=20240201",
+    "cs.fstags>=20240201",
+    "cs.lex>=20231018",
+    "cs.logutils>=20230212",
+    "cs.mappings>=20231129",
+    "cs.pfx>=20230604",
+    "cs.psutils>=20231129",
+    "cs.tagset>=20240201",
+    "ffmpeg-python",
+    "typeguard",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20240201"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+Convenience facilities for using FFmpeg (ffmpeg.org),
+with invocation via `ffmpeg-python`.
+
+*Latest release 20240201*:
+* New $FFMPEG_EXE envvar.
+* convert: use $FFMPEG_EXE, return the ffmpeg argv.
+* convert: include the media type in DEFAULT_CONVERSIONS, refactor the choice of codec conversion.
+* convert: supply dummy results if doit is false - could do with some finesse.
+* ffmpeg_docker: use DockerRun.{add_input,add_output}.
+* New main_ffmpeg_docker to support the ffmpeg-docker command, add ffmpeg-docker to DISTINFO scripts.
+
+## Class `ConversionSource(builtins.tuple)`
+
+ConversionSource(src, srcfmt, start_s, end_s)
+
+*Method `ConversionSource.__new__(_cls, src, srcfmt, start_s, end_s)`*:
+Create new instance of ConversionSource(src, srcfmt, start_s, end_s)
+
+## Function `convert(*srcs, dstpath: str, doit=True, dstfmt=None, ffmpeg_exe=None, fstags: cs.fstags.FSTags, conversions=None, metadata: Optional[dict] = None, timespans=(), overwrite=False, acodec=None, vcodec=None, extra_opts=None) -> List[str]`
+
+Transcode video to `dstpath` in FFMPEG compatible `dstfmt`.
+
+## Function `ffmpeg_docker(*ffmpeg_args: Iterable[str], docker_run_opts: Union[List[str], Mapping, NoneType] = None, doit: Optional[bool] = None, quiet: Optional[bool] = None, ffmpeg_exe: Optional[str] = None, docker_exe: Optional[str] = None, image: Optional[str] = None, outputpath: str = '.') -> Optional[subprocess.CompletedProcess]`
+
+Invoke `ffmpeg` using docker.
+
+## Class `FFmpegSource`
+
+A representation of an `ffmpeg` input source.
+
+## Function `ffprobe(input_file, *, doit=True, ffprobe_exe='ffprobe', quiet=False)`
+
+Run `ffprobe -print_format json` on `input_file`,
+return format, stream, program and chapter information
+as an `AttrableMapping` (a `dict` subclass).
+
+## Function `main_ffmpeg_docker(argv=None)`
+
+The `ffm[peg-docker` command line implementation.
+
+## Class `MetaData(cs.tagset.TagSet, builtins.dict, cs.dateutils.UNIXTimeMixin, cs.lex.FormatableMixin, cs.lex.FormatableFormatter, string.Formatter, cs.mappings.AttrableMappingMixin)`
+
+Object containing fields which may be supplied to ffmpeg's -metadata option.
+
+*Method `MetaData.__init__(self, format, **kw)`*:
+pylint: disable=redefined-builtin
+
+# Release Log
+
+
+
+*Release 20240201*:
+* New $FFMPEG_EXE envvar.
+* convert: use $FFMPEG_EXE, return the ffmpeg argv.
+* convert: include the media type in DEFAULT_CONVERSIONS, refactor the choice of codec conversion.
+* convert: supply dummy results if doit is false - could do with some finesse.
+* ffmpeg_docker: use DockerRun.{add_input,add_output}.
+* New main_ffmpeg_docker to support the ffmpeg-docker command, add ffmpeg-docker to DISTINFO scripts.
+
+*Release 20231202*:
+Initial PyPI release."""
+content-type = "text/markdown"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]
