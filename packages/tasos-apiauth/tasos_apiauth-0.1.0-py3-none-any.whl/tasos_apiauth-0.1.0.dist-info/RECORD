@@ -1,0 +1,17 @@
+tasos/apiauth/__init__.py,sha256=6cVDb1hvl5Lxg4ZB68jUZR3-muXjDqsMUz459HGydZQ,64
+tasos/apiauth/api/__init__.py,sha256=pC9W9QlShNG9Nv4ctGTzwHMu8N1mBTzQlsaLh9CF4GQ,899
+tasos/apiauth/api/base.py,sha256=YWCD7emZdRuzLFGb4z9iAE8reT9xN5p11QJYFDNRPiM,4891
+tasos/apiauth/api/group.py,sha256=tBJSqVMfPwJRGjK5G6WqtTB6WYisjjBwHBtg7YpAioM,6525
+tasos/apiauth/api/permission.py,sha256=50bJD1ekqQEXbX4AuNNkMzpznywgcXuGlfJLo9HzCO8,3213
+tasos/apiauth/api/user.py,sha256=9vb2kx2hFNbTwBOugqUwEezKSAEKCE7hWf9z78GUpkc,4921
+tasos/apiauth/auth.py,sha256=fyjnmq7DCTvcDIeE-2wLg2JXfc4un9Q-dYBeObVKdfE,5211
+tasos/apiauth/cli.py,sha256=Gp9Ahmj4bYPgRIXrF124FWQDr30SFbuForw6-hgIr7E,13903
+tasos/apiauth/config.py,sha256=9ji9VguSLTYPMdBN1gpHblY_bCu7fQ5HtDrTEmuv3zo,1365
+tasos/apiauth/db.py,sha256=TLS9tCgoOQ75IMQxEjiMDFWYgLhiFmzav4C5CmwAhMk,1797
+tasos/apiauth/helpers.py,sha256=cTlP9MR2cy06xzy3Gg5R6koteJu3CrLxHe_zv1N98rk,7994
+tasos/apiauth/model.py,sha256=JBDuC4ZYZrwXHJnVT6NkNu9_W370ACRB9sfXfShIOpE,6022
+tasos/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tasos_apiauth-0.1.0.dist-info/LICENSE,sha256=Xd8gyaP0lyGzAgBe5SaJP7BztuO5lVl6JaJgZ4MQhIg,1094
+tasos_apiauth-0.1.0.dist-info/METADATA,sha256=qeu_vgbSEQaMGF_egsQ7m6JmL_mMA4VnTLUIQJ9fePQ,9134
+tasos_apiauth-0.1.0.dist-info/WHEEL,sha256=sP946D7jFCHeNz5Iq4fL4Lu-PrWrFsgfLXbbkciIZwg,88
+tasos_apiauth-0.1.0.dist-info/RECORD,,
