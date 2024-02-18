@@ -1,0 +1,3 @@
+[console_scripts]
+qfmtool = pyqfm.qfmtool:main
+
