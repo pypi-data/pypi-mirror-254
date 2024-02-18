@@ -1,0 +1,19 @@
+{
+  "commands": [
+    {
+      "id": 1,
+      "command": "gcloud auth login",
+      "labels": ["gcloud", "gc"]
+    },
+    {
+      "id": 2,
+      "command": "gcloud auth application-default login",
+      "labels": ["gcloud", "gc"]
+    },
+    {
+      "id": 3,
+      "command": "test",
+      "labels": []
+    }
+  ]
+}
