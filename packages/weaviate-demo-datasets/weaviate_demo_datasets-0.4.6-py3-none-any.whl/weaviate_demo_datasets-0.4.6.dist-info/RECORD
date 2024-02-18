@@ -1,0 +1,16 @@
+weaviate_datasets/__init__.py,sha256=sM5asXq6aK6k0OWLZwpxSRMJHJS_6ppS4kPYNQuFLNI,426
+weaviate_datasets/datasets.py,sha256=TUtTJPU29c6fXd28OI59LD3z23ZEm12iVgjjxYzUKeI,16656
+weaviate_datasets/v3_datasets.py,sha256=67Lt4FhaUF0W41heA5vhETeOYST8N0Xpe6iLR86shcc,26309
+weaviate_datasets/data/_init_.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+weaviate_datasets/data/jeopardy_10k.json,sha256=QlFiVScgAazQaCw8xxVvuvvSMHSFygHAHFNTivoes40,2111634
+weaviate_datasets/data/jeopardy_10k.json.npy,sha256=CjGfLvW0z0P2MREPTmF8n0k6X0SMG8O6qiy1d-Xt_Es,122880128
+weaviate_datasets/data/jeopardy_10k_categories.csv,sha256=dhU1wiuHYB187ZUC_nATqNJ2Q6PATwiCmnIi_m-z7TA,1323062
+weaviate_datasets/data/jeopardy_1k.json,sha256=81P8sEQC2v97xf-VtIabDBw8jXv9qehvKpt8SwqAIrw,212675
+weaviate_datasets/data/jeopardy_1k.json.npy,sha256=1IpCHe_oRzS0V2tS47QG8LxZmsDGs1WAkAq-abWk_ws,12288128
+weaviate_datasets/data/jeopardy_1k_categories.csv,sha256=7-TQCQJ0hMJ-wsx_6AdUu9sV99rCgg9WWOe1oxJu6fI,1323295
+weaviate_datasets/data/newsarticles_schema.json,sha256=nVDZ1lJFNDo4CvDTeAlklbXVDIYtFEvVqDIA_QyWlvk,6805
+weaviate_datasets/data/winemag_tiny.csv,sha256=2iBEfoCABlJNtjUk5x_iGRy05cRze7qxXqJ2vU8Z-eY,20408
+weaviate_demo_datasets-0.4.6.dist-info/METADATA,sha256=CPOBG5yoGsD_zTTUCnMQsZPZ8xz2wfzazkeQ6zFZC4g,3831
+weaviate_demo_datasets-0.4.6.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+weaviate_demo_datasets-0.4.6.dist-info/top_level.txt,sha256=bllvUt1mDKjTLFM8lYJjJSIx3HK8DbJoK5r_GbDdfo8,18
+weaviate_demo_datasets-0.4.6.dist-info/RECORD,,
