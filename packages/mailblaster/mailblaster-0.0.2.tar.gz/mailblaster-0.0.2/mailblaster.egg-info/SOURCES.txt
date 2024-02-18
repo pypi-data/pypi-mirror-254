@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+mailblaster/__init__.py
+mailblaster/mailblaster.py
+mailblaster.egg-info/PKG-INFO
+mailblaster.egg-info/SOURCES.txt
+mailblaster.egg-info/dependency_links.txt
+mailblaster.egg-info/top_level.txt
