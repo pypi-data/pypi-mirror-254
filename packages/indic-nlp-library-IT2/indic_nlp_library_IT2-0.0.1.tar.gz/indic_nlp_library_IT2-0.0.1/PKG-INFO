@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: indic_nlp_library_IT2
+Version: 0.0.1
+Summary: The goal of the Indic NLP Library is to build Python based libraries for common text processing and Natural Language Processing in Indian languages. This fork is specialized for IndicTrans2.
+Home-page: https://github.com/VarunGumma/indic_nlp_library
+Author: Varun Gumma, Anoop Kunchukuttan
+Author-email: varun230999@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sphinx-argparse
+Requires-Dist: sphinx_rtd_theme
+Requires-Dist: morfessor
+Requires-Dist: pandas
+Requires-Dist: numpy
+
+# Indic NLP Library
+This repository is a fork of the original [Indic NLP Library](https://github.com/anoopkunchukuttan/indic_nlp_library) and integrates [UrduHack](https://github.com/urduhack/urduhack) submodule and [Indic NLP Resources](https://github.com/anoopkunchukuttan/indic_nlp_resources) directly. This allows to work with Urdu normalization and tokenization without needing to install [urduhack](https://pypi.org/project/urduhack/) and `indic_nlp_resources` separately, which can be an issue sometimes as it is `TensorFlow` based. I am mainly maintaining this repository for [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2). 
+
+For any queries, please get in touch with the original authors/maintainers of the respective libraries:
+
+- `Indic NLP Library`: [anoopkunchukuttan](https://github.com/anoopkunchukuttan)
+- `Indic NLP Resources`: [anoopkunchukuttan](https://github.com/anoopkunchukuttan) 
+- `UrduHack`: [UrduHack](https://github.com/urduhack)
+
+## Usage:
+```
+git clone https://github.com/VarunGumma/indic_nlp_library.git
+
+cd indic_nlp_library
+pip install --editable ./
+```
+
+## Updates:
+- Integrated `urduhack` directly into the repository.
+- Renamed `master` branch as `main`.
+- Integrated `indic_nlp_resources` directly into the repository.
