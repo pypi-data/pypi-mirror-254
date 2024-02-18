@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "did-plc"
+version = "0.0.0"
+description = "A cryptographic, strongly-consistent, and recoverable DID method"
+authors = ["Ilya (Marshal) <ilya@marshal.dev>"]
+license = "MIT"
+repository = "https://github.com/MarshalX/did-method-plc"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Pre-processors",
+]
+packages = [
+    { include = "did_plc", from = "packages" },
+    { include = "did_plc_client", from = "packages" },
+    { include = "did_plc_server", from = "packages" },
+]
+
+[tool.poetry.urls]
+"Changes" = "https://github.com/MarshalX/did-method-plc/blob/main/CHANGES.md"
+"Tracker" = "https://github.com/MarshalX/did-method-plc/issues"
+"Author" = "https://github.com/MarshalX"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

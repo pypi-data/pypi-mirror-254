@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: did-plc
+Version: 0.0.0
+Summary: A cryptographic, strongly-consistent, and recoverable DID method
+Home-page: https://github.com/MarshalX/did-method-plc
+License: MIT
+Author: Ilya (Marshal)
+Author-email: ilya@marshal.dev
+Requires-Python: >=3.7,<3.13
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Pre-processors
+Project-URL: Author, https://github.com/MarshalX
+Project-URL: Changes, https://github.com/MarshalX/did-method-plc/blob/main/CHANGES.md
+Project-URL: Repository, https://github.com/MarshalX/did-method-plc
+Project-URL: Tracker, https://github.com/MarshalX/did-method-plc/issues
+Description-Content-Type: text/markdown
+
+## DID PLC
+
+Work in progres... by https://atproto.blue
+
