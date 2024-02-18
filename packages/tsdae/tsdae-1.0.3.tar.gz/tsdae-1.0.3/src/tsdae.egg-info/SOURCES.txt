@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/tsdae/__init__.py
+src/tsdae/tsdae.py
+src/tsdae.egg-info/PKG-INFO
+src/tsdae.egg-info/SOURCES.txt
+src/tsdae.egg-info/dependency_links.txt
+src/tsdae.egg-info/top_level.txt
