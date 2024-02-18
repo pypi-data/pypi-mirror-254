@@ -1,0 +1,55 @@
+{
+    "commands": [
+        {
+            "id": 1,
+            "command": "gcloud auth login",
+            "labels": [
+                "gcloud",
+                "gc"
+            ]
+        },
+        {
+            "id": 2,
+            "command": "gcloud auth application-default login",
+            "labels": [
+                "gcloud",
+                "gc"
+            ]
+        },
+        {
+            "id": 3,
+            "command": "test",
+            "labels": []
+        },
+        {
+            "id": 4,
+            "command": "gcloud run services proxy mlflow --project a208358-plx-ai-sandbox --region europe-west3",
+            "labels": [
+                "gc",
+                "gcloud",
+                "mlflow"
+            ]
+        },
+        {
+            "id": 5,
+            "command": "poetry run spacy project run train . --vars.experiment_id 6 --vars.run_name 'default_on_train_dataset - 7'",
+            "labels": [
+                "spacy"
+            ]
+        },
+        {
+            "id": 6,
+            "command": "poetry run spacy project run train . --vars.experiment_id 6 --vars.run_name 'Full dataset, 50 epochs' --vars.eval_split 0 --vars.corpus_dev corpus/train.spacy --vars.patience 0 --vars.max_epochs 50",
+            "labels": [
+                "spacy"
+            ]
+        },
+        {
+            "id": 7,
+            "command": "poetry run cli process --mode=bert_spacy_with_sent_suggester --model-name=runs:/[RUN_ID]/best --mlflow-run-id={RUN_ID} --mlflow-tracking-uri=http://localhost:8081 --device-type=gpu --hardware-utitlization",
+            "labels": [
+                "poetry"
+            ]
+        }
+    ]
+}
