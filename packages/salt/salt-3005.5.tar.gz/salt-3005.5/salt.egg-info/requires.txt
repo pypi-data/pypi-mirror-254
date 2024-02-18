@@ -1,0 +1,19 @@
+Jinja2
+jmespath
+msgpack!=0.5.5,>=0.5
+PyYAML
+MarkupSafe
+requests>=1.0.0
+distro>=1.0.1
+contextvars
+psutil>=5.0.0
+pycryptodomex>=3.9.8
+
+[:python_version < "3.6"]
+pyzmq<=20.0.0
+
+[:python_version >= "3.6"]
+pyzmq>=20.0.0
+
+[:sys_platform == "win32"]
+pyzmq<=22.0.3,>=20.0.0
