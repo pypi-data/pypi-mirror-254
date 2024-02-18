@@ -1,0 +1,32 @@
+{
+  "$id": "webhook.json",
+
+  "type": "object",
+  "properties": {
+    "active": { "type": "boolean" },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "events": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "url": { "type": "string" },
+    "content_type": { "type": "string" },
+    "insecure_ssl": { "type": "string" },
+    "secret": { "$ref": "#/definitions/string_or_null" }
+  },
+
+  "required": [ "active" ],
+  "additionalProperties": false,
+
+  "definitions": {
+    "string_or_null": {
+      "anyOf": [
+          { "type": "string" },
+          { "type": "null" }
+      ]
+    }
+  }
+}
