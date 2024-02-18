@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/hassium/__init__.py
+src/hassium/example.py
+src/hassium.egg-info/PKG-INFO
+src/hassium.egg-info/SOURCES.txt
+src/hassium.egg-info/dependency_links.txt
+src/hassium.egg-info/top_level.txt
