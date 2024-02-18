@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: botanist
+Version: 1.0.0
+License: GPL 3.0
+Description-Content-Type: text/plain
+Requires-Dist: psutil
+
