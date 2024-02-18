@@ -1,0 +1,11 @@
+numpy>=1.23
+pandas
+xarray
+netCDF4
+packaging
+
+[all]
+contextily
+geopandas
+ipython
+rioxarray
