@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/matematikk_test/__init__.py
+src/matematikk_test/example.py
+src/matematikk_test.egg-info/PKG-INFO
+src/matematikk_test.egg-info/SOURCES.txt
+src/matematikk_test.egg-info/dependency_links.txt
+src/matematikk_test.egg-info/top_level.txt
