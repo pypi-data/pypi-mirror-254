@@ -1,0 +1,36 @@
+[tool.poetry]
+authors = ["Daniel CAUNE <daniel.caune@gmail.com>"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries",
+]
+description = "Perseus RESTful API Client Python Library"
+include = [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md"
+]
+keywords = ["perseus", "resful", "api", "server", "framework"]
+license = "see LICENSE.md"
+name = "perseus-restful-api-client-library"
+packages = [{ include = "majormode", from = "src" }]
+readme = "README.md"
+repository = "https://github.com/majormode/perseus-restful-api-client-python-library"
+version = "1.4.8"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+perseus-core-library = "^1.19"
+requests = "^2.31"
+
+[tool.poetry.dev-dependencies]
+fabric = "^3.0.0"
+sphinx = "^7.2.6"
+setuptools = "^69.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
