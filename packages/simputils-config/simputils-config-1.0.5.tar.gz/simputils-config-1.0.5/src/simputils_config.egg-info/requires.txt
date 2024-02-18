@@ -1,0 +1,9 @@
+pyyaml
+python-magic
+python-dotenv
+typing_extensions
+
+[dev]
+pytest
+pytest-cov
+flake8
