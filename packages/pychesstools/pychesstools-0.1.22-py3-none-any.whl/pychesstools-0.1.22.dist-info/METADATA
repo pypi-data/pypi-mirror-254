@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pychesstools
+Version: 0.1.22
+Summary: Data types for chess positions with support for many common variants.
+License: MIT
+Author: Sam
+Author-email: sbrobson@crimson.ua.edu
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: rich (>=13.7.0,<14.0.0)
