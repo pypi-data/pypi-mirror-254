@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Image scan",
+      "type": "python",
+      "request": "launch",
+      "module": "ludvig",
+      "justMyCode": true,
+      "args": ["image", "scan", "--repository", "sample:latest"]
+    },
+    {
+      "name": "Python: Filesystem scan",
+      "type": "python",
+      "request": "launch",
+      "module": "ludvig",
+      "justMyCode": true,
+      "args": ["fs", "scan", "--path", ".", "-otable"]
+    },
+    {
+      "name": "Python: Git history scan",
+      "type": "python",
+      "request": "launch",
+      "module": "ludvig",
+      "justMyCode": true,
+      "args": ["git", "scan", "--path", ".", "-otable"]
+    },
+    {
+      "name": "Python: Download rules",
+      "type": "python",
+      "request": "launch",
+      "module": "ludvig",
+      "justMyCode": true,
+      "args": ["rules", "download"]
+    },
+    {
+      "name": "Python: VulnDb build",
+      "type": "python",
+      "request": "launch",
+      "module": "ludvig",
+      "justMyCode": true,
+      "args": ["vulndb", "build"]
+    }
+  ]
+}
