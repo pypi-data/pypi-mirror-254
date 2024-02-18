@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: spotify_autopush
+Version: 1.0.0
+Summary: Display on your Github profile your last played album to show the world your great musical tastes
+Author: Arthur Broudoux
+Author-email: arthur.broudoux@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: spotipy (>=2.19.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# spotify-autopush
+
+![Repo Size](https://img.shields.io/github/repo-size/abroudoux/spotify-autopush)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Python Version](https://img.shields.io/badge/python-3.12-blue)
+
+## 💻・About
+
+Spotify-Autopush is a program to display on your Github account your last album played so you can show the world your great musical tastes (no one cares)
+
+## 🎯・Setup
+
+In construction...
+
+## 📚・Ressources
+
+- [Spotify API](https://developer.spotify.com/documentation/web-api)
+- [Github API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
+
+## 🧑‍🤝‍🧑・Contributing
+
+To use Auto-Push in development, follow these steps:
+
+1. Fork the project.
+
+2. Install poetry.
+
+```sh
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+3. Create a branch with [conventionnal name](https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/use-github/naming-git-branches/).
+
+   - fix: `bugfix/the-bug-fixed`
+   - features: `feature/the-amazing-feature`
+   - test: `test/the-famous-test`
+   - hotfix `hotfix/oh-my-god-bro`
+   - wip `wip/the-work-name-in-progress`
+
+4. Configure your environment variables in `.env`.
+
+```
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REDIRECT_URI=
+GITHUB_USERNAME=
+GITHUB_PERSONAL_ACCESS_TOKEN=
+```
+
+## 🎯・Roadmap
+
+- [ ] Push the last album played on my portfolio
+- [ ] Create a CLI
+
+## 📑・Licence
+
+This project is under MIT license. For more information, please see the file [LICENSE](./LICENSE).
+

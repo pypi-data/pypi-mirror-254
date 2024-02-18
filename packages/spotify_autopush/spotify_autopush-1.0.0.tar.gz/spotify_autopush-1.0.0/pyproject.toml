@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "spotify_autopush"
+version = "1.0.0"
+description = "Display on your Github profile your last played album to show the world your great musical tastes"
+authors = ["Arthur Broudoux <arthur.broudoux@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+spotify_autopush = "spotify_autopush.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+spotipy = "^2.19.0"
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.0"
+requests-mock = "^1.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
