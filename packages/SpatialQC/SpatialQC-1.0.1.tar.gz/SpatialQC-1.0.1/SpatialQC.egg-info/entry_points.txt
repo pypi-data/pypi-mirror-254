@@ -1,0 +1,2 @@
+[console_scripts]
+SpatialQC = SptialQC.__main__:main

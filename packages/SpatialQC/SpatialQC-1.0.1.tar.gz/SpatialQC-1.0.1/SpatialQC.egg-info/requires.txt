@@ -1,0 +1,4 @@
+scanpy>=1.9.6
+joblib>=1.2.0
+plotly>=5.18.0
+scrublet>=0.2.3

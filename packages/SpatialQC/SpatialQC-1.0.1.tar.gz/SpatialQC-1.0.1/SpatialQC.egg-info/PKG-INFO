@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: SpatialQC
+Version: 1.0.1
+Summary: Spatial transcriptome quality control, generate HTML QC report, obtain filtered clean data
+Home-page: https://github.com/mgy520/SpatialQC
+Author: Mao Guangyao
+Requires-Python: >=3.8
