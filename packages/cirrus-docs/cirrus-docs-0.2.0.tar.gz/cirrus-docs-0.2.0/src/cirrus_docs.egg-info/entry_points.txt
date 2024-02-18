@@ -1,0 +1,5 @@
+[cirrus.commands]
+docs = cirrus.plugins.docs.commands:docs
+
+[cirrus.plugins]
+cirrus-docs = cirrus.plugins.docs
