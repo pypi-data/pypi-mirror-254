@@ -1,0 +1,10 @@
+setup.py
+scidistro_distributions/Binomialdistribution.py
+scidistro_distributions/Gaussiandistribution.py
+scidistro_distributions/Generaldistribution.py
+scidistro_distributions/__init__.py
+scidistro_distributions.egg-info/PKG-INFO
+scidistro_distributions.egg-info/SOURCES.txt
+scidistro_distributions.egg-info/dependency_links.txt
+scidistro_distributions.egg-info/not-zip-safe
+scidistro_distributions.egg-info/top_level.txt
