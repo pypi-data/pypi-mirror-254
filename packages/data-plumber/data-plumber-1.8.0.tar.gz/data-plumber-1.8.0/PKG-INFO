@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: data-plumber
+Version: 1.8.0
+Summary: lightweight but versatile python-framework for multi-stage information processing
+Home-page: https://pypi.org/project/data-plumber/
+Author: Steffen Richters-Finger
+Author-email: srichters@uni-muenster.de
+License: MIT
+Project-URL: Source, https://github.com/RichtersFinger/data-plumber
+Platform: UNKNOWN
+Requires-Python: >=3.10, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+![Tests](https://github.com/RichtersFinger/data-plumber/actions/workflows/tests.yml/badge.svg?branch=main)
+
+# data-plumber
+`data-plumber` is a lightweight but versatile python-framework for multi-stage
+information processing. It allows to construct processing pipelines from both
+atomic building blocks and via recombination of existing pipelines. Forks
+enable more complex (i.e. non-linear) orders of execution. Pipelines can also
+be collected into arrays that can be executed at once with the same input
+data.
+
+## Minimal usage example
+Consider a scenario where the contents of a dictionary have to be validated
+and a suitable error message has to be generated. Specifically, a valid input-
+dictionary is expected to have a key "data" with the respective value being
+a list of integer numbers. A suitable pipeline might look like this
+```
+>>> from data_plumber import Stage, Pipeline, Previous
+>>> pipeline = Pipeline(
+        Stage(
+            primer=lambda **kwargs: "data" in kwargs,
+            status=lambda primer, **kwargs: 0 if primer else 1,
+            message=lambda primer, **kwargs: "" if primer else "missing key"
+        ),
+        Stage(
+            requires={Previous: 0},
+            primer=lambda data, **kwargs: isinstance(data, list),
+            status=lambda primer, **kwargs: 0 if primer else 1,
+            message=lambda primer, **kwargs: "" if primer else "bad type"
+        ),
+        Stage(
+            requires={Previous: 0},
+            primer=lambda data, **kwargs: all(isinstance(i, int) for i in data),
+            status=lambda primer, **kwargs: 0 if primer else 1,
+            message=lambda primer, **kwargs: "validation success" if primer else "bad type in data"
+        ),
+        exit_on_status=1
+    )
+>>> pipeline.run(**{}).stages
+[('missing key', 1)]
+>>> pipeline.run(**{"data": 1}).stages
+[('', 0), ('bad type', 1)]
+>>> pipeline.run(**{"data": [1, "2", 3]}).stages
+[('', 0), ('', 0), ('bad type in data', 1)]
+>>> pipeline.run(**{"data": [1, 2, 3]}).stages
+[('', 0), ('', 0), ('validation success', 0)]
+```
+
+
+# Changelog
+
+## [1.8.0] - 2024-02-03
+
+### Changed
+
+- refactored `Fork` and `Stage` to transform string/integer-references to `Stage`s into `StageRef`s (`7ba677b`)
+
+### Added
+
+- added decorator-factory `Pipeline.run_for_kwargs` to generate kwargs for function calls (`fe616b2`)
+- added optional `Stage`-callable to export kwargs into `Pipeline.run` (`8eca1bc`)
+- added even more types of `StageRef`s: `PreviousN`, `NextN` (`576820c`)
+- added `py.typed`-marker to package (`04a2e1d`)
+- added more types of `StageRef`s: `StageById`, `StageByIndex`, `StageByIncrement` (`92d57ad`)
+
+## [1.4.0] - 2024-02-01
+
+### Changed
+
+- refactored internal modules (`cf7045f`)
+
+### Added
+
+- added `StageRefs` `Next`, `Last`, and `Skip` (`14abaa7`)
+- added optional finalizer-`Callable` to `Pipeline` (`d95e5b6`)
+- added support for `Callable` in `Pipeline`-argument `exit_on_status` (`154c67b`)
+
+### Fixed
+
+- `PipelineOutput.last_X`-methods now return `None` in case of empty records (``)
+
+## [1.0.0] - 2024-01-31
+
+### Changed
+
+- **Breaking:** refactor `PipelineOutput` and related types (`1436ca1`)
+- **Breaking:** replaced forwarding kwargs of `Pipeline.run` as dictionary `in_` into `Stage`/`Fork`-`Callable`s by forwarding directly (`f2710fa`, `b569bb9`)
+
+### Added
+
+- added missing information in module- and class-docstrings (`7896742`)
+
+## [0.1.0] - 2024-01-31
+
+initial release
+
+
