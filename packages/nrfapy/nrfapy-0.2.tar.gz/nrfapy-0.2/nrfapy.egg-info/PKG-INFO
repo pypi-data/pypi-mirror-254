@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: nrfapy
+Version: 0.2
+Summary: A simple package from getting data from the national river flow archive.
+Home-page: https://github.com/simon-m-mudd/nrfapy
+Author: Simon Moulds and Simon Mudd
+Author-email: simon.m.mudd@ed.ac.uk
+License: MIT license
+Keywords: nrfapy,national river flow archive,hydrology,rivers,discharge,floods
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: pandas>=1
+
+============
+nrfapy
+============
+
+
+A collection of tools for exploring the national river flow archive https://nrfa.ceh.ac.uk/.
+
+
+* Free software: MIT license
+* Documentation: https://nrfapy.readthedocs.io.
+
+
+Features
+--------
+
+* Gets national river flow archive datasets and loads them into pandas dataframes
+* Explanation of the dataset is here: https://nrfa.ceh.ac.uk/
+
+
+
+
+=======
+History
+=======
+
+0.1 (2024-01-20)
+------------------
+
+* Initial coding by Simon Moulds, packaged by Simon Mudd
+* Initial release on pypi
+* Then Simon Mudd had to delete the release because he was calling it NFRA instead of NRFA, mainly because nfrapy sounds a bit like frappuchino and that suggests a clever logo. Simon Moulds had to point out to the disappointed Muddpile that this was the wrong acronym. 
+* Basic functionality: simply calls the NRFA API and gets time series data
+* A command line script is included: nrfa_get_ts
+
+0.2 (2024-02-01)
+-----------------
+
+* Update so that the time column is always parsed as a datetime (S Moulds)
+* Added flag that allows the time to be used as an index, which is useful for some dataframe operations (D Golberg)
+* Added an option to feed the timeseries function a list of strings that all fetching then concatenaiton of different timeseries (D Goldberg)
