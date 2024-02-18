@@ -1,0 +1,5 @@
+onnxruntime>=1.12.1
+numpy>=1.23.0
+opencv-python>=4.5.2.54
+tqdm>=4.65.2
+setuptools>=60.2.0
