@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: airflowkit
+Version: 0.0.5
+Summary: AirflowKit
+Home-page: https://github.com/m-letourneur/pyconfita.git
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8, <3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: apache-airflow[google] >=2.5.3
+Requires-Dist: apache-airflow-providers-google
+
+# Airflowkit: operator, sensors, triggers for Airflow
+
+Library of Airflow Operators, Sensors, Triggers...
+
+## Disclaimer
+
+NA
+
+## Features
+
+
+
+
