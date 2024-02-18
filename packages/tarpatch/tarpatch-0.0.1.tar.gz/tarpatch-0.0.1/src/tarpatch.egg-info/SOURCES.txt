@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/tarpatch/__init__.py
+src/tarpatch/__main__.py
+src/tarpatch/cli.py
+src/tarpatch.egg-info/PKG-INFO
+src/tarpatch.egg-info/SOURCES.txt
+src/tarpatch.egg-info/dependency_links.txt
+src/tarpatch.egg-info/entry_points.txt
+src/tarpatch.egg-info/requires.txt
+src/tarpatch.egg-info/top_level.txt
+tests/test_tarpatch.py
+tests/test_tarpatch_cli.py

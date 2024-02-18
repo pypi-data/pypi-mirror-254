@@ -1,0 +1,44 @@
+# https://peps.python.org/pep-0621/
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tarpatch"
+dynamic = ["version"]
+description = "Binary patches for tarballs"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "dennisvang", email = "djvg@protonmail.com"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+# support for python 3.8 ends Oct 2024, but we'll drop it right away
+requires-python = ">=3.9"
+dependencies = [
+    # direct dependencies
+    "bsdiff4>=1.2.4",
+]
+
+[project.urls]
+source = "https://github.com/dennisvang/tarpatch"
+documentation = "https://github.com/dennisvang/tarpatch"
+issues = "https://github.com/dennisvang/tarpatch/issues"
+
+[project.scripts]
+tarpatch = "tarpatch.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "tarpatch.__version__"}
+
+[tool.setuptools.packages.find]
+# this is still in beta (as of setuptools v65.6.3)
+# https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html#setuptools-specific-configuration
+where = ["src"]
+
+[tool.ruff.format]
+quote-style = "single"

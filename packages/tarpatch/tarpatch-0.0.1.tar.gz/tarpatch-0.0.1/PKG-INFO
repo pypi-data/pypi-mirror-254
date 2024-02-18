@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: tarpatch
+Version: 0.0.1
+Summary: Binary patches for tarballs
+Author-email: dennisvang <djvg@protonmail.com>
+License: MIT License
+        
+        Copyright (c) 2024 Dennis
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: source, https://github.com/dennisvang/tarpatch
+Project-URL: documentation, https://github.com/dennisvang/tarpatch
+Project-URL: issues, https://github.com/dennisvang/tarpatch/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bsdiff4>=1.2.4
+
+# TarPatch
+
+Binary patches for tarballs
+
+>BEWARE: THIS PROJECT IS STILL IN THE EXPERIMENTAL PHASE
+
+### What is tarpatch?
+
+Tarpatch allows you to create a patch that represents the difference between two tar archives (a.k.a. tarballs).
+
+This patch is typically much smaller than the archives themselves, so it can be used for efficient transmission of updates.
+
+Instead of creating a single monolithic binary diff, tarpatch creates binary diffs for the individual files in the archives.
+
+The resulting patch file can be inspected easily, because it is in JSON format.
+
+### FAQ
+
+- Q: Why not simply create a monolithic binary difference file using e.g. `bsdiff`?
+  A: For small archives, something like [`bsdiff`][10] would probably be a better choice. 
+     However, as archives grow larger, using `bsdiff` can become too expensive in terms of [memory use][10].  
+
+### Questions?
+
+Please have a look at the [Q&A][1] and existing [issues][2].
+
+### Similar or related projects
+
+- [bsdiff4][3] (Python)
+- [Courgette][8] from Chromium (C++, [source][9])
+- [containers/tar-diff][4] (Go)
+- [difflib][5] (Python, standard library)
+- [GNU diffutils][6]
+- [GNU patch][7]
+
+[1]: https://github.com/dennisvang/tarpatch/discussions/categories/q-a
+[2]: https://github.com/dennisvang/tarpatch/issues
+[3]: https://github.com/ilanschnell/bsdiff4
+[4]: https://github.com/containers/tar-diff
+[5]: https://docs.python.org/3/library/difflib.html
+[6]: https://www.gnu.org/software/diffutils/
+[7]: https://savannah.gnu.org/projects/patch/
+[8]: https://www.chromium.org/developers/design-documents/software-updates-courgette/
+[9]: https://chromium.googlesource.com/chromium/src/courgette/+/HEAD
+[10]: https://www.daemonology.net/bsdiff/
