@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../favicon.ico" />
+
+    <meta name="viewport" content="width=device-width" />
+    
+		<link rel="modulepreload" href="../_app/immutable/entry/start.d163ef8c.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.cbae6e09.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.3d772467.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/paths.a0c74a6d.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.78fc1ea6.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.a4192956.js">
+  </head>
+  <body data-sveltekit-preload-data="hover" class="overflow-y-hidden">
+    <div class="contents">
+			<script>
+				{
+					__sveltekit_l9wltn = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {"PUBLIC_HF_ANALYTICS":"0"}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.d163ef8c.js"),
+						import("../_app/immutable/entry/app.78fc1ea6.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>
