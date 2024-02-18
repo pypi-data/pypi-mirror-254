@@ -1,0 +1,30 @@
+[project]
+name = "torchcvnn"
+dynamic = ["version"]
+
+dependencies = [
+	"torch >= 2.0",
+	"numpy",
+	"requests >= 2.31.0",
+	"tqdm >= 4.66.1",
+    "pillow"
+]
+requires-python = ">= 3.8"
+authors = [
+{name= "Jeremy Fix", email="jeremy.fix@centralesupelec.fr" }
+]
+maintainers = [
+{name= "Jeremy Fix", email="jeremy.fix@centralesupelec.fr" }
+]
+description = "torchcvnn provides complex valued layers to be used with pytorch"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+keywords = ["deep learning", "pytorch", "complex valued neural networks"] 
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "torchcvnn.__version__"}
