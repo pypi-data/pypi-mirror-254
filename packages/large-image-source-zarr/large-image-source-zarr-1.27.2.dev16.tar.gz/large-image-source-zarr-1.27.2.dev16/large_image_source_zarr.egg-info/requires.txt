@@ -1,0 +1,5 @@
+large-image>=1.27.2.dev16
+zarr
+
+[girder]
+girder-large-image>=1.27.2.dev16
