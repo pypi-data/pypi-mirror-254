@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: griffon
+Version: 0.5.5
+Summary: Red Hat Product Security CLI
+Author: James Fuller (Red Hat Product Security), Jakub Frejlach (Red Hat Product Security)
+Maintainer: James Fuller (Red Hat Product Security), Jakub Frejlach (Red Hat Product Security)
+License: MIT License
+        
+        Copyright (c) 2023 Red Hat, Inc.
+        
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/RedHatProductSecurity/griffon
+Project-URL: Documentation, https://github.com/RedHatProductSecurity/griffon/tree/main/docs
+Project-URL: Changelog, https://github.com/RedHatProductSecurity/griffon/blob/main/CHANGELOG.md
+Project-URL: Issues, https://github.com/RedHatProductSecurity/griffon/issues
+Classifier: Topic :: Security
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: click-completion
+Requires-Dist: packageurl-python
+Requires-Dist: rich
+Requires-Dist: component-registry-bindings >=1.4.0
+Requires-Dist: osidb-bindings >=3.5.1
+
+# ![](docs/image/griffon.png) Ǥriffon
+
+Red Hat Product Security CLI providing:
+
+* Set of service operations answering 'canned' product security related queries
+and automating away some manual 'drudgery'
+* Dynamic, extensible set of custom plugin operations for interacting with external services 
+* Set of entity operations on flaws, affects, components, products, etc... for 
+searching, listing and retrieving entities.
+
+The CLI provides a 'facade' over coarse grained security related data services allowing 
+for easier aggregation and narrowing of security information.
+
+```commandline
+> griffon                                   
+Usage: griffon [OPTIONS] COMMAND [ARGS]...
+
+  Red Hat Product Security CLI
+
+Options:
+  -V, --version                   Display griffon version.
+  -d, --debug                     Debug log level.
+  -f, --format [json|text|table]  Result format (default is text format).
+  -v                              Verbose output, more detailed search
+                                  results, can be used multiple times (e.g.
+                                  -vvv).
+  --no-progress-bar               Disable progress bar.
+  --no-color                      Disable output of color ansi esc sequences.
+  --profile [default|cloud|openshift|middleware|latest]
+                                  Activate profile, defined in .griffonrc.
+  --editor / --no-editor          Allow text editor prompt.
+  --help                          Show this message and exit.
+
+Commands:
+  configure  Configure griffon.
+  docs       Links to useful docs.
+  entities   Entity operations.
+  plugins    3rd party plugins.
+  service    Service operations.
+```
+To install:
+
+```commandline
+pip install griffon
+```
+
+To learn more:
+
+[User guide (quickstart)](https://github.com/RedHatProductSecurity/griffon/tree/main/docs/user_guide.md)
+
+[Tutorial](https://github.com/RedHatProductSecurity/griffon/tree/main/docs/tutorial.md)
+
+[Developer guide](https://github.com/RedHatProductSecurity/griffon/tree/main/docs/developer_guide.md)
