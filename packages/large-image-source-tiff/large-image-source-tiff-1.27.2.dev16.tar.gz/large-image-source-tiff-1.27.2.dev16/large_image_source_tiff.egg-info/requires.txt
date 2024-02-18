@@ -1,0 +1,6 @@
+large-image>=1.27.2.dev16
+pylibtiff
+tifftools>=1.2.0
+
+[girder]
+girder-large-image>=1.27.2.dev16
