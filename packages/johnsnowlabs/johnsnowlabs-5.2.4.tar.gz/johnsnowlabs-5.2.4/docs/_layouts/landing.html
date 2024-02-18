@@ -1,0 +1,452 @@
+---
+layout: page
+header: false
+full_width: true
+modify_date: "2023-03-27"
+article_header:
+  type: overlay
+  align: center
+  height: 80vh
+---
+<!-- Do not use auto intent in this file. -->
+<div class="layout--landing">
+  <div class="heros">
+    {%- for _section in page.data.sections -%}
+    {%- include snippets/get-nav-url.html path=_section.background_image.src -%}
+    {%- assign _url = __return -%}
+    {%- if _section.theme == 'light' -%}
+    <section class="hero section-row hero--center hero--light" id="hero-{{ forloop.index }}" {%- elsif _section.theme == 'dark' -%}
+      <section class="hero  section-row hero--center hero--dark" id="hero-{{ forloop.index }}" {%- else -%} <section
+      class="hero section-row hero--center" id="hero-{{ forloop.index }}" {%- endif -%} {%- if _section.background_color -%}
+      style="background-image: url({{ _url }}); background-color: {{ _section.background_color }};">
+      {%- else -%}
+      style="background-image: url({{ _url }});">
+      {%- endif -%}
+
+      <div>
+        {%- if _section.top -%}
+          <div class="top_section {{ _section.topclass }}">
+            <div class="grid--container">
+              <div class="grid">
+                <div class="cell cell--12 cell--lg-4 cell--md-5 cell--sm-12">
+                  <h2 class="h2_title {{ _section.classtitle }}">{{ _section.title }}</h2>
+                  {%- if _section.excerpt-%}
+                    <p class="h3_descr">{{ _section.excerpt }}</p>
+                  {%- endif -%}
+                </div>
+                <div class="cell cell--12 cell--lg-8 cell--md-7 cell--sm-12">
+                  {%- if _section.bigimage-%}
+                    <figure><img src="{{ _section.bigimage }}" alt=""></figure>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+
+            {%- if _section.actions -%}
+              <ul class="menu {{ _section.classmenu }}">
+                {%- for _action in _section.actions -%}
+                {%- include snippets/get-nav-url.html path=_action.url -%}
+                {%- assign _url = __return -%}
+                {%- assign _type = _action.type | default: 'outline-info' -%}
+                <li><a class="button button--{{ _type }} button--pill button--lg" href="{{ _url }}">{{ _action.text }}</a>
+                </li>
+                {%- endfor -%}
+              </ul>
+              {%- endif -%}
+
+          </div>
+        {%- endif -%}
+
+
+        {%- if _section.trusted -%}
+          <div class="trusted_section">
+            <div class="grid--container">
+              <div class="grid">
+                <div class="cell cell--12 cell--lg-12">
+                  <h2 class="h2_title grey">{{ _section.title }}</h2>
+                </div>
+              </div>
+              {%- if _section.children -%}              
+                <div class="grid grid--p-3">
+                  {%- for child in _section.children -%}
+                    <div class="cell cell--6 cell--md-3 cell--lg-2 ">
+                      <div class="feature-item sponsor">
+                        <figure class="mx-auto df" style="{{ child.image.style }}">
+                          <img src="{{ child.image.src }}" />
+                        </figure>
+                      </div>
+                    </div>
+                  {%- endfor-%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+
+        {%- if _section.threeblocks -%}
+        <div class="grid--container">
+          <div class="grid grid--p-3">
+
+            {%- for child in _section.threeblocks -%}            
+
+            <div class="cell cell--12 cell--md-4 cell--lg-4 cell--sm-12">
+
+              <div class="feature-item topthree">
+                {%- if child.image and child.image.src -%}
+
+                {%- if child.image.url -%}
+                {%- include snippets/get-nav-url.html path=child.image.url -%}
+                {%- assign _item_image_url = __return -%}
+                {%- else -%}
+                {%- assign _item_image_url = nil -%}
+                {%- endif -%}
+
+                {%- include snippets/get-nav-url.html path=child.image.src -%}
+                {%- assign _item_image_src = __return -%}
+
+                {%- if child.image.is_row -%}
+                  {%- endif -%}
+                  <figure class="mx-auto">
+                    <img src="{{ _item_image_src }}" />
+                  </figure>
+                  {%- if child.image.is_row -%}
+                {%- endif -%}
+                {%- endif -%}
+
+                <h4>{{ child.title }}</h4>
+
+                {%- if child.excerpt-%}
+                <p>{{ child.excerpt }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+            {%- endfor-%}
+
+          </div>
+        </div>
+        {%- endif -%}
+
+        {%- if _section.image.full_width == true -%}
+      </div> {% comment %} end hero__content {% endcomment %}
+      {%- endif -%}
+
+      {%- if _section.image and _section.image.src -%}
+
+      {%- if _section.image.url -%}
+      {%- include snippets/get-nav-url.html path=_section.image.url -%}
+      {%- assign _section_image_url = __return -%}
+      {%- else -%}
+      {%- assign _section_image_url = nil -%}
+      {%- endif -%}
+
+      {%- include snippets/get-nav-url.html path=_section.image.src -%}
+      {%- assign _section_image_src = __return -%}
+
+      {%- if _section.image.is_row -%}
+      <div class="mb-5">
+        {%- endif -%}
+        <div class="mx-auto" style="{{ _section.image.style }}">
+          {%- if _section_image_url -%}
+          <a href="{{ _section_image_url }}">
+            {%- endif -%}
+            {%- if _section.image.full_width == true -%}
+            <img class="hero__cover hero__cover--full-width" src="{{ _section_image_src }}" />
+            {%- else -%}
+            <img class="hero__cover" src="{{ _section_image_src }}" />
+            {%- endif -%}
+            {%- if _section_image_url -%}
+          </a>
+          {%- endif -%}
+        </div>
+        {%- if _section.image.is_row -%}
+      </div>
+      {%- endif -%}
+      {%- endif -%}
+
+        {%- if _section.install -%}
+
+          <div class="quick_easy">
+            <div class="grid--container">
+              <div class="grid">
+                <div class="cell cell--12 cell--lg-8 cell--md-12 cell--sm-12">
+                  <div class="code_snippet tal">
+                    <em>1</em><em>1</em><em>1</em>
+
+                    <!-- <div class="code_snippet_inner">
+                      <p># <strong class="snip_dark_blue">Install John Snow Labs library from PyPI</strong></p>
+                      <p>$ pip install <strong class="snip_dark_blue">johnsnowlabs</strong></p>
+                      <p>from johnsnowlabs <strong class="ai_bg1">import</strong> <strong class="snip_dark_blue">nlp</strong></p>
+                      <p><strong class="snip_dark_blue">nlp</strong><strong class="c_orange">.load</strong>(<strong class="snip_red">'ner'</strong>)<strong class="c_orange">.predict</strong>(<strong class="snip_red">'John Snow was a doctor in 1854.'</strong>)</p>
+                      <p>|<strong class="snip_dark_blue">NER</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|<strong class="snip_dark_blue">Type</strong>&emsp;&emsp;&emsp;&emsp;&emsp;|<strong class="snip_dark_blue">Confidence</strong>|</p>
+                      <p>|<strong class="snip_dark_blue">John Snow</strong>&emsp;&emsp;|<strong class="snip_dark_blue">Person</strong>&emsp;&emsp;&emsp;&emsp;|<strong class="ai_bg1">0.99</strong>&emsp;&emsp;&emsp;&emsp;|</p>
+                    </div> -->  
+                    <div class="code_snippet_inner">
+                      <p class="code_bg">!pip install johnsnowlabs</p>
+                      <p class="code_bg"> </p>
+                      <p class="code_bg">nlp.load(<strong class="c_orange">'ner'</strong>).predict(<strong class="c_orange">"Dr. John Snow is a British physician born in 1813"</strong>)</p>
+                      <div class="table_code_wrapper mb50">
+                        <div class="table_code_inner">
+                          <table class="table_code">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>entities</th>
+                                <th>entities_class</th>
+                                <th>entities_confidence</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>0</td>
+                                <td>John Snow</td>
+                                <td>PERSON</td>
+                                <td>0.9746</td>
+                              </tr>
+                              <tr>
+                                <td>0</td>
+                                <td>British</td>
+                                <td>NORP</td>
+                                <td>0.9928</td>
+                              </tr>
+                              <tr>
+                                <td>0</td>
+                                <td>1813</td>
+                                <td>DATE</td>
+                                <td>0.5841</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>                      
+                      </div>                    
+                      <p class="code_bg">nlp.load(<strong class="c_orange">'sentiment'</strong>).predict(<strong class="c_orange">"Well this was easy!"</strong>)</p>
+                      <div class="table_code_wrapper">
+                        <div class="table_code_inner">
+                          <table class="table_code">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>entities</th>
+                                <th>entities_class</th>
+                                <th>entities_confidence</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>0</td>
+                                <td>Well this was easy!</td>
+                                <td>pos</td>
+                                <td>0.999901</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>                    
+                    </div>                   
+                  </div>
+                </div>
+                <div class="cell cell--12 cell--lg-4 cell--md-12 cell--sm-12">
+                  <div class="quick_easy_inner tal">
+                    <h3 class="grey h3_title">{{ _section.title }}</h3>
+                    {%- if _section.excerpt-%}
+                    <div class="descr_quick">{{ _section.excerpt }}</div>
+                    {%- endif -%}
+                    {%- if _section.actions -%}
+                      {%- for _action in _section.actions -%}
+                      {%- include snippets/get-nav-url.html path=_action.url -%}
+                      {%- assign _url = __return -%}
+                      {%- assign _type = _action.type | default: 'outline-info' -%}
+                        <a class="button button--{{ _type }} button--pill button--lg" href="{{ _url }}">{{ _action.text }}</a>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {%- endif -%}
+
+        {%- if _section.transformers -%}
+
+        <div class="transformer-section">
+          <div class="grid--container">
+            <div class="grid">
+              <div class="cell cell--12 cell--lg-12">
+                <div class="transformer-top">
+                  <h2 class="h2_title grey">Transformers at Scale</h2>
+                  <div class="transformer-descr">
+                    <b>Spark NLP</b> is the only open-source NLP library in <b>production</b> that offers state-of-the-art transformers such as
+                    <b>BERT</b>, <b>CamemBERT</b>, <b>ALBERT</b>, <b>ELECTRA</b>, <b>XLNet</b>, <b>DistilBERT</b>, <b>RoBERTa</b>, <b>DeBERTa</b>,
+                    <b>XLM-RoBERTa</b>, <b>Longformer</b>, <b>ELMO</b>, <b>Universal Sentence Encoder</b>, <b>Google T5</b>, <b>MarianMT</b>, and <b>OpenAI GPT2</b> not only to <b>Python</b>, and <b>R</b>
+                    but also to <b>JVM</b> ecosystem (<b>Java</b>, <b>Scala</b>, and <b>Kotlin</b>) at <b>scale</b> by extending <b>Apache Spark</b> natively
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {%- endif -%}
+        {%- if _section.landingmodels -%}
+
+          <div class="quick_easy landing_models">
+            <div class="grid--container">
+              <div class="grid">
+                <div class="cell d_flex cell--12">
+                  <h3 class="h3_title blue">{{ _section.title }}</h3>
+                  {%- if _section.excerpt-%}
+                  <div class="descr_quick">{{ _section.excerpt }}</div>
+                  {%- endif -%}
+                   {%- if _section.actions -%}
+                    <ul class="menu">
+                      {%- for _action in _section.actions -%}
+                      {%- include snippets/get-nav-url.html path=_action.url -%}
+                      {%- assign _url = __return -%}
+                      {%- assign _type = _action.type | default: 'outline-info' -%}
+                      <li><a class="button button--{{ _type }} button--pill button--lg" href="{{ _url }}">{{ _action.text }}</a>
+                      </li>
+                      {%- endfor -%}
+                    </ul>
+                    {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {%- endif -%}
+
+        {%- if _section.ecosystem -%}
+        <div class="ecosystem-section">
+          <div class="grid--container">
+            <div class="grid">
+              <div class="cell cell--12 cell--lg-12">
+                <h2 class="h2_title grey">{{ _section.title }}</h2>
+                <div class="tabs-wrapper">
+                  <div class="tabs-python-scala-head">
+                    {%- if _section.tab-header -%}
+                      {%- for _tab-header in _section.tab-header -%}
+                        <button class="tab-python-scala-li">{{ _tab-header.text }}</button>
+                      {%- endfor -%}
+                    {%- endif -%}
+                    
+                  </div>
+                  <div class="tabs-body">
+                    {%- if _section.tab-body -%}
+                      {%- for _tab-body in _section.tab-body -%}
+                        <div class="tabs-item">
+                          <h3 class="h3_title blue">
+                            {% if _tab-body.link %}
+                              <a target="_blank" href="{{ _tab-body.link }}">
+                            {% endif %}
+                                {{ _tab-body.text }}
+                            {% if _tab-body.link %}
+                              </a>
+                            {% endif %}
+                          </h3>
+                          <div class="ecosystem-description">{{ _tab-body.description }}</div>
+                          <figure><img src="{{ _tab-body.img }}" alt=""></figure>
+
+                          {%- if _tab-body.tab-body-links -%}
+                            <ul class="ecosystem mont">
+                              {%- for _tab-body-links in _tab-body.tab-body-links -%}
+                                <li><a href="{{ _tab-body-links.url }}">{{ _tab-body-links.texts }}</a></li>
+                              {%- endfor -%}
+                            </ul>
+                          {%- endif -%}
+
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+
+        {%- if _section.bottom -%}
+          <div class="bottom_section">
+            <div class="grid--container">
+              <div class="grid">
+                <div class="cell cell--12 cell--lg-12">
+                  <h2 class="h2_title white">{{ _section.title }}</h2>
+                  {%- if _section.excerpt-%}
+                    <p class="h3_descr">{{ _section.excerpt }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+            {%- if _section.actions -%}
+              <ul class="menu {{ _section.classmenu }}">
+                {%- for _action in _section.actions -%}
+                {%- include snippets/get-nav-url.html path=_action.url -%}
+                {%- assign _url = __return -%}
+                {%- assign _type = _action.type | default: 'outline-info' -%}
+                <li><a class="button button--{{ _type }} button--pill button--lg" href="{{ _url }}">{{ _action.text }}</a>
+                </li>
+                {%- endfor -%}
+              </ul>
+              {%- endif -%}
+
+          </div>
+        {%- endif -%}
+
+
+
+        {%- if _section.image.full_width == true -%}
+      </div> {% comment %} end hero__content {% endcomment %}
+      {%- endif -%}
+
+      {%- if _section.image and _section.image.src -%}
+
+      {%- if _section.image.url -%}
+      {%- include snippets/get-nav-url.html path=_section.image.url -%}
+      {%- assign _section_image_url = __return -%}
+      {%- else -%}
+      {%- assign _section_image_url = nil -%}
+      {%- endif -%}
+
+      {%- include snippets/get-nav-url.html path=_section.image.src -%}
+      {%- assign _section_image_src = __return -%}
+
+      {%- if _section.image.is_row -%}
+      <div class="mb-5">
+        {%- endif -%}
+        <div class="mx-auto" style="{{ _section.image.style }}">
+          {%- if _section_image_url -%}
+          <a href="{{ _section_image_url }}">
+            {%- endif -%}
+            {%- if _section.image.full_width == true -%}
+            <img class="hero__cover hero__cover--full-width" src="{{ _section_image_src }}" />
+            {%- else -%}
+            <img class="hero__cover" src="{{ _section_image_src }}" />
+            {%- endif -%}
+            {%- if _section_image_url -%}
+          </a>
+          {%- endif -%}
+        </div>
+        {%- if _section.image.is_row -%}
+      </div>
+      {%- endif -%}
+      {%- endif -%}
+
+
+      {%- if _section.image.full_width != true -%}
+  </div> {% comment %} end hero__content {% endcomment %}
+  {%- endif -%}
+
+  {%- if _section.content-%}
+  <p>{{ _section.content }}</p>
+  {%- endif -%}
+  </section>
+  {%- endfor -%}
+</div>
+</div>
+
+{{ content }}
+<script>
+  {%- include scripts/programmingLanguageSwitcherScalaPython.js  -%}
+</script>
