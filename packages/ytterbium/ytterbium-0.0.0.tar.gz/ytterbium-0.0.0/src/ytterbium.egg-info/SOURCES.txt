@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/ytterbium/__init__.py
+src/ytterbium/example.py
+src/ytterbium.egg-info/PKG-INFO
+src/ytterbium.egg-info/SOURCES.txt
+src/ytterbium.egg-info/dependency_links.txt
+src/ytterbium.egg-info/top_level.txt
