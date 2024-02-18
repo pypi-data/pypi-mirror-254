@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: quasimodo
+Version: 0.7.10
+Summary: AMQP and MQTT over WebSocket Queue Clients
+License: GPL-2.0-only
+Author: doubleO8
+Author-email: wb008@hdm-stuttgart.de
+Requires-Python: >=3.8,<=3.12
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: paho-mqtt (>=1.6.1,<2.0.0)
+Requires-Dist: pika (>=1.2.1,<2.0.0)

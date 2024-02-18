@@ -1,0 +1,44 @@
+[tool.black]
+line-length = 79
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      __pycache__
+    | \.idea
+    | \.vscode
+    | build
+    | contrib
+    | dist
+    | doc
+    | iotta\.egg\-info
+    | \.?venv3?
+  )/
+)
+'''
+
+[tool.poetry]
+name = "quasimodo"
+version = "0.7.10"
+description = "AMQP and MQTT over WebSocket Queue Clients"
+authors = ["doubleO8 <wb008@hdm-stuttgart.de>"]
+license = "GPL-2.0-only"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<=3.12"
+pika = "^1.2.1"
+paho-mqtt = "^1.6.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+sphinxcontrib-napoleon = "^0.7"
+Sphinx = "^4.5.0"
+sphinx-rtd-theme = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+quasimonkey = 'quasimodo.hunchback:hunchback_client'
