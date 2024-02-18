@@ -1,0 +1,48 @@
+# https://pre-commit.com/
+# Copied from xarray
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.14
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+  - repo: https://github.com/keewis/blackdoc
+    rev: v0.3.9
+    hooks:
+      - id: blackdoc
+  - repo: https://github.com/Carreau/velin
+    rev: 0.0.12
+    hooks:
+      - id: velin
+        args: ["--write", "--compact"]
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-setuptools, numpy]
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.17.2
+    hooks:
+      - id: typos
+        # https://github.com/crate-ci/typos/issues/347
+        pass_filenames: false
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.26
+    hooks:
+      - id: actionlint
+  - repo: local
+    hooks:
+      - id: no-print
+        name: no-print
+        description: We shouldn't merge code with `print(` in
+        language: pygrep
+        types: ["python"]
+        entry: 'print\('
+        exclude: ".*/test/.*"

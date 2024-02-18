@@ -1,0 +1,14 @@
+numpy
+numba
+
+[dev]
+bottleneck
+hypothesis
+jq
+pandas
+pre-commit
+pytest-benchmark
+pytest
+ruff
+setuptools_scm
+tabulate
