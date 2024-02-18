@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: modelscope_gradio_components
+Version: 0.0.1b7
+Summary: Python library for easily interacting with trained machine learning models
+Author-email: YOUR NAME <YOUREMAIL@domain.com>
+License-Expression: Apache-2.0
+Keywords: gradio-custom-component,modelscope-gradio-components
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.8
+Requires-Dist: gradio<5.0,>=4.0
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# ModelScope_Gradio_Components
+
+A components library for gradio 4.
+
+## Install
+
+```sh
+pip install modelscope_gradio_components
+```
+
+## Docs
+
+See [docs](https://modelscope.cn/studios/modelscope/modelscope_gradio_components/summary)
