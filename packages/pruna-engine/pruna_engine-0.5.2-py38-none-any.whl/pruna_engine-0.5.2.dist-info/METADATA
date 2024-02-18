@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: pruna-engine
+Version: 0.5.2
+Summary: Run AI models smashed by Pruna AI
+Author: Pruna AI
+Author-email: hello@pruna.ai
+License: All Rights Reserved
+Description-Content-Type: text/markdown
+Requires-Dist: packaging
+Requires-Dist: torch >=2.1.0
+Requires-Dist: onnx >=1.14.1
+Requires-Dist: Pillow >=9.5.0
+Requires-Dist: scipy >=1.10.1
+Requires-Dist: requests >=2.31.0
+Requires-Dist: transformers >=4.34.0
+Requires-Dist: pycryptodome >=3.18.0
+Requires-Dist: speedster ==0.3.0
+Requires-Dist: nebullvm ==0.9.1
+Requires-Dist: diffusers >=0.21.4
+Requires-Dist: numpy >=1.23.5
+Requires-Dist: protobuf <=3.20.2
+Requires-Dist: peft >=0.5.0
+Requires-Dist: accelerate >=0.23.0
+Requires-Dist: flatbuffers
+Requires-Dist: openvino-dev
+Requires-Dist: ctranslate2
+Requires-Dist: whisper-s2t
+Requires-Dist: dill
+Requires-Dist: platformdirs
+Provides-Extra: cpu
+Provides-Extra: gpu
+Requires-Dist: tensorrt ==9.1.0.post12.dev4 ; extra == 'gpu'
+Requires-Dist: onnx-graphsurgeon >=0.3.27 ; extra == 'gpu'
+Requires-Dist: nvtx ==0.2.5 ; extra == 'gpu'
+Requires-Dist: flash-attn ; extra == 'gpu'
+Requires-Dist: stable-fast ; extra == 'gpu'
+Requires-Dist: xformers ; extra == 'gpu'
+Requires-Dist: polygraphy ; extra == 'gpu'
+Requires-Dist: DeepCache ; extra == 'gpu'
+Requires-Dist: auto-gptq >=0.4.2 ; extra == 'gpu'
+Requires-Dist: cuda-python ==12.1.0 ; extra == 'gpu'
+
+# Pruna Engine
+
+Pruna Engine is a Python package providing the capability of running deep learning models optimized through Pruna AI.
+
+## Installation
+
+You can install Pruna Engine via pip from PyPI:
+
+CPU
+
+```shell
+pip install pruna-engine
+```
+
+GPU
+
+```shell
+pip install pruna-engine[gpu] --extra-index-url https://pypi.nvidia.com --extra-index-url https://pypi.ngc.nvidia.com
+```
+
+## Requirements
+
+- You need CUDA 12 to be installed on your machine for the GPU version
+- You need to have CUDA toolkit installed on your machine. If you are using a conda environment you can do this by running:
+```shell
+conda install nvidia/label/cuda-12.1.0::cuda
+```
+- We support python 3.8, 3.9, or 3.10
+
+## Usage
+
+Here is a simple example of how to use Pruna Engine with a ResNet50 optimized model:
+
+```python
+from pruna_engine.PrunaModel import PrunaModel
+
+# And 'your_api_key' is your actual API key
+your_api_key = 'test'
+smashed_model = PrunaModel.load_model('resnet50_model', your_api_key)
+# Run prediction
+y = smashed_model(x)
+```
+
+## License
+
+All Rights Reserved
+
+Copyright 2023 Pruna AI
+
