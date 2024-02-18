@@ -1,0 +1,1923 @@
+{
+  "src/components/display/Alert.tsx": {
+    "displayName": "Alert",
+    "description": "Alert component",
+    "props": {
+      "severity": {
+        "description": "Alert type",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ],
+          "raw": "AlertColor"
+        }
+      },
+      "autoHide": {
+        "description": "Automatically hide the alert (in ms)",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "message": {
+        "description": "Message to display",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/display/Box.tsx": {
+    "displayName": "Box",
+    "description": "Box component from Material UI\nhttps://mui.com/components/box/",
+    "props": {
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      },
+      "sx": {
+        "description": "All Material system properties are available via the `sx prop`\nAllow additional css styles to be applied to the component",
+        "required": false,
+        "type": {
+          "name": "object",
+          "raw": "object"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/display/Table.tsx": {
+    "displayName": "Table",
+    "description": "Table component",
+    "props": {
+      "columns": {
+        "description": "Array of table columns to render",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "field": {
+                "description": "Column field",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              },
+              "width": {
+                "description": "Column width",
+                "required": true,
+                "name": "number",
+                "raw": "number"
+              }
+            },
+            "raw": "{ field: string; width: number; }"
+          },
+          "raw": "{ field: string; width: number; }[]"
+        }
+      },
+      "rows": {
+        "description": "Array of table rows to render",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {},
+            "raw": "TableRowData"
+          },
+          "raw": "TableRowData[]"
+        }
+      },
+      "rowsPerPageOptions": {
+        "description": "Table pagination setting",
+        "required": false,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number",
+            "raw": "number"
+          },
+          "raw": "number[]"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/display/Typography.tsx": {
+    "displayName": "Typography",
+    "description": "Typography component from Material UI\nhttps://mui.com/components/typography/",
+    "props": {
+      "component": {
+        "description": "Typography HTML node type",
+        "required": false,
+        "type": {
+          "name": "any",
+          "raw": "ElementType<any>"
+        }
+      },
+      "variant": {
+        "description": "Typography variant",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'button'",
+              "computed": false
+            },
+            {
+              "value": "'caption'",
+              "computed": false
+            },
+            {
+              "value": "'h1'",
+              "computed": false
+            },
+            {
+              "value": "'h2'",
+              "computed": false
+            },
+            {
+              "value": "'h3'",
+              "computed": false
+            },
+            {
+              "value": "'h4'",
+              "computed": false
+            },
+            {
+              "value": "'h5'",
+              "computed": false
+            },
+            {
+              "value": "'h6'",
+              "computed": false
+            },
+            {
+              "value": "'subtitle1'",
+              "computed": false
+            },
+            {
+              "value": "'subtitle2'",
+              "computed": false
+            },
+            {
+              "value": "'body1'",
+              "computed": false
+            },
+            {
+              "value": "'body2'",
+              "computed": false
+            },
+            {
+              "value": "'overline'",
+              "computed": false
+            }
+          ],
+          "raw": "Variant"
+        }
+      },
+      "text": {
+        "description": "Text to display",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Autocomplete.tsx": {
+    "displayName": "Autocomplete",
+    "description": "Autocomplete component",
+    "props": {
+      "labelText": {
+        "description": "The label text displayed for the autocomplete input",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "size": {
+        "description": "The size of the autocomplete input, can be 'small' or 'medium'",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'medium'",
+              "computed": false
+            }
+          ],
+          "raw": "\"small\" | \"medium\""
+        }
+      },
+      "variant": {
+        "description": "The variant of the autocomplete input, can be 'filled', 'outlined', or 'standard'",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'filled'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'standard'",
+              "computed": false
+            }
+          ],
+          "raw": "\"filled\" | \"outlined\" | \"standard\""
+        }
+      },
+      "selected": {
+        "description": "Currently selected option(s), can be a single option or an array of options",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "shape",
+              "value": {
+                "label": {
+                  "description": "",
+                  "required": true,
+                  "name": "string",
+                  "raw": "string"
+                },
+                "value": {
+                  "description": "",
+                  "required": true,
+                  "name": "string",
+                  "raw": "string"
+                }
+              },
+              "raw": "OptionType"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "shape",
+                "value": {
+                  "label": {
+                    "description": "",
+                    "required": true,
+                    "name": "string",
+                    "raw": "string"
+                  },
+                  "value": {
+                    "description": "",
+                    "required": true,
+                    "name": "string",
+                    "raw": "string"
+                  }
+                },
+                "raw": "OptionType"
+              },
+              "raw": "OptionType[]"
+            }
+          ],
+          "raw": "OptionType | OptionType[]"
+        }
+      },
+      "options": {
+        "description": "Options available for selection in the autocomplete",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "label": {
+                "description": "",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              },
+              "value": {
+                "description": "",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              }
+            },
+            "raw": "OptionType"
+          },
+          "raw": "OptionType[]"
+        }
+      },
+      "limitTags": {
+        "description": "Limit the number of tags displayed when `multiple` is enabled",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "freeSolo": {
+        "description": "Allow the user to enter a value not included in the options",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "groupByField": {
+        "description": "Field in the option object to group options by in the list",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "multiple": {
+        "description": "Allow multiple selections",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "width": {
+        "description": "Width of the autocomplete box (CSS value as string)",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "margin": {
+        "description": "Margin around the autocomplete box (CSS value as string or number)",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "disabled": {
+        "description": "If true, the autocomplete input will be disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Button.tsx": {
+    "displayName": "Button",
+    "description": "Button component",
+    "props": {
+      "text": {
+        "description": "Button text",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "variant": {
+        "description": "MUI button variant",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'text'",
+              "computed": false
+            },
+            {
+              "value": "'contained'",
+              "computed": false
+            }
+          ],
+          "raw": "\"outlined\" | \"text\" | \"contained\""
+        }
+      },
+      "color": {
+        "description": "MUI button color",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            },
+            {
+              "value": "'inherit'",
+              "computed": false
+            },
+            {
+              "value": "'success'",
+              "computed": false
+            },
+            {
+              "value": "'info'",
+              "computed": false
+            },
+            {
+              "value": "'warning'",
+              "computed": false
+            }
+          ],
+          "raw": "\"primary\" | \"secondary\" | \"error\" | \"inherit\" | \"success\" | \"info\" | \"warning\""
+        }
+      },
+      "iconColor": {
+        "description": "Icon color",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'disabled'",
+              "computed": false
+            },
+            {
+              "value": "'primary'",
+              "computed": false
+            },
+            {
+              "value": "'secondary'",
+              "computed": false
+            },
+            {
+              "value": "'action'",
+              "computed": false
+            },
+            {
+              "value": "'error'",
+              "computed": false
+            }
+          ],
+          "raw": "\"disabled\" | \"primary\" | \"secondary\" | \"action\" | \"error\""
+        }
+      },
+      "size": {
+        "description": "MUI button size, small | medium | large",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'medium'",
+              "computed": false
+            },
+            {
+              "value": "'large'",
+              "computed": false
+            }
+          ],
+          "raw": "\"small\" | \"medium\" | \"large\""
+        }
+      },
+      "margin": {
+        "description": "Component margin",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "disabled": {
+        "description": "Button is disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "disableRipple": {
+        "description": "Button has no ripple effect",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "disableFocusRipple": {
+        "description": "Disable keyboard focus ripple",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "disableElevation": {
+        "description": "Disable elevation",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "startIcon": {
+        "description": "Material Icon name to display at start of button",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "endIcon": {
+        "description": "Material Icon name to display at end of button",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "href": {
+        "description": "Button link",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "width": {
+        "description": "Component width",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "nClicks": {
+        "description": "Number of times the button has been clicked",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Calendar.tsx": {
+    "displayName": "Calendar",
+    "description": "Calendar component",
+    "props": {
+      "labelText": {
+        "description": "The label text displayed for the calendar input",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "helperText": {
+        "description": "The helper text that appears below the calendar input",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "width": {
+        "description": "Width of the calendar box (CSS value as string or number)",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "margin": {
+        "description": "Margin around the calendar box (CSS value as string or number)",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "maxDate": {
+        "description": "The maximum date that can be selected, in 'yyyy-MM-dd' format",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "minDate": {
+        "description": "The minimum date that can be selected, in 'yyyy-MM-dd' format",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "disableFuture": {
+        "description": "If true, future dates will be disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "disablePast": {
+        "description": "If true, past dates will be disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "selected": {
+        "description": "The currently selected date, in 'yyyy-MM-dd' format",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "disableToolbar": {
+        "description": "If true, the toolbar of the DatePicker will be hidden",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "disabled": {
+        "description": "If true, the calendar input will be disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Dropdown.tsx": {
+    "displayName": "Dropdown",
+    "description": "Dropdown component",
+    "props": {
+      "labelText": {
+        "description": "Text to display in the dropdown form, when no items are selected",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "helperText": {
+        "description": "Text to display under the dropdown form",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "width": {
+        "description": "Width of dropdown form",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "margin": {
+        "description": "Margin of the component",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "options": {
+        "description": "Array of options to select in the dropdown form",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string",
+                "raw": "string"
+              },
+              {
+                "name": "number",
+                "raw": "number"
+              }
+            ],
+            "raw": "string | number"
+          },
+          "raw": "(string | number)[]"
+        }
+      },
+      "multiple": {
+        "description": "Allow multiple selections",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "selected": {
+        "description": "Active option selection",
+        "required": false,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string",
+                "raw": "string"
+              },
+              {
+                "name": "number",
+                "raw": "number"
+              }
+            ],
+            "raw": "string | number"
+          },
+          "raw": "(string | number)[]"
+        }
+      },
+      "disabled": {
+        "description": "Disabled the component",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/InputText.tsx": {
+    "displayName": "InputText",
+    "description": "InputText component",
+    "props": {
+      "labelText": {
+        "description": "The label text displayed for the input field",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "value": {
+        "description": "The initial value of the input",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "maxValue": {
+        "description": "The maximum numeric value allowed (for numeric input types)",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "minValue": {
+        "description": "The minimum numeric value allowed (for numeric input types)",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "precision": {
+        "description": "The number of decimal places to allow (for 'float' input type)",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "inputType": {
+        "description": "The type of input ('text', 'integer', or 'float')",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'text'",
+              "computed": false
+            },
+            {
+              "value": "'integer'",
+              "computed": false
+            },
+            {
+              "value": "'float'",
+              "computed": false
+            }
+          ],
+          "raw": "\"text\" | \"integer\" | \"float\""
+        }
+      },
+      "multiline": {
+        "description": "Whether the text field should allow multiline input",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "variant": {
+        "description": "The variant of the text field",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'filled'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'standard'",
+              "computed": false
+            }
+          ],
+          "raw": "\"filled\" | \"outlined\" | \"standard\""
+        }
+      },
+      "maxLength": {
+        "description": "The maximum length of the input string",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "autoFocus": {
+        "description": "If true, the input will be focused automatically",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "size": {
+        "description": "The size of the input field",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'medium'",
+              "computed": false
+            }
+          ],
+          "raw": "\"small\" | \"medium\""
+        }
+      },
+      "width": {
+        "description": "The width of the input field (CSS value as string)",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "margin": {
+        "description": "Margin around the input field (CSS value as string or number)",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "adornmentLeft": {
+        "description": "An adornment to be displayed at the start of the input",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "adornmentRight": {
+        "description": "An adornment to be displayed at the end of the input",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "disabled": {
+        "description": "If true, the input field will be disabled",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "error": {
+        "description": "If true, the input field will indicate an error",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Slider.tsx": {
+    "displayName": "Slider",
+    "description": "Slider component",
+    "props": {
+      "labelText": {
+        "description": "Text to display above the slider form",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "width": {
+        "description": "Width of slider form",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "margin": {
+        "description": "Margin of the component",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "maxValue": {
+        "description": "Maximum selection allowed in the slider",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "minValue": {
+        "description": "Minimum selection allowed in the slider",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "stepValue": {
+        "description": "Slider selection increment",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "marks": {
+        "description": "Array of selection marks to display below the slider form",
+        "required": false,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "value": {
+                "description": "",
+                "required": true,
+                "name": "number",
+                "raw": "number"
+              },
+              "label": {
+                "description": "",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              }
+            },
+            "raw": "{ value: number; label: string; }"
+          },
+          "raw": "{ value: number; label: string; }[]"
+        }
+      },
+      "selected": {
+        "description": "Active slider selection",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "inputType": {
+        "description": "Input type, if set an input text is displayed alongside the slider",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'integer'",
+              "computed": false
+            },
+            {
+              "value": "'float'",
+              "computed": false
+            }
+          ],
+          "raw": "\"integer\" | \"float\""
+        }
+      },
+      "precision": {
+        "description": "Number of decimal places",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "inputLeftAdornment": {
+        "description": "InputText LEFT adornment",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "inputRightAdornment": {
+        "description": "InputText RIGHT adornment",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "disabled": {
+        "description": "Disable the component",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/inputs/Toggle.tsx": {
+    "displayName": "Toggle",
+    "description": "Toggle component",
+    "props": {
+      "orientation": {
+        "description": "Toggle orientation (horizontal or vertical)",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'horizontal'",
+              "computed": false
+            },
+            {
+              "value": "'vertical'",
+              "computed": false
+            }
+          ],
+          "raw": "\"horizontal\" | \"vertical\""
+        }
+      },
+      "options": {
+        "description": "Array of options to select through the toggle",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string",
+                "raw": "string"
+              },
+              {
+                "name": "number",
+                "raw": "number"
+              }
+            ],
+            "raw": "string | number"
+          },
+          "raw": "(string | number)[]"
+        }
+      },
+      "selected": {
+        "description": "Selected toggle index",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "margin": {
+        "description": "Margin of the component",
+        "required": false,
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "raw": "string"
+            },
+            {
+              "name": "number",
+              "raw": "number"
+            }
+          ],
+          "raw": "string | number"
+        }
+      },
+      "disabled": {
+        "description": "Disable component",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/layout/NavBar.tsx": {
+    "displayName": "NavBar",
+    "description": "Dashboard navigation bar component\nhttps://mui.com/components/app-bar/",
+    "props": {
+      "title": {
+        "description": "Dashboard navigation bar title",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/layout/Page.tsx": {
+    "displayName": "Page",
+    "description": "Page component, used to wrap section and card components\nDashboard > Page",
+    "props": {
+      "orientation": {
+        "description": "Page general orientation (rows or columns)",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'columns'",
+              "computed": false
+            },
+            {
+              "value": "'rows'",
+              "computed": false
+            }
+          ],
+          "raw": "\"columns\" | \"rows\""
+        }
+      },
+      "errorStatus": {
+        "description": "Error status code",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "errorMessage": {
+        "description": "Error message",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": false,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/layout/Section.tsx": {
+    "displayName": "Section",
+    "description": "Section component\nDashboard > Page > Section",
+    "props": {
+      "cards": {
+        "description": "Array of cards to render as component children",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "title": {
+                "description": "Card title",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              },
+              "size": {
+                "description": "Card size (0 < size <= 12)",
+                "required": true,
+                "name": "number",
+                "raw": "number"
+              },
+              "downloadable": {
+                "description": "Card downloadable",
+                "required": true,
+                "name": "bool",
+                "raw": "boolean"
+              }
+            },
+            "raw": "{ title: string; size: number; downloadable: boolean; }"
+          },
+          "raw": "{ title: string; size: number; downloadable: boolean; }[]"
+        }
+      },
+      "size": {
+        "description": "Section container size (0 < size <= 12)",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "orientation": {
+        "description": "Section general orientation (rows or columns)",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'columns'",
+              "computed": false
+            },
+            {
+              "value": "'rows'",
+              "computed": false
+            }
+          ],
+          "raw": "\"columns\" | \"rows\""
+        }
+      },
+      "downloaded": {
+        "description": "Section download counter",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/layout/SideBar.tsx": {
+    "displayName": "SideBar",
+    "description": "Sidebar component",
+    "props": {
+      "settings": {
+        "description": "Array of settings to render as component children",
+        "required": false,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string",
+            "raw": "string"
+          },
+          "raw": "string[]"
+        }
+      },
+      "title": {
+        "description": "Dashboard sidebar title",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/layout/Tab.tsx": {
+    "displayName": "Tab",
+    "description": "Tab component\nDashboard > Page > Section > Card > Tab\nhttps://github.com/danielfrg/jupyter-flex/blob/main/js/src/Section/index.js",
+    "props": {
+      "tabs": {
+        "description": "Array of tabs to render as component children",
+        "required": true,
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "label": {
+                "description": "Element label",
+                "required": true,
+                "name": "string",
+                "raw": "string"
+              }
+            },
+            "raw": "{ label: string; }"
+          },
+          "raw": "{ label: string; }[]"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/components/Dashboard.tsx": {
+    "displayName": "Dashboard",
+    "description": "Main dashboard component, initializing a Material UI theme\nhttps://mui.com/customization/theming/",
+    "props": {
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "height": {
+        "description": "Dashboard display height",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "theme": {
+        "description": "Override mui theme",
+        "required": false,
+        "type": {
+          "name": "shape",
+          "value": {},
+          "raw": "Partial<Theme>"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, string | number | object>) => void"
+        }
+      },
+      "children": {
+        "description": "Component children",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  }
+}
