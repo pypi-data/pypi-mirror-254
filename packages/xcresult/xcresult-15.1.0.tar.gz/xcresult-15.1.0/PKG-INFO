@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: xcresult
+Version: 15.1.0
+Summary: An xcresult parser.
+Home-page: https://github.com/dalemyers/xcresult
+License: MIT
+Keywords: xcresult,parser,xcode
+Author: Dale Myers
+Author-email: dale@myers.io
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Project-URL: Repository, https://github.com/dalemyers/xcresult
+Description-Content-Type: text/markdown
+
+# xcresult
+
+
