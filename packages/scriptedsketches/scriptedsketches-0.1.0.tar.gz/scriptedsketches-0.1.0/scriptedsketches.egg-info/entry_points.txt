@@ -1,0 +1,2 @@
+[console_scripts]
+scriptedsketches = scriptedsketches.cli:main

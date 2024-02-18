@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+scriptedsketches/__init__.py
+scriptedsketches/cli.py
+scriptedsketches/code_generation.py
+scriptedsketches/prompt_templates.py
+scriptedsketches/scripted_art.py
+scriptedsketches.egg-info/PKG-INFO
+scriptedsketches.egg-info/SOURCES.txt
+scriptedsketches.egg-info/dependency_links.txt
+scriptedsketches.egg-info/entry_points.txt
+scriptedsketches.egg-info/requires.txt
+scriptedsketches.egg-info/top_level.txt
