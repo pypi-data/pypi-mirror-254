@@ -1,0 +1,2 @@
+[console_scripts]
+source-twilio = source_twilio.run:run
