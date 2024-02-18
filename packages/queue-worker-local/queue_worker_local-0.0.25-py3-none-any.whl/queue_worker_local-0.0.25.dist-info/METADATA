@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: queue-worker-local
+Version: 0.0.25
+Home-page: https://github.com/circles-zone/queue-worker-local-python-package
+Author: Circles
+Author-email: info@circles.life
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pytest >=7.4.1
+Requires-Dist: database-mysql-local >=0.0.116
+Requires-Dist: logger-local >=0.0.71
+Requires-Dist: queue-local >=0.0.23
+
+This is a package for sharing common crud operation to queue schema in the db
