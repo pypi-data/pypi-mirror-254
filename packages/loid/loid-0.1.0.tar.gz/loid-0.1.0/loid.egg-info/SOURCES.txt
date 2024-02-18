@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+setup.cfg
+setup.py
+loid/__init__.py
+loid/cli.py
+loid.egg-info/PKG-INFO
+loid.egg-info/SOURCES.txt
+loid.egg-info/dependency_links.txt
+loid.egg-info/entry_points.txt
+loid.egg-info/not-zip-safe
+loid.egg-info/requires.txt
+loid.egg-info/top_level.txt
+loid/constants/__init__.py
+loid/constants/informations.py
+loid/constants/services.py
+loid/constants/system.py
