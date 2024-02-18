@@ -1,0 +1,3 @@
+include sshifted/tree.jpg
+recursive-include sshifted/ *
+recursive-include sshifted/ace *
