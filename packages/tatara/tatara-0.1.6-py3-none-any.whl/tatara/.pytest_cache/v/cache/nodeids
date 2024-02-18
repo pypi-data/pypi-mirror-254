@@ -1,0 +1,22 @@
+[
+  "tests/test_background_queue_logger.py::test_lazy_init",
+  "tests/test_background_queue_logger.py::test_log_method",
+  "tests/test_background_queue_logger.py::test_log_triggers_start",
+  "tests/test_background_queue_logger.py::test_noop_when_timer_fires_on_empty_queue",
+  "tests/test_background_queue_logger.py::test_print_pythonpath",
+  "tests/test_background_queue_logger.py::test_sends_logs_when_queue_is_full",
+  "tests/test_background_queue_logger.py::test_sends_logs_when_timer_fires",
+  "tests/test_background_queue_logger.py::test_thread_start",
+  "tests/test_log_decorators.py::test_async",
+  "tests/test_log_decorators.py::test_log_span_fails_without_event",
+  "tests/test_log_decorators.py::test_log_span_sync",
+  "tests/test_log_decorators.py::test_log_span_sync_with_parent_event",
+  "tests/test_log_decorators.py::test_log_span_with_caller_event",
+  "tests/test_log_decorators.py::test_log_span_with_caller_event_and_parent",
+  "tests/test_log_decorators.py::test_log_trace_async",
+  "tests/test_log_decorators.py::test_log_trace_fails_without_event",
+  "tests/test_log_decorators.py::test_log_trace_sync",
+  "tests/test_log_decorators.py::test_log_trace_sync_with_id",
+  "tests/test_log_decorators.py::test_log_trace_sync_with_id_and_user_id",
+  "tests/test_log_decorators.py::test_log_trace_sync_with_user_id"
+]
