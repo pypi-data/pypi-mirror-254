@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+documentocr_verdict/__init__.py
+documentocr_verdict/ocr.py
+documentocr_verdict.egg-info/PKG-INFO
+documentocr_verdict.egg-info/SOURCES.txt
+documentocr_verdict.egg-info/dependency_links.txt
+documentocr_verdict.egg-info/requires.txt
+documentocr_verdict.egg-info/top_level.txt
