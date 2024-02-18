@@ -1,0 +1,12 @@
+pydantic>=1.10.0
+
+[test]
+pytest
+coverage
+flake8
+black
+isort
+pytest-cov
+gitchangelog
+mkdocs
+pydantic<3.0.0,>=2.5.3

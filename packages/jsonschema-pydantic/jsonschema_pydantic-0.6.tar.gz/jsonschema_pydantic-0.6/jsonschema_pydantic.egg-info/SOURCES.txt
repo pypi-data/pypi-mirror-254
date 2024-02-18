@@ -1,0 +1,17 @@
+Containerfile
+HISTORY.md
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+jsonschema_pydantic/VERSION
+jsonschema_pydantic/__init__.py
+jsonschema_pydantic/transform.py
+jsonschema_pydantic.egg-info/PKG-INFO
+jsonschema_pydantic.egg-info/SOURCES.txt
+jsonschema_pydantic.egg-info/dependency_links.txt
+jsonschema_pydantic.egg-info/requires.txt
+jsonschema_pydantic.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_transform.py
