@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ofdc-tollkit
+Version: 0.1.1
+Summary: Kit de ferramentas Ofdc
+Author: Isaac da Silva Farias
+Author-email: adm.mis@oficinadecredito.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pandas (>=1.3.3,<2.0.0)
+Requires-Dist: psycopg2 (>=2.9.1,<3.0.0)
+Description-Content-Type: text/markdown
+
+
