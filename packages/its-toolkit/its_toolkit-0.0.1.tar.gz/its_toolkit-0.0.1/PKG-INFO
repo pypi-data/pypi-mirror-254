@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: its-toolkit
+Version: 0.0.1
+Summary: The Interrupted Time Series Toolkit
+Project-URL: Homepage, https://github.com/mbtagm/its-toolkit
+Project-URL: Issues, https://github.com/mbtagm/its-toolkit/issues
+Author-email: Marco Villegas <marco.villegas@uclm.es>
+License-File: LICENCE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# The Interrupted Time Series Toolkit
