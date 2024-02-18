@@ -1,0 +1,15 @@
+fastapi_services/__init__.py,sha256=vL462LCajOBBu90CwGPghzg8PFG4u1WUR_ypv3iKHCo,315
+fastapi_services/collection.py,sha256=jjA0lt16VdSO8pJcxs6VnQ4NDUdYI-weRtPsAhYVwss,4672
+fastapi_services/descriptor.py,sha256=QBoHsem7uIun1VsS9wnOM605T-ZFtwVq7XymUUxNMFY,3714
+fastapi_services/exc.py,sha256=Kh9bIYkZ1CxRuJRr5QqHm7ky4ZIayEmJx-ldy8sB6x0,385
+fastapi_services/factory.py,sha256=LoKe7pcFJqagKo5FrL3xc70vQLvyjvfXWDwUX7hw9NE,2290
+fastapi_services/interfaces.py,sha256=x8Gyl_LAl_4LFNT9tMX9AE13nid6yQikeFDkItBNXnI,3962
+fastapi_services/lifetime.py,sha256=TuYx35NKjR_78jKQf3Qh7ZL_ziSWOnt3IacBOA_xnJc,93
+fastapi_services/types.py,sha256=DQP45fmIpDjdz5-BFspPqxH7xM1kDGKhHZH-EZgvpFM,161
+fastapi_services/utils.py,sha256=nI0NjchjOrGoMkvNGWeWFnKTYBcf3jOBKxLDNZOPRdw,12
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_service_collection.py,sha256=5pvXrRVtxPajrr-VKwSKdxJqTyndfw548roooyB71Fk,2563
+fastapi_services-1.0.0.dist-info/METADATA,sha256=0tXaD9l94fY2dX-yp6xX_aVgfMqeAmkt1j2KiJmOrzc,84
+fastapi_services-1.0.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+fastapi_services-1.0.0.dist-info/top_level.txt,sha256=JQS80QKXRkK_3p-3qs6C5PWENnNNK5PGs1FkOzsEZD4,23
+fastapi_services-1.0.0.dist-info/RECORD,,
