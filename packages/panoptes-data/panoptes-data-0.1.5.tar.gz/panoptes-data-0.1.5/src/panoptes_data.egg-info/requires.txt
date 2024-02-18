@@ -1,0 +1,21 @@
+astropy
+numpy
+pandas
+panoptes-utils[images]
+pip
+pydantic
+pydantic-settings
+python-dateutil
+rich[jupyter]
+tabulate
+tqdm
+typer
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+setuptools
+pytest
+pytest-cov
+tox
