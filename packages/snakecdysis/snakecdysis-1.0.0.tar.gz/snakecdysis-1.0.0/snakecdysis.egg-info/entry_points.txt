@@ -1,0 +1,6 @@
+[console_scripts]
+generate_template = snakecdysis.scripts.generate_template:main
+snakecdysis = snakecdysis.__main__:main
+
+[snakecdysis]
+snakecdysis = __init__

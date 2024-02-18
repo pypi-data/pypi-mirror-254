@@ -1,0 +1,13 @@
+PyYAML
+click>=8.0.3
+cookiecutter
+docutils
+python-gitlab
+snakemake<8.0.0
+tqdm
+pulp<2.8
+
+[dev]
+sphinx_click
+sphinx_copybutton
+sphinx_rtd_theme
