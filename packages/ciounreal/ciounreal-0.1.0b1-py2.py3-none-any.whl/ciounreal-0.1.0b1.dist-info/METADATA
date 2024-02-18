@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: ciounreal
+Version: 0.1.0b1
+Summary: Unreal plugin for Conductor Cloud Rendering Platform.
+Home-page: https://github.com/ConductorTechnologies/ciounreal
+Author: Conductor
+Author-email: info@conductortech.com
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics :: 3D Rendering
+Description-Content-Type: text/markdown
+Requires-Dist: ciocore <8.0.0,>=7.0.2
+Requires-Dist: cioseq <1.0.0,>=0.1.14
+
+# Conductor for Unreal
+
+Unreal plugin submitter for the Conductor Cloud rendering service.
+
+## Install
+
+
+**To install the latest version.**
+```bash
+pip install --upgrade ciounreal --target=$HOME/Conductor
+```
+
+**To install a specific version, for example 0.1.0.**
+```bash
+pip install --upgrade --force-reinstall ciounreal==0.1.0 --target=$HOME/Conductor
+```
+
+**Setup the Plugin startup file from a command prompt or Powershell on a Windows machine.** 
+
+```bash
+python ~/Conductor/ciounreal/post_install.py
+```
+
+
+
+
+
+
+
+> **NOTE** An alternative is to install from the Plugins page in the [Conductor Companion app](https://docs.conductortech.com/getting_started/installation/#companion-app)
+
+
+## Usage
+
+To set up a render, go to **Rendering** menu in Unreal and choose **Render with Conductor**.
+
+For detailed help, checkout the [tutorial](https://docs.conductortech.com/tutorials/unreal) and [reference](https://docs.conductortech.com/reference/unreal) documentation.
+
+
+## Contributing
+
+> **NOTE:** These instructions were written from the point of view of a developer coding on Mac or Linux, and where Unreal on Windows has access to $HOME/ConductorStaging over the network.
+
+Clone the repo.
+
+```
+git clone git@github.com:ConductorTechnologies/ciounreal.git
+cd ciounreal
+```
+
+Set up a clean virtual envirionment with Python 3.7 for development (optional).
+
+```
+python -m virtualenv venv
+. ./venv/bin/activate
+```
+
+Install development dependencies
+```
+pip install -r requirements_dev.txt
+```
+
+Build and install from this directory into to a convenient location for testing.
+```
+
+pip install --upgrade -r requirements.txt --target=$HOME/ConductorStaging
+
+```
+
+When you install from the file requirements.txt, the dependency on ciocore is specified as a local sibling of this project, meaning you can develop ciocore and ciomaya in parallel. If you have no interest in using a dev version of ciocore, then replace `-r requirements.txt` with a dot `.` instead.
+
+If you develop natively on Windows, please consider adding your workflow steps to this section.
+
+## Changelog
+
+## Unreleased: 
+
+* 0.1.0-beta.1
+    ### Added
+    - CircleCI configuration for automated builds and testing.
+    - New conductor logo added to the project assets.
+    ### Changed
+    - The initialization script tub now gets rewritten during installation so that we can point to the package.
+    - ConductorExecutor has been moved into the `ciounreal` module.
+    - The project has been converted into a plugin format for better modularity and ease of use.
+    - Post-installation scripts have been implemented to automatically copy the plugin to Unreal Engine's plugins folder.
+    ### Updated
+    - Upgraded to core version 7.0.2, which includes updates to instance types.
+    - `setup.py` now handles versioning and packaging the plugin into distributable zip files.
