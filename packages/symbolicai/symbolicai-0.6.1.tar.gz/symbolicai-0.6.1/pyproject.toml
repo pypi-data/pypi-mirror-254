@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "symbolicai"
+dynamic = ["version"]
+authors = [
+    {name = "Marius-Constantin Dinu", email = "office@alphacoreai.eu"},
+]
+description = "A Neuro-Symbolic Framework for Python"
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["symbolic programming", "machine learning"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "setuptools>=67.7.2", "toml>=0.10.2", "natsort>=8.3.1", "numpy>=1.24.3", "tqdm>=4.65.0", "python-box>=7.0.1", "rpyc>=5.3.1", "pandas>=2.0.2",
+    "scikit-learn>=1.2.2", "torch>=2.0.0", "torchaudio>=2.0.1", "torchvision>=0.15.0", "PyYAML>=6.0", "transformers>=4.30.2", "sympy>=1.12",
+    "openai>=1.1.0", "PyPDF2>=3.0.1", "ipython>=8.14.0", "accelerate>=0.20.3", "sentencepiece>=0.1.99",
+    "tiktoken>=0.3.3", "tika>=2.6.0", "beautifulsoup4>=4.12.2", "colorama>=0.4.6", "GitPython>=3.1.32", "pathos>=0.3.1", "prompt-toolkit>=3.0.39",
+    "pydub", "opencv-python", "pymongo==3.12.3", "pymongo[srv]", "requests_toolbelt", "pyvis"
+]
+
+[project.optional-dependencies]
+blip2 = ["bitsandbytes>=0.39.1", "decord", "salesforce-lavis"]
+wolframalpha = ["wolframalpha>=5.0.0"]
+whisper = ["openai-whisper"]
+selenium = ["selenium>=4.10.0", "webdriver-manager>=4.0.1", "chromedriver-autoinstaller>=0.4.0"]
+serpapi = ["google-search-results>=2.4.2"]
+pinecone = ["pinecone-client>=2.2.2"]
+bard = ["bardapi>=0.1.24"]
+services = ["fastapi>=0.104.1", "redis>=5.0.1", "uvicorn>=0.24.0.post1"]
+solver = ["z3-solver"]
+all = ["wolframalpha>=5.0.0", "openai-whisper", "selenium>=4.10.0", "webdriver-manager>=4.0.1", "chromedriver-autoinstaller>=0.4.0", "google-search-results>=2.4.2", "pinecone-client>=2.2.2", "fastapi>=0.104.1", "redis>=5.0.1", "uvicorn>=0.24.0.post1", "z3-solver"]
+
+[tool.setuptools.dynamic]
+version = {attr = "symai.SYMAI_VERSION"}
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.md"]
+
+[tool.setuptools.packages.find]
+include = ["symai"]
+exclude = ["tests", "examples", "notebooks", "outputs", "assets", "app.py"]
+
+[project.urls]
+"Homepage" = "https://alphacoreai.eu/"
+"GitHub" = "https://github.com/Xpitfire/symai"
+
+[project.scripts]
+symchat = "symai.chat:run"
+symsvr = "symai.nesy_server:run"
+symclient = "symai.nesy_client:run"
+symsh = "symai.shell:run"
+symwzd = "symai:run_setup_wizard"
+sympkg = "symai.extended.packages.sympkg:run"
+symdev = "symai.extended.packages.symdev:run"
+symrun = "symai.extended.packages.symrun:run"
