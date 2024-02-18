@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: simplejsoncsvdb
+Version: 0.1.0
+Summary: Simple json database
+Home-page: https://github.com/EmilTsaturyan/json-db
+Author: Emil Tsaturyan
+Author-email: emiltsaturyan60@gmail.com
+Keywords: python,json,database,csv
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.0
+
