@@ -1,0 +1,14 @@
+softpandas/__init__.py,sha256=eXQrpBbRj0voBDO9KE0cXW3RNxo2zPsms-HvJgpmfKI,329
+softpandas/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+softpandas/core/data_types.py,sha256=50zZxBIuVUmqUqTzPonXcUP7iFli6SU8rs8WQsKwcH0,78
+softpandas/core/soft_dataframe.py,sha256=Webwt6mBSTAT2HGeB2GBmKwcq9lbRIr4zbsCWntjkpI,5739
+softpandas/core/utils.py,sha256=Sq_LD5RCCsx0qzsZ6L4cSTeJkHho0IdGtX112ROWfwE,490
+softpandas/embedders/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+softpandas/embedders/clip_embedder.py,sha256=DsKw7FiqLqSLHGK7vYFSs7q3TxW8BMop5L5BYfQN8Vw,1442
+softpandas/embedders/embedder.py,sha256=GDSQYM4ODut44Cjgy38r8cl2K9K7Bjsa8t9QE5MK888,809
+softpandas/embedders/sentence_transformer_embedder.py,sha256=gl8dUzg1qoylYN6xoOA97tPDloCUwqSv42pFWtDSQGM,696
+softpandas-0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+softpandas-0.1.dist-info/METADATA,sha256=3VMVVuwcW5Zoi9_w-jxckFjVeugt9bP0LFG1DSpUasI,16350
+softpandas-0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+softpandas-0.1.dist-info/top_level.txt,sha256=47WI5HdiIoaC3EckfCO3W4D1Oz8_PXACdy8Gmmw4h1E,11
+softpandas-0.1.dist-info/RECORD,,
