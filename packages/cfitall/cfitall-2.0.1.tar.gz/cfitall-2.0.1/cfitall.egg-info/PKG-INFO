@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: cfitall
+Version: 2.0.1
+Summary: a configuration manager for python apps
+Home-page: https://github.com/wryfi/cfitall
+Author: Chris Haumesser
+Author-email: chris.haumesser@gmail.com
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: AUTHORS
+Requires-Dist: build==1.0.3
+Requires-Dist: packaging==23.2
+Requires-Dist: pyproject-hooks==1.0.0
+Requires-Dist: pyyaml==6.0.1
+
+cfitall :: configure it all
+===========================
+
+cfitall (configure it all) is a configuration management library for
+python applications.
+
+Please see `Read The Docs <https://cfitall.readthedocs.io/en/latest/>`__.
+

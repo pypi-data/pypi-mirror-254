@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pbr = "*"
+cfitall = {editable = true,path = "."}
+ipython = "*"
+twine = "<5"
+coverage = "<7"
+mypy = "<2"
+sphinx = ">=4.5"
+sphinx-autodoc-typehints = "<2"
+sphinx-rtd-theme = "<2"
+tomli = { version = "*", markers = "python_version < '3.11'" }
+types-pyyaml = "<7"
+
+[packages]
+pyyaml = "<7"
+build = "*"

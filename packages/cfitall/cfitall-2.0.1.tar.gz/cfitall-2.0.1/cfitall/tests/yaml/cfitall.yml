@@ -1,0 +1,15 @@
+global:
+  name: cfityaml
+  authors:
+    - john doe
+    - jane deer
+search:
+  - /Users/wryfi/foo
+  - /Users/wryfi/bar
+foo:
+  bar: baz
+  bat:
+    - bald
+    - bam
+    - bolt
+stuff: default_yaml
