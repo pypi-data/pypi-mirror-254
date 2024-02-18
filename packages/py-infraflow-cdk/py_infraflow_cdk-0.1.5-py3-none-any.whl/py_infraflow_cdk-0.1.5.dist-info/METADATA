@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: py-infraflow-cdk
+Version: 0.1.5
+Summary: Build Event Based and Microservice infrastructure and connections using these reusable AWS CDK patterns
+License: MIT
+Author: Matthew Beatty
+Author-email: infraflow@upcontent.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aws-cdk-lib (>=2.69.0,<3.0.0)
+Requires-Dist: aws-wsgi (>=0.2.7,<0.3.0)
+Requires-Dist: boto3 (>=1.26.93,<2.0.0)
+Requires-Dist: constructs (>=10.1.280,<11.0.0)
+Requires-Dist: pydantic (>=2.1.1,<3.0.0)
+Requires-Dist: redis (>=4.5.1,<5.0.0)
+Requires-Dist: urllib3 (>=1.26.15,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Python InfraFlow CDK
+A convention first library for defining event based and microservice architectures quickly and efficiently using premade patterns.
+
+Just install an import
+
+Other things to use with this library:
+- AWS CDK
+- To use Flask, Falcon, Django, or other UWSGI frameworks with CDK and Lambda: https://github.com/slank/awsgi
