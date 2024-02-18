@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/statoil/__init__.py
+src/statoil/example.py
+src/statoil.egg-info/PKG-INFO
+src/statoil.egg-info/SOURCES.txt
+src/statoil.egg-info/dependency_links.txt
+src/statoil.egg-info/top_level.txt
