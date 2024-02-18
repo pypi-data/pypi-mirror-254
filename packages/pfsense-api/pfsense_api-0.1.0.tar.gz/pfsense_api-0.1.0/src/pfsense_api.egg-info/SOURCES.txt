@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/pfsense_api/__init__.py
+src/pfsense_api/parser.py
+src/pfsense_api/supported_api.py
+src/pfsense_api.egg-info/PKG-INFO
+src/pfsense_api.egg-info/SOURCES.txt
+src/pfsense_api.egg-info/dependency_links.txt
+src/pfsense_api.egg-info/requires.txt
+src/pfsense_api.egg-info/top_level.txt
