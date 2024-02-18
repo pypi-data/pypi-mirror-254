@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <table style="width:100%" id="myTable" class="table table-responsive-lg caption-top table-bordered table-hover table-striped mt-5">
+      <thead class="table-dark">
+        <tr>
+          <th>CUCP</th>
+          <th colspan="4">rrc_setup</th>
+          <th colspan="4">initial_ctxt</th>
+          <th colspan="4">bearer_ctxt</th>
+          <th colspan="4">xnap_handover</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Attempts</th>
+          <th>Success</th>
+          <th>Failure</th>
+          <th>Timeout</th>
+          <th>Attempts</th>
+          <th>Success</th>
+          <th>Failure</th>
+          <th>Timeout</th>
+          <th>Attempts</th>
+          <th>Success</th>
+          <th>Failure</th>
+          <th>Timeout</th>
+          <th>Attempts</th>
+          <th>Success</th>
+          <th>Failure</th>
+          <th>Timeout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Your table content here -->
+      </tbody>
+    </table>
+
+    <!-- Collapsible tables for CRNTI lists -->
+    <div id="collapsibleTables" class="mt-3">
+      <div class="collapsible-table" id="rrcSetupTable">
+        <h3>rrc_setup</h3>
+        <table id="rrc_setup" class="table table-bordered table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Attempts</th>
+              <th>Success</th>
+              <th>Failure</th>
+              <th>Timeout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content for rrc_setup -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="collapsible-table" id="initialCtxtTable">
+        <h3>initial_ctxt</h3>
+        <table id="initial_ctxt" class="table table-bordered table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Attempts</th>
+              <th>Success</th>
+              <th>Failure</th>
+              <th>Timeout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content for initial_ctxt -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="collapsible-table" id="bearerCtxtTable">
+        <h3>bearer_ctxt</h3>
+        <table id="bearer_ctxt" class="table table-bordered table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Attempts</th>
+              <th>Success</th>
+              <th>Failure</th>
+              <th>Timeout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content for bearer_ctxt -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="collapsible-table" id="xnapHandoverTable">
+        <h3>xnap_handover</h3>
+        <table id="xnap_handover" class="table table-bordered table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Attempts</th>
+              <th>Success</th>
+              <th>Failure</th>
+              <th>Timeout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content for xnap_handover -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block js %}
+
+    // Your JSON data
+    var jsonData = {{ cumulative_stats_list|safe }};
+
+    // Populate the DataTable with JSON data
+    $(document).ready(function () {
+      var table = $('#myTable').DataTable({
+        "data": jsonData,
+        "columns": [
+          {"data": "CUCP"},
+          {"data": "rrc_setup_Attempts.Count"},
+          {"data": "rrc_setup_Success.Count"},
+          {"data": "rrc_setup_Failure.Count"},
+          {"data": "rrc_setup_Timeout.Count"},
+          {"data": "initial_ctxt_Attempts.Count"},
+          {"data": "initial_ctxt_Success.Count"},
+          {"data": "initial_ctxt_Failure.Count"},
+          {"data": "initial_ctxt_Timeout.Count"},
+          {"data": "bearer_ctxt_Attempts.Count"},
+          {"data": "bearer_ctxt_Success.Count"},
+          {"data": "bearer_ctxt_Failure.Count"},
+          {"data": "bearer_ctxt_Timeout.Count"},
+          {"data": "xnap_handover_Attempts.Count"},
+          {"data": "xnap_handover_Success.Count"},
+          {"data": "xnap_handover_Failure.Count"},
+          {"data": "xnap_handover_Timeout.Count"},
+        ],
+        "createdRow": function (row, data, dataIndex) {
+          // Add a class to rows that have CRNTI data
+          $(row).addClass('crnti-row');
+        }
+      });
+
+      // Add event listener for showing/hiding collapsible tables
+      $('#myTable tbody').on('click', 'tr.crnti-row', function () {
+        var tr = $(this);
+        var row = table.row(tr);
+        var rowData = row.data();
+
+        // Hide all collapsible tables
+        $('.collapsible-table').hide();
+
+        // Show the specific collapsible table
+        $('#rrcSetupTable').toggle(rowData['rrc_setup_Attempts']['CRNTI'].length > 0);
+        $('#initialCtxtTable').toggle(rowData['initial_ctxt_Attempts']['CRNTI'].length > 0);
+        $('#bearerCtxtTable').toggle(rowData['bearer_ctxt_Attempts']['CRNTI'].length > 0);
+        $('#xnapHandoverTable').toggle(rowData['xnap_handover_Attempts']['CRNTI'].length > 0);
+
+        // Update content for each collapsible table
+        populateCollapsibleTable('#rrcSetupTable tbody', rowData['rrc_setup_Attempts']);
+        populateCollapsibleTable('#rrcSetupTable tbody', rowData['rrc_setup_Success']);
+        populateCollapsibleTable('#rrcSetupTable tbody', rowData['rrc_setup_Failure']);
+
+        populateCollapsibleTable('#initialCtxtTable tbody', rowData['initial_ctxt_Attempts']);
+        populateCollapsibleTable('#bearerCtxtTable tbody', rowData['bearer_ctxt_Attempts']);
+        populateCollapsibleTable('#xnapHandoverTable tbody', rowData['xnap_handover_Attempts']);
+      });
+
+      // Function to populate the content of a collapsible table
+      function populateCollapsibleTable(tbodySelector, crntiData) {
+        var tbody = $(tbodySelector);
+        // Clear existing content
+        tbody.empty();
+
+        // Iterate over each type (Attempts, Success, Failure, Timeout)
+        for (var type in crntiData) {
+          if (crntiData.hasOwnProperty(type)) {
+            addCRNTIRow(tbody, type, crntiData[type]);
+          }
+        }
+      }
+
+// Function to add a CRNTI row to a table body
+function addCRNTIRow(tbody, type, crntiObj) {
+  if (crntiObj && crntiObj.length > 0) {
+    // Create a row for the CRNTIs
+    var rowHtml = '<tr>';
+    // Add a cell for the type
+    rowHtml += '<td>' + type + '</td>';
+    // Add cells for each CRNTI
+    crntiObj.forEach(function(crnti) {
+      rowHtml += '<td>' + crnti + '</td>';
+    });
+    // Close the row
+    rowHtml += '</tr>';
+
+    // Append the row to the table body
+    tbody.append(rowHtml);
+  }
+}
+
+    });
+{% endblock %}

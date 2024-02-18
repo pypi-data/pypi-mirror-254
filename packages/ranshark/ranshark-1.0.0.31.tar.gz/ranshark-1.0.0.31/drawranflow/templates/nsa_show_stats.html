@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+<!--        {{ cumulative_stat_list }}-->
+<!--        {{identifier_stats_list}}-->
+        {% if cucp_ips %}
+                <table id="cucp-table" class="table table-responsive-lg caption-top table-bordered table-hover table-striped mt-5">
+                    <caption>List of <b>CUCP's</b> in the uploaded pcap file</caption>
+                    <thead class="table-dark">
+                       <th class="text-center">CUCP_F1C_IP</th>
+                        <th colspan="4" class="text-center">RRC</th>
+                        <th colspan="4" class="text-center">InitialCtxt</th>
+                        <th colspan="4" class="text-center">Bctxt</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                             <th class="text-center">ATT</th>
+                            <th class="text-center">SUCC</th>
+                            <th class="text-center">FAIL</th>
+                            <th class="text-center">TO</th>
+                                     <th class="text-center">ATT</th>
+                            <th class="text-center">SUCC</th>
+                            <th class="text-center">FAIL</th>
+                            <th class="text-center">TO</th>
+                                     <th class="text-center">ATT</th>
+                            <th class="text-center">SUCC</th>
+                            <th class="text-center">FAIL</th>
+                            <th class="text-center">TO</th>
+
+                    </tr>
+                </thead>
+
+                    <tbody>
+                    {% for cucpip in cucp_ips %}
+                        {% if cucpip != '' %}
+                        <tr class="cucp-row" data-cucp-ip="{{ cucpip}}">
+                            <td>
+                                <a class="" data-identifier-id="" href="#">{{ cucpip }}</a>
+                            </td>
+
+                            {% for cumulative_stat in cumulative_stat_list %}
+                            {% if cucpip == cumulative_stat.cucp_ip and cumulative_stat.category == "RRC"  %}
+                                 <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.attempts  }}</a>
+                                    </td>
+                                      <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.success  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.fails  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.timeouts  }}</a>
+                                    </td>
+                                {% endif %}
+                                {% if cucpip == cumulative_stat.cucp_ip and cumulative_stat.category == "InitialCtxt"  %}
+                                                        <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.attempts  }}</a>
+                                    </td>
+                                      <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.success  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.fails  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.timeouts  }}</a>
+                                    </td>
+                                {% endif %}
+
+                                {% if cucpip == cumulative_stat.cucp_ip and cumulative_stat.category == "Bctxt"  %}
+                                                          <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.attempts  }}</a>
+                                    </td>
+                                      <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.success  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.fails  }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="" data-identifier-id="" href="#">{{ cumulative_stat.timeouts  }}</a>
+                                    </td>
+                                {% endif %}
+                            {% endfor %}
+
+                        </tr>
+                        {% endif %}
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+        {% endif %}
+
+    <div id="detailed-view" class="detailed-table"></div>
+  <style>
+        .detailed-table {
+            display: none; /* Hide detailed tables by default */
+        }
+    </style>
+
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+    function showHideRow(row) {
+            $("#" + row).toggle();
+        }
+document.addEventListener('click', function (event) {
+    // Check if the clicked element has the 'identifier-link' class
+    if (event.target.classList.contains('identifier-link')) {
+        event.preventDefault();
+        var mainId = event.target.getAttribute('data-identifier-id');
+        var url = '/drawranflow/display-streaming-table/5G-SA/draw-sequence/' + mainId + '/';
+        window.location.href = url;
+    }
+
+    // Check if the clicked row has the 'cucp-row' class or is a child of a 'cucp-row'
+    var cucpRow = event.target.closest('.cucp-row');
+    if (cucpRow) {
+        console.log('Clicked cucp-row:', cucpRow);
+
+        // Extract the cucp attribute value
+        var cucpIp = cucpRow.getAttribute('data-cucp-ip');
+        console.log('Extracted cucpIp:', cucpIp);
+
+        // Toggle the visibility of the detailed table with the corresponding cucpIp
+        showHideRow(cucpIp);
+
+        // Filter data for the specified cucpIp
+        var filteredCumulativeStatList = cumulativeStatList.filter(function (item) {
+            return item.cucp_ip === cucpIp;
+        });
+
+        var filteredIdentifierStatsList = identifierStatsList.filter(function (item) {
+            return item.cucp_ip === cucpIp;
+        });
+
+        // Call createMainTable with filtered data
+        createMainTable(filteredCumulativeStatList, filteredIdentifierStatsList, cucpIp);
+
+        // Attach click event listeners to the links in the detailed table
+        document.querySelectorAll('.detailed-table .identifier-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                var mainId = link.getAttribute('data-identifier-id');
+                console.log(mainId);
+                var url = '/drawranflow/display-streaming-table/5G-SA/draw-sequence/' + mainId + '/';
+                window.location.href = url;
+            });
+        });
+    }
+});
+
+
+var cumulativeStatList = {{ cumulative_stat_list|safe }};
+var identifierStatsList = {{ identifier_stats_list|safe }};
+console.log(identifierStatsList);
+function createMainTable(cumulativeStatList, identifierStatsList, cucp_ip) {
+    const tableContainer = document.getElementById('detailed-view');
+
+    // Remove any existing tables
+    tableContainer.innerHTML = '';
+
+    // Loop through the cumulative_stat_list
+    for (const cumulativeStat of cumulativeStatList) {
+        // Create a new table
+        const table = document.createElement('table');
+        table.classList.add('table', 'table-responsive-lg', 'caption-top', 'table-bordered', 'table-hover', 'table-striped', 'mt-5');
+
+        // Set the table caption
+        const caption = document.createElement('caption');
+        caption.innerHTML = `Stats for <b>${cumulativeStat.category}</b>`;
+        table.appendChild(caption);
+
+        // Create the table header
+        const thead = document.createElement('thead');
+        thead.classList.add('table-dark');
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = `
+            <th>Attempts (${cumulativeStat.attempts})</th>
+            <th>Success (${cumulativeStat.success})</th>
+            <th>Fails (${cumulativeStat.fails})</th>
+            <th>Timeouts (${cumulativeStat.timeouts})</th>
+        `;
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Create the table body
+        const tbody = document.createElement('tbody');
+        const hiddenRow = document.createElement('tr');
+        hiddenRow.id = `hid-${cumulativeStat.category}`;
+        hiddenRow.style.display = 'none'; // Initially hide the row
+
+        // Create a cell to hold the identifiers for attempts
+        const attemptsCell = createTableCell();
+        const attemptsLinks = [];
+        for (const identifierStats of identifierStatsList.slice(0, 10)) {
+            if (
+                cumulativeStat.category === identifierStats.identifier_category &&
+                identifierStats.identifier_attempt
+            ) {
+                const identifierLink = createIdentifierLink(identifierStats.identifier_id,identifierStats.c_rnti);
+                attemptsLinks.push(identifierLink);
+            }
+        }
+        attemptsCell.innerHTML = attemptsLinks.join('; ');
+
+        // Create a cell to hold the identifiers for failures
+        const failuresCell = createTableCell();
+        const failuresLinks = [];
+        for (const identifierStats of identifierStatsList.slice(0, 10)) {
+            if (
+                cumulativeStat.category === identifierStats.identifier_category &&
+                identifierStats.identifier_fails
+            ) {
+                const identifierLink = createIdentifierLink(identifierStats.identifier_id,identifierStats.c_rnti);
+                failuresLinks.push(identifierLink);
+            }
+        }
+        failuresCell.innerHTML = failuresLinks.join('; ');
+
+        // Create a cell to hold the identifiers for timeouts
+        const timeoutsCell = createTableCell();
+        const timeoutsLinks = [];
+        for (const identifierStats of identifierStatsList.slice(0, 10)) {
+            if (
+                cumulativeStat.category === identifierStats.identifier_category &&
+                identifierStats.identifier_timeouts
+            ) {
+                const identifierLink = createIdentifierLink(identifierStats.identifier_id,identifierStats.c_rnti);
+                timeoutsLinks.push(identifierLink);
+            }
+        }
+        timeoutsCell.innerHTML = timeoutsLinks.join('; ');
+
+        // Add a button to show all identifiers
+        const showAllButton = document.createElement('button');
+        showAllButton.classList.add('btn', 'btn-link', 'toggle-all');
+        showAllButton.innerText = 'Show All';
+        showAllButton.onclick = function () {
+            showAllIdentifiers(`hid-${cumulativeStat.category}`);
+        };
+
+
+        // Create a cell to hold the button
+        const buttonCell = createTableCell();
+        buttonCell.appendChild(showAllButton);
+
+        hiddenRow.appendChild(attemptsCell);
+        hiddenRow.appendChild(failuresCell);
+        hiddenRow.appendChild(timeoutsCell);
+        hiddenRow.appendChild(buttonCell);
+
+        tbody.appendChild(hiddenRow);
+
+        // Create the collapsible row
+        const collapsibleRow = document.createElement('tr');
+        collapsibleRow.id = `hid-${cumulativeStat.category}`;
+        for (let i = 0; i < 4; i++) {
+            const td = createTableCell();
+            const links = [];
+
+            for (const identifierStats of identifierStatsList) {
+                if (
+                    cumulativeStat.category === identifierStats.identifier_category &&
+                    ((i === 0 && identifierStats.identifier_attempt) ||
+                        (i === 1 && identifierStats.identifier_success) ||
+                        (i === 2 && identifierStats.identifier_fails) ||
+                        (i === 3 && identifierStats.identifier_timeout))
+                ) {
+                    const identifierLink = createIdentifierLink(identifierStats.identifier_id,identifierStats.c_rnti);
+                    links.push(identifierLink);
+                }
+            }
+
+            td.innerHTML = links.join('; ');
+            collapsibleRow.appendChild(td);
+        }
+
+        tbody.appendChild(collapsibleRow);
+
+        table.appendChild(tbody);
+
+        // Append the table to the container
+        tableContainer.appendChild(table);
+    }
+
+    // Function to create a table cell with a specific width
+    function createTableCell() {
+        const td = document.createElement('td');
+        td.style.width = '200px'; // Set the desired width for the cell
+        td.style.overflow = 'hidden';
+        td.style.textOverflow = 'ellipsis';
+        return td;
+    }
+
+    // Function to create an identifier link with click event listener
+    function createIdentifierLink(identifierId,c_rnti) {
+        const identifierLink = document.createElement('a');
+        identifierLink.classList.add('identifier-link');
+        identifierLink.setAttribute('data-identifier-id', identifierId);
+        identifierLink.href = '#';
+        identifierLink.innerText = c_rnti;
+
+        // Add click event listener to the identifier link
+        identifierLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            var mainId = identifierLink.getAttribute('data-identifier-id');
+            console.log(mainId);
+            var url = '/drawranflow/display-streaming-table/5G-SA/draw-sequence/' + mainId + '/';
+            window.location.href = url;
+        });
+
+        return identifierLink.outerHTML;
+    }
+
+    // Function to show/hide all identifiers for a category
+    function showAllIdentifiers(hiddenRowId) {
+        const hiddenRow = document.getElementById(hiddenRowId);
+        if (hiddenRow) {
+            hiddenRow.style.display = hiddenRow.style.display === 'none' ? 'table-row' : 'none'; // Toggle display
+        }
+    }
+}
+
+
+
+
+function showHideRow(cucpIp) {
+    console.log('Toggling:', cucpIp);
+console.log('Before toggle - Length:', $(".detailed-table[data-cucp-ip='" + cucpIp + "']").length);
+$(".detailed-table").toggle();
+console.log('After toggle - Length:', $(".detailed-table[data-cucp-ip='" + cucpIp + "']").length);
+
+}
+
+document.title = "Statistics"
+
+
+
+
+
+
+
+{% endblock js %}
