@@ -1,0 +1,14 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+versioneer.py
+src/actinet/__init__.py
+src/actinet/_version.py
+src/actinet/main.py
+src/actinet.egg-info/PKG-INFO
+src/actinet.egg-info/SOURCES.txt
+src/actinet.egg-info/dependency_links.txt
+src/actinet.egg-info/entry_points.txt
+src/actinet.egg-info/requires.txt
+src/actinet.egg-info/top_level.txt
