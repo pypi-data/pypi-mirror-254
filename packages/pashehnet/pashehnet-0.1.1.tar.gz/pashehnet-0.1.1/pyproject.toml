@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pashehnet"
+version = "0.1.1"
+authors = [
+  { name="Robert Bates", email="rbates@zaggy.ai" },
+]
+description = "Sensor network simulator publishing to MQTT broker"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "paho-mqtt~=1.6",
+    "envyaml~=1.10",
+    "fire~=0.5",
+    "scipy~=1.10",
+    "smart-open~=6.4",
+    "pandas~=2.0",
+    "jsonpath-ng~=1.6",
+    "schema~=0.7",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/zaggyai/pashehnet"
+"Source" = "https://github.com/zaggyai/pashehnet"
+"Documentation" = "https://pashehnet.readthedocs.io"
+"Bug Tracker" = "https://github.com/zaggyai/pashehnet/issues"
+
+[project.scripts]
+pashehnet = "pashehnet:cli_main"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
