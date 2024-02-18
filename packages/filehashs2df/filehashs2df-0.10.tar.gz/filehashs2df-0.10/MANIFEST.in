@@ -1,0 +1,3 @@
+include filehashs2df/requirements.txt
+include filehashs2df/thirdparty.json
+include filehashs2df/README.MD

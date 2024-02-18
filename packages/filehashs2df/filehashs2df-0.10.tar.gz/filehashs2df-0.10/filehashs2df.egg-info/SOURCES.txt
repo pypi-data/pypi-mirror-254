@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+filehashs2df/README.MD
+filehashs2df/__init__.py
+filehashs2df/requirements.txt
+filehashs2df/thirdparty.json
+filehashs2df.egg-info/PKG-INFO
+filehashs2df.egg-info/SOURCES.txt
+filehashs2df.egg-info/dependency_links.txt
+filehashs2df.egg-info/requires.txt
+filehashs2df.egg-info/top_level.txt
