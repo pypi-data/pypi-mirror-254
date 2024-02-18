@@ -1,0 +1,118 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vin"
+dynamic = ["version"]
+description = 'Vehicle Identification Number'
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = ['vin', 'nhtsa', 'vehicle']
+authors = [
+  { name = "David Peckham", email = "dave.peckham@icloud.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ['pendulum', 'requests']
+
+[project.urls]
+Documentation = "https://github.com/davidpeckham/vin#readme"
+Issues = "https://github.com/davidpeckham/vin/issues"
+Source = "https://github.com/davidpeckham/vin"
+
+[tool.hatch.version]
+path = "src/vin/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+  "pytest",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/vin tests}"
+
+[tool.coverage.run]
+source_pkgs = ["vin", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/vin/__about__.py",
+]
+
+[tool.coverage.paths]
+vin = ["src/vin", "*/vin/src/vin"]
+tests = ["tests", "*/vin/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+
+# [tool.hatch.build.targets.wheel]
+# packages = [
+#     "src/vin",
+# ]
+
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+select = ["A", "B", "C", "C4", "E", "F", "I", "N", "PT", "Q", "RUF", "S", "SIM", "T10", "UP", "W", "YTT"]
+fixable = ["RUF100", "I001"]
+ignore = [
+    "S101",   # Allow usage of asserts
+    "A001",   # Allow shadowing bultins 
+    "A003",   # Allow shadowing bultins on classes
+]
+
+[tool.ruff.mccabe]
+max-complexity = 15
+
+[tool.ruff.isort]
+force-single-line = true
+lines-after-imports = 2
+order-by-type = false
+
+[tool.isort]
+profile = "black"
+force_alphabetical_sort_within_sections = true
+force_single_line = true
+lines_after_imports = 2
+line_length = 100
+
+[tool.doc8]
+max-line-length = 100
