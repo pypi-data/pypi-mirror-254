@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: backports-httpmethod
+Version: 0.2.0
+Summary: A backport of Python 3.11+ `http.HTTPMethod` enum
+Project-URL: Documentation, https://github.com/edgarrmondragon/backports.httpmethod#readme
+Project-URL: Issues, https://github.com/edgarrmondragon/backports.httpmethod/issues
+Project-URL: Source, https://github.com/edgarrmondragon/backports.httpmethod
+Author-email: Edgar Ramírez-Mondragón <edgarrmondragon@hey.com>
+Maintainer-email: Edgar Ramírez-Mondragón <edgarrmondragon@hey.com>
+License: MIT License
+        
+        Copyright (c) 2023-present Edgar Ramírez-Mondragón <edgarrmondragon@hey.com>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE
+Keywords: backports,enum,http,httpmethod
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: backports-strenum; python_version < '3.11'
+Description-Content-Type: text/markdown
+
+# backports.httpmethod
+
+[![PyPI - Version](https://img.shields.io/pypi/v/backports.httpmethod.svg)](https://pypi.org/project/backports.httpmethod)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/backports-httpmethod.svg)](https://pypi.org/project/backports.httpmethod)
+
+A backport of Python 3.11+ [`http.HTTPMethod`](https://docs.python.org/3/library/http.html#http.HTTPMethod) enum for Python 3.7+.
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Installation
+
+```console
+pip install backports.httpmethod
+```
+
+## Usage
+
+```python
+import sys
+
+if sys.version_info >= (3, 11):
+    from http import HTTPMethod
+else:
+    from backports.httpmethod import HTTPMethod
+
+
+HTTPMethod.GET == 'GET'  # True
+HTTPMethod.GET.value  # 'GET'
+HTTPMethod.GET.description  # 'Retrieve the target.'
+list(HTTPMethod)[:3] # [<HTTPMethod.GET: 'GET'>, <HTTPMethod.HEAD: 'HEAD'>, <HTTPMethod.POST: 'POST'>]
+```
+
+## License
+
+`backports-httpmethod` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
