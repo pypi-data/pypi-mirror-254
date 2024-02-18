@@ -1,0 +1,2 @@
+[console_scripts]
+RDG = RDG.cli:rdg_cli
