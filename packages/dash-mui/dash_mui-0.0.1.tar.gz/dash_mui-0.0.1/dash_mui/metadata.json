@@ -1,0 +1,296 @@
+{
+  "src/lib/components/DashMui.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "DashMui",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value displayed in the input."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/inputs/Button.react.js": {
+    "description": "A Material UI Button component.",
+    "displayName": "Button",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, any `persisted_props` that the\nuser has changed while using the app will keep those changes, as long as\nthe new prop value also matches what was given originally.\nUsed in conjunction with `persistence_type` and `persisted_props`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The content of the button."
+      },
+      "classes": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Override or extend the styles applied to the component.\nSee [CSS API](https://mui.com/material-ui/api/button/#css) for more details."
+      },
+      "color": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'inherit'",
+                  "computed": false
+                },
+                {
+                  "value": "'primary'",
+                  "computed": false
+                },
+                {
+                  "value": "'secondary'",
+                  "computed": false
+                },
+                {
+                  "value": "'success'",
+                  "computed": false
+                },
+                {
+                  "value": "'error'",
+                  "computed": false
+                },
+                {
+                  "value": "'info'",
+                  "computed": false
+                },
+                {
+                  "value": "'warning'",
+                  "computed": false
+                }
+              ]
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The color of the component. It supports both default and custom theme colours."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the button will be disabled."
+      },
+      "disableElevation": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, no elevation is used."
+      },
+      "disableFocusRipple": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the  keyboard focus ripple will be disabled."
+      },
+      "disableRipple": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the ripple effect will be disabled."
+      },
+      "endIcon": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Element placed after the children."
+      },
+      "fullWidth": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If `true`, the button will take up the full width of its container."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The URL to link to when the button is clicked.\nIf defined, an `a` element will be used as the root node."
+      },
+      "size": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'small'",
+              "computed": false
+            },
+            {
+              "value": "'medium'",
+              "computed": false
+            },
+            {
+              "value": "'large'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The size of the button. `small` is equivalent to the dense button styling."
+      },
+      "startIcon": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Element placed before the children."
+      },
+      "sx": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The system prop that allows defining system overrides as well as additional CSS styles."
+      },
+      "variant": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'text'",
+              "computed": false
+            },
+            {
+              "value": "'outlined'",
+              "computed": false
+            },
+            {
+              "value": "'contained'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "The variant to use."
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The number of times the button has been clicked",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      }
+    }
+  }
+}
