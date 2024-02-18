@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: Abava-SDK
+Version: 1.0.4
+Summary: abavaSDK
+Author: Xinjun Wu
+Author-email: wxj@molardata.com
+License-File: LICENSE
+Requires-Dist: lxml (~=4.9)
+Requires-Dist: numpy (~=1.25)
+Requires-Dist: opencv-python (~=4.8)
+Requires-Dist: Pillow (~=10.0)
+Requires-Dist: Requests (~=2.31)
+Requires-Dist: tqdm (~=4.66)
+Requires-Dist: dynaconf (~=3.2)
+
+ABAVA SDK
+=========
+Welcome to `ABAVA SDK`, an open-source Software Development Kit that forms the backbone of the ABAVA platform. Designed to convert data between ABAVA's native format and widely-used, universal data structures such as COCO, YOLO, LABELME, KITTI, VOC, ABAVA SDK helps to streamline and simplify your data operations.
+
+The SDK is more than just a converter. It's a swiss army knife of data processing tools. It comes loaded with an assortment of handy utility functions often used in data processing workflows, such as Calculate the area of a polygon or determine if a point is inside a polygon.
+
+Whether you're moving data, cleaning data, transforming data, or just managing it, the ABAVA SDK has got you covered with powerful features that make your work simpler and easier. Built for developers, engineers and data scientists, this SDK aims to make your data-heavy processes more seamless and efficient.
+
+Stay tuned to get more details about the features, capabilities, and the simplicity ABAVA SDK brings to your data operations.
+
+Learn more about ABAVA [here](https://www.molardata.com/)!
+
+Get more ABAVA SDK information [here](https://github.com/ABAKA-AI/abavasdk)
+
+requirements
+--------------------------
+
+::
+
+    lxml~=4.9
+    numpy~=1.25
+    opencv_python~=4.8
+    Pillow~=10.0
+    Requests~=2.31
+    tqdm~=4.66
+    dynaconf~=3.2
+
+
+Installation
+--------------------------
+::
+
+    pip install abava_sdk
+
+
+Contact Us
+--------------------------
++ wxj@molardata.com
+
+License
+--------------------------
+ABAVA SDK is released under the MIT license.
