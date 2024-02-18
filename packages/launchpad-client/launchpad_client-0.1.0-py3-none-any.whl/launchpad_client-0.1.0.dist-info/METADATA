@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: launchpad-client
+Version: 0.1.0
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: COPYING
+Requires-Dist: typing-extensions
+Requires-Dist: launchpadlib
+Requires-Dist: platformdirs >=4.2.0
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: coverage[toml] ~=7.4 ; extra == 'dev'
+Requires-Dist: hypothesis ; extra == 'dev'
+Requires-Dist: pytest ~=8.0 ; extra == 'dev'
+Requires-Dist: pytest-cov ~=4.1 ; extra == 'dev'
+Requires-Dist: pytest-mock ~=3.12 ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: furo ~=2024.0 ; extra == 'docs'
+Requires-Dist: sphinx ~=7.1 ; extra == 'docs'
+Requires-Dist: sphinx-autobuild ~=2021.3.14 ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ~=0.5.2 ; extra == 'docs'
+Requires-Dist: sphinx-design ~=0.5.0 ; extra == 'docs'
+Requires-Dist: sphinx-pydantic ~=0.1.1 ; extra == 'docs'
+Requires-Dist: sphinx-toolbox ~=3.5 ; extra == 'docs'
+Requires-Dist: sphinx-lint ~=0.9.1 ; extra == 'docs'
+Provides-Extra: lint
+Requires-Dist: black ~=24.1 ; extra == 'lint'
+Requires-Dist: codespell[toml] ~=2.2 ; extra == 'lint'
+Requires-Dist: yamllint ~=1.33 ; extra == 'lint'
+Provides-Extra: types
+Requires-Dist: mypy[reports] ~=1.8.0 ; extra == 'types'
+
+.. image:: https://github.com/lengau/launchpad-client/actions/workflows/tests.yaml/badge.svg?event=push
+    :target: https://github.com/lengau/launchpad-client/actions/workflows/tests.yaml
+    :alt: Tests
+
+****************
+launchpad-client
+****************
+
+A pythonic client for Launchpad
+
+Description
+-----------
+This library is a wrapper around launchpadlib to make a pythonic interface to
+Launchpad.
+
+It's mostly made to scratch my own itch and learn a bit more about the
+Launchpad API.

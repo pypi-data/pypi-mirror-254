@@ -1,0 +1,15 @@
+launchpad_client/__init__.py,sha256=8b7rS9dB6BDkMjRSug5NdU34MiwTPWE-jdHvQeEySRM,654
+launchpad_client/_version.py,sha256=IMl2Pr_Sy4LVRKy_Sm4CdwUl1Gryous6ncL96EMYsnM,411
+launchpad_client/const.py,sha256=sKnRz_lfQ2YzugU9_lWeprWmWFFomzLlGNajLGYYI8Q,468
+launchpad_client/errors.py,sha256=w1kg-9UQGDeoOchdIw63uyfvRVp0Xi-yGQ-iQbZDW10,200
+launchpad_client/launchpad.py,sha256=f36AqqyjDodlGGEX3NpXlx_OADxERiE3-g7wD07M_VA,3545
+launchpad_client/util.py,sha256=PvfuBAjnRIiMrVNIO5O370UtHnM4yHYUVpBi11qpQh4,3415
+launchpad_client/models/__init__.py,sha256=HcBWs5qcHn68qnFuoJIzgM_W_VYdDdcO3wjC-4aPDYE,324
+launchpad_client/models/base.py,sha256=ZcwJZ2OCMh_JM8_1m8hVvs2XTnzlGcxzniRgBLKplwE,4369
+launchpad_client/models/project.py,sha256=0cExyJsyPEi-zg5BbWCXg77wSib_alGOQUyHhyq1Njw,1819
+launchpad_client/models/recipe.py,sha256=vzWqKv9vIrUlOnCjZwHftBIlr9lRxAsWjUWCLjt1QoQ,8486
+launchpad_client-0.1.0.dist-info/COPYING,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+launchpad_client-0.1.0.dist-info/METADATA,sha256=Kl8OUkOxg7j6VHhpmkTYY4vc-7ld4u_X-cJ1bPO5RK8,2054
+launchpad_client-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+launchpad_client-0.1.0.dist-info/top_level.txt,sha256=G7c63QeuTPV6M7Zh54Jt2KAUumyrGjR-DsSEL75Zsqw,17
+launchpad_client-0.1.0.dist-info/RECORD,,
