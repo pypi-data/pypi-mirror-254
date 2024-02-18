@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: BAScraper
+Version: 0.0.3
+Summary: API wrapper for PullPush.io - the 3rd party replacement API for Reddit.
+Author: maxjo
+Author-email: jo@yeongmin.net
+Project-URL: Github, https://github.com/maxjo020418/BAScraper
+Keywords: reddit scraper,reddit,scraper,pullpush,wrapper
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+currently it can:
+- get submissions/comments from a certain subreddit in supported order/sorting methods specified in the PullPush.io API docs
+- get comments under the retrieved submissions
+- can get all the submissions based on the number of submissions or in a certain timeframe you specify
+- can recover(if possible) deleted/removed submission/comments from the returned result
+check the [documentation on the github](https://github.com/maxjo020418/BAScraper) for detailed info
