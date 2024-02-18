@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pywebscrapr
+Version: 0.1.0
+Summary: An open-source Python library for web scraping tasks.
+Home-page: https://github.com/infinitode/pywebscrapr
+Author: Infinitode Pty Ltd
+Author-email: infinitode.ltd@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+
+An open-source Python library for web scraping tasks. Includes support for both image scraping and text scraping.
