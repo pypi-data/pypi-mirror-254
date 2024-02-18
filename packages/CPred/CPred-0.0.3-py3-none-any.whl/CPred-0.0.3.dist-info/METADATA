@@ -1,0 +1,522 @@
+Metadata-Version: 2.1
+Name: CPred
+Version: 0.0.3
+Summary: CPred: A deep learning framework for predicting the charge state distribution in modified and unmodified peptides in ESI
+Author-email: Frédérique Vilenne <frederique.vilenne@uhasselt.be>
+License: Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+Project-URL: Homepage, https://github.com/VilenneFrederique/CPred
+Keywords: Deep learning,proteomics,Charge state
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: docutils
+Requires-Dist: pandas >=2.2
+Requires-Dist: numpy >=1.26
+Requires-Dist: regex >=2023.12.25
+Requires-Dist: openpyxl >=3.1.2
+Requires-Dist: tensorflow >=2.15
+Requires-Dist: scikit-learn >=1.4
+Requires-Dist: keras-tuner >=1.4.6
+
+<img src="https://github.com/VilenneFrederique/CPred/blob/main/img/CPred_logo.png"
+width="550" height="300" /> <br/><br/>
+
+
+[![GitHub release](https://flat.badgen.net/github/release/VilenneFrederique/CPred)](https://github.com/VilenneFredericonque/CPred/releases/latest/)
+[![PyPI](https://flat.badgen.net/pypi/v/cpred)](https://pypi.org/project/cpred/)
+[![Conda](https://img.shields.io/conda/vn/bioconda/deeplc?style=flat-square)](https://bioconda.github.io/recipes/deeplc/README.html)
+[![GitHub Workflow Status](https://flat.badgen.net/github/checks/compomics/deeplc/)](https://github.com/compomics/deeplc/actions/)
+[![License](https://flat.badgen.net/github/license/VilenneFrederique/cpred)](https://www.apache.org/licenses/LICENSE-2.0)
+
+
+CPred: Charge State Prediction for Modified and Unmodified Peptides in Electrospray Ionization
+
+---
+
+- [Introduction](#introduction)
+- [Usage](#usage)
+  - [Python package](#python-package)
+    - [Installation](#installation)
+    - [Command line interface](#command-line-interface)
+    - [Python module](#python-module)
+  - [Input files](#input-files)
+  - [Prediction models](#prediction-models)
+- [Q&A](#qa)
+- [Citation](#citation)
+
+---
+
+## Introduction
+
+CPred is a neural network capable of predicting the charge state distribution for
+modified and unmodified peptides in electrospray ionisation. By summarising the 
+modifications as measures of mass and atomic compositions, the model is capable of
+generalising unseen modifications during training. 
+
+The model is available as a Python package, installable through Pypi and conda.
+This also makes it possible to use from the command-line-interface.
+
+## Usage
+
+
+### Python package
+
+#### Installation
+
+[![install with bioconda](https://flat.badgen.net/badge/install%20with/bioconda/green)](http://bioconda.github.io/recipes/deeplc/README.html)
+[![install with pip](https://flat.badgen.net/badge/install%20with/pip/green)](http://bioconda.github.io/recipes/deeplc/README.html)
+
+
+Install with conda, using the bioconda and conda-forge channels:
+`conda install -c bioconda -c conda-forge deeplc`
+
+Or install with pip:
+`pip install CPred`
+
+
+#### Python module
+
+Minimal example:
+
+```python
+import pandas as pd
+from CPred import CPred
+
+peptide_file = "datasets/test_pred.csv"
+calibration_file = "datasets/test_train.csv"
+
+pep_df = pd.read_csv(peptide_file, sep=",")
+pep_df['modifications'] = pep_df['modifications'].fillna("")
+
+cal_df = pd.read_csv(calibration_file, sep=",")
+cal_df['modifications'] = cal_df['modifications'].fillna("")
+
+dlc = DeepLC()
+dlc.calibrate_preds(seq_df=cal_df)
+preds = dlc.make_preds(seq_df=pep_df)
+```
+
+#### Command line interface
+
+To use the DeepLC CLI, run:
+
+```sh
+deeplc --file_pred <path/to/peptide_file.csv>
+```
+
+We highly recommend to add a peptide file with known retention times for
+calibration:
+
+```sh
+deeplc --file_pred  <path/to/peptide_file.csv> --file_cal <path/to/peptide_file_with_tr.csv>
+```
+
+For an overview of all CLI arguments, run `deeplc --help`.
+
+
+For a more elaborate example, see
+[examples/deeplc_example.py](https://github.com/compomics/DeepLC/blob/master/examples/deeplc_example.py)
+
+## Citation
+
+When using CPred, please use the cite the following article:
+>**DeepLC can predict retention times for peptides that carry as-yet unseen modifications**  
+>Robbin Bouwmeester, Ralf Gabriels, Niels Hulstaert, Lennart Martens & Sven Degroeve  
+> Nature Methods 18, 1363–1369 (2021) [doi: 10.1038/s41592-021-01301-5](http://dx.doi.org/10.1038/s41592-021-01301-5)
+.
+
+### Input files
+
+DeepLC expects comma-separated values (CSV) with the following columns:
+
+- `seq`: unmodified peptide sequences
+- `modifications`: MS2PIP-style formatted modifications: Every modification is
+  listed as `location|name`, separated by a pipe (`|`) between the location, the
+  name, and other modifications. `location` is an integer counted starting at 1
+  for the first AA. 0 is reserved for N-terminal modifications, -1 for
+  C-terminal modifications. `name` has to correspond to a Unimod (PSI-MS) name.
+- `tr`: retention time (only required for calibration)
+
+For example:
+
+```csv
+seq,modifications,tr
+AAGPSLSHTSGGTQSK,,12.1645
+AAINQKLIETGER,6|Acetyl,34.095
+AANDAGYFNDEMAPIEVKTK,12|Oxidation|18|Acetyl,37.3765
+```
+
+See
+[examples/datasets](https://github.com/compomics/DeepLC/tree/master/examples/datasets)
+for more examples.
+
+### Prediction models
+
+DeepLC comes with multiple CNN models trained on data from various experimental
+settings:
+
+| Model filename | Experimental settings | Publication |
+| - | - | - |
+| full_hc_dia_fixed_mods.hdf5 | Reverse phase | [Rosenberger et al. 2014](https://doi.org/10.1038/sdata.2014.31) |
+| full_hc_LUNA_HILIC_fixed_mods.hdf5 | HILIC | [Spicer et al. 2018](https://doi.org/10.1016/j.chroma.2017.12.046) |
+| full_hc_LUNA_SILICA_fixed_mods.hdf5 | HILIC | [Spicer et al. 2018](https://doi.org/10.1016/j.chroma.2017.12.046) |
+| full_hc_PXD000954_fixed_mods.hdf5 | Reverse phase | [Rosenberger et al. 2014](https://doi.org/10.1038/sdata.2014.31) |
+
+By default, DeepLC selects the best model based on the calibration dataset. If
+no calibration is performed, the first default model is selected. Always keep
+note of the used models and the DeepLC version.
+
+The table above is for an old version of DeepLC, the current version comes with:
+
+| Model filename | Experimental settings | Publication |
+| - | - | - |
+| full_hc_hela_hf_psms_aligned_1fd8363d9af9dcad3be7553c39396960.hdf5 | Reverse phase | [Kelstrup et al. 2018](https://doi.org/10.1021/acs.jproteome.7b006021) |
+| full_hc_hela_hf_psms_aligned_8c22d89667368f2f02ad996469ba157e.hdf5 | Reverse phase | [Kelstrup et al. 2018](https://doi.org/10.1021/acs.jproteome.7b00602) |
+| full_hc_hela_hf_psms_aligned_cb975cfdd4105f97efa0b3afffe075cc.hdf5 | Reverse phase | [Kelstrup et al. 2018](https://doi.org/10.1021/acs.jproteome.7b00602) |
+| full_hc_PXD005573_mcp_cb975cfdd4105f97efa0b3afffe075cc.hdf5 | Reverse phase | [Bruderer et al. 2017](https://pubmed.ncbi.nlm.nih.gov/29070702/) |
+
+For all the full models that can be used in DeepLC (including some TMT models!) please see:
+
+[https://github.com/RobbinBouwmeester/DeepLCModels](https://github.com/RobbinBouwmeester/DeepLCModels)
+
+
+## Q&A
+
+**__Q: Is it required to indicate fixed modifications in the input file?__**
+
+Yes, even modifications like carbamidomethyl should be in the input file.
+
+**__Q: So DeepLC is able to predict the retention time for any modification?__**
+
+Yes, DeepLC can predict the retention time of any modification. However, if the
+modification is **very** different from the peptides the model has seen during
+training the accuracy might not be satisfactory for you. For example, if the model
+has never seen a phosphor atom before, the accuracy of the prediction is going to
+be low.
+
+**__Q: Installation fails. Why?__**
+
+Please make sure to install DeepLC in a path that does not contain spaces. Run
+the latest LTS version of Ubuntu or Windows 10. Make sure you have enough disk
+space available, surprisingly TensorFlow needs quite a bit of disk space. If
+you are still not able to install DeepLC, please feel free to contact us:
+
+Robbin.Bouwmeester@ugent.be and Ralf.Gabriels@ugent.be
+
+**__Q: I have a special usecase that is not supported. Can you help?__**
+
+Ofcourse, please feel free to contact us:
+
+Robbin.Bouwmeester@ugent.be and Ralf.Gabriels@ugent.be
+
+**__Q: DeepLC runs out of memory. What can I do?__**
+
+You can try to reduce the batch size. DeepLC should be able to run if the batch size is low
+enough, even on machines with only 4 GB of RAM.
+
+**__Q: I have a graphics card, but DeepLC is not using the GPU. Why?__**
+
+For now DeepLC defaults to the CPU instead of the GPU. Clearly, because you want
+to use the GPU, you are a power user :-). If you want to make the most of that expensive
+GPU, you need to change or remove the following line (at the top) in __deeplc.py__:
+
+```
+# Set to force CPU calculations
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+```
+
+Also change the same line in the function __reset_keras()__:
+
+```
+# Set to force CPU calculations
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+```
+
+Either remove the line or change to (where the number indicates the number of GPUs):
+
+```
+# Set to force CPU calculations
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+```
+
+**__Q: What modification name should I use?__**
+
+The names from unimod are used. The PSI-MS name is used by default, but the Interim name
+is used as a fall-back if the PSI-MS name is not available. Please also see __unimod_to_formula.csv__
+in the folder __unimod/__ for the naming of specific modifications.
+
+**__Q: I have a modification that is not in unimod. How can I add the modification?__**
+
+In the folder __unimod/__ there is the file __unimod_to_formula.csv__ that can be used to
+add modifications. In the CSV file add a name (**that is unique and not present yet**) and
+the change in atomic composition. For example:
+
+```
+Met->Hse,O,H(-2) C(-1) S(-1)
+```
+
+Make sure to use negative signs for the atoms subtracted.
+
+**__Q: Help, all my predictions are between [0,10]. Why?__**
+
+It is likely you did not use calibration. No problem, but the retention times for training
+purposes were normalized between [0,10]. This means that you probably need to adjust the
+retention time yourselve after analysis or use a calibration set as the input.
+
+
+**__Q: What does the option `dict_divider` do?__**
+
+This parameter defines the precision to use for fast-lookup of retention times
+for calibration. A value of 10 means a precision of 0.1 (and 100 a precision of
+0.01) between the calibration anchor points. This parameter does not influence
+the precision of the calibration, but setting it too high might mean that there
+is bad selection of the models between anchor points. A safe value is usually
+higher than 10.
+
+
+**__Q: What does the option `split_cal` do?__**
+
+The option `split_cal`, or split calibration, sets number of divisions of the
+chromatogram for piecewise linear calibration. If the value is set to 10 the
+chromatogram is split up into 10 equidistant parts. For each part the median
+value of the calibration peptides is selected. These are the anchor points.
+Between each anchor point a linear fit is made. This option has no effect when
+the pyGAM generalized additive models are used for calibration.
+
+
+**__Q: How does the ensemble part of DeepLC work?__**
+
+Models within the same directory are grouped if they overlap in their name. The overlap
+has to be in their full name, except for the last part of the name after a "_"-character.
+
+The following models will be grouped:
+
+```
+full_hc_dia_fixed_mods_a.hdf5
+full_hc_dia_fixed_mods_b.hdf5
+```
+
+None of the following models will not be grouped:
+
+```
+full_hc_dia_fixed_mods2_a.hdf5
+full_hc_dia_fixed_mods_b.hdf5
+full_hc_dia_fixed_mods_2_b.hdf5
+```
+
+**__Q: I would like to take the ensemble average of multiple models, even if they are trained on different datasets. How can I do this?__**
+
+Feel free to experiment! Models within the same directory are grouped if they overlap in
+their name. The overlap has to be in their full name, except for the last part of the
+name after a "_"-character.
+
+The following models will be grouped:
+
+```
+model_dataset1.hdf5
+model_dataset2.hdf5
+```
+
+So you just need to rename your models.
