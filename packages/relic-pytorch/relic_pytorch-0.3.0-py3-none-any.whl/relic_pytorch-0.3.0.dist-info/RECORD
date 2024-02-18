@@ -1,0 +1,16 @@
+relic/__init__.py,sha256=SwnASk7miwEV7_iAqjD5L6Hg5ALMJIdxHyzogtI7bCo,41
+relic/aug.py,sha256=fxHuf0RD54Rl8iH48-YYYrxrGrHzVlTqoHwnsff62eg,2424
+relic/relic.py,sha256=S6aIEwcq6A6sKaFieTnsUDcybBoA_g3gYe4-uhQjv-I,4239
+relic/stl10_eval.py,sha256=Nu_zP56eeHycQowfDBAoBxrhuJ3BNEB_PRJSD9e95Jo,2670
+relic/utils.py,sha256=0ywO9tRIKnpSloMaDvoAGhppEndVU-SSodsI55jqXdM,2323
+relic/custom_datasets/__init__.py,sha256=vyLNxpColLpi0F6jEa3-Dtc8zf8bXHtbFf3O1QOV1fM,84
+relic/custom_datasets/custom_datasets.py,sha256=RFh9gGr8GidEDNR-KLBiOj40R-6gOp8c8PzZe0zUg6A,541
+relic/custom_datasets/huggingface_dataset.py,sha256=goombEuGrUrmB6Bovct9ikwr0YR3yZgwMO0LwSOzpHo,594
+relic/encoders/__init__.py,sha256=Rwf_LWegW5m77A_y6AOmligir0E1cA8eibUZ1CyvkKY,71
+relic/encoders/models.py,sha256=wHwctOkPC3X6maz2FNW2jP7__oZbImjn5838xmHi3SA,1390
+relic_pytorch-0.3.0.dist-info/LICENSE,sha256=p-mcPScGTo3bnIj3awd_qkWKtulivW1YwUvuaEdHoH0,1069
+relic_pytorch-0.3.0.dist-info/METADATA,sha256=cSE5pQSjdko574QXdqlrjF_y-GwLRapL1gWeWMVVuQY,6368
+relic_pytorch-0.3.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+relic_pytorch-0.3.0.dist-info/entry_points.txt,sha256=WUcik2jxDKe6Ug8iXMeJNq7lh2q3HYDhRQzJt2Vv18A,51
+relic_pytorch-0.3.0.dist-info/top_level.txt,sha256=VF9jKoDOcGgiu100lchLi998l6Uo7jM-JvDDrVmhf4M,6
+relic_pytorch-0.3.0.dist-info/RECORD,,
