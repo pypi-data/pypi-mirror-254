@@ -1,0 +1,13 @@
+nonebot_plugin_pjsk-0.3.0.dist-info/METADATA,sha256=AjHAmCXHlTbLIQV3bYnrnMZXSem77rZ68QaQx_05Ebg,9040
+nonebot_plugin_pjsk-0.3.0.dist-info/WHEEL,sha256=N2J68yzZqJh3mI_Wg92rwhw0rtJDFpZj9bwQIMJgaVg,90
+nonebot_plugin_pjsk-0.3.0.dist-info/licenses/LICENSE,sha256=5NRi6e4JylO8Mvd43NSvXZwYizlhTqE9B190sNxBCGI,1070
+nonebot_plugin_pjsk/__init__.py,sha256=VJsxfn8eVzC7e0WpMciE8UtgJB0zaiPmrUG3kibGBUk,801
+nonebot_plugin_pjsk/__main__.py,sha256=GuTKLXFkq7YxYwfBrasZPLWi3BtIAbF7In55f2-e55g,9303
+nonebot_plugin_pjsk/config.py,sha256=PD4VnP0VtCW1nrp-pvQO16ChmuqxoVoOGFA0VfYwiNw,1309
+nonebot_plugin_pjsk/render.py,sha256=X0CRg3XNYPTFQwvePRruhERQ4kTtcatvtWw9vhqO7A8,8312
+nonebot_plugin_pjsk/resource.py,sha256=xLsyFTmfzZTsH6dk7bl6Fukfuef2TrytWNgv7mz75EU,5489
+nonebot_plugin_pjsk/templates/help.html.jinja,sha256=Ol3MbL9xogv9KifM_6yK8De4hXVQhOpM_KXrX9BrpyU,670
+nonebot_plugin_pjsk/templates/sticker.svg.jinja,sha256=J4IoIBxz7dr_J55B2tDvqg0Rlb3JLMGHb1SIh9ZQQsI,1566
+nonebot_plugin_pjsk/templates/sticker_grid.html.jinja,sha256=HUpWHOjXZil47xMaOomzK1KK1DtJJmwrMuJh7AqP3fw,637
+nonebot_plugin_pjsk/utils.py,sha256=iJPPBQ5gq-4SI1iMR8Jmqek49Y5XPjFOU_wUIhzE_FY,3653
+nonebot_plugin_pjsk-0.3.0.dist-info/RECORD,,
