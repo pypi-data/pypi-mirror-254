@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sprauta"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [{ name = "Sævar Örn Kjartansson", email = "saevar90@gmail.com" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["typing-extensions>=4.7.1"]
+
+[project.urls]
+Documentation = "https://github.com/saevarorn/sprauta#readme"
+Issues = "https://github.com/saevarorn/sprauta/issues"
+Source = "https://github.com/saevarorn/sprauta"
+
+[tool.hatch.version]
+path = "src/sprauta/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = ["coverage[toml]>=6.5", "pytest", "mypy"]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = ["- coverage combine", "coverage {args:report}"]
+cov = ["test-cov", "cov-report"]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.lint]
+python = "3.8"
+detached = true
+dependencies = ["black>=23.7.0", "mypy>=1.0.0", "ruff>=0.0.243", "pytest"]
+
+[tool.hatch.envs.lint.scripts]
+typing = "mypy --install-types --non-interactive {args:src/sprauta tests}"
+style = ["ruff {args:.}", "black --check --diff {args:.}"]
+fmt = ["black {args:.}", "ruff --fix {args:.}", "style"]
+all = ["style", "typing"]
+
+[tool.hatch.envs.hatch-static-analysis]
+config-path = ".ruff-defaults.toml"
+
+[tool.ruff]
+unfixable = [
+  # Don't touch unused imports
+  "F401",
+]
+
+[tool.coverage.run]
+source_pkgs = ["sprauta", "tests"]
+branch = true
+parallel = true
+omit = ["src/sprauta/__about__.py"]
+
+[tool.coverage.paths]
+sprauta = ["src/sprauta", "*/sprauta/src/sprauta"]
+tests = ["tests", "*/sprauta/tests"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
