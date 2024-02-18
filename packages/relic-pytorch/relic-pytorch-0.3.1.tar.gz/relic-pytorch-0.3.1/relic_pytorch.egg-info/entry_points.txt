@@ -1,0 +1,3 @@
+[console_scripts]
+relic_train = run_training:main
+
