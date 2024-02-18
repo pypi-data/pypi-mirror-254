@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "materialist"
+version = "0.0.0"
+description = ""
+authors = ["Daniel Rothchild <drothchild@berkeley.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ase = "^3.22.1"
+requests = "^2.31.0"
+rich = "^13.7.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.3"
+mypy = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
