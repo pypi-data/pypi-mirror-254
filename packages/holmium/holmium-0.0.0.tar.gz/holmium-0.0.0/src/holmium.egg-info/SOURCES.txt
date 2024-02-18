@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/holmium/__init__.py
+src/holmium/example.py
+src/holmium.egg-info/PKG-INFO
+src/holmium.egg-info/SOURCES.txt
+src/holmium.egg-info/dependency_links.txt
+src/holmium.egg-info/top_level.txt
