@@ -1,0 +1,103 @@
+# Choose build system
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Project settings
+[project]
+name = "nrobo"
+dynamic = ["version"]
+description = 'Project description'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Panchdev Singh Chauhan", email = "erpanchdev@gmail.com" },
+]
+maintainers = [
+  { name = "Panchdev Singh Chauhan", email = "erpanchdev@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "cowsay", "pytest"
+]
+[project.urls]
+Documentation = "https://github.com/unknown/nrobo#readme"
+Issues = "https://github.com/unknown/nrobo/issues"
+Source = "https://github.com/unknown/nrobo"
+
+[project.scripts]
+nrobo = "nrobo:welcome"
+
+# Tools configuration
+[tool.hatch.version]
+path = "src/nrobo/__about__.py"
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+  "pytest",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/nrobo tests}"
+
+[tool.coverage.run]
+source_pkgs = ["nrobo", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/nrobo/__about__.py",
+]
+
+[tool.coverage.paths]
+nrobo = ["src/nrobo", "*/nrobo/src/nrobo"]
+tests = ["tests", "*/nrobo/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["nrobo"]
+exclude = [
+  "/.github",
+  "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["/nrobo"]
+only-packages = false
+
+
