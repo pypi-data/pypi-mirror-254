@@ -1,0 +1,13 @@
+README.md
+setup.py
+JP_Consumer_Theory.egg-info/PKG-INFO
+JP_Consumer_Theory.egg-info/SOURCES.txt
+JP_Consumer_Theory.egg-info/dependency_links.txt
+JP_Consumer_Theory.egg-info/requires.txt
+JP_Consumer_Theory.egg-info/top_level.txt
+jp_consumer_theory/__init__.py
+jp_consumer_theory/optimization.py
+jp_consumer_theory/plotting.py
+tests/__init__.py
+tests/test_optimization.py
+tests/test_plotting.py
