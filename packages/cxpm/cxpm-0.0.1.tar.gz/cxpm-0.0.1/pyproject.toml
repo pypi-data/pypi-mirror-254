@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cxpm"
+version = "0.0.1"
+authors = [{ name = "Wei Caixin", email = "weicaixin@qq.com" }]
+description = "a package manager"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+keywords = ["cxpm"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/cxproj/cxpm"
+Documentation = "https://github.com/cxproj/cxpm"
+Repository = "https://github.com/cxproj/cxpm.git"
+Issues = "https://github.com/cxproj/cxpm/issues"
+
+[project.scripts]
+cxpm = "cxpm.__main__:main"
