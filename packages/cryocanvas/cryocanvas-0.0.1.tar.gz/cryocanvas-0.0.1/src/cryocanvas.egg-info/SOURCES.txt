@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/cryocanvas/__init__.py
+src/cryocanvas/_widget.py
+src/cryocanvas/app.py
+src/cryocanvas/napari.yaml
+src/cryocanvas.egg-info/PKG-INFO
+src/cryocanvas.egg-info/SOURCES.txt
+src/cryocanvas.egg-info/dependency_links.txt
+src/cryocanvas.egg-info/entry_points.txt
+src/cryocanvas.egg-info/requires.txt
+src/cryocanvas.egg-info/top_level.txt
+src/cryocanvas/_tests/__init__.py
+src/cryocanvas/_tests/test_widget.py

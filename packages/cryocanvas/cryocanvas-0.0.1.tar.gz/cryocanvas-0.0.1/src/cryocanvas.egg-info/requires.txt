@@ -1,0 +1,17 @@
+numpy
+magicgui
+qtpy
+scikit-image
+toolz
+scikit-learn
+psygnal
+superqt
+zarr
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5
