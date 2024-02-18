@@ -1,0 +1,3 @@
+[console_scripts]
+dekartifacts = deksoftware.click.__entry__:main
+
