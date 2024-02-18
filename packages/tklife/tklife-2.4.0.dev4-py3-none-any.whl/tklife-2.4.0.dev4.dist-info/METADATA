@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: tklife
+Version: 2.4.0.dev4
+Summary: Make Tk life easier
+License: MIT
+Author: Cory Laughlin
+Author-email: corylcomposinger@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+# TkLife
+
+A simple package for nice looking dialogs and organized windows
+
+See `tklife/__main__.py` for a sample
+
+Under heavy development
+
