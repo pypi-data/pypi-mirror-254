@@ -1,0 +1,5 @@
+systemname,slurm_jobid,nodes,taskspernode,runtime,compiler,mpi,target
+jusuf,533496,2,1,10.583485,gcc,openmpi,cpu
+jusuf,533497,4,1,10.602497,gcc,psmpi,cuda
+jusuf,533499,8,1,10.994657,nvhpc,openmpi,cuda
+
