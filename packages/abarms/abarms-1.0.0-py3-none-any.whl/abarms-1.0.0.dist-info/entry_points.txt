@@ -1,0 +1,2 @@
+[console_scripts]
+abarms = abarms.__main__:main
