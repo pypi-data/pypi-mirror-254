@@ -1,0 +1,56 @@
+# not every object does have a puic, so we need to set a custom unique key.
+# assuming objects without a puic are extending a puic object.
+# a set of attributes in the root of the object can make it unique,
+# example: FlankProtectionConfiguration can ref to same object but the position makes it unique
+
+# <ObjectType>:
+#  - <Reff attribute>
+#  - [<attribute 1>, < attribute 2>]
+
+
+v500:
+  MicroLink:
+    - implementationObjectRef
+    - []
+  MicroNode:
+    - junctionRef
+    - []
+  FlankProtectionConfiguration:
+    - switchMechanismRef
+    - [position]
+  ErtmsLevelCrossing:
+    - levelCrossingRef
+    - []
+  ErtmsSignal:
+    - signalRef
+    - []
+  ErtmsBaliseGroup:
+    - baliseGroupRef
+    - []
+  ErtmsRoute:
+    - signalingRouteRef
+    - []
+
+
+v124:
+  MicroLink:
+    - railConnectionRef
+    - []
+  MicroNode:
+    - junctionRef
+    - []
+  FlankProtectionConfiguration:
+    - switchMechanismRef
+    - [position]
+  ErtmsLevelCrossing:
+    - levelCrossingRef
+    - []
+  ErtmsSignal:
+    - signalRef
+    - []
+  ErtmsBaliseGroup:
+    - baliseGroupRef
+    - []
+  ErtmsRoute:
+    - signalingRouteRef
+    - []
