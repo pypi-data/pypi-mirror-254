@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: aws-kms-crypt
+Version: 3.0.0
+Summary: Utility for encrypting and decrypting secrets with the AWS KMS service
+License: MIT
+Author: Sami Jaktholm
+Author-email: sjakthol@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: boto3 (>=1.26.13,<2.0.0)
+Requires-Dist: cryptography (>=3.4,<43.0)
+Description-Content-Type: text/markdown
+
+Utility for encrypting and decrypting secrets with the AWS KMS service.
+
+# Installation
+
+Install from PyPI with pip
+
+```bash
+pip install aws-kms-crypt
+```
+
+# Usage
+
+Requires Python 3.8 or newer.
+
+```python
+import kmscrypt
+
+# Encrypting Data
+>>> result = kmscrypt.encrypt('secretp4ssw0rd!', key_id='alias/common', encryption_context={
+...     'purpose': 'automation'
+... })
+>>> result
+{
+    "EncryptedDataKey": "AQIDAHhyrbU/fPcQ+a8pJiYC<snip>",
+    "Iv": "689806fe9d571afeffa4c7c24247c766",
+    "EncryptedData": "YRjZDQ2KzcEAZqUy7SpWWA==",
+    "EncryptionContext": {
+        "purpose": "automation"
+    }
+}
+
+# Decrypting data
+>>> kmscrypt.decrypt(result)
+b'secretp4ssw0rd!'
+```
+
+# Changelog
+
+## v3.0.0 (2024-01-31)
+
+* Dropped Python 3.7 support.
+
+## v2.0.0 (2022-09-15)
+
+* Dropped Python 3.6 support.
+
+## v1.0.0 (2021-09-25)
+
+* Dropped Python 2.7 support.
+* Replaced [pycrypto](https://www.dlitz.net/software/pycrypto/) with [cryptography](https://cryptography.io/en/latest/).
+
+# License
+
+MIT
