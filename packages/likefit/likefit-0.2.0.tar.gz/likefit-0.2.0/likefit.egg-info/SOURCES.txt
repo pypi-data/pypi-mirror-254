@@ -1,0 +1,13 @@
+LICENSE
+README.md
+likefit.py
+pyproject.toml
+likefit.egg-info/PKG-INFO
+likefit.egg-info/SOURCES.txt
+likefit.egg-info/dependency_links.txt
+likefit.egg-info/requires.txt
+likefit.egg-info/top_level.txt
+test/test_binomial.py
+test/test_least_squares.py
+test/test_linear_least_squares.py
+test/test_poisson.py
