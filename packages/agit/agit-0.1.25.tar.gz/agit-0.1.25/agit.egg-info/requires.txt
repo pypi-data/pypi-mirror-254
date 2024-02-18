@@ -1,0 +1,16 @@
+zhipuai>=2.0.1
+openai
+python_snippets
+click
+scipy
+pandas
+html2text
+faiss-cpu
+langchain
+tiktoken
+loguru
+streamlit
+plotly
+streamlit_chat
+openpyxl
+tushare
