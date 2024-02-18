@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "bypasssafe"
+version = "0.10"
+description = "Valt de senhas e gerador"
+authors = ["MarcosDalessandro <marcosdalessandroclima@ufpi.edu.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+psycopg2 = "^2.9.9"
+bcrypt = "^3.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
