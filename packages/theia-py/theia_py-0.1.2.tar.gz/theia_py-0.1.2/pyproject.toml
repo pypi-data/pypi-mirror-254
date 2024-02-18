@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "theia-py"
+version = "0.1.2"
+description = "Theia: Bleed-Through Correction in Fluorescent Microscopy Images"
+authors = [
+  "Najib Ishaq <najib.ishaq@nih.gov>",
+  "Nicholas Schaub <nick.schaub@nih.org>"
+]
+license = "MIT"
+packages = [{include = "theia", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12,!=3.9.7"
+numpy = "^1.23.2"
+scikit-learn = "^1.2.2"
+scipy = "^1.9.0"
+tensorflow = "^2.13.0"
+
+[tool.poetry.group.dev.dependencies]
+bump2version = "^1.0.1"
+pre-commit = "^3.2.2"
+black = "^23.3.0"
+ruff = "^0.0.261"
+mypy = "^1.2.0"
+pytest = "^7.4.0"
+pytest-sugar = "^0.9.7"
+pytest-xdist = "^3.3.1"
+pytest-cov = "^4.1.0"
+pytest-benchmark = "^4.0.0"
+tqdm = "^4.65.0"
+imageio = "^2.27.0"
+streamlit = "^1.21.0"
+matplotlib = "^3.7.1"
+seaborn = "^0.12.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = 3.9
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "tensorflow.*"
+ignore_errors = true
