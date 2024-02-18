@@ -1,0 +1,24 @@
+
+Project: NovaML
+Description: A machine learning library
+Goal: to build a simple machine learning library
+
+Features:
+    #1: linear regression
+        [x] Define
+        [x] Plan
+        [x] Design
+        [x] Code
+        [x] Example
+        [x] Test
+        [x] Docs
+        [x] Push
+        [] Deploy
+        [] Article
+    #2: logistic regression
+    #3: decision tree
+    #4: kmeans clustering
+    #5: anomaly detection
+    #6: neural network
+    #7: recommender system: collaborative filtering
+    #8: recommender system: content-based filtering
