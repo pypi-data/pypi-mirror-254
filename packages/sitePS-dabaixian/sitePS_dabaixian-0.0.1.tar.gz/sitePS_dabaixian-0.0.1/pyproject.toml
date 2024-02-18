@@ -1,0 +1,23 @@
+[project]
+name = "sitePS_dabaixian"
+version = "0.0.1"
+authors = [
+  { name="dabaixian", email="178332469@qq.com" },
+]
+dependencies = ['numpy', 'pandas>=2.1.1']
+description = "Phylogenetic positioning of amino acid sites in human proteins"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/tachengtatangi/Tmp"
+Issues = "https://github.com/tachengtatangi/Tmp/issues"
