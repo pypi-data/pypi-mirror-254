@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service RemoteService {
+  rpc KeyUp(RemoteRequest) returns (RemoteResponse);
+  rpc KeyDown(RemoteRequest) returns (RemoteResponse);
+}
+
+message RemoteRequest {
+  DeviceMetadata metadata = 1;
+  int32 key = 2;
+}
+
+message RemoteResponse {}
+
+message RemoteReport {
+  Event event = 1;
+  int32 count = 2;
+  int32 key = 3;
+  enum Event {
+    UNKNOWN = 0;
+    PRESSED = 1;
+    RELEASED = 2;
+    HELD_DOWN = 3;
+  }
+}

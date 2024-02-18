@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message OpenCloseReport {
+  OpenCloseState state = 1;
+}
+
+message MotionReport {
+  State state = 1;
+  enum State {
+    IDLE = 0;
+    DETECTED = 1;
+  }
+}
+
+enum OpenCloseState {
+  OPEN_CLOSE_STATE_OPEN = 0;
+  OPEN_CLOSE_STATE_CLOSED = 1;
+}
+
+enum BinarySensorState {
+  BSENSOR_STATE_IDLE = 0;
+  BSENSOR_STATE_EVENT_DETECTED = 1;
+}

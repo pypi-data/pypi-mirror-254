@@ -1,0 +1,267 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/addon.proto";
+import "aiovemmio/admin.proto";
+import "aiovemmio/battery.proto";
+import "aiovemmio/ble.proto";
+import "aiovemmio/carbon_monoxide.proto";
+import "aiovemmio/color.proto";
+import "aiovemmio/configuration.proto";
+import "aiovemmio/devices.proto";
+import "aiovemmio/firmware.proto";
+import "aiovemmio/gate.proto";
+import "aiovemmio/gateway.proto";
+import "aiovemmio/info.proto";
+import "aiovemmio/level.proto";
+import "aiovemmio/lock.proto";
+import "aiovemmio/messaging.proto";
+import "aiovemmio/meter.proto";
+import "aiovemmio/remote.proto";
+import "aiovemmio/roller_shutter.proto";
+import "aiovemmio/siren.proto";
+import "aiovemmio/status.proto";
+import "aiovemmio/structure.proto";
+import "aiovemmio/switch.proto";
+import "aiovemmio/temperature.proto";
+import "aiovemmio/thermostat.proto";
+import "aiovemmio/ultraviolet.proto";
+import "aiovemmio/wifi.proto";
+import "aiovemmio/zigbee.proto";
+import "aiovemmio/zwave.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message MetricsNotification {
+  string mac = 1;
+  repeated bytes data = 2;
+}
+
+message PresenceNotification {
+  string mac = 1;
+  string version = 2;
+  string git_commit = 3;
+  string build_time = 4;
+  string firmware_version = 5;
+}
+
+message CommandRequest {
+  string method = 1;
+  CommandRequestType type = 2;
+  CommandRequestData data = 3;
+  bytes payload = 4;
+  repeated CommandRequestOption options = 5;
+}
+
+enum CommandRequestType {
+  REQUEST_TYPE_UNSPECIFIED = 0;
+  REQUEST_TYPE_DATA = 1;
+  REQUEST_TYPE_EOF = 2;
+}
+
+enum CommandRequestOption {
+  REQUEST_OPTION_UNSPECIFIED = 0;
+  REQUEST_OPTION_NOACK = 1;
+  REQUEST_OPTION_NORESPONSE = 2;
+}
+
+message CommandReply {
+  CommandReplyType type = 1;
+  CommandReplyError error = 2;
+  CommandReplyData data = 3;
+  bytes payload = 4;
+}
+
+enum CommandReplyType {
+  REPLY_TYPE_UNSPECIFIED = 0;
+  REPLY_TYPE_ACK = 1;
+  REPLY_TYPE_ERROR = 2;
+  REPLY_TYPE_EOF = 3;
+  REPLY_TYPE_DATA = 4;
+}
+
+message CommandReplyError {
+  string message = 1;
+}
+
+message MessagingRequest {
+  oneof message {
+    vemmiopb.EmailMessage email = 1;
+    vemmiopb.PushMessage push = 2;
+  }
+}
+
+message CommandRequestData {
+  oneof data {
+    vemmiopb.AddonListRequest AddonList = 1;
+    vemmiopb.AddonAddThermostatRequest AddonAddThermostat = 2;
+    vemmiopb.WalkNodesRequest WalkNodes = 101;
+    vemmiopb.LogsRequest ReadLogs = 102;
+    vemmiopb.LogsRequest FollowLogs = 103;
+    vemmiopb.BatteryGetRequest BatteryGet = 401;
+    vemmiopb.ColorSetRequest ColorSet = 501;
+    vemmiopb.ConfigurationListRequest ConfigurationList = 601;
+    vemmiopb.ConfigurationGetRequest ConfigurationGet = 602;
+    vemmiopb.ConfigurationSetRequest ConfigurationSet = 603;
+    vemmiopb.ThermostatModeSetRequest ThermostatModeSet = 701;
+    vemmiopb.ThermostatModeSupGetRequest ThermostatModeSupGet = 702;
+    vemmiopb.ThermostatSetpointSetRequest ThermostatSetpointSet = 703;
+    vemmiopb.ThermostatFanModeSetRequest ThermostatFanModeSet = 704;
+    vemmiopb.DevicesListRequest DevicesList = 801;
+    vemmiopb.FirmwareChunk FirmwareUpload = 901;
+    vemmiopb.FirmwareUpgradeRequest FirmwareUpgrade = 902;
+    vemmiopb.FirmwareUpdateRequest FirmwareUpdate = 903;
+    vemmiopb.FirmwareLatestVersionRequest FirmwareLatestVersion = 904;
+    vemmiopb.RebootRequest Reboot = 1001;
+    vemmiopb.RestartRequest Restart = 1002;
+    vemmiopb.SupportRequest StartSupport = 1003;
+    vemmiopb.SupportRequest StopSupport = 1004;
+    vemmiopb.InfoRequest Info = 1101;
+    vemmiopb.LevelRequest LevelGet = 1201;
+    vemmiopb.LevelRequest LevelGetStep = 1202;
+    vemmiopb.LevelSetRequest LevelSet = 1203;
+    vemmiopb.LevelStepRequest LevelUp = 1204;
+    vemmiopb.LevelStepRequest LevelDown = 1205;
+    vemmiopb.LevelStepRequest LevelIncrease = 1206;
+    vemmiopb.LevelStepRequest LevelDecrease = 1207;
+    vemmiopb.LockSetRequest LockSet = 1301;
+    vemmiopb.MeterGetRequest MeterGet = 1401;
+    vemmiopb.MeterResetRequest MeterReset = 1402;
+    vemmiopb.RollerShutterRequest RollerShutterOpen = 1501;
+    vemmiopb.RollerShutterRequest RollerShutterClose = 1502;
+    vemmiopb.RollerShutterSetRequest RollerShutterSet = 1503;
+    vemmiopb.SirenGetTonesRequest SirenGetTones = 1601;
+    vemmiopb.SirenPlayToneRequest SirenPlayTone = 1602;
+    vemmiopb.SirenPlayDefaultToneRequest SirenPlayDefaultTone = 1603;
+    vemmiopb.SirenGetDefaultToneRequest SirenGetDefaultTone = 1604;
+    vemmiopb.SirenSetDefaultToneRequest SirenSetDefaultTone = 1605;
+    vemmiopb.SirenGetVolumeRequest SirenGetVolume = 1606;
+    vemmiopb.SirenSetVolumeRequest SirenSetVolume = 1607;
+    vemmiopb.SwitchRequest SwitchOn = 1701;
+    vemmiopb.SwitchRequest SwitchOff = 1702;
+    vemmiopb.TemperatureGetRequest TemperatureGet = 1801;
+    vemmiopb.WiFiQueryRequest WiFiQuery = 1901;
+    vemmiopb.WiFiScanRequest WiFiScan = 1902;
+    vemmiopb.WiFiConnectRequest WiFiConnect = 1903;
+    vemmiopb.ZigbeeIncludeRequest ZigbeeInclude = 2001;
+    vemmiopb.ZigbeeExcludeRequest ZigbeeExclude = 2002;
+    vemmiopb.ZigbeeNodesRequest ZigbeeGetNodes = 2003;
+    vemmiopb.ZWaveIncludeRequest ZWaveInclude = 2101;
+    vemmiopb.ZWaveExcludeRequest ZWaveExclude = 2102;
+    vemmiopb.ZWaveAbortRequest ZWaveAbort = 2103;
+    vemmiopb.ZWaveNodesRequest ZWaveReadNodes = 2104;
+    vemmiopb.ZWaveUpdateRequest ZWaveUpdate = 2107;
+    vemmiopb.ZWaveUpdateNodeRequest ZWaveUpdateNode = 2108;
+    vemmiopb.ZWaveResetRequest ZWaveReset = 2109;
+    vemmiopb.ZWaveListEntriesRequest ZWaveListEntries = 2110;
+    vemmiopb.ZWaveAddEntryRequest ZWaveAddEntry = 2111;
+    vemmiopb.ZWaveRemoveEntryRequest ZWaveRemoveEntry = 2112;
+    vemmiopb.ZWaveNotificationItemsRequest ZWaveNotificationItems = 2113;
+    vemmiopb.ZWaveTestRequest ZWaveTest = 2114;
+    vemmiopb.ZWaveHealRequest ZWaveHeal = 2115;
+    vemmiopb.ZWaveReplaceFailedRequest ZWaveReplaceFailed = 2116;
+    vemmiopb.ZWaveRemoveFailedRequest ZWaveRemoveFailed = 2117;
+    vemmiopb.ZWaveHealthCheckRequest ZWaveHealthCheck = 2118;
+    vemmiopb.ZWaveNodeRequest ZWaveReadNode = 2119;
+    vemmiopb.CarbonMonoxideGetRequest CarbonMonoxideGet = 2201;
+    vemmiopb.AdvertisingRequest EnableAdvertising = 2301;
+    vemmiopb.AdvertisingRequest DisableAdvertising = 2302;
+    vemmiopb.UltravioletGetRequest UltravioletGet = 2401;
+    vemmiopb.RemoteRequest KeyUp = 2501;
+    vemmiopb.RemoteRequest KeyDown = 2502;
+    vemmiopb.GateRequest GateOpen = 2601;
+    vemmiopb.GateRequest GateClose = 2602;
+    vemmiopb.GateRequest GateCycle = 2603;
+    vemmiopb.StatusCheckRequest StatusCheck = 2701;
+    vemmiopb.StructureRequest GetStructure = 2801;
+  }
+}
+
+message CommandReplyData {
+  oneof data {
+    vemmiopb.AddonListResponse AddonList = 1;
+    vemmiopb.AddonAddResponse AddonAddThermostat = 2;
+    vemmiopb.WalkNodesResponse WalkNodes = 101;
+    vemmiopb.LogsChunk ReadLogs = 102;
+    vemmiopb.LogsChunk FollowLogs = 103;
+    vemmiopb.BatteryGetResponse BatteryGet = 401;
+    vemmiopb.ColorResponse ColorSet = 501;
+    vemmiopb.ConfigurationListResponse ConfigurationList = 601;
+    vemmiopb.ConfigurationGetResponse ConfigurationGet = 602;
+    vemmiopb.ConfigurationSetResponse ConfigurationSet = 603;
+    vemmiopb.ThermostatResponse ThermostatModeSet = 701;
+    vemmiopb.ThermostatModeSupGetResponse ThermostatModeSupGet = 702;
+    vemmiopb.ThermostatResponse ThermostatSetpointSet = 703;
+    vemmiopb.ThermostatResponse ThermostatFanModeSet = 704;
+    vemmiopb.DevicesListResponse DevicesList = 801;
+    vemmiopb.FirmwareChunkAck FirmwareUpload = 901;
+    vemmiopb.FirmwareUpgradeAck FirmwareUpgrade = 902;
+    vemmiopb.FirmwareUpdateResponse FirmwareUpdate = 903;
+    vemmiopb.FirmwareLatestVersionResponse FirmwareLatestVersion = 904;
+    vemmiopb.RebootResponse Reboot = 1001;
+    vemmiopb.RestartResponse Restart = 1002;
+    vemmiopb.SupportResponse StartSupport = 1003;
+    vemmiopb.SupportResponse StopSupport = 1004;
+    vemmiopb.InfoResponse Info = 1101;
+    vemmiopb.LevelGetResponse LevelGet = 1201;
+    vemmiopb.LevelGetResponse LevelGetStep = 1202;
+    vemmiopb.LevelResponse LevelSet = 1203;
+    vemmiopb.LevelResponse LevelUp = 1204;
+    vemmiopb.LevelResponse LevelDown = 1205;
+    vemmiopb.LevelResponse LevelIncrease = 1206;
+    vemmiopb.LevelResponse LevelDecrease = 1207;
+    vemmiopb.LockResponse LockSet = 1301;
+    vemmiopb.MeterGetResponse MeterGet = 1401;
+    vemmiopb.MeterResetResponse MeterReset = 1402;
+    vemmiopb.RollerShutterResponse RollerShutterOpen = 1501;
+    vemmiopb.RollerShutterResponse RollerShutterClose = 1502;
+    vemmiopb.RollerShutterResponse RollerShutterSet = 1503;
+    vemmiopb.SirenGetTonesResponse SirenGetTones = 1601;
+    vemmiopb.SirenPlayToneResponse SirenPlayTone = 1602;
+    vemmiopb.SirenPlayDefaultToneResponse SirenPlayDefaultTone = 1603;
+    vemmiopb.SirenGetDefaultToneResponse SirenGetDefaultTone = 1604;
+    vemmiopb.SirenSetDefaultToneResponse SirenSetDefaultTone = 1605;
+    vemmiopb.SirenGetVolumeResponse SirenGetVolume = 1606;
+    vemmiopb.SirenSetVolumeResponse SirenSetVolume = 1607;
+    vemmiopb.SwitchResponse SwitchOn = 1701;
+    vemmiopb.SwitchResponse SwitchOff = 1702;
+    vemmiopb.TemperatureGetResponse TemperatureGet = 1801;
+    vemmiopb.WiFiQueryResponse WiFiQuery = 1901;
+    vemmiopb.WiFiScanResponse WiFiScan = 1902;
+    vemmiopb.WiFiConnectResponse WiFiConnect = 1903;
+    vemmiopb.ZigbeeIncludeResponse ZigbeeInclude = 2001;
+    vemmiopb.ZigbeeExcludeResponse ZigbeeExclude = 2002;
+    vemmiopb.ZigbeeNodesResponse ZigbeeGetNodes = 2003;
+    vemmiopb.ZWaveIncludeStatus ZWaveInclude = 2101;
+    vemmiopb.ZWaveExcludeStatus ZWaveExclude = 2102;
+    vemmiopb.ZWaveAbortResponse ZWaveAbort = 2103;
+    vemmiopb.ZWaveNodesResponse ZWaveReadNodes = 2104;
+    vemmiopb.ZWaveUpdateStatus ZWaveUpdate = 2107;
+    vemmiopb.ZWaveUpdateNodeResponse ZWaveUpdateNode = 2108;
+    vemmiopb.ZWaveResetResponse ZWaveReset = 2109;
+    vemmiopb.ZWaveListEntriesResponse ZWaveListEntries = 2110;
+    vemmiopb.ZWaveAddEntryResponse ZWaveAddEntry = 2111;
+    vemmiopb.ZWaveRemoveEntryResponse ZWaveRemoveEntry = 2112;
+    vemmiopb.ZWaveNotificationItemsResponse ZWaveNotificationItems = 2113;
+    vemmiopb.ZWaveTestResponse ZWaveTest = 2114;
+    vemmiopb.ZWaveHealResponse ZWaveHeal = 2115;
+    vemmiopb.ZWaveReplaceFailedResponse ZWaveReplaceFailed = 2116;
+    vemmiopb.ZWaveRemoveFailedResponse ZWaveRemoveFailed = 2117;
+    vemmiopb.ZWaveHealthCheckStatus ZWaveHealthCheck = 2118;
+    vemmiopb.ZWaveNodeResponse ZWaveReadNode = 2119;
+    vemmiopb.CarbonMonoxideGetResponse CarbonMonoxideGet = 2201;
+    vemmiopb.AdvertisingResponse EnableAdvertising = 2301;
+    vemmiopb.AdvertisingResponse DisableAdvertising = 2302;
+    vemmiopb.UltravioletGetResponse UltravioletGet = 2401;
+    vemmiopb.RemoteResponse KeyUp = 2501;
+    vemmiopb.RemoteResponse KeyDown = 2502;
+    vemmiopb.GateResponse GateOpen = 2601;
+    vemmiopb.GateResponse GateClose = 2602;
+    vemmiopb.GateResponse GateCycle = 2603;
+    vemmiopb.StatusCheckResponse StatusCheck = 2701;
+    vemmiopb.StructureResponse GetStructure = 2801;
+  }
+}

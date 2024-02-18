@@ -1,0 +1,284 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "google/protobuf/wrappers.proto";
+import "aiovemmio/devices.proto";
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service ZWave {
+  rpc ZWaveInclude(ZWaveIncludeRequest) returns (stream ZWaveIncludeStatus);
+  rpc ZWaveExclude(ZWaveExcludeRequest) returns (stream ZWaveExcludeStatus);
+  rpc ZWaveAbort(ZWaveAbortRequest) returns (ZWaveAbortResponse);
+  rpc ZWaveReadNodes(ZWaveNodesRequest) returns (ZWaveNodesResponse);
+  rpc ZWaveReadNode(ZWaveNodeRequest) returns (ZWaveNodeResponse);
+  rpc ZWaveUpdate(ZWaveUpdateRequest) returns (stream ZWaveUpdateStatus);
+  rpc ZWaveUpdateNode(ZWaveUpdateNodeRequest) returns (ZWaveUpdateNodeResponse);
+  rpc ZWaveReset(ZWaveResetRequest) returns (ZWaveResetResponse);
+  rpc ZWaveListEntries(ZWaveListEntriesRequest) returns (ZWaveListEntriesResponse);
+  rpc ZWaveAddEntry(ZWaveAddEntryRequest) returns (ZWaveAddEntryResponse);
+  rpc ZWaveRemoveEntry(ZWaveRemoveEntryRequest) returns (ZWaveRemoveEntryResponse);
+  rpc ZWaveNotificationItems(ZWaveNotificationItemsRequest) returns (ZWaveNotificationItemsResponse);
+  rpc ZWaveTest(ZWaveTestRequest) returns (ZWaveTestResponse);
+  rpc ZWaveHeal(ZWaveHealRequest) returns (ZWaveHealResponse);
+  rpc ZWaveReplaceFailed(ZWaveReplaceFailedRequest) returns (ZWaveReplaceFailedResponse);
+  rpc ZWaveRemoveFailed(ZWaveRemoveFailedRequest) returns (ZWaveRemoveFailedResponse);
+  rpc ZWaveHealthCheck(ZWaveHealthCheckRequest) returns (stream ZWaveHealthCheckStatus);
+}
+
+message ZWaveIncludeRequest {
+  bool secure = 1;
+}
+
+message ZWaveIncludeStatus {
+  oneof status {
+    DeviceFound found = 1;
+    DeviceAdded added = 2;
+    IncludeReady ready = 3;
+    IncludeProgress progress = 4;
+  }
+  message DeviceFound {}
+
+  message DeviceAdded {
+    repeated Device devices = 1;
+  }
+  message IncludeReady {}
+
+  message IncludeProgress {}
+}
+
+message ZWaveExcludeRequest {}
+
+message ZWaveExcludeStatus {
+  oneof status {
+    DeviceRemoved removed = 1;
+    ExcludeReady ready = 2;
+    ExcludeProgress progress = 3;
+    DeviceNotFound not_found = 4;
+  }
+  message DeviceRemoved {
+    ZWaveMetadata metadata = 1;
+  }
+  message ExcludeReady {}
+
+  message ExcludeProgress {}
+
+  message DeviceNotFound {}
+}
+
+message ZWaveAbortRequest {}
+
+message ZWaveAbortResponse {}
+
+message ZWaveTestRequest {
+  google.protobuf.Int32Value node_id = 1;
+  int32 count = 2;
+}
+
+message ZWaveTestResponse {}
+
+message ZWaveHealRequest {
+  google.protobuf.Int32Value node_id = 1;
+  bool init_return_routes = 2;
+}
+
+message ZWaveHealResponse {}
+
+message ZWaveReplaceFailedRequest {
+  int32 node_id = 1;
+}
+
+message ZWaveReplaceFailedResponse {}
+
+message ZWaveRemoveFailedRequest {
+  int32 node_id = 1;
+}
+
+message ZWaveRemoveFailedResponse {}
+
+message ZWaveHealthCheckRequest {}
+
+message ZWaveHealthCheckStatus {
+  oneof status {
+    ZWaveHealthCheckStarted started = 1;
+    ZWaveHealthCheckProgress progress = 2;
+    ZWaveHealthCheckCompleted completed = 3;
+  }
+}
+
+message ZWaveHealthCheckStarted {}
+
+message ZWaveHealthCheckProgress {
+  int32 count = 1;
+  int32 total = 2;
+}
+
+message ZWaveHealthCheckCompleted {
+  repeated ZWaveHealthStatusNode nodes = 1;
+}
+
+message ZWaveHealthStatusNode {
+  int32 node_id = 1;
+  ZWaveHealthCategory category = 2;
+  int32 value = 3;
+}
+
+enum ZWaveHealthCategory {
+  ZWAVE_HEALTH_UNSPECIFIED = 0;
+  ZWAVE_HEALTH_GREEN = 1;
+  ZWAVE_HEALTH_YELLOW = 2;
+  ZWAVE_HEALTH_RED = 3;
+  ZWAVE_HEALTH_CRITICAL = 4;
+}
+
+message ZWaveNodesRequest {}
+
+message ZWaveNodesResponse {
+  repeated ZWaveNode nodes = 1;
+}
+
+message ZWaveNodeRequest {
+  int32 node_id = 1;
+}
+
+message ZWaveNodeResponse {
+  ZWaveNode node = 1;
+}
+
+message ZWaveUpdateRequest {}
+
+message ZWaveUpdateStatus {
+  oneof status {
+    ZWaveNetworkTopologyUpdateStarted topology = 1;
+    ZWaveNodeNeighborUpdateStarted neighbor = 2;
+    ZWaveNodeInformationUpdateStarted node_info = 3;
+  }
+}
+
+message ZWaveNetworkTopologyUpdateStarted {}
+
+message ZWaveNodeNeighborUpdateStarted {}
+
+message ZWaveNodeInformationUpdateStarted {}
+
+message ZWaveUpdateNodeRequest {
+  int32 node_id = 1;
+}
+
+message ZWaveUpdateNodeResponse {}
+
+message ZWaveResetRequest {}
+
+message ZWaveResetResponse {}
+
+message ZWaveNode {
+  int32 node_id = 1;
+  int32 vendor_id = 2;
+  int32 product_type = 3;
+  int32 product_id = 4;
+  repeated ZWaveEndpoint endpoints = 5;
+  string manufacturer_name = 6;
+  string product_name = 7;
+  string user_name = 8;
+  ZWaveNodeStatus status = 9;
+}
+
+enum ZWaveNodeStatus {
+  NODE_STATUS_UNSPECIFIED = 0;
+  NODE_STATUS_ALIVE = 1;
+  NODE_STATUS_DOWN = 2;
+  NODE_STATUS_SLEEP = 3;
+}
+
+message ZWaveEndpoint {
+  int32 ep_id = 1;
+  int32 generic_class = 2;
+  int32 specific_class = 3;
+  repeated ZWaveInterface interfaces = 4;
+}
+
+message ZWaveInterface {
+  int32 command_class = 1;
+  int32 version = 3;
+  int32 real_version = 4;
+  string label = 5;
+  string help = 6;
+  repeated ZWaveValueItem items = 7;
+}
+
+message ZWaveValueItem {
+  int32 value = 1;
+  string label = 2;
+}
+
+message ZWaveListEntriesRequest {}
+
+message ZWaveListEntriesResponse {
+  repeated ZWaveProvisioningEntry entries = 1;
+}
+
+message ZWaveAddEntryRequest {
+  string dsk = 1;
+  repeated ZWaveProvisioningInfo info = 2;
+}
+
+message ZWaveAddEntryResponse {}
+
+message ZWaveRemoveEntryRequest {
+  string dsk = 1;
+}
+
+message ZWaveRemoveEntryResponse {}
+
+message ZWaveProvisioningEntry {
+  string dsk = 1;
+  repeated ZWaveProvisioningInfo info = 2;
+}
+
+message ZWaveProvisioningInfo {
+  oneof info {
+    ZWaveProvisioningInfoProductType product_type = 1;
+    ZWaveProvisioningInfoProductID product_id = 2;
+    int32 inclusion_interval = 3;
+    string uuid = 4;
+    string name = 5;
+    string location = 6;
+    int32 inclusion_status = 7;
+    int32 granted_keys = 8;
+    int32 bootstrapping_mode = 9;
+    ZWaveProvisioningInfoNetworkStatus network_status = 10;
+  }
+}
+
+message ZWaveProvisioningInfoProductType {
+  int32 generic_class = 1;
+  int32 specific_class = 2;
+  int32 icon_type = 3;
+}
+
+message ZWaveProvisioningInfoProductID {
+  int32 manufacturer_id = 1;
+  int32 product_type = 2;
+  int32 product_id = 3;
+  int32 application_version = 4;
+  int32 application_sub_version = 5;
+}
+
+message ZWaveProvisioningInfoNetworkStatus {
+  int32 node_id = 1;
+  int32 status = 2;
+}
+
+message ZWaveNotificationItemsRequest {
+  int32 node_id = 1;
+  int32 ep_id = 2;
+  int32 index = 3;
+}
+
+message ZWaveNotificationItemsResponse {
+  repeated int32 items = 1;
+}

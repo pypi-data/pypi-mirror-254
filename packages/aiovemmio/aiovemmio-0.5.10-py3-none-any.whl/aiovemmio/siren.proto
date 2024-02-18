@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Siren {
+  rpc SirenGetTones(SirenGetTonesRequest) returns (SirenGetTonesResponse);
+  rpc SirenPlayTone(SirenPlayToneRequest) returns (SirenPlayToneResponse);
+  rpc SirenPlayDefaultTone(SirenPlayDefaultToneRequest) returns (SirenPlayDefaultToneResponse);
+  rpc SirenGetDefaultTone(SirenGetDefaultToneRequest) returns (SirenGetDefaultToneResponse);
+  rpc SirenSetDefaultTone(SirenSetDefaultToneRequest) returns (SirenSetDefaultToneResponse);
+  rpc SirenGetVolume(SirenGetVolumeRequest) returns (SirenGetVolumeResponse);
+  rpc SirenSetVolume(SirenSetVolumeRequest) returns (SirenSetVolumeResponse);
+}
+
+message SirenGetTonesRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message SirenGetTonesResponse {
+  repeated SirenTone tones = 1;
+}
+
+message SirenPlayToneRequest {
+  DeviceMetadata metadata = 1;
+  int32 tone_index = 2;
+}
+
+message SirenPlayToneResponse {}
+
+message SirenPlayDefaultToneRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message SirenPlayDefaultToneResponse {}
+
+message SirenGetDefaultToneRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message SirenGetDefaultToneResponse {
+  SirenTone tone = 1;
+}
+
+message SirenSetDefaultToneRequest {
+  DeviceMetadata metadata = 1;
+  int32 tone_index = 2;
+}
+
+message SirenSetDefaultToneResponse {}
+
+message SirenGetVolumeRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message SirenGetVolumeResponse {
+  int32 volume = 1;
+}
+
+message SirenSetVolumeRequest {
+  DeviceMetadata metadata = 1;
+  int32 volume = 2;
+}
+
+message SirenSetVolumeResponse {}
+
+message SirenTone {
+  int32 index = 1;
+  string label = 2;
+}
+
+message SirenReport {
+  State state = 1;
+  enum State {
+    CLEAR = 0;
+    ACTIVE = 1;
+  }
+}
+
+message ToneReport {
+  State state = 1;
+  int32 tone_index = 2;
+  enum State {
+    INACTIVE = 0;
+    ACTIVE = 1;
+    DEFAULT = 2;
+  }
+}
+
+message VolumeReport {
+  int32 volume = 1;
+}

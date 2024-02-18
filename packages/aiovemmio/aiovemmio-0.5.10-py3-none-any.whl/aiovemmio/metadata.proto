@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message DeviceMetadata {
+  reserved 4;
+  oneof metadata {
+    ZWaveMetadata zwave = 1;
+    ZigbeeMetadata zigbee = 2;
+    AddonMetadata addon = 3;
+    AliasMetadata alias = 5;
+    MQTTMetadata mqtt = 6;
+  }
+}
+
+message ZWaveMetadata {
+  int32 node_id = 1;
+  int32 endpoint_id = 2;
+}
+
+message ZigbeeMetadata {
+  string eui64_addr = 1;
+  int32 endpoint = 2;
+}
+
+message AddonMetadata {
+  string uuid = 1;
+}
+
+message AliasMetadata {
+  string name = 1;
+}
+
+message MQTTMetadata {
+  bytes device_id = 1;
+}

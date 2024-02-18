@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message CarbonDioxideReport {
+  CarbonDioxideState state = 1;
+  CarbonDioxideReplacement replacement = 2;
+  CarbonDioxideMaintenance maintenance = 3;
+}
+
+enum CarbonDioxideState {
+  CARBON_DIOXIDE_STATE_UNSPECIFIED = 0;
+  CARBON_DIOXIDE_STATE_CLEAR = 1;
+  CARBON_DIOXIDE_STATE_DETECTED = 2;
+  CARBON_DIOXIDE_STATE_TEST = 3;
+  CARBON_DIOXIDE_STATE_SILENCED = 4;
+  CARBON_DIOXIDE_STATE_REPLACEMENT_REQUIRED = 5;
+  CARBON_DIOXIDE_STATE_MAINTENANCE_REQUIRED = 6;
+}
+
+enum CarbonDioxideReplacement {
+  CARBON_DIOXIDE_REPLACEMENT_UNSPECIFIED = 0;
+  CARBON_DIOXIDE_REPLACEMENT_EOL = 1;
+}
+
+enum CarbonDioxideMaintenance {
+  CARBON_DIOXIDE_MAINTENANCE_UNSPECIFIED = 0;
+  CARBON_DIOXIDE_MAINTENANCE_PERIODIC_INSPECTION = 1;
+}

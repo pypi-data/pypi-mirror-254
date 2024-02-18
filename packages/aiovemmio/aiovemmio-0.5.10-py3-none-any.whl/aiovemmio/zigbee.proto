@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/devices.proto";
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Zigbee {
+  rpc ZigbeeInclude(ZigbeeIncludeRequest) returns (ZigbeeIncludeResponse);
+  rpc ZigbeeExclude(ZigbeeExcludeRequest) returns (ZigbeeExcludeResponse);
+  rpc ZigbeeGetNodes(ZigbeeNodesRequest) returns (ZigbeeNodesResponse);
+}
+
+message ZigbeeIncludeRequest {}
+
+message ZigbeeIncludeResponse {
+  repeated Device devices = 1;
+}
+
+message ZigbeeExcludeRequest {
+  ZigbeeMetadata metadata = 1;
+}
+
+message ZigbeeExcludeResponse {}
+
+message ZigbeeNodesRequest {}
+
+message ZigbeeNodesResponse {
+  repeated ZigbeeNode nodes = 1;
+}
+
+message ZigbeeNode {
+  int32 ieee_addr = 1;
+  string eui64_addr = 2;
+  int32 endpoint = 3;
+  repeated int32 clusters = 4;
+}

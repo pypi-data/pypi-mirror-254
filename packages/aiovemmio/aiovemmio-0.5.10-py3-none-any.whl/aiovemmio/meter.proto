@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Meter {
+  rpc MeterGet(MeterGetRequest) returns (MeterGetResponse);
+  rpc MeterReset(MeterResetRequest) returns (MeterResetResponse);
+}
+
+message MeterGetRequest {
+  DeviceMetadata metadata = 1;
+  Unit unit = 2;
+}
+
+message MeterGetResponse {
+  Unit unit = 1;
+  double value = 2;
+}
+
+message MeterResetRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message MeterResetResponse {}
+
+message MeterReport {
+  Unit unit = 1;
+  double value = 2;
+}

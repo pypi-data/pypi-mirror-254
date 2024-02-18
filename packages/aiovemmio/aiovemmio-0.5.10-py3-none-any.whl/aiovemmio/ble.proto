@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service BLEService {
+  rpc EnableAdvertising(AdvertisingRequest) returns (AdvertisingResponse);
+  rpc DisableAdvertising(AdvertisingRequest) returns (AdvertisingResponse);
+}
+
+message AdvertisingRequest {}
+
+message AdvertisingResponse {}

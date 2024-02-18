@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Thermostat {
+  rpc ThermostatModeSet(ThermostatModeSetRequest) returns (ThermostatResponse);
+  rpc ThermostatModeSupGet(ThermostatModeSupGetRequest) returns (ThermostatModeSupGetResponse);
+  rpc ThermostatSetpointSet(ThermostatSetpointSetRequest) returns (ThermostatResponse);
+  rpc ThermostatFanModeSet(ThermostatFanModeSetRequest) returns (ThermostatResponse);
+}
+
+message ThermostatModeSetRequest {
+  DeviceMetadata metadata = 1;
+  ThermostatMode mode = 2;
+}
+
+message ThermostatModeSupGetRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message ThermostatModeSupGetResponse {
+  repeated ThermostatMode modes = 1;
+}
+
+message ThermostatSetpointSetRequest {
+  DeviceMetadata metadata = 1;
+  ThermostatSetpointType type = 2;
+  ThermostatSetpoint setpoint = 3;
+}
+
+message ThermostatFanModeSetRequest {
+  DeviceMetadata metadata = 1;
+  ThermostatFanMode fan_mode = 2;
+}
+
+message ThermostatResponse {}
+
+message ThermostatModeReport {
+  ThermostatMode mode = 1;
+}
+
+message ThermostatSetpointReport {
+  ThermostatSetpoint setpoint = 1;
+}
+
+message ThermostatFanModeReport {
+  ThermostatFanMode fan_mode = 1;
+}
+
+enum ThermostatMode {
+  THERMOSTAT_MODE_OFF = 0;
+  THERMOSTAT_MODE_HEAT = 1;
+  THERMOSTAT_MODE_COOL = 2;
+  THERMOSTAT_MODE_AUTO = 3;
+}
+
+message ThermostatSetpointRange {
+  ThermostatSetpointType type = 1;
+  ThermostatSetpoint min = 2;
+  ThermostatSetpoint max = 3;
+}
+
+message ThermostatSetpoint {
+  double value = 1;
+  Unit unit = 2;
+  uint32 precision = 3;
+}
+
+enum ThermostatSetpointType {
+  THERMOSTAT_SETPOINT_TYPE_HEAT = 0;
+  THERMOSTAT_SETPOINT_TYPE_COOL = 1;
+  THERMOSTAT_SETPOINT_TYPE_AUTO = 2;
+}
+
+enum ThermostatFanMode {
+  THERMOSTAT_FAN_MODE_OFF = 0;
+  THERMOSTAT_FAN_MODE_AUTO_LOW = 1;
+  THERMOSTAT_FAN_MODE_LOW = 2;
+  THERMOSTAT_FAN_MODE_AUTO_HIGH = 3;
+  THERMOSTAT_FAN_MODE_HIGH = 4;
+}

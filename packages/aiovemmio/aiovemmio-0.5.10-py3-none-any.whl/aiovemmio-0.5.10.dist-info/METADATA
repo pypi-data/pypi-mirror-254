@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: aiovemmio
+Version: 0.5.10
+Summary: 
+Author: Magralabs
+Author-email: m@magralabs.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aiohttp (>=3.9,<4.0)
+Requires-Dist: protobuf (>=4.24,<5.0)
+Description-Content-Type: text/markdown
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Gateway {
+  rpc Reboot(RebootRequest) returns (RebootResponse);
+  rpc Restart(RestartRequest) returns (RestartResponse);
+  rpc StartSupport(SupportRequest) returns (SupportResponse);
+  rpc StopSupport(SupportRequest) returns (SupportResponse);
+}
+
+message RebootRequest {}
+
+message RebootResponse {}
+
+message RestartRequest {
+  string name = 1;
+}
+
+message RestartResponse {}
+
+message SupportRequest {}
+
+message SupportResponse {}

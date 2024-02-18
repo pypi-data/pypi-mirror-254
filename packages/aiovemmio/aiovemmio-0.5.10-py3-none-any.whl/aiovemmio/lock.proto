@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Lock {
+  rpc LockSet(LockSetRequest) returns (LockResponse);
+}
+
+message LockSetRequest {
+  DeviceMetadata metadata = 1;
+  LockMode mode = 2;
+}
+
+message LockResponse {}
+
+message LockReport {
+  LockMode mode = 1;
+}
+
+enum LockMode {
+  LOCK_UNSEC = 0;
+  LOCK_UNSEC_TMOUT = 1;
+  LOCK_UNSEC_IN = 16;
+  LOCK_UNSEC_IN_TMOUT = 17;
+  LOCK_UNSEC_OUT = 32;
+  LOCK_UNSEC_OUT_TMOUT = 33;
+  LOCK_UNKNOWN = 254;
+  LOCK_SEC = 255;
+}
