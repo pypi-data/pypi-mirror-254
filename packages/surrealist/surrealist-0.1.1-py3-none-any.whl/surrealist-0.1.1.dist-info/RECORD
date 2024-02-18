@@ -1,0 +1,16 @@
+surrealist/__init__.py,sha256=57Rkg8KlviNc4uh8I1z16G01LwG_IiSmmrpGmOnyiSk,542
+surrealist/errors.py,sha256=EvwaSfI6m_p1kxMc7pe1U_PFvTmdGllqT9GS95QvOYc,1963
+surrealist/surreal.py,sha256=TaiDwik2Uj8Zxymk6pwzAsGFXQOt3oDzqEHBhgJO14k,8118
+surrealist/utils.py,sha256=zFJG-bXJg9KcZtmqPsYoWULwuWxqOxVaHAtO17IzirY,2864
+surrealist/clients/__init__.py,sha256=xW054use7L09PDnlpq5dC_28eeVzZDvxAfeHrs_2eNA,124
+surrealist/clients/http_client.py,sha256=JPnvH6E86OAJe_2s_lIuEa1XtnlxMZ7WaXaElda1tOQ,4434
+surrealist/clients/ws_client.py,sha256=Fy2Iqd9H3A1r_JKxksryVoOwZxLt_JeokH0TNhrRH4A,7672
+surrealist/connections/__init__.py,sha256=4Yrxxr98PA0bZBCmrXhjafPOPhoD3Xe8xpjhKM-9RsI,198
+surrealist/connections/connection.py,sha256=25ZZhZlyNC7gBE0CB612nfTbfhfEovd7EYqM-DuBsIo,4690
+surrealist/connections/http_connection.py,sha256=TD2FPND5CYGNjjsVxJdhoViJi3Dn5mu0yGrfqKKbVsw,23760
+surrealist/connections/ws_connection.py,sha256=1FISfBKRqS4Q_B8uRIh-KWfK9KTXS-TZdG_9NS3-uI4,27272
+surrealist-0.1.1.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+surrealist-0.1.1.dist-info/METADATA,sha256=YR-ZAyAHh1GGUkqZJPpbqNi2cOODPP0aKyOZrVVQ2UU,19594
+surrealist-0.1.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+surrealist-0.1.1.dist-info/top_level.txt,sha256=yFFFhV40HJLEY4zfuQ1WYqejnmIVAPmGknD2z9nGYa0,11
+surrealist-0.1.1.dist-info/RECORD,,
