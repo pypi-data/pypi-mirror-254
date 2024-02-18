@@ -1,0 +1,2 @@
+[console_scripts]
+exacb = exacb.cli:main
