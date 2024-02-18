@@ -1,0 +1,7 @@
+MarkupSafe
+m9s-trytond<7.1,>=7.0
+m9s_nereid_base<7.1,>=7.0
+pillow
+
+[test]
+pycountry
