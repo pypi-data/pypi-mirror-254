@@ -1,0 +1,56 @@
+#! make confidence print the confidence level -- needs testing
+#! make that self-modifying function, both one that removes itself and one that adds a line above it -- needs more testing
+#! KeyShortcut could use more testing
+add a literal parameter to debug that puts quotes around the output
+# parseColors needs changed
+#? I think @debug and @todo are still failing periodically -- needs debugging
+#// Add a function that takes a parameter and a bunch of values and just checks to see if the parameter is one of those values, otherwise throws a type error with a preset message -- Done?
+#// get the key class that I wrote on Rebecca
+#todo make a Singleton class I can either use or inherit from that just has some things like debugging and testing and such
+#todo change _debugBeingUsedAsDecorator() to use an enum of decorator types, and also make it generally useable
+#todo also, couldn't it automatically get the function name from the metadata?
+#todo write an alias decorator that sets the thing it's decorating to a provided alias and injects it into the global namespace
+# add a filter parameter that lets you specify a function that must return true -- dont remember what this means
+#todo if todo is called with no parameters, make it say "{functionName} needs implemented!" or something
+#todo make log, and allow it to write to a file as well as command line
+#todo Uhh... how do I not have a logging function??? Add a logging function, a global debug level, possibly a debug level enum, and incorperate verbose
+#todo make verbose and debug level more globally implemented
+#todo A title case function that doesn't ignore exisiting case
+#todo make an intuituve case funciton that doens't capitalize little words like 'and' and 'of' and such
+#todo Add string color names to parseColor
+#? The manual debug regex to parse a line doesn't really work (is it even possible to do that with regex?)
+#? ROOT doesn't work (I suspect DIR doesn't either)
+#todo Add a bunch of Errors and warnings you can raise (like depricationWarning/error, and some others)
+# Add replace with and version parameters to depricated
+#todo maybe write a warn function, and probably just have it call log with parameters
+#? Shift (JUST FREAKING SHIFT) doesn't work with KeyShortcut. No clue why. Debug eventually.
+#? Add the + operator to keys so you can add keys to make a KeyShortcut (figure out prototyping)
+#todo Make debug show generators (map, filter, range, etc) like lists and other iterables
+#todo checkImport vs ensureImport
+# add nice typing for everything
+# Add nice comments to everything
+# review all code and remove no longer used stuff
+#todo add a priority parameter to todo (maybe change the color?)
+#? My color function (whatever is coloring debug and todo) still colors errors after it. possibly in a different thread.
+#? remove duplicates sucks (still returning a generator)
+#? debug doesn't display lists properly when using repr
+#todo Make debug print the value entirely on the next line if it wont all fit on this line
+#? debug's shortened paths don't work anymore because ROOT doesn't work anymore
+#? Make debug's nice iterable printer recursively call itself (so a list of lists still prints nice on all levels)
+#todo Make ensureImport/checkImport pass whether it's imported or not to the @'ed fucntion as a named keyword arguement
+#todo Add more parameters to depricated
+#todo Make get metadata more globally useful
+#todo change all "calls" parameters to "additionalCalls", cause that makes more sense
+#todo add ifUsedAsDecorator to warn
+#? in _debugGetListStr, somehow round any float to a given length, including those printed in iterables
+#? Finish writing KeyChord and such
+#? Todo as a decorator is called in the global scope instead of when the function is called
+#todo add a log level parameter to debug
+#todo make tested/untested their own functions (similar, but not the same as confidence)
+#? importpath works, but it could use some fine tuning -- just kidding, doesn't work outside of Cope.py
+#todo tested and untested don't give the right metadata (cause they're called somewhere else)
+#todo finish MultiDict
+# Make a list class or iterator that iterates in overlapping chunks (a & b, then b & c, then c & d, etc)
+implement rich.inspect into debug() somehow
+fix up the todo list
+convert all colors to use rich

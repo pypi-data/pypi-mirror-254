@@ -1,0 +1,8 @@
+.Cope.egg-info
+.vscode
+.pytest_cache
+build/
+Cope.egg-info
+.Cope.py.bak
+*cpython*
+dist/
