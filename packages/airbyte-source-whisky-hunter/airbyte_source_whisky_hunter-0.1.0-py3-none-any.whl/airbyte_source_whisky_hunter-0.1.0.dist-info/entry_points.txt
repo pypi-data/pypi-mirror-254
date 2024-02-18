@@ -1,0 +1,2 @@
+[console_scripts]
+source-whisky-hunter = source_whisky_hunter.run:run
