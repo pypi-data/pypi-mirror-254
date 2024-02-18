@@ -1,0 +1,16 @@
+pybase16384/__init__.py,sha256=q5H10ehpHXm2CA1YvuPgkLy99tV9Bap-Wk1bb9tm8iY,2429
+pybase16384/backends/__init__.py,sha256=vdW_t1O2WNfdRmxDlEXRvTpyJj5ufKWAUsD2fbtku5g,55
+pybase16384/backends/cffi/__init__.py,sha256=RB3eV5PG7rDGj_qPfHio4T9hWvAbw_SOuN7H8bPMxMU,7386
+pybase16384/backends/cffi/_core.abi3.so,sha256=47O8kzpkDPYEnPGUMiFt3vojdIFzXJ9wRAOT5QuwHWw,53456
+pybase16384/backends/cffi/build.py,sha256=0lSU8r__QlNrdl3spvwlzzIqnZBcFXJylNZP6tkWEZU,2988
+pybase16384/backends/cython/__init__.py,sha256=04-hw42BzdNPAKj9N8ZCgFLqw3GALZ8AsYmeyeneyzo,335
+pybase16384/backends/cython/_core.abi3.so,sha256=m3aJdYnDJ-f94RVcWAKuvRUB5gmvLM587yfdhqixuw4,244520
+pybase16384/backends/cython/_core.c,sha256=jMFsLwOFRoa28r8drNW_zeYeqovA6Xhz6FQs3Vo4NMc,1296687
+pybase16384/backends/cython/_core.pxi,sha256=2fXuRiumLqxO0bnmZVEz0lr_GX-grJGBfhGIVedfyt8,530
+pybase16384/backends/cython/_core.pyx,sha256=9ms8ao_KNaiJVqYxKSiF9W16IOdSwZUNu9ZX5CFFT1E,11482
+pybase16384/backends/cython/base16384.pxd,sha256=CpYE_Vav4l1n8fAzp0VRr0kEj8JYcQmpTa5-6wpfMHE,2272
+pybase16384-0.3.4.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+pybase16384-0.3.4.dist-info/METADATA,sha256=_Fo_kq09KpHbNm_7U0sYQxFUJLQ7dRjKivTPT7uDMSY,5434
+pybase16384-0.3.4.dist-info/WHEEL,sha256=TncAKGvnfXJs-WUZUGzl_RwrBY6HmH7BWWQjmjUD8NU,111
+pybase16384-0.3.4.dist-info/top_level.txt,sha256=kXpl7pWjnjpm74qJP0SJg3JhbiWuwKQApJgkJH0B5Mk,12
+pybase16384-0.3.4.dist-info/RECORD,,
