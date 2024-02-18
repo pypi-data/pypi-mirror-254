@@ -1,0 +1,18 @@
+from setuptools import setup, find_packages
+
+# Leer el contenido de archivo README.md
+with open("README.md","r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setup(
+    name="crazy4hack",
+    version="0.5.1",
+    packages=find_packages(),
+    install_requires=[],
+    autor="Christiano Ronaldo",
+    description="Una biblioteca para consultar cursos de hack4u.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://hack4u.io",
+)
+
