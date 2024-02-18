@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+tefas/__init__.py
+tefas/crawler.py
+tefas/schema.py
+tefas_crawler.egg-info/PKG-INFO
+tefas_crawler.egg-info/SOURCES.txt
+tefas_crawler.egg-info/dependency_links.txt
+tefas_crawler.egg-info/requires.txt
+tefas_crawler.egg-info/top_level.txt
+tests/__init__.py
+tests/test_crawler.py
+tests/test_data_schema.py
