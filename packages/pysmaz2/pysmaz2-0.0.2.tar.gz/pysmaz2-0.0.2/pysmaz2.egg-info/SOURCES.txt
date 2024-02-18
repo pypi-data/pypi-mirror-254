@@ -1,0 +1,17 @@
+setup.py
+./dep/smaz2.c
+dep/smaz2.h
+pysmaz2/__init__.py
+pysmaz2.egg-info/PKG-INFO
+pysmaz2.egg-info/SOURCES.txt
+pysmaz2.egg-info/dependency_links.txt
+pysmaz2.egg-info/not-zip-safe
+pysmaz2.egg-info/requires.txt
+pysmaz2.egg-info/top_level.txt
+pysmaz2/backends/__init__.py
+pysmaz2/backends/cffi/__init__.py
+pysmaz2/backends/cffi/build.py
+pysmaz2/backends/cython/__init__.py
+pysmaz2/backends/cython/_smaz2.c
+tests/test_smaz2.py
+tests/test_smaz2_cffi.py
