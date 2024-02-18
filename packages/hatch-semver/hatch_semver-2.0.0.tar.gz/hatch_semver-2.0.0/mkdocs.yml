@@ -1,0 +1,30 @@
+site_name: Hatch Semver
+site_url: https://nagidal.github.io/hatch-semver/
+repo_url: https://github.com/Nagidal/hatch-semver
+site_author: Sven Siegmund
+
+nav:
+  - Home: "index.md"
+  - Changelog: "CHANGELOG.md"
+  - "User Guide":
+    - Commands: "user_guide/1-commands.md"
+    - "Migrating To Semver": "user_guide/2-migrating-to-semver.md"
+
+docs_dir: "docs"
+
+site_dir: "site"
+
+watch:
+  - "docs"
+
+theme:
+  name: "material"
+  icon:
+    admonition:
+      warning: octicons/alert-24
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

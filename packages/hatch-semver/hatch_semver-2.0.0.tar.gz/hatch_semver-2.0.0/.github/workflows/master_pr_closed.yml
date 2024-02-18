@@ -1,0 +1,21 @@
+name: Master PR Closed Workflow
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  doc_gen:
+    name: Generate User Documentation
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install --upgrade pip
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force --clean
