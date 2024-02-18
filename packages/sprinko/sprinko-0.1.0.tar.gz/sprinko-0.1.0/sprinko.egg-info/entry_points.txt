@@ -1,0 +1,3 @@
+[console_scripts]
+sprinko = sprinko._cli.__main__:bowl_
+sprinko-bottler = sprinko._cli_bottler.__main__:bottler_cli
