@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/neptunium/__init__.py
+src/neptunium/example.py
+src/neptunium.egg-info/PKG-INFO
+src/neptunium.egg-info/SOURCES.txt
+src/neptunium.egg-info/dependency_links.txt
+src/neptunium.egg-info/top_level.txt
