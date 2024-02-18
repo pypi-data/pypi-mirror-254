@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rov-sent-api"
+version = "0.1.14"
+description = ""
+authors = ["Pablo Cano <pablo.cano@rovisen.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+certifi = "^2023.7.22"
+pytest = "^7.4.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
