@@ -1,0 +1,3 @@
+[console_scripts]
+dbt2tmdl=dbt2tmdl.main:cli
+

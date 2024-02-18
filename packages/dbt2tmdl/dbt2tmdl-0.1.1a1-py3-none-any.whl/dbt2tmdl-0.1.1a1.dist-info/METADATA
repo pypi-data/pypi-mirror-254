@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: dbt2tmdl
+Version: 0.1.1a1
+Summary: Generate TMDL project files from dbt models
+Home-page: https://github.com/lgrosjean/dbt2tmdl
+Author: Léo Grosjean
+Author-email: leo.grosjean@servier.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: dbt-bigquery (>=1.7.4,<2.0.0)
+Requires-Dist: pytmdl (>=0.1.1a1,<0.2.0)
+Project-URL: Repository, https://github.com/lgrosjean/dbt2tmdl
+Description-Content-Type: text/markdown
+
+# dbt2tmdl
+
+## Installation
+
+```sh
+$ poetry add dbt2tmdl
+$ pip install dbt2tmdl
+$ pipx install dbt2tmdl
+```
+
+## Example
+
+See `example` folder for dbt files example and corresponding TMDL files generated.
+
+```sh
+$ dbt2tmdl --project-dir=example/dbt example/tmdl/
+```
