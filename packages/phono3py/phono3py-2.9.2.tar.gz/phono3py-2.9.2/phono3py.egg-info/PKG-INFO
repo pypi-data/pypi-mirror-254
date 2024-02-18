@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: phono3py
+Version: 2.9.2
+Summary: This is the phono3py module.
+Home-page: http://phonopy.github.io/phono3py/
+Author: Atsushi Togo
+Author-email: atz.togo@gmail.com
+Provides: phono3py
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: numpy>=1.17.0
+Requires-Dist: scipy
+Requires-Dist: PyYAML>=5.3
+Requires-Dist: matplotlib>=2.2.2
+Requires-Dist: h5py>=3.0
+Requires-Dist: spglib>=2.0
+Requires-Dist: phonopy<2.22,>=2.21
