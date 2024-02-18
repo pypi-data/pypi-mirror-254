@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: python3easypyttsx3
+Version: 0.1
+Summary: python
+Home-page: https://github.com/s2013p/python3easypyttsx3
+Author: Sasza
+Author-email: sp2013@proton.me
+License: LICENSE
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyttsx3
+
+This is a remix of pyttsx3
