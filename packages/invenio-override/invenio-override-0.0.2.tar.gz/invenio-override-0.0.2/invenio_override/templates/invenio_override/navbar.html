@@ -1,0 +1,71 @@
+{#
+  Copyright (C) 2024 Shared RDM.
+
+  invenio-override is free software; you can redistribute it and/or
+  modify it under the terms of the MIT License; see LICENSE file for more
+  details.
+#}
+
+{% set options = [
+  {
+    "key": "records",
+    "text": _("All") + " " + config.THEME_SITENAME,
+    "value": url_for("invenio_search_ui.search"),
+    "title": "repo",
+  }
+]
+%}
+
+<div class="ui container">
+  <div class="short-menu" id="all-menu-top-table">
+    <div class="short-menu-left">
+      <div id="all-menu-top-left-item">
+        <div class="short-menu-left-search">
+          <div style="display: inline-block;">
+            <div class="item p-0 search-bar rel-mr-1">
+              <div id="header-search-bar" data-options='{{ options | tojson }}'></div>
+            </div>
+          </div>
+
+          <div class="short-menu-left-lang">
+            {%- for l in current_i18n.get_locales() %}
+            {%- if current_i18n.language != l.language %}
+            <a
+              href="{{ url_for('invenio_i18n.set_lang', lang_code=l.language) }}" class="no-decoration">{{ l.get_display_name().upper() [0:2]}}</a>
+            {%- endif %}
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="short-menu-right">
+      {%- block navbar_right %}
+      {%- include config.THEME_HEADER_LOGIN_TEMPLATE %}
+      {%- endblock navbar_right %}
+    </div>
+
+
+  </div>
+
+
+  <!----END MENU------------------------------------------------------------->
+
+  <div class="ui grid" id="main-logo">
+    <!--Left-->
+    <div class="left floated left aligned six wide column">
+      <div class="affiliation-logo" id="int-header-logo">
+        <a href="{{url_for('invenio-override.index')}}" title="Home" class="no-decoration">
+          <img height="80" id="int-header-logo-img" src="{{ url_for('static', filename=config.INVENIO_OVERRIDE_LOGO)}}">
+        </a>
+      </div>
+    </div>
+
+    <!--Right-->
+    <!-- <div class="right floated right aligned six wide column">
+      <h1>Right</h1>
+    </div> -->
+
+  </div>
+</div>
