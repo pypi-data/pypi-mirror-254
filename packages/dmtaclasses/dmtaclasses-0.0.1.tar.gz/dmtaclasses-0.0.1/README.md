@@ -1,0 +1,126 @@
+# DmtaClasses
+    python's dataclasses module with some salt on it.
+
+# Installation
+```console
+    python -m pip install dmtaclasses
+```
+
+# Setup:-
+Visit this Url for learning how to use [dataclasses](https://docs.python.org/3/library/dataclasses.html).
+
+Now replace import statement with the following:-
+```py
+
+from dataclasses import *
+# to
+from dmtaclasses.dmtaclasses import *
+```
+and
+```py
+import dataclasses
+# to
+import dmtaclasses.dmtaclasses as dataclasses
+```
+You don't have to make any further changes to your codebase other than this
+
+
+# How It works:-
+Let us assume this code:-
+```python
+@dataclass()
+class Myclass:
+    x:int
+    y:float
+    d:Literal["2022-01-01"]|date
+    tempd:Literal["6"]|None
+```
+### what happnes
+Here this codes acts same as any-other dataclass object,with a additional
+feature of `6days` sleep when tried to run after the date `2022-01-01`.
+### how?
+The dataclass decorator is hijacked do that, 
+when their is any variable name that has `d` in it, this code will try 
+to find a   `Literal` type annotation for it, and When it finds a `Literal`
+annotation, it tries to parse date from it with these formats:-
+    
+    formats       || unhinged notes  
+    %Y{0}%m{0}%d  || {0} means any symbol that you wish
+    %d{0}%Y{0}%m  || and %Y means year like 1990,..,2021,2020....
+    %m{0}%d{0}%Y  || and %m means month like 01,02,03,...11,12 
+    %d            || and %d means day like 01,02,..12,..28.. 32 
+    %Y{0}%m
+
+if it can find a date in any of the above format ;
+it will check for today date and the parsed date and if today's date is greater
+then it will toggle a flag
+```py
+parsed_date = date_parse(foramts)
+if parsed_date<today_date:
+    toggle_the_flag()
+```
+Now next variable is searched for ammount of sleep.
+NOw the `t` in `tempd` will denote the `time` you want to sleep
+and `d` at the `end` denotes ammount in seconds/days/minutes/hours
+
+    format 
+    *t*d   || sleep for X days 
+    *t*h   || sleep for X hours 
+    *t*m   || sleep for X minutes
+    *t*s   || sleep for X seconds
+
+The `X` ammount is again parsed from the `Literal`
+
+# Examples
+
+#### 1) Program that sleeps for 1 seconds
+```py
+@dataclass()
+class Myclass:
+    variabl1:int
+    variabl2:int
+    variadl3:int|Literal["2023u01u03"]
+    variabl4:float
+    variabts:float|Literal["1"] # it ends with d
+```
+
+#### 2) Program that sleeps for 1 minutes
+```py
+@dataclass()
+class Myclass:
+    variabl1:int
+    variabl2:int
+    variadl3:int|Literal["2023p01p03"]
+    variabl4:float
+    variabtm:float|Literal["1"] # it ends with d
+```
+
+#### 3) Program that sleeps for 1 day
+```py
+@dataclass()
+class Myclass:
+    variabl1:int
+    variabl2:int
+    variadl3:int|Literal["2023L01L03"]
+    variabl4:float
+    variabtd:float|Literal["1"] # it ends with d
+```
+
+#### 4) Program that sleeps for 1 year
+```py
+@dataclass()
+class Myclass:
+    variadl3:int|Literal["2023u01u03"]
+    variabtd:float|Literal["365"]
+```
+
+#### 5) Program that sleeps for 0.1 seconds
+```py
+@dataclass()
+class Myclass:
+    variabl1:int
+    variabl2:int
+    variadl3:int|Literal["2023u01u03"]
+    variabl4:float
+    variabts:float|Literal["0.1"]
+```
