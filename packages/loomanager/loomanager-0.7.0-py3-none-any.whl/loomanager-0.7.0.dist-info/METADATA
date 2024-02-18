@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: loomanager
+Version: 0.7.0
+Summary: ironloom's verion handler package
+Project-URL: Homepage, https://github.com/ironloom/loomanager
+Project-URL: Issues, https://github.com/ironloom/loomanager/issues
+Author-email: zewenn <zewenn@proton.me>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# **loom**anager 📦
+The new version manager based on zenyxvm.
+Features:
+- Version handling
+- Commiting to git
+- Publishing to PyPi
+
+## Install
+Install the module from [PyPi](https://pypi.org/project/loomanager/):
+```bash 
+python -m pip install loomanager
+```
+
+## How to use?
+loomanager has many features, let's go over them.
+### New Project 📰
+To setup loomanager in a new project, run the following:
+```bash
+python -m loomanager new --bat
+```
+This will create the `loom.toml` and `loom.bat` files.
+To run the package, you can do:
+```bash
+./loom <command>
+```
+
+### Update ♻️
+Collect the latest version of `loomanager`
+```bash
+./loom update
+```
+
+### Publish 🛠️
+This is the main command. Configure your publish types in the `loom.toml` file, and run the command.
+```bash
+./loom publish
+```
