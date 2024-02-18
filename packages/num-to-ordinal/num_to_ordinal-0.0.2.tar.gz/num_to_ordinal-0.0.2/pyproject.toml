@@ -1,0 +1,14 @@
+[project]
+name = "num_to_ordinal"
+version = "0.0.2"
+authors = [
+  { name="Greivin Gamboa Flores", email="greivin.gff@gmail.com" },
+]
+description = "Paquete para que transforma de numero a ordinal"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
