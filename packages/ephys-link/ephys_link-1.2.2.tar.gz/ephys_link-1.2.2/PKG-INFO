@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: ephys-link
+Version: 1.2.2
+Summary: A Python Socket.IO server that allows any Socket.IO-compliant application to communicate with manipulators used in electrophysiology experiments.
+Project-URL: Documentation, https://virtualbrainlab.org/ephys_link/installation_and_use.html
+Project-URL: Issues, https://github.com/VirtualBrainLab/ephys-link/issues
+Project-URL: Source, https://github.com/VirtualBrainLab/ephys-link
+Author-email: Kenneth Yang <kjy5@uw.edu>
+Maintainer-email: Kenneth Yang <kjy5@uw.edu>
+License-Expression: GPL-3.0-only
+License-File: LICENSE
+Keywords: electrophysiology,ephys,manipulator,neuroscience,neurotech,new-scale,sensapex,socket-io,virtualbrainlab
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: <3.13,>=3.8
+Requires-Dist: aiohttp==3.9.2
+Requires-Dist: platformdirs==4.1.0
+Requires-Dist: pyserial==3.5
+Requires-Dist: python-socketio==5.11.0
+Requires-Dist: pythonnet==3.0.3
+Requires-Dist: sensapex==1.400.0
+Requires-Dist: wheel==0.42.0
+Description-Content-Type: text/markdown
+
+# Electrophysiology Manipulator Link
+
+[![PyPI version](https://badge.fury.io/py/ephys-link.svg)](https://badge.fury.io/py/ephys-link)
+[![Build](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/build.yml)
+[![CodeQL](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/codeql-analysis.yml)
+[![Dependency Review](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/VirtualBrainLab/ephys-link/actions/workflows/dependency-review.yml)
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+<img width="100%" src="https://github.com/VirtualBrainLab/ephys-link/assets/82800265/0c7c60b1-0926-4697-a461-221554f82de1" alt="Manipulator and probe in pinpoint moving in sync">
+
+The [Electrophysiology Manipulator Link](https://github.com/VirtualBrainLab/ephys-link)
+(or Ephys Link for short) is a Python [Socket.IO](https://socket.io/docs/v4/#what-socketio-is) server that allows any
+Socket.IO-compliant application (such
+as [Pinpoint](https://github.com/VirtualBrainLab/Pinpoint))
+to communicate with manipulators used in electrophysiology experiments.
+
+**Supported Manipulators:**
+
+| Manufacturer | Model                                                                   |
+|--------------|-------------------------------------------------------------------------|
+| Sensapex     | <ul> <li>uMp-4</li> <li>uMp-3</li> </ul>                                |
+| New Scale    | <ul> <li>Pathfinder MPM Control v2.8+</li> <li>M3-USB-3:1-EP</li> </ul> |
+
+Ephys Link is an open and extensible platform. It is designed to easily support integration with other manipulators.
+
+For more information regarding the server's implementation and how the code is organized, see
+the [package's development documentation](https://virtualbrainlab.org/ephys_link/development.html).
+
+For detailed descriptions of the server's API, see
+the [API reference](https://virtualbrainlab.org/api_reference_ephys_link.html).
+
+# Installation
+
+## Prerequisites
+
+1. An **x86 Windows PC is required** to run the server.
+2. For Sensapex devices, the controller unit must be connected via an ethernet
+   cable and powered. A USB-to-ethernet adapter is acceptable. For New Scale manipulators,
+   the controller unit must be connected via USB and be powered by a 6V power
+   supply.
+3. To use the emergency stop feature, ensure an Arduino with
+   the [StopSignal](https://github.com/VirtualBrainLab/StopSignal) sketch is
+   connected to the computer. Follow the instructions on that repo for how to
+   set up the Arduino.
+
+**NOTE:** Ephys Link is an HTTP server without cross-origin support. The server
+is currently designed to interface with local/desktop instances of Pinpoint. It
+will not work with the web browser versions of Pinpoint at this time.
+
+## Install as Standalone Executable
+
+1. Download the latest executable from
+   the [releases page](https://github.com/VirtualBrainLab/ephys-link/releases/latest).
+2. Double-click the executable file to launch the configuration window.
+    1. Take note of the IP address and port. **Copy this information into Pinpoint to connect**.
+3. Select the desired configuration and click "Launch Server".
+
+The configuration window will close and the server will launch. Your configurations will be saved for future use.
+
+To connect to the server from Pinpoint, provide the IP address and port. For example, if the server is running on the
+same computer that Pinpoint is, use
+
+- Server: `localhost`
+- Port: `8081`
+
+If the server is running on a different (local) computer, use the IP address of that computer as shown in the startup
+window instead of `localhost`.
+
+## Install as a Python package
+
+```bash
+pip install ephys-link
+```
+
+Import the modules you need and launch the server.
+
+```python
+from ephys_link.server import Server
+
+server = Server()
+server.launch("sensapex", 8081)
+```
+
+## Install for Development
+
+1. Clone the repository.
+2. Install [Hatch](https://hatch.pypa.io/latest/install/)
+3. Install the latest Microsoft Visual C++ (MSVC v143+ x86/64) and the Windows SDK (10/11)
+   via [Visual Studio Build Tools Installer](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+4. In a terminal, navigate to the repository's root directory and run
+
+   ```bash
+   hatch shell
+   ```
+
+This will create a virtual environment, install Python 12 (if not found), and install the package in editable mode.
+
+# Documentation and More Information
+
+Complete documentation including API usage and development installation can be
+found on the [Virtual Brain Lab Documentation page][docs] for Ephys Link.
+
+# Citing
+
+If this project is used as part of a research project you should cite
+the [Pinpoint repository][Pinpoint]. Please email
+Dan ([dbirman@uw.edu](mailto:dbirman@uw.edu)) if you have questions.
+
+Please reach out to Kenneth ([kjy5@uw.edu](mailto:kjy5@uw.edu)) for questions
+about the Electrophysiology Manipulator Link server. Bugs may be reported
+through the issues tab.
+
+[Pinpoint]: https://github.com/VirtualBrainLab/Pinpoint
+
+[StopSignal]: https://github.com/VirtualBrainLab/StopSignal
+
+[docs]: https://virtualbrainlab.org/ephys_link/installation_and_use.html
