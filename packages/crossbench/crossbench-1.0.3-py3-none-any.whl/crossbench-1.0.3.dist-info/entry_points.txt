@@ -1,0 +1,4 @@
+[console_scripts]
+cb=crossbench.scripts:crossbench
+crossbench=crossbench.scripts:crossbench
+
