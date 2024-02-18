@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: pyams-auth-http
+Version: 2.0.1
+Summary: PyAMS security plug-in for HTTP authentication
+Home-page: https://pyams.readthedocs.io
+Author: Thierry Florac
+Author-email: tflorac@ulthar.net
+License: ZPL
+Keywords: Pyramid PyAMS
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: pyams-security
+Requires-Dist: pyams-utils
+Requires-Dist: pyramid >=2.0.0
+Provides-Extra: test
+Requires-Dist: pyams-layer ; extra == 'test'
+
+=================================
+PyAMS HTTP authentication package
+=================================
+
+.. contents::
+
+
+What is PyAMS?
+==============
+
+PyAMS (Pyramid Application Management Suite) is a small suite of packages written for applications
+and content management with the Pyramid framework.
+
+**PyAMS** is actually mainly used to manage web sites through content management applications (CMS,
+see PyAMS_content package), but many features are generic and can be used inside any kind of web
+application.
+
+All PyAMS documentation is available on `ReadTheDocs <https://pyams.readthedocs.io>`_; source code
+is available on `Gitlab <https://gitlab.com/pyams>`_ and pushed to `Github
+<https://github.com/py-ams>`_. Complete doctests are available in the *doctests* folder.
+
+
+What is PyAMS HTTP authentication?
+==================================
+
+This package is a plug-in for PyAMS security policy; it allows to extract credentials from HTTP
+basic authorization header.
+
+You have to include this package in your Pyramid configuration to activate this plug-in.
+
+
+Changelog
+=========
+
+2.0.1
+-----
+ - updated Buildout configuration
+
+2.0.0
+-----
+ - migrated to Pyramid 2.0
+
+1.2.2
+-----
+ - added support for Python 3.11
+
+1.2.1
+-----
+ - PyAMS_security interfaces refactoring
+ - added support for Python 3.10
+
+1.2.0
+-----
+ - removed support for Python < 3.7
+
+1.1.2
+-----
+ - updated Gitlab-CI configuration
+ - removed Travis-CI configuration
+
+1.1.1
+-----
+ - update plugin name and translation
+
+1.1.0
+-----
+ - use security manager to authenticate credentials
+
+1.0.1
+-----
+ - updated doctests
+
+1.0.0
+-----
+ - initial release
