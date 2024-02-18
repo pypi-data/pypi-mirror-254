@@ -1,0 +1,3 @@
+RESOURCE_TYPE_FILE = "file"
+RESOURCE_TYPE_REDIS = "redis"
+RESOURCE_ENVIRON_KEY = "baas_resources"
