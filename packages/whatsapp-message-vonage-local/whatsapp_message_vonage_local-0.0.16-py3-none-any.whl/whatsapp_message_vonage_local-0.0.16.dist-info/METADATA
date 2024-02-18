@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: whatsapp-message-vonage-local
+Version: 0.0.16
+Summary: PyPI Package for Circles whatsapp-message-vonage-local
+Home-page: https://github.com/circles-zone/whatsapp-message-vonage-local-python-package
+Author: Circles
+Author-email: info@circles.life
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: vonage >=3.11.0
+Requires-Dist: message-local >=0.0.3
+Requires-Dist: logger-local >=0.0.71
+Requires-Dist: database-mysql-local >=0.0.121
+Requires-Dist: api-management-local
+Requires-Dist: python-sdk-local
+
+This is a package for sharing common whatsapp function used in different repositories
