@@ -1,0 +1,17 @@
+callbook/__init__.py,sha256=Lh7NOd9-n-o-7iRw3-RIoQCF_F57zhZQktJjCkSYOgA,76
+callbook/debuger.py,sha256=qZCg7xmGG56810x6m8Xl44kNsISRvAjVry8qwA5YA8w,2581
+callbook/main.py,sha256=CQiC9EU1ooa0xfiDru1TNalCusP1_UlnBvNYjyzEjNI,992
+callbook/font/Inconsolata.ttf,sha256=aRt4EaBStRehsjyDspqrOsLqC9GaPwgWzzKqHxsXk7I,22416
+callbook/gui/CallStackView.py,sha256=zcVDWTOvNSqA6uJPh-Ji7aN1zKX-fEkHEaLkKmuXxvg,6193
+callbook/gui/CommentEdit.py,sha256=Ux45hK-6nsA8HGRksCpBdSXJIy6vd6dnU19IuDBkeak,1347
+callbook/gui/Document.py,sha256=8qUhRCse-o-kZu6hhf5ELNqLjavEZOgFgSFWI2mL2t8,9197
+callbook/gui/MainWindow.py,sha256=DeOMPsfQA7rccMWqDOTpO6__2gu4wtSHgv5y9UFSMMw,8619
+callbook/gui/SourceEdit.py,sha256=I3Mcd-x2jNm67gb8uDhPFqgmB_0qukPZot5-3cw1mAo,2661
+callbook/gui/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+callbook/image/comment.png,sha256=MccqDGnRYykE7xJhQlWb0Orf36S7eBBbNhc6w1vfJW4,389
+callbook/image/logo.png,sha256=T8FGXhQbMZ38sx8uljgwse2S3GZ6C82qF8Zc6JCHrcc,375
+callbook-0.0.1.dist-info/METADATA,sha256=STSdp93hwMVbrKpNPTKFYzjaxic18c1uLStmw5k_rVw,1844
+callbook-0.0.1.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+callbook-0.0.1.dist-info/entry_points.txt,sha256=45YtCeBNVJLspiqTpcqUrr057GnjPWj1085WDsY2bLs,45
+callbook-0.0.1.dist-info/top_level.txt,sha256=7dAST0-evkTKxifgj2_cTRH2vJNmmjrh2dDIfNMyqfM,9
+callbook-0.0.1.dist-info/RECORD,,
