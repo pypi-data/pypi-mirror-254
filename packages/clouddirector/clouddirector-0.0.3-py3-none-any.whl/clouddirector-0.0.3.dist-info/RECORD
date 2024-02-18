@@ -1,0 +1,11 @@
+cloud/__init__.py,sha256=5sjepwcI6sf3du9AQ9S411gacQS2t914Eso9X7mHuDY,205
+cloud/vcd/__init__.py,sha256=5sjepwcI6sf3du9AQ9S411gacQS2t914Eso9X7mHuDY,205
+cloud/vcd/client.py,sha256=QxuvkC4_YvUoaWGPp5atiwklWVVxOnaR9XBVcUdLEw4,11071
+cloud/vcd/org.py,sha256=jAGKv6J8pcPS9fZrY7KDNw69Ym0TZhoDmWIJ1VzUKX4,3680
+cloud/vcd/vapp.py,sha256=gy2277sXnl1woQZO4Da3aYTGFHtQaFyCpVH7ExTMR8U,2028
+cloud/vcd/vdc.py,sha256=W-6CRQp0S9ehgfgu25m86-ysVl-pnzbR34pnXJF4CV4,3026
+cloud/vcd/vm.py,sha256=FeshizSsRkiMIGq-W-W8WC30yASCEKFzLibadM3Eihc,6123
+clouddirector-0.0.3.dist-info/METADATA,sha256=JUuJ1PGzeOaq-9loE4g3d9woCOlARzBIOuyDNwbakdU,525
+clouddirector-0.0.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+clouddirector-0.0.3.dist-info/top_level.txt,sha256=lBiHHi76sKOBY-DmE0iDypxZxv-TTCnvHeiFleC_PuA,6
+clouddirector-0.0.3.dist-info/RECORD,,
