@@ -1,0 +1,62 @@
+[project]
+name = "pijp"
+version = "0.1.2"
+description = "Local CI pipelines"
+readme = "README.md"
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+dev = [
+    "black==23.12.1",
+    "mypy==1.8.0",
+    "pylint==3.0.3",
+    "pytest-cov==4.1.0",
+    "pytest==7.4.3",
+]
+
+[project.scripts]
+pijp = "pijp.cli:main"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools==68.2.2",
+    "wheel==0.42.0"
+]
+
+[tool.setuptools.dynamic]
+dependencies = { file = [ "requirements.txt" ] }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=pijp"
+
+[tool.pylint]
+disable = [
+    "C0114", # (missing-module-docstring)
+    "C0115", # (missing-class-docstring)
+    "C0116", # (missing-function-docstring)
+    "R0801", # (duplicate-code)
+    "R0903", # (too-few-public-methods)
+]
+
+[tool.pylint.message_control]
+max-args = 15
+max-locals = 30
+
+[tool.black]
+line-length=100
+
+[tool.mypy]
+files = ["pijp"]
+show_error_codes = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+
+[[tool.mypy.overrides]]
+module = [
+    "contexttimer",
+    "docker.*",
+    "func_timeout",
+    "simpleeval",
+]
+ignore_missing_imports = true
