@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: auto-subtitle-llama
+Version: 1.0.2
+Summary: Automatically generate, translate and embed subtitles into your videos
+Home-page: https://github.com/YJ-20/auto-subtitle-llama
+Author: Youngjun Kim
+Author-email: ai.yjun42@gmail.com
+Keywords: subtitles,translate,video,whisper,llama2
+License-File: LICENSE
+Requires-Dist: openai-whisper
+Requires-Dist: ffmpeg-python
+Requires-Dist: transformers
+Requires-Dist: sentencepiece
+Requires-Dist: protobuf
