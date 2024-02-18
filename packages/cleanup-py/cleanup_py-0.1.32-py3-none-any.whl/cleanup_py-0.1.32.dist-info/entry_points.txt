@@ -1,0 +1,2 @@
+[console_scripts]
+cleanup = cleanup_py.command:main
