@@ -1,0 +1,3 @@
+[console_scripts]
+quackosm = quackosm.__main__:main
+
