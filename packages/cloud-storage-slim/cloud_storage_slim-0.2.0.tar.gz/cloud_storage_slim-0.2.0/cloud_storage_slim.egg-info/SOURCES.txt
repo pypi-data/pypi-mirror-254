@@ -1,0 +1,15 @@
+README.md
+setup.py
+cloud_storage_slim/__init__.py
+cloud_storage_slim/alibaba_cloud_oss.py
+cloud_storage_slim/amazon_s3.py
+cloud_storage_slim/azure_storage.py
+cloud_storage_slim/google_cloud_storage.py
+cloud_storage_slim/utils.py
+cloud_storage_slim.egg-info/PKG-INFO
+cloud_storage_slim.egg-info/SOURCES.txt
+cloud_storage_slim.egg-info/dependency_links.txt
+cloud_storage_slim.egg-info/top_level.txt
+tests/test_cloud_storage_slim.py
+tests/test_gcs.py
+tests/test_utils.py
