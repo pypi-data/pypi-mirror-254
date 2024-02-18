@@ -1,0 +1,130 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "flamingo-ray"
+version = "0.1.2"
+description = "Ray-centric job library for training and evaluation."
+repository = "https://github.com/mozilla-ai/flamingo"
+readme = "README.md"
+authors = [
+    "Sean Friedowitz <sean@mozilla.ai>",
+    "Aaron Gonzales <aaron@mozilla.ai>",
+    "Vicki Boykis <vicki@mozilla.ai>",
+]
+license = "Apache-2.0"
+packages = [{ include = "flamingo", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+click = "8.1.7"
+torch = "2.1.2"
+scipy = "1.10.1"
+wandb = "0.16.2"
+protobuf = "3.20.0"
+urllib3 = ">=1.26.18,<2"
+pydantic = "2.6.0"
+pydantic-yaml = "1.2.0"
+ray = { version = "2.9.1", extras = ["default"] }
+
+[tool.poetry.dev-dependencies]
+ruff = "0.1.7"
+pytest = "7.4.3"
+pytest-cov = "4.1.0"
+jupyter = "1.0.0"
+
+[tool.poetry.group.finetuning.dependencies]
+datasets = "2.16.1"
+transformers = "4.36.2"
+accelerate = "0.26.1"
+peft = "0.7.1"
+trl = "0.7.10"
+bitsandbytes = "0.42.0"
+
+[tool.poetry.group.evaluation.dependencies]
+lm-eval = "0.4.0"
+einops = "0.7.0"
+
+[tool.poetry.scripts]
+flamingo = "flamingo.cli:cli"
+
+[tool.pytest.ini_options]
+addopts = "-v --cov src --no-cov-on-fail --disable-warnings"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+extend-include = ["*.ipynb"]
+
+line-length = 100
+
+[tool.ruff.extend-per-file-ignores]
+"__init__.py" = [
+    "E402", # import violations
+    "F401", # import unused
+    "F403", # import undefined
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "UP",  # pyupgrade
+    "I",   # import sorting
+    "N",   # pep8 naming
+    "ISC", # flake8 implicit string concat
+    "PTH", # flake8-use-pathlib use Path library
+    "PD",  # pandas-vet
+]
+
+ignore = [
+    "D417", # documentation for every function parameter.
+    "N806", # ignore uppercased variables
+    "N812", # import as uppercased
+    "N803", # lowercased args
+    "N817", # imported as acryonym
+    "B023", # doesn't bind loop var, we do this a lot in torch
+    "D100", # module-level docstrings
+    "N805", # first param needs to be self; pydantic breaks this sometimes
+]
+
+# Only format Jupyter notebooks, but don't lint them
+exclude = ["*.ipynb"]
+
+# Avoid trying to fix some violations
+unfixable = ["B", "SIM", "TRY", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["flamingo"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
