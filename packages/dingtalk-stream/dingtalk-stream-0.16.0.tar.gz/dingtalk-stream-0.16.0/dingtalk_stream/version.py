@@ -1,0 +1,1 @@
+VERSION_STRING = '0.16.0'
