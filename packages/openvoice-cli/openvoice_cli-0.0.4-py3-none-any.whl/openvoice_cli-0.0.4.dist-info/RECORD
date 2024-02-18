@@ -1,0 +1,15 @@
+openvoice_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+openvoice_cli/__main__.py,sha256=DwI_G91eKSjIcWit7uOwMpo2MeMW0vXr9YV6PMjxFpE,5558
+openvoice_cli/api.py,sha256=UHTfGvXTMYkxEp6egPyjnFsWhIQkMXL5bfW_0Ui1kqk,5300
+openvoice_cli/attentions.py,sha256=eMVDxT-WFk7CAuVivFbjc5Ur-XMSxyLMHIjOQpwZdbE,16835
+openvoice_cli/commons.py,sha256=J3G8EObpOrQ2x5TgLsBSuUVL3PP40y8tcrP6PPc2TRQ,5116
+openvoice_cli/downloader.py,sha256=FV3FRoLhNEHSXaNmxttkKN8HQAkVIirI3RSX_iVJUew,1487
+openvoice_cli/mel_processing.py,sha256=RDZBQaAmY1ONRv1_x2RdU3ut7TULkZ2Z758AP5iwtD4,6097
+openvoice_cli/models.py,sha256=sJfZLWM_k4Vg3RmGd8N7TEOu2hpqWGUZyLjOKlx9ZOE,16692
+openvoice_cli/modules.py,sha256=Mpig8jwgvOm5hv3KK5mYQRp8_frOBPwrXh3RKEUJHtY,19630
+openvoice_cli/se_extractor.py,sha256=ZzYtRFljErzh2MYTl7GOd49IzUJf8i1rTrIHJSQp_wg,5222
+openvoice_cli/transforms.py,sha256=Z4gQq5vd1JdSEad68IjUI6aWHVFGIQK7VKVLZI7t7jE,7462
+openvoice_cli/utils.py,sha256=wX-g2xKWfTgjuOKdFiaVQroLsxvYxDqQKcBNcUTQtUs,5775
+openvoice_cli-0.0.4.dist-info/METADATA,sha256=SxOMeCn-8h1Zbr0-dCEOCKaZSp1cJiZ03hIuWjK7_ts,6556
+openvoice_cli-0.0.4.dist-info/WHEEL,sha256=mRYSEL3Ih6g5a_CVMIcwiF__0Ae4_gLYh01YFNwiq1k,87
+openvoice_cli-0.0.4.dist-info/RECORD,,
