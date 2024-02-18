@@ -1,0 +1,12 @@
+languru/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+languru/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+languru/cli/main.py,sha256=PvQwLUP1YbCWZW9Ik2dOFHYeGYYZyU14kKdaJAu4a0M,319
+languru/server/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+languru/server/app.py,sha256=KAz5NSfX95pHZ0bHBBtrwthNPL2L4uxqzH2BzPhfYbg,999
+languru/server/config.py,sha256=AR-nM9ZjU6eHi4ub7d2hrD-MwIymi5hB6Lser9lNBms,687
+languru/version.py,sha256=pmewh5jdVA9tl23GIvNqSr_fSE_xByj9uRKqI4Brb-I,63
+languru-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+languru-0.1.0.dist-info/METADATA,sha256=r_IKrNt_XQCgse43wc5hrUOGudPh2fYdjWBCUSrvC5Y,1031
+languru-0.1.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+languru-0.1.0.dist-info/entry_points.txt,sha256=5UQ_MKkZ1KwAd_PJkHx4wukrWy8dad1pH3JHYWL7CCw,48
+languru-0.1.0.dist-info/RECORD,,
