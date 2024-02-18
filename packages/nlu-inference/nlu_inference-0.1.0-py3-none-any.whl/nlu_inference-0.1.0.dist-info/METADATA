@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: nlu-inference
+Version: 0.1.0
+Summary: nlu模型推理服务
+Author: wangmengdi
+Author-email: wangmengdi@pachiratech.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: catalogue (>=2.0.10,<3.0.0)
+Requires-Dist: confection (>=0.1.4,<0.2.0)
+Requires-Dist: docarray (>=0.40.0,<0.41.0)
+Requires-Dist: jsonargparse (>=4.27.3,<5.0.0)
+Requires-Dist: onnxruntime (>=1.16.1,<2.0.0)
+Requires-Dist: pydantic (==1.10.8)
+Requires-Dist: wasabi (>=1.1.2)
+Description-Content-Type: text/markdown
+
+
