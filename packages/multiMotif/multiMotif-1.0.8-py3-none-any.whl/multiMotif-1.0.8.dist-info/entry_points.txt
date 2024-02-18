@@ -1,0 +1,2 @@
+[console_scripts]
+multimotif = multimotif.main:main
