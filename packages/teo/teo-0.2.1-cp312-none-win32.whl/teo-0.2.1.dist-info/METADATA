@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: teo
+Version: 0.2.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+Teo Python
+==========
+
+Run Teo server and write custom callbacks with Python.
+
+## Installation
+
+```sh
+pip install teo
+```
+
+## Example
+
+```python
+from asyncio import run
+from teo import App
+
+
+async def main():
+    app = App()
+    await app.run()
+
+
+run(main())
+```
+
