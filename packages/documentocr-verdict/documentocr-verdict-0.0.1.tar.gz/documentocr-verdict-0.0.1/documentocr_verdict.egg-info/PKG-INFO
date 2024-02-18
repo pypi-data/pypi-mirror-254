@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: documentocr-verdict
+Version: 0.0.1
+Summary: This repository contains a Python program designed to execute Optical Character Recognition (OCR)
+Home-page: 
+Author: Amaan Patel
+Author-email: amaan@codeverdict.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: google-cloud-vision
+Requires-Dist: opencv-python-headless
+Requires-Dist: numpy
+Requires-Dist: google-auth
+Requires-Dist: PyMuPDF
