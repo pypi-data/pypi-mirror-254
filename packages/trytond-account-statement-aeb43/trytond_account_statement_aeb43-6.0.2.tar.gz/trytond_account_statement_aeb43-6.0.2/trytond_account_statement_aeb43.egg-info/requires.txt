@@ -1,0 +1,5 @@
+python-stdnum
+csb43>=0.8
+trytond_account_statement<6.1,>=6.0
+trytond_bank<6.1,>=6.0
+trytond<6.1,>=6.0
