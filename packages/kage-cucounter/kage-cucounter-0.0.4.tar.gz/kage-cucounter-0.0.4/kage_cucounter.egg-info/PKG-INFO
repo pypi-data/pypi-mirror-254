@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: kage-cucounter
+Version: 0.0.4
+Summary: A hashtable based counter implemented in CUDA for high throughput.
+Author: Jørgen Henriksen
