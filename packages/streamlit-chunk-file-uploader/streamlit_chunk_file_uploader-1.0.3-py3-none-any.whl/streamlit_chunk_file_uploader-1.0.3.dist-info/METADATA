@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: streamlit-chunk-file-uploader
+Version: 1.0.3
+Summary: Custom component to perform chunked upload in Streamlit.
+Home-page: https://github.com/GracefulTabby/streamlit-chunk-file-uploader
+Author: Ryuya Matsumoto
+Author-email: public@ryuya-matsumoto.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: streamlit >=1.26.0
+Provides-Extra: devel
+Requires-Dist: wheel ; extra == 'devel'
+Requires-Dist: pytest ==7.4.0 ; extra == 'devel'
+Requires-Dist: playwright ==1.39.0 ; extra == 'devel'
+Requires-Dist: requests ==2.31.0 ; extra == 'devel'
+Requires-Dist: pytest-playwright-snapshot ==1.0 ; extra == 'devel'
+Requires-Dist: pytest-rerunfailures ==12.0 ; extra == 'devel'
+
+# streamlit-chunk-file-uploader
+
+[![image](https://img.shields.io/pypi/v/streamlit-chunk-file-uploader.svg)](https://pypi.python.org/pypi/streamlit-chunk-file-uploader)  
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chunk-file-uploader.streamlit.app/)  
+
+This is a custom component that allows you to split files and send them from your browser to Streamlit.
+
+## Installation instructions
+
+```sh
+pip install streamlit-chunk-file-uploader
+```
+
+## Usage instructions
+
+```python
+import streamlit as st
+from streamlit_chunk_file_uploader import uploader
+
+file = uploader("uploader", key="chunk_uploader", chunk_size=32)
+st.write(file)
+if file is not None:
+    st.download_button(
+        "download",
+        data=file,
+        file_name=file.name,
+        type="primary",
+    )
+
+```
+
+## About chunk size
+When a file is uploaded, a Python script slices the file at the specified chunk size on the browser side and sends it as multiple files to the backend.  
+It's important to note that chunk size and request size are different.  
+If you have a constraint such as client_max_body_size, you should set it to a value slightly smaller than the constraint size, such as 31MB if the constraint size is 32MB.  

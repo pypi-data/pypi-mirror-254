@@ -1,0 +1,45 @@
+{
+  "name": "chunk_uploader",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.6.7",
+    "react": "^16.13.1",
+    "react-bootstrap": "^2.10.0",
+    "react-dom": "^16.13.1",
+    "react-dropzone": "^14.2.3",
+    "react-icons": "^5.0.1",
+    "streamlit-component-lib": "^2.0.0",
+    "uuid": "^9.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": ".",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/uuid": "^9.0.8",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.2.0"
+  }
+}
