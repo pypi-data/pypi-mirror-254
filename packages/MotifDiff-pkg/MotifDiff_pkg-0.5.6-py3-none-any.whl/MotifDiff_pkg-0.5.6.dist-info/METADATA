@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: MotifDiff-pkg
+Version: 0.5.6
+Requires-Dist: torch
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: typer
+Requires-Dist: pysam
+Requires-Dist: scipy
+
