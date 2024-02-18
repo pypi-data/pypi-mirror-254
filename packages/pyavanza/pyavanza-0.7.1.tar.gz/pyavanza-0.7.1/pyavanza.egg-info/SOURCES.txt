@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+pyavanza/__init__.py
+pyavanza/py.typed
+pyavanza.egg-info/PKG-INFO
+pyavanza.egg-info/SOURCES.txt
+pyavanza.egg-info/dependency_links.txt
+pyavanza.egg-info/not-zip-safe
+pyavanza.egg-info/requires.txt
+pyavanza.egg-info/top_level.txt
+tests/test_api.py
