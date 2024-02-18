@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "currentscope"
+version = "0.1.0a0"
+description = "CurrentScope Python API"
+authors = ["currentscope <reach@currentscope.co.uk>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
