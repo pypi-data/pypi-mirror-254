@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/snorre/__init__.py
+src/snorre/example.py
+src/snorre.egg-info/PKG-INFO
+src/snorre.egg-info/SOURCES.txt
+src/snorre.egg-info/dependency_links.txt
+src/snorre.egg-info/top_level.txt
