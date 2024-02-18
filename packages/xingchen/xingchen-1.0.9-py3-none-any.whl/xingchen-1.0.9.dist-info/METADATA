@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: xingchen
+Version: 1.0.9
+Summary: XingChen 开放接口定义
+Home-page: 
+Author: zhiyong.fzy
+Author-email: zhiyong.fzy@alibaba-inc.com
+Keywords: XingChen,Character AI,XingChen开放接口定义
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3 (<2.1.0,>=1.25.3)
+Requires-Dist: python-dateutil
+Requires-Dist: pydantic (<2,>=1.10.5)
+Requires-Dist: aenum
+Requires-Dist: sseclient-py (>=1.8.0)
+
+    通义星尘(https://tongyi.aliyun.com/xingchen) Python SDK 
+    
