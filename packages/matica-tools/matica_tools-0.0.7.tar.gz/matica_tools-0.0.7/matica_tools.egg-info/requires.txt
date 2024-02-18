@@ -1,0 +1,6 @@
+paramiko
+scp
+requests
+boto3
+
+[dev]

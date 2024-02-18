@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[nbdev]
+matica_tools = matica_tools._modidx:d
+
