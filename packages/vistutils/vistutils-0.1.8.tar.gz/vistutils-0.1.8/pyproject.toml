@@ -1,0 +1,23 @@
+[build-system]
+requires = ['setuptools>=68.2']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+name = "vistutils"
+version = "0.1.8"
+authors = [
+  { name = "Asger Jon Vistisen", email = "asgerjon2@gmail.com" },
+]
+description = "vistutils provides helpful utility functions"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AsgerJon/vistutils"
+"Bug Tracker" = "https://github.com/AsgerJon/vistutils"

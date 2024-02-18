@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: vistutils
+Version: 0.1.8
+Summary: vistutils provides helpful utility functions
+Home-page: https://github.com/AsgerJon/vistutils
+Author: Asger Jon Vistisen
+Author-email: Asger Jon Vistisen <asgerjon2@gmail.com>
+Project-URL: Homepage, https://github.com/AsgerJon/vistutils
+Project-URL: Bug Tracker, https://github.com/AsgerJon/vistutils
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# vistutils
+
+vistutils is a collection of modules providing helpful utility functions.
+The latest release includes the following functions:
+
+## Installation
+
+You can find the latest version on pypi:
+https://pypi.org/project/vistutils/
+To install, simply run:
+
+~~~
+pip install vistutils
+~~~
