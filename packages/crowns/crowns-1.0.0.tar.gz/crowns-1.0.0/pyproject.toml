@@ -1,0 +1,57 @@
+
+
+
+
+
+
+#
+#	how to publish:
+#
+#		python3 modules/structures/crowns/_status/status.proc.py
+#		cp modules/structures/crowns/module.MD readme.md
+#		(rm -rf dist && python3 -m build && twine upload dist/*)
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crowns"
+version = "1.0.0"
+dependencies = [
+	"homeostasis",
+	"botany",
+	
+	"rich",
+	"tinydb",
+	"clique"
+]
+
+license = { file = "modules/structures/crowns/license.txt" }
+
+description = "How to adorn a throne room."
+readme = "readme.md"
+
+
+[project.scripts]
+
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from this_module import clique; clique ()
+#
+crowns = "crowns:clique"
+
+
+[tool.setuptools.packages.find]
+where = [ "modules/structures" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.html", "*.txt" ]
+
+
+
+
