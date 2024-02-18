@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: agit
+Version: 0.1.25
+Summary: tools for agi
+Home-page: https://github.com/jerrychen1990/agi-tools.git
+Author: Chen Hao
+Author-email: jerrychen1990@gmail.com
+License: MIT
+Requires-Dist: zhipuai (>=2.0.1)
+Requires-Dist: openai
+Requires-Dist: python-snippets
+Requires-Dist: click
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: html2text
+Requires-Dist: faiss-cpu
+Requires-Dist: langchain
+Requires-Dist: tiktoken
+Requires-Dist: loguru
+Requires-Dist: streamlit
+Requires-Dist: plotly
+Requires-Dist: streamlit-chat
+Requires-Dist: openpyxl
+Requires-Dist: tushare
+
+tools for agi
