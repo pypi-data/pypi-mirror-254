@@ -1,0 +1,9 @@
+include LICENSE.txt
+include README.rst
+include pyproject.toml
+
+graft dynamic_import
+graft example
+graft test
+
+global-exclude *.py[cod]  # note: must run last to exclude properly
