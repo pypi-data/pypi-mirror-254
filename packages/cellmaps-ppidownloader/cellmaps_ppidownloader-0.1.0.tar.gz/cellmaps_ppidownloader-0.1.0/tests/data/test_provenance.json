@@ -1,0 +1,25 @@
+{
+  "name": "Test run",
+  "organization-name": "integration test",
+  "project-name": "integration test project",
+  "cell-line": "test line",
+  "treatment": "untreated",
+  "release": "0.1 alpha",
+  "gene-set": "test",
+  "edgelist": {
+    "name": "test edgelist",
+    "author": "Bob Smith",
+    "version": "0.1",
+    "date-published": "2023-12-31",
+    "description": "Test AP-MS edge list",
+    "data-format": "TSV"
+  },
+  "baitlist": {
+    "name": "test baitlist",
+    "author": "Bob Smith",
+    "version": "0.2",
+    "date-published": "2024-01-01",
+    "description": "Test AP-MS bait list",
+    "data-format": "TSV"
+  }
+}
