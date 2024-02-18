@@ -1,0 +1,13 @@
+LICENCE
+README.md
+pyproject.toml
+src/_bu/reggis_fil.py
+src/matematikk/__init__.py
+src/matematikk/ekstremalpunkt_max_fil.py
+src/matematikk/overskudd_max_fil.py
+src/matematikk/reggis_fil.py
+src/matematikk/superløs_fil.py
+src/matematikk.egg-info/PKG-INFO
+src/matematikk.egg-info/SOURCES.txt
+src/matematikk.egg-info/dependency_links.txt
+src/matematikk.egg-info/top_level.txt
