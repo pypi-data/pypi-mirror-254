@@ -1,0 +1,14 @@
+black
+click
+dbt-core
+Faker
+GitPython
+inquirer
+isort
+pandas
+pandas-stubs
+PyGithub
+python-gitlab
+tabulate
+typer[all]
+typing_extensions==4.7.1
