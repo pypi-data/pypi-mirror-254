@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: home-link
+Version: 0.1.1
+Summary: 
+Author: gab25
+Author-email: gabrielesorci.25@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: firebase-admin (>=6.4.0,<7.0.0)
+Requires-Dist: paho-mqtt (>=1.6.1,<2.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+# home_link
