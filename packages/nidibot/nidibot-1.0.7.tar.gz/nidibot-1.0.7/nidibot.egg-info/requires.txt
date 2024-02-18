@@ -1,0 +1,10 @@
+dacite
+ftputil
+hikari
+hikari-lightbulb
+paramiko
+requests
+PyDrive2
+
+[test]
+pytest
