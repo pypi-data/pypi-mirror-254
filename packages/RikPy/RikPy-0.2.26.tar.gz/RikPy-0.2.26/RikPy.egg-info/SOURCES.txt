@@ -1,0 +1,15 @@
+MANIFEST.in
+readme.md
+setup.cfg
+setup.py
+RikPy/__init__.py
+RikPy/common.py
+RikPy/commongoogle.py
+RikPy/commonheroku.py
+RikPy/commonopenai.py
+RikPy/commons3.py
+RikPy/commonshopify.py
+RikPy.egg-info/PKG-INFO
+RikPy.egg-info/SOURCES.txt
+RikPy.egg-info/dependency_links.txt
+RikPy.egg-info/top_level.txt
