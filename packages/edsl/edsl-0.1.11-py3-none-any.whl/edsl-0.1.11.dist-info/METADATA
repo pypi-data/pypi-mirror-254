@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: edsl
+Version: 0.1.11
+Summary: Create and analyze LLM-based surveys
+Home-page: https://www.goemeritus.com/
+License: MIT
+Keywords: LLM,social science,surveys,user research
+Author: Apostolos Filippas
+Author-email: apostolos@goemeritus.com
+Requires-Python: >=3.9.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: aiohttp (>=3.9.1,<4.0.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: jupyter (>=1.0.0,<2.0.0)
+Requires-Dist: markdown2 (>=2.4.11,<3.0.0)
+Requires-Dist: nest-asyncio (>=1.5.9,<2.0.0)
+Requires-Dist: numpy (>=1.22,<2.0)
+Requires-Dist: openai (>=1.4.0,<2.0.0)
+Requires-Dist: pandas (>=2.1.4,<3.0.0)
+Requires-Dist: pillow (>=9.4.0)
+Requires-Dist: python-docx (>=1.1.0,<2.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Requires-Dist: seaborn (>=0.13.0,<0.14.0)
+Requires-Dist: simpleeval (>=0.9.13,<0.10.0)
+Requires-Dist: sqlalchemy (>=2.0.23,<3.0.0)
+Requires-Dist: statsmodels (>=0.13.5,<0.14.0)
+Requires-Dist: tenacity (>=8.2.3,<9.0.0)
+Requires-Dist: wordcloud (>=1.9.3,<2.0.0)
+Project-URL: Documentation, https://www.goemeritus.com/getting-started/
+Description-Content-Type: text/markdown
+
+# Emeritus Domain-Specific Language 
+<p align="center">
+  <img src="https://github.com/goemeritus/edsl-public/blob/main/static/logo.png?raw=true" alt="edsl.png" width="100"/>
+</p>
+
+The Emeritus Domain-Specific Language (EDSL) package lets you conduct social science and market research with AI. Use it to design surveys and experiments, simulate responses with LLMs, and analyze results. 
+
+
+## 🔗 Links
+- PyPI: https://pypi.org/project/edsl/
+- Documentation: https://www.goemeritus.com/getting-started/
+- Discord: https://discord.com/invite/mxAYkjfy9m
+
+## 💡 Contributing, Feature Asks, and Bugs
+Interested in contributing? Want us to add a new feature? Found a nasty bug that you would like us to squash? Please send us an email at info@goemeritus.com or message us at our discord server.
+
+
+## 💻 Getting started
+Our package is compatible with Python 3.9 - 3.11.
+```
+pip install edsl
+```
+
+See https://www.goemeritus.com/getting-started/
+ for examples and tutorials.
+
+## 🔧 Dependencies
+The main third-party package requirement is  `openai`.
+
+
