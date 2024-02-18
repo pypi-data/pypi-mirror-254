@@ -1,0 +1,69 @@
+
+
+
+
+
+
+
+
+#
+#	how to publish:
+#
+#		git add --all;
+#		git commit -m "body_scan"
+#
+#		# Maybe push a git tag like "publish-1.1.4" with a commit to GL,
+#		# and then see if GL can run the tests and publish the module.
+#		
+#		# run the status checks
+#
+#		(rm -rf dist && python3 -m build && twine upload dist/*)
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "body_scan"
+version = "1.0.6"
+dependencies = [
+	'botanist',
+	
+	'click',
+	'flask',
+	'pdoc3',
+	'requests',
+	'textual',
+	'tinydb'
+]
+
+license = { text = "GPL 3.0" }
+
+description = "Test Framework"
+readme = "module.txt"
+
+
+
+[project.urls]
+GitLab = "https://gitlab.com/reptilian_climates/body_scan.git"
+
+#[project.scripts]
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from body_scan import clique; clique ()
+#
+#body_scan = "body_scan:clique"
+
+[tool.setuptools.packages.find]
+where = [ "structure/decor" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.HTML" ]
+
+
+
+

@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+INTERCEPTOR.py:
+	import pexpect
+	SCRIPT = "python3 SCRIPT.py"
+
+	OUTPUT = []
+
+	p = pexpect.spawn (SCRIPT)
+	while not p.eof ():
+		LINE = p.readline ()	
+		OUTPUT.append (LINE)
+		print (LINE)
+
+
+
+REPEATOR.py:
+	import sys
+	import time
+	import os
+
+	def REPEAT ():	
+		
+		print ("REPEAT, STDERR", file = sys.stderr)
+		print ("REPEAT, STDOUT", file = sys.stdout)
+		#sys.stdout.buffer.write (b"some binary data")
+
+		with os.fdopen (sys.stdout.fileno (), "wb", closefd = False) as stdout:
+			stdout.write (b"my bytes object\n")
+			stdout.flush ()
+
+		time.sleep (1)
+
+		REPEAT ()
+		
+	REPEAT ()
