@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+only_scraperpy/__init__.py
+only_scraperpy.egg-info/PKG-INFO
+only_scraperpy.egg-info/SOURCES.txt
+only_scraperpy.egg-info/dependency_links.txt
+only_scraperpy.egg-info/top_level.txt

@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "only_scraperpy"
+version = "0.1.6"
+description = "Only scrape webpages from rust to python"
+authors = ["Eduardo Gonzalez <me@edlugora.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
