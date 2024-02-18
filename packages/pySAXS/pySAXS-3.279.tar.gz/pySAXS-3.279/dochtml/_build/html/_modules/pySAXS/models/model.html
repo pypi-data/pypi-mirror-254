@@ -1,0 +1,417 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.models.model &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.models.model</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: cp1252 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">LIONS_SAXS python routines for small angle xray scattering.</span>
+<span class="sd">Model class</span>
+<span class="sd">version 0.1b 04/07/2010</span>
+<span class="sd">04-07-2010 DC: calculation of residuals corrected in fitBounds</span>
+<span class="sd">04-07-2010 DC: calculation of chi square corrected</span>
+<span class="sd">03-07-2010 DC: syntax error on fitBounds corrected</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c">#import Numeric</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span> <span class="k">as</span> <span class="n">SPspecial</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">SPstats</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span> <span class="k">as</span> <span class="n">SPintegrate</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span> 
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">clock</span>
+<span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+<span class="kn">from</span> <span class="nn">pySAXS.tools</span> <span class="kn">import</span> <span class="n">xmltools</span>
+<span class="kn">import</span> <span class="nn">pySAXS</span>
+
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Model class templates</span>
+<span class="sd">    test</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">IntensityFunc</span><span class="o">=</span><span class="bp">None</span> <span class="c">#function</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">q</span><span class="o">=</span><span class="bp">None</span>          <span class="c">#q range(x scale)</span>
+    <span class="n">Arg</span><span class="o">=</span><span class="bp">None</span>        <span class="c">#list of parameters</span>
+    <span class="n">Format</span><span class="o">=</span><span class="bp">None</span>     <span class="c">#list of c format</span>
+    <span class="n">istofit</span><span class="o">=</span><span class="bp">None</span>    <span class="c">#list of boolean for fitting</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span>         <span class="c">#name of the model can be different from the class name</span>
+    <span class="n">Doc</span><span class="o">=</span><span class="s">&quot;&quot;</span>          <span class="c">#list of description for parameters</span>
+    <span class="n">Description</span><span class="o">=</span><span class="s">&quot;&quot;</span>  <span class="c"># description of model</span>
+    <span class="n">Author</span><span class="o">=</span><span class="s">&quot;LIONS&quot;</span>  <span class="c">#name of Author</span>
+    <span class="n">WarningForCalculationTime</span><span class="o">=</span><span class="bp">False</span>     <span class="c">#if calculation time is too high, set to false</span>
+    <span class="n">specific</span><span class="o">=</span><span class="bp">False</span>  <span class="c">#for specific model, set to true</span>
+    
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">Arg</span><span class="o">=</span><span class="p">[],</span><span class="n">istofit</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">q</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="n">q</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Arg</span><span class="o">&lt;&gt;</span><span class="p">[])</span><span class="ow">and</span> <span class="p">(</span><span class="n">Arg</span><span class="o">!=</span><span class="bp">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="o">=</span><span class="n">Arg</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="c">#if istofit == none then fit all datas (array of true)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">istofit</span><span class="o">==</span><span class="bp">None</span><span class="p">)</span><span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="o">==</span><span class="bp">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="o">=</span><span class="n">Arg</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Arg</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Arg</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="bp">True</span>
+    
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Model &quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span> <span class="s">&quot; with parameters : &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__str__</span><span class="p">()</span>
+    
+<div class="viewcode-block" id="Model.xml"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.xml">[docs]</a>    <span class="k">def</span> <span class="nf">xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return an xml object</span>
+<span class="sd">        with name, args, and isTofit</span>
+<span class="sd">        &lt;model name=&#39;Gaussian&#39;&gt;</span>
+<span class="sd">        &lt;par value=&#39;0.123&#39; fit=&#39;true&#39;&gt;height of gaussian&lt;/par&gt;</span>
+<span class="sd">        ...</span>
+<span class="sd">        &lt;/model&gt;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#create the root &lt;/root&gt;&lt;root&gt;</span>
+        <span class="n">root_element</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s">&quot;model&quot;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;value&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span>\
+                    <span class="s">&#39;fit&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span>
+                    <span class="s">&#39;order&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s">&quot;par&quot;</span><span class="p">,</span><span class="n">attrib</span><span class="p">)</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Doc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="c">#now append</span>
+            <span class="n">root_element</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">root_element</span>
+        
+</div>
+<div class="viewcode-block" id="Model.getNumber"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getNumber">[docs]</a>    <span class="k">def</span> <span class="nf">getNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span></div>
+<div class="viewcode-block" id="Model.setQ"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.setQ">[docs]</a>    <span class="k">def</span> <span class="nf">setQ</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        set the q scale</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="n">q</span>
+        </div>
+<div class="viewcode-block" id="Model.getQ"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getQ">[docs]</a>    <span class="k">def</span> <span class="nf">getQ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        get the q scale</span>
+<span class="sd">        as a numpy array</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="s">&#39;float&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">temp</span>
+    </div>
+<div class="viewcode-block" id="Model.setArg"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.setArg">[docs]</a>    <span class="k">def</span> <span class="nf">setArg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">par</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        set the model parameters</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="o">=</span><span class="n">par</span>
+        </div>
+<div class="viewcode-block" id="Model.getArg"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getArg">[docs]</a>    <span class="k">def</span> <span class="nf">getArg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return the model parameters </span>
+<span class="sd">        as list</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">temp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">temp</span>
+</div>
+<div class="viewcode-block" id="Model.setIstofit"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.setIstofit">[docs]</a>    <span class="k">def</span> <span class="nf">setIstofit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ITF</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        set istofit varaiable</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="o">=</span><span class="n">ITF</span>
+        </div>
+<div class="viewcode-block" id="Model.getIstofit"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getIstofit">[docs]</a>    <span class="k">def</span> <span class="nf">getIstofit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">temp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">)):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">temp</span>
+</div>
+<div class="viewcode-block" id="Model.getIntensity"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getIntensity">[docs]</a>    <span class="k">def</span> <span class="nf">getIntensity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        compute the intensity function for the model</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">y</span>
+    </div>
+<div class="viewcode-block" id="Model.getNoisy"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getNoisy">[docs]</a>    <span class="k">def</span> <span class="nf">getNoisy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">randompercent</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return a noisy intensity computed for the model</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)):</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">randompercent</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">y</span>
+    </div>
+<div class="viewcode-block" id="Model.getBoundsFromParam"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.getBoundsFromParam">[docs]</a>    <span class="k">def</span> <span class="nf">getBoundsFromParam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">aroundParam</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return bounds of parameters</span>
+<span class="sd">        with a percent of aroundParam</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="n">boundsmin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">aroundParam</span><span class="p">)</span>
+            <span class="n">boundsmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">aroundParam</span><span class="p">)</span>
+            <span class="n">bounds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">boundsmin</span><span class="p">,</span><span class="n">boundsmax</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">bounds</span>
+            </div>
+<div class="viewcode-block" id="Model.residuals"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.residuals">[docs]</a>    <span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">par</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        residuals</span>
+<span class="sd">        par is the list of the parameters to be fitted</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">par_to_fit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[:]</span>
+        <span class="n">j</span><span class="o">=</span><span class="mi">0</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">par_to_fit</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">:</span>
+                <span class="n">par_to_fit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">err</span><span class="o">=</span><span class="p">(</span><span class="n">Iexp</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">**</span><span class="n">plotexp</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">par_to_fit</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">**</span><span class="n">plotexp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">err</span>
+</div>
+<div class="viewcode-block" id="Model.residuals_bounds"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.residuals_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">residuals_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">par</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        residuals used for the fit with bounds (arguments for leastsq and fmin.tnc are different)</span>
+<span class="sd">        par is the list of the parameters to be fitted</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">par_to_fit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[:]</span>
+        <span class="n">j</span><span class="o">=</span><span class="mi">0</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">par_to_fit</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">:</span>
+                <span class="n">par_to_fit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">err</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Iexp</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">**</span><span class="n">plotexp</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">par_to_fit</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">**</span><span class="n">plotexp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">err</span>
+        </div>
+<div class="viewcode-block" id="Model.chi_carre"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.chi_carre">[docs]</a>    <span class="k">def</span> <span class="nf">chi_carre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">par</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        chi_carre</span>
+<span class="sd">        par is the list of all parameters (either to be fitted or not)</span>
+<span class="sd">        Here the chi square is calculated assuming that the standard deviation equals the function</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="sd">&#39;&#39;&#39;par=[]</span>
+<span class="sd">        for i in range(len(self.Arg)):</span>
+<span class="sd">            if self.istofit[i]==True:</span>
+<span class="sd">                par.append(self.Arg[i])</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">res</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">residuals</span><span class="p">(</span><span class="n">par</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+        <span class="n">i</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">par</span><span class="p">)</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="o">/</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">chi</span>
+    </div>
+<div class="viewcode-block" id="Model.fit"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Fit the models with leastsq</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c"># params can be not fitted (from istofit)</span>
+        <span class="c">#--produce a new param : param0</span>
+        <span class="n">param0</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">NF</span><span class="o">=</span><span class="mi">0</span> <span class="c">#if many parameters to fit</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">param0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">NF</span><span class="o">=</span><span class="n">NF</span><span class="o">+</span><span class="mi">1</span>
+        <span class="c">#print param0</span>
+        <span class="c">#-- fitting procedure</span>
+        <span class="n">t0</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
+        <span class="n">res</span><span class="o">=</span><span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">residuals</span><span class="p">,</span><span class="n">param0</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="p">),</span><span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">t1</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Parameters found for the fit= &#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39; in &#39;</span><span class="p">,</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">,</span><span class="s">&#39;s&#39;</span>  
+            <span class="k">print</span> <span class="s">&#39;Covariance matrix of the parameters&#39;</span><span class="p">,</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c"># results to new params</span>
+        <span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span>
+        <span class="n">j</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">par</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">NF</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="c">#par[i]=res[j]</span>
+                <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">par</span>
+    </div>
+<div class="viewcode-block" id="Model.fitBounds"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.Model.fitBounds">[docs]</a>    <span class="k">def</span> <span class="nf">fitBounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">bounds</span><span class="p">,</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        fit the model with fmin_tnc </span>
+<span class="sd">        with bounds as </span>
+<span class="sd">        bounds = [(0.0,10.0)]</span>
+<span class="sd">        bounds must have same size than params</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c"># params can be not fitted (from istofit)</span>
+        <span class="c">#--produce a new param : param0</span>
+        <span class="c"># and newbounds</span>
+        <span class="c">#if isttofit is not True, then bounds or params are not taken into acount</span>
+        <span class="n">param0</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">newbounds</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">NF</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">:</span>
+                <span class="n">param0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">newbounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">NF</span><span class="o">=</span><span class="n">NF</span><span class="o">+</span><span class="mi">1</span>
+        <span class="c">#fitting with bounds</span>
+        <span class="n">t0</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
+        <span class="n">res</span><span class="p">,</span> <span class="n">nfeval</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">fmin_tnc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">residuals_bounds</span><span class="p">,</span> <span class="n">param0</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">([</span><span class="n">Iexp</span><span class="p">,</span><span class="n">plotexp</span><span class="p">]),</span>\
+                                  <span class="n">approx_grad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">newbounds</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>\
+                                  <span class="n">maxCGit</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxfun</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">eta</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">stepmx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accuracy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rescale</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">t1</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Parameters found for the fit= &#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="s">&#39; in &#39;</span><span class="p">,</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">,</span><span class="s">&#39;s&#39;</span>  
+        <span class="c"># results to new params</span>
+        <span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Arg</span>
+        <span class="n">j</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">par</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="bp">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">NF</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">res</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="c">#par[i]=res[j]</span>
+                <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">par</span>
+        
+        <span class="k">return</span> <span class="n">message</span>
+    </div></div>
+<div class="viewcode-block" id="getModelFromXML"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.model.getModelFromXML">[docs]</a><span class="k">def</span> <span class="nf">getModelFromXML</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+    <span class="n">attrib</span><span class="o">=</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span>
+    <span class="c">#print attrib</span>
+    <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">attrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">)):</span>
+           <span class="k">return</span> <span class="bp">None</span>
+    
+    <span class="n">modelname</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+    <span class="n">M</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">pySAXS</span><span class="o">.</span><span class="n">models</span><span class="p">,</span><span class="n">modelname</span><span class="p">)()</span><span class="c">#create a new model</span>
+    <span class="c">#print &quot;create new model from class :&quot;,modelname</span>
+    <span class="n">arg</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">istofit</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">l</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">subelement</span> <span class="ow">in</span> <span class="n">element</span><span class="p">:</span>
+            <span class="n">tag</span><span class="o">=</span><span class="n">subelement</span><span class="o">.</span><span class="n">tag</span>
+            <span class="n">subattrib</span><span class="o">=</span><span class="n">subelement</span><span class="o">.</span><span class="n">attrib</span>
+            <span class="k">if</span> <span class="n">subattrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;order&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">subattrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;value&#39;</span><span class="p">):</span>
+                    <span class="n">arg</span><span class="p">[</span><span class="n">subattrib</span><span class="p">[</span><span class="s">&#39;order&#39;</span><span class="p">]]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">subattrib</span><span class="p">[</span><span class="s">&#39;value&#39;</span><span class="p">])</span>
+                    <span class="n">istofit</span><span class="p">[</span><span class="n">subattrib</span><span class="p">[</span><span class="s">&#39;order&#39;</span><span class="p">]]</span><span class="o">=</span><span class="n">subattrib</span><span class="p">[</span><span class="s">&#39;fit&#39;</span><span class="p">]</span>
+                    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subattrib</span><span class="p">[</span><span class="s">&#39;order&#39;</span><span class="p">])</span>
+    <span class="c">#here we have a list and a dictionnary</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">returnArg</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">returnIsToFit</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">returnArg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">returnIsToFit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xmltools</span><span class="o">.</span><span class="n">convertText</span><span class="p">(</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">datatype</span><span class="o">=</span><span class="s">&#39;bool&#39;</span><span class="p">))</span>
+    <span class="n">M</span><span class="o">.</span><span class="n">Arg</span><span class="o">=</span><span class="n">returnArg</span>
+    <span class="n">M</span><span class="o">.</span><span class="n">istofit</span><span class="o">=</span><span class="n">returnIsToFit</span>
+    <span class="c">#print M</span>
+    <span class="k">return</span> <span class="n">M</span>
+        
+                  </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

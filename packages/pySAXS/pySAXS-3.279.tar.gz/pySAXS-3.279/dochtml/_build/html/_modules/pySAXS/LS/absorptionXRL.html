@@ -1,0 +1,320 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.LS.absorptionXRL &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.LS.absorptionXRL</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module use  the xraylib library</span>
+<span class="sd">and provide high level functions for</span>
+<span class="sd">absorption factors for chemical compounds</span>
+
+<span class="sd">August 2012 by OT</span>
+<span class="sd">based on work by AT</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pySAXS</span> <span class="kn">import</span> <span class="n">xraylib</span>
+<span class="n">ATOMS_NAME</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;Hydrogen&quot;</span><span class="p">,</span><span class="s">&quot;Helium&quot;</span><span class="p">,</span><span class="s">&quot;Lithium&quot;</span><span class="p">,</span><span class="s">&quot;Beryllium&quot;</span><span class="p">,</span><span class="s">&quot;Boron&quot;</span><span class="p">,</span><span class="s">&quot;Carbon, Graphite&quot;</span><span class="p">,</span><span class="s">&quot;Nitrogen&quot;</span><span class="p">,</span><span class="s">&quot;Oxygen&quot;</span><span class="p">,</span><span class="s">&quot;Fluorine&quot;</span><span class="p">,</span><span class="s">&quot;Neon&quot;</span><span class="p">,</span><span class="s">&quot;Sodium&quot;</span><span class="p">,</span><span class="s">&quot;Magnesium&quot;</span><span class="p">,</span><span class="s">&quot;Aluminum&quot;</span><span class="p">,</span><span class="s">&quot;Silicon&quot;</span><span class="p">,</span><span class="s">&quot;Phosphorus&quot;</span><span class="p">,</span><span class="s">&quot;Sulfur&quot;</span><span class="p">,</span><span class="s">&quot;Chlorine&quot;</span><span class="p">,</span><span class="s">&quot;Argon&quot;</span><span class="p">,</span><span class="s">&quot;Potassium&quot;</span><span class="p">,</span><span class="s">&quot;Calcium&quot;</span><span class="p">,</span><span class="s">&quot;Scandium&quot;</span><span class="p">,</span><span class="s">&quot;Titanium&quot;</span><span class="p">,</span><span class="s">&quot;Vanadium&quot;</span><span class="p">,</span><span class="s">&quot;Chromium&quot;</span><span class="p">,</span><span class="s">&quot;Manganese&quot;</span><span class="p">,</span><span class="s">&quot;Iron&quot;</span><span class="p">,</span><span class="s">&quot;Cobalt&quot;</span><span class="p">,</span><span class="s">&quot;Nickel&quot;</span><span class="p">,</span><span class="s">&quot;Copper&quot;</span><span class="p">,</span><span class="s">&quot;Zinc&quot;</span><span class="p">,</span><span class="s">&quot;Gallium&quot;</span><span class="p">,</span><span class="s">&quot;Germanium&quot;</span><span class="p">,</span><span class="s">&quot;Arsenic&quot;</span><span class="p">,</span><span class="s">&quot;Selenium&quot;</span><span class="p">,</span><span class="s">&quot;Bromine&quot;</span><span class="p">,</span><span class="s">&quot;Krypton&quot;</span><span class="p">,</span><span class="s">&quot;Rubidium&quot;</span><span class="p">,</span><span class="s">&quot;Strontium&quot;</span><span class="p">,</span><span class="s">&quot;Yttrium&quot;</span><span class="p">,</span><span class="s">&quot;Zirconium&quot;</span><span class="p">,</span><span class="s">&quot;Niobium&quot;</span><span class="p">,</span><span class="s">&quot;Molybdenum&quot;</span><span class="p">,</span><span class="s">&quot;Technetium&quot;</span><span class="p">,</span><span class="s">&quot;Ruthenium&quot;</span><span class="p">,</span><span class="s">&quot;Rhodium&quot;</span><span class="p">,</span><span class="s">&quot;Palladium&quot;</span><span class="p">,</span><span class="s">&quot;Silver&quot;</span><span class="p">,</span><span class="s">&quot;Cadmium&quot;</span><span class="p">,</span><span class="s">&quot;Indium&quot;</span><span class="p">,</span><span class="s">&quot;Tin&quot;</span><span class="p">,</span><span class="s">&quot;Antimony&quot;</span><span class="p">,</span><span class="s">&quot;Tellurium&quot;</span><span class="p">,</span><span class="s">&quot;Iodine&quot;</span><span class="p">,</span><span class="s">&quot;Xenon&quot;</span><span class="p">,</span><span class="s">&quot;Cesium&quot;</span><span class="p">,</span><span class="s">&quot;Barium&quot;</span><span class="p">,</span><span class="s">&quot;Lanthanum&quot;</span><span class="p">,</span><span class="s">&quot;Cerium&quot;</span><span class="p">,</span><span class="s">&quot;Praseodymium&quot;</span><span class="p">,</span><span class="s">&quot;Neodymium&quot;</span><span class="p">,</span><span class="s">&quot;Promethium&quot;</span><span class="p">,</span><span class="s">&quot;Samarium&quot;</span><span class="p">,</span><span class="s">&quot;Europium&quot;</span><span class="p">,</span><span class="s">&quot;Gadolinium&quot;</span><span class="p">,</span><span class="s">&quot;Terbium&quot;</span><span class="p">,</span><span class="s">&quot;Dysprosium&quot;</span><span class="p">,</span><span class="s">&quot;Holmium&quot;</span><span class="p">,</span><span class="s">&quot;Erbium&quot;</span><span class="p">,</span><span class="s">&quot;Thulium&quot;</span><span class="p">,</span><span class="s">&quot;Ytterbium&quot;</span><span class="p">,</span><span class="s">&quot;Lutetium&quot;</span><span class="p">,</span><span class="s">&quot;Hafnium&quot;</span><span class="p">,</span><span class="s">&quot;Tantalum&quot;</span><span class="p">,</span><span class="s">&quot;Tungsten&quot;</span><span class="p">,</span><span class="s">&quot;Rhenium&quot;</span><span class="p">,</span><span class="s">&quot;Osmium&quot;</span><span class="p">,</span><span class="s">&quot;Iridium&quot;</span><span class="p">,</span><span class="s">&quot;Platinum&quot;</span><span class="p">,</span><span class="s">&quot;Gold&quot;</span><span class="p">,</span><span class="s">&quot;Mercury&quot;</span><span class="p">,</span><span class="s">&quot;Thallium&quot;</span><span class="p">,</span><span class="s">&quot;Lead&quot;</span><span class="p">,</span><span class="s">&quot;Bismuth&quot;</span><span class="p">,</span><span class="s">&quot;Polonium&quot;</span><span class="p">,</span><span class="s">&quot;Astatine&quot;</span><span class="p">,</span><span class="s">&quot;Radon&quot;</span><span class="p">,</span><span class="s">&quot;Francium&quot;</span><span class="p">,</span><span class="s">&quot;Radium&quot;</span><span class="p">,</span><span class="s">&quot;Actinium&quot;</span><span class="p">,</span><span class="s">&quot;Thorium&quot;</span><span class="p">,</span><span class="s">&quot;Protactinium&quot;</span><span class="p">,</span><span class="s">&quot;Uranium&quot;</span><span class="p">]</span>
+<span class="n">COMMON_XRAY_SOURCE_MATERIALS</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Cu&#39;</span><span class="p">,</span><span class="s">&#39;Cr&#39;</span><span class="p">,</span><span class="s">&#39;Mo&#39;</span><span class="p">,</span><span class="s">&#39;Co &#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="getZName"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getZName">[docs]</a><span class="k">def</span> <span class="nf">getZName</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the Atomic Number Z from compound name</span>
+<span class="sd">    &gt;&gt;&gt; getZName(&quot;Copper&quot;)</span>
+<span class="sd">    29</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">ATOMS_NAME</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">Z</span>
+</div>
+<div class="viewcode-block" id="getNameZ"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getNameZ">[docs]</a><span class="k">def</span> <span class="nf">getNameZ</span><span class="p">(</span><span class="n">Z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the name from a Z</span>
+<span class="sd">    &gt;&gt;&gt; getNameZ(29)</span>
+<span class="sd">    &#39;Copper&#39;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">ATOMS_NAME</span><span class="p">[</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+</div>
+<div class="viewcode-block" id="getAtomsFormula"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getAtomsFormula">[docs]</a><span class="k">def</span> <span class="nf">getAtomsFormula</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Transform a string containing a chemical formula (&#39;C 1 O 2&#39;) in two array</span>
+<span class="sd">    - list of atoms</span>
+<span class="sd">    - numeric array of atoms number</span>
+<span class="sd">    7-13-2012 by OT</span>
+<span class="sd">    &gt;&gt;&gt; getAtomsFormula(&#39;C 1 O 2&#39;)</span>
+<span class="sd">    [&#39;C&#39;,&#39;O&#39;] [1,2]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">L</span><span class="o">=</span><span class="n">S</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span> <span class="c">#cut at all spaces</span>
+    <span class="n">rS</span><span class="o">=</span><span class="n">L</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c">#Symbols to be return</span>
+    <span class="n">rN</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s">&#39;float&#39;</span><span class="p">)</span> <span class="c">#Numbers to be return</span>
+    <span class="k">return</span> <span class="n">rS</span><span class="p">,</span><span class="n">rN</span>
+</div>
+<div class="viewcode-block" id="getFormulaAtoms"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getFormulaAtoms">[docs]</a><span class="k">def</span> <span class="nf">getFormulaAtoms</span><span class="p">(</span><span class="n">atomS</span><span class="p">,</span><span class="n">atomN</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    transform a compound list and number in string</span>
+<span class="sd">    &gt;&gt;&gt; AtomsToCompound([&#39;H&#39;,&#39;O&#39;],[2,1])</span>
+<span class="sd">    &#39;H 2 O 1&#39; </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">S</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">atomS</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">atomN</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atomS</span><span class="p">)):</span>
+            <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="o">+</span><span class="s">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">atomS</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">atomN</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="getMuZ"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMuZ">[docs]</a><span class="k">def</span> <span class="nf">getMuZ</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.028</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return Mu from Atomic number Z</span>
+<span class="sd">    &gt;&gt;&gt; getMuZ(4)</span>
+<span class="sd">    0.8719998598098755</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">xraylib</span><span class="o">.</span><span class="n">CS_Photo</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getMuSymbol"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMuSymbol">[docs]</a><span class="k">def</span> <span class="nf">getMuSymbol</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.028</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns the xray absorption coefficient of the atom with</span>
+<span class="sd">    symbole S (ie &#39;C&#39; fo carbon, &#39;Au&#39; for gold) by default energy is 8.03 keV</span>
+<span class="sd">    and mass-energy absorption coefficient are return. To get the mass</span>
+<span class="sd">    absorption coefficient ISEN has to be 0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">AtomicNumberToSymbol</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">getMuZ</span><span class="p">(</span><span class="n">Z</span> <span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="getMuName"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMuName">[docs]</a><span class="k">def</span> <span class="nf">getMuName</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.028</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function returns the xray absorption coefficient of the atom with</span>
+<span class="sd">    name S (ie &#39;Carbon&#39; , &#39;Gold&#39;) by default energy is 8.028 keV and mass-energy</span>
+<span class="sd">    absorption coefficient are return. To get the mass absorption coefficient</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">getZName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">getMuZ</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    
+
+</div>
+<div class="viewcode-block" id="getMasseZ"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMasseZ">[docs]</a><span class="k">def</span> <span class="nf">getMasseZ</span><span class="p">(</span><span class="n">Z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    returns the molar mass (atomic weight) of the atomic number Z</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">xraylib</span><span class="o">.</span><span class="n">AtomicWeight</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getMasseSymbol"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMasseSymbol">[docs]</a><span class="k">def</span> <span class="nf">getMasseSymbol</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    returns the molar mass (atomic weight) of the atom with atomic number Z</span>
+<span class="sd">    (ie &#39;C&#39; fo carbon, &#39;Au&#39; for gold)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">SymbolToAtomicNumber</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">getMasseZ</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+
+
+</div>
+<div class="viewcode-block" id="getMuFormula"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMuFormula">[docs]</a><span class="k">def</span> <span class="nf">getMuFormula</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.028</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function returns the mass attenuation coefficient for a chemical</span>
+<span class="sd">    formula in the form &#39;C 6 H 6 O 2 N 1&#39;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#29-8-2012 by OT use of xraylib</span>
+    <span class="c">#7-13-2012 by OT improved for formula with fraction &#39;Si 1.2 Al 0.8&#39;</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">S</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="n">getAtomsFormula</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">Mu</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">),</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">Ma</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">),</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">CMa</span><span class="o">=</span><span class="mf">0.0</span>
+        <span class="n">CMu</span><span class="o">=</span><span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+            <span class="n">Z</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">SymbolToAtomicNumber</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">Mu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">CS_Photo</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+            <span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">AtomicWeight</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+            <span class="n">CMa</span><span class="o">=</span><span class="n">CMa</span><span class="o">+</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">CMu</span><span class="o">=</span><span class="n">CMu</span><span class="o">+</span><span class="n">Mu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">CMu</span><span class="o">/</span><span class="n">CMa</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+</div>
+<div class="viewcode-block" id="getMasseFormula"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getMasseFormula">[docs]</a><span class="k">def</span> <span class="nf">getMasseFormula</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.028</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns the molar mass a chemical formula</span>
+<span class="sd">    in the form  &#39;C 6 H 6 O 2 N 1&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">S</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="n">getAtomsFormula</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">Ma</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">),</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">CMa</span><span class="o">=</span><span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+            <span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">getMasseSymbol</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">CMa</span><span class="o">=</span><span class="n">CMa</span><span class="o">+</span><span class="n">Ma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">CMa</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+</div>
+<div class="viewcode-block" id="getElectronNumber"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getElectronNumber">[docs]</a><span class="k">def</span> <span class="nf">getElectronNumber</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="n">getAtomsFormula</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">Z</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)):</span>
+        <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="o">+</span><span class="p">(</span><span class="n">xraylib</span><span class="o">.</span><span class="n">AtomicWeight</span><span class="p">(</span><span class="n">xraylib</span><span class="o">.</span><span class="n">SymbolToAtomicNumber</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span><span class="o">*</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">Z</span>
+</div>
+<div class="viewcode-block" id="getElectronDensity"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getElectronDensity">[docs]</a><span class="k">def</span> <span class="nf">getElectronDensity</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">rho</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the electron density and the scattering length density</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#Thomson scattering length</span>
+    <span class="n">Belec</span><span class="o">=</span><span class="mf">0.282e-12</span>
+    <span class="n">Navo</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">AVOGNUM</span><span class="o">*</span><span class="mf">1e23</span>
+    <span class="n">M</span><span class="o">=</span><span class="n">getMasseFormula</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">getElectronNumber</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">ED</span><span class="o">=</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">Z</span><span class="o">*</span><span class="n">Navo</span><span class="p">)</span><span class="o">/</span><span class="n">M</span>
+    <span class="k">return</span> <span class="n">ED</span><span class="p">,</span><span class="n">ED</span><span class="o">*</span><span class="n">Belec</span>
+    
+    </div>
+<div class="viewcode-block" id="getEnergyFromSource"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getEnergyFromSource">[docs]</a><span class="k">def</span> <span class="nf">getEnergyFromSource</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s">&#39;Cu&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the KA LINE (most used) energy from the x-ray source</span>
+<span class="sd">    &gt;&gt;&gt; getEnergyFromSource(&#39;Cu&#39;)</span>
+<span class="sd">    8.04105057076251</span>
+<span class="sd">    &gt;&gt;&gt; getEnergyFromSource(&#39;Mo&#39;)</span>
+<span class="sd">    17.443217030477935</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">SymbolToAtomicNumber</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xraylib</span><span class="o">.</span><span class="n">LineEnergy</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">xraylib</span><span class="o">.</span><span class="n">KA_LINE</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getAngstFromSource"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getAngstFromSource">[docs]</a><span class="k">def</span> <span class="nf">getAngstFromSource</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s">&#39;Cu&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the KA LINE (most used) energy in ANGSTROM from the x-ray source</span>
+<span class="sd">    &gt;&gt;&gt; getAngstFromSource(&#39;Cu&#39;)</span>
+<span class="sd">    1.5418904085842968</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Z</span><span class="o">=</span><span class="n">xraylib</span><span class="o">.</span><span class="n">SymbolToAtomicNumber</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xraylib</span><span class="o">.</span><span class="n">KEV2ANGST</span><span class="o">/</span><span class="n">xraylib</span><span class="o">.</span><span class="n">LineEnergy</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">xraylib</span><span class="o">.</span><span class="n">KA_LINE</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getTransmission"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.absorptionXRL.getTransmission">[docs]</a><span class="k">def</span> <span class="nf">getTransmission</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">thickness</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">energy</span><span class="o">=</span><span class="mf">8.03</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    return the transmission of a compound</span>
+<span class="sd">    thickness in cm</span>
+<span class="sd">    &gt;&gt;&gt; getTransmission(&#39;H 2 O 1&#39;,0.1,density=1.0,energy=8.03)</span>
+<span class="sd">    0.376802369048</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#calculate mu for compound</span>
+    <span class="n">mu</span><span class="o">=</span><span class="n">getMuFormula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    <span class="c">#calculate Transmission</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">density</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">thickness</span><span class="p">)</span>
+                            </div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s">&quot;H 2 O 1&quot;</span>
+    <span class="n">density</span><span class="o">=</span><span class="mf">1.0</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mf">0.1</span> <span class="c">#1 mm</span>
+    <span class="n">source</span><span class="o">=</span><span class="s">&#39;Cu&#39;</span>
+    <span class="n">energy</span><span class="o">=</span><span class="n">getEnergyFromSource</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;energy for &quot;</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="s">&quot; : &quot;</span><span class="p">,</span><span class="n">energy</span><span class="p">,</span><span class="s">&quot; keV -&gt;&quot;</span><span class="p">,</span><span class="n">getAngstFromSource</span><span class="p">(</span><span class="n">source</span><span class="p">),</span><span class="s">&#39; A&#39;</span>
+    <span class="k">print</span> <span class="s">&quot;Calculate Mu from formula for water : &quot;</span><span class="p">,</span><span class="n">formula</span>
+    <span class="n">mu</span><span class="o">=</span><span class="n">getMuFormula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">mu</span>
+    <span class="k">print</span> <span class="s">&quot;X-ray transmission = &quot;</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">density</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">getTransmission</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="n">density</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;--------------------&quot;</span>
+    <span class="n">source</span><span class="o">=</span><span class="s">&#39;Mo&#39;</span>
+    <span class="n">energy</span><span class="o">=</span><span class="n">getEnergyFromSource</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;energy for &quot;</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="s">&quot; : &quot;</span><span class="p">,</span><span class="n">energy</span><span class="p">,</span><span class="s">&quot; keV -&gt;&quot;</span><span class="p">,</span><span class="n">getAngstFromSource</span><span class="p">(</span><span class="n">source</span><span class="p">),</span><span class="s">&#39; A&#39;</span>
+    <span class="k">print</span> <span class="s">&quot;Calculate Mu from formula for water : &quot;</span><span class="p">,</span><span class="n">formula</span>
+    <span class="n">mu</span><span class="o">=</span><span class="n">getMuFormula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">mu</span>
+    <span class="k">print</span> <span class="s">&quot;X-ray transmission = &quot;</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">density</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">getTransmission</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="n">density</span><span class="p">,</span><span class="n">energy</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;--------------------&quot;</span>
+    
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

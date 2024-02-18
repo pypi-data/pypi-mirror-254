@@ -1,0 +1,167 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.models.PorodC &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.models.PorodC</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">pySAXS.LS.LSsca</span> <span class="kn">import</span> <span class="n">Qlogspace</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<div class="viewcode-block" id="PorodC"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.PorodC.PorodC">[docs]</a><span class="k">class</span> <span class="nc">PorodC</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Porod Curved</span>
+<span class="sd">    </span>
+<span class="sd">    for Spheres poly-Gauss Model</span>
+<span class="sd">    by OT 10/06/2009</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="PorodC.PorodCFunction"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.PorodC.PorodC.PorodCFunction">[docs]</a>    <span class="k">def</span> <span class="nf">PorodCFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">par</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Porod model to fit q-4 part at high q</span>
+<span class="sd">        par[0] : Scattering lenght density contrast in cm-2</span>
+<span class="sd">        par[1] : S/V cm-1</span>
+<span class="sd">        par[2] : principal curvature 1 cm-1</span>
+<span class="sd">        par[3] : Principal curvature 2 cm-1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.0e-32</span><span class="o">*</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">q</span><span class="o">**-</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="mf">1e-16</span><span class="o">*</span><span class="n">q</span><span class="o">**-</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(((</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">par</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="o">+</span><span class="p">((</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">par</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="mf">8.</span><span class="p">))</span>
+
+            </div>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    parameters definition</span>
+<span class="sd">    class Model(7,Porod,/</span>
+<span class="sd">    Qlogspace(1e-4,1.,500.),(</span>
+<span class="sd">    [1.0e10,1e6]),</span>
+<span class="sd">    (&quot;Scattering contrast (cm-2)&quot;,</span>
+<span class="sd">    &quot;S/V (cm-1)&quot;),(&quot;%1.3e&quot;,&quot;%1.3e&quot;),</span>
+<span class="sd">    (True,True)),</span>
+<span class="sd">     </span>
+<span class="sd">    </span>
+<span class="sd">    from LSsca</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">IntensityFunc</span><span class="o">=</span><span class="n">PorodCFunction</span> <span class="c">#function</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">q</span><span class="o">=</span><span class="n">Qlogspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">500.</span><span class="p">)</span>      <span class="c">#q range(x scale)</span>
+    <span class="n">Arg</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0e10</span><span class="p">,</span><span class="mf">1e6</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">]</span>           <span class="c">#list of defaults parameters</span>
+    <span class="n">Format</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">]</span>      <span class="c">#list of c format</span>
+    <span class="n">istofit</span><span class="o">=</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">]</span>    <span class="c">#list of boolean for fitting</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Porod with curvature correction&quot;</span>          <span class="c">#name of the model</span>
+    <span class="n">Doc</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;Scattering contrast (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;S/V (cm-1)&quot;</span><span class="p">,</span><span class="s">&quot;C1&quot;</span><span class="p">,</span><span class="s">&quot;C2&quot;</span><span class="p">]</span> <span class="c">#list of description for parameters</span>
+    </div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    test code</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">modl</span><span class="o">=</span><span class="n">PorodC</span><span class="p">()</span>
+    <span class="c">#plot the model</span>
+    <span class="kn">import</span> <span class="nn">Gnuplot</span>
+    <span class="n">gp</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Gnuplot</span><span class="p">()</span>
+    <span class="n">gp</span><span class="p">(</span><span class="s">&quot;set logscale xy&quot;</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">modl</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">(),</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;points&#39;</span><span class="p">)</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span> 
+    <span class="c">#plot and fit the noisy model</span>
+    <span class="n">yn</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getNoisy</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">cn</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">yn</span><span class="p">,</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;points&#39;</span><span class="p">)</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">yn</span><span class="p">)</span> 
+    <span class="n">cf</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">modl</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">res</span><span class="p">),</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;lines&#39;</span><span class="p">)</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cn</span><span class="p">,</span><span class="n">cf</span><span class="p">)</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span>    
+    <span class="c">#plot and fit the noisy model with fitBounds</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getBoundsFromParam</span><span class="p">()</span> <span class="c">#[250.0,2e11,1e10,1.5e15]</span>
+    <span class="n">res2</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">fitBounds</span><span class="p">(</span><span class="n">yn</span><span class="p">,</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">res2</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span>  
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

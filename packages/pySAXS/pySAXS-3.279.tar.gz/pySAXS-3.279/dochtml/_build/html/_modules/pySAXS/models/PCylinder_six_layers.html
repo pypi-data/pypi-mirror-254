@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.models.PCylinder_six_layers &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.models.PCylinder_six_layers</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">pySAXS.LS.LSsca</span> <span class="kn">import</span> <span class="n">Qlogspace</span>
+<span class="kn">from</span> <span class="nn">pySAXS.LS.LSsca</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<div class="viewcode-block" id="Pcylmultimin"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.PCylinder_six_layers.Pcylmultimin">[docs]</a><span class="k">class</span> <span class="nc">Pcylmultimin</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Multilayer Cylinder</span>
+<span class="sd">    by OT 10/06/2009</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="Pcylmultimin.PcylmultiminFunction"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.PCylinder_six_layers.Pcylmultimin.PcylmultiminFunction">[docs]</a>    <span class="k">def</span> <span class="nf">PcylmultiminFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">par</span><span class="p">):</span>
+        <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+        <span class="n">rho</span><span class="o">=</span><span class="p">[</span><span class="n">par</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">12</span><span class="p">]]</span>
+        <span class="n">L</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
+        <span class="n">rhos</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Pcylmulti</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">rhos</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="Pcylmultimin.Pcylmulti"><a class="viewcode-back" href="../../../pySAXS.models.html#pySAXS.models.PCylinder_six_layers.Pcylmultimin.Pcylmulti">[docs]</a>    <span class="k">def</span> <span class="nf">Pcylmulti</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">rhos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function calculates the P(q) of a cylinder of length L and and multilayers R of density Rho the last one being solvent</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Pcylnew</span><span class="o">=</span><span class="mf">1.</span><span class="o">*</span><span class="n">q</span>
+        <span class="n">Pcylold</span><span class="o">=</span><span class="mf">1.</span><span class="o">*</span><span class="n">q</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
+            <span class="n">N</span><span class="o">=</span><span class="mf">1.</span>
+            <span class="n">alpha0</span><span class="o">=</span><span class="mf">1e-12</span>
+            <span class="n">alphaN</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+            
+    <span class="c">#----------------------------------------------------------------------------------------------------       </span>
+            <span class="sd">&quot;&quot;&quot;Somme sur les ecorces&quot;&quot;&quot;</span>
+            <span class="n">dPeco</span><span class="o">=</span><span class="mf">0.</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+                <span class="n">dPeco</span><span class="o">=</span><span class="n">dPeco</span><span class="o">+</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">rho</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">SPspecial</span><span class="o">.</span><span class="n">j1</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha0</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha0</span><span class="p">)))</span>     
+            <span class="n">dPcyl0</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha0</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha0</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">dPeco</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="c">#----------------------------------------------------------------------------------------------------        </span>
+            <span class="n">dPeco</span><span class="o">=</span><span class="mf">0.</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+                <span class="n">dPeco</span><span class="o">=</span><span class="n">dPeco</span><span class="o">+</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="n">rho</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">SPspecial</span><span class="o">.</span><span class="n">j1</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alphaN</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alphaN</span><span class="p">)))</span>            
+            <span class="n">dPcylN</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alphaN</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alphaN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alphaN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">dPeco</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c">#----------------------------------------------------------------------------------------------------</span>
+            
+            <span class="n">dPcylold</span><span class="o">=</span><span class="p">(</span><span class="n">dPcyl0</span><span class="o">+</span><span class="n">dPcylN</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span>
+            <span class="n">Pcylold</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">dPcylold</span>
+            <span class="n">test</span><span class="o">=</span><span class="mf">1.</span>
+            <span class="k">while</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">test</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-4</span><span class="p">):</span>
+                <span class="n">N</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="n">N</span>
+                <span class="n">dalpha</span><span class="o">=</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="o">-</span><span class="n">alpha0</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dalpha</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="o">*</span><span class="n">dalpha</span><span class="p">)</span>
+    <span class="c">#----------------------------------------------------------------------------------------------------</span>
+                <span class="n">dPeco</span><span class="o">=</span><span class="mf">0.</span><span class="o">*</span><span class="n">alpha</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+                    <span class="n">dPeco</span><span class="o">=</span><span class="n">dPeco</span><span class="o">+</span><span class="p">(</span><span class="n">rho</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">-</span><span class="n">rho</span><span class="p">[</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">SPspecial</span><span class="o">.</span><span class="n">j1</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">R</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)))</span>      
+                <span class="n">dPcyl</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">dPeco</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>            
+    <span class="c">#----------------------------------------------------------------------------------------------------         </span>
+                <span class="n">dPcylnew</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">dPcyl</span><span class="p">)</span><span class="o">+</span><span class="n">dPcylold</span>
+                <span class="n">dPcylold</span><span class="o">=</span><span class="n">dPcylnew</span>
+                <span class="n">Pcylnew</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">dalpha</span><span class="o">*</span><span class="n">dPcylnew</span>
+                <span class="n">test</span><span class="o">=</span><span class="p">(</span><span class="n">Pcylnew</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">Pcylold</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">Pcylold</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">Pcylold</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">Pcylnew</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+        <span class="k">return</span> <span class="n">Pcylold</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mf">1e-48</span><span class="o">*</span><span class="n">rhos</span>
+            </div>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    parameters definition</span>
+<span class="sd">    Model(10,Pcylmultimin,Qlogspace(1e-4,1.,500.),</span>
+<span class="sd">          ([13.,14.,15.,16.,17.,18.,9.418e+010,8.798e+010,4.041e+011,3.925e+011,4.224e+011,3.902e+011,9.418e+010,400.,1e17]),</span>
+<span class="sd">          (&quot;R1 (A)&quot;,&quot;R2 (A)&quot;,&quot;R3 (A)&quot;,&quot;R4 (A)&quot;,&quot;R5 (A)&quot;,&quot;R6 (A)&quot;,&quot;rho1 (cm-2)&quot;,&quot;rho2 (cm-2)&quot;,&quot;rho3 (cm-2)&quot;,&quot;rho4 (cm-2)&quot;,&quot;rho5 (cm-2)&quot;,&quot;rho6 (cm-2)&quot;,&quot;rho7 (cm-2)&quot;,&quot;L (A)&quot;,&quot;Rhos (cm-3)&quot;),</span>
+<span class="sd">          (&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;,&quot;%1.3e&quot;),</span>
+<span class="sd">          (True,True,True,True,True,True,True,True,True,True,True,True,True,True,True))]</span>
+
+<span class="sd">    from LSsca</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">IntensityFunc</span><span class="o">=</span><span class="n">PcylmultiminFunction</span> <span class="c">#function</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">q</span><span class="o">=</span><span class="n">Qlogspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">500.</span><span class="p">)</span>      <span class="c">#q range(x scale)</span>
+    <span class="n">Arg</span><span class="o">=</span><span class="p">[</span><span class="mf">13.</span><span class="p">,</span><span class="mf">14.</span><span class="p">,</span><span class="mf">15.</span><span class="p">,</span><span class="mf">16.</span><span class="p">,</span><span class="mf">17.</span><span class="p">,</span><span class="mf">18.</span><span class="p">,</span><span class="mf">9.418e+010</span><span class="p">,</span><span class="mf">8.798e+010</span><span class="p">,</span><span class="mf">4.041e+011</span><span class="p">,</span><span class="mf">3.925e+011</span><span class="p">,</span><span class="mf">4.224e+011</span><span class="p">,</span><span class="mf">3.902e+011</span><span class="p">,</span><span class="mf">9.418e+010</span><span class="p">,</span><span class="mf">400.</span><span class="p">,</span><span class="mf">1e10</span><span class="p">]</span>         <span class="c">#list of defaults parameters</span>
+    <span class="n">Format</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="p">]</span>      <span class="c">#list of c format</span>
+    <span class="n">istofit</span><span class="o">=</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">]</span>    <span class="c">#list of boolean for fitting</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Cylinder with six levels&quot;</span>          <span class="c">#name of the model</span>
+    <span class="n">Doc</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;R1 (A)&quot;</span><span class="p">,</span><span class="s">&quot;R2 (A)&quot;</span><span class="p">,</span><span class="s">&quot;R3 (A)&quot;</span><span class="p">,</span><span class="s">&quot;R4 (A)&quot;</span><span class="p">,</span><span class="s">&quot;R5 (A)&quot;</span><span class="p">,</span><span class="s">&quot;R6 (A)&quot;</span><span class="p">,</span><span class="s">&quot;rho1 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho2 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho3 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho4 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho5 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho6 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;rho7 (cm-2)&quot;</span><span class="p">,</span><span class="s">&quot;L (A)&quot;</span><span class="p">,</span><span class="s">&quot;Rhos (cm-3)&quot;</span><span class="p">]</span> <span class="c">#list of description for parameters</span>
+    </div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    test code</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">modl</span><span class="o">=</span><span class="n">Pcylmultimin</span><span class="p">()</span>
+    <span class="c">#plot the model</span>
+    <span class="kn">import</span> <span class="nn">Gnuplot</span>
+    <span class="n">gp</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Gnuplot</span><span class="p">()</span>
+    <span class="n">gp</span><span class="p">(</span><span class="s">&quot;set logscale xy&quot;</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">modl</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">(),</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;points&#39;</span><span class="p">)</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span> 
+    <span class="c">#plot and fit the noisy model</span>
+    <span class="n">yn</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getNoisy</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">cn</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">yn</span><span class="p">,</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;points&#39;</span><span class="p">)</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">yn</span><span class="p">)</span> 
+    <span class="n">cf</span><span class="o">=</span><span class="n">Gnuplot</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">modl</span><span class="o">.</span><span class="n">IntensityFunc</span><span class="p">(</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">res</span><span class="p">),</span><span class="n">with_</span><span class="o">=</span><span class="s">&#39;lines&#39;</span><span class="p">)</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cn</span><span class="p">,</span><span class="n">cf</span><span class="p">)</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span>    
+    <span class="c">#plot and fit the noisy model with fitBounds</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getBoundsFromParam</span><span class="p">()</span> <span class="c">#[250.0,2e11,1e10,1.5e15]</span>
+    <span class="n">res2</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">fitBounds</span><span class="p">(</span><span class="n">yn</span><span class="p">,</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">res2</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;enter&quot;</span><span class="p">)</span>  
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

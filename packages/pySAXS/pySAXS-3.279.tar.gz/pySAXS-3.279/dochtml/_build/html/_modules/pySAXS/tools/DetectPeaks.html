@@ -1,0 +1,239 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.tools.DetectPeaks &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.tools.DetectPeaks</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span>  <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">pySAXS</span> <span class="kn">import</span> <span class="n">models</span>
+
+<div class="viewcode-block" id="findPeaks"><a class="viewcode-back" href="../../../pySAXS.tools.html#pySAXS.tools.DetectPeaks.findPeaks">[docs]</a><span class="k">def</span> <span class="nf">findPeaks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">pp</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">printout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s">&#39;gaussian&#39;</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        find peaks on x,y datas</span>
+<span class="sd">        return array aof founds peaks [center position, max,fwhm], x, and y of fitted datas</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">printTXT</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">printout</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">txt</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">printout</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+        <span class="n">founds</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">newx</span><span class="o">=</span><span class="bp">None</span>
+        <span class="c">#derivate datas        </span>
+        <span class="n">tck</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splrep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">yder</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">tck</span><span class="p">,</span><span class="n">der</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c">#derivate</span>
+        <span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;---------      peak detection ---------&quot;</span><span class="p">)</span>
+        <span class="n">lastpeak</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span> <span class="c">#number of detected peaks</span>
+        <span class="n">imin</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">imax</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">window</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">pp</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">pp</span><span class="p">):</span>
+                <span class="c">#calculate mean on the derivate for the two part of the window</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">mean1</span><span class="o">=</span><span class="n">yder</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                    <span class="n">mean2</span><span class="o">=</span><span class="n">yder</span><span class="p">[</span><span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;Error on input data, cannot calulate derivative&quot;</span><span class="p">)</span>
+                    <span class="k">return</span>
+                
+                <span class="k">if</span> <span class="n">mean1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">mean2</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="c">#first part of the derivate &gt;0 and the second one is &lt;0 there is a peak.</span>
+                    <span class="n">mn</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="n">imin</span>
+                    <span class="n">mx</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">imin</span>
+                    <span class="n">h</span><span class="o">=</span><span class="n">mx</span><span class="o">-</span><span class="n">mn</span>
+                    <span class="k">if</span> <span class="n">mx</span><span class="o">&gt;</span><span class="n">mn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">percent</span><span class="p">):</span>
+                        <span class="c">#print &quot;I have a peak between &quot;,q[ii],&quot; and &quot;,q[ii+pp]</span>
+                        <span class="k">if</span> <span class="n">ii</span><span class="o">&lt;</span><span class="n">lastpeak</span><span class="o">+</span><span class="n">pp</span><span class="p">:</span>
+                            <span class="c">#print &quot;same peak&quot;</span>
+                            <span class="k">pass</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c">#print &quot;new peak between &quot;,q[ii],&quot; and &quot;,q[ii+pp],&quot; last peak&quot;,lastpeak</span>
+                            <span class="n">lastpeak</span><span class="o">=</span><span class="n">ii</span>
+                            <span class="c">#self.printTXT( &quot;mean : &quot;+str(yder[ii-window:ii].mean())+&quot; - &quot;+str(yder[ii:ii+window].mean()))</span>
+                            <span class="k">if</span> <span class="n">method</span><span class="o">!=</span><span class="s">&#39;gaussian&#39;</span><span class="p">:</span>
+                                <span class="c">#try to fit with trapez</span>
+                                <span class="n">res</span><span class="p">,</span><span class="n">result_x</span><span class="p">,</span><span class="n">result_y</span><span class="o">=</span><span class="n">fitPeakWithTrapez</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="k">else</span> <span class="p">:</span>
+                                <span class="c">#try to fit with gaussian</span>
+                                <span class="n">res</span><span class="p">,</span><span class="n">result_x</span><span class="p">,</span><span class="n">result_y</span><span class="o">=</span><span class="n">fitPeakWithGaussian</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="n">window</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">window</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="c">#printTXT(  &quot;found peak at x=&quot;+str(res[2])+&quot;\t i=&quot;+str(res[0])+ &quot;\t fwhm=&quot;+str(res[1]))</span>
+                            <span class="n">founds</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                            <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+                            <span class="k">if</span> <span class="n">newx</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+                                <span class="n">newx</span><span class="o">=</span><span class="n">result_x</span>
+                                <span class="n">newy</span><span class="o">=</span><span class="n">result_y</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="c">#print result_q</span>
+                                <span class="n">newx</span><span class="o">=</span><span class="n">concatenate</span><span class="p">((</span><span class="n">newx</span><span class="p">,</span><span class="n">array</span><span class="p">(</span><span class="n">result_x</span><span class="p">)))</span>
+                                <span class="n">newy</span><span class="o">=</span><span class="n">concatenate</span><span class="p">((</span><span class="n">newy</span><span class="p">,</span><span class="n">result_y</span><span class="p">))</span>
+                            
+        <span class="c">#end of peak search</span>
+        <span class="c">#if n&gt;0:</span>
+        <span class="c">#    self.data_dict[label+&quot; peaks&quot;]=dataset(label+&quot; peaks&quot;,numpy.array(newq),numpy.array(newi),comment=label+&quot; peaks&quot;,type=&#39;calculated&#39;)#[data[0], data[1], datafilename, True]</span>
+       <span class="c"># printTXT(str(n)+&quot; peaks found ---------&quot;)    </span>
+        <span class="c">#self.redrawTheList()</span>
+        <span class="k">return</span> <span class="n">founds</span><span class="p">,</span><span class="n">newx</span><span class="p">,</span><span class="n">newy</span>
+    
+    </div>
+<div class="viewcode-block" id="fitPeakWithGaussian"><a class="viewcode-back" href="../../../pySAXS.tools.html#pySAXS.tools.DetectPeaks.fitPeakWithGaussian">[docs]</a><span class="k">def</span> <span class="nf">fitPeakWithGaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        fit peak with a gaussian</span>
+<span class="sd">        x, and y are the datas,</span>
+<span class="sd">        return result for fit as list [height,fwhm,center,zero],x, and fitted y</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">gauss</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">Gaussian</span><span class="p">()</span>
+        <span class="n">istofit</span><span class="o">=</span><span class="p">[</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">False</span><span class="p">]</span>
+        <span class="n">gauss</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="n">x</span>
+        <span class="c">#print q</span>
+        <span class="c">#print i</span>
+        <span class="n">maxy</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="c">#height </span>
+        <span class="n">miny</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">maxx</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">minx</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">center</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
+        <span class="n">fwhm</span><span class="o">=</span><span class="p">(</span><span class="n">maxx</span><span class="o">-</span><span class="n">minx</span><span class="p">)</span><span class="o">/</span><span class="mf">4.0</span>
+        <span class="n">gauss</span><span class="o">.</span><span class="n">Arg</span><span class="o">=</span><span class="p">[</span><span class="n">maxy</span><span class="p">,</span><span class="n">fwhm</span><span class="p">,</span><span class="n">center</span><span class="p">,</span><span class="n">miny</span><span class="p">]</span>
+        <span class="c">#print &quot;initial parameters : &quot;,gauss.Arg</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="n">maxy</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span><span class="n">maxy</span><span class="o">*</span><span class="mf">1.1</span><span class="p">),(</span><span class="n">fwhm</span><span class="o">*</span><span class="mf">0.2</span><span class="p">,</span><span class="n">fwhm</span><span class="o">*</span><span class="mf">1.5</span><span class="p">),(</span><span class="n">minx</span><span class="p">,</span><span class="n">maxx</span><span class="p">),(</span><span class="n">miny</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span><span class="n">miny</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)]</span>
+        <span class="c">#print &quot;bounds : &quot;,bounds</span>
+        <span class="c">#print gauss.Arg</span>
+        <span class="c">#print bounds</span>
+        <span class="n">res</span><span class="o">=</span><span class="n">gauss</span><span class="o">.</span><span class="n">fitBounds</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="n">gauss</span><span class="o">.</span><span class="n">setArg</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="c">#print &quot;res : &quot;,res</span>
+        <span class="n">newy</span><span class="o">=</span><span class="n">gauss</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">newy</span>
+    </div>
+<div class="viewcode-block" id="fitPeakWithTrapez"><a class="viewcode-back" href="../../../pySAXS.tools.html#pySAXS.tools.DetectPeaks.fitPeakWithTrapez">[docs]</a><span class="k">def</span> <span class="nf">fitPeakWithTrapez</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    fit peaks with trapez</span>
+<span class="sd">    x, and y are the datas,</span>
+<span class="sd">    return result for fit as list [height,fwhm,center,zero],x, and fitted y</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">modl</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">Trapez</span><span class="p">()</span>
+    <span class="c">#print &quot;trapez&quot;</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    par[0] : center</span>
+<span class="sd">    par[1] : FWHM</span>
+<span class="sd">    par[2] : slope</span>
+<span class="sd">    par[3] : height</span>
+<span class="sd">    par[4] : zero</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">istofit</span><span class="o">=</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span><span class="bp">True</span><span class="p">]</span>
+    <span class="n">modl</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="n">x</span>
+    <span class="c">#estimate initial parameters</span>
+    <span class="n">maxy</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="c">#height </span>
+    <span class="n">miny</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">maxx</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">minx</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="n">minx</span><span class="o">+</span><span class="n">maxx</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="n">fwhm</span><span class="o">=</span><span class="p">(</span><span class="n">maxx</span><span class="o">-</span><span class="n">minx</span><span class="p">)</span><span class="o">/</span><span class="mf">4.0</span>
+    <span class="n">modl</span><span class="o">.</span><span class="n">Arg</span><span class="o">=</span><span class="p">[</span><span class="n">center</span><span class="p">,</span><span class="n">fwhm</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="n">maxy</span><span class="p">,</span><span class="n">miny</span><span class="p">]</span>
+    <span class="c">#estimate bounds</span>
+    <span class="c">#bounds=[(minx,maxx),(fwhm*0.2,fwhm*1.5),(0.1,2),(maxy*0.9,maxy*1.1),(miny*0.9,miny*1.1)]</span>
+    <span class="c">#fit with bounds</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="c">#get y with found parameters</span>
+    <span class="n">modl</span><span class="o">.</span><span class="n">setArg</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">newy</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">()</span>
+    <span class="c">#return</span>
+    <span class="n">res</span><span class="o">=</span><span class="p">[</span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">res</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">newy</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

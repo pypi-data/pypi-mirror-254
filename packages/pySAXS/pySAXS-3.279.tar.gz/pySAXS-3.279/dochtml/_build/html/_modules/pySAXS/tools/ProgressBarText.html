@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.tools.ProgressBarText &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.tools.ProgressBarText</h1><div class="highlight"><pre>
+<span class="c"># CLASS NAME: DLLInterface</span>
+<span class="c">#</span>
+<span class="c"># Author: Larry Bates (lbates@syscononline.com)</span>
+<span class="c">#</span>
+<span class="c"># Written: 12/09/2002</span>
+<span class="c">#</span>
+<span class="c"># Released under: GNU GENERAL PUBLIC LICENSE</span>
+<span class="c">#</span>
+<span class="c">#</span>
+<div class="viewcode-block" id="progressbarClass"><a class="viewcode-back" href="../../../pySAXS.tools.html#pySAXS.tools.ProgressBarText.progressbarClass">[docs]</a><span class="k">class</span> <span class="nc">progressbarClass</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">finalcount</span><span class="p">,</span> <span class="n">progresschar</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">sys</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finalcount</span><span class="o">=</span><span class="n">finalcount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blockcount</span><span class="o">=</span><span class="mi">0</span>
+        <span class="c">#</span>
+        <span class="c"># See if caller passed me a character to use on the</span>
+        <span class="c"># progress bar (like &quot;*&quot;).  If not use the block</span>
+        <span class="c"># character that makes it look like a real progress</span>
+        <span class="c"># bar.</span>
+        <span class="c">#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">progresschar</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span><span class="mi">178</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>                <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="o">=</span><span class="n">progresschar</span>
+        <span class="c">#</span>
+        <span class="c"># Get pointer to sys.stdout so I can use the write/flush</span>
+        <span class="c"># methods to display the progress bar.</span>
+        <span class="c">#</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+        <span class="c">#</span>
+        <span class="c"># If the final count is zero, don&#39;t start the progress gauge</span>
+        <span class="c">#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalcount</span> <span class="p">:</span> <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">------------------ % Progress -------------------1</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;    1    2    3    4    5    6    7    8    9    0</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;----0----0----0----0----0----0----0----0----0----0</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+<div class="viewcode-block" id="progressbarClass.progress"><a class="viewcode-back" href="../../../pySAXS.tools.html#pySAXS.tools.ProgressBarText.progressbarClass.progress">[docs]</a>    <span class="k">def</span> <span class="nf">progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="c">#</span>
+        <span class="c"># Make sure I don&#39;t try to go off the end (e.g. &gt;100%)</span>
+        <span class="c">#</span>
+        <span class="n">count</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalcount</span><span class="p">)</span>
+        <span class="c">#</span>
+        <span class="c"># If finalcount is zero, I&#39;m done</span>
+        <span class="c">#</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalcount</span><span class="p">:</span>
+            <span class="n">percentcomplete</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">count</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">finalcount</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">percentcomplete</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="n">percentcomplete</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">percentcomplete</span><span class="o">=</span><span class="mi">100</span>
+            
+        <span class="c">#print &quot;percentcomplete=&quot;,percentcomplete</span>
+        <span class="n">blockcount</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">percentcomplete</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c">#print &quot;blockcount=&quot;,blockcount</span>
+        <span class="k">if</span> <span class="n">blockcount</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">blockcount</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blockcount</span><span class="p">,</span><span class="n">blockcount</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+                
+        <span class="k">if</span> <span class="n">percentcomplete</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blockcount</span><span class="o">=</span><span class="n">blockcount</span>
+        <span class="k">return</span>
+    </div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+    <span class="n">pb</span><span class="o">=</span><span class="n">progressbarClass</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">count</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">:</span>
+        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="n">pb</span><span class="o">=</span><span class="n">progressbarClass</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;testing 1:&quot;</span>
+    <span class="n">pb</span><span class="o">=</span><span class="n">progressbarClass</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pb</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

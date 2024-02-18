@@ -1,0 +1,288 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.SAXSAbsoluteDlg &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.SAXSAbsoluteDlg</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pySAXS.LS.SAXSparametersXML</span> <span class="kn">as</span> <span class="nn">SAXSparameters</span>
+<span class="kn">from</span> <span class="nn">pySAXS.tools</span> <span class="kn">import</span> <span class="n">isNumeric</span>
+<span class="kn">from</span> <span class="nn">pySAXS.tools</span> <span class="kn">import</span> <span class="n">filetools</span>
+<span class="c">#import pySAXS.LS.SAXSAbsoluteIntensity as SAXSAbsoluteIntensity </span>
+
+
+
+<div class="viewcode-block" id="SAXSAbsoluteDlg"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg">[docs]</a><span class="k">class</span> <span class="nc">SAXSAbsoluteDlg</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">datasetname</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="o">=</span><span class="n">datasetname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">=</span><span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">=</span><span class="n">params</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;-- SAXS SCALING --&quot;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MINIMIZE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">SYSTEM_MENU</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CAPTION</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLOSE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLIP_CHILDREN</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">SetIcon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="o">.</span><span class="n">favicon</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetBackgroundColour</span><span class="p">(</span><span class="s">&quot;White&quot;</span><span class="p">)</span>
+        <span class="n">vbox_top</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="c">#---------</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">datasetname</span><span class="p">)</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">SetForegroundColour</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+            <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticLine</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">TOP</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;PARAMETERS : &quot;</span><span class="p">))</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticLine</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">TOP</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GridSizer</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">),</span><span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">hgap</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">vgap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="c">#--- dynamic controls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listStaticText</span><span class="o">=</span><span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="o">=</span><span class="p">{}</span>
+        <span class="c">#-sorting parameters</span>
+        <span class="n">paramslist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+        <span class="c">#- controls</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">paramslist</span><span class="p">:</span>
+            <span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listStaticText</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">description</span><span class="o">+</span><span class="s">&quot; : &quot;</span><span class="p">)</span><span class="c">#, wx.Point(10,yposition))</span>
+            <span class="c">#formula ?</span>
+            <span class="k">if</span> <span class="n">par</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">listStaticText</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">SetForegroundColour</span><span class="p">(</span><span class="s">&#39;blue&#39;</span><span class="p">)</span>
+                <span class="n">styleText</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TE_READONLY</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">styleText</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TE_LEFT</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">par</span><span class="o">.</span><span class="n">value</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">style</span><span class="o">=</span><span class="n">styleText</span><span class="p">)</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listStaticText</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+        <span class="c">#-- check box</span>
+        <span class="n">box1</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Scaling :&quot;</span><span class="p">)</span>
+        <span class="n">stsizer</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBoxSizer</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qrangeChekBox</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Scaling Q range&quot;</span><span class="p">)</span><span class="c">#,pos=wx.Point(10,yposition))</span>
+        <span class="n">stsizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qrangeChekBox</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">irangeChekBox</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Scaling I range&quot;</span><span class="p">)</span><span class="c">#,pos=wx.Point(150,yposition))</span>
+        <span class="n">stsizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">irangeChekBox</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stsizer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="c">#-- select datas</span>
+        <span class="n">l</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">:</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">datasetname</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">box0</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Data to apply scaling :&quot;</span><span class="p">)</span>
+            <span class="n">stsizer0</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBoxSizer</span><span class="p">(</span><span class="n">box0</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+            <span class="n">stsizer0</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Data to apply scaling :&quot;</span><span class="p">)</span>
+                  <span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="n">stsizer0</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="p">)</span>
+                  <span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stsizer0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+        <span class="c">#-- select datas for background</span>
+        <span class="n">box2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Select data for background :&quot;</span><span class="p">)</span>
+        <span class="n">stsizer2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBoxSizer</span><span class="p">(</span><span class="n">box2</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="n">stsizer2</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Select data for background :&quot;</span><span class="p">)</span>
+                  <span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listDataBackground</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;none&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">stsizer2</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listDataBackground</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stsizer2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="c">#-- buttons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Compute&quot;</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">computeButton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">computeButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Compute</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ApplyButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Apply to datas&quot;</span><span class="p">)</span>
+            <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ApplyButton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ApplyButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnApplyClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SaveButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Save&quot;</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">SaveButton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SaveButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnSaveClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CLOSE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">vbox_top</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Params2Control</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SAXSAbsoluteDlg.Compute"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.Compute">[docs]</a>    <span class="k">def</span> <span class="nf">Compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        user modify text</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Control2Params</span><span class="p">()</span> <span class="c">#entries -&gt; datas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">calculate_All</span><span class="p">()</span> <span class="c">#calculate datas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Params2Control</span><span class="p">()</span> <span class="c">#datas -&gt; entries</span>
+</div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.OnApplyClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.OnApplyClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnApplyClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        User click on Apply button</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Compute</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="c">#-- on wich data set ?</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listDataBackground</span><span class="o">.</span><span class="n">GetStringSelection</span><span class="p">()</span><span class="o">==</span><span class="s">&#39;&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">listDataBackground</span><span class="o">.</span><span class="n">GetStringSelection</span><span class="p">()</span><span class="o">==</span><span class="s">&#39;none&#39;</span><span class="p">:</span>
+                <span class="n">backgdname</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">backgdname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">listDataBackground</span><span class="o">.</span><span class="n">GetStringSelection</span><span class="p">()</span>
+            <span class="c">#-- call  the method in parentwindow</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="p">]</span><span class="o">.</span><span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnScalingSAXSApply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qrangeChekBox</span><span class="o">.</span><span class="n">IsChecked</span><span class="p">(),</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">irangeChekBox</span><span class="o">.</span><span class="n">IsChecked</span><span class="p">(),</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">datasetname</span><span class="p">,</span>
+                                              <span class="n">backgdname</span><span class="p">)</span></div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.OnLoadClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.OnLoadClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnLoadClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        User click on save button</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#-- open dialog for parameters</span>
+        <span class="n">wc</span> <span class="o">=</span> <span class="s">&quot;SAXS parameters file (*.par)|*.par&quot;</span>
+        <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">FileDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Choose a parameter file&quot;</span><span class="p">,</span> <span class="n">defaultDir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">workingdirectory</span><span class="p">,</span> <span class="n">defaultFile</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">wildcard</span><span class="o">=</span><span class="n">wc</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OPEN</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">MULTIPLE</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CHANGE_DIR</span><span class="p">)</span>
+        <span class="n">returnValue</span><span class="o">=</span><span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+        <span class="k">if</span>  <span class="n">returnValue</span><span class="o">==</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;loading parameters file &quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetPath</span><span class="p">())</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetPath</span><span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetPath</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Params2Control</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.OnSaveClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.OnSaveClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnSaveClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        User click on save button</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Control2Params</span><span class="p">()</span>
+        <span class="c">#print self.params.parameters[&#39;filename&#39;]</span>
+        <span class="c">#self.params.save(str(self.params.parameters[&#39;filename&#39;]))</span>
+        <span class="c">#dlg=wx.MessageDialog(self,&#39;Parameters was saved in &#39;+str(self.params.parameters[&#39;filename&#39;]),&#39;pySAXS info&#39;,wx.OK|wx.ICON_INFORMATION)</span>
+        <span class="c">#dlg.ShowModal()</span>
+        <span class="c">#dlg.Destroy()</span>
+        
+        
+        <span class="n">wc</span> <span class="o">=</span> <span class="s">&quot;Save parameters file(*.xml)|*.xml&quot;</span>
+        <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">FileDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Choose a file&quot;</span><span class="p">,</span> <span class="n">defaultDir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">workingdirectory</span><span class="p">,</span> <span class="n">defaultFile</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">wildcard</span><span class="o">=</span><span class="n">wc</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">SAVE</span> <span class="o">|</span>  <span class="n">wx</span><span class="o">.</span><span class="n">CHANGE_DIR</span><span class="p">)</span>
+        <span class="n">returnValue</span><span class="o">=</span><span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+        <span class="k">if</span>  <span class="n">returnValue</span><span class="o">==</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+            <span class="c">#check if file exist already</span>
+            <span class="n">filename</span><span class="o">=</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetPath</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">filetools</span><span class="o">.</span><span class="n">fileExist</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+                  <span class="n">dlg2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MessageDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;File exist, replace ?&quot;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s">&quot;Question&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+                  <span class="n">returnValue</span><span class="o">=</span><span class="n">dlg2</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+                  <span class="k">if</span> <span class="n">returnValue</span><span class="o">!=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                      <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;file &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; exist. Datas was NOT replaced&quot;</span><span class="p">)</span>
+                      <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">saveXML</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;parameters was saved in &quot;</span><span class="o">+</span><span class="n">filename</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.Params2Control"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.Params2Control">[docs]</a>    <span class="k">def</span> <span class="nf">Params2Control</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.Control2Params"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.Control2Params">[docs]</a>    <span class="k">def</span> <span class="nf">Control2Params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">datatype</span><span class="o">==</span><span class="s">&#39;float&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">datatype</span><span class="o">==</span><span class="s">&#39;int&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">isNumeric</span><span class="o">.</span><span class="n">isNumeric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrl</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+            <span class="c">#print var,self.params.parameters[var]</span>
+
+</div>
+<div class="viewcode-block" id="SAXSAbsoluteDlg.OnExitClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.SAXSAbsoluteDlg.SAXSAbsoluteDlg.OnExitClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnExitClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Control2Params</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+
+
+    <span class="c">#######</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

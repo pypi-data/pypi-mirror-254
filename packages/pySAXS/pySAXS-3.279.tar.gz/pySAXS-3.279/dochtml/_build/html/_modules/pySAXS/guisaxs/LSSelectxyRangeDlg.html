@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.LSSelectxyRangeDlg &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.LSSelectxyRangeDlg</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">project : pySAXS</span>
+<span class="sd">description : wxPython Class to plot some data files to gnuplot</span>
+<span class="sd">authors : Antoine Thill, Olivier Spalla, Olivier Tache&#39;, Debasis Sen</span>
+<span class="sd">Last changes :</span>
+<span class="sd">    16-03-2007 OT : add autoscale buttons, send replot command directly to gnuplot</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+
+<div class="viewcode-block" id="LSSelectqRangeDlg"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSSelectxyRangeDlg.LSSelectqRangeDlg">[docs]</a><span class="k">class</span> <span class="nc">LSSelectqRangeDlg</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span><span class="n">qmin</span><span class="p">,</span><span class="n">qmax</span><span class="p">,</span><span class="n">imin</span><span class="p">,</span><span class="n">imax</span><span class="p">):</span>
+
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;Select q Range&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">300</span><span class="p">),</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MINIMIZE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">SYSTEM_MENU</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CAPTION</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLOSE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLIP_CHILDREN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">=</span><span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetBackgroundColour</span><span class="p">(</span><span class="s">&quot;White&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmini</span><span class="o">=</span><span class="n">qmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxi</span><span class="o">=</span><span class="n">qmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Imini</span><span class="o">=</span><span class="n">imin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Imaxi</span><span class="o">=</span><span class="n">imax</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text1</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;q minimum :&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr1</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmini</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">40</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TextUpdate</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text2</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;q maximum :&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxi</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TextUpdate</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">qAutoButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">,</span><span class="s">&quot;q Autoscale&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span><span class="c">#,wx.Size(75,30)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qAutoButton</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">on_qAutoButton_Click</span><span class="p">)</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text3</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;I minimum&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">120</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr3</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Imini</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">120</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TextUpdate</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text4</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;I maximum&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">140</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr4</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Imaxi</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">140</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">TextUpdate</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr4</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">iAutoButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">,</span><span class="s">&quot;I Autoscale&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">160</span><span class="p">))</span><span class="c">#,wx.Size(75,30)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iAutoButton</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">on_iAutoButton_Click</span><span class="p">)</span>
+
+        <span class="n">text5</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;Plot ignores (-)ve values for log scale&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">SWISS</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+        <span class="n">text5</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">,</span><span class="s">&quot;Close&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">on_QuitButton_Click</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CLOSE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_QuitButton_Click</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LSSelectqRangeDlg.on_QuitButton_Click"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSSelectxyRangeDlg.LSSelectqRangeDlg.on_QuitButton_Click">[docs]</a>    <span class="k">def</span> <span class="nf">on_QuitButton_Click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="c">#print &quot;je destroy&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="LSSelectqRangeDlg.on_qAutoButton_Click"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSSelectxyRangeDlg.LSSelectqRangeDlg.on_qAutoButton_Click">[docs]</a>    <span class="k">def</span> <span class="nf">on_qAutoButton_Click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">xselect</span><span class="o">=</span><span class="s">&#39;set xrange[:]&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">gp</span><span class="p">(</span><span class="s">&#39;set autoscale x&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">gp</span><span class="p">(</span><span class="s">&#39;replot&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LSSelectqRangeDlg.on_iAutoButton_Click"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSSelectxyRangeDlg.LSSelectqRangeDlg.on_iAutoButton_Click">[docs]</a>    <span class="k">def</span> <span class="nf">on_iAutoButton_Click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">xselect</span><span class="o">=</span><span class="s">&#39;set yrange[:]&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">gp</span><span class="p">(</span><span class="s">&#39;set autoscale y&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">gp</span><span class="p">(</span><span class="s">&#39;replot&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LSSelectqRangeDlg.TextUpdate"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSSelectxyRangeDlg.LSSelectqRangeDlg.TextUpdate">[docs]</a>    <span class="k">def</span> <span class="nf">TextUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">qmini</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">eval</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr1</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">qmaxi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">eval</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr2</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Imini</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">eval</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr3</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Imaxi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">eval</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr4</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnSelectqRange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmini</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxi</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">Imini</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">Imaxi</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

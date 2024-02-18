@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.LSConcatenateDlg &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.LSConcatenateDlg</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pySAXS.guisaxs.dataset</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="LSConcatenateDlg"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg">[docs]</a><span class="k">class</span> <span class="nc">LSConcatenateDlg</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span><span class="n">listofdata</span><span class="p">,</span><span class="n">newdatasetname</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">=</span><span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_dict</span><span class="o">=</span><span class="n">parent</span><span class="o">.</span><span class="n">data_dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listofdata</span><span class="o">=</span><span class="n">listofdata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newdatasetname</span><span class="o">=</span><span class="n">newdatasetname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">newdatasetname</span><span class="p">]</span>
+        <span class="n">taille</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">listofdata</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="o">+</span><span class="mi">50</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;pySAXS Concatenate different datas&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="n">taille</span><span class="p">),</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MINIMIZE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">SYSTEM_MENU</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CAPTION</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLOSE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLIP_CHILDREN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetBackgroundColour</span><span class="p">(</span><span class="s">&quot;White&quot;</span><span class="p">)</span>
+        <span class="n">spaceBetweenControl</span><span class="o">=</span><span class="mi">25</span>
+        <span class="c">#--- dynamic controls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listCheckBox</span><span class="o">=</span><span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmin</span><span class="o">=</span><span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmax</span><span class="o">=</span><span class="p">{}</span>
+        <span class="n">yposition</span><span class="o">=</span><span class="mi">10</span> <span class="c">#begin position for dynamics controls</span>
+        <span class="k">print</span> <span class="n">listofdata</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">listofdata</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCheckBox</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">var</span><span class="p">,</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCheckBox</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;qmin :&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="n">yposition</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmin</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">q</span><span class="p">)),</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;qmax :&quot;</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="n">yposition</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmax</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">q</span><span class="p">)),</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span>
+                                                   <span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="n">yposition</span><span class="o">+=</span><span class="n">spaceBetweenControl</span>
+        <span class="c">#-- select datas</span>
+        <span class="n">yposition</span><span class="o">+=</span><span class="n">spaceBetweenControl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ApplyButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Apply&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ApplyButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnApplyClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CancelButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Cancel&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CancelButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnCancelClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Close&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="n">yposition</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">.</span><span class="n">GetId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CLOSE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="LSConcatenateDlg.OnApplyClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg.OnApplyClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnApplyClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        User click on Apply button</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">createData</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnConcatenate</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="LSConcatenateDlg.OnCancelClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg.OnCancelClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnCancelClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        User click on Apply button</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnConcatenateCancel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newdatasetname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="LSConcatenateDlg.createData"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg.createData">[docs]</a>    <span class="k">def</span> <span class="nf">createData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c">#how to know order of data</span>
+        <span class="n">d</span><span class="o">=</span><span class="p">{}</span> <span class="c">#dict with key = qmin val=datasetname</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listofdata</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">listCheckBox</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">IsChecked</span><span class="p">():</span>
+                <span class="c">#print &quot;using &quot;,name</span>
+                <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmin</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())):</span>
+                    <span class="k">print</span> <span class="s">&quot;Error, can not create datas, different datas have same qmin&quot;</span>
+                    <span class="k">return</span>
+                <span class="n">d</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmin</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())]</span><span class="o">=</span><span class="n">name</span>
+        <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="c">#l : list of sorted qmin</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">l</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="c"># clip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">i</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clipdata</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+            <span class="n">dataset</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+            <span class="n">newq</span><span class="p">,</span><span class="n">newi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clipdata</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+            <span class="c">#concatenate with previous datas</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">q</span><span class="p">,</span><span class="n">newq</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">i</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">newdataset</span><span class="o">.</span><span class="n">i</span><span class="p">,</span><span class="n">newi</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="LSConcatenateDlg.clipdata"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg.clipdata">[docs]</a>    <span class="k">def</span> <span class="nf">clipdata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">datasetname</span><span class="p">):</span>
+        <span class="n">q</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">datasetname</span><span class="p">]</span><span class="o">.</span><span class="n">q</span>
+        <span class="n">i</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">datasetname</span><span class="p">]</span><span class="o">.</span><span class="n">i</span>
+        <span class="n">qmini</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmin</span><span class="p">[</span><span class="n">datasetname</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+        <span class="n">qmaxi</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listTextCtrlqmax</span><span class="p">[</span><span class="n">datasetname</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+        <span class="n">i</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">q</span><span class="o">&gt;=</span><span class="n">qmini</span><span class="p">)</span>
+        <span class="n">q</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&gt;=</span><span class="n">qmini</span><span class="p">)</span>
+        <span class="n">i</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">q</span><span class="o">&lt;=</span><span class="n">qmaxi</span><span class="p">)</span>
+        <span class="n">q</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&lt;=</span><span class="n">qmaxi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">q</span><span class="p">,</span><span class="n">i</span>
+</div>
+<div class="viewcode-block" id="LSConcatenateDlg.OnExitClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSConcatenateDlg.LSConcatenateDlg.OnExitClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnExitClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+
+
+    <span class="c">#######</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

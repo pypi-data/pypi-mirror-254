@@ -1,0 +1,451 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.LS.LSusaxs &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.LS.LSusaxs</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">pySAXS routines for ultra small angle xray scattering.</span>
+<span class="sd">Lake deconvolution</span>
+<span class="sd">background substraction,...</span>
+
+<span class="sd">version LSusaxs replacing LSreg by OT 7-2012</span>
+<span class="sd">version 0.1 22/03/2006</span>
+<span class="sd">version OS 20/11/2009</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c">#import scipy.io  as SPio remplaced by Numpy.loadtxt()</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">leastsq</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">rsplit</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="kn">as</span> <span class="nn">t</span>
+<span class="kn">import</span> <span class="nn">pySAXS</span>
+
+<span class="n">file_resfunc</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">pySAXS</span><span class="o">.</span><span class="n">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span><span class="s">&quot;saxsdata&quot;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s">&quot;usaxs_res_func.dat&quot;</span>
+
+
+<span class="sd">&#39;&#39;&#39;def ReadUSAXSData(filename):</span>
+<span class="sd">    return SPio.array_import.read_array(filename,columns=(0,-2),lines=(1,-1))</span>
+
+<span class="sd">def WriteUSAXSdata(filename,data):</span>
+<span class="sd">    return SPio.array_import.write_array(filename,data,separator=&#39; &#39;)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="BackgroundCorrection"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.BackgroundCorrection">[docs]</a><span class="k">def</span> <span class="nf">BackgroundCorrection</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">bkg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">I</span><span class="o">-</span><span class="n">bkg</span>
+</div>
+<div class="viewcode-block" id="QtoTheta"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.QtoTheta">[docs]</a><span class="k">def</span> <span class="nf">QtoTheta</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">wavelength</span><span class="p">):</span><span class="c">#Converts q to theta</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">wavelength</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ThetatoQ"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.ThetatoQ">[docs]</a><span class="k">def</span> <span class="nf">ThetatoQ</span><span class="p">(</span><span class="n">Theta</span><span class="p">,</span><span class="n">wavelength</span><span class="p">):</span><span class="c">#Converts theta to q</span>
+    <span class="k">return</span> <span class="mf">4.</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">wavelength</span><span class="p">)</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">Theta</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ZeroCentre"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.ZeroCentre">[docs]</a><span class="k">def</span> <span class="nf">ZeroCentre</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">):</span><span class="c">#Converts the q making the peak at zero</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="n">q</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">I</span><span class="p">)])</span>
+</div>
+<div class="viewcode-block" id="select"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.select">[docs]</a><span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Selects the q,I for n points around the maximum</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">ZeroCentre</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">sel</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">+</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">y_sel</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">sel</span><span class="p">)</span>
+    <span class="n">x_sel</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">sel</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_sel</span><span class="p">,</span><span class="n">y_sel</span>
+</div>
+<div class="viewcode-block" id="somme"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.somme">[docs]</a><span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This gives the sum(I*delta q)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#print  &#39;Area in the central beam&#39;, numpy.trapz(y,x)</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="gaussian"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.gaussian">[docs]</a><span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+       <span class="n">f</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">par</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+       <span class="k">return</span> <span class="n">f</span>
+</div>
+<div class="viewcode-block" id="residuals"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.residuals">[docs]</a><span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">gaussian</span><span class="p">(</span><span class="n">par</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">err</span>
+</div>
+<div class="viewcode-block" id="FitGauss"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.FitGauss">[docs]</a><span class="k">def</span> <span class="nf">FitGauss</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span><span class="n">it</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
+        <span class="n">q1</span><span class="p">,</span><span class="n">I1</span><span class="o">=</span><span class="n">select</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+        <span class="c">#I1=select(q,I,n)[1]</span>
+        <span class="n">plsq</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="p">([</span><span class="n">a0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">]),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span> <span class="n">q1</span><span class="p">),</span> <span class="n">ftol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="n">it</span><span class="p">)</span>
+        <span class="c">#print plsq[0]</span>
+        <span class="k">return</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">q1</span><span class="p">),</span><span class="n">q1</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span><span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+</div>
+<div class="viewcode-block" id="Qscalemod"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.Qscalemod">[docs]</a><span class="k">def</span> <span class="nf">Qscalemod</span><span class="p">(</span><span class="n">dq</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">step</span><span class="p">):</span>
+
+       <span class="k">return</span> <span class="n">q</span><span class="o">+</span><span class="n">dq</span><span class="o">+</span><span class="n">step</span>
+</div>
+<div class="viewcode-block" id="InterpolateForCommonvalue"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.InterpolateForCommonvalue">[docs]</a><span class="k">def</span> <span class="nf">InterpolateForCommonvalue</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">):</span>
+        <span class="n">sel_qmin</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">qrock</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">qexp</span><span class="p">))</span>
+        <span class="n">sel_qmax</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">qrock</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">qexp</span><span class="p">))</span>
+        <span class="n">qnew1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">qexp</span><span class="o">&gt;=</span><span class="n">sel_qmin</span><span class="p">)</span>
+        <span class="c">#qnew=numpy.repeat(qexp,(qexp&gt;=min(qrock)))</span>
+        <span class="c">#qnew=numpy.repeat(qexp,(qexp&lt;=max(qrock)))</span>
+        <span class="n">qnew</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">qnew1</span><span class="p">,</span><span class="n">qnew1</span><span class="o">&lt;=</span><span class="n">sel_qmax</span><span class="p">)</span>
+        <span class="c">#spl_samp=interpolate.splrep(qexp,Iexp, k=3)</span>
+        <span class="c">#Ip_samp=interpolate.splev(qnew,spl_samp)</span>
+
+
+        <span class="n">Isamp</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="n">Ip_samp</span><span class="o">=</span><span class="n">Isamp</span><span class="p">(</span><span class="n">qnew</span><span class="p">)</span>
+        <span class="c">#spl_rock=interpolate.splrep(qrock,Irock, k=3)</span>
+        <span class="c">#Ip_rock=interpolate.splev(qnew,spl_rock)</span>
+        <span class="n">Irocking</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="n">Ip_rock</span><span class="o">=</span><span class="n">Irocking</span><span class="p">(</span><span class="n">qnew</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">qnew</span><span class="p">,</span><span class="n">Ip_samp</span><span class="p">,</span><span class="n">Ip_rock</span>
+</div>
+<div class="viewcode-block" id="TransmissionValue"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.TransmissionValue">[docs]</a><span class="k">def</span> <span class="nf">TransmissionValue</span><span class="p">(</span><span class="n">nsamp</span><span class="p">,</span><span class="n">nrock</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    calculate transmission : nsamp/nrock</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">nsamp</span><span class="o">/</span><span class="n">nrock</span>
+</div>
+<div class="viewcode-block" id="TrCorrectedProf"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.TrCorrectedProf">[docs]</a><span class="k">def</span> <span class="nf">TrCorrectedProf</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="n">central_area</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Transmission corrected profile</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">qnew</span><span class="o">=</span><span class="n">InterpolateForCommonvalue</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Ip_samp</span><span class="o">=</span><span class="n">InterpolateForCommonvalue</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Ip_rock</span><span class="o">=</span><span class="n">InterpolateForCommonvalue</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">qrock</span><span class="p">,</span><span class="n">Irock</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Ic1</span><span class="o">=</span><span class="p">(</span><span class="n">Ip_samp</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">-</span><span class="n">Ip_rock</span>
+    <span class="n">Ic</span><span class="o">=</span><span class="n">Ic1</span><span class="o">/</span><span class="p">(</span><span class="n">central_area</span><span class="o">*</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">qnew</span><span class="p">,</span><span class="n">Ic</span>
+</div>
+<div class="viewcode-block" id="read_res_function"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.read_res_function">[docs]</a><span class="k">def</span> <span class="nf">read_res_function</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    read the resolution function from the specified filename</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">Numpy</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">file_resfunc</span><span class="p">)</span>
+    <span class="c">#res=SPio.array_import.read_array(file_resfunc,columns=(0,-1),lines=(0,-1))</span>
+    <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="interpolate_res_func"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.interpolate_res_func">[docs]</a><span class="k">def</span> <span class="nf">interpolate_res_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">resx</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">resy</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Interpolated resolution function obtained from res_func.dat file</span>
+<span class="sd">    if resx and resy are not None, use this datas</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">resx</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+        <span class="n">beta</span><span class="o">=</span><span class="n">resx</span><span class="c">#res[:,0]</span>
+        <span class="n">v</span><span class="o">=</span><span class="n">resy</span><span class="c">#res[:,1]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">read_res_function</span><span class="p">()</span>
+        <span class="n">beta</span><span class="o">=</span><span class="n">res</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">v</span><span class="o">=</span><span class="n">res</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">vf</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span><span class="n">v</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+    <span class="n">vf_intp</span><span class="o">=</span><span class="n">vf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vf_intp</span>
+</div>
+<div class="viewcode-block" id="porod"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.porod">[docs]</a><span class="k">def</span> <span class="nf">porod</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span><span class="c">#Gives power law like Porod law</span>
+    <span class="n">f</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">**</span><span class="p">(</span><span class="o">-</span> <span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+</div>
+<div class="viewcode-block" id="smooth"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.smooth">[docs]</a><span class="k">def</span> <span class="nf">smooth</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">ns</span><span class="p">):</span><span class="c">#Average point smoothing</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">ns</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">ns</span><span class="p">]</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">y</span><span class="p">,[</span><span class="n">i</span><span class="o">+</span><span class="n">ns</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="n">ns</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="n">ns</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">ns</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span>
+    <span class="k">return</span>   <span class="n">y</span>
+
+<span class="c">#******************************************************************************</span>
+<span class="c">#-----Start of Deconvolution program------------------------------------------</span></div>
+<div class="viewcode-block" id="lake"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.lake">[docs]</a><span class="k">def</span> <span class="nf">lake</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">ns</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">resx</span><span class="p">,</span><span class="n">resy</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Deconvolution subroutine based on Lake method</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#res=read_res_function(file_resfunc)</span>
+    <span class="n">Iexp0</span><span class="o">=</span><span class="n">Iexp</span>
+    <span class="n">qexp0</span><span class="o">=</span><span class="n">qexp</span>
+    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">it</span><span class="p">):</span>
+        <span class="n">last</span><span class="o">=</span><span class="n">Iexp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">sel</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">last</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
+        <span class="n">I_sel</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">Iexp</span><span class="p">,</span> <span class="n">sel</span><span class="p">)</span>
+        <span class="n">q_sel</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span> <span class="n">sel</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">porod</span><span class="p">(</span><span class="n">par</span><span class="p">,</span><span class="n">q</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">err</span>
+
+        <span class="n">a0</span><span class="o">=</span><span class="n">Iexp0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">a1</span><span class="o">=</span><span class="mf">4.</span>
+        <span class="n">plsq</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a0</span><span class="p">,</span><span class="n">a1</span><span class="p">]),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">I_sel</span><span class="p">,</span> <span class="n">q_sel</span><span class="p">),</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+            <span class="n">In</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qexp</span><span class="p">))</span>
+            <span class="n">q1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&lt;=</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+            <span class="n">q2</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&gt;</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+            <span class="n">In1</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+            <span class="n">In_a</span><span class="o">=</span><span class="n">In1</span><span class="p">(</span><span class="n">q1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="o">==</span><span class="s">&#39;Constant background&#39;</span><span class="p">:</span>
+               <span class="n">In_b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">q2</span><span class="p">))</span><span class="o">*</span><span class="n">Iexp</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+
+            <span class="k">elif</span> <span class="nb">type</span><span class="o">==</span><span class="s">&#39;Power law&#39;</span><span class="p">:</span>
+                 <span class="n">In_b</span><span class="o">=</span><span class="n">porod</span><span class="p">(</span><span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">q2</span><span class="p">)</span>
+
+            <span class="n">q1_list</span><span class="o">=</span><span class="n">q1</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">q2_list</span><span class="o">=</span><span class="n">q2</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">q1_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">q2_list</span><span class="p">)</span>
+            <span class="n">In_a_list</span><span class="o">=</span><span class="n">In_a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">In_b_list</span><span class="o">=</span><span class="n">In_b</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">In_a_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In_b_list</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">In_a_list</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">inte</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">int1</span><span class="o">=</span><span class="n">interpolate_res_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">resx</span><span class="p">,</span><span class="n">resy</span><span class="p">)</span><span class="o">*</span><span class="n">I</span><span class="p">((</span><span class="n">qexp</span><span class="o">*</span><span class="n">qexp</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">int1</span>
+
+        <span class="k">def</span> <span class="nf">sm1</span><span class="p">():</span>
+            <span class="n">l_limit</span><span class="o">=</span><span class="mf">0.</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+            <span class="n">u_limit</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">*</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+            <span class="n">h</span><span class="o">=</span><span class="p">(</span> <span class="n">u_limit</span> <span class="o">-</span> <span class="n">l_limit</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="nb">sum</span><span class="o">=</span><span class="p">(</span><span class="n">inte</span><span class="p">(</span><span class="n">l_limit</span><span class="p">)</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">u_limit</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">l_limit</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+                <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="o">*</span><span class="n">h</span>
+        <span class="n">sm</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="n">sm1</span><span class="p">()</span>
+        <span class="n">Icor</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qexp</span><span class="p">))</span>
+        <span class="n">Icor</span><span class="o">=</span><span class="p">(</span><span class="n">Iexp</span><span class="o">/</span><span class="n">sm</span><span class="p">)</span><span class="o">*</span><span class="n">Iexp0</span>
+        <span class="n">Icor</span><span class="o">=</span><span class="n">smooth</span><span class="p">(</span><span class="n">Icor</span><span class="p">,</span><span class="n">ns</span><span class="p">)</span>
+        <span class="n">Iexp</span><span class="o">=</span><span class="n">Icor</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ii</span><span class="o">==</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+           <span class="k">break</span>
+    <span class="k">return</span> <span class="n">Icor</span>
+<span class="c">#************************************************************************</span>
+<span class="c">#----End of deconvolution program----------------------------------------</span>
+
+<span class="c">#************************************************************************</span>
+
+
+<span class="c">#--------Please donot modify------------------------------------------------</span>
+</div>
+<div class="viewcode-block" id="USAXS_count_convolute"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.USAXS_count_convolute">[docs]</a><span class="k">def</span> <span class="nf">USAXS_count_convolute</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">Iabs</span><span class="p">,</span><span class="n">N0dX</span><span class="p">,</span><span class="n">thick</span><span class="p">,</span><span class="n">wavelength</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This subroutine calculates the counts that will be observed on USAXS for a particular model with q,I in cm-1</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">qexp</span><span class="o">=</span><span class="n">q</span>
+    <span class="n">Iexp</span><span class="o">=</span><span class="n">Iabs</span>
+    <span class="n">last</span><span class="o">=</span><span class="n">Iexp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="p">):</span><span class="c">#Interpolated</span>
+        <span class="n">In</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qexp</span><span class="p">))</span>
+        <span class="n">q1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&lt;=</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+        <span class="n">q2</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">q</span><span class="o">&gt;</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+        <span class="n">In1</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">qexp</span><span class="p">,</span><span class="n">Iexp</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="n">In_a</span><span class="o">=</span><span class="n">In1</span><span class="p">(</span><span class="n">q1</span><span class="p">)</span>
+        <span class="n">In_b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">q2</span><span class="p">))</span><span class="o">*</span><span class="n">Iexp</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+        <span class="n">q1_list</span><span class="o">=</span><span class="n">q1</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">q2_list</span><span class="o">=</span><span class="n">q2</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">q1_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">q2_list</span><span class="p">)</span>
+        <span class="n">In_a_list</span><span class="o">=</span><span class="n">In_a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">In_b_list</span><span class="o">=</span><span class="n">In_b</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">In_a_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In_b_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">In_a_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inte</span><span class="p">(</span><span class="n">x</span><span class="p">):</span><span class="c">#Integrand for sm1()</span>
+        <span class="n">int1</span><span class="o">=</span><span class="n">interpolate_res_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">I</span><span class="p">((</span><span class="n">qexp</span><span class="o">*</span><span class="n">qexp</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">int1</span>
+
+    <span class="k">def</span> <span class="nf">sm1</span><span class="p">():</span>
+        <span class="n">l_limit</span><span class="o">=</span><span class="mf">0.</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">u_limit</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">*</span><span class="n">qexp</span><span class="p">[</span><span class="n">last</span><span class="p">]</span>
+        <span class="n">h</span><span class="o">=</span><span class="p">(</span> <span class="n">u_limit</span> <span class="o">-</span> <span class="n">l_limit</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="nb">sum</span><span class="o">=</span><span class="p">(</span><span class="n">inte</span><span class="p">(</span><span class="n">l_limit</span><span class="p">)</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">u_limit</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">l_limit</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="o">*</span><span class="n">h</span>
+    <span class="n">sm</span><span class="o">=</span><span class="n">sm1</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="mf">2.</span><span class="o">*</span><span class="n">sm</span><span class="o">*</span><span class="n">N0dX</span><span class="o">*</span><span class="n">thick</span>
+<span class="c">#----------------End of USAXS convolute---------------------</span>
+
+
+</div>
+<div class="viewcode-block" id="CalTransmission"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.CalTransmission">[docs]</a><span class="k">def</span> <span class="nf">CalTransmission</span><span class="p">(</span><span class="n">mu_p</span><span class="p">,</span><span class="n">rho_p</span><span class="p">,</span><span class="n">mu_S</span><span class="p">,</span><span class="n">rho_S</span><span class="p">,</span><span class="n">phim_p</span><span class="p">,</span><span class="n">rho_soln</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculates the transmission value for given sample parameters---</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">mubyrho</span><span class="o">=</span><span class="p">(</span><span class="n">mu_p</span><span class="o">/</span><span class="n">rho_p</span><span class="p">)</span><span class="o">*</span><span class="n">phim_p</span><span class="o">+</span><span class="p">(</span><span class="n">mu_S</span><span class="o">/</span><span class="n">rho_S</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">phim_p</span><span class="p">)</span>
+    <span class="n">T</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">mubyrho</span><span class="o">*</span><span class="n">rho_soln</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">T</span>
+<span class="c">#print CalTransmission(193.305,8.9,6.06,1.188,0.435,1.9,0.0065)</span>
+<span class="c">#-----</span></div>
+<div class="viewcode-block" id="GoodnessOfFit"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.GoodnessOfFit">[docs]</a><span class="k">def</span> <span class="nf">GoodnessOfFit</span><span class="p">(</span><span class="n">xexp</span><span class="p">,</span><span class="n">yexp</span><span class="p">,</span><span class="n">fmodel</span><span class="p">,</span><span class="n">par</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This calculates the goodness of a fit</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ymodel</span><span class="o">=</span><span class="n">fmodel</span><span class="p">(</span><span class="n">xexp</span><span class="p">,</span><span class="o">*</span><span class="n">par</span><span class="p">)</span>
+    <span class="n">SStot</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">yexp</span><span class="o">-</span><span class="n">mean</span><span class="p">(</span><span class="n">yexp</span><span class="p">))</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span>
+    <span class="n">SSreg</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">ymodel</span><span class="o">-</span><span class="n">yexp</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="o">-</span><span class="p">(</span><span class="n">SSreg</span><span class="o">/</span><span class="n">SStot</span><span class="p">)</span>
+<span class="c">#---------END----------------------</span>
+
+</div>
+<div class="viewcode-block" id="calculate_res_func_USAXS"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.LSusaxs.calculate_res_func_USAXS">[docs]</a><span class="k">def</span> <span class="nf">calculate_res_func_USAXS</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">step</span><span class="p">,</span><span class="n">boun</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This routine calculates the resolution function for the USAXS</span>
+<span class="sd">    c is the slit length</span>
+<span class="sd">    step is the step size for the V(beta) profile</span>
+<span class="sd">    boun is the extreme left/right beta value for the V(beta) for which it shoule calculate the V(beta)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">gplt</span> <span class="o">=</span> <span class="n">Gnuplot</span><span class="o">.</span><span class="n">Gnuplot</span><span class="p">()</span>
+    <span class="n">gplt</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="n">beam</span><span class="o">=</span><span class="n">SPio</span><span class="o">.</span><span class="n">array_import</span><span class="o">.</span><span class="n">read_array</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">lines</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">w</span><span class="o">=</span><span class="n">beam</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">beam</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">r</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="n">c</span><span class="o">*</span><span class="n">step</span><span class="p">)</span>
+    <span class="n">last</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">x0</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">&lt;</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">x1a</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">w</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+        <span class="n">x1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x1a</span><span class="p">,</span><span class="n">x1a</span><span class="o">&gt;</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">x2</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">&gt;</span><span class="n">w</span><span class="p">[</span><span class="n">last</span><span class="p">])</span>
+        <span class="n">In1</span><span class="o">=</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="n">In_a</span><span class="o">=</span><span class="n">In1</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="n">In_b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+        <span class="n">In_c</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span>
+        <span class="n">x0_list</span><span class="o">=</span><span class="n">x0</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">x1_list</span><span class="o">=</span><span class="n">x1</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">x2_list</span><span class="o">=</span><span class="n">x2</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">x0_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x1_list</span><span class="p">)</span>
+        <span class="n">x0_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x2_list</span><span class="p">)</span>
+        <span class="n">In_0_list</span><span class="o">=</span><span class="n">In_c</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">In_1_list</span><span class="o">=</span><span class="n">In_a</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">In_2_list</span><span class="o">=</span><span class="n">In_b</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">In_0_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In_1_list</span><span class="p">)</span>
+        <span class="n">In_0_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">In_2_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">In_0_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inte</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">int1</span><span class="o">=</span><span class="n">I</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">int1</span>
+
+    <span class="k">def</span> <span class="nf">v1</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+        <span class="n">l_limit</span><span class="o">=</span><span class="n">u</span><span class="o">-</span><span class="n">c</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">u_limit</span> <span class="o">=</span> <span class="n">u</span><span class="o">+</span><span class="n">c</span>
+        <span class="n">h</span><span class="o">=</span><span class="p">(</span> <span class="n">u_limit</span> <span class="o">-</span> <span class="n">l_limit</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="nb">sum</span><span class="o">=</span><span class="p">(</span><span class="n">inte</span><span class="p">(</span><span class="n">l_limit</span><span class="p">)</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">u_limit</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">l_limit</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">inte</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="o">*</span><span class="n">h</span>
+
+    <span class="n">v</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">r_low</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">boun</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">,(</span><span class="n">boun</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+    <span class="n">r_high</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="n">boun</span><span class="p">,(</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="n">c</span><span class="o">+</span><span class="n">boun</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+    <span class="n">v_low</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_low</span><span class="p">))</span>
+    <span class="n">v_high</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_high</span><span class="p">))</span>
+    <span class="n">vf1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">v_low</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+    <span class="n">vfinal</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">vf1</span><span class="p">,</span><span class="n">v_high</span><span class="p">))</span>
+    <span class="n">rf1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">r_low</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
+    <span class="n">rfinal</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rf1</span><span class="p">,</span><span class="n">r_high</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">rfinal</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">rfinal</span>
+    <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">vfinal</span>
+    <span class="n">WriteUSAXSdata</span><span class="p">(</span><span class="n">file_resfunc</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+    <span class="c">#GD3=Gnuplot.Data(rfinal,vfinal,with_=&#39;linespoints&#39;)</span>
+    <span class="c">#gplt.plot(GD3)</span>
+    <span class="k">return</span> <span class="n">rfinal</span><span class="p">,</span><span class="n">vfinal</span>
+<span class="c">#------------------------------------END------------------------------</span>
+</pre></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

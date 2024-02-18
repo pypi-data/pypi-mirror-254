@@ -1,0 +1,451 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.LSModelDlg &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.LSModelDlg</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c">#import pySAXS.LS.LSsca as LSsca</span>
+<span class="kn">from</span> <span class="nn">pySAXS.models</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pySAXS.tools</span> <span class="kn">import</span> <span class="n">isNumeric</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    19-05-2011 OT Remove slider </span>
+<span class="sd">    04-08-2010 DC textboxes for parameter values and bounds are now active for typing in</span>
+<span class="sd">    04-08-2010 DC calculation of chi2 corrected</span>
+<span class="sd">    03-08-2010 DC typos on the interface corrected</span>
+<span class="sd">    10-11-2009 print the chi carre</span>
+<span class="sd">    15-06-2009 now support new model class, use a sizer, fit with or without bounds, remove bugs with slider,...</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<div class="viewcode-block" id="LSModelDlg"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg">[docs]</a><span class="k">class</span> <span class="nc">LSModelDlg</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span><span class="n">dataset_name</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&quot;model&quot;</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">=</span><span class="n">parent</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="n">dataset_name</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&quot; model for &quot;</span><span class="o">+</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span><span class="mi">40</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Arg</span><span class="p">)</span><span class="o">*</span><span class="mi">50</span><span class="p">),</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MINIMIZE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">SYSTEM_MENU</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CAPTION</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLOSE_BOX</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">CLIP_CHILDREN</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">SetIcon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="o">.</span><span class="n">favicon</span><span class="p">)</span>
+        <span class="c"># Add a panel so it looks correct on all platforms</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">=</span><span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">=</span><span class="nb">type</span>
+        <span class="n">Blig</span><span class="o">=</span><span class="mi">10</span>
+        <span class="n">Bcol</span><span class="o">=</span><span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">getArg</span><span class="p">()</span>
+        <span class="c">#self.SetBackgroundColour(self.parentwindow.GetBackgroundColour())</span>
+        <span class="c">#self.SetBackgroundColour(&quot;White&quot;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">itf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">getIstofit</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">q</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ParDoc</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SlideMax</span><span class="o">=</span><span class="mi">1000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">slider</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitexp</span><span class="o">=</span><span class="mi">0</span>
+        
+        <span class="c"># top sizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pan</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">)</span>
+        <span class="n">panel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pan</span>
+        <span class="n">vbox_top</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="c">#--- description </span>
+        <span class="n">desc</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Description : </span><span class="se">\t</span><span class="s">&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Description</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">desc</span><span class="o">.</span><span class="n">SetForegroundColour</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        
+        <span class="n">author</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Author : </span><span class="se">\t</span><span class="s">&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Author</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">author</span><span class="o">.</span><span class="n">SetForegroundColour</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">author</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="c">#vbox_top.Add(wx.StaticLine(panel),0,wx.EXPAND|wx.TOP|wx.BOTTOM,5)</span>
+        <span class="sd">&#39;&#39;&#39;if self.type==&quot;data&quot;:</span>
+<span class="sd">            #compute chi_carre for datas</span>
+<span class="sd">            rawdataset_name = self.parentwindow.data_dict[self.dataset_name].rawdata_ref</span>
+<span class="sd">            #print rawdataset_name,len(self.parentwindow.data_dict[rawdataset_name].q),len(self.parentwindow.data_dict[rawdataset_name].i)</span>
+<span class="sd">            iexp=numpy.array(self.parentwindow.data_dict[rawdataset_name].i)</span>
+<span class="sd">            #print len(iexp),len(self.parentwindow.data_dict[rawdataset_name].q)</span>
+<span class="sd">            val=self.Model.chi_carre(self.par,iexp)</span>
+<span class="sd">            self.chicarre=wx.TextCtrl(panel,1,&quot;Chi carre : &quot;+str(val),size=wx.Size(400,20))</span>
+<span class="sd">            self.chicarre.SetForegroundColour(&#39;blue&#39;)</span>
+<span class="sd">            vbox_top.Add(self.chicarre,flag=wx.ALIGN_LEFT|wx.ALIGN_CENTER_VERTICAL|wx.TE_READONLY)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#--- Parameters</span>
+        <span class="n">sizer</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">FlexGridSizer</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">cols</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">hgap</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">vgap</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Parameter&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Value&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Fit ?&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Min&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="c">#sizer.Add(wx.StaticText(panel,1,&quot;Value&quot;),flag=wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Max&quot;</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">)):</span>
+            <span class="c">#--control par doc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParDoc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Doc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; : &quot;</span><span class="p">))</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ParDoc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="c">#--control par text</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">TE_PROCESS_ENTER</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textUpdate</span><span class="p">)</span>
+            <span class="c">#--control check fit</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">50</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;fit&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">istofit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="c">#--control min bounds</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">TE_PROCESS_ENTER</span><span class="p">))</span>
+            <span class="nb">min</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="nb">min</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textMinMaxUpdate</span><span class="p">)</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="c">#--control slider            </span>
+            <span class="sd">&#39;&#39;&#39;self.slider.append(wx.Slider(panel,i,self.SlideMax/2.,0,self.SlideMax,style=wx.SL_HORIZONTAL|wx.SL_AUTOTICKS,\</span>
+<span class="sd">                                         size=(200,20)))</span>
+<span class="sd">            self.slider[i].SetTickFreq(100,1)</span>
+<span class="sd">            self.Bind(wx.EVT_SCROLL_THUMBRELEASE, self.sliderUpdate)</span>
+<span class="sd">            self.Bind(wx.EVT_SCROLL_THUMBTRACK, self.sliderMove)</span>
+<span class="sd">            sizer.Add(self.slider[i],flag=wx.GROW|wx.ALIGN_LEFT|wx.ALIGN_CENTER_VERTICAL)&#39;&#39;&#39;</span>
+            <span class="c">#--control max bounds</span>
+            <span class="nb">max</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">TE_PROCESS_ENTER</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="nb">max</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TEXT</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">textMinMaxUpdate</span><span class="p">)</span>
+            <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            
+        <span class="n">box0</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Model parameters :&quot;</span><span class="p">)</span>
+        <span class="n">sizerParam</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBoxSizer</span><span class="p">(</span><span class="n">box0</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>    
+        <span class="n">sizerParam</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>    
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizerParam</span><span class="p">)</span>
+        <span class="c">#-------- sliders for qrange</span>
+        <span class="n">sizerSlide</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">FlexGridSizer</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">cols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">hgap</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">vgap</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">qmin</span><span class="o">=</span><span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminIndex</span><span class="o">=</span><span class="n">qmin</span>
+        <span class="n">qmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxIndex</span><span class="o">=</span><span class="n">qmax</span>
+        <span class="c">#qmin</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;qmin&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminSlide</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">qmin</span><span class="p">,</span> <span class="n">qmin</span><span class="p">,</span> <span class="n">qmax</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">SL_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">SL_AUTOTICKS</span> <span class="p">,</span>\
+                                         <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminSlide</span><span class="o">.</span><span class="n">SetTickFreq</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminSlide</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_SCROLL_THUMBTRACK</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sliderQminMove</span><span class="p">)</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qminSlide</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminTxt</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">[</span><span class="n">qmin</span><span class="p">]),</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">TE_READONLY</span><span class="p">)</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qminTxt</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="c">#qmax</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;qmax&quot;</span><span class="p">),</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxSlide</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">qmax</span><span class="p">,</span> <span class="n">qmin</span><span class="p">,</span> <span class="n">qmax</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">SL_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">SL_AUTOTICKS</span> <span class="p">,</span>\
+                                         <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxSlide</span><span class="o">.</span><span class="n">SetTickFreq</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxSlide</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_SCROLL_THUMBTRACK</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sliderQmaxMove</span><span class="p">)</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxSlide</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_RIGHT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxTxt</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">[</span><span class="n">qmax</span><span class="p">]),</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">TE_READONLY</span><span class="p">)</span>
+        <span class="n">sizerSlide</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxTxt</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="c">#qrange</span>
+        <span class="n">boxQ</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Q range :&quot;</span><span class="p">)</span>
+        <span class="n">sizerQ</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticBoxSizer</span><span class="p">(</span><span class="n">boxQ</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>    
+        <span class="n">sizerQ</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizerSlide</span><span class="p">)</span>    
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizerQ</span><span class="p">)</span>
+        
+        <span class="c">#-------- update fit check box</span>
+        <span class="c">#vbox_top.Add(wx.StaticLine(panel),0,wx.EXPAND|wx.TOP|wx.BOTTOM,5)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;update model when value are changed&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">GROW</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_LEFT</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticLine</span><span class="p">(</span><span class="n">panel</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">TOP</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+        
+        <span class="c">#-- buttons</span>
+        <span class="n">sizerButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">FlexGridSizer</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">cols</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">hgap</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">vgap</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s">&quot;data&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Fitbutton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Fit&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Fitbutton</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnClickFitButton</span><span class="p">)</span>
+            <span class="n">sizerButton</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Fitbutton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FitbuttonBounds</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Fit with bounds&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FitbuttonBounds</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnClickFitButtonBounds</span><span class="p">)</span>
+            <span class="n">sizerButton</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FitbuttonBounds</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="c">#choice with iq iq2 iq4...</span>
+            <span class="n">choicelist</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;normal&#39;</span><span class="p">,</span><span class="s">&#39;iq&#39;</span><span class="p">,</span><span class="s">&#39;iq2&#39;</span><span class="p">,</span><span class="s">&#39;iq3&#39;</span><span class="p">,</span><span class="s">&#39;iq4&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listText</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;Y type :&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+            <span class="n">sizerButton</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">listText</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ytype</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;normal&#39;</span><span class="p">,</span><span class="s">&#39;iq&#39;</span><span class="p">,</span><span class="s">&#39;iq2&#39;</span><span class="p">,</span><span class="s">&#39;iq3&#39;</span><span class="p">,</span><span class="s">&#39;iq4&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ytype</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CHOICE</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">OnClickList</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ytype</span><span class="o">.</span><span class="n">SetSelection</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">sizerButton</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ytype</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">,</span><span class="s">&quot;CLOSE&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CLOSE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnExitClick</span><span class="p">)</span>
+        <span class="n">sizerButton</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">QuitButton</span><span class="p">,</span><span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_HORIZONTAL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ALIGN_CENTER_VERTICAL</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizerButton</span><span class="p">)</span>
+        <span class="n">panel</span><span class="o">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">vbox_top</span><span class="p">)</span>
+        <span class="n">vbox_top</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="LSModelDlg.sliderQminMove"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.sliderQminMove">[docs]</a>    <span class="k">def</span> <span class="nf">sliderQminMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">qminSlide</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminTxt</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">[</span><span class="n">val</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qminIndex</span><span class="o">=</span><span class="n">val</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">.</span><span class="n">GetValue</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="LSModelDlg.sliderQmaxMove"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.sliderQmaxMove">[docs]</a>    <span class="k">def</span> <span class="nf">sliderQmaxMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxSlide</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxTxt</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">[</span><span class="n">val</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qmaxIndex</span><span class="o">=</span><span class="n">val</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">.</span><span class="n">GetValue</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+    <span class="sd">&#39;&#39;&#39;def sliderUpdate(self,event):</span>
+<span class="sd">        #no more used if slider is removed</span>
+<span class="sd">        b=self.slider[event.GetId()].GetValue()</span>
+<span class="sd">        c=((eval(self.MaxText[event.GetId()].GetValue())-eval(self.MinText[event.GetId()].GetValue()))/self.SlideMax)*b + eval(self.MinText[event.GetId()].GetValue())</span>
+<span class="sd">        self.ParText[event.GetId()].SetValue(self.Model.Format[event.GetId()] % c)</span>
+<span class="sd">        self.ModelUpdate()</span>
+<span class="sd">        self.parentwindow.OnModelUpdate(self)</span>
+
+<span class="sd">    def sliderMove(self,event):</span>
+<span class="sd">        #no more used if slider is removed</span>
+<span class="sd">        #print &quot;on slider move&quot;</span>
+<span class="sd">        n=event.GetId()</span>
+<span class="sd">        b=self.slider[event.GetId()].GetValue()</span>
+<span class="sd">        #print b</span>
+<span class="sd">        minbounds=float(eval(self.MinText[n].GetValue()))</span>
+<span class="sd">        maxbounds=float(eval(self.MaxText[n].GetValue()))</span>
+<span class="sd">        parValue=float(eval(self.ParText[n].GetValue()))</span>
+<span class="sd">        range=(maxbounds-minbounds)/self.SlideMax</span>
+<span class="sd">        newvalue=range*b + minbounds</span>
+<span class="sd">        #print newvalue</span>
+<span class="sd">        #self.ParText[event.GetId()].SetValue(self.Model.Format[event.GetId()] % c)</span>
+<span class="sd">        self.ParText[event.GetId()].SetValue(self.Model.Format[event.GetId()] % newvalue)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="LSModelDlg.textMinMaxUpdate"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.textMinMaxUpdate">[docs]</a>    <span class="k">def</span> <span class="nf">textMinMaxUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="c">#self.parentwindow.printTXT( &quot;min max update&quot;)</span>
+        <span class="c">#b=self.slider[event.GetId()].GetValue()</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span>
+        
+        <span class="nb">max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        <span class="nb">min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">isNumeric</span><span class="o">.</span><span class="n">isNumeric</span><span class="p">(</span><span class="nb">max</span><span class="p">)))</span><span class="ow">or</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">isNumeric</span><span class="o">.</span><span class="n">isNumeric</span><span class="p">(</span><span class="nb">min</span><span class="p">))):</span>
+            <span class="k">return</span> <span class="c">#not a number : do nothing</span>
+        <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span><span class="o">&lt;=</span><span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+            <span class="c">#do nothing</span>
+            <span class="k">return</span>
+        <span class="n">val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">isNumeric</span><span class="o">.</span><span class="n">isNumeric</span><span class="p">(</span><span class="n">val</span><span class="p">))):</span>
+            <span class="c">#parameter val is not a number : set as min</span>
+            <span class="nb">min</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span> <span class="o">%</span> <span class="nb">min</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">&lt;</span><span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+                <span class="c"># val is &lt; than min, set as min</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span> <span class="o">%</span> <span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">&gt;</span><span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+                <span class="c"># val is &gt; than max, set as max</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span> <span class="o">%</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">))</span>
+                
+        <span class="c">#c=((eval(self.MaxText[event.GetId()].GetValue())-eval(self.MinText[event.GetId()].GetValue()))/self.SlideMax)*b + eval(self.MinText[event.GetId()].GetValue())</span>
+        <span class="c">#self.ParText[event.GetId()].SetValue(self.Model.Format[event.GetId()] % c)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">.</span><span class="n">GetValue</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LSModelDlg.textUpdate"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.textUpdate">[docs]</a>    <span class="k">def</span> <span class="nf">textUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        parameter value is updated</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span> <span class="c">#no of text box updated</span>
+        <span class="c">#print &quot;text updated&quot;,n</span>
+        <span class="c">#test if value of text box is coherent with bounds</span>
+        <span class="n">minbounds</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+        <span class="n">maxbounds</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">isNumeric</span><span class="o">.</span><span class="n">isNumeric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())):</span>
+            <span class="c">#do nothing</span>
+            <span class="k">return</span>
+        <span class="n">parValue</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">parValue</span><span class="o">&lt;</span><span class="n">minbounds</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parValue</span><span class="p">))</span>
+            <span class="n">minbounds</span><span class="o">=</span><span class="n">parValue</span>
+        <span class="k">if</span> <span class="n">parValue</span><span class="o">&gt;</span><span class="n">maxbounds</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parValue</span><span class="p">))</span>
+            <span class="n">maxbounds</span><span class="o">=</span><span class="n">parValue</span>
+            
+        <span class="c">#update slider</span>
+        <span class="c">#b=self.slider[event.GetId()].GetValue()</span>
+        <span class="c">#new value of slider in percent</span>
+        <span class="c">#range=maxbounds-minbounds</span>
+        <span class="c">#newvalue=((parValue-minbounds)/range)*self.SlideMax</span>
+        <span class="c">#self.slider[event.GetId()].SetValue(newvalue)  </span>
+         
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">updateFit</span><span class="o">.</span><span class="n">GetValue</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+</div>
+<div class="viewcode-block" id="LSModelDlg.ModelUpdate"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.ModelUpdate">[docs]</a>    <span class="k">def</span> <span class="nf">ModelUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        when a parameter is updated</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="o">+</span><span class="s">&quot; dataset removed ? &quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">itf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+            <span class="n">bmin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MinText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+            <span class="n">bmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MaxText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">bmin</span><span class="p">,</span><span class="n">bmax</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">setIstofit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">itf</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">setArg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qminIndex</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxIndex</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">q</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">qbase</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">qminIndex</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">qmaxIndex</span><span class="p">]</span>
+            <span class="c">#print self.Model.q</span>
+            <span class="c">#print self.Model.q</span>
+        <span class="c">#compute chicarre</span>
+        <span class="sd">&#39;&#39;&#39;if self.type==&quot;data&quot;:</span>
+<span class="sd">            #compute chi_carre for datas</span>
+<span class="sd">            #print &#39;compute chi_carre&#39;</span>
+<span class="sd">            rawdataset_name = self.parentwindow.data_dict[self.dataset_name].rawdata_ref</span>
+<span class="sd">            iexp=self.parentwindow.data_dict[rawdataset_name].i[:]</span>
+<span class="sd">            val=self.Model.chi_carre(self.par,iexp)</span>
+<span class="sd">            self.chicarre.Clear()</span>
+<span class="sd">            self.chicarre.AppendText(&#39;Chi carre : &#39;+str(val))&#39;&#39;&#39;</span>
+            </div>
+<div class="viewcode-block" id="LSModelDlg.UpdateAfterFit"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.UpdateAfterFit">[docs]</a>    <span class="k">def</span> <span class="nf">UpdateAfterFit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">result</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        update all after a fit</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">val</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c">#print &quot;UPDATE AFTER FIT&quot;,val</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">)):</span>
+            <span class="c">#print i,val[i]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            
+        </div>
+<div class="viewcode-block" id="LSModelDlg.DlgUpdate"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.DlgUpdate">[docs]</a>    <span class="k">def</span> <span class="nf">DlgUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="c">###More to do for data validation...</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Arg</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ParText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">Format</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CheckFit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">itf</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="LSModelDlg.OnExitClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.OnExitClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnExitClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="LSModelDlg.OnClickFitButton"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.OnClickFitButton">[docs]</a>    <span class="k">def</span> <span class="nf">OnClickFitButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelFit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">getArg</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DlgUpdate</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="LSModelDlg.OnClickFitButtonBounds"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.OnClickFitButtonBounds">[docs]</a>    <span class="k">def</span> <span class="nf">OnClickFitButtonBounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ModelUpdate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">OnModelFitBounds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">getArg</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DlgUpdate</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LSModelDlg.OnClickList"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSModelDlg.LSModelDlg.OnClickList">[docs]</a>    <span class="k">def</span> <span class="nf">OnClickList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">choice</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ytype</span><span class="o">.</span><span class="n">GetSelection</span><span class="p">()</span>
+        <span class="c">#print choice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitexp</span><span class="o">=</span><span class="n">choice</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

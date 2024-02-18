@@ -1,0 +1,287 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.LS.rap &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.LS.rap</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">project : pySAXS</span>
+<span class="sd">description : class for radial average parameters</span>
+<span class="sd">authors : Olivier Tache</span>
+<span class="sd">Last changes :</span>
+<span class="sd">08-03-2007 OT : port to pySAXS library</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="RAP"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP">[docs]</a><span class="k">class</span> <span class="nc">RAP</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; - Radial Average Parameters -</span>
+
+<span class="sd">    beam_x : x beam position</span>
+<span class="sd">    beam_y : y beam position</span>
+<span class="sd">    roi_xmin,  roi_ymin,   roi_xmax,  roi_ymax :    #les points a masquer</span>
+<span class="sd">    masks_list=[] : un tableau de roi</span>
+<span class="sd">    geom_corr_x ,  geom_corr_y   :correction geometrique</span>
+<span class="sd">    wave_length=1.542</span>
+<span class="sd">    detector_to_sample=1</span>
+<span class="sd">    pixel_size=1</span>
+<span class="sd">    q_by_pixel=-1</span>
+<span class="sd">    exposition_time=1</span>
+<span class="sd">    backgd_by_s=0 #par seconde</span>
+<span class="sd">    backgd_by_pix=0 #par pixel</span>
+<span class="sd">    comment=&quot;&quot;</span>
+<span class="sd">    transmission=-1</span>
+<span class="sd">    thickness=-1</span>
+<span class="sd">    K=1</span>
+<span class="sd">    monitor=1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beam_x</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beam_y</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_xmin</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_ymin</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_xmax</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_ymax</span><span class="o">=</span><span class="mi">1</span>
+        <span class="c">#les points a masquer</span>
+        <span class="c"># un tableau de roi</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masks_list</span><span class="o">=</span><span class="p">[]</span>
+        <span class="c">#correction geometrique</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geom_corr_x</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geom_corr_y</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wave_length</span><span class="o">=</span><span class="mf">1.542</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">detector_to_sample</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pixel_size</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_by_pixel</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exposition_time</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backgd_by_s</span><span class="o">=</span><span class="mi">0</span> <span class="c">#par seconde</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backgd_by_pix</span><span class="o">=</span><span class="mi">0</span> <span class="c">#par pixel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comment</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmission</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thickness</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="o">=</span><span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chaine</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="n">t</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">var</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+            <span class="n">chaine</span><span class="o">+=</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s">&quot; = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="k">return</span> <span class="n">chaine</span>
+
+
+<div class="viewcode-block" id="RAP.mask_add"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.mask_add">[docs]</a>    <span class="k">def</span> <span class="nf">mask_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">polygon</span><span class="p">):</span>
+        <span class="s">&quot;ajoute un masque dans la liste des masques&quot;</span>
+        <span class="c">#mask=[xmin,ymin,xmax,ymax]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masks_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="RAP.mask_remove"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.mask_remove">[docs]</a>    <span class="k">def</span> <span class="nf">mask_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+        <span class="s">&quot;retire de la liste des masques l&#39;element i&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masks_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="RAP.mask_delete_all"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.mask_delete_all">[docs]</a>    <span class="k">def</span> <span class="nf">mask_delete_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">&quot;efface la liste des masques&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masks_list</span><span class="o">=</span><span class="p">[]</span>
+</div>
+<div class="viewcode-block" id="RAP.Set_BeamXY"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.Set_BeamXY">[docs]</a>    <span class="k">def</span> <span class="nf">Set_BeamXY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beam_x</span><span class="o">=</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beam_y</span><span class="o">=</span><span class="n">y</span>
+</div>
+<div class="viewcode-block" id="RAP.Set_ROI"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.Set_ROI">[docs]</a>    <span class="k">def</span> <span class="nf">Set_ROI</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">xmin</span><span class="p">,</span><span class="n">ymin</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">ymax</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_xmin</span><span class="o">=</span><span class="n">xmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_ymin</span><span class="o">=</span><span class="n">ymin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_xmax</span><span class="o">=</span><span class="n">xmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roi_ymax</span><span class="o">=</span><span class="n">ymax</span>
+</div>
+<div class="viewcode-block" id="RAP.save_printable"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.save_printable">[docs]</a>    <span class="k">def</span> <span class="nf">save_printable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="c">#enregistre dans un fichier</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">chaine</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="n">t</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">var</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+            <span class="c">#chaine+=str(t[i])+&quot; = &quot;+str(self.__dict__[t[i]])+&quot;\n&quot;</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s">&quot; = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">file_name</span><span class="p">,</span><span class="s">&quot; saved&quot;</span>
+</div>
+<div class="viewcode-block" id="RAP.save"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">pickle</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="RAP.load"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">pickle</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">RAP</span><span class="p">()</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">p</span>
+</div>
+<div class="viewcode-block" id="RAP.calculate_q_by_pix"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.RAP.calculate_q_by_pix">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_q_by_pix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        calculate q by pix in A-1 from parameters (RAP)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_by_pixel</span><span class="o">=</span><span class="n">calculate_q</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="calculate_q"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.calculate_q">[docs]</a><span class="k">def</span> <span class="nf">calculate_q</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">par</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate q in A-1 from parameters (RAP)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">((</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">par</span><span class="o">.</span><span class="n">wave_length</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">arctan</span><span class="p">((</span><span class="n">par</span><span class="o">.</span><span class="n">pixel_size</span><span class="o">*</span><span class="n">q</span><span class="p">)</span><span class="o">/</span><span class="n">par</span><span class="o">.</span><span class="n">detector_to_sample</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Rad_Save"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.Rad_Save">[docs]</a><span class="k">def</span> <span class="nf">Rad_Save</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">iq</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save the averaged data in a rgr file wich can be opened by MS excel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# fichier = </span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# zone regroupement : xmin=</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="s"> xmax=</span><span class="se">\t</span><span class="si">%s</span><span class="s"> ymin=</span><span class="se">\t</span><span class="si">%s</span><span class="s"> ymax=</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">roi_xmin</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">roi_xmax</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">roi_ymin</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">roi_ymax</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# centre regroupement : x=</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="s"> y=</span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> masques :</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">beam_x</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">beam_y</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">masks_list</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">backgd_by_s</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# taille pixel = </span><span class="se">\t</span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> Bruit fond= </span><span class="se">\t</span><span class="s">=$B$8*$G$4</span><span class="se">\t</span><span class="s"> (par pixel) </span><span class="se">\t</span><span class="s"> par seconde=</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">backgd_by_s</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# taille pixel =</span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> Bruit fond= </span><span class="se">\t</span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> (par pixel)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">backgd_by_pix</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# distance ech detecteur =</span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">detector_to_sample</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# lambda=</span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">wave_length</span><span class="p">))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">q_by_pixel</span><span class="o">=</span><span class="n">calculate_q</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# q by pix =</span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s">  valeur excel : </span><span class="se">\t</span><span class="s">=((4*PI())/$B$6)*SIN(ATAN($B$4/$B$5)/2)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">q_by_pixel</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# temps= </span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">exposition_time</span><span class="p">))</span>
+    <span class="n">delta_omega</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pixel_size</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">detector_to_sample</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# delta omega=</span><span class="se">\t</span><span class="s">=($B$4/$B$5)^2</span><span class="se">\t</span><span class="s">  valeur calculee :</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">%</span> <span class="p">(</span><span class="n">delta_omega</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# transmission= </span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">transmission</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# epaisseur= </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">thickness</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# moniteur= </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">monitor</span><span class="p">))</span>
+    <span class="n">flux</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">monitor</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">transmission</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">K</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# K = </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> -&gt;Flux </span><span class="se">\t</span><span class="s">=($B$12/$B$10)*$B$13 </span><span class="se">\t</span><span class="s"> ph/s</span><span class="se">\t</span><span class="s">  valeur calculee :</span><span class="se">\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">K</span><span class="p">,</span><span class="n">flux</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;# qraw</span><span class="se">\t</span><span class="s"> q </span><span class="se">\t</span><span class="s">q calc </span><span class="se">\t</span><span class="s"> nombre de points </span><span class="se">\t</span><span class="s"> I raw </span><span class="se">\t</span><span class="s"> I (cm-1)</span><span class="se">\t</span><span class="s"> I (cm-1)Excel</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">q</span><span class="o">=</span><span class="n">calculate_q</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">ligne</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ligne</span> <span class="o">=</span> <span class="n">ligne</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">icm</span><span class="o">=</span><span class="p">(</span><span class="n">iq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">backgd_by_pix</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">delta_omega</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">exposition_time</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">transmission</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">thickness</span><span class="o">*</span><span class="n">flux</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="s">=A</span><span class="si">%s</span><span class="s">*$D$7 </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="se">\t</span><span class="s">=(E</span><span class="si">%s</span><span class="s">-$D$4)/$B$9/$B$8/$B$10/$B$11/$D$13</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">ligne</span><span class="o">+</span><span class="mi">15</span><span class="p">,</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">iq</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">icm</span><span class="p">,</span><span class="n">ligne</span> <span class="o">+</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Rad_Read"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.rap.Rad_Read">[docs]</a><span class="k">def</span> <span class="nf">Rad_Read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Open the averaged data from a rgr file</span>
+<span class="sd">    return qraw,q,iraw,i,n</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">lignes</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="c">#lecture de tout le fichier en une fois</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span>
+    <span class="n">qraw</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">q</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">iraw</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">i</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">n</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lignes</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">lignes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;&gt;</span><span class="s">&#39;#&#39;</span><span class="p">:</span>
+            <span class="n">datas</span><span class="o">=</span><span class="n">lignes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="n">qraw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+            <span class="n">iraw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+            <span class="n">i</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+    <span class="c">#print qraw,q,iraw,i,n</span>
+    <span class="k">return</span> <span class="n">qraw</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">iraw</span><span class="p">,</span><span class="n">i</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,716 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.matplotlibwx &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.matplotlibwx</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="c"># uncomment the following to use wx rather than wxagg</span>
+<span class="c">#matplotlib.use(&#39;WX&#39;)</span>
+<span class="c">#from matplotlib.backends.backend_wx import FigureCanvasWx as FigureCanvas</span>
+
+<span class="c"># comment out the following to use wx rather than wxagg</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">&#39;WXAgg&#39;</span><span class="p">,</span><span class="n">warn</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_wxagg</span> <span class="kn">import</span> <span class="n">FigureCanvasWxAgg</span> <span class="k">as</span> <span class="n">FigCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_wx</span> <span class="kn">import</span> <span class="n">NavigationToolbar2Wx</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="kn">as</span> <span class="nn">font_manager</span>
+<span class="kn">from</span> <span class="nn">pySAXS.guisaxs</span> <span class="kn">import</span> <span class="n">pySaxsColors</span>
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">from</span> <span class="nn">pySAXS.guisaxs</span> <span class="kn">import</span> <span class="n">wxmpl</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+
+<div class="viewcode-block" id="data"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.data">[docs]</a><span class="k">class</span> <span class="nc">data</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">=</span><span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="nb">id</span> <span class="c">#id in the list of datas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="o">=</span><span class="n">error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">color</span>
+        
+        
+</div>
+<div class="viewcode-block" id="PlotFrame"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame">[docs]</a><span class="k">class</span> <span class="nc">PlotFrame</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A matplotlib canvas embedded in a wxPython top-level window.</span>
+
+<span class="sd">    @cvar ABOUT_TITLE: Title of the &quot;About&quot; dialog.</span>
+<span class="sd">    @cvar ABOUT_MESSAGE: Contents of the &quot;About&quot; dialog.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ABOUT_TITLE</span> <span class="o">=</span> <span class="s">&#39;About wxmpl.PlotFrame&#39;</span>
+    <span class="n">ABOUT_MESSAGE</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;wxmpl.PlotFrame </span><span class="se">\n</span><span class="s">&#39;</span>
+        <span class="o">+</span> <span class="s">&#39;Written by Ken McIvor &lt;mcivor@iit.edu&gt;</span><span class="se">\n</span><span class="s">&#39;</span>
+        <span class="o">+</span> <span class="s">&#39;Copyright 2005-2009 Illinois Institute of Technology</span><span class="se">\n</span><span class="s">&#39;</span>
+        <span class="o">+</span> <span class="s">&quot;modified for PySAXS by Olivier Tach&#39;e</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="o">+</span> <span class="s">&#39; CEA / LIONS 2009&#39;</span><span class="p">)</span>
+
+    
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">cursor</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+     <span class="n">location</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">crosshairs</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+     <span class="n">autoscaleUnzoom</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">axetype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new PlotFrame top-level window that is the child of the</span>
+<span class="sd">        wxPython window C{parent} with the wxPython identifier C{id} and the</span>
+<span class="sd">        title of C{title}.</span>
+
+<span class="sd">        All of the named keyword arguments to this constructor have the same</span>
+<span class="sd">        meaning as those arguments to the constructor of C{PlotPanel}.</span>
+
+<span class="sd">        Any additional keyword arguments are passed to the constructor of</span>
+<span class="sd">        C{wx.Frame}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+        <span class="c">#convert size (in pixels) into INCH for figure</span>
+        <span class="n">sizex</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">dpi</span>
+        <span class="n">sizey</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dpi</span>
+        <span class="n">sizeINCH</span><span class="o">=</span><span class="p">(</span><span class="n">sizex</span><span class="p">,</span><span class="n">sizey</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span> <span class="o">=</span> <span class="n">wxmpl</span><span class="o">.</span><span class="n">PlotPanel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">sizeINCH</span><span class="p">,</span> <span class="n">dpi</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span>
+            <span class="n">crosshairs</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">zoom</span><span class="p">)</span>
+
+        <span class="n">pData</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">PrintData</span><span class="p">()</span>
+        <span class="n">pData</span><span class="o">.</span><span class="n">SetPaperId</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">PAPER_LETTER</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">pData</span><span class="p">,</span> <span class="s">&#39;SetPrinterCommand&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)):</span>
+            <span class="n">pData</span><span class="o">.</span><span class="n">SetPrinterCommand</span><span class="p">(</span><span class="n">POSTSCRIPT_PRINTING_COMMAND</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span> <span class="o">=</span> <span class="n">wxmpl</span><span class="o">.</span><span class="n">FigurePrinter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pData</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">datalist</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gridON</span><span class="o">=</span><span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legendON</span><span class="o">=</span><span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">=</span><span class="mi">4</span> <span class="c">#lin lin</span>
+        <span class="k">if</span> <span class="n">axetype</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">=</span><span class="n">axetype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="o">=</span><span class="mi">0</span> <span class="c">#x vs y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linetype</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marker_cycle</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s">&#39;.&#39;</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="s">&#39;^&#39;</span><span class="p">,</span><span class="s">&#39;v&#39;</span><span class="p">,</span><span class="s">&#39;&lt;&#39;</span><span class="p">,</span><span class="s">&#39;&gt;&#39;</span><span class="p">,</span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="s">&#39;+&#39;</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="s">&#39;D&#39;</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">,</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">,</span><span class="s">&#39;3&#39;</span><span class="p">,</span><span class="s">&#39;4&#39;</span><span class="p">,</span><span class="s">&#39;h&#39;</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">,</span><span class="s">&#39;|&#39;</span><span class="p">,</span><span class="s">&#39;_&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marker_fixed</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;.&#39;</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="s">&#39;.-&#39;</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">=</span><span class="n">pySaxsColors</span><span class="o">.</span><span class="n">listOfColors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errbar</span><span class="o">=</span><span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="o">=</span><span class="mi">5</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_menus</span><span class="p">()</span>
+        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ALL</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Fit</span><span class="p">()</span>
+        
+        
+
+<div class="viewcode-block" id="PlotFrame.create_menus"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.create_menus">[docs]</a>    <span class="k">def</span> <span class="nf">create_menus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">mainMenu</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">MenuBar</span><span class="p">()</span>
+        <span class="n">menu</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;&amp;Save As...</span><span class="se">\t</span><span class="s">Ctrl+S&#39;</span><span class="p">,</span><span class="s">&#39;Save a copy of the current plot&#39;</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuFileSave</span><span class="p">)</span>
+
+        <span class="n">menu</span><span class="o">.</span><span class="n">AppendSeparator</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">wx</span><span class="o">.</span><span class="n">Platform</span> <span class="o">!=</span> <span class="s">&#39;__WXMAC__&#39;</span><span class="p">:</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;Page Set&amp;up...&#39;</span><span class="p">,</span>
+                <span class="s">&#39;Set the size and margins of the printed figure&#39;</span><span class="p">)</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuFilePageSetup</span><span class="p">)</span>
+
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;Print Pre&amp;view...&#39;</span><span class="p">,</span>
+                <span class="s">&#39;Preview the print version of the current plot&#39;</span><span class="p">)</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuFilePrintPreview</span><span class="p">)</span>
+
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;&amp;Print...</span><span class="se">\t</span><span class="s">Ctrl+P&#39;</span><span class="p">,</span> <span class="s">&#39;Print the current plot&#39;</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuFilePrint</span><span class="p">)</span>
+
+        <span class="n">menu</span><span class="o">.</span><span class="n">AppendSeparator</span><span class="p">()</span>
+
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;&amp;Close Window</span><span class="se">\t</span><span class="s">Ctrl+W&#39;</span><span class="p">,</span>
+            <span class="s">&#39;Close the current plot window&#39;</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuFileClose</span><span class="p">)</span>
+
+        <span class="n">mainMenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="s">&#39;&amp;File&#39;</span><span class="p">)</span>
+        <span class="c">#-- grid --</span>
+        <span class="n">menu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s">&#39;Grid ON&#39;</span><span class="p">,</span> <span class="s">&#39;Grid On&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnGridOn</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">submenu</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="s">&#39;Grid OFF&#39;</span><span class="p">,</span> <span class="s">&#39;Grid Off&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnGridOff</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;&amp;Grid&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        <span class="c">#-- legend --</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s">&#39;Legend ON&#39;</span><span class="p">,</span> <span class="s">&#39;Legend On&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLegendOn</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">submenu</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="s">&#39;Legend OFF&#39;</span><span class="p">,</span> <span class="s">&#39;Legend Off&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLegendOff</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s">&#39;x Label&#39;</span><span class="p">,</span> <span class="s">&#39;x Label&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLegendXYtitle</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="s">&#39;y Label&#39;</span><span class="p">,</span> <span class="s">&#39;y Label&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLegendXYtitle</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;&amp;Legend and title&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        <span class="c">#-- line format --</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s">&#39;Points&#39;</span><span class="p">,</span> <span class="s">&#39;With points&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s">&#39;Line&#39;</span><span class="p">,</span> <span class="s">&#39;With lines&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">submenu</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="s">&#39;Line and Points&#39;</span><span class="p">,</span> <span class="s">&#39;With linepoints&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="s">&#39;Automatic marker with line&#39;</span><span class="p">,</span> <span class="s">&#39;Automatic marker&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s">&#39;Circle&#39;</span><span class="p">,</span> <span class="s">&#39;With circle&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;Pixel&#39;</span><span class="p">,</span> <span class="s">&#39;With pixel marker&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;With x marker&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormat</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="s">&#39;Line With error bar&#39;</span><span class="p">,</span> <span class="s">&#39;With error bar (if any)&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span><span class="c">#kind=wx.ITEM_RADIO)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLineFormatErrorBar</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;&amp;Line format&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        
+        <span class="c">#-- marker --</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;marker size +&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMarkerChange</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;marker size -&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMarkerChange</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;Marker size&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        <span class="c">#-- axes --</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s">&#39;Autoscale&#39;</span><span class="p">,</span> <span class="s">&#39;autoscale&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_CHECK</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnAutoscale</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="p">)</span>
+        <span class="n">submenu</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s">&#39;Set X range&#39;</span><span class="p">,</span> <span class="s">&#39;Set X range&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnXYRange</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s">&#39;Set Y range&#39;</span><span class="p">,</span> <span class="s">&#39;Set Y range&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnXYRange</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;&amp;xLin-xLin&#39;</span><span class="p">,</span> <span class="s">&#39;Lin-Lin Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLogPlotType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;&amp;xLog-yLog&#39;</span><span class="p">,</span> <span class="s">&#39;Log-Log Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLogPlotType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;&amp;xLog-yLin&#39;</span><span class="p">,</span> <span class="s">&#39;Log-Lin Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLogPlotType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;&amp;xLin-yLog&#39;</span><span class="p">,</span> <span class="s">&#39;Lin-Log Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnLogPlotType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">submenu</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;&amp;Axes&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        
+        <span class="c">#-- type --</span>
+        <span class="n">submenu</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="s">&#39;x y&#39;</span><span class="p">,</span> <span class="s">&#39;x vs y type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnPlotXYType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">41</span><span class="p">,</span> <span class="s">&#39;x*y&#39;</span><span class="p">,</span> <span class="s">&#39;x vs x*y Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnPlotXYType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="s">&#39;x*y2&#39;</span><span class="p">,</span> <span class="s">&#39;x vs x*y2 Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnPlotXYType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">43</span><span class="p">,</span> <span class="s">&#39;x*y3&#39;</span><span class="p">,</span> <span class="s">&#39;x vs x*y3 Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnPlotXYType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">submenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="s">&#39;x*y4&#39;</span><span class="p">,</span> <span class="s">&#39;x vs x*y4 Plot type&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ITEM_RADIO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnPlotXYType</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">=</span><span class="n">menu</span><span class="o">.</span><span class="n">AppendMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="s">&#39;&amp;Y Axes&#39;</span><span class="p">,</span><span class="n">submenu</span><span class="p">)</span>
+        
+        <span class="n">mainMenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="s">&#39;&amp;Plot&#39;</span><span class="p">)</span> <span class="c"># Add the file menu to the menu bar</span>
+
+        <span class="n">menu</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">()</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">NewId</span><span class="p">()</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s">&#39;&amp;About...&#39;</span><span class="p">,</span> <span class="s">&#39;Display version information&#39;</span><span class="p">)</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnMenuHelpAbout</span><span class="p">)</span>
+
+        <span class="n">mainMenu</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="s">&#39;&amp;Help&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetMenuBar</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuFileSave"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuFileSave">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuFileSave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles File-&gt;Save menu events.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fileName</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">FileSelector</span><span class="p">(</span><span class="s">&#39;Save Plot&#39;</span><span class="p">,</span> <span class="n">default_extension</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">,</span>
+            <span class="n">wildcard</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;Portable Network Graphics (*.png)|*.png|&#39;</span>
+                <span class="o">+</span> <span class="s">&#39;Encapsulated Postscript (*.eps)|*.eps|All files (*.*)|*.*&#39;</span><span class="p">),</span>
+            <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">SAVE</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">OVERWRITE_PROMPT</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fileName</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">path</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="n">ext</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ext</span> <span class="o">!=</span> <span class="s">&#39;png&#39;</span> <span class="ow">and</span> <span class="n">ext</span> <span class="o">!=</span> <span class="s">&#39;eps&#39;</span><span class="p">:</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s">&#39;Only the PNG and EPS image formats are supported.</span><span class="se">\n</span><span class="s">&#39;</span>
+                <span class="s">&#39;A file extension of `png</span><span class="se">\&#39;</span><span class="s"> or `eps</span><span class="se">\&#39;</span><span class="s"> must be used.&#39;</span><span class="p">)</span>
+            <span class="n">wx</span><span class="o">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="n">error_message</span><span class="p">,</span> <span class="s">&#39;Error - plotit&#39;</span><span class="p">,</span>
+                <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ICON_ERROR</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">:</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="n">e</span>
+
+            <span class="n">wx</span><span class="o">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="s">&#39;Could not save file: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">err</span><span class="p">,</span> <span class="s">&#39;Error - plotit&#39;</span><span class="p">,</span>
+                <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">ICON_ERROR</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuFilePageSetup"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuFilePageSetup">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuFilePageSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles File-&gt;Page Setup menu events</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">pageSetup</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuFilePrintPreview"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuFilePrintPreview">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuFilePrintPreview</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles File-&gt;Print Preview menu events</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">previewFigure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_figure</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuFilePrint"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuFilePrint">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuFilePrint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles File-&gt;Print menu events</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">printFigure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_figure</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuFileClose"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuFileClose">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuFileClose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles File-&gt;Close menu events.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">=</span><span class="bp">None</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.OnMenuHelpAbout"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMenuHelpAbout">[docs]</a>    <span class="k">def</span> <span class="nf">OnMenuHelpAbout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles Help-&gt;About menu events.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">MessageBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ABOUT_MESSAGE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ABOUT_TITLE</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="PlotFrame.OnGridOn"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnGridOn">[docs]</a>    <span class="k">def</span> <span class="nf">OnGridOn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gridON</span><span class="o">=</span><span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnGridOff"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnGridOff">[docs]</a>    <span class="k">def</span> <span class="nf">OnGridOff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gridON</span><span class="o">=</span><span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="PlotFrame.OnLegendOn"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLegendOn">[docs]</a>    <span class="k">def</span> <span class="nf">OnLegendOn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legendON</span><span class="o">=</span><span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnLegendOff"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLegendOff">[docs]</a>    <span class="k">def</span> <span class="nf">OnLegendOff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">legendON</span><span class="o">=</span><span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span></div>
+<div class="viewcode-block" id="PlotFrame.OnLineFormat"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLineFormat">[docs]</a>    <span class="k">def</span> <span class="nf">OnLineFormat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errbar</span><span class="o">=</span><span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linetype</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">-</span><span class="mi">11</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="PlotFrame.OnLineFormatErrorBar"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLineFormatErrorBar">[docs]</a>    <span class="k">def</span> <span class="nf">OnLineFormatErrorBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errbar</span><span class="o">=</span><span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linetype</span><span class="o">=</span><span class="mi">2</span> <span class="c">#line and point with error bar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnLogPlotType"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLogPlotType">[docs]</a>    <span class="k">def</span> <span class="nf">OnLogPlotType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnPlotXYType"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnPlotXYType">[docs]</a>    <span class="k">def</span> <span class="nf">OnPlotXYType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">-</span><span class="mi">40</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="PlotFrame.OnAutoscale"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnAutoscale">[docs]</a>    <span class="k">def</span> <span class="nf">OnAutoscale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        if self.autoscaleitem.IsChecked():</span>
+<span class="sd">        self.statusbar.Show()</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span></div>
+<div class="viewcode-block" id="PlotFrame.OnMarkerChange"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnMarkerChange">[docs]</a>    <span class="k">def</span> <span class="nf">OnMarkerChange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="nb">id</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="o">==</span><span class="mi">100</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="o">+=</span><span class="mi">2</span>
+        <span class="k">elif</span> <span class="nb">id</span><span class="o">==</span><span class="mi">101</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="o">-=</span><span class="mi">2</span>
+        <span class="c">#print self.markerSize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnLegendXYtitle"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnLegendXYtitle">[docs]</a>    <span class="k">def</span> <span class="nf">OnLegendXYtitle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">==</span><span class="mi">22</span><span class="p">:</span>
+            <span class="c">#set x title</span>
+            <span class="c">#message box for entry</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for x Label :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Insert a text for x Label&quot;</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xlabel</span><span class="p">(),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">xlabel</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">==</span><span class="mi">23</span><span class="p">:</span>
+            <span class="c">#set y title</span>
+            <span class="c">#message box for entry</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for y Label :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Insert a text for y Label&quot;</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ylabel</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.OnXYRange"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.OnXYRange">[docs]</a>    <span class="k">def</span> <span class="nf">OnXYRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+        <span class="n">xlim_min</span><span class="p">,</span><span class="n">xlim_max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+        <span class="n">ylim_min</span><span class="p">,</span><span class="n">ylim_max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">==</span><span class="mi">6</span><span class="p">:</span>
+            <span class="c">#set x range</span>
+            <span class="c">#message box for entry</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for x min :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Value for x min&quot;</span><span class="p">,</span>
+                               <span class="n">defaultValue</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">xlim_min</span><span class="p">),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="n">xlim_min</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for x max :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Value for x max&quot;</span><span class="p">,</span>
+                               <span class="n">defaultValue</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">xlim_max</span><span class="p">),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="n">xlim_max</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+                
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">GetId</span><span class="p">()</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>
+            <span class="c">#set y range</span>
+            <span class="c">#message box for entry</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for y min :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Value for y min&quot;</span><span class="p">,</span>
+                               <span class="n">defaultValue</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ylim_min</span><span class="p">),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="n">ylim_min</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextEntryDialog</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="s">&quot;Value for y max :&quot;</span><span class="p">,</span>
+                               <span class="s">&quot;Value for y max&quot;</span><span class="p">,</span>
+                               <span class="n">defaultValue</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ylim_max</span><span class="p">),</span>
+                               <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span><span class="n">wx</span><span class="o">.</span><span class="n">CANCEL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span><span class="o">==</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+                <span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+                <span class="n">ylim_max</span><span class="o">=</span><span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+                
+        <span class="c">#replot       </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">xlim_min</span><span class="p">,</span><span class="n">xlim_max</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">ylim_min</span><span class="p">,</span><span class="n">ylim_max</span><span class="p">))</span>            
+        <span class="bp">self</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="PlotFrame.get_figure"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.get_figure">[docs]</a>    <span class="k">def</span> <span class="nf">get_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the figure associated with this canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">figure</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_cursor"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_cursor">[docs]</a>    <span class="k">def</span> <span class="nf">set_cursor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable the changing mouse cursor.  When enabled, the cursor</span>
+<span class="sd">        changes from the normal arrow to a square cross when the mouse enters a</span>
+<span class="sd">        matplotlib axes on this canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_cursor</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_location"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_location">[docs]</a>    <span class="k">def</span> <span class="nf">set_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable the display of the matplotlib axes coordinates of the</span>
+<span class="sd">        mouse in the lower left corner of the canvas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_location</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_crosshairs"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_crosshairs">[docs]</a>    <span class="k">def</span> <span class="nf">set_crosshairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable drawing crosshairs through the mouse cursor when it</span>
+<span class="sd">        is inside a matplotlib axes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_crosshairs</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_selection"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_selection">[docs]</a>    <span class="k">def</span> <span class="nf">set_selection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable area selections, where user selects a rectangular</span>
+<span class="sd">        area of the canvas by left-clicking and dragging the mouse.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_selection</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_zoom"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_zoom">[docs]</a>    <span class="k">def</span> <span class="nf">set_zoom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable zooming in when the user makes an area selection and</span>
+<span class="sd">        zooming out again when the user right-clicks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_zoom</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.set_autoscale_unzoom"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.set_autoscale_unzoom">[docs]</a>    <span class="k">def</span> <span class="nf">set_autoscale_unzoom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable automatic view rescaling when the user zooms out to</span>
+<span class="sd">        the initial figure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">set_autoscale_unzoom</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.draw"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Draw the associated C{Figure} onto the screen.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.get_marker"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.get_marker">[docs]</a>    <span class="k">def</span> <span class="nf">get_marker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return an infinite, cycling iterator over the available marker symbols.</span>
+<span class="sd">        or a fixed marker symbol</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c">#--line style</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">linetype</span><span class="o">&lt;=</span><span class="mi">5</span><span class="p">:</span>
+            <span class="c">#predifined marker</span>
+            <span class="n">lstyle</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">marker_fixed</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">linetype</span><span class="p">]</span>
+            <span class="c">#print lstyle</span>
+            <span class="k">return</span> <span class="n">lstyle</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c">#automatic marker</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">marker_cycle</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">+</span><span class="s">&#39;-&#39;</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.get_color"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.get_color">[docs]</a>    <span class="k">def</span> <span class="nf">get_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; return a color name from the list of colors</span>
+<span class="sd">        if n&gt; length of list of colors, return at the beginning</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">t</span><span class="o">=</span><span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">))</span> <span class="c">#return the no of color in the list</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                
+    
+        
+    </div>
+<div class="viewcode-block" id="PlotFrame.replot"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.replot">[docs]</a>    <span class="k">def</span> <span class="nf">replot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+        <span class="n">xlim_min</span><span class="p">,</span><span class="n">xlim_max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+        <span class="n">ylim_min</span><span class="p">,</span><span class="n">ylim_max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span> <span class="c">#clear</span>
+        <span class="c">#-- autoscale</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">autoscaleitem</span><span class="o">.</span><span class="n">IsChecked</span><span class="p">():</span>
+            <span class="c">#self.axes.autoscale_view(tight=False, scalex=True, scaley=True)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_autoscale_on</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">pass</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="c">#print &quot;not auto scale&quot;, xlim_min,ylim_min, xlim_max,ylim_max</span>
+            <span class="c">#self.axes.autoscale_view(tight=False, scalex=False, scaley=False)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_autoscale_on</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="c">#self.axes.set_autoscalex_on(False)</span>
+            <span class="c">#self.axes.set_autoscaley_on(False)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">xlim_min</span><span class="p">,</span><span class="n">xlim_max</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">ylim_min</span><span class="p">,</span><span class="n">ylim_max</span><span class="p">))</span>
+        <span class="c">#-- datas</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datalist</span><span class="p">:</span>
+            <span class="c">#which color ?</span>
+            <span class="n">col</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_color</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">color</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+                <span class="n">col</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">color</span>
+            <span class="c">#print d.label,d.y,d.color    </span>
+            <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">error</span><span class="o">!=</span><span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">errbar</span><span class="p">:</span>
+                <span class="c">#print &quot;with errorbar&quot;</span>
+                <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="p">),</span><span class="n">yerr</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">error</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="p">),</span><span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span>\
+                                       <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">,</span>\
+                                       <span class="n">label</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">label</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">)</span><span class="c">#,label=d.label,markersize=5,fmt=None)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="p">),</span><span class="n">yerr</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>\
+                                       <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">label</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="p">)</span><span class="c">#,label=d.label,markersize=5,fmt=None)</span>
+                
+            <span class="k">elif</span> <span class="n">col</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="p">),</span>\
+                               <span class="bp">self</span><span class="o">.</span><span class="n">get_marker</span><span class="p">(),</span>\
+                               <span class="n">label</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>\
+                               <span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span>\
+                               <span class="n">markersize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">plotexp</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">get_marker</span><span class="p">(),</span>\
+                               <span class="n">label</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">label</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">markerSize</span><span class="p">)</span>
+        <span class="c">#--grid</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gridON</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        
+        <span class="c">#--scale</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axetype</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+        
+        <span class="c">#--legend    </span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">legendON</span><span class="p">:</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;italic&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="s">&#39;x-small&#39;</span><span class="p">)</span>
+            <span class="n">leg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper right&#39;</span><span class="p">,</span><span class="n">prop</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+            <span class="c">#leg.get_frame().set_alpha(0.5)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c">#-- x and y label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xlabel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ylabel</span><span class="p">)</span>
+        <span class="c">#self.axes.set_title(&#39;Minimum Message Length&#39;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="PlotFrame.addData"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.addData">[docs]</a>    <span class="k">def</span> <span class="nf">addData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; datas to the plot</span>
+<span class="sd">        x and y are datas</span>
+<span class="sd">        label : the name of datas</span>
+<span class="sd">        id : no of datas in a list -&gt; give the colors</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">newdata</span><span class="o">=</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">error</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="c">#self.datalist.append([x,y,label,id])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datalist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="PlotFrame.clearData"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.matplotlibwx.PlotFrame.clearData">[docs]</a>    <span class="k">def</span> <span class="nf">clearData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datalist</span><span class="o">=</span><span class="p">[]</span>
+    
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">PlotFrame</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="s">&quot;Monocylinder&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span><span class="mi">500</span><span class="p">))</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">pySAXS.models</span> <span class="kn">import</span> <span class="n">MonoCylinder</span>
+    <span class="n">modl</span><span class="o">=</span><span class="n">MonoCylinder</span><span class="p">()</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">modl</span><span class="o">.</span><span class="n">getIntensity</span><span class="p">()</span>
+    <span class="n">err</span><span class="o">=</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="c">#random.rand(len(x))/10</span>
+    <span class="c">#err=err*y</span>
+    <span class="c">#print err</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;monocylinder&#39;</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="n">err</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;q (A)&quot;</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;I (cm-1)&quot;</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">replot</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

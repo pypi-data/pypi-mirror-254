@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.guisaxs.LSneutronDlg &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.guisaxs.LSneutronDlg</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pySAXS.LS</span> <span class="kn">import</span> <span class="n">LSneutron</span> <span class="k">as</span> <span class="n">LSneutron</span>
+
+<div class="viewcode-block" id="LSNeutronCon"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSneutronDlg.LSNeutronCon">[docs]</a><span class="k">class</span> <span class="nc">LSNeutronCon</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="p">):</span>
+        <span class="n">wx</span><span class="o">.</span><span class="n">Frame</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Calculation of Neutron contrasts&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">),</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">DEFAULT_FRAME_STYLE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetBackgroundColour</span><span class="p">(</span><span class="s">&quot;White&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chlist</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sld</span><span class="o">=</span><span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nlength</span><span class="o">=</span><span class="mf">0.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamda</span><span class="o">=</span><span class="mf">1.8</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Element</span><span class="o">=</span><span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Number</span><span class="o">=</span><span class="bp">False</span>
+      
+        
+        <span class="n">b</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Reset&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">400</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnResetClick</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="s">&quot;Calculate&quot;</span><span class="p">,</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">400</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnAction</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+        <span class="n">t0</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Neutron SLD and Absorption Calculation Applet&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">font1</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">SWISS</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+        <span class="n">t0</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font1</span><span class="p">)</span>
+        <span class="n">t0</span><span class="o">.</span><span class="n">SetForegroundColour</span><span class="p">(</span><span class="s">&quot;Blue&quot;</span><span class="p">)</span>
+        <span class="n">t1</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Add Element&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">SWISS</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+        <span class="n">t1</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">chEle</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">choices</span> <span class="o">=</span> <span class="n">LSneutron</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CHOICE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnAddAtom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chEle</span><span class="p">)</span>
+        
+        <span class="n">t2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="s">&quot;Choose Atom Number&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">t2</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="n">a</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chNum</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span><span class="n">choices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chlist</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_CHOICE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OnAddNum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chNum</span><span class="p">)</span>
+        
+        <span class="c">#self.Bind(wx.EVT_CHOICE,self.OnAddAtom,self.chNum)</span>
+        
+        <span class="n">t3</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Density (gm/c.c)&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">t3</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>   
+
+        <span class="n">t4</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Wavelength (A)&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">t4</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">textctr2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">TextCtrl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lamda</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">wx</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>   
+        <span class="c">#self.Bind(wx.EVT_TEXT,self.OnAction)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s">&quot;Chemical Formula=  &quot;</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
+        <span class="c">#font = wx.Font(10, wx.SWISS, wx.NORMAL, wx.NORMAL)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s">&quot;Scattering Length Density= &quot;</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">250</span><span class="p">))</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">SWISS</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">show2</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">StaticText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s">&quot;Neuton 1/e Length (cm)= &quot;</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show2</span><span class="o">.</span><span class="n">SetFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="LSNeutronCon.OnAddAtom"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSneutronDlg.LSNeutronCon.OnAddAtom">[docs]</a>    <span class="k">def</span> <span class="nf">OnAddAtom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Element</span><span class="o">==</span><span class="bp">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">GetString</span><span class="p">()))</span>
+            
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">GetLabel</span><span class="p">()</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">GetString</span><span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Element</span><span class="o">=</span><span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Number</span><span class="o">=</span><span class="bp">False</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MessageDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Enter the Number of the Atom already choosen&quot;</span><span class="p">,</span>  <span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">ICON_INFORMATION</span><span class="p">)</span>
+            <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+
+        
+        </div>
+<div class="viewcode-block" id="LSNeutronCon.OnAddNum"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSneutronDlg.LSNeutronCon.OnAddNum">[docs]</a>    <span class="k">def</span> <span class="nf">OnAddNum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Number</span><span class="o">==</span><span class="bp">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">GetString</span><span class="p">())))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">GetLabel</span><span class="p">()</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">GetString</span><span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Number</span><span class="o">=</span><span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Element</span><span class="o">=</span><span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MessageDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Enter new Atom for which you have choosen the number&quot;</span><span class="p">,</span>  <span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">ICON_INFORMATION</span><span class="p">)</span>
+            <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+            
+            </div>
+<div class="viewcode-block" id="LSNeutronCon.OnAction"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSneutronDlg.LSNeutronCon.OnAction">[docs]</a>    <span class="k">def</span> <span class="nf">OnAction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="p">))</span> <span class="ow">or</span>  <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span><span class="o">==</span><span class="mf">0.</span><span class="p">)):</span>
+            <span class="n">dlg</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">MessageDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;Either Atom and/or  number and/or Density is missing&quot;</span><span class="p">,</span>  <span class="n">style</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">OK</span><span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">ICON_INFORMATION</span><span class="p">)</span>
+            <span class="n">dlg</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sld</span><span class="o">=</span><span class="n">LSneutron</span><span class="o">.</span><span class="n">ScaLengthDensity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamda</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">textctr2</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nlength</span><span class="o">=</span> <span class="n">LSneutron</span><span class="o">.</span><span class="n">PeneDepth</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">lamda</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="s">&quot;Scattering Length Density (cm-2)= &quot;</span><span class="o">+</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%1.3e</span><span class="s">&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">sld</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show2</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="s">&quot;Neuton 1/e Length (cm)= &quot;</span><span class="o">+</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%f</span><span class="s">&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">nlength</span><span class="p">))</span>
+        </div>
+<div class="viewcode-block" id="LSNeutronCon.OnResetClick"><a class="viewcode-back" href="../../../pySAXS.guisaxs.html#pySAXS.guisaxs.LSneutronDlg.LSNeutronCon.OnResetClick">[docs]</a>    <span class="k">def</span> <span class="nf">OnResetClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Num</span><span class="o">=</span><span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="s">&quot;Scattering Length Density (cm-2)=&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showformula</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="s">&quot;Chemical Formula= &quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show2</span><span class="o">.</span><span class="n">SetLabel</span><span class="p">(</span><span class="s">&quot;Neuton 1/e Length (cm)= &quot;</span><span class="p">)</span>
+        
+<span class="c">##if __name__ == &#39;__main__&#39;:</span>
+<span class="c">##    app = wx.PySimpleApp()</span>
+<span class="c">##    frame = LSNeutronCon(None)</span>
+<span class="c">##    frame.Show()</span>
+<span class="c">##    app.MainLoop()       </span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

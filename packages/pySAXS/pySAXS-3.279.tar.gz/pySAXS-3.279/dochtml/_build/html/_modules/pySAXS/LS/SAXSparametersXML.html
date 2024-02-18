@@ -1,0 +1,538 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pySAXS.LS.SAXSparametersXML &mdash; pySAXS 77.September2012 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '77.September2012',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pySAXS 77.September2012 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pySAXS.LS.SAXSparametersXML</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">project : pySAXS</span>
+<span class="sd">description : class for radial average parameters</span>
+<span class="sd">authors : Olivier Tache</span>
+<span class="sd">Last changes :</span>
+<span class="sd">2012 : replacing the old SAXSparameters</span>
+
+<span class="sd">IMPORTANT HERE :</span>
+<span class="sd">THE INITIALS PARAMETERS FOR ABSOLUTE SCALE</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">xml_init</span><span class="o">=</span><span class="s">&#39;&lt;parameters&gt;</span><span class="se">\</span>
+<span class="s">    &lt;comment datatype=&quot;string&quot; description=&quot;comment&quot; order=&quot;10&quot;&gt;comment&lt;/comment&gt;</span><span class="se">\</span>
+<span class="s">    &lt;D datatype=&quot;float&quot; description=&quot;Detector to sample distance (cm)&quot; order=&quot;3&quot;&gt;1.0&lt;/D&gt;</span><span class="se">\</span>
+<span class="s">    &lt;TransmittedFlux datatype=&quot;float&quot; description=&quot;Transmitted Flux&quot; order=&quot;12&quot;&gt;-1.0&lt;/TransmittedFlux&gt;</span><span class="se">\</span>
+<span class="s">    &lt;transmission datatype=&quot;float&quot; description=&quot;Transmission&quot; order=&quot;13&quot; formula=&quot;TransmittedFlux/IncidentFlux&quot;&gt;-1.0&lt;/transmission&gt;</span><span class="se">\</span>
+<span class="s">    &lt;flux datatype=&quot;float&quot; description=&quot;Total Flux = Incident Flux * K (ph/s)&quot; order=&quot;17&quot; formula=&quot;IncidentFlux*K&quot;&gt;1.0&lt;/flux&gt;</span><span class="se">\</span>
+<span class="s">    &lt;K datatype=&quot;float&quot; description=&quot;K constant&quot; order=&quot;16&quot;&gt;1.0&lt;/K&gt;</span><span class="se">\</span>
+<span class="s">    &lt;thickness datatype=&quot;float&quot; description=&quot;Thickness&quot; order=&quot;14&quot;&gt;-1.0&lt;/thickness&gt;</span><span class="se">\</span>
+<span class="s">    &lt;DeltaOmega datatype=&quot;float&quot; description=&quot;Delta Omega&quot; order=&quot;15&quot; formula=&quot;(pixel_size/D)**2&quot;&gt;1.0&lt;/DeltaOmega&gt;</span><span class="se">\</span>
+<span class="s">    &lt;filename datatype=&quot;file&quot; description=&quot;Filename&quot; order=&quot;1&quot;&gt;param.par&lt;/filename&gt;</span><span class="se">\</span>
+<span class="s">    &lt;q_by_pixel datatype=&quot;float&quot; description=&quot;q by pixel (-1 if not used)&quot; order=&quot;5&quot;&gt;-1.0&lt;/q_by_pixel&gt;</span><span class="se">\</span>
+<span class="s">    &lt;backgd_by_s datatype=&quot;float&quot; description=&quot;Background by second&quot; order=&quot;7&quot;&gt;0.0&lt;/backgd_by_s&gt;</span><span class="se">\</span>
+<span class="s">    &lt;backgd_by_pix datatype=&quot;float&quot; description=&quot;Background by pixel&quot; order=&quot;8&quot;&gt;0.0&lt;/backgd_by_pix&gt;</span><span class="se">\</span>
+<span class="s">    &lt;backgd datatype=&quot;float&quot; description=&quot;Total background (B by pixel + B by s * time)&quot; order=&quot;9&quot; formula=&quot;backgd_by_pix+backgd_by_s*time&quot;&gt;0.0&lt;/backgd&gt;</span><span class="se">\</span>
+<span class="s">    &lt;time datatype=&quot;float&quot; description=&quot;Exposition time (s)&quot; order=&quot;6&quot;&gt;1.0&lt;/time&gt;</span><span class="se">\</span>
+<span class="s">    &lt;wavelength datatype=&quot;float&quot; description=&quot;Wavelength (A)&quot; order=&quot;2&quot;&gt;1.542&lt;/wavelength&gt;</span><span class="se">\</span>
+<span class="s">    &lt;IncidentFlux datatype=&quot;float&quot; description=&quot;Incident Flux&quot; order=&quot;11&quot;&gt;-1.0&lt;/IncidentFlux&gt;</span><span class="se">\</span>
+<span class="s">    &lt;pixel_size datatype=&quot;int&quot; description=&quot;Pixel size (cm)&quot; order=&quot;4&quot;&gt;1&lt;/pixel_size&gt;</span><span class="se">\</span>
+<span class="s">&lt;/parameters&gt;&#39;</span>
+
+<span class="c">#-------------------------------------------------</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+<span class="kn">from</span> <span class="nn">pySAXS.tools</span> <span class="kn">import</span> <span class="n">xmltools</span>
+
+
+<span class="c"># ----------------------------------------------------------------------------------</span>
+
+
+<div class="viewcode-block" id="SAXSparameters"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters">[docs]</a><span class="k">class</span> <span class="nc">SAXSparameters</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Radial Average Parameters -</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">printout</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">=</span><span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printout</span><span class="o">=</span><span class="n">printout</span>
+        <span class="n">element</span><span class="o">=</span><span class="n">ElementTree</span><span class="o">.</span><span class="n">XML</span><span class="p">(</span><span class="n">xml_init</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getFromXML</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+ 
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chaine</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="n">chaine</span><span class="o">+=</span><span class="nb">str</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">var</span><span class="p">])</span><span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="k">return</span> <span class="n">chaine</span>
+
+<div class="viewcode-block" id="SAXSparameters.printTXT"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.printTXT">[docs]</a>    <span class="k">def</span> <span class="nf">printTXT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">txt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">par</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">printout</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">par</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printout</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span><span class="n">par</span><span class="p">)</span>
+            </div>
+<div class="viewcode-block" id="SAXSparameters.get"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">variable</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return the value of the specified variable</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        </div>
+<div class="viewcode-block" id="SAXSparameters.set"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">variable</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        change the value of the specified variable</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.order"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.order">[docs]</a>    <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return a list with dictionnary key ordered</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">l</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="n">l</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">order</span><span class="p">]</span><span class="o">=</span><span class="n">name</span>
+        <span class="n">list_ordered</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="nb">ord</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">list_ordered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="nb">ord</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">list_ordered</span>
+
+</div>
+<div class="viewcode-block" id="SAXSparameters.save_printable"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.save_printable">[docs]</a>    <span class="k">def</span> <span class="nf">save_printable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        save in a txt file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__repr__</span><span class="p">())</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">file_name</span><span class="p">,</span><span class="s">&quot; saved&quot;</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.save"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        save in a pickle (binary) file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="kn">import</span> <span class="nn">pickle</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+</div>
+<div class="viewcode-block" id="SAXSparameters.load"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        load from a pickle (binary) file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="kn">import</span> <span class="nn">pickle</span>
+        <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">par</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">par</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="n">datatype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">])(</span><span class="n">par</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="n">par</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.xml"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.xml">[docs]</a>    <span class="k">def</span> <span class="nf">xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return an xml object</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">root_element</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s">&quot;parameters&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">keys</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">root_element</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">xml</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">root_element</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.xmlString"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.xmlString">[docs]</a>    <span class="k">def</span> <span class="nf">xmlString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return a xml string</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xml</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="SAXSparameters.saveXML"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.saveXML">[docs]</a>    <span class="k">def</span> <span class="nf">saveXML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        save in a xml file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">root_element</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xml</span><span class="p">()</span>
+        <span class="n">el</span><span class="o">=</span><span class="n">ElementTree</span><span class="o">.</span><span class="n">ElementTree</span><span class="p">()</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">_setroot</span><span class="p">(</span><span class="n">root_element</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+            </div>
+<div class="viewcode-block" id="SAXSparameters.getFromXML"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.getFromXML">[docs]</a>    <span class="k">def</span> <span class="nf">getFromXML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">xmlElement</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get parameters from xml element</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">subelement</span> <span class="ow">in</span> <span class="n">xmlElement</span><span class="p">:</span>
+            <span class="c">#get all element in root element</span>
+            <span class="n">tag</span><span class="o">=</span><span class="n">subelement</span><span class="o">.</span><span class="n">tag</span> <span class="c">#get tag ie &lt;time&gt; or &lt;flux&gt;</span>
+            <span class="c">#print tag</span>
+            <span class="n">newpar</span><span class="o">=</span><span class="n">parameter</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">newpar</span><span class="o">.</span><span class="n">getfromXML</span><span class="p">(</span><span class="n">subelement</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span><span class="o">=</span><span class="n">newpar</span>
+        <span class="c">#self.__repr__()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">goodCalculation</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="SAXSparameters.goodCalculation"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.goodCalculation">[docs]</a>    <span class="k">def</span> <span class="nf">goodCalculation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        modify some parameter for good calculation :</span>
+<span class="sd">        - backg=dbackgd_by_pix+backgd_by_s*time</span>
+<span class="sd">        - transmission=TransmittedFlux/IncidentFlux</span>
+<span class="sd">        - DeltaOmega=(pixel_size/D)**2</span>
+<span class="sd">        - flux=IncidentFlux*K</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="s">&quot;backgd_by_pix+backgd_by_s*time&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="s">&quot;TransmittedFlux/IncidentFlux&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="s">&quot;(pixel_size/D)**2&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="s">&quot;IncidentFlux*K&quot;</span>
+       </div>
+<div class="viewcode-block" id="SAXSparameters.openXML"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.openXML">[docs]</a>    <span class="k">def</span> <span class="nf">openXML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        read from a xml file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">printout</span><span class="p">)</span>
+        <span class="n">element</span><span class="o">=</span><span class="n">ElementTree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">=</span><span class="n">element</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="o">==</span><span class="s">&#39;parameters&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getFromXML</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculate_All"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculate_All">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_All</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculate all the functions defined </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#print self.parameters.items()</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">values</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c">#print key</span>
+            <span class="n">res</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;=&quot;</span><span class="o">+</span><span class="n">values</span><span class="o">.</span><span class="n">formula</span><span class="o">+</span><span class="s">&quot;=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+        
+<span class="c"># ----------------------------------------------------------------------------------</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.eval_function"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.eval_function">[docs]</a>    <span class="k">def</span> <span class="nf">eval_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">formula</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return the evaluated value</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#create the dict</span>
+        <span class="n">d</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">val</span><span class="o">.</span><span class="n">value</span>
+        <span class="c">#print formula,&quot;&lt;--&quot;,d</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ret</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ret</span>
+        <span class="k">except</span> <span class="ne">NameError</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;Formula error in xml expression (&quot;</span><span class="o">+</span><span class="n">formula</span><span class="o">+</span><span class="s">&#39;) :&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span> <span class="n">e</span><span class="p">))</span>
+        
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculate_q_by_pix"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculate_q_by_pix">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_q_by_pix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        calculate q by pix in A-1 from parameters (RAP)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;q_by_pixel&#39;</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate_q</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculate_q"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculate_q">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        calculate q in A-1 from parameters</span>
+<span class="sd">        n : pixel number</span>
+<span class="sd">        ----------------------------------</span>
+<span class="sd">        q=(4*pi/lambda)*sin(theta/2)</span>
+<span class="sd">        with tan(theta)=d/D</span>
+<span class="sd">        D : sample detector distance</span>
+<span class="sd">        d : pixel number (n) * pixel size</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;q_by_pixel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&#39;q=(4*pi/lambda)*sin(theta/2)   with tan(theta)=d/D    D : sample detector distance   d : pixel number (n) * pixel size&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">((</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;wavelength&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">arctan</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;pixel_size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;q_by_pixel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculTransm"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculTransm">[docs]</a>    <span class="k">def</span> <span class="nf">calculTransm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculate Transmission</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;Transmitted_Flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;Incident_Flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculDeltaOmega"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculDeltaOmega">[docs]</a>    <span class="k">def</span> <span class="nf">calculDeltaOmega</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculate DeltaOmega</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#--deltaomega</span>
+        <span class="c">#print &quot;DeltaOmega=(pixel size / distance sample detector)^2&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;pixel_size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculTotalFlux"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculTotalFlux">[docs]</a>    <span class="k">def</span> <span class="nf">calculTotalFlux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculate Flux</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;IncidentFlux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculBack"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculBack">[docs]</a>    <span class="k">def</span> <span class="nf">calculBack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculate background</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd_by_pix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd_by_s&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</div>
+<div class="viewcode-block" id="SAXSparameters.calculate_i"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.calculate_i">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">deviation</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">bdeviation</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calculate i in cm-1 from parameters</span>
+<span class="sd">        n : raw intensity</span>
+<span class="sd">        b : empty cell to substract</span>
+<span class="sd">        deviation : absolute deviation for i</span>
+<span class="sd">        bdeviation : absolute deviation for background</span>
+<span class="sd">        -----------------------------------</span>
+<span class="sd">        DeltaOmega=(pixel size / distance sample detector)^2</span>
+<span class="sd">        Flux = (monitor/transmission)*K</span>
+<span class="sd">        Intensity=(n-background)/(time * DeltaOmega * Transmission * Thickness * Flux)</span>
+<span class="sd">        if empty cell (b) then     Final Intensity=( Intensity(with Thickness=1) - empty cell)/thickness</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;---- setting absolute scale ----&quot;</span><span class="p">)</span>
+        <span class="c">#--deltaomega</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;DeltaOmega=(pixel size / distance sample detector)^2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&#39;Delta Omega is : &#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="c">#-- flux</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span><span class="s">&quot;Flux = (monitor/transmission)*K&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;Flux is : (cps/s) &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="c">#-- background</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;background is&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">deviation</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">newdeviation</span><span class="o">=</span><span class="n">deviation</span>
+        <span class="c">#-- I</span>
+        <span class="k">if</span> <span class="n">b</span><span class="o">==</span><span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;Intensity=(n-background)/(time * DeltaOmega * Transmission * Thickness * Flux)&quot;</span><span class="p">)</span>
+            <span class="n">i</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">deviation</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;Calculating deviation&quot;</span><span class="p">)</span>
+                <span class="n">newdeviation</span><span class="o">=</span><span class="n">deviation</span><span class="o">/</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;Intensity=(n-background)/(time * DeltaOmega * Transmission * Flux)&quot;</span><span class="p">)</span>
+            <span class="n">i</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;Final Intensity=( Intensity - empty cell)/thickness&quot;</span><span class="p">)</span>
+            <span class="n">i</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="n">bdeviation</span><span class="o">!=</span><span class="bp">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">deviation</span><span class="o">!=</span><span class="bp">None</span><span class="p">):</span>
+                <span class="n">newdeviation</span><span class="o">=</span><span class="n">deviation</span><span class="o">/</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">newdeviation</span><span class="o">=</span><span class="p">(</span><span class="n">newdeviation</span><span class="o">-</span><span class="n">bdeviation</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;background deviation is not specified, impossible to manage deviation &quot;</span><span class="p">)</span>
+                <span class="n">deviation</span><span class="o">=</span><span class="bp">None</span>
+                
+        <span class="bp">self</span><span class="o">.</span><span class="n">printTXT</span><span class="p">(</span> <span class="s">&quot;---- intensity scaled for &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="s">&quot; datas ----&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">deviation</span><span class="o">!=</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span><span class="p">,</span><span class="n">newdeviation</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span><span class="p">,</span><span class="bp">None</span>
+
+            </div>
+<div class="viewcode-block" id="SAXSparameters.importOLD"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.SAXSparameters.importOLD">[docs]</a>    <span class="k">def</span> <span class="nf">importOLD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        let us to import a old parameter file</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="kn">from</span> <span class="nn">pySAXS.LS</span> <span class="kn">import</span> <span class="n">SAXSparametersOLD</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">SAXSparametersOLD</span><span class="o">.</span><span class="n">SAXSparametersOLD</span><span class="p">()</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;wavelength&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;wavelength&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;D&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;pixel_size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;pixel size&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;q_by_pixel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;q by pixel&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd_by_s&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd by s&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd_by_pix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd by pix&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;backgd&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;comment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;comment&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;IncidentFlux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;Incident Flux&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;TransmittedFlux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;Transmitted Flux&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;transmission&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;thickness&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;DeltaOmega&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;K&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;K&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span>
+        
+<span class="c">#----------------------------------------------------------------------------------------------------</span>
+        </div></div>
+<div class="viewcode-block" id="parameter"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter">[docs]</a><span class="k">class</span> <span class="nc">parameter</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    class for parameters</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">order</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">formula</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">datatype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">=</span><span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">=</span><span class="n">order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="o">=</span><span class="n">datatype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">=</span><span class="n">parent</span>
+        
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="s">&quot;&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;(&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">+</span><span class="s">&quot;) : &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">+</span> <span class="s">&quot; CALCULATED from &quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">formula</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;(&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">+</span><span class="s">&quot;) : &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="parameter.get"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        return the value of the parameter</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+    </div>
+<div class="viewcode-block" id="parameter.set"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        set the value of the parameter</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">value</span>
+    </div>
+<div class="viewcode-block" id="parameter.eval"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter.eval">[docs]</a>    <span class="k">def</span> <span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;if self.evaluationFunction&lt;&gt;None:</span>
+<span class="sd">            self.value=self.evaluationFunction()</span>
+<span class="sd">            return self.value</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="s">&quot;&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+            <span class="n">val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">eval_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">val</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+            </div>
+<div class="viewcode-block" id="parameter.xml"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter.xml">[docs]</a>    <span class="k">def</span> <span class="nf">xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            return an element xml</span>
+<span class="sd">            &lt;time description=&#39;time(s)&#39; order=&#39;2&#39; formula=&#39;e=mc**2&#39; datatype=&#39;float&#39;&gt;1.25&lt;/time&gt;</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            <span class="n">attrib</span><span class="o">=</span><span class="p">{}</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="n">attrib</span><span class="p">[</span><span class="s">&quot;description&quot;</span><span class="p">]</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="n">attrib</span><span class="p">[</span><span class="s">&quot;order&quot;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="n">attrib</span><span class="p">[</span><span class="s">&quot;formula&quot;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="o">&lt;&gt;</span><span class="bp">None</span><span class="p">:</span>
+                <span class="n">attrib</span><span class="p">[</span><span class="s">&quot;datatype&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">xmltools</span><span class="o">.</span><span class="n">getDatatype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="c">#attrib[&quot;datatype&quot;]=str(self.datatype)</span>
+            <span class="c">#else:</span>
+               
+            <span class="n">xml</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">attrib</span><span class="p">)</span>
+            <span class="n">xml</span><span class="o">.</span><span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="c"># ie  : &lt;time description=&#39;time in s&#39; order=0 datatype=&#39;&#39;&gt;3600.0&lt;/time&gt;</span>
+            <span class="k">return</span> <span class="n">xml</span>
+             </div>
+<div class="viewcode-block" id="parameter.getfromXML"><a class="viewcode-back" href="../../../pySAXS.LS.html#pySAXS.LS.SAXSparametersXML.parameter.getfromXML">[docs]</a>    <span class="k">def</span> <span class="nf">getfromXML</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">xmlElement</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        initialization given by xml element</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">xmlElement</span><span class="o">.</span><span class="n">tag</span>
+        <span class="n">attrib</span><span class="o">=</span><span class="n">xmlElement</span><span class="o">.</span><span class="n">attrib</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">xmlElement</span><span class="o">.</span><span class="n">text</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="o">=</span><span class="bp">None</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">attrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;description&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">attrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;order&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;order&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">attrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;formula&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;formula&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">attrib</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;datatype&#39;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="o">=</span><span class="n">attrib</span><span class="p">[</span><span class="s">&#39;datatype&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">xmltools</span><span class="o">.</span><span class="n">convertText</span><span class="p">(</span><span class="n">xmlElement</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="n">text</span>
+        <span class="k">return</span> <span class="bp">self</span>
+        </div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pySAXS 77.September2012 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, CEA - IRAMIS - LIONS.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
