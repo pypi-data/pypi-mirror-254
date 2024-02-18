@@ -1,0 +1,2 @@
+[console_scripts]
+source-paypal-transaction = source_paypal_transaction.run:run
