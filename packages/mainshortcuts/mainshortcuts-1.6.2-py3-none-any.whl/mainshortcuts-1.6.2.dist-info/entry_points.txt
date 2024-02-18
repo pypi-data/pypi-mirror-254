@@ -1,0 +1,6 @@
+[console_scripts]
+MS-getCore=MainShortcuts.script:getCore
+MS-jsonC=MainShortcuts.script:jsonCompress
+MS-jsonP=MainShortcuts.script:jsonPretty
+MS-mkdir=MainShortcuts.script:mkdir
+
