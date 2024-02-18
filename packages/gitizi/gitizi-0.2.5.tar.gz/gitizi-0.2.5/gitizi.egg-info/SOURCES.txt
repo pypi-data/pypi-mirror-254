@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+gitizi/__init__.py
+gitizi/cli.py
+gitizi/exceptions.py
+gitizi/util.py
+gitizi.egg-info/PKG-INFO
+gitizi.egg-info/SOURCES.txt
+gitizi.egg-info/dependency_links.txt
+gitizi.egg-info/entry_points.txt
+gitizi.egg-info/requires.txt
+gitizi.egg-info/top_level.txt
+gitizi/ai/__init__.py
+gitizi/ai/context/__init__.py
+gitizi/ai/context/squash.py
