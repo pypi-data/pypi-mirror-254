@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: cppiniter
+Version: 1.1.1
+Summary: C++项目脚手架
+Home-page: https://github.com/xyz1001/cppiniter
+Author: xyz1001
+Author-email: zgzf1001@gmail.com
+License: MIT
+Keywords: c++ scaffolding
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+
+用于提供C++项目开发环境的初始化
