@@ -1,0 +1,2 @@
+[console_scripts]
+source-yahoo-finance-price = source_yahoo_finance_price.run:run
