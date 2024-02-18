@@ -1,0 +1,112 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "elasticsearch-curator"
+authors = [{ name="Elastic", email="info@elastic.co" }]
+dynamic = ["version"]
+description = "Tending your Elasticsearch indices and snapshots"
+license = { text="Apache-2.0" }
+readme = "README.rst"
+requires-python = ">=3.8"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = [
+    'elasticsearch',
+    'time-series',
+    'indexed',
+    'index-expiry'
+]
+dependencies = [
+    "es_client==8.12.3"
+]
+
+[project.optional-dependencies]
+test = [
+    "mock",
+    "requests",
+    "pytest >=7.2.1",
+    "pytest-cov",
+]
+doc = ["sphinx", "sphinx_rtd_theme"]
+
+[project.scripts]
+curator = "curator.cli:cli"
+curator_cli = "curator.singletons:curator_cli"
+es_repo_mgr = "curator.repomgrcli:repo_mgr_cli"
+
+[project.urls]
+"Homepage" = "https://github.com/elastic/curator"
+"Bug Tracker" = "https://github.com/elastic/curator/issues"
+
+[tool.hatch.version]
+path = "curator/_version.py"
+
+[tool.hatch.module]
+name = "curator"
+
+[tool.hatch.build]
+include = [
+  "curator/*.py",
+  "curator/actions/*.py",
+  "curator/cli_singletons/*.py",
+  "curator/defaults/*.py",
+  "curator/helpers/*.py",
+  "curator/validators/*.py",
+]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "dist",
+    "docs",
+    "docker_test",
+    "examples",
+    "html_docs",
+    "tests",
+]
+
+[tool.hatch.envs.test]
+dependencies = [
+    "coverage[toml]",
+    "mock",
+    "requests",
+    "pytest >=7.2.1",
+    "pytest-cov",
+]
+
+[tool.hatch.envs.test.scripts]
+step0 = "$(docker_test/scripts/destroy.sh 2&>1 /dev/null)"
+step1 = "step0 ; echo 'Starting test environment in Docker...' ; $(AUTO_EXPORT=y docker_test/scripts/create.sh 8.12.1 2&>1 /dev/null)"
+step2 = "step1 ; source docker_test/curatortestenv; echo 'Running tests:'"
+step3 = "step2 ; pytest ; EXITCODE=$?"
+step4 = "step3 ; echo 'Tests complete! Destroying Docker test environment...' "
+full = "step4 ; $(docker_test/scripts/destroy.sh 2&>1 /dev/null ) ;  exit $EXITCODE"
+run-coverage = "pytest --cov-config=pyproject.toml --cov=curator --cov=tests"
+run = "run-coverage --no-cov"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.9", "3.10", "3.11"]
+version = ["8.0.9"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "curator"]
+minversion = "7.2"
+addopts = "-ra -q"
+testpaths = [
+    "tests/unit",
+    "tests/integration",
+]
+
+[tool.distutils.build_exe]
+excludes = ["tcltk", "tkinter", "unittest"]
+zip_include_packages = ["certifi"]
