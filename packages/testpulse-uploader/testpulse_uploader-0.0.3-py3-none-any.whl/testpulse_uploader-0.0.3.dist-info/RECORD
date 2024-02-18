@@ -1,0 +1,13 @@
+uploader/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uploader/authentication.py,sha256=CcqYgHist2vWYmD22hRQYgh1beMSJTu5sSylI3da6Sw,976
+uploader/exceptions.py,sha256=Vrcbnne2yGcr9d7G1AHt8qKU0MnMk8F-U9wl7CzIr68,704
+uploader/sender.py,sha256=VMlzP3daJwWqGrOOLfA57e9sV2Q1_w1wepfVSlj7YOA,1094
+uploader/upload.py,sha256=tID6NWMDPiAUImQru8GEc-1Nm2xArNgkLOu4uWUaWV8,2350
+uploader/variables.py,sha256=upW6_iKpUXm4XYxknzcdHOW2cDkic1yylAt-6wkKE2c,1249
+uploader/zipper.py,sha256=6HLy1GhBkiFefIPlimM-wONWteJDt1kzK49AAzdMM50,1732
+testpulse_uploader-0.0.3.dist-info/LICENSE,sha256=wPlTctKyjm5PPGUFg2Vtj4UB9p-uIwlnW9729VHPgGE,277
+testpulse_uploader-0.0.3.dist-info/METADATA,sha256=DoeW_EN8ZOOoyvgOr9ZSuPI9HijxFZvdJSCSQHUp7Yw,620
+testpulse_uploader-0.0.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+testpulse_uploader-0.0.3.dist-info/entry_points.txt,sha256=JkTZHw3c7AoBxzeuBnI0ZBXt15VvctFKTR2jWWCULAg,58
+testpulse_uploader-0.0.3.dist-info/top_level.txt,sha256=XPXdA_ETwCa-9JENMV2fs7V7vyVmudhR86Mgxk-lmY8,9
+testpulse_uploader-0.0.3.dist-info/RECORD,,
