@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[nbdev]
+archivematica_tools = archivematica_tools._modidx:d
+
