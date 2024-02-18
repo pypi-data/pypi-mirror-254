@@ -1,0 +1,1 @@
+__version__ = "1.0.0"  # Replace with your actual version number
