@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/draw_real_time/__init__.py
+src/draw_real_time/canvas.py
+src/draw_real_time.egg-info/PKG-INFO
+src/draw_real_time.egg-info/SOURCES.txt
+src/draw_real_time.egg-info/dependency_links.txt
+src/draw_real_time.egg-info/top_level.txt
