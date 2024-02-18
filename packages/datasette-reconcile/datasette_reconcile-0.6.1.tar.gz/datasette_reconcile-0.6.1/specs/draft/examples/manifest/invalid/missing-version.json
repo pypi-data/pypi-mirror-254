@@ -1,0 +1,6 @@
+{
+    "name": "VIAF",
+    "view": {
+        "url": "https://viaf.org/viaf/{id}"
+    }
+}

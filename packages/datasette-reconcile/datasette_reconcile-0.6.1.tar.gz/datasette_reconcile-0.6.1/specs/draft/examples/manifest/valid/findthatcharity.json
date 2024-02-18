@@ -1,0 +1,17 @@
+{
+  "versions": ["0.2"],
+  "name": "findthatcharity",
+  "view": {
+    "url": "https://findthatcharity.uk/charity/{id}"
+  },
+  "preview": {
+    "width": 430,
+    "height": 300
+  },
+  "defaultTypes": [
+    {
+      "id": "/charity",
+      "name": "charity"
+    }
+  ]
+}

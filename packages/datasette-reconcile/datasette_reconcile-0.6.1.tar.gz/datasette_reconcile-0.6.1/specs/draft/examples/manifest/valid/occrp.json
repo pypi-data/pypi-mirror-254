@@ -1,0 +1,50 @@
+{
+  "versions": ["0.2"],
+  "name": "OCCRP Aleph",
+  "view": {
+    "url": "https://aleph.occrp.org/entities/{id}"
+  },
+  "preview": {
+    "width": 800,
+    "height": 400
+  },
+  "suggest": {
+    "entity": true,
+    "type": true,
+    "property": true
+  },
+  "defaultTypes": [
+    {
+      "id": "Vessel",
+      "name": "Vessel"
+    },
+    {
+      "id": "PublicBody",
+      "name": "Public body"
+    },
+    {
+      "id": "Person",
+      "name": "Person"
+    },
+    {
+      "id": "BankAccount",
+      "name": "Bank Account"
+    },
+    {
+      "id": "LegalEntity",
+      "name": "Legal entity"
+    },
+    {
+      "id": "Airplane",
+      "name": "Airplane"
+    },
+    {
+      "id": "Company",
+      "name": "Company"
+    },
+    {
+      "id": "Organization",
+      "name": "Organization"
+    }
+  ]
+}

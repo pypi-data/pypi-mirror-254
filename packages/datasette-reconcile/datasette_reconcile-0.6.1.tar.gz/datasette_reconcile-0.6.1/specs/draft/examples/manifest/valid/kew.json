@@ -1,0 +1,23 @@
+{
+  "versions": ["0.2"],
+  "name": "IPNI Name Reconciliation Service",
+  "view": {
+    "url": "http://ipni.org/urn:lsid:ipni.org:names:{id}"
+  },
+  "preview": {
+    "url": "http://ipni.org/urn:lsid:ipni.org:names:{id}",
+    "width": 400,
+    "height": 400
+  },
+  "suggest": {
+    "type": true,
+    "property": true,
+    "entity": true
+  },
+  "defaultTypes": [
+    {
+      "id": "/biology/organism_classification/scientific_name",
+      "name": "Scientific name"
+    }
+  ]
+}

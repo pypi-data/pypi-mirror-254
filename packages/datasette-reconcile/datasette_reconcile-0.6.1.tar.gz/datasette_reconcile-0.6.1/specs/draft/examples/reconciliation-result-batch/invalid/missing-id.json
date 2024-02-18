@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "candidates": [
+        {
+          "name": "Urbaniak, Regina",
+          "score": 53.015232,
+          "match": false,
+          "type": [
+            {
+              "id": "AuthorityResource",
+              "name": "Normdatenressource"
+            },
+            {
+              "id": "DifferentiatedPerson",
+              "name": "Individualisierte Person"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
