@@ -1,0 +1,155 @@
+from __future__ import annotations
+
+import datetime as dt
+from collections.abc import Callable
+from dataclasses import dataclass
+from functools import partial, wraps
+from inspect import signature
+from operator import itemgetter
+from pathlib import Path
+from typing import ParamSpec, TypeVar
+
+from utilities.cachetools import cache
+from utilities.datetime import duration_to_timedelta, get_now
+from utilities.git import get_repo_root_or_cwd_sub_path
+from utilities.hashlib import md5_hash
+from utilities.pathlib import get_modified_time
+from utilities.pathvalidate import valid_path
+from utilities.pickle import read_pickle, write_pickle
+from utilities.typed_settings import load_settings
+from utilities.types import Duration, PathLike, ensure_class
+
+_P = ParamSpec("_P")
+_R = TypeVar("_R")
+
+
+def _caches(path: Path, /) -> Path:
+    return valid_path(path, ".caches")
+
+
+@dataclass(frozen=True)
+class _CacheToDiskConfig:
+    root: Path = get_repo_root_or_cwd_sub_path(  # noqa: RUF009
+        _caches, if_missing=_caches
+    )
+    md5_hash_max_size: int | None = 128
+    md5_hash_max_duration: dt.timedelta | None = dt.timedelta(minutes=10)
+    get_modified_max_size: int | None = 128
+    get_modified_max_duration: dt.timedelta | None = dt.timedelta(minutes=10)
+
+
+_CACHE_TO_DISK_CONFIG = load_settings(_CacheToDiskConfig)
+
+
+def cache_to_disk(
+    *,
+    root: PathLike = _CACHE_TO_DISK_CONFIG.root,
+    md5_hash_max_size: int | None = _CACHE_TO_DISK_CONFIG.md5_hash_max_size,
+    md5_hash_max_duration: Duration
+    | None = _CACHE_TO_DISK_CONFIG.md5_hash_max_duration,
+    get_modified_time_max_size: int
+    | None = _CACHE_TO_DISK_CONFIG.get_modified_max_size,
+    get_modified_time_max_duration: Duration
+    | None = _CACHE_TO_DISK_CONFIG.get_modified_max_duration,
+    skip: bool = False,
+    validate_path: bool = False,
+    max_size: int | None = None,
+    max_duration: Duration | None = None,
+) -> Callable[[Callable[_P, _R]], Callable[_P, _R]]:
+    """Factory for decorators which caches locally using pickles."""
+
+    return partial(
+        _cache_to_disk,
+        root=root,
+        md5_hash_max_size=md5_hash_max_size,
+        md5_hash_max_duration=md5_hash_max_duration,
+        get_modified_time_max_size=get_modified_time_max_size,
+        get_modified_time_max_duration=get_modified_time_max_duration,
+        skip=skip,
+        validate_path=validate_path,
+        max_size=max_size,
+        max_duration=max_duration,
+    )
+
+
+def _cache_to_disk(
+    func: Callable[_P, _R],
+    /,
+    *,
+    root: PathLike = _CACHE_TO_DISK_CONFIG.root,
+    md5_hash_max_size: int | None = _CACHE_TO_DISK_CONFIG.md5_hash_max_size,
+    md5_hash_max_duration: Duration
+    | None = _CACHE_TO_DISK_CONFIG.md5_hash_max_duration,
+    get_modified_time_max_size: int
+    | None = _CACHE_TO_DISK_CONFIG.get_modified_max_size,
+    get_modified_time_max_duration: Duration
+    | None = _CACHE_TO_DISK_CONFIG.get_modified_max_duration,
+    skip: bool = False,
+    validate_path: bool = False,
+    max_size: int | None = None,
+    max_duration: Duration | None = None,
+) -> Callable[_P, _R]:
+    """Decorator which caches locally using pickles."""
+
+    root_use = valid_path(root, func.__module__, func.__name__)
+    sig = signature(func)
+    md5_hash_use = cache(
+        max_size=md5_hash_max_size, max_duration=md5_hash_max_duration
+    )(md5_hash)
+    get_modified_time_use = cache(
+        max_size=get_modified_time_max_size, max_duration=get_modified_time_max_duration
+    )(get_modified_time)
+    max_duration_use = (
+        None if max_duration is None else duration_to_timedelta(max_duration)
+    )
+
+    @wraps(func)
+    def wrapped(*args: _P.args, **kwargs: _P.kwargs) -> _R:
+        """The decorated function."""
+        if skip:
+            return func(*args, **kwargs)
+        rerun = ensure_class(kwargs.pop("rerun", False), bool)
+        ba = sig.bind(*args, **kwargs)
+        stem = md5_hash_use((ba.args, tuple(ba.kwargs.items())))
+        path = valid_path(root_use, stem) if validate_path else Path(root_use, stem)
+        if _needs_run(
+            path, get_modified_time_use, rerun=rerun, max_duration=max_duration_use
+        ):
+            value = func(*args, **kwargs)
+            write_pickle(value, path, overwrite=True)
+            _maybe_clean(root_use, max_size=max_size)
+            return value
+        return read_pickle(path)
+
+    return wrapped
+
+
+def _needs_run(
+    path: Path,
+    get_modified_time: Callable[[PathLike], dt.datetime],
+    /,
+    *,
+    rerun: bool = False,
+    max_duration: dt.timedelta | None = None,
+) -> bool:
+    if (not path.exists()) or rerun:
+        return True
+    if max_duration is None:
+        return False
+    modified = get_modified_time(path)
+    return get_now() - modified >= max_duration
+
+
+def _maybe_clean(root: Path, /, *, max_size: int | None = None) -> None:
+    if max_size is None:
+        return
+    paths = list(root.iterdir())
+    if len(paths) <= max_size:
+        return
+    mapping = {p: p.stat().st_mtime for p in paths}
+    as_list = sorted(mapping.items(), key=itemgetter(1), reverse=True)
+    for path, _ in as_list[max_size:]:
+        path.unlink(missing_ok=True)
+
+
+__all__ = ["cache_to_disk"]
