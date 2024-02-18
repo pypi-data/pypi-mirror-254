@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ListTransformer"
+version = "0.1.2"
+description = ""
+authors = ["Tobias Schmitt <tobias.schmitt2009@gmail.com>"]
+readme = "README.md"
+homepage = "https://tobfd.tech"
+repository = "https://github.com/tobfd/ListTransformer"
+documentation = "https://github.com/tobfd/ListTransformer"
+packages = [
+    { include = "ListTransformer.py" },
+    { include = "enums.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
