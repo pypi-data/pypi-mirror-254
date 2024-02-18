@@ -1,0 +1,8 @@
+[console_scripts]
+onepm = onepm.cli:main
+pa = onepm:pa
+pi = onepm:pi
+pr = onepm:pr
+pu = onepm:pu
+pun = onepm:pun
+
