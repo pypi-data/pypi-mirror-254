@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+cahier_de_prepa_parser.egg-info/PKG-INFO
+cahier_de_prepa_parser.egg-info/SOURCES.txt
+cahier_de_prepa_parser.egg-info/dependency_links.txt
+cahier_de_prepa_parser.egg-info/requires.txt
+cahier_de_prepa_parser.egg-info/top_level.txt
+cdp_parser/__init__.py
+cdp_parser/cdp.py
+tests/test_class.py
