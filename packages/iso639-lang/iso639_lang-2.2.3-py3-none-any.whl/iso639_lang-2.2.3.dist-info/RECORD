@@ -1,0 +1,15 @@
+iso639/__init__.py,sha256=1yWSCau-cnJdUrTr64QbqtUlIXujDFdoXZQTT3HA3cc,356
+iso639/datafile.py,sha256=Fa1H71apzsw3DU5Yp9_Px2bDEVhOQltc-RSOVJYYHJg,1336
+iso639/exceptions.py,sha256=qImuK1td92sj0y2mCN-Ar9uSeBLF93SNkDPnOAssie4,1733
+iso639/iso639.py,sha256=u-l0pEbk9i2rNidF63Xm9vJYhgYCeJ0r2QNmCetrZ7w,9009
+iso639/data/iso-639.json,sha256=S88emoiiM-GE5hlKDjSWWl6HgCxLp4EEVMOOKKTt5oY,1317479
+iso639/data/iso-639_deprecated.json,sha256=zz8SKkCXnDkB8NYLGneR5llfRmjKHe7dZDPSeO5fAn8,48025
+iso639/data/iso-639_langs.pkl,sha256=UWKD1INm572wrVnHjiAWWNn_HhnJrlU5qP12kKWAMaY,146815
+iso639/data/iso-639_macro.json,sha256=fsqRhdVdqX_jP3F5kOU-RjNqqBnuR1GYH3Hans1tVtc,10100
+iso639/data/iso-639_scope.json,sha256=3_6Dm1tOqk4KtlkkJHiSC_CcWHYxRBehA9ORYGUk7A4,95028
+iso639/data/iso-639_type.json,sha256=4fURV3L2zAIv010yJdCy-IB_GvA5X9MwJdRd-cRpGXw,95028
+iso639_lang-2.2.3.dist-info/LICENSE.txt,sha256=zjCxVsQVwKIp6OzuLFYpUWiKc63Piby6VN35aSSKjXc,1066
+iso639_lang-2.2.3.dist-info/METADATA,sha256=i46fA7Xw8sxYwUenebEb4i7k2K-JkT4I0Mo1c0BjIuE,5803
+iso639_lang-2.2.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+iso639_lang-2.2.3.dist-info/top_level.txt,sha256=phLVuJxujEeJhkT0hgTMQiSvs3UVIIwVHW4lbuJdCb0,7
+iso639_lang-2.2.3.dist-info/RECORD,,
