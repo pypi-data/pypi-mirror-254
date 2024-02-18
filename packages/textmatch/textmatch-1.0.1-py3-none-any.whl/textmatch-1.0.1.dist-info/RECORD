@@ -1,0 +1,13 @@
+textmatch-1.0.1.dist-info/METADATA,sha256=iJ9mUgZ-KCfBPKmYddM70r67J3pAfpOOFd6zmU8IwLw,27112
+textmatch-1.0.1.dist-info/WHEEL,sha256=N2J68yzZqJh3mI_Wg92rwhw0rtJDFpZj9bwQIMJgaVg,90
+textmatch-1.0.1.dist-info/licenses/LICENCE,sha256=8q_SGAyD_CufqtdBWZ3-IJX9JVffLkeYc7-Hr2LPER0,524
+textmatch/__init__.py,sha256=uwKKjlms9TtoMJK5s10PZw-MdcdsljaDHJvjUc553IY,34
+textmatch/ignored-titles.txt,sha256=qvS68kQKborLoSd-GFYF4yctIwljLaT37IUF0WyA124,336
+textmatch/methods/bilenko.py,sha256=xqyArMBH-O7qJtXH3QA4tR-nhUXbrFCJ3XFMieLznoA,5651
+textmatch/methods/jaro.py,sha256=vYCKduk6g5_Pw24iIjEmJrOU6x7lY0tKSn4fgbjAFxw,347
+textmatch/methods/levenshtein.py,sha256=1AINhnA9fBN8AHr2Mvz9QleKh6HARMcf_Mm8ow12NKk,354
+textmatch/methods/metaphone.py,sha256=Z_z4AzTC8qOR1z5LCMrRhE-Sz5-jvWyESkeOkWjyPOc,209
+textmatch/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textmatch/textmatch.py,sha256=XSrQVRyzFU6a9oEJzLwjI7PnjKYnBwGf8Khg17UTYOg,20547
+textmatch/typings.py,sha256=u7XrFJLkXnzBwLERzc4NL_7z8GBUvMcaogriBH9Y-EE,877
+textmatch-1.0.1.dist-info/RECORD,,
