@@ -1,0 +1,3 @@
+[console_scripts]
+grpc-server=pyramid_grpc.server:run
+
