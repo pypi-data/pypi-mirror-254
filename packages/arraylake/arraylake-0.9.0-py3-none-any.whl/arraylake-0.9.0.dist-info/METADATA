@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: arraylake
+Version: 0.9.0
+Summary: Python client for ArrayLake
+Author: Joe Hamman
+Author-email: joe@earthmover.io
+Requires-Python: >=3.9,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: virtual
+Provides-Extra: widgets
+Provides-Extra: xarray
+Requires-Dist: aiobotocore[boto3] (>=2.4.0,<3.0.0)
+Requires-Dist: aioitertools (>=0.11.0,<0.12.0)
+Requires-Dist: boto3 (>=1.24,<2.0)
+Requires-Dist: botocore (>=1.27,<2.0)
+Requires-Dist: cachetools (>=5.3.2,<6.0.0)
+Requires-Dist: cfgrib (>=0.9,<0.10) ; extra == "virtual"
+Requires-Dist: click (>=8.1,<9.0)
+Requires-Dist: donfig (>=0.7,<1.0)
+Requires-Dist: eccodes (>=1.6,<2.0) ; extra == "virtual"
+Requires-Dist: ecmwflibs (>=0.5,<=0.5.1) ; extra == "virtual"
+Requires-Dist: fsspec (>=2022.11.0)
+Requires-Dist: gcsfs (>=2022.11)
+Requires-Dist: h5py (>=3.7.0,<4.0.0) ; extra == "virtual"
+Requires-Dist: httpx (>=0.23.0,<1.0)
+Requires-Dist: ipytree (>=0.2.2,<1.0) ; extra == "widgets"
+Requires-Dist: kerchunk (>=0.1,<1.0,!=0.2.1) ; extra == "virtual"
+Requires-Dist: numcodecs (!=0.12.0)
+Requires-Dist: numpy (>=1.20,<2.0)
+Requires-Dist: pydantic[email] (>=2.3,<3.0)
+Requires-Dist: python-dateutil (>=2.8,<3.0)
+Requires-Dist: rich (>=12.6,<14.0)
+Requires-Dist: ruamel-yaml (>=0.17,<1.0)
+Requires-Dist: s3fs (>=2022.11.0) ; extra == "virtual"
+Requires-Dist: structlog (>=23.1.0,<24.0.0)
+Requires-Dist: tifffile (>=2023.2.27) ; extra == "virtual"
+Requires-Dist: typer (>=0.6.1,<1.0)
+Requires-Dist: types-cachetools (>=5.3.0.7,<6.0.0.0)
+Requires-Dist: uvloop (>=0.17,<1.0) ; os_name == "posix"
+Requires-Dist: xarray (>=v2022.12.0) ; extra == "xarray"
+Requires-Dist: zarr (>=2.14,<=2.16)
+Description-Content-Type: text/markdown
+
+<p align="center">
+<img src="https://earthmover-web-assets.s3.amazonaws.com/04-Arraylake-Lockup-Midnight-RGB-LARGE.png" width="80%" alt="Arraylake">
+</p>
+
+<p align="center">
+  <a href="https://earthmover.io" rel="nofollow">earthmover.io</a> -
+  <a href="https://docs.earthmover.io" rel="nofollow">documentation</a>
+</p>
+
+Arraylake is a cloud-based platform that understands a wide array of multidimensional scientific data. Organize, analyze, build, and collaborate—effortlessly.
+
+Check out the [documentation](https://docs.earthmover.io) to get started.
+
+## Install
+
+```
+# using pip
+pip install "arraylake[cli]"
+
+# using conda
+conda install arraylake
+```
+
