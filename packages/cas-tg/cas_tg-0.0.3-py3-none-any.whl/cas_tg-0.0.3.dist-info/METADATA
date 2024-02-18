@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: cas-tg
+Version: 0.0.3
+Summary: Checking if user banned by CAS (Combot Anti-Spam System)
+Home-page: https://wispace.ru/
+Author: wispace
+Author-email: wiforumit@gmail.com
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+check(id: str|int) -> bool
+Check if a user banned by CAS (Combot Anti-Spam System).
+
+- Args:
+    - id (str | int): The user ID to be checked.
+
+- Returns:
+    - bool: Returns True if the user is banned or False if the user is not banned.
+
+---
+
+get_messages(id) -> dict[str, list, str]
+Check information about user.
+- Args:
+    - id (str | int): The user ID to be checked.
+- Returns:
+    - dict[str, list, str]: Returns the number of spam messages, messages, and the time of the ban. If there is no user in ban, returns None.
