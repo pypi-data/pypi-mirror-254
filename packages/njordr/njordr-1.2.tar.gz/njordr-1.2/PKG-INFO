@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: njordr
+Version: 1.2
+Summary: Njordr telegram broker
+Home-page: https://github.com/dkushche/Njordr
+Author: roothazard
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.5.3
+
+# Njordr Protocol
