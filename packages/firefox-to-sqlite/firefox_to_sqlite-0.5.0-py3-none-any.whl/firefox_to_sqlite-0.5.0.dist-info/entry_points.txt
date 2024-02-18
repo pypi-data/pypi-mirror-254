@@ -1,0 +1,3 @@
+[console_scripts]
+firefox-to-sqlite=firefox_to_sqlite.cli:app
+
