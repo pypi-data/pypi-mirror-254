@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymyo"
+description = "Cross-platform Python API to configure or retrieve data from a Thalmic Labs Myo armband through BLE"
+authors = [{ name = "Crimson-Crow", email = "github@crimsoncrow.dev" }]
+maintainers = [{ name = "Crimson-Crow", email = "github@crimsoncrow.dev" }]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
+keywords = ["myo", "armband", "bluetooth", "BLE"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Framework :: AsyncIO",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Android",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+  "Typing :: Typed",
+]
+dependencies = [
+  'typing-extensions ~= 4.4; python_version < "3.10"',
+  "bleak >= 0.21.1",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/Crimson-Crow/pymyo"
+Repository = "https://github.com/Crimson-Crow/pymyo.git"
+Issues = "https://github.com/Crimson-Crow/pymyo/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "pymyo.__version__" }
+
+[tool.setuptools_scm]
+
+[tool.ruff]
+target-version = "py38"
+select = ["ALL"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "ANN101", "ANN401", "COM812", "ISC001"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+python_version = "3.8"
