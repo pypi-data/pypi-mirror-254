@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: imsciences
+Version: 0.2.5
+Summary: IMS Data Processing Package
+Author: Cameron
+Author-email: thecjrobs@gmail.com
+Keywords: python,data processing
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+
+This package contains a series of functions aimed to improve the data processing process
