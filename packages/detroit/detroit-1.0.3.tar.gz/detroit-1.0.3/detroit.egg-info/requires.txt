@@ -1,0 +1,8 @@
+jinja2
+markupsafe
+playwright
+quart
+
+[jupyter]
+notebook
+nest_asyncio

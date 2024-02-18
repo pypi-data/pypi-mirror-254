@@ -1,0 +1,34 @@
+[project]
+name = "detroit"
+description = "detroit is wrapper for Python of d3js and Observable Plot."
+version = "1.0.3"
+readme = "README.md"
+authors = [
+  { name = "Benjamin BOURBON", email = "ben.bourbon06@gmail.com"},
+]
+requires-python = ">=3.9"
+dependencies = [
+  "jinja2",
+  "markupsafe",
+  "playwright",
+  "quart",
+]
+classifiers = [
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: JavaScript",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Visualization",
+]
+license = {file = "LICENSE"}
+
+[project.urls]
+Homepage="https://github.com/bourbonut/detroit"
+Repository="https://github.com/bourbonut/detroit"
+Documentation="https://detroit.readthedocs.io/en/latest/"
+
+[project.optional-dependencies]
+jupyter = ["notebook", "nest_asyncio"]
