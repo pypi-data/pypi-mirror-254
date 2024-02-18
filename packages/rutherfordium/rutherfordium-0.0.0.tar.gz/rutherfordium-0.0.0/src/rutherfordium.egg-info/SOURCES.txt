@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/rutherfordium/__init__.py
+src/rutherfordium/example.py
+src/rutherfordium.egg-info/PKG-INFO
+src/rutherfordium.egg-info/SOURCES.txt
+src/rutherfordium.egg-info/dependency_links.txt
+src/rutherfordium.egg-info/top_level.txt
