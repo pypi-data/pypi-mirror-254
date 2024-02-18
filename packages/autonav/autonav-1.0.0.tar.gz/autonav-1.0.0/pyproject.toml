@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autonav"
+version = "1.0.0"
+description = "Research software for navigating a UAV in indoor environments"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["UAV", "Navigation", "Indoor"]
+license = { text = "MIT" }
+authors = [{ name = "Ricardo S. Santos", email = "p6221@ulusofona.pt" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering"
+]
+dependencies = [
+    "numpy >= 1.24",
+    "matplotlib >= 3.7.0",
+    "scipy >= 1.10",
+]
+
+[project.urls]
+"Bug Reports" = "https://github.com/ricardo-s-santos/AutoNAV/issues"
+"Documentation" = "https://ricardo-s-santos.github.io/AutoNAV/"
+"Source" = "https://github.com/ricardo-s-santos/AutoNAV"
+
+[project.optional-dependencies]
+devel = [
+    "isort",
+    "black",
+    "flake8",
+    "flake8-isort",
+    "flake8-black",
+    "flake8-bugbear",
+    "Flake8-pyproject",
+    "mypy",
+    "pre-commit",
+    "pytest >= 7.0",
+    "pytest-cov",
+    "pytest-mypy",
+    "coverage",
+    "mkdocs-material>=7.1.11",
+    "mkdocstrings[python]>=0.19.0",
+    "mkdocs-gallery",
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+src_paths = ["txtstats", "tests"]
+line_length = 120
+skip_gitignore = "True"
+
+[tool.mypy]
+python_version = "3.8"
+warn_unused_ignores = true
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 120
+max-doc-length = 150
+ignore = [
+    "E203", # "whitespace before ’:’"", but that’s how black likes it
+    "W503", # "line break before binary operator", conflicts with black
+    "A004",
+] # print from Rich conflicts]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".*cache",
+    "build",
+    "dist",
+    "env",
+    "venv",
+    ".eggs",
+    "*.egg",
+    "docs",
+]
+docstring-convention = "google" # flake8-docstrings
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-v --tb=short --strict-markers --mypy"
+testpaths = ["tests"]
+xfail_strict = "true"
+markers = ["critical: The most critical tests"]
