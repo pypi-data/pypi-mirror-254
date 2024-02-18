@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: vin
+Version: 0.0.1
+Summary: Vehicle Identification Number
+Project-URL: Documentation, https://github.com/davidpeckham/vin#readme
+Project-URL: Issues, https://github.com/davidpeckham/vin/issues
+Project-URL: Source, https://github.com/davidpeckham/vin
+Author-email: David Peckham <dave.peckham@icloud.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Keywords: nhtsa,vehicle,vin
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: pendulum
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# VIN
+
+[![PyPI - Version](https://img.shields.io/pypi/v/vin.svg)](https://pypi.org/project/vin)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/vin.svg)](https://pypi.org/project/vin)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install vin
+```
+
+## License
+
+`vin` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
+
+More
