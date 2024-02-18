@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: Physic
+Version: 1.2
+Summary: A programming library specialized in the rules of physics in general, and more precisely the rules of mechanics and electrical physics and their rates, and it is used to shorten complex rates into simple-to-use functions
+Author: Seif Eldein
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# Physic Library
+
+Physic is a programming library specialized in the rules of physics, focusing on mechanics and electrical physics. It provides functions to handle various aspects of these fields, making it easy to work with complex physics calculations through simple-to-use functions.
+
+## Overview
+
+Physic aims to simplify physics-related calculations, providing a set of functions for mechanics and electrical physics. It is designed to be user-friendly, allowing developers to perform common physics calculations with ease.
+
+## Installation
+
+You can install Physic using pip:
+
+```bash
+pip install physic
