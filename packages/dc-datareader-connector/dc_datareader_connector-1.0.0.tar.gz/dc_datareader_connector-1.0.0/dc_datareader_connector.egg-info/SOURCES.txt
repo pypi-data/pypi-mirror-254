@@ -1,0 +1,9 @@
+README.md
+setup.py
+dc_datareader_connector/__init__.py
+dc_datareader_connector/datareader_connector.py
+dc_datareader_connector/datareader_xml_connector.py
+dc_datareader_connector.egg-info/PKG-INFO
+dc_datareader_connector.egg-info/SOURCES.txt
+dc_datareader_connector.egg-info/dependency_links.txt
+dc_datareader_connector.egg-info/top_level.txt
