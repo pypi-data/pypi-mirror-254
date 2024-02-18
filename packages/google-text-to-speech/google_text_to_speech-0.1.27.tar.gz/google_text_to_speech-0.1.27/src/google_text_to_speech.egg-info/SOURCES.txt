@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+src/google_text_to_speech/__init__.py
+src/google_text_to_speech/_version.py
+src/google_text_to_speech/google_translate_tts.py
+src/google_text_to_speech.egg-info/PKG-INFO
+src/google_text_to_speech.egg-info/SOURCES.txt
+src/google_text_to_speech.egg-info/dependency_links.txt
+src/google_text_to_speech.egg-info/requires.txt
+src/google_text_to_speech.egg-info/top_level.txt
