@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: mlossp
+Version: 1.3.2
+Summary: A package to spatially join and concatenate Satellite data.
+Author-email: TripIe <tilpalea@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Satellite Data Preprocessor
+
+A package built for preprocessing a list of geopandas dataframe pickles or GeoJSON files by joining them spatially and concatenating them into time-series numpy pickles.
+
+### Usage:
+* Create an instance of Preprocessor and provide the path to a config json file.
+* Call Preprocessor.preprocess to preprocess data according to the provided config.
+* It is possible to define multiple configs for different data sources. In this case, Preprocesser.preprocess_multi will load and individually preprocess each config file.
+
+### Keyword Arguments
+* nc_config - Path to the config file used for loading nc files (only provide this if you are loading netCDF files.)
+* record_out - A function to generate a label from a data file name to be appended to output files.
+* region_out - A function to generate a label from a region data file name.
+* out_out - A function that returns a string that is added to your output file.
+
+```python
+import mlossp as sp
+
+config_path = "config.json"
+nc_config_path = "nc_config.json"
+f = lambda : "_1"
+
+preprocessor = sp.Preprocesser(
+    config_path,
+    nc_config=nc_config_path,
+    out_out=f
+)
+preprocessor.preprocess()
+
+config_list = ["config_1.json", "../configs/config_2.json"]
+preprocessor.preprocess_multi(config_list)
+```
+
+### Configs
+Config.json should be defined as follows:
+```json
+{
+  "data_path": "Data/",
+  "compress": true,
+  "crs": "EPSG:4326",
+  "data_dir": "GeoJson",
+  "regions_dir": "Countries",
+  "out_dir": "LayeredGSON",
+  "regions_file_map":  {
+    "Sri Lanka": "gadm41_LKA_1.json",
+    "USA": "gadm41_USA_1.json",
+    "China": "gadm41_CHN_1.json",
+    "Brazil": "gadm41_BRA_1.json"
+  },
+  "selected_regions": ["Sri Lanka"],
+  "join_on": "NAME_1",
+  "joins": {
+    "precipitationCal": ["mean", "min", "max"]
+  },
+  "file_extension": "*.pkl"
+}
+```
+
+* data_path is the path to the data directory, data_dir, regions_dir, and out_dir are the subdirectories of data_path that contain the satellite data, location data, and ouput data respectively.
+* compress should be set to true to pickle all intermediate geojson files. This will significantly improve runtime across future runs.
+* crs must be a geopandas supported crs label.
+* regions_file_map is a mapping of region name to their file name in regions_dir.
+* selected_regions is the list of regions that will be used in the preprocessing.
+* join_on is the feature that the duplicate data will be aggregated on.
+* joins is the aggregate metrics that will be stored in the aggregate row. Each column will be named as the concatenation of the aggregate function and the original feature. A list must be defined for all columns that should be kept.
+* file_extension is format of all data being layered. This can be either *.pkl, *.json, *.nc4, or *.nc.
+
+### Configs for netCDF files
+```json
+{
+	"latVar":"latitude",
+	"lonVar":"longitude",
+	"is360":false,
+	"extraVars": ["NDVI"]
+}
+```
+
+* latVar is the name of the latitude column
+* lonVar is the name of the longitude column
+* is360 should be set to true if the netCDF contains data within 0 - 360 degrees
+* extraVars are features from the original netCDF to be kept in the converted data
