@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "loomanager"
+version = "0.6.0"
+authors = [
+  { name="zewenn", email="zewenn@proton.me" },
+]
+description = "ironloom's verion handler package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ironloom/loomanager"
+Issues = "https://github.com/ironloom/loomanager/issues"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
