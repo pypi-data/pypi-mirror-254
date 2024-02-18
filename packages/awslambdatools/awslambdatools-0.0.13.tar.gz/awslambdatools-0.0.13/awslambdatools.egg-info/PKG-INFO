@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: awslambdatools
+Version: 0.0.13
+Summary: Package for dealing with lambdas running on Python
+Author: Edward Velo
+Author-email: vattico@gmail.com
+Requires-Python: >=3.6
