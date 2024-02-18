@@ -1,0 +1,12 @@
+mammoth/__init__.py,sha256=BZO2i36QPITn8JSKcL-WeVAdmzZgFvjYDtKcS28yGVw,120
+mammoth/integration.py,sha256=WGMPTDdxXrLp7NsZvX2NjpMX7jt0YplAVdtEs3F7gyQ,4200
+mammoth/datasets/__init__.py,sha256=ksIgS1lJSJpLL3pQhdOJHVD36Eg-qEaNmnAb8a8tF0A,48
+mammoth/datasets/csv.py,sha256=qMmX2tUtqWyFrGi853wTdDD68481IVgM5Ry5pnBQfBQ,1205
+mammoth/exports/__init__.py,sha256=P3PwqiWZJrvHaJpgi5E-IsDIVm1HHUdEtqdw-xn-gX4,45
+mammoth/exports/markdown.py,sha256=0fkdwI15hZ_U0TK_NSNcdO6Hjg1Y_rDmGYB5IqRKF_Q,305
+mammoth/models/__init__.py,sha256=mhZVM68-qvRxsE5zE7J51uG0PKBxM9Xkx1c8tLzybMs,49
+mammoth/models/onnx.py,sha256=m6KTVx2Y0NJCSk-LjEFjgXtJNfeUULM_gKU5z7XamIA,51
+MAMMOth_commons-0.0.2.dist-info/METADATA,sha256=rmDhNhtdltz0kN0uQcq1XVLLMZmz4nL4fk8iGVvh4So,2049
+MAMMOth_commons-0.0.2.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+MAMMOth_commons-0.0.2.dist-info/top_level.txt,sha256=bzpnNCrDpj3-sVobchossMHbU2p4dM4HboFD1chO_Go,8
+MAMMOth_commons-0.0.2.dist-info/RECORD,,
