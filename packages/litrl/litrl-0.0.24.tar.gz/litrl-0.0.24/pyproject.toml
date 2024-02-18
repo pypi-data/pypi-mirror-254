@@ -1,0 +1,190 @@
+# Project Metadata
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "litrl"
+version = "0.0.24"
+authors = [
+  { name="Clement Gohlke"},
+]
+description = "Implementation of RL algorithms in PyTorch Lightning"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = [
+  "pytorch",
+  "reinforcement-learning",
+  "machine-learning",
+  "mypy",
+  "pytorch-lightning",
+  "huggingface",
+  "torchrl",
+]
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+  "swig==4.1.1",
+  "Pillow==10.2.0",
+  "lightning==2.1.2",
+  "hydra-core==1.3.2",
+  "nptyping==2.5.0",
+  "gymnasium[box2d]==0.29.1",
+  "loguru==0.7.2",
+  "pettingzoo==1.24.2",
+  "pygame==2.5.2",
+  "python-dateutil==2.8.2",
+  "onnxruntime==1.16.3",
+  "scipy==1.10.1",
+  "huggingface-hub==0.19.4",
+  "mlflow==2.9.2",
+  "stable-baselines3==2.2.1",
+  "pydantic==2.5.2",
+  "moviepy==1.0.3",
+  "onnx==1.15.0",
+  "pyrootutils==1.0.4",
+  "torchsnapshot==0.1.0",
+]
+
+[project.optional-dependencies]
+torchrl = [
+  "torchrl==0.2.1",
+  "tensordict==0.2.1"
+]
+dev = [
+  "commitizen==3.13.0",
+  "litrl[doc,test,lint, build]",
+  "nbconvert==7.14.2", 
+]
+build = [
+  "build==1.0.3",
+  "twine==4.0.2"
+]
+lint = [
+  "mypy==1.7.1",
+  "ruff==0.1.7",
+  "black==23.11.0",
+  "vulture==2.11",
+  "pylint==3.0.2",
+  "types-python-dateutil==2.8.19.20240106",
+  "types-PyYAML==6.0.12.12",
+  "types-requests==2.31.0.20240106",
+  "bandit==1.7.7",
+]
+doc  = [
+  "sphinx==7.1.2",
+  "sphinx-rtd-theme==2.0.0",
+  "myst-parser==2.0.0",
+]
+test = [
+  "pytest==7.4.3",
+  "types-python-dateutil==2.8.19.20240106",
+  "types-PyYAML==6.0.12.12",
+  "types-requests==2.31.0.20240106",
+  "pytest-cov==4.1.0",
+  "vulture==2.11",
+  "pytest-html==4.1.1",
+  "types-PyYAML==6.0.12.12",
+  "nbmake==1.4.6",
+  "litrl[demo]",
+]
+demo = [
+  "fastapi==0.104.1",
+  "uvicorn==0.25.0",
+  "httpx==0.26.0",
+  "moviepy==1.0.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/c-gohlke/LightningRL"
+Documentation = "https://litrl.readthedocs.io/en/latest/"
+Repository = "https://github.com/c-gohlke/LightningRL"
+Demo = "https://huggingface.co/spaces/c-gohlke/litrl-demo"
+
+[tool.setuptools.packages.find]
+include = ["litrl*"]
+
+[tool.commitizen]
+version = "0.0.24"
+update_changelog_on_bump = true
+version_files = [
+    "litrl/_version.py:__version__",
+    "pyproject.toml:version"
+]
+
+# Code Quality
+## PYTEST
+[tool.pytest.ini_options]
+pythonpath = [
+  ".","demo/backend"
+]
+filterwarnings = [
+  "ignore:::.*mlflow",
+  "ignore::DeprecationWarning",
+  "ignore::lightning.fabric.utilities.warnings.PossibleUserWarning",
+  "ignore::UserWarning:gymnasium.wrappers.monitoring.video_recorder"
+]
+
+[tool.coverage.html]
+directory = "reports/junit/report.html"
+
+## MYPY
+[tool.mypy]
+strict = true
+namespace_packages = true
+explicit_package_bases = true
+exclude = ["build", ".venv", "node_modules"]
+disallow_untyped_calls = false
+disallow_untyped_decorators = false
+ignore_missing_imports = true
+
+
+## RUFF
+[tool.ruff]
+select = ["ALL"]
+unfixable = ["B", "ERA001", "UP006", "UP007"]
+exclude=[".venv"]
+ignore = ["D10", "TD", "ANN101", "ANN401", "G003", "G004", "S", "FA102", "N812", "FIX002", "D203", "D213"]
+dummy-variable-rgx = "^(args|kwargs|_)$"
+pydocstyle.convention = "numpy"
+line-length = 120
+[tool.ruff.per-file-ignores]
+"tests/*" = [
+    "INP001", # no __init__ in tests folders
+    "PLR2004", # assert allowed in tests
+    "SLF001", # check private attributes allowed in tests
+    "PLR0913", # amount of function arguments
+    "ISC001",
+    "COM812"
+]
+"*.ipynb" = [
+    "E402", # ignore import misconfigurations
+    "I001", # imports not at top of file
+]
+"scripts/*" = [
+    "INP001", # imports not at top of file
+]
+
+## PYLINT  only used for duplicate code detection, rest is handled by ruff
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 120
+disable = "C,W,E,F,R0901,R0902,R0903,R0913,R0914"
+
+## BLACK
+[tool.black]
+line_length = 120
