@@ -1,0 +1,22 @@
+# This file lists all python libraries which are utilized by drivers,
+# but not listed in global-requirements.
+# It is intended to help package maintainers to discover additional
+# python projects they should package as optional dependencies for Ironic.
+
+# These are available on pypi
+proliantutils>=2.16.0
+pysnmp-lextudio>=5.0.0 # BSD
+pyasn1-lextudio>=1.1.0 # BSD
+pyasn1-modules-lextudio>=0.2.0 # BSD
+python-scciclient>=0.15.0
+python-dracclient>=5.1.0,<9.0.0
+python-xclarityclient>=0.1.6
+
+# Ansible-deploy interface
+ansible>=2.7
+
+# HUAWEI iBMC hardware type uses the python-ibmcclient library
+python-ibmcclient>=0.2.2,<0.3.0
+
+# Dell EMC iDRAC sushy OEM extension
+sushy-oem-idrac>=5.0.0,<6.0.0
