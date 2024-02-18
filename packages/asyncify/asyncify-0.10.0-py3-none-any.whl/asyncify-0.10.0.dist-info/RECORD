@@ -1,0 +1,13 @@
+asyncify/__about__.py,sha256=4P3NprHTIAVqic2v-HjtImkskRmALNRUOi8emEYg-go,306
+asyncify/__init__.py,sha256=TiArztmFSJTllL5TL8xjK2goqrsNxQ-ohMeII1aEs5U,605
+asyncify/__main__.py,sha256=MhP5yFfRHZr87zwS-iabsl1MFaBzmmst1v49iu_uHnQ,517
+asyncify/_anyio.py,sha256=_PU6VW683ngaWt36G-Iu-rkep01_DAFE4vhsfpXRLbM,855
+asyncify/_meta.py,sha256=rsQahklIRyvRYCUpUc2c2IT7ky5eH7MUsMmzKqb8PrY,391
+asyncify/aios/__init__.py,sha256=Tv9j-I-GgIZwk9epd3rZIDoNZYKZc1m2yyBFpMZM6BE,545
+asyncify/aios/_path.py,sha256=gW_erM0uarFmPlab6bVHifXrvm0d_Tgs3KXMJ5LJ_SM,609
+asyncify/core.py,sha256=PgaAl4IbqLhWK1tMfMlvjLVRu8nY6lVX722rGNI60Z8,9813
+asyncify/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+asyncify-0.10.0.dist-info/LICENSE,sha256=pebds694OgLqzISMvjCcwJQLSFmsZT6bGi4hpP6iJVI,1056
+asyncify-0.10.0.dist-info/METADATA,sha256=TVWQfNpTcPxwxQDimKx_HfaGJCGC7ccBntGs-JEkt1o,2039
+asyncify-0.10.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+asyncify-0.10.0.dist-info/RECORD,,
