@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/cdsetool/__init__.py
+src/cdsetool/_processing.py
+src/cdsetool/cli.py
+src/cdsetool/credentials.py
+src/cdsetool/download.py
+src/cdsetool/monitor.py
+src/cdsetool/query.py
+src/cdsetool.egg-info/PKG-INFO
+src/cdsetool.egg-info/SOURCES.txt
+src/cdsetool.egg-info/dependency_links.txt
+src/cdsetool.egg-info/entry_points.txt
+src/cdsetool.egg-info/requires.txt
+src/cdsetool.egg-info/top_level.txt
