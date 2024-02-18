@@ -1,0 +1,17 @@
+revel/__init__.py,sha256=F_N173S4GEYOaV70RL6kThzyQn2Px-SC2jcvSPeqe5Q,353
+revel/argument_parser.py,sha256=s_Z8prvjq-Xf_OupKuspeMrrZRIsJ7WKeAvLYxrJGUQ,20045
+revel/cli_app.py,sha256=bXePUa_vw4j66um8JFEIICDY0D3CsTXPDwYTqObLVck,11813
+revel/common.py,sha256=G7VWVL_ATzhvFd8qOkgUfSUfISiXfuuI2Uj1rdD8lis,4462
+revel/errors.py,sha256=dFshmQroQrjQ0Q9QA8YZhvQLqb-UdXKk9R8zKMOMvi4,1692
+revel/legacy.py,sha256=RIfWnBs9V43lcHrpHnZyTu0bFueXqhBLV_l962Lwrwk,31339
+revel/markup.py,sha256=U35qkJXGpPCkIa7Dz-lghewGmPxbMnPfwTMHHNsF4Gc,723
+revel/menu.py,sha256=g4wOxGcExUlC6B5yO98q4V0cecX0QAn4huX4lrslIDY,7347
+revel/rapidbaby/__init__.py,sha256=pfQDhATawvohrpInpPAz15odxonIC0Ky0c1GTS25gxs,80
+revel/rapidbaby/common.py,sha256=fFNPbWzBFwfFjBfC9tu0xfwtPxelScPRzU17GVIXdDc,274
+revel/rapidbaby/parser.py,sha256=Kyl2esXfCofzJ1I_00_BShcpYir7gYZtzqyZhlF8ItM,7136
+revel/rapidbaby/styles.py,sha256=VAPBju2-T7bD3jPVYl5YHQrdb2L8iKzBStiHFl4sF8w,5836
+revel/shell_escape.py,sha256=yk89rVYWY6rrsfcAl12ePf9SsCjsc2ur4iLRP-ssbqQ,2106
+revel/style.py,sha256=Bb5ELUlNmgiCiEIWapyvpWDBzcKJWA-nrwOGe9nue78,815
+revel-0.8.16.dist-info/METADATA,sha256=CxpsWE-SuAhUKzXMyRAc31H13m8dqp9gP8shW2nnu4U,2925
+revel-0.8.16.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+revel-0.8.16.dist-info/RECORD,,
