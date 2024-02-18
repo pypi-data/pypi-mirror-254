@@ -1,0 +1,136 @@
+{% load static i18n base_template %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+<!DOCTYPE html>
+<html  {% include "base_template/layout/_localization.html" %}>
+<head>
+  <title>{% get_base_template_setting "BASE_TEMPLATE_APP_NAME" %} | {% block title %}{{ title }}{% endblock %}</title>
+  <meta charset="utf-8"/>
+  <meta content="{{ csrf_token }}" name="csrf-token">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  {% for item in meta %}
+    <meta {% for key, value in item.items %} {{ key }}="{{ value }}"{% endfor %}>
+  {% endfor %}
+
+
+  {% block pre_styles %}{% endblock %}
+
+  {% for asset in assets.css %}
+    <link {% for key, value in asset.items %} {{ key }}="{{ value }}"{% endfor %}>
+  {% endfor %}
+
+  {% block styles %}{% endblock %}
+</head>
+{% get_base_template_setting "BASE_TEMPLATE_TOOLBAR_FIXED" as BASE_TEMPLATE_TOOLBAR_FIXED %}
+
+<body id="kt_app_body"
+      data-kt-app-layout="dark-sidebar"
+      data-kt-app-header-fixed="true"
+      data-kt-app-sidebar-enabled="true"
+      data-kt-app-sidebar-fixed="true"
+      data-kt-app-sidebar-hoverable="true"
+      data-kt-app-sidebar-push-header="true"
+      data-kt-app-sidebar-push-toolbar="true"
+      data-kt-app-sidebar-push-footer="true"
+      data-kt-app-toolbar-enabled="true"
+    {% if BASE_TEMPLATE_TOOLBAR_FIXED %}
+      data-kt-app-toolbar-fixed="true"
+    {% endif %}
+      class="app-default">
+
+{% include "base_template/partials/theme-mode/_init.html" %}
+
+
+<div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+  <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+    <!-- Start: Header -->
+    {% include "base_template/layout/partials/header/_header.html" %}
+    <!-- End: Header -->
+    <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+
+      <!-- Start: Sidebar -->
+      {% include "base_template/layout/partials/sidebar/_sidebar.html" %}
+      <!-- End: Sidebar -->
+      <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+
+        <div class="d-flex flex-column flex-column-fluid">
+          <!-- Start: Toolbar -->
+          {% block toolbar %}
+            {% include "base_template/layout/partials/toolbar/_toolbar.html" %}
+          {% endblock %}
+          <!-- End: Toolbar -->
+          <div id="kt_app_content" class="app-content  flex-column-fluid ">
+            <div id="kt_app_content_container" class="app-container  container-fluid ">
+              {% for item in before_content %}
+                {% include item.template_name with data=item.context %}
+              {% endfor %}
+              {% block content %}{% endblock %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Start: Footer -->
+        {% include "base_template/layout/partials/footer/_footer.html" %}
+        <!-- End: Footer -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if right_drawers|length > 0 %}
+  {% for right_drawer in right_drawers %}
+    {% include right_drawer %}
+  {% endfor %}
+{% endif %}
+
+{% include "base_template/partials/_scrolltop.html" %}
+
+{% block modals %}{% endblock %}
+
+<script>
+  const CSRFMetaTag = document.querySelector('meta[name="csrf-token"]');
+  const csrfToken = CSRFMetaTag ? CSRFMetaTag.getAttribute('content') : null;
+</script>
+
+{% block pre_scripts %}{% endblock %}
+
+{% for asset in assets.js %}
+  <script src="{{ asset }}"></script>
+{% endfor %}
+
+{% get_base_template_setting "BASE_TEMPLATE_MULTIPLE_LANGUAGES" as BASE_TEMPLATE_MULTIPLE_LANGUAGES %}
+{% if BASE_TEMPLATE_MULTIPLE_LANGUAGES %}
+  <script>
+    window.gettext = gettext
+  </script>
+{% endif %}
+
+<script defer>
+
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": document.dir === 'rtl' ? "toastr-bottom-left" : "toastr-bottom-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+  {% for message in messages %}
+    toastr.{{ message.tags }}("{{ message }}");
+  {% endfor %}
+</script>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>
