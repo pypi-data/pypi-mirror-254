@@ -1,0 +1,288 @@
+# DEXTools Python
+[![Python application](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml/badge.svg)](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml)
+[![Downloads](https://static.pepy.tech/badge/dextools-python)](https://pepy.tech/project/dextools-python)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/dextools-python)](https://pypi.org/project/dextools-python/)
+
+A simple Python API wrapper for DEXTools.
+Supports [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+
+## Installation
+
+```
+pip install dextools-python
+```
+
+## Obtaining API Key
+To obtain an API key, head to the [Developer Portal](https://developer.dextools.io/) and choose your plan.
+
+
+## Getting Started
+There are 2 versions of the Dextools API. [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+
+### Version 1
+To get started, import the package, and initiate a `DextoolsAPI` instance object by passing your API key:
+```
+from dextools_python import DextoolsAPI
+dextools = DextoolsAPI(api_key)
+```
+
+You can also pass an optional user agent:
+```
+dextools = DextoolsAPI(api_key, useragent="User-Agent")
+```
+
+### Version 2
+To get started, import the package, and initiate a `DextoolsAPIV2` instance object by passing your API key and your plan:
+```
+from dextools_python import DextoolsAPIV2
+dextools = DextoolsAPIV2(api_key, plan="free")
+```
+
+You can also pass an optional user agent:
+```
+dextools = DextoolsAPIV2(api_key, useragent="User-Agent", plan="free")
+```
+
+If you don't specify any plan when instantiating the object, it will default to "partner" plan
+
+#### Available plans - Setting your plan
+You can setup your plan when setting the object instance by providing the `plan` argument in the constructor. If no `plan` is specified, it will default to "partner" plan
+
+To set your plan after the object is created, you can use the `set_plan("your_plan")` method
+```
+dextools.set_plan("standard")
+```
+
+Available values: `"free"`, `"standard"`, `"advanced"`, `"pro"`, and `"partner"`
+
+
+## Version 1 Queries
+Below are a set of queries supported by the [Dextools API v1](https://api.dextools.io/docs). All data is returned as a Python dictionary for easy data handling.
+
+### Get pairs of a token
+To get the pairs of a token, pass a `chain id` and a `pair address`:
+```
+pair = dextools.get_pair("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pair)
+```
+
+### Get token details
+To get token details, pass a `chain id`, and a `token address`:
+```
+token = dextools.get_token("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token)
+```
+
+You can also pass the `page` and `pageSize` parameters:
+```
+token = dextools.get_token("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a", 1, 50)
+print(token)
+```
+
+### Get chain list
+To get the chain list:
+```
+chain_list = dextools.get_chain_list()
+print(chain_list)
+```
+
+You can also pass the `page` and `pageSize` parameters:
+```
+chain_list = dextools.get_chain_list(1, 50)
+print(chain_list)
+```
+
+### Get exchange list
+To get the exchange list, pass a `chain id`:
+```
+exchange_list = dextools.get_exchange_list("ether")
+print(exchange_list)
+```
+
+You can also pass the `page` and `pageSize` parameters:
+```
+exchange_list = dextools.get_exchange_list("ether", 1, 50)
+print(exchange_list)
+```
+
+## Version 2 Queries
+Below are a set of queries supported by the [Dextools API v2](https://api.dextools.io/blobr/v2/docs). All data is returned as a Python dictionary for easy data handling.
+
+### Blockchain
+#### Get blockchain info
+```
+blockchain = dextools.get_blockchain("ether")
+print(blockchain)
+```
+
+#### Get blockchains sorted by default settings
+```
+blockchains = dextools.get_blockchains()
+print(blockchains)
+```
+
+#### Get blockchains sorted by default settings and descending order
+```
+blockchains = dextools.get_blockchains(sort="name", order="desc")
+print(blockchains)
+```
+
+### Exchange
+#### Get dex factory info
+```
+factory = dextools.get_dex_factory_info("ether", "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f")
+print(factory)
+```
+
+#### Get dexes on a specific chain
+```
+dexes = dextools.get_dexes("ether")
+print(dexes)
+```
+
+#### Get dexes on a specific chain sorted by name and descending order
+```
+dexes = dextools.get_dexes("ether", sort="creationBlock", order="desc")
+print(dexes)
+```
+
+### Pool
+#### Get pool info
+```
+pool = dextools.get_pool("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pool)
+```
+
+#### Get pool liquidity
+```
+pool_liquidity = dextools.get_pool_liquidity("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pool_liquidity)
+```
+
+#### Get pool score
+```
+pool_score = dextools.get_pool_score("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pool_score)
+```
+
+#### Get pool price
+```
+pool_price = dextools.get_pool_price("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pool_price)
+```
+
+#### Get pools
+```
+pools = dextools.get_pools("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
+print(pools)
+```
+
+#### Get pools sorted by `creationBlock` and descending order and providing block numbers instead
+```
+pools = dextools.get_pools("ether", from_="12755070", to="12755071", sort="creationBlock", order="desc")
+print(pools)
+```
+
+### Token
+#### Get token
+```
+token = dextools.get_token("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token)
+```
+
+#### Get token locks
+```
+token_locks = dextools.get_token_locks("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token_locks)
+```
+
+#### Get token score
+```
+token_score = dextools.get_token_score("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token_score)
+```
+
+#### Get token info
+```
+token_info = dextools.get_token_info("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token_info)
+```
+
+#### Get token price
+```
+token_price = dextools.get_token_price("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token_price)
+```
+
+#### Get tokens
+```
+tokens = dextools.get_tokens("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
+print(tokens)
+```
+
+#### Get tokens sorted by `creationBlock` and descending order and providing block numbers instead in descending order
+```
+tokens = dextools.get_tokens("ether", from_="18570000", to="18570500", sort="creationBlock", order="desc")
+print(tokens)
+```
+
+#### Get tokens sorted by `socialsInfoUpdated` and descending order and datetimes in descending order
+```
+tokens = dextools.get_tokens("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00", sort="socialsInfoUpdated", order="desc")
+print(tokens)
+```
+
+#### Get token pools
+```
+token_pools = dextools.get_token_pools("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
+print(token_pools)
+```
+
+#### Get token pools sorted by `creationBlock` and descending order and providing block numbers instead in descending order
+```
+token_pools = dextools.get_token_pools("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a", from_="18570000", to="18570500", sort="creationBlock", order="desc")
+print(token_pools)
+```
+
+### Rankings
+#### Get hot pools
+```
+hot_pools = dextools.get_ranking_hotpools("ether")
+print(hot_pools)
+```
+
+#### Get gainers
+```
+gainers = dextools.get_ranking_gainers("ether")
+print(gainers)
+```
+
+#### Get losers
+```
+losers = dextools.get_ranking_losers("ether")
+print(losers)
+```
+
+### Page and PageSize arguments
+Some methods support the `page` and `pageSize` arguments. Check out the [Dextools API v2](https://api.dextools.io/v2/docs) documentation for more information.
+
+## Examples
+Check out the `examples` folder for some example scripts.
+
+## Testing
+A set of tests have been included inside `tests` folder. You will need to set an environment variable as `DextoolsAPIKey` using your API key.
+
+## Supported Blockchains
+Dextools adds support for new blockchains from time to time. `dextools.get_blockchains()` to get a list of supported blockchains and their IDs
+
+## Authors
+* [alb2001](https://github.com/alb2001)
+
+
+## More information
+* [dextools-python on PyPI](https://pypi.org/project/dextools-python)
+* [DEXTools](https://www.dextools.io)
+* [Dextools API v1](https://api.dextools.io/docs)
+* [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+* [Developer Portal](https://developer.dextools.io/)
