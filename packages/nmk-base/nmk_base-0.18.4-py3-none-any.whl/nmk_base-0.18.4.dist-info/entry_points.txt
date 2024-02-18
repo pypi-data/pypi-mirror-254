@@ -1,0 +1,3 @@
+[buildenv_init]
+nmk = nmk_base.buildenv:BuildEnvInit
+
