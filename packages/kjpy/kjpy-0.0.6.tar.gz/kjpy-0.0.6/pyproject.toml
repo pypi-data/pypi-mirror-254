@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kjpy"
+version = "0.0.6"
+authors = [
+  { name="KJ Price", email="kjprice12@gmail.com" },
+]
+description = "A library to make python easier"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/kjprice/kjpy"
+"Bug Tracker" = "https://github.com/kjprice/kjpy/issues"
