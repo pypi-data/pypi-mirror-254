@@ -1,0 +1,13 @@
+trixeditor/__init__.py,sha256=fxbl_cabSaRHTD0d59MgNTFkWFS4PUZF7cftkPvTUkA,57
+trixeditor/admin.py,sha256=p6xop1PuuDG2Uwv3G_aRfldxOfBzTRfMaoZmORVkqyU,66
+trixeditor/apps.py,sha256=f8HmIQ_laEINGpqT4We9vmVfgbgkxrfHYcBrdvAqc3w,158
+trixeditor/fields.py,sha256=bmDSBJo30f4x6eH1GM-QbzwACIg47vkOtsRl5qd_h6Q,289
+trixeditor/views.py,sha256=u0FhL7RT5byf5IlcnZEMrcH2TOnQkdfRQU2SjtA26m0,66
+trixeditor/widgets.py,sha256=BQ1fJfZh_CYiI5ydC1UFKWy2Rtg_PxYF1ueE16l_GAM,426
+trixeditor/static/widgets/css/trix.css,sha256=shpUkgGXHR5tj7x6pGWKawJcBVS7t7NrxbqivTGrwaY,20040
+trixeditor/static/widgets/js/trix.umd.min.js,sha256=u_hD7DzwHSfarMIQy-_BfjenbPOXZva5ca5ku1_A48o,174099
+trixeditor/templates/trixeditor/widgets/trix.html,sha256=w_K48_7qSz_nNFHBHyL3nJ0x0OiU_GHtILpmiZU8ChQ,328
+django_trix_richtext-2.0.8.dist-info/LICENSE,sha256=2S3Ba_uOoOpVbJ3i5s7zEnYQ-ll3I_4dlY6BooziMIY,1099
+django_trix_richtext-2.0.8.dist-info/WHEEL,sha256=EZbGkh7Ie4PoZfRQ8I0ZuP9VklN_TvcZ6DSE5Uar4z4,81
+django_trix_richtext-2.0.8.dist-info/METADATA,sha256=t9botUTpU56JQkQDebsyvetfliQ0leTbH82ieEn6dCI,505
+django_trix_richtext-2.0.8.dist-info/RECORD,,
