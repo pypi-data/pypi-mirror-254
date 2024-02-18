@@ -1,0 +1,22 @@
+[package]
+name = "ophio-bindings"
+version = "0.1.3"
+publish = false
+edition = "2021"
+
+[lib]
+name = "_bindings"
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1.0.79"
+proguard = { version = "5.4.0", features = ["uuid"] }
+pyo3 = { version = "0.20.0", features = [
+    "anyhow",
+    "extension-module",
+    "serde",
+    "abi3-py310",
+] }
+rust-ophio = { path = "../rust" }
+smol_str = "0.2.0"
+symbolic = { version = "12.8.0", features = [] }
