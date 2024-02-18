@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+lib/python/cs/dockerutils.py
+lib/python/cs.dockerutils.egg-info/PKG-INFO
+lib/python/cs.dockerutils.egg-info/SOURCES.txt
+lib/python/cs.dockerutils.egg-info/dependency_links.txt
+lib/python/cs.dockerutils.egg-info/requires.txt
+lib/python/cs.dockerutils.egg-info/top_level.txt
