@@ -1,0 +1,27 @@
+# ============= Engine stepper =================
+
+[engine.stepper]
+verbose = false
+odeSolver = "euler_explicit"
+sensorsUpdatePeriod = 0.005
+controllerUpdatePeriod = 0.005
+logInternalStepperSteps = false
+randomSeedSeq = [0,]
+
+# ============== Ground dynamics ===============
+
+[engine.constraints]
+solver = "PGS"
+regularization = 2.0e-3
+
+[engine.contacts]
+model = "constraint"
+stabilizationFreq = 25.0
+transitionEps = 2.0e-3
+friction = 0.5
+
+# ======== Joints bounds configuration ========
+
+[system.robot.model.joints]
+enablePositionLimit = true
+enableVelocityLimit = true
