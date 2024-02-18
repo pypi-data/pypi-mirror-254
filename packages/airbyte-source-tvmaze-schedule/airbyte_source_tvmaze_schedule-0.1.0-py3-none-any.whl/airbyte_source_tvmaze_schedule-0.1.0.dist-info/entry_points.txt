@@ -1,0 +1,2 @@
+[console_scripts]
+source-tvmaze-schedule = source_tvmaze_schedule.run:run
