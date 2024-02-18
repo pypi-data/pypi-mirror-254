@@ -1,0 +1,12 @@
+[console_scripts]
+c2-as = c2client.clients:ASClient.execute
+c2-bs = c2client.clients:BSClient.execute
+c2-ct = c2client.clients:CTClient.execute
+c2-cw = c2client.clients:CWClient.execute
+c2-ec2 = c2client.clients:EC2Client.execute
+c2-eks = c2client.clients:EKSClient.execute
+c2-eks-legacy = c2client.clients:LegacyEKSClient.execute
+c2-elb = c2client.clients:ELBClient.execute
+c2-paas = c2client.clients:PaasClient.execute
+c2-route53 = c2client.clients:Route53Client.execute
+c2rc-convert = c2client.c2rc_convert:main
