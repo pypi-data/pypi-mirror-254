@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Avlos
+Version: 0.7.0
+Summary: Avlos Remote Object Templating System
+Home-page: https://www.tinymovr.com
+Author: Yannis Chatzikonstantinou
+Author-email: yannis@tinymovr.com
+Requires-Python: >=3.9
+License-File: LICENSE
