@@ -1,0 +1,16 @@
+mercadolibre/__init__.py,sha256=znXn4FG7F9J5jzMu4N8hn2OQkeQzaiN0FXG1k5w1210,292
+mercadolibre/_authentication.py,sha256=HST3N_1wKpU9K9O2P_lRIRiAlVnq2iLkZeSzrksoN9w,4968
+mercadolibre/api.py,sha256=NnbMGkL3Z2TjL6m9ow7qNm8M0aPDHPoyUM1ZyvJpNdk,2050
+mercadolibre/authentication.py,sha256=-8WyNiUOHzPr6d1KfFulPdkT6u26kJOwU3af-RlvaWs,182
+mercadolibre/authorization.py,sha256=Oya_5Sc5LeMRyQwJhRj9wHCrce_MgU0Mq8kllrZ205c,3141
+mercadolibre/category.py,sha256=kKf-2gYuYIfNZOf4oDSIDWuvdT_4HQRSD6GTNPqcg2U,268
+mercadolibre/item.py,sha256=2zmaIUjMl-LMMk-M_bp94RGbpFjICeLnOhs0yzL9OAo,195
+mercadolibre/product.py,sha256=dFl3yL3R0DTqwn4sjAaZHXZQjJvl98I_R76ORIiFniU,426
+mercadolibre/review.py,sha256=0_lA3XarBD4ykRbmmaRKZO0AqhstK6DuiMuiJZthAkw,200
+mercadolibre/search.py,sha256=7QDuua63QNqAzX0dpt8OLy6zTZcFGxMWjc8ktV4jLIM,1120
+mercadolibre/user.py,sha256=rlgrdQU3BD6U4gKhT6xR022zvTmI6NnDpKxvI2ma2D0,195
+mercadolibre_sdk-0.0.13.dist-info/METADATA,sha256=-KYOdHSBEzkjbNLnNx3s0dmV0QTUyjOZlwlXhrwZT7w,3082
+mercadolibre_sdk-0.0.13.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+mercadolibre_sdk-0.0.13.dist-info/entry_points.txt,sha256=7Iu1gGUUM-bKJ67ZqL_I6oF0AKNhfY5qPT1BEGRXEKk,80
+mercadolibre_sdk-0.0.13.dist-info/top_level.txt,sha256=m3RwYAKBfsakB6BZSh3R4AhYtgepVO3XDyNUeJ2c7Oo,13
+mercadolibre_sdk-0.0.13.dist-info/RECORD,,
