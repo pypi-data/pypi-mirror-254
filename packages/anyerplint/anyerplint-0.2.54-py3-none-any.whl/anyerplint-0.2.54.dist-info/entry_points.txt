@@ -1,0 +1,2 @@
+[console_scripts]
+anyerplint = anyerplint.__main__:main
