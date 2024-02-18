@@ -1,0 +1,47 @@
+V0.2:
+[ ] - write docs  (8h)
+
+V0.2.1
+[ ] - pygmalion grammar support
+
+V0.3:
+
+[ ] - outlines as (optional) backend for guided generation (mostly json-schemas)
+
+[ ] - dspy integration for autotuning prompts
+
+[ ] - pydantic model streaming  (6h)
+
+[ ] - enable union type without function calling  (6h)
+
+[ ] - enable Error type for non union calls  (4h)
+
+[ ] - convert langchain tools to funcchain agent/router  (8h)
+
+
+V0.4+:
+
+[ ] - cookbooks folder with jupyter notebook tutorials  (8h)
+
+[ ] - depends functionality to create nested chains and compile into runnables  (10h)
+        # add a deps thing to put into funcchain defs that takes another chain and compiles it into a runnable
+        # so langsmith shows nested chains
+        # in the chain creation process it just runns all of the depending chains in parallel and feeds the inputs into sub chain
+        # output of every chain is string when inserted
+
+[ ] - vector retrieval type to add file/url context into chains  (20h)
+
+[ ] - implement variable compression to inject as much context as possible without overloading  (20h)
+        # Create a Compressable Context Schema where it is compressed in case the context lenght is already filled
+        # So anything that is additional can be compressed to fit in the context but when other things that are important are not compressed.
+        # Optionally you can define how to compress and where to leave the gaps (default in the middle with [...])
+
+[ ] - LLMCompiler written in funcchain example  (30h)
+
+[ ] - vscode extension for custom syntax highlighting  (30h)
+
+[ ] - parallel function calling  (8h)
+
+[ ] - FuncUnion and str output  (6h)
+
+[ ] - think of new syntax for special dspy modules (COT, FewShot, ...)

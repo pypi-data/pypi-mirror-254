@@ -1,0 +1,97 @@
+[project]
+name = "funcchain"
+version = "0.2.0"
+description = "🔖 write prompts as python functions"
+authors = [{ name = "Shroominic", email = "contact@shroominic.com" }]
+dependencies = [
+    "langchain_openai>=0.0.3",
+    "pydantic-settings>=2",
+    "docstring-parser>=0.15",
+    "rich>=13",
+    "jinja2>=3",
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">= 3.10, <3.13"
+keywords = [
+    "funcchain",
+    "ai",
+    "llm",
+    "langchain",
+    "pydantic",
+    "pythonic",
+    "cognitive systems",
+    "agent framework",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Code = "https://github.com/shroominic/funcchain"
+Documentation = "https://shroominic.github.io/funcchain"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "funcchain[all]",
+    "ruff",
+    "mypy",
+    "isort",
+    "pytest",
+    "ipython",
+    "pre-commit",
+    "types-PyYAML>=6",
+    "mkdocs-material>=9.4",
+]
+
+[project.optional-dependencies]
+openai = ["langchain_openai"]
+ollama = ["langchain_community"]
+llamacpp = ["llama-cpp-python>=0.2.32", "huggingface_hub>=0.20"]
+pillow = ["pillow"]
+example-extras = ["langchain>=0.1", "faiss-cpu>=1.7.4", "beautifulsoup4>=4.12"]
+all = [
+    "funcchain[pillow]",
+    "funcchain[openai]",
+    "funcchain[ollama]",
+    "funcchain[llamacpp]",
+    "funcchain[example-extras]",
+    "langchain",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/funcchain"]
+
+[tool.pytest.ini_options]
+addopts = "-p no:warnings"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+
+[tool.flake8]
+max-line-length = 120
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+
+[tool.ruff]
+select = ["E", "F", "I"]
+line-length = 120
