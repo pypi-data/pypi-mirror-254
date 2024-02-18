@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: telegram-messager
+Version: 0.0.1
+Summary: Simplest util to send messages and documents to Telegram
+Home-page: https://github.com/PasaOpasen/telegram-messager
+Author: Demetry Pascal
+Author-email: qtckpuhdsa@gmail.com
+Maintainer: Demetry Pascal
+License: MIT
+Keywords: telegram,bot
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: typing-extensions
+
+# telegram-messager
+
+
+Simplest util to send messages to Telegram.
+
+Usage:
+```python
+from telegram_messager import TelegramMessager
+
+TM = TelegramMessager(token='token', chatid='chatid')
+TM.send_msg('message')
+```
