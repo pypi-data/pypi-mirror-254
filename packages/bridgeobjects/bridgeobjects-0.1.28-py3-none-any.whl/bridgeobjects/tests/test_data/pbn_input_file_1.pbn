@@ -1,0 +1,1287 @@
+% PBN 2.1
+% EXPORT
+%Content-type: text/pbn; charset=ISO-8859-1
+%Creator: my software
+%
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "1"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:K87.Q642.AJ6.K73 T5.85.Q752.Q6542 AQJ96.73.T843.JT 432.AKJT9.K9.A98"]
+[OptimumScore "NS 3S; 140"]
+[DoubleDummyTricks "79684796844475844758"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  9
+N  H  6
+N  D  8
+N  C  4
+N NT  7
+E  S  4
+E  H  7
+E  D  5
+E  C  8
+E NT  4
+S  S  9
+S  H  6
+S  D  8
+S  C  4
+S NT  7
+W  S  4
+W  H  7
+W  D  5
+W  C  8
+W NT  4
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    1    3S    N  8
+3    5    3S    N  8
+4    7    3H    W  7
+6    2    2S    S  8
+7    4    2S    N  9
+8    6    2H    W  8
+9    8    2S    N  7
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "2"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:Q6.KT6.K95.KT942 KT42.AJ873.32.J7 A95.Q2.AQ86.A853 J873.954.JT74.Q6"]
+[OptimumScore "E 3N; -460"]
+[DoubleDummyTricks "2553225532b88ab987ab"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  5
+N  D  3
+N  C  2
+N NT  2
+E  S  8
+E  H  8
+E  D 10
+E  C 11
+E NT 11
+S  S  5
+S  H  5
+S  D  3
+S  C  2
+S NT  2
+W  S  8
+W  H  7
+W  D 10
+W  C 11
+W NT  9
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    1    3NT   E 12
+3    5    2C    E 11
+4    7    3NT   W 10
+6    2    3C    E 11
+7    4    3C    W 12
+8    6    3C    E 12
+9    8    3H    W  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "3"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:7542.87.732.J943 QT9863.KQJT3.98. K.A942.AJT54.K82 AJ.65.KQ6.AQT765"]
+[OptimumScore "EW 3N; -660"]
+[DoubleDummyTricks "2225522265bbb78bbb78"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  2
+N  H  2
+N  D  5
+N  C  5
+N NT  2
+E  S 11
+E  H 11
+E  D  7
+E  C  8
+E NT 11
+S  S  2
+S  H  2
+S  D  6
+S  C  5
+S NT  2
+W  S 11
+W  H 11
+W  D  7
+W  C  8
+W NT 11
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    1    5S    W 12
+3    5    3NT   E 11
+4    7    4S    W 11
+6    2    3D    N  5
+7    4    3NT   E 11
+8    6    3C    E  8
+9    8    3NT   E 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "4"]
+[West "Joe Bloggs"]
+[North "John Doe"]
+[East "A. N. Other"]
+[South "Emma Royd"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:AT32.AJT85.976.6 KQ87.42.AK853.J8 6.Q976.QJ2.Q5432 J954.K3.T4.AKT97"]
+[OptimumScore "EW 5HX; 500"]
+[DoubleDummyTricks "794778a4774394543945"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+[Scoring "IMP"]
+[Declarer "S"]
+[Contract "5HX"]
+N  S  9
+N  H  4
+N  D  7
+N  C  7
+N NT  7
+E  S  3
+E  H  9
+E  D  4
+E  C  5
+E NT  4
+S  S 10
+S  H  4
+S  D  7
+S  C  7
+S NT  8
+W  S  3
+W  H  9
+W  D  4
+W  C  5
+W NT  4
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    2    3H    W  9
+4    6    3NT   S  8
+5    8    4S    S 10
+6    1    4H    W  9
+7    3    3S    S 11
+8    5    4S    S  9
+9    7    3S    N  8
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "5"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:9832.AK.T54.K653 A764.QJ974..QJT8 QT5.32.AJ98762.2 KJ.T865.KQ3.A974"]
+[OptimumScore "W 4H; -420"]
+[DoubleDummyTricks "45383463838795987a5a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  3
+N  D  8
+N  C  3
+N NT  4
+E  S  7
+E  H  9
+E  D  5
+E  C  9
+E NT  8
+S  S  6
+S  H  3
+S  D  8
+S  C  3
+S NT  4
+W  S  7
+W  H 10
+W  D  5
+W  C 10
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    2    3H    E  9
+4    6    4H    E 10
+5    8    4H    E  9
+6    1    2Dx   S  8
+7    3    3H    E  9
+8    5    3H    W  9
+9    7    4H    E 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "6"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:T9832.543.J53.Q3 J.862.Q764.AT976 A754.KT.KT98.842 KQ6.AQJ97.A2.KJ5"]
+[OptimumScore "S 6N; 990"]
+[DoubleDummyTricks "b7c9bc8c9c1514115141"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H 12
+N  D  9
+N  C 11
+N NT 11
+E  S  5
+E  H  1
+E  D  4
+E  C  1
+E NT  1
+S  S  8
+S  H 12
+S  D  9
+S  C 12
+S NT 12
+W  S  5
+W  H  1
+W  D  4
+W  C  1
+W NT  1
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    2    3NT   N 12
+4    6    4H    N 12
+5    8    3NT   N 12
+6    1    3H    N 11
+7    3    3NT   N 12
+8    5    4H    N 12
+9    7    4H    N 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "7"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:Q85.Q85.AJ52.J85 KJ96.KJ74.KT63.A T.AT6.Q98.KQ9632 A7432.932.74.T74"]
+[OptimumScore "EW 2S; -140"]
+[DoubleDummyTricks "63478645786985469854"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  4
+N  D  7
+N  C  8
+N NT  6
+E  S  9
+E  H  8
+E  D  5
+E  C  4
+E NT  6
+S  S  4
+S  H  5
+S  D  7
+S  C  8
+S NT  6
+W  S  9
+W  H  8
+W  D  5
+W  C  4
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    3C    N  9
+2    1    3S    W  9
+3    3    2NT   S  6
+5    7    2C    N  8
+7    2    3C    N  9
+8    4    3C    N  9
+9    6    3C    N  7
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "8"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:QJT9874.J4.T3.93 53.KQ76.AJ5.KJ75 A6.9853.Q86.AT82 K2.AT2.K9742.Q64"]
+[OptimumScore "NS 3N; 460"]
+[DoubleDummyTricks "b6bbab6bba2722327223"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H 11
+N  D 11
+N  C 10
+N NT 11
+E  S  7
+E  H  2
+E  D  2
+E  C  3
+E NT  2
+S  S  6
+S  H 11
+S  D 11
+S  C 10
+S NT 11
+W  S  7
+W  H  2
+W  D  2
+W  C  3
+W NT  2
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    4Sx   W  7
+2    1    3D    S 10
+3    3    3Sx   W  8
+5    7    3NT   N 11
+7    2    4Sx   W  7
+8    4    2S    W  7
+9    6    3NT   N  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "9"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:K73.9875.2.Q9832 QT9642.A.63.T754 5.KQ63.KQT975.AJ AJ8.JT42.AJ84.K6"]
+[OptimumScore "NS 5HX; -500"]
+[DoubleDummyTricks "53867538676a5666a566"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  8
+N  D  6
+N  C  7
+N NT  5
+E  S 10
+E  H  5
+E  D  6
+E  C  6
+E NT  6
+S  S  3
+S  H  8
+S  D  6
+S  C  7
+S NT  5
+W  S 10
+W  H  5
+W  D  6
+W  C  6
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    3S    E 10
+2    1    4S    E  8
+3    3    3S    E  9
+5    7    4H    S  8
+7    2    4H    N  9
+8    4    1D    S  7
+9    6    4H    S  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "10"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:AKQ.AJ52.A73.KQT JT976532.K.QJ4.8 .Q98763.KT8.J765 84.T4.9652.A9432"]
+[OptimumScore "EW 6N; -1440"]
+[DoubleDummyTricks "1613216132c7babc6baa"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  1
+N  D  3
+N  C  2
+N NT  1
+E  S  7
+E  H 11
+E  D 10
+E  C 11
+E NT 12
+S  S  6
+S  H  1
+S  D  3
+S  C  2
+S NT  1
+W  S  6
+W  H 11
+W  D 10
+W  C 10
+W NT 12
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    4H    W 11
+3    2    3NT   E 12
+4    4    4Sx   S  7
+6    8    5H    W 11
+7    1    6H    W 11
+8    3    4Sx   S  7
+9    5    4H    W 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "11"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:J.A843.K8652.A32 85.J95.JT73.QT54 AKQ742.K6.AQ.876 T963.QT72.94.KJ9"]
+[OptimumScore "NS 6N; 990"]
+[DoubleDummyTricks "ccac9ccac91021310213"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 12
+N  H 10
+N  D 12
+N  C  9
+N NT 12
+E  S  0
+E  H  2
+E  D  1
+E  C  3
+E NT  1
+S  S 12
+S  H 10
+S  D 12
+S  C  9
+S NT 12
+W  S  0
+W  H  2
+W  D  1
+W  C  3
+W NT  1
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    6D    S 12
+3    2    4S    N 13
+4    4    6NT   N 12
+6    8    2S    N 11
+7    1    4S    N 12
+8    3    3NT   S 11
+9    5    6NT   S 13
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "12"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:Q4.AK874.764.T32 J5.652.T95.KQ985 AT76.J93.K832.A6 K9832.QT.AQJ.J74"]
+[OptimumScore "EW 2H; -140"]
+[DoubleDummyTricks "56458564587797476974"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  4
+N  D  5
+N  C  8
+N NT  5
+E  S  7
+E  H  9
+E  D  7
+E  C  4
+E NT  7
+S  S  6
+S  H  4
+S  D  5
+S  C  8
+S NT  5
+W  S  6
+W  H  9
+W  D  7
+W  C  4
+W NT  7
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    2H    W  7
+3    2    2S    E  7
+4    4    2S    E  5
+6    8    2H    E  9
+7    1    1NT   W  5
+8    3    1NT   E  9
+9    5    2S    S  7
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "13"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:64.AKT986.Q76.42 QJ7.J32.T8.AQT96 AK95.754.AK52.87 T832.Q.J943.KJ53"]
+[OptimumScore "NS 4H; 620"]
+[DoubleDummyTricks "77a9577a956534765347"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H 10
+N  D  9
+N  C  5
+N NT  7
+E  S  5
+E  H  3
+E  D  4
+E  C  7
+E NT  6
+S  S  7
+S  H 10
+S  D  9
+S  C  5
+S NT  7
+W  S  5
+W  H  3
+W  D  4
+W  C  7
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    6    3NT   E  8
+2    8    4S    E 10
+3    1    2S    E  9
+4    3    2S    E  9
+5    5    3NT   E  8
+8    2    4S    E 10
+9    4    3NT   E  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "5CXX"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "14"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:AJ86.K64.AQ74.A4 74.AQ875.KT92.Q9 KQ5.T92.8.KT7632 T932.J3.J653.J85"]
+[OptimumScore "EW 4S; -420"]
+[DoubleDummyTricks "33453234529a88a9a76a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  4
+N  D  5
+N  C  3
+N NT  3
+E  S 10
+E  H  8
+E  D  8
+E  C 10
+E NT  9
+S  S  3
+S  H  4
+S  D  5
+S  C  2
+S NT  2
+W  S 10
+W  H  7
+W  D  6
+W  C 10
+W NT  9
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    6    2H    S 10
+2    8    4S    N 10
+3    1    4H    N 10
+4    3    4H    S 10
+5    5    4H    S 10
+8    2    2H    S 10
+9    4    4H    N 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "15"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:KJ764.T6.KJ742.A Q98.A5.AQT63.J82 T32.Q87432.8.KT4 A5.KJ9.95.Q97653"]
+[OptimumScore "W 1C; -130"]
+[DoubleDummyTricks "26642266428779a8779a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  6
+N  D  4
+N  C  2
+N NT  2
+E  S  7
+E  H  7
+E  D  9
+E  C 10
+E NT  8
+S  S  6
+S  H  6
+S  D  4
+S  C  2
+S NT  2
+W  S  7
+W  H  7
+W  D  9
+W  C 10
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    6    3S    S  8
+2    8    3C    E 10
+3    1    4S    S  7
+4    3    3C    E  9
+5    5    2S    S  5
+8    2    3C    E 10
+9    4    2S    S  7
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "16"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:A95.AT2.AQ63.A62 KT64.K73.T.JT973 QJ87.84.J9842.KQ 32.QJ965.K75.854"]
+[OptimumScore "EW 6D; -1370"]
+[DoubleDummyTricks "1151511515aa7c8aa7c8"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  5
+N  D  1
+N  C  5
+N NT  1
+E  S 10
+E  H  7
+E  D 12
+E  C  8
+E NT 10
+S  S  1
+S  H  5
+S  D  1
+S  C  5
+S NT  1
+W  S 10
+W  H  7
+W  D 12
+W  C  8
+W NT 10
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    5    3NT   W 12
+2    7    3NT   E 10
+4    2    2D    W 12
+5    4    3NT   W 10
+6    6    1NT   W 12
+8    1    2NT   W  9
+9    3    3NT   W  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "17"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:T85.73.87.AKJ862 A3.T852.J953.954 942.AK9.AKQT.QT7 KQJ76.QJ64.642.3"]
+[OptimumScore "NS 2C,NS 2D; 130"]
+[DoubleDummyTricks "866aa866aa1660116501"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  6
+N  D 10
+N  C 10
+N NT  8
+E  S  6
+E  H  6
+E  D  0
+E  C  1
+E NT  1
+S  S  6
+S  H  6
+S  D 10
+S  C 10
+S NT  8
+W  S  6
+W  H  5
+W  D  0
+W  C  1
+W NT  1
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    5    5C    N 10
+2    7    3NT   S  8
+4    2    5C    N 10
+5    4    5C    N 10
+6    6    2NT   S  8
+8    1    2NT   N  8
+9    3    5C    N 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "18"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:AT9542.3.93.A754 Q873.J652.8654.J J.KT97.AT7.K9832 K6.AQ84.KQJ2.QT6"]
+[OptimumScore "EW 2C; -130"]
+[DoubleDummyTricks "75773757736855a6855a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  7
+N  D  7
+N  C  3
+N NT  7
+E  S  8
+E  H  5
+E  D  5
+E  C 10
+E NT  6
+S  S  5
+S  H  7
+S  D  7
+S  C  3
+S NT  7
+W  S  8
+W  H  5
+W  D  5
+W  C 10
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    5    3H    N  8
+2    7    2NT   W  7
+4    2    3H    S  9
+5    4    3H    N  9
+6    6    3D    N  8
+8    1    3D    N  8
+9    3    2Sx   E  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "19"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:KQ8.J432.Q6.6543 JT943.A98.943.T7 75.75.AJT85.QJ92 A62.KQT6.K72.AK8"]
+[OptimumScore "EW 1H,EW 1S; -140"]
+[DoubleDummyTricks "43466434668997789977"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  4
+N  D  6
+N  C  6
+N NT  4
+E  S  9
+E  H  9
+E  D  7
+E  C  7
+E NT  8
+S  S  3
+S  H  4
+S  D  6
+S  C  6
+S NT  4
+W  S  9
+W  H  9
+W  D  7
+W  C  7
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    4    3NT   W  7
+2    6    1C    E  7
+3    8    3NT   E  6
+4    1    3NT   E  8
+5    3    3NT   E 10
+6    5    3NT   E 10
+7    7    3S    W  9
+9    2    1H    E  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "20"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:Q98764.AJ73.Q7.4 AJ3.Q654.J65.532 KT2.K2.AK82.KT96 5.T98.T943.AQJ87"]
+[OptimumScore "EW 4S; -650"]
+[DoubleDummyTricks "3154631446ab8978b886"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  5
+N  D  4
+N  C  6
+N NT  3
+E  S 11
+E  H  8
+E  D  9
+E  C  7
+E NT 10
+S  S  1
+S  H  4
+S  D  4
+S  C  6
+S NT  3
+W  S 11
+W  H  8
+W  D  8
+W  C  6
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    4    3NT   E  9
+2    6    2S    W 11
+3    8    4S    W 11
+4    1    4S    W 11
+5    3    3S    W 10
+6    5    4S    W  9
+7    7    4S    W 10
+9    2    3NT   E  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "21"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "N:8754.A86532.Q.K4 KQ963.JT.K62.AT5 JT.K7.AJT8743.93 A2.Q94.95.QJ8762"]
+[OptimumScore "EW 3N; -400"]
+[DoubleDummyTricks "22682226829865898658"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  2
+N  H  6
+N  D  8
+N  C  2
+N NT  2
+E  S  8
+E  H  6
+E  D  5
+E  C  8
+E NT  9
+S  S  2
+S  H  6
+S  D  8
+S  C  2
+S NT  2
+W  S  8
+W  H  6
+W  D  5
+W  C  8
+W NT  9
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    4    4S    E  6
+2    6    4C    W  9
+3    8    2S    E  8
+4    1    5C    W  8
+5    3    3H    N  8
+6    5    3H    N  8
+7    7    4S    E  8
+9    2    3C    W 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "22"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:J987.T95.AJ3.KJT AKQ42.AQ64.K65.3 3.K8732.Q7.A7652 T65.J.T9842.Q984"]
+[OptimumScore "NS 2S; 110"]
+[DoubleDummyTricks "68585685847585874858"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H  5
+N  D  8
+N  C  5
+N NT  6
+E  S  5
+E  H  8
+E  D  5
+E  C  8
+E NT  7
+S  S  8
+S  H  5
+S  D  8
+S  C  4
+S NT  6
+W  S  4
+W  H  8
+W  D  5
+W  C  8
+W NT  7
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    3    2S    S  9
+2    5    1S    S  9
+3    7    1S    S  8
+5    2    1S    S  8
+6    4    3H    W  7
+7    6    1S    S  9
+8    8    1S    S  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "23"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:J3.A7.KQ63.AQJ83 Q96.KJ953.J74.52 T82.QT82.9.KT764 AK754.64.AT852.9"]
+[OptimumScore "NS 3C; 110"]
+[DoubleDummyTricks "64549655496878468784"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  4
+N  H  5
+N  D  4
+N  C  9
+N NT  6
+E  S  8
+E  H  7
+E  D  8
+E  C  4
+E NT  6
+S  S  5
+S  H  5
+S  D  4
+S  C  9
+S NT  6
+W  S  8
+W  H  7
+W  D  8
+W  C  4
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    3    4C    S  9
+2    5    5C    S  9
+3    7    3S    E 10
+5    2    2C    S 11
+6    4    4C    S  9
+7    6    3C    S  9
+8    8    3C    S  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "24"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:J4.AJ65.K73.AQ87 53.QT.QJ64.JT953 AKQ82.K42.A82.62 T976.9873.T95.K4"]
+[OptimumScore "EW 7N; -1520"]
+[DoubleDummyTricks "0012300123ddcaaddcaa"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  0
+N  H  1
+N  D  2
+N  C  3
+N NT  0
+E  S 13
+E  H 12
+E  D 10
+E  C 10
+E NT 13
+S  S  0
+S  H  1
+S  D  2
+S  C  3
+S NT  0
+W  S 13
+W  H 12
+W  D 10
+W  C 10
+W NT 13
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    3    4S    E 11
+2    5    4S    E 11
+3    7    3NT   W 11
+5    2    4S    E 10
+6    4    3NT   W 13
+7    6    3NT   W 11
+8    8    6NT   W 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "25"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:QT2.T2.65.AK6542 A.Q87.AQT8742.Q8 K943.A943.KJ.T73 J8765.KJ65.93.J9"]
+[OptimumScore "NS 4C; 130"]
+[DoubleDummyTricks "8864a8864a4579245792"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H  6
+N  D  4
+N  C 10
+N NT  8
+E  S  5
+E  H  7
+E  D  9
+E  C  2
+E NT  4
+S  S  8
+S  H  6
+S  D  4
+S  C 10
+S NT  8
+W  S  5
+W  H  7
+W  D  9
+W  C  2
+W NT  4
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    4    3D    E  9
+3    6    2D    E  9
+4    8    4C    N 11
+5    1    2D    E  9
+6    3    3D    E  9
+7    5    4C    N 10
+8    7    2D    E  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "26"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:AQ98.T6.QJ87.JT5 74.952.K654.AQ43 J652.KJ843.A3.K8 KT3.AQ7.T92.9762"]
+[OptimumScore "EW 4S; -620"]
+[DoubleDummyTricks "53357533568a9868a986"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  3
+N  D  5
+N  C  7
+N NT  5
+E  S 10
+E  H  9
+E  D  8
+E  C  6
+E NT  8
+S  S  3
+S  H  3
+S  D  5
+S  C  6
+S NT  5
+W  S 10
+W  H  9
+W  D  8
+W  C  6
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    4    2H    W  8
+3    6    PASS  N  -
+4    8    2S    E  7
+5    1    1S    E 10
+6    3    2NT   E  7
+7    5    2S    E  8
+8    7    1NT   E  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Monday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.26"]
+[Board "27"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:KQ.T94.JT43.A874 AJ987.8763.Q6.96 T63.KQ5.A7.KQT53 542.AJ2.K9852.J2"]
+[OptimumScore "N 4C; 130"]
+[DoubleDummyTricks "8568a856795765358653"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  6
+N  D  8
+N  C 10
+N NT  8
+E  S  7
+E  H  6
+E  D  5
+E  C  3
+E NT  5
+S  S  5
+S  H  6
+S  D  7
+S  C  9
+S NT  8
+W  S  8
+W  H  6
+W  D  5
+W  C  3
+W NT  5
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+2    4    2C    N 10
+3    6    1NT   N  9
+4    8    1NT   N 10
+5    1    1NT   N  9
+6    3    3C    N  9
+7    5    1NT   N  9
+8    7    1NT   N  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Tuesday afternoon"]
+[Site "Utopia Bridge Club"]
+[Date "2018.02.27"]
+[Board "1"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:K87.Q642.AJ6.K73 T5.85.Q752.Q6542 AQJ96.73.T843.JT 432.AKJT9.K9.A98"]

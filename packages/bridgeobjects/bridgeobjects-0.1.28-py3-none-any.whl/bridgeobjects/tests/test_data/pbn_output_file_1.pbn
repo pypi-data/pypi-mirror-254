@@ -1,0 +1,29 @@
+% PBN 2.1
+% EXPORT
+% Content-type: text/pbn; charset=ISO-8859-1
+% Creator: bridgeobjects
+
+[Event "ACBL International Fund Game"]
+[Site "West Palm Beach FL:Palm Beach Bridge Studio"]
+[Date "1993.05.12"]
+
+[Board "8"]
+[North "Wolff"]
+[East "Martel"]
+[South "Hamman"]
+[South "Stansby"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:A8765.QT.K9.AT87 J42.AJ7632.J.632 QT3.85.Q86.KQJ54 K9.K94.AT75432.9"]
+[Scoring M]
+[Declarer N]
+[Contract 5HX]
+[Auction "W"]
+1S 2H 2S 4D
+4S Pass Pass 5H
+X Pass Pass Pass
+
+
+[Event "Second event"]
+[Site ""]
+[Date "2006.09.08"]
