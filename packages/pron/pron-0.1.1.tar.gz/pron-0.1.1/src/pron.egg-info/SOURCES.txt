@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/pron/__init__.py
+src/pron/pron.py
+src/pron.egg-info/PKG-INFO
+src/pron.egg-info/SOURCES.txt
+src/pron.egg-info/dependency_links.txt
+src/pron.egg-info/requires.txt
+src/pron.egg-info/top_level.txt
+tests/test.py
