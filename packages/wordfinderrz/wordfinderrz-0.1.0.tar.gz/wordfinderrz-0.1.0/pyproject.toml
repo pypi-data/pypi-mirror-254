@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "wordfinderrz"
+version = "0.1.0"
+description = ""
+authors = ["Sam <sbrobson@crimson.ua.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+ignore = ["S311"]
+preview = true
