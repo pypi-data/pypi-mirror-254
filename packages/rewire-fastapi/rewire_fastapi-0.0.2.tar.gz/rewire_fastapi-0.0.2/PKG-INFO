@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: rewire_fastapi
+Version: 0.0.2
+Summary: Fastapi integration for rewire
+Author-email: Ivan Vozhakov <gou177@bk.ru>
+License: MIT License
+        
+        Copyright (c) 2024 rewirepy
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/rewirepy/rewire-fastapi
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rewire
+Requires-Dist: fastapi
+Provides-Extra: uvicorn
+Requires-Dist: uvicorn; extra == "uvicorn"
+Provides-Extra: hypercorn
+Requires-Dist: hypercorn; extra == "hypercorn"
+
+
+# rewire\_fastapi
+
+A FastAPI integration for rewire.
+
+## Installation
+
+To get started, install `rewire_fastapi` using pip:
+
+```bash
+pip install rewire_fastapi
+```
+
+## Supported Servers
+
+This package supports running with both Uvicorn and Hypercorn servers (`rewire_fastapi.server`).
+
+## Usage
+
+First, import add `rewire_fastapi` to your rewire application:
+
+```python
+# ...
+import rewire_fastapi
+
+async def main():
+    async with Space().init().use():
+        DependenciesModule.get().add(rewire_fastapi.plugin)  # add this
+        # ...
+
+```
+
+## Configuration
+
+Configure the package in `config.yaml` file:
+
+```yaml
+rewire_fastapi:
+  server: "hypercorn"
+  app: # will be passed to FastAPI instance
+    title: "My App"
+  uvicorn: # (optional)
+    port: 1234
+  hypercorn: # (optional)
+    bind: "0.0.0.0:1234"
+  routes:  # (optional)
+    tag_prefix: "myapp:"
+  patch: # (optional)
+    swagger_hierarchical_tags: true
+    tag_prefixes: true
+  middleware:
+    cors: # enable cors middleware (optional)
+      allow_origins: ["*"]
+      allow_methods: ["*"]
+      allow_headers: ["*"]
+
+```
