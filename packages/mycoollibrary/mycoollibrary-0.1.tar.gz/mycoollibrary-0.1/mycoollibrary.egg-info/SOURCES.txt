@@ -1,0 +1,10 @@
+README.md
+setup.py
+mycoollibrary/__init__.py
+mycoollibrary/cool_module.py
+mycoollibrary.egg-info/PKG-INFO
+mycoollibrary.egg-info/SOURCES.txt
+mycoollibrary.egg-info/dependency_links.txt
+mycoollibrary.egg-info/top_level.txt
+tests/__init__.py
+tests/test_cool_module.py
