@@ -1,0 +1,10 @@
+.gitignore,sha256=zbyuFRBda3geYggTx5x-hodA1OnMU85vX8u8Ejh630s,2
+hyperscan-0.7.0.dist-info/WHEEL,sha256=KCCZMEbuJ-7VNR-UK3CxizPn-XiJxdvJmAggWi8GyVU,154
+hyperscan-0.7.0.dist-info/RECORD,,
+hyperscan-0.7.0.dist-info/METADATA,sha256=zbRD1clIRtt5djDYQZAPydIVYAbP-c9Bd8PDAmprx3E,4244
+hyperscan-0.7.0.dist-info/licenses/LICENSE,sha256=yvm4yRI_IxT-4iZOEl1Nx9I0Dm0JbAbmHt8OmKopiUA,1070
+hyperscan/hyperscanmodule.c,sha256=dgD2oDu4KgumzGrDsJazARPitMDBTGDvbPuqXxLhCes,46994
+hyperscan/_version.py,sha256=RaANGbRu5e-vehwXI1-Qe2ggPPfs1TQaZj072JdbLk4,22
+hyperscan/_ext.cpython-311-aarch64-linux-gnu.so,sha256=vITR0ZpEluF3XNdepT9YkjzTY5EbAuzAVHxjNPEqjgc,4975832
+hyperscan/_ext.pyi,sha256=KJNXRSOXCNAmYpr-CfSMEzdYqRI-YZ2vfK96CHfdVBE,10590
+hyperscan/__init__.py,sha256=7K6TqKtjZkzNQDRFYAq_zh4ZaOYfGMblDaeQcE1y7gk,370
