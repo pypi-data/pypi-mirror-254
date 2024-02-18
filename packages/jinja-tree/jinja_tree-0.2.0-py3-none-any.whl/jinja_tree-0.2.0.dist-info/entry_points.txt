@@ -1,0 +1,4 @@
+[console_scripts]
+jinja-stdin=jinja_tree.infra.controllers.cli_stdin:app
+jinja-tree=jinja_tree.infra.controllers.cli_tree:app
+
