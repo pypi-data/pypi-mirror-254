@@ -1,0 +1,9 @@
+include CHANGES CREDITS INSTALL LICENSE README.rst
+include Makefile tox.ini .flake8
+
+graft aionotify
+
+graft examples
+graft tests
+
+global-exclude *.py[cod] __pycache__ .*.sw[po]

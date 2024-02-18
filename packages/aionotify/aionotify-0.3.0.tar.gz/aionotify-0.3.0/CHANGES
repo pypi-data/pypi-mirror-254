@@ -1,0 +1,32 @@
+ChangeLog
+=========
+
+0.3.0 (2024-02-02)
+------------------
+
+*New:*
+
+    - Add support for Python 3.8+
+    - Drop support for Python <3.7
+
+.. _v0.2.0:
+
+0.2.0 (2016-04-04)
+------------------
+
+*Bugfix:*
+
+    - Add support for disconnecting watches
+    - Fix concurrent events / watch disconnection
+
+
+.. _v0.1.0:
+
+0.1.0 (2016-04-04)
+------------------
+
+*New:*
+
+    - Initial version
+
+.. vim:set ft=rst:

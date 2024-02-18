@@ -1,0 +1,11 @@
+
+[dev]
+tox
+check_manifest
+flake8
+wheel
+zest.releaser[recommended]
+
+[dev:python_version == "3.4"]
+readme_renderer<25.0
+colorama<=0.4.1
