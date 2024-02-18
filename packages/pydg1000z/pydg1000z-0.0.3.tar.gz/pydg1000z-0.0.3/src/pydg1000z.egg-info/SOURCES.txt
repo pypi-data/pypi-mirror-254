@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/pydg1000z/__init__.py
+src/pydg1000z/pydg1000z.py
+src/pydg1000z.egg-info/PKG-INFO
+src/pydg1000z.egg-info/SOURCES.txt
+src/pydg1000z.egg-info/dependency_links.txt
+src/pydg1000z.egg-info/requires.txt
+src/pydg1000z.egg-info/top_level.txt
