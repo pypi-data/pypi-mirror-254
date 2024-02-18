@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ideastatica_rcs_client/__init__.py
+ideastatica_rcs_client/brief_result_tools.py
+ideastatica_rcs_client/detail_results_tools.py
+ideastatica_rcs_client/helpers.py
+ideastatica_rcs_client/idea_statica_setup.py
+ideastatica_rcs_client/ideastatica_rcs_client.py
+ideastatica_rcs_client/loading_tools.py
+ideastatica_rcs_client/rcsproject.py
+ideastatica_rcs_client.egg-info/PKG-INFO
+ideastatica_rcs_client.egg-info/SOURCES.txt
+ideastatica_rcs_client.egg-info/dependency_links.txt
+ideastatica_rcs_client.egg-info/top_level.txt
