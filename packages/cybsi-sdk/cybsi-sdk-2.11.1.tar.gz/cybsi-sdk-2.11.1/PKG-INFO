@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: cybsi-sdk
+Version: 2.11.1
+Summary: Cybsi development kit
+License: Apache-2.0
+Author: Cybsi SDK developers
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiofiles (==22.1.0)
+Requires-Dist: enum-tools (==0.9.0.post1)
+Requires-Dist: httpx (>=0.23.1,<0.24.0)
+Requires-Dist: sphinx-jinja2-compat (==0.1.1)
+Requires-Dist: typing-extensions (>=4.1.1,<5.0.0); python_version < "3.8"
+Description-Content-Type: text/markdown
+
+Cybsi SDK
+---------
+
+Библиотека для взаимодействия с API Threat Analyzer. Позволяет:
+* Настраивать продукт
+* Расширять возможности продукта пользовательскими источниками данных
+* Выгружать и загружать Threat Intelligence в различных форматах
+
+Библиотека имеет как синхронный, так и асинхронный интерфейс.
+
+[![Supported Versions](https://img.shields.io/pypi/pyversions/cybsi-sdk.svg)](https://pypi.org/project/cybsi-sdk/)
+[![Documentation Status](https://readthedocs.org/projects/cybsi-sdk/badge/?version=latest)](https://cybsi-sdk.readthedocs.io/en/latest/?badge=latest)
+
