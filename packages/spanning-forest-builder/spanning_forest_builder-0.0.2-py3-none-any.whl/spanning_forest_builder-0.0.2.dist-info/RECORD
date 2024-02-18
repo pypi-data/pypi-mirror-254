@@ -1,0 +1,11 @@
+spanning_forest_builder/__init__.py,sha256=N4yxcOTPhQQuVR4s-20IxMvclYo2MICUzrel52zgV5s,162
+spanning_forest_builder/algorithm/Edmonds.py,sha256=3_gZ3-mtwlGIKjLHGV6Bjx3EIenPf2ybhQEn87H9-cg,5045
+spanning_forest_builder/algorithm/__init__.py,sha256=0bVVlWcQZBUuYzprzIlMoPFo5xcsxEMer_Xu0j7IG0c,198
+spanning_forest_builder/algorithm/algorithm.py,sha256=NaKhhUC7GYpK7IjHzgMqB_mtR3AeAp7zBaXnvf_8v6s,2774
+spanning_forest_builder/algorithm/full_search.py,sha256=YG-syH56ajtWG9zBo4E6Lz-JoHMhtGYyrYfHOuErlpQ,2289
+spanning_forest_builder/drawing/draw_edge_labels.py,sha256=dK1YbAbYy4f7HTITyOY0zubx-ZYf_Nh1jp9b7hTJpr0,5081
+spanning_forest_builder/drawing/draw_graph.py,sha256=0zr5I0zrKANWHYGQoXvX74Cfr5cCvpqlbbEcRuPoS40,2890
+spanning_forest_builder-0.0.2.dist-info/METADATA,sha256=QWrR8Mhr5apjWtYCNx0ss1sYkK6CXfSCfVg1W7GVF5Q,15204
+spanning_forest_builder-0.0.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+spanning_forest_builder-0.0.2.dist-info/top_level.txt,sha256=oXozkmN3hHLGYOdS-mC_T1U0sUJpLAIyAX-ByB11-EE,24
+spanning_forest_builder-0.0.2.dist-info/RECORD,,
