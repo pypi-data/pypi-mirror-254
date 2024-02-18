@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSH Terminal App</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .bg-image {
+    background-image: url('../ace/tree.jpg');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Full height */
+    position: relative;
+  }
+
+  .content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    color: #f1f1f1;
+    width: 50%;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-image">
+  <div class="content">
+    <h1>Welcome to SShifted Text Editor</h1>
+    <p>An Editor For Many Languages</p>
+    <!-- Add more content here -->
+  </div>
+</div>
+<script type="text/javascript">
+      function checkImageLoad() {
+        var bgImage = document.querySelector('.bg-image');
+        var imageUrl = bgImage.style.backgroundImage.slice(5, -2); // Extract URL from CSS
+
+        var img = new Image();
+        img.onload = function() {
+          // Image loaded successfully
+          console.log("Background image loaded.");
+        };
+        img.onerror = function() {
+          // Image failed to load, retry after a delay
+          console.log("Failed to load background image. Retrying...");
+          setTimeout(checkImageLoad, 5000); // Retry after 5 seconds
+        };
+        img.src = imageUrl;
+      }
+
+      window.onload = function() {
+        checkImageLoad();
+      };
+    </script>
+</body>
+</html>
