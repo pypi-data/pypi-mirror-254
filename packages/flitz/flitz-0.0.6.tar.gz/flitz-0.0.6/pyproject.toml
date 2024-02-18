@@ -1,0 +1,60 @@
+[project]
+name = "flitz"
+description = "Fast Location / Indexing / Traversal Zone."
+readme = "README.md"
+maintainers = [{ name = "Martin Thoma", email = "info@martin-thoma.de" }]
+authors = [{ name = "Martin Thoma", email = "info@martin-thoma.de" }]
+requires-python = ">=3.10"
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Typing :: Typed",
+]
+dynamic = [
+  "version",
+]
+dependencies = [
+  "pillow",
+  "pydantic",
+  "pyyaml",
+]
+[project.scripts]
+flitz = "flitz.cli:entry_point"
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = [
+  "flit_core<4,>=3",
+]
+
+[tool.ruff]
+line-length = 88
+select = ["ALL"]
+ignore = [
+    # Personal preference
+    "D203", # one-blank-line-before-class
+    "D212",  # I want multiline-docstrings to start at the second line
+    "D407",  # DashedUnderlineAfterSection
+    "D107", # 'Missing docstring in `__init__`' - I'd rather document on class level
+    "FBT001", # 'Boolean-typed positional argument in function definition'
+    "DTZ006", # 'The use of `datetime.datetime.fromtimestamp()` without `tz` argument is not allowed': We don't have a timezone
+    "RET504",  # 'Unnecessary assignment to `new_name` before `return` statement': Helps to clarify
+    "E731", # Do not assign a `lambda` expression, use a `def`
+    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`
+    "PLW2901",  # `for` loop variable `...` overwritten by assignment target
+
+
+    # Python version support
+    "ANN101",  # Missing type annotation for `self` in method: Python 3.11
+]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["S101", "ANN", "INP001"]
+"docs/*" = ["INP001", "D100", "PTH100", "A001"]
+"file_explorer.py" = ["FBT003"]
+"cli.py" = ["T201"]
