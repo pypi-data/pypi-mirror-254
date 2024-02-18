@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "ionic-haystack"
+version = "0.1.2"
+description = "Ionic Commerce tool for Haystack"
+authors = ["Your Name <you@example.com>"]
+license =  "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Ionic-API-SDK = "^0.7.1"
+farm-haystack = "^1.24.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+pytest = "^8.0.0"
+ruff = "^0.1.15"
+
+[project.urls]
+"Homepage" = "https://ioniccommerce.com"
+"GitHub" = "https://github.com/ioniccommerce/ionic_haystack"
+"Bug Tracker" = "https://github.com/ioniccommerce/ionic_haystack/issues"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
