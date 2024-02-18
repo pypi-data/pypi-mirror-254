@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "opinions"
+version = "0.0.4"
+description = "The correct way to configure your project"
+authors = ["William Hughes <will@willhughes.name>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4"
+tomlkit = "^0.12.3"
+
+# ruff
+ruff = "^0.1.14"
+pytest-ruff = "^0.2.1"
+
+# mypy
+mypy = "^1.8.0"
+pytest-mypy = "^0.10.3"
+
+# pytest
+pytest = "^7.4.4"
+
+[tool.poetry.scripts]
+opinions = "opinions.cli:main"
+
+[tool.poetry.plugins]
+pytest11 = { opinions = "opinions.pytest_self_check" }
+
+[tool.ruff]
+line-length = 120
+select = ["E4", "E7", "E9", "F", "UP", "S", "A", "I"]
+
+[tool.pytest.ini_options]
+addopts = "--ruff --ruff-format --mypy"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
