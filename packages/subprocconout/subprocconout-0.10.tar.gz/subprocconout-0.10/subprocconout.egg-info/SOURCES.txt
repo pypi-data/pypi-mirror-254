@@ -1,0 +1,13 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+subprocconout/README.MD
+subprocconout/__init__.py
+subprocconout/requirements.txt
+subprocconout/thirdparty.json
+subprocconout.egg-info/PKG-INFO
+subprocconout.egg-info/SOURCES.txt
+subprocconout.egg-info/dependency_links.txt
+subprocconout.egg-info/top_level.txt

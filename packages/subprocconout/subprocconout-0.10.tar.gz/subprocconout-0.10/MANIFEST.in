@@ -1,0 +1,3 @@
+include subprocconout/requirements.txt
+include subprocconout/thirdparty.json
+include subprocconout/README.MD
