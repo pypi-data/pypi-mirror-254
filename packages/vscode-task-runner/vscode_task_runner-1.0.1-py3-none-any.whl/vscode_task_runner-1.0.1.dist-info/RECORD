@@ -1,0 +1,15 @@
+vtr/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vtr/__main__.py,sha256=dTYCg33vo5r5JDJ4yz_vqsm6wO0IWBjk0pi5D3yHDWw,39
+vtr/console.py,sha256=GtDapYdKFFEO5hgiQzN3H3OqAnqCn9cNExJ9ot4kP-s,2488
+vtr/constants.py,sha256=MqPtyekcjYqAe2ddbpa786v6g7lQCp6p8wb3Vqm8UNc,1619
+vtr/executor.py,sha256=0o6EnkFmRuPGbmoglPeB0sMInGlr5fpJMFPhaGi73vc,1282
+vtr/helpers.py,sha256=Ah28y0tZb0EHPA7QHcq-MZ5R52Iku2ir0T9cl9JpeV8,4096
+vtr/json_parser.py,sha256=OfqdWbujAPSnjHjNYsOk3WIbno_1MIaOlppRjZcat_M,1917
+vtr/models.py,sha256=b6yPNZjsnz6l-AgapymQh7O7cHNgPI-QTFhzwdSI9yw,1489
+vtr/task.py,sha256=ks3rs1HB29-57ydkfFpacVYOgzKxjkiO5pvrvVtnaqk,9315
+vtr/terminal_task_system.py,sha256=cSPpKo-2ZQfGgLa-VvP-Bu5AUnubcgRQCUcZKAhj0qg,7523
+vscode_task_runner-1.0.1.dist-info/LICENSE,sha256=1OBsA1AWSxfd-3r-6osZg0gU_xe0tw358T-ByBB18rU,1070
+vscode_task_runner-1.0.1.dist-info/METADATA,sha256=4xYzdXmB5gW3fey_TJOpqngPP5oRASUE1HfASJzeoqs,9313
+vscode_task_runner-1.0.1.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+vscode_task_runner-1.0.1.dist-info/entry_points.txt,sha256=7wWaIxCd3nbpK6ybD9tZJiRF-6CkaaYtaMhDvUVkH2g,74
+vscode_task_runner-1.0.1.dist-info/RECORD,,
