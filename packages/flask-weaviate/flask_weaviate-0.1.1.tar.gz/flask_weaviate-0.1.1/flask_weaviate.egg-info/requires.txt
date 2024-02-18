@@ -1,0 +1,8 @@
+flask
+weaviate-client>=4.4.1
+
+[dev]
+flake8
+isort
+black
+pytest
