@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Firmware {
+  rpc FirmwareUpload(stream FirmwareChunk) returns (stream FirmwareChunkAck);
+  rpc FirmwareUpgrade(stream FirmwareUpgradeRequest) returns (stream FirmwareUpgradeAck);
+}
+
+message FirmwareChunk {
+  bytes data = 1;
+  int32 index = 2;
+}
+
+message FirmwareChunkAck {
+  string filename = 1;
+}
+
+message FirmwareUpgradeRequest {
+  string filename = 1;
+  string sha256 = 2;
+}
+
+message FirmwareUpgradeAck {}
+
+service FirmwareService {
+  rpc FirmwareUpdate(FirmwareUpdateRequest) returns (FirmwareUpdateResponse);
+  rpc FirmwareLatestVersion(FirmwareLatestVersionRequest) returns (FirmwareLatestVersionResponse);
+}
+
+message FirmwareUpdateRequest {
+  string version = 1;
+}
+
+message FirmwareUpdateResponse {}
+
+message FirmwareLatestVersionRequest {}
+
+message FirmwareLatestVersionResponse {
+  string version = 1;
+}
+
+message FirmwareUpdateStatusReport {
+  FirmwareUpdateStatus status = 1;
+  uint32 progress = 2;
+  string version = 3;
+}
+
+enum FirmwareUpdateStatus {
+  FIRMWARE_UPDATE_STATUS_UNKNOWN = 0;
+  FIRMWARE_UPDATE_STATUS_IN_PROGRESS = 1;
+  FIRMWARE_UPDATE_STATUS_COMPLETE = 2;
+  FIRMWARE_UPDATE_STATUS_FAILED = 3;
+  FIRMWARE_UPDATE_STATUS_UP_TO_DATE = 4;
+}

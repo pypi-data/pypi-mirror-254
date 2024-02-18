@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "aiovemmio"
+version = "0.5.10"
+description = ""
+authors = ["Magralabs <m@magralabs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+protobuf = ">=4.24,<5.0"
+aiohttp = ">=3.9,<4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

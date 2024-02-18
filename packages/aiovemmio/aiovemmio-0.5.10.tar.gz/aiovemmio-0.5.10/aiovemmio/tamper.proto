@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message TamperReport {
+  TamperState state = 1;
+}
+
+enum TamperState {
+  TAMPER_COVER_REMOVED = 0;
+  TAMPER_INVALID_CODE = 1;
+  TAMPER_MOVED = 2;
+}

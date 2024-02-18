@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message PowerSourceReport {
+  PowerSourceEvent event = 1;
+}
+
+enum PowerSourceEvent {
+  CLEAR = 0;
+  POWER_APPLIED = 1;
+  AC_POWER_LOST = 2;
+  AC_POWER_RESTORED = 3;
+  SURGE_DETECTED = 4;
+  BROWNOUT_DETECTED = 5;
+  OVER_CURRENT_DETECTED = 6;
+  OVER_VOLTAGE_DETECTED = 7;
+  OVER_LOAD_DETECTED = 8;
+  LOAD_ERROR = 9;
+  BATTERY_REPLACE_SOON = 10;
+  BATTERY_REPLACE_NOW = 11;
+  BATTERY_CHARGING = 12;
+  BATTERY_CHARGED = 13;
+  BATTERY_LOW = 14;
+  BATTERY_CRITICAL = 15;
+}

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service CarbonMonoxideService {
+  rpc CarbonMonoxideGet(CarbonMonoxideGetRequest) returns (CarbonMonoxideGetResponse);
+}
+
+message CarbonMonoxideGetRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message CarbonMonoxideGetResponse {
+  Unit unit = 1;
+  double value = 2;
+}
+
+message CarbonMonoxideValueReport {
+  Unit unit = 1;
+  double value = 2;
+}
+
+message CarbonMonoxideStateReport {
+  CarbonMonoxideState state = 1;
+  CarbonMonoxideReplacement replacement = 2;
+  CarbonMonoxideMaintenance maintenance = 3;
+}
+
+enum CarbonMonoxideState {
+  CARBON_MONOXIDE_STATE_UNSPECIFIED = 0;
+  CARBON_MONOXIDE_STATE_CLEAR = 1;
+  CARBON_MONOXIDE_STATE_DETECTED = 2;
+  CARBON_MONOXIDE_STATE_TEST = 3;
+  CARBON_MONOXIDE_STATE_SILENCED = 4;
+  CARBON_MONOXIDE_STATE_REPLACEMENT_REQUIRED = 5;
+  CARBON_MONOXIDE_STATE_MAINTENANCE_REQUIRED = 6;
+}
+
+enum CarbonMonoxideReplacement {
+  CARBON_MONOXIDE_REPLACEMENT_UNSPECIFIED = 0;
+  CARBON_MONOXIDE_REPLACEMENT_EOL = 1;
+}
+
+enum CarbonMonoxideMaintenance {
+  CARBON_MONOXIDE_MAINTENANCE_UNSPECIFIED = 0;
+  CARBON_MONOXIDE_MAINTENANCE_PERIODIC_INSPECTION = 1;
+}

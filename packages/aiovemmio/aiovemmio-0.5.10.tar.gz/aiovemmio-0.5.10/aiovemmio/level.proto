@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "google/protobuf/duration.proto";
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Level {
+  rpc LevelGet(LevelRequest) returns (LevelGetResponse);
+  rpc LevelGetStep(LevelRequest) returns (LevelGetResponse);
+  rpc LevelSet(LevelSetRequest) returns (LevelResponse);
+  rpc LevelUp(LevelStepRequest) returns (LevelResponse);
+  rpc LevelDown(LevelStepRequest) returns (LevelResponse);
+  rpc LevelIncrease(LevelStepRequest) returns (LevelResponse);
+  rpc LevelDecrease(LevelStepRequest) returns (LevelResponse);
+}
+
+message LevelRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message LevelResponse {}
+
+message LevelSetRequest {
+  DeviceMetadata metadata = 1;
+  int32 value = 2;
+}
+
+message LevelStepRequest {
+  DeviceMetadata metadata = 1;
+  google.protobuf.Duration dim = 2;
+  google.protobuf.Duration down = 3;
+}
+
+message LevelGetResponse {
+  int32 value = 1;
+}
+
+message LevelReport {
+  int32 value = 1;
+}

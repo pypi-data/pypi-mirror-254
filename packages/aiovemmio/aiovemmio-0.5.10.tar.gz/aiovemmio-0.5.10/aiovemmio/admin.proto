@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Admin {
+  rpc WalkNodes(WalkNodesRequest) returns (stream WalkNodesResponse);
+  rpc ReadLogs(LogsRequest) returns (stream LogsChunk);
+  rpc FollowLogs(LogsRequest) returns (stream LogsChunk);
+}
+
+message WalkNodesRequest {}
+
+message WalkNodesResponse {
+  bytes data = 1;
+}
+
+message LogsRequest {
+  string filter = 1;
+  int32 count = 2;
+}
+
+message LogsChunk {
+  bytes data = 1;
+}

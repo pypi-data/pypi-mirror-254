@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Info {
+  rpc Info(InfoRequest) returns (InfoResponse);
+}
+
+message InfoRequest {}
+
+message InfoResponse {
+  string common_name = 1;
+  string version = 2;
+  string git_commit = 3;
+  string build_time = 4;
+  string firmware_version = 5;
+}

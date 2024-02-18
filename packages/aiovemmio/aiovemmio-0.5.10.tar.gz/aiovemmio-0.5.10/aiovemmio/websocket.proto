@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/pubsub.proto";
+import "aiovemmio/reports.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message WebsocketMessage {
+  uint64 frame_id = 1;
+  CommandRequest request = 2;
+  CommandReply reply = 3;
+  GatewayReport gateway_report = 4;
+}

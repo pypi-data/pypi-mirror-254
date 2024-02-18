@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service UltravioletService {
+  rpc UltravioletGet(UltravioletGetRequest) returns (UltravioletGetResponse);
+}
+
+message UltravioletGetRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message UltravioletGetResponse {
+  Unit unit = 1;
+  double value = 2;
+}
+
+message UltravioletReport {
+  Unit unit = 1;
+  double value = 2;
+}

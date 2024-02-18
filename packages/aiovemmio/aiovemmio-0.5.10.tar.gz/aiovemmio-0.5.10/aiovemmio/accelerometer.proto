@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message AccelerometerReport {
+  AccelerometerAxis axis = 1;
+  Unit unit = 2;
+  double value = 3;
+}
+
+enum AccelerometerAxis {
+  X = 0;
+  Y = 1;
+  Z = 2;
+}

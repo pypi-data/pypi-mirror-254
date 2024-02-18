@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message FloodReport {
+  State state = 1;
+  enum State {
+    CLEAR = 0;
+    FLOOD = 1;
+  }
+}

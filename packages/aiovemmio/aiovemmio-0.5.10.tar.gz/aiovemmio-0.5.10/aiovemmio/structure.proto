@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service StructureService {
+  rpc GetStructure(StructureRequest) returns (StructureResponse);
+}
+
+message StructureRequest {}
+
+message StructureResponse {
+  StructureReport structure = 1;
+}
+
+message StructureReport {
+  string mac = 1;
+  string type = 2;
+  string revision = 3;
+  repeated StructureNode nodes = 4;
+}
+
+message StructureNode {
+  bytes uuid = 1;
+  repeated string capabilities = 2;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service StatusService {
+  rpc StatusCheck(StatusCheckRequest) returns (StatusCheckResponse);
+}
+
+message StatusCheckRequest {}
+
+message StatusCheckResponse {}
+
+message StatusCheckReport {
+  Status status = 1;
+}
+
+message Status {
+  string mac = 1;
+  string firmware_version = 2;
+  bool firmware_update = 3;
+  int32 wifi_rssi = 4;
+}

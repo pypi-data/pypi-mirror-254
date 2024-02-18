@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "aiovemmio/accelerometer.proto";
+import "aiovemmio/battery.proto";
+import "aiovemmio/bsensor.proto";
+import "aiovemmio/carbon_dioxide.proto";
+import "aiovemmio/carbon_monoxide.proto";
+import "aiovemmio/color.proto";
+import "aiovemmio/door.proto";
+import "aiovemmio/doorbell.proto";
+import "aiovemmio/emergency.proto";
+import "aiovemmio/firmware.proto";
+import "aiovemmio/flood.proto";
+import "aiovemmio/gate.proto";
+import "aiovemmio/level.proto";
+import "aiovemmio/lock.proto";
+import "aiovemmio/metadata.proto";
+import "aiovemmio/meter.proto";
+import "aiovemmio/power_source.proto";
+import "aiovemmio/remote.proto";
+import "aiovemmio/roller_shutter.proto";
+import "aiovemmio/seismic.proto";
+import "aiovemmio/sensor.proto";
+import "aiovemmio/siren.proto";
+import "aiovemmio/smoke.proto";
+import "aiovemmio/status.proto";
+import "aiovemmio/structure.proto";
+import "aiovemmio/switch.proto";
+import "aiovemmio/tamper.proto";
+import "aiovemmio/taptap.proto";
+import "aiovemmio/temperature.proto";
+import "aiovemmio/thermostat.proto";
+import "aiovemmio/ultraviolet.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Reports {
+  rpc Subscribe(ReportRequest) returns (stream DeviceReport);
+}
+
+message ReportRequest {}
+
+message DeviceReport {
+  reserved 28;
+  DeviceMetadata metadata = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  oneof report {
+    SwitchReport switch = 3;
+    MeterReport power_meter = 4;
+    MeterReport gas_meter = 5;
+    MeterReport water_meter = 6;
+    OpenCloseReport open_close = 7;
+    SmokeReport smoke = 8;
+    MotionReport motion = 9;
+    FloodReport flood = 10;
+    CarbonMonoxideStateReport carbon_monoxide_state = 11;
+    TemperatureReport temperature = 12;
+    HumidityReport humidity = 13;
+    IlluminationReport illumination = 14;
+    DirectionReport direction = 15;
+    ThermostatModeReport thermostat_mode = 16;
+    ThermostatSetpointReport thermostat_setpoint = 17;
+    ThermostatFanModeReport thermostat_fan_mode = 18;
+    TamperReport tamper = 19;
+    EmergencyReport emergency = 20;
+    DoorReport door = 21;
+    TapTapReport tap_tap = 22;
+    ColorReport color = 23;
+    LevelReport level = 24;
+    BatteryReport battery = 25;
+    RemoteReport remote = 26;
+    LockReport lock = 27;
+    DoorbellReport doorbell = 29;
+    PowerSourceReport power_source = 30;
+    SirenReport siren = 31;
+    ToneReport tone = 32;
+    VolumeReport volume = 33;
+    AccelerometerReport accelerometer = 34;
+    SeismicIntensityReport seismic_intensity = 35;
+    SeismicMagnitudeReport seismic_magnitude = 36;
+    RollerShutterLevelReport roller_shutter_level = 37;
+    CarbonDioxideReport carbon_dioxide = 38;
+    CarbonMonoxideValueReport carbon_monoxide_value = 39;
+    UltravioletReport ultraviolet = 40;
+    GateReport gate = 41;
+  }
+}
+
+message ConnectivityReport {
+  google.protobuf.Timestamp timestamp = 1;
+  State state = 2;
+  google.protobuf.Duration uptime = 3;
+  enum State {
+    DISCONNECTED = 0;
+    CONNECTED = 1;
+    UPTIME = 2;
+  }
+}
+
+message GatewayReport {
+  reserved 4;
+  string mac = 1;
+  oneof report {
+    ConnectivityReport connectivity = 2;
+    DeviceReport device = 3;
+    StatusCheckReport status_check = 5;
+    FirmwareUpdateStatusReport firmware_update_status = 6;
+    StructureReport structure = 7;
+  }
+}

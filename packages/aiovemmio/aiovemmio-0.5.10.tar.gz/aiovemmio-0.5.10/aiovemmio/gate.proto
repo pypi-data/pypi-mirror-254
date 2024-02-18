@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service GateService {
+  rpc GateOpen(GateRequest) returns (GateResponse);
+  rpc GateClose(GateRequest) returns (GateResponse);
+  rpc GateCycle(GateRequest) returns (GateResponse);
+}
+
+message GateRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message GateResponse {}
+
+message GateReport {
+  GateState state = 1;
+}
+
+enum GateState {
+  GATE_UNKNOWN = 0;
+  GATE_OPENED = 1;
+  GATE_CLOSED = 2;
+  GATE_CYCLED = 3;
+}

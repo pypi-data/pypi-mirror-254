@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "google/protobuf/duration.proto";
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Color {
+  rpc ColorSet(ColorSetRequest) returns (ColorResponse);
+}
+
+message ColorSetRequest {
+  DeviceMetadata metadata = 1;
+  repeated ColorValue values = 2;
+  google.protobuf.Duration duration = 3;
+}
+
+message ColorResponse {}
+
+message ColorReport {
+  repeated ColorValue values = 1;
+}
+
+enum ColorComponent {
+  COLOR_UNSPECIFIED = 0;
+  COLOR_WARM_WHITE = 1;
+  COLOR_COLD_WHITE = 2;
+  COLOR_RED = 3;
+  COLOR_GREEN = 4;
+  COLOR_BLUE = 5;
+}
+
+message ColorValue {
+  ColorComponent component = 1;
+  int32 value = 2;
+}

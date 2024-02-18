@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Switch {
+  rpc SwitchOn(SwitchRequest) returns (SwitchResponse);
+  rpc SwitchOff(SwitchRequest) returns (SwitchResponse);
+}
+
+message SwitchRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message SwitchResponse {}
+
+message SwitchReport {
+  SwitchValue value = 1;
+}
+
+enum SwitchValue {
+  SWITCH_UNKNOWN = 0;
+  SWITCH_ON = 1;
+  SWITCH_OFF = 2;
+}

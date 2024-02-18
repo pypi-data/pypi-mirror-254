@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+message EmailMessage {
+  string recipient = 1;
+  string subject = 2;
+  string message = 3;
+}
+
+message PushMessage {
+  string token = 1;
+  string message = 2;
+  int32 badge = 3;
+  string site_id = 4;
+  string site_name = 5;
+}

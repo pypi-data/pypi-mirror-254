@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Addon {
+  rpc AddonList(AddonListRequest) returns (AddonListResponse);
+  rpc AddonAddThermostat(AddonAddThermostatRequest) returns (AddonAddResponse);
+}
+
+message AddonListRequest {}
+
+message AddonListResponse {
+  repeated Addon addons = 1;
+  message Addon {
+    string uuid = 1;
+    oneof addon {
+      AddonThermostat thermostat = 2;
+    }
+  }
+}
+
+message AddonAddThermostatRequest {
+  AddonThermostat thermostat = 1;
+}
+
+message AddonAddResponse {
+  string uuid = 1;
+}
+
+message AddonThermostat {
+  string input_filename = 1;
+  string output_filename = 2;
+}

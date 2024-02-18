@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service WiFi {
+  rpc WiFiQuery(WiFiQueryRequest) returns (WiFiQueryResponse);
+  rpc WiFiScan(WiFiScanRequest) returns (WiFiScanResponse);
+  rpc WiFiConnect(WiFiConnectRequest) returns (WiFiConnectResponse);
+}
+
+message WiFiQueryRequest {}
+
+message WiFiQueryResponse {
+  repeated WiFiInterface interfaces = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+message WiFiScanRequest {}
+
+message WiFiScanResponse {
+  repeated WiFiBSS bsss = 1;
+}
+
+message WiFiConnectRequest {
+  string ssid = 1;
+  string psk = 2;
+}
+
+message WiFiConnectResponse {}
+
+message WiFiInterface {
+  string name = 1;
+  bytes hardware_addr = 2;
+  WiFiBSS bss = 3;
+  repeated WiFiStation stations = 4;
+}
+
+message WiFiBSS {
+  string ssid = 1;
+  int32 frequency = 2;
+  int64 last_seen = 3; // nanos
+}
+
+message WiFiStation {
+  bytes hardware_addr = 1;
+  int32 signal = 2; // dBm
+  int64 connected = 3; // nanos
+  int64 inactive = 4; // nanos
+}

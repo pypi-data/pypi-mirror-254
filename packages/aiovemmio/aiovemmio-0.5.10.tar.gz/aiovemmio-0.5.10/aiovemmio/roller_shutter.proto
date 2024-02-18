@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/metadata.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service RollerShutter {
+  rpc RollerShutterOpen(RollerShutterRequest) returns (RollerShutterResponse);
+  rpc RollerShutterClose(RollerShutterRequest) returns (RollerShutterResponse);
+  rpc RollerShutterSet(RollerShutterSetRequest) returns (RollerShutterResponse);
+}
+
+message RollerShutterRequest {
+  DeviceMetadata metadata = 1;
+}
+
+message RollerShutterSetRequest {
+  DeviceMetadata metadata = 1;
+  int32 level = 2;
+}
+
+message RollerShutterResponse {}
+
+message RollerShutterLevelReport {
+  int32 value = 1;
+}

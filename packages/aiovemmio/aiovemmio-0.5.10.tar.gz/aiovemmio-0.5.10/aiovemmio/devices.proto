@@ -1,0 +1,177 @@
+syntax = "proto3";
+
+package vemmiopb;
+
+import "aiovemmio/accelerometer.proto";
+import "aiovemmio/color.proto";
+import "aiovemmio/metadata.proto";
+import "aiovemmio/power_source.proto";
+import "aiovemmio/thermostat.proto";
+import "aiovemmio/units.proto";
+
+option go_package = "./vemmiopb";
+option java_multiple_files = true;
+option java_package = "com.vemmio.ha.integration.vemmio.rpc.vemmiopb";
+
+service Devices {
+  rpc DevicesList(DevicesListRequest) returns (DevicesListResponse);
+}
+
+message DevicesListRequest {}
+
+message DevicesListResponse {
+  repeated Device devices = 1;
+}
+
+message Device {
+  string name = 1;
+  DeviceMetadata metadata = 2;
+  repeated Capability capabilities = 3;
+  string i18n = 4;
+  Group group = 5;
+  enum Group {
+    OTHER = 0;
+    CLIMATE = 1;
+    SECURITY = 2;
+    POWER = 3;
+    ROLLER_SHUTTERS = 4;
+    CAMERAS = 5;
+    DOORBELLS = 6;
+    GATEWAYS = 7;
+    LIGHTS = 8;
+    GATES = 9;
+    SOUND = 10;
+  }
+}
+
+message Capability {
+  oneof capability {
+    SwitchCapability switch = 1;
+    MeterCapability power_meter = 2;
+    MeterCapability gas_meter = 3;
+    MeterCapability water_meter = 4;
+    OpenCloseCapability open_close = 5;
+    SmokeDetectorCapability smoke_detector = 6;
+    MotionDetectorCapability motion_detector = 7;
+    FloodDetectorCapability flood_detector = 8;
+    CarbonMonoxideDetectorCapability carbon_monoxide_detector = 9;
+    ThermostatCapability thermostat = 10;
+    TemperatureCapability temperature = 11;
+    HumidityCapability humidity = 12;
+    IlluminationCapability illumination = 13;
+    DirectionCapability direction = 14;
+    TamperCapability tamper = 15;
+    EmergencyCapability emergency = 16;
+    DoorCapability door = 17;
+    TapTapCapability tap_tap = 18;
+    ColorCapability color = 19;
+    LevelCapability level = 20;
+    BatteryCapability battery = 21;
+    LockCapability lock = 22;
+    RemoteCapability remote = 23;
+    PowerSourceCapability power_source = 24;
+    RollerShutterCapability roller_shutter = 25;
+    ConfigurationCapability configuration = 26;
+    DoorbellCapability doorbell = 27;
+    SirenCapability siren = 28;
+    AccelerometerCapability accelerometer = 29;
+    SeismicCapability seismic = 30;
+    CarbonDioxideDetectorCapability carbon_dioxide_detector = 31;
+    VoltageCapability voltage = 32;
+    UltravioletCapability ultraviolet = 33;
+  }
+}
+
+message SwitchCapability {}
+
+message MeterCapability {
+  repeated Unit units = 1;
+  bool reset = 2;
+}
+
+message OpenCloseCapability {}
+
+message SmokeDetectorCapability {}
+
+message MotionDetectorCapability {}
+
+message FloodDetectorCapability {}
+
+message CarbonMonoxideDetectorCapability {
+  repeated Unit units = 1;
+}
+
+message CarbonDioxideDetectorCapability {}
+
+message ThermostatCapability {
+  repeated ThermostatSetpointRange ranges = 1;
+}
+
+message TemperatureCapability {
+  repeated Unit units = 1;
+}
+
+message HumidityCapability {
+  repeated Unit units = 1;
+}
+
+message IlluminationCapability {
+  repeated Unit units = 1;
+}
+
+message DirectionCapability {
+  repeated Unit units = 1;
+}
+
+message TamperCapability {}
+
+message EmergencyCapability {}
+
+message DoorCapability {}
+
+message TapTapCapability {}
+
+message ColorCapability {
+  repeated ColorComponent components = 1;
+}
+
+message LevelCapability {}
+
+message BatteryCapability {}
+
+message LockCapability {}
+
+message RemoteCapability {}
+
+message PowerSourceCapability {
+  repeated PowerSourceEvent events = 1;
+}
+
+message RollerShutterCapability {}
+
+message ConfigurationCapability {}
+
+message DoorbellCapability {}
+
+message SirenCapability {}
+
+message AccelerometerCapability {
+  repeated Axis axes = 1;
+  message Axis {
+    AccelerometerAxis axis = 1;
+    repeated Unit units = 2;
+  }
+}
+
+message SeismicCapability {
+  repeated Unit intensity = 1;
+  repeated Unit magnitude = 2;
+}
+
+message VoltageCapability {
+  repeated Unit units = 1;
+}
+
+message UltravioletCapability {
+  repeated Unit units = 1;
+}
