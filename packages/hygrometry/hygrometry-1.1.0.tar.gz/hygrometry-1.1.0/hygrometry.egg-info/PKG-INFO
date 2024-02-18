@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: hygrometry
+Version: 1.1.0
+Summary: Functions for conversions with temperature, humidity, and barometric pressure.
+Author-email: Russell Valentine <russell.valentine@gmail.com>
+Project-URL: Homepage, https://github.com/bluthen/hygrometry
+Project-URL: Issues, https://github.com/bluthen/hygrometry/issues
+Keywords: hygrometry,wetbulb,humidity,temperature
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
