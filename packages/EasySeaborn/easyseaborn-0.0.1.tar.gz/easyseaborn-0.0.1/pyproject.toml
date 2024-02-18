@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "EasySeaborn"
+version = "0.0.1"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "xlrd",
+  "openpyxl",
+  "xlwt",
+  "XlsxWriter",
+  "pyreadstat",
+  "seaborn"
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "LiuAndy", email = "andylau_dh@163.com"},
+]
+maintainers = [
+  {name = "LiuAndy", email = "andylau_dh@163.com"}
+]
+description = "Seaborn快速绘制统计图的简洁程序库"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["数据获取", "简介代码", "函数封装"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/LiuAndy-art/EasySeaborn"
+Documentation = "https://github.com/LiuAndy-art/EasySeaborn"
+Repository = "https://github.com/LiuAndy-art/EasySeaborn"
