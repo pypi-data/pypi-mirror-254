@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rudipy"
+version = "0.1.1"
+description = ""
+authors = ["tasselru <67057837+tasselru@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.5"
+pyserial = "^3.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

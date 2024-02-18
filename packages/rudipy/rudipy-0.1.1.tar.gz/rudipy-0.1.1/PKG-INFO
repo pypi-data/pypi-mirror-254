@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: rudipy
+Version: 0.1.1
+Summary: 
+Author: tasselru
+Author-email: 67057837+tasselru@users.noreply.github.com
+Requires-Python: >=3.5,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pyserial (>=3.5,<4.0)
+Description-Content-Type: text/markdown
+
+
