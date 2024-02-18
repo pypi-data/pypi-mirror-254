@@ -1,0 +1,62 @@
+{
+  "_favorites-e1XmAabx.js": {
+    "file": "favorites-e1XmAabx.js",
+    "imports": [
+      "_index-vmgGEAuH.js"
+    ]
+  },
+  "_index-vmgGEAuH.js": {
+    "file": "index-vmgGEAuH.js"
+  },
+  "explorer/src/js/explorer.js": {
+    "file": "explorer-FjTvscQM.js",
+    "imports": [
+      "_favorites-e1XmAabx.js",
+      "_index-vmgGEAuH.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/explorer.js"
+  },
+  "explorer/src/js/main.js": {
+    "dynamicImports": [
+      "explorer/src/js/query-list.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/schema.js"
+    ],
+    "file": "main-k0r1d5D1.js",
+    "isEntry": true,
+    "src": "explorer/src/js/main.js"
+  },
+  "explorer/src/js/query-list.js": {
+    "file": "query-list-Oz0PPNZt.js",
+    "imports": [
+      "_favorites-e1XmAabx.js",
+      "_index-vmgGEAuH.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/query-list.js"
+  },
+  "explorer/src/js/schema.js": {
+    "file": "schema-CX1A8J9J.js",
+    "imports": [
+      "_index-vmgGEAuH.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/schema.js"
+  },
+  "explorer/src/scss/main.scss": {
+    "file": "styles-Y_-ftqVT.css",
+    "isEntry": true,
+    "src": "explorer/src/scss/main.scss"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "bootstrap-icons-NpS-Zr3P.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "bootstrap-icons-2eO-ad8Y.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  }
+}
