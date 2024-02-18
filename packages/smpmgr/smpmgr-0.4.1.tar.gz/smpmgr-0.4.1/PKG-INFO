@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: smpmgr
+Version: 0.4.1
+Summary: Simple Management Protocol (SMP) Manager for remotely managing MCU firmware
+License: Apache-2.0
+Author: J.P. Hutchins
+Author-email: jp@intercreate.io
+Requires-Python: >=3.10,<3.13
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: smpclient (>=1.0.1,<2.0.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# Simple Management Protocol (SMP) Manager
+
