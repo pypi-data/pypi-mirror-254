@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: naive-shapelet-CF
+Version: 0.1.3
+Author: Peiyu Li
+Author-email: peiyu.li@usu.edu
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: tslearn
+Requires-Dist: pyts
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+
