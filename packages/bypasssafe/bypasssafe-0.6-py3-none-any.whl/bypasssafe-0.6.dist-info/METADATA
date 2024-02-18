@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: bypasssafe
+Version: 0.6
+Summary: Valt de senhas e gerador
+Author: MarcosDalessandro
+Author-email: marcosdalessandroclima@ufpi.edu.br
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: bcrypt (>=3.2.0,<4.0.0)
+Requires-Dist: psycopg2 (>=2.9.9,<3.0.0)
+Requires-Dist: python-decouple (>=3.5,<4.0)
+Description-Content-Type: text/markdown
+
+# ByPassSafe <h1>
+
+ByPassSafe é uma ferramente para gerenciamento de senhas, contruida em Python, durante a disciplina de Programação Orientada a Objetos 2
+
+## Installation <h2>
+
+~~~bash
+pip install bypassafe
+~~~
+
+## Usage <h2>
+Para executar, siga os seguintes passos:
+
+~~~bash
+Copy code
+Python3 -m ByPassSafe
+This will launch the password management tool and allow you to perform various operations.
+~~~
+
+
+
+### Getting Started <h3>
+
+1. Instale a ferramenta executando o comando pip install bypasssafe
+2. Execute a ferramente no CLI com python -m bypasssafe ou use de nossas funcionalidades importando a lib.
+3. Siga as instruções para usar a lib de forma correta: Crie uma conta mestre, Acesse-a e cadastre sua conta das principais plataformas pra ter suas senhas sempre a mão, sem precisar decora-las, usando assim senhas muito mais complexas e seguras.
+
+
+<h1>Contributing</h1>
+Qualquer contribuição é bem-vinda e muito apreciada!!!
+
+<h1>License</h1>
+Licensa MIT padrão.
