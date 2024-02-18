@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: openhgnn-Zihao
+Version: 0.6.1
+Summary: An open-source toolkit for Heterogeneous Graph Neural Network
+Home-page: https://github.com/BUPT-GAMMA/OpenHGNN
+Download-URL: https://github.com/BUPT-GAMMA/OpenHGNN
+Author: BUPT-GAMMA LAB
+Author-email: tyzhao@bupt.edu.cn
+Maintainer: Zihao Zhao
+License: Apache-2.0 License
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: numpy >=1.16.5
+Requires-Dist: pandas >=1.0.0
+Requires-Dist: ogb >=1.1.0
+Requires-Dist: torch >=1.8.1
+Requires-Dist: optuna
+Requires-Dist: colorama
+
