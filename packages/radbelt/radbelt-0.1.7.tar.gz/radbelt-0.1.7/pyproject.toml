@@ -1,0 +1,47 @@
+[build-system]
+build-backend = 'mesonpy'
+requires = ["meson>=0.63.0",
+            "meson-python",
+            "setuptools_scm>=6.2",
+            "wheel",
+            "numpy>=1.25"]
+
+[project]
+name = "radbelt"
+description = "Astropy-friendly wrapper for the AE-8/AP-8 Van Allen belt model"
+readme = "README.md"
+authors = [ { name = "Leo Singer", email = "leo.p.singer@nasa.gov" } ]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy"
+]
+license = { text = "NOSA" }
+requires-python = ">=3.9"
+dependencies = ["astropy", "numpy>=1.19"]
+dynamic = [ "version" ]
+
+[project.urls]
+source = "https://github.com/nasa/radbelt"
+
+[project.optional-dependencies]
+test = ["pytest-doctestplus"]
+
+[tool.cibuildwheel]
+test-extras = ["test"]
+test-command = "pytest --pyargs radbelt --doctest-plus"
+
+[tool.cibuildwheel.windows]
+before-build = "pip install delvewheel"
+repair-wheel-command = "delvewheel repair -w {dest_dir} {wheel}"

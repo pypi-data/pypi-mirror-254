@@ -1,0 +1,79 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  release:
+    types:
+      - published
+
+jobs:
+
+  source:
+    name: Build source package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: pip install build && python -m build --sdist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source
+          path: dist/*
+
+  wheels:
+    name: Build binary packages
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-14, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        if: runner.os == 'Linux'
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
+      # See https://docs.scipy.org/doc/scipy/building/index.html
+      - name: Install MinGW
+        if: runner.os == 'Windows'
+        run: |
+          choco install rtools -y --no-progress --force --version=4.0.0.20220206
+          echo "c:\rtools40\ucrt64\bin;" >> $env:GITHUB_PATH
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.16
+        env:
+          CIBW_ARCHS_LINUX: auto aarch64
+          CIBW_ARCHS_WINDOWS: AMD64
+          CIBW_ENVIRONMENT_MACOS: FC=gfortran-11
+          # Skip musllinux wheels, which take a long time to build because Numpy must be built from source
+          # Skip PyPy wheels
+          # Skip 32-bit Intel wheels
+          CIBW_SKIP: '*musllinux* pp* *_i686'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}
+          path: wheelhouse/*
+
+  publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    needs: [source, wheels]
+    if: github.event_name == 'release'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1

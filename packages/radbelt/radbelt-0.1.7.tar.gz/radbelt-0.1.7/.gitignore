@@ -1,0 +1,9 @@
+build
+dist
+__pycache__
+*.o
+*.egg-info
+*.so
+*module.c
+_version.py
+.mesonpy*
