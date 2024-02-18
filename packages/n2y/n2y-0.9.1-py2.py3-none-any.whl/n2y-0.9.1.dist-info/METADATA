@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: n2y
+Version: 0.9.1
+Summary: Notion to YAML
+Home-page: https://github.com/innolitics/n2y
+Author: Innolitics, LLC
+Author-email: info@innolitics.com
+License: MIT
+Keywords: notion documentation yaml markdown
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/x-rst
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: pandoc
+Requires-Dist: jinja2
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+Requires-Dist: requests-cache ; extra == 'dev'
+
+Notion to YAML
