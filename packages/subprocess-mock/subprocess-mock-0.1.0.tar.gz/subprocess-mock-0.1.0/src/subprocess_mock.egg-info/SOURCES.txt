@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/subprocess_mock/__init__.py
+src/subprocess_mock/__main__.py
+src/subprocess_mock/commandline.py
+src/subprocess_mock/core.py
+src/subprocess_mock/py.typed
+src/subprocess_mock.egg-info/PKG-INFO
+src/subprocess_mock.egg-info/SOURCES.txt
+src/subprocess_mock.egg-info/dependency_links.txt
+src/subprocess_mock.egg-info/top_level.txt
+tests/test_commandline.py
+tests/test_core.py
+tests/test_main.py
