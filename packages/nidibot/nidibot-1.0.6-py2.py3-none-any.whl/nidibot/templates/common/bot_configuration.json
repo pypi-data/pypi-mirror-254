@@ -1,0 +1,18 @@
+{
+    "controller": {
+        "discord": {
+            "token": "your-discord-bot-token",
+            "privileged_users": []
+        }
+    },
+    "server_provider": [
+        {
+            "type": "nitrado",
+            "token": "your-gameserver-api-token"
+        }
+    ],
+    "storage": {
+        "type": "google-drive",
+        "token": "your-storage-token"
+    }
+}
