@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "pls-cli"
+version = "0.3.3"
+description = "Minimalist and full configurable greetings and TODO list"
+authors = ["Felipe Guedes <contatofelipeguedes@gmail.com>"]
+packages = [{ include = "pls_cli" }]
+readme = "README.md"
+repository = "https://github.com/guedesfelipe/pls-cli"
+homepage = "https://guedesfelipe.github.io/pls-cli/"
+documentation = "https://guedesfelipe.github.io/pls-cli/"
+keywords = ["pls", "please", "todo", "cli"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+rich = "^13.7.0"
+typer = {extras = ["all"], version = "^0.9.0"}
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2"
+pytest-cov = "^4.0.0"
+freezegun = "^1.2.2"
+
+[tool.poetry.dev-dependencies]
+blue = "^0.9.1"
+isort = "^5.10.1"
+prospector = { extras = ["with_mypy"], version = "^1.7.7" }
+safety = "^3.0.1"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.2.7"
+mkdocs-meta-descriptions-plugin = "^3.0.0"
+types-setuptools = "^69.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pls = "pls_cli.please:app"
