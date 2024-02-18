@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "EasyPandas"
+version = "0.0.3"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "xlrd",
+  "openpyxl",
+  "xlwt",
+  "XlsxWriter",
+  "pyreadstat"
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "LiuAndy", email = "andylau_dh@163.com"},
+]
+maintainers = [
+  {name = "LiuAndy", email = "andylau_dh@163.com"}
+]
+description = "使用Pandas库处理数据的简洁程序库"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["数据分析", "Pandas", "简介代码", "函数封装"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/LiuAndy-art/EasyPandas"
+Documentation = "https://github.com/LiuAndy-art/EasyPandas"
+Repository = "https://github.com/LiuAndy-art/EasyPandas"
