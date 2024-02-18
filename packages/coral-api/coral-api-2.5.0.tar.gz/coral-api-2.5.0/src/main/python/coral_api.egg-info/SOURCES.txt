@@ -1,0 +1,15 @@
+LICENSE
+NOTICE
+README.md
+setup.cfg
+setup.py
+src/main/python/coral_api.egg-info/PKG-INFO
+src/main/python/coral_api.egg-info/SOURCES.txt
+src/main/python/coral_api.egg-info/dependency_links.txt
+src/main/python/coral_api.egg-info/requires.txt
+src/main/python/coral_api.egg-info/top_level.txt
+src/main/python/inaccel/coral/__init__.py
+src/main/python/inaccel/coral/_library.py
+src/main/python/inaccel/coral/_rpc.py
+src/main/python/inaccel/coral/_shm.py
+src/main/python/inaccel/coral/native/libcoral-api.so
