@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: linkml-arrays
+Version: 0.1.0
+Summary: linkml-arrays
+License: BSD-3
+Author: Ryan Ly
+Author-email: rly@lbl.gov
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: docs
+Requires-Dist: h5py (>=3.9.0,<4.0.0)
+Requires-Dist: linkml-runtime (>=1.6.0,<2.0.0)
+Requires-Dist: numpy (>=1.24.3,<2.0.0)
+Requires-Dist: zarr (>=2.16.1,<3.0.0)
+Description-Content-Type: text/markdown
+
+# linkml-arrays
+
+Support for N-dimensional arrays in LinkML.
+
+# Quick reference for common commands
+
+```bash
+cd linkml-model
+poetry run gen-json-schema tests/input/examples/schema_definition-array-2.yaml
+poetry run gen-pydantic tests/input/examples/schema_definition-array-2.yaml
+```
+
+# Acknowledgements
+
+This [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html) project was developed from the [monarch-project-template](https://github.com/monarch-initiative/monarch-project-template) template and will be kept up-to-date using [cruft](https://cruft.github.io/cruft/).
