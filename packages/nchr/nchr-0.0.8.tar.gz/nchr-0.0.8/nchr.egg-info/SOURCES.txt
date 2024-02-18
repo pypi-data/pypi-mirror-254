@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+nchr/__init__.py
+nchr/_modidx.py
+nchr/core.py
+nchr/escd.py
+nchr/tree.py
+nchr.egg-info/PKG-INFO
+nchr.egg-info/SOURCES.txt
+nchr.egg-info/dependency_links.txt
+nchr.egg-info/entry_points.txt
+nchr.egg-info/not-zip-safe
+nchr.egg-info/requires.txt
+nchr.egg-info/top_level.txt
