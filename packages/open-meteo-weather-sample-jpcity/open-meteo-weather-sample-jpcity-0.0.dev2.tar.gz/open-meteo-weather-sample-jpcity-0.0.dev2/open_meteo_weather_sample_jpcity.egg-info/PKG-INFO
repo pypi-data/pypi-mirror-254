@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: open-meteo-weather-sample-jpcity
+Version: 0.0.dev2
+Summary: sample distribution-packages by legacy-setup.py
+Author: Hoshimado
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: certifi==2023.7.22
+Requires-Dist: charset-normalizer==3.2.0
+Requires-Dist: idna==3.4
+Requires-Dist: requests==2.31.0
+Requires-Dist: urllib3==2.0.4
+
+# A sample Python project
+
+Pythonの配布パッケージの作り方と配布方法を学ぶためのサンプルパッケージ。
+
+
+
+# USAGE
+
+```
+python -m open_meteo_weather_sample_jpcity
+```
+
+
+
+----
+
+ToDo: 本パッケージが提供する機能を記載する。
+
+----
+
+# 更新履歴
+
+* 0.0.dev2, 機能list_locations()を追加
+* 0.0.dev1, PyPIへの公開手順の試行のためのパッケージ作成。
+    * 機能などの説明は後日にアップデート予定
+

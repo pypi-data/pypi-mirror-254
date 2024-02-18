@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.py
+open_meteo_weather_sample_jpcity/__init__.py
+open_meteo_weather_sample_jpcity/__main__.py
+open_meteo_weather_sample_jpcity/open_meteo_forecast_api.py
+open_meteo_weather_sample_jpcity.egg-info/PKG-INFO
+open_meteo_weather_sample_jpcity.egg-info/SOURCES.txt
+open_meteo_weather_sample_jpcity.egg-info/dependency_links.txt
+open_meteo_weather_sample_jpcity.egg-info/entry_points.txt
+open_meteo_weather_sample_jpcity.egg-info/requires.txt
+open_meteo_weather_sample_jpcity.egg-info/top_level.txt
+tests/test_open_meteo_forecast_api.py
