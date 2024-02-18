@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: MIS-algorithms
+Version: 0.0.4
+Summary: All algorithms used in the paper "Finding Large Independent Sets in Networks Using Competitive Dynamics"
+Home-page: https://github.com/NiekMooij/MIS
+Author: Niek Mooij
+Author-email: mooij.niek@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE.txt
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pulp
+Requires-Dist: communities

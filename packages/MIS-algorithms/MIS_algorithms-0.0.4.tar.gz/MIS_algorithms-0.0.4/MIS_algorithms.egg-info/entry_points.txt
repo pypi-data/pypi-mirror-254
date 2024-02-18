@@ -1,0 +1,10 @@
+[console_scripts]
+continuation = MIS.continuation:main
+erdos_renyi = MIS.generate_graphs.erdos_renyi:main
+exact = MIS.exact:main
+greedy = MIS.greedy:main
+is_maximal_independent_set = MIS.functions.is_maximal_independent_set:main
+lotka_volterra = MIS.lotka_volterra:main
+random_bipartite = MIS.generate_graphs.random_bipartite:main
+random_geometric = MIS.generate_graphs.random_geometric:main
+reduced_graph = MIS.functions.reduced_graph:main
