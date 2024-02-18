@@ -1,0 +1,8 @@
+{
+    "issues": {
+        "deprecated_beat": {
+            "description": "Por favor, elimina la clave `{config_key}` de `{display_options}` para la entrada {integration} en tu archivo configuration.yaml y reinicia Home Assistant para solucionar este problema.",
+            "title": "Se va a eliminar el sensor de fecha y hora `{config_key}`"
+        }
+    }
+}

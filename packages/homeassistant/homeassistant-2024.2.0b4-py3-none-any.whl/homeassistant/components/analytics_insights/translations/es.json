@@ -1,0 +1,12 @@
+{
+    "config": {
+        "abort": {
+            "cannot_connect": "No se pudo conectar"
+        }
+    },
+    "options": {
+        "abort": {
+            "cannot_connect": "No se pudo conectar"
+        }
+    }
+}
