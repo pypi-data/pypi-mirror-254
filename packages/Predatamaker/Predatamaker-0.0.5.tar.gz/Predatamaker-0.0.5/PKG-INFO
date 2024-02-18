@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: Predatamaker
+Version: 0.0.5
+Summary: Ajuda na utilização de dados
+Author-email: gabrielqs543543@gmail.com
+License: MIT License
+Keywords: Predatamaker
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: pandas
+
+<span style="font-family: 'Ariel', sans-serif; font-size: 24px;">DescriÃ§Ã£o</span>
+
+
+
+<span style="font-family: 'Ariel', sans-serif; font-size: 16px;">A classe Predatamaker Ã© uma biblioteca em Python desenvolvida para manipulaÃ§Ã£o e anÃ¡lise de dados, com foco em auxiliar no aprendizado bÃ¡sico de programaÃ§Ã£o em InteligÃªncia Artificial (IA) e facilitar o tratamento de dados. Ela ajuda na manipulaÃ§Ã£o de dados gerais, evitando o cansaÃ§o que se da pela pratica de ficar escrevendo sempre a mesma coisa e de ter que aprender a fazer processos extras, ajudando o usuÃ¡rio a focar na base principal primeiro. </span>
+
+
+<span style="font-family: 'Ariel', sans-serif; font-size: 24px;">Funcionalidades</span>
+
+
+
+
+<span style="font-family: 'Ariel', sans-serif; font-size: 16px;">organizar_dados
+DescriÃ§Ã£o: Organiza dados em diferentes estruturas, como listas, dicionÃ¡rios ou arquivos CSV. Pode ordenar os dados com base em uma chave e salvar em um novo arquivo CSV, se fornecido.
+GeraÃ§Ã£o de Curvas de AvaliaÃ§Ã£o:
+
+gerar_curvas_avaliacao
+DescriÃ§Ã£o: Gera e exibe curvas de avaliaÃ§Ã£o, incluindo curvas ROC, precisÃ£o-recall e matriz de confusÃ£o. Permite personalizar o tipo de grÃ¡fico a ser exibido.
+ExtraÃ§Ã£o de CaracterÃ­sticas Relevantes:
+
+extrair_caracteristicas_relevantes
+DescriÃ§Ã£o: Extrai caracterÃ­sticas relevantes de um conjunto de dados. Oferece mÃ©todos como seleÃ§Ã£o de caracterÃ­sticas, AnÃ¡lise de Componentes Principais (PCA) e remoÃ§Ã£o de caracterÃ­sticas correlacionadas.
+GeraÃ§Ã£o de Tabelas Simuladas:
+
+gerar_tabelas
+DescriÃ§Ã£o: Gera tabelas simuladas para experimentaÃ§Ã£o. Os modelos disponÃ­veis incluem linear, quadrÃ¡tico e aleatÃ³rio, com a opÃ§Ã£o de fornecer coeficientes para os modelos lineares e quadrÃ¡ticos.</span>
