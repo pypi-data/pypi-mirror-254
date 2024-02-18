@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "FalkorDB"
+version = "1.0.2"
+description = "Python client for interacting with FalkorDB database"
+authors = ["FalkorDB inc <info@falkordb.com>"]
+
+readme = "README.md"
+repository = "http://github.com/falkorDB/falkordb-py"
+homepage = "http://falkordb-py.readthedocs.io"
+keywords = ['FalkorDB', 'GraphDB', 'Cypher']
+
+packages = [{include = "falkordb"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+redis = "^5.0.1"
+
+[tool.poetry.group.test.dependencies]
+pytest-cov = "^4.1.0"
+pytest = "7.0.0"
+pytest-asyncio = "^0.23.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
