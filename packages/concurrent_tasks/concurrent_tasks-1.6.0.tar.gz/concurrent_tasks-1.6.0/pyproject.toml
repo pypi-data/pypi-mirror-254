@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "concurrent_tasks"
+version = "1.6.0"
+description = "Tools to run asyncio tasks concurrently."
+authors = ["Gabriel Pajot <gab@les-cactus.co>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/gpajot/asyncio-concurrent-tasks"
+include = ["concurrent_tasks/py.typed"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.group.test.dependencies]
+pytest = "==7.4.4"
+pytest-asyncio = "==0.21.1"
+pytest-mock = "==3.12.0"
+ruff = "==0.1.14"
+mypy = "==1.8.0"
+black = "==24.1.1"
+pre-commit = "==3.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+ignore_missing_imports = true
+install_types = true
+non_interactive = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+select = ["A", "B", "E", "F", "I", "PT"]
+ignore = ["E501"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
