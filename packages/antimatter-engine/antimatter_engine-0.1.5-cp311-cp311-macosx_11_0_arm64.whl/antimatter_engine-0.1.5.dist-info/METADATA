@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: antimatter-engine
+Version: 0.1.5
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+<img src="static/pycrustcap.png" alt="stand_in" width="256" height="256">
+
+# Python Rust Session
+
+This module provides a bridge between Python and Rust, enabling Python code to interact with Rust-implemented functionality related to session and capsule management. It is part of the `antimatter` project and leverages PyO3 for seamless Python-Rust interoperability.
+
+## Deps
+### Python:
+On Mac:
+maturin
+```shell
+python3 -m pip install maturin
+```
+
+On Linux:
+maturin[patchelf]
+```shell
+python3 -m pip install maturin[patchelf]
+```
+
+### Rust:
+Cargo will handle these for you.
+
+## To build, install and run example.
+```shell
+make
+```
+
+## To just build and install.
+```shell
+make build
+make install
+```
+
+## To remove.
+```shell
+make uninstall
+```
+
+## Limitations of this version.
+It does build and run on Linux, but you will need to change the name of the .whl file that the Makefile looks at for the install target.
+
+
+## Example use.
+An example of how to encapsulate and read data from Python is given in the example folder. A short example :
+
+### To import.
+To use this wrapper, you will need to import the built library.
+```python
+import antimatter_engine
+```
+
+### Create a new session.
+Before any operations can be performed, one needs to create a session in which to perform capsule related requests with. This is currently done by providing the `Domain ID` to the `PySession` constructor. 
+```python
+antimatter_engine.create_session(str) -> PySession
+```
+Upon success, this returns a valid `PySession` that can be used to create, read and write capsules with.
+
+### Encapsulate data.
+To encapsulate data, one must call the `encapsulate` method on a valid session. When encapsulating one will need to provide the following:
+- col_defns - A list of `PyColumnDefinition` containing the name and tags for each column.
+- data_elems - A 2D list of `PyDataElement` containing the data to be encapsulated, as well as each elements span tags.
+- write_context_name - Is the name of the write context used to perform this encapsulate operation with.
+- path - The path to write the capsule to upon successful encapsulation.
+- capsule_tags - A list of `PyTag` that are used as the capsule's tags.
+- extra - A `string` used to store any extra information about the capsule. This is freeform and can be used to store anything that can be represented as a `string`.
+```python
+valid_session.encapsulate(col_defns=List[PyColumnDefinition], data_elems=List[List[PyDataElement]], write_context_name=str, path=str, capsule_tags=List[PyTag], extra=str) -> None
+```
+Upon success, this will return no error.
+
+### Open a capsule.
+To open a capsule for reading, needs to first open the capsule using a valid session. This is done by calling the `open_capsule` method on a valid session with the following:
+- path - The resource path to the capsule's blob.
+- read_context_name - Is the name of the read context used to read data from the capsule.
+```python
+valid_session.open_capsule(path=str, read_context_name=str) -> PyCapsuleSession
+```
+Upon success, this returns a `PyCapsuleSession` which represents a valid opened capsule that can be read from.
+
+### Read from an opened capsule.
+To read all redacted data from a capsule one can call the `read_all` method on a valid session. When doing so, one must provide the following:
+read_parameters - A dictionary with all required read parameters for reading the capsule (this can be empty if none are required).
+```python
+valid_py_capsule_session.read_all(read_parameters=Dict) -> (List[str], List[List[PyTag]], List[List[str]], str)
+```
+Upon success, this returns back the following in order:
+- col_names - A list of `string` with column information, normally the name of the column.
+- col_tags - A list of `List[PyTag]` containing tags for each column.
+- redacted_data - A 2D list of `string` containing the redacted data read from the capsule.
+- extra - A `string` used to store any extra information about the capsule. This is freeform and can be used to store anything that can be represented as a `string`.
+
