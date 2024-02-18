@@ -1,0 +1,15 @@
+doitlive/__init__.py,sha256=W96KPw3qGIV3ne2Nd2Lx88ZEoS-wWEDrIqBh2qiYS_w,996
+doitlive/cli.py,sha256=j5JXP6cXsOoO4kuh1p1naQeBgyujYEK7e2zNkH8BhZc,15771
+doitlive/exceptions.py,sha256=CYzf44Rxfyb1aWh9K3Hfyokv9OkHeHp8w2kNWF4ltOU,204
+doitlive/keyboard.py,sha256=7iDkjae_XAD5dNkBU-QGYFMbxcKzEmC5pxvHCU6jCak,7314
+doitlive/python_consoles.py,sha256=GGxsOQVHsLe5TKlfX8HdlLLqy6AxzAFcS-MidVldOvU,2533
+doitlive/styling.py,sha256=AsMYsmWGJMrrPNEclQc9oonGTjZfaFBr-6PNxpiIcNM,7189
+doitlive/termutils.py,sha256=gaL5qViLul-xhfMEge2ruzh74GibNifCP-4sOkeln1A,1496
+doitlive/version_control.py,sha256=wPQwpyMe25dvtpz3gH6mwGlr35d1j7OjXTuBy97cW9c,1781
+doitlive/ipython/__init__.py,sha256=DE5teet_Lp2Nv89X_qQ7TsWzmhkeOimLPhGMTFUT_MY,379
+doitlive/ipython/app.py,sha256=aNuWH-i0Tp6RtcAuyws7phLPVX12PMwokWWCO-P7AtM,4867
+doitlive-5.1.0.dist-info/entry_points.txt,sha256=qsJtOIlVzifbuoPdDDlggtTyjnY3HifH03Lw8Q1B2nc,45
+doitlive-5.1.0.dist-info/LICENSE,sha256=kGtdkFHkJhRMsXOtkRZnuOvQWpxYTCwmwTWzKj7RIAE,1064
+doitlive-5.1.0.dist-info/WHEEL,sha256=EZbGkh7Ie4PoZfRQ8I0ZuP9VklN_TvcZ6DSE5Uar4z4,81
+doitlive-5.1.0.dist-info/METADATA,sha256=RIp_3yCgSrcX3ugM_BLdVx339TLuzDSIPQoXGXALuxw,3666
+doitlive-5.1.0.dist-info/RECORD,,
