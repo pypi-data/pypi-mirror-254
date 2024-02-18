@@ -1,0 +1,5 @@
+torch
+numpy
+mpi4py
+scikit-learn
+prettyPlot>=0.0.25
