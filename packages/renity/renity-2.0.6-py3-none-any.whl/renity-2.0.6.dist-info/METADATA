@@ -1,0 +1,128 @@
+Metadata-Version: 2.1
+Name: renity
+Version: 2.0.6
+Summary: Renity Pure Python Protocol Buffer
+Home-page: https://github.com/DmitrievichLevin/Renity
+License: Apache 2.0
+Author: Jalin Howard
+Author-email: jhowar39@emich.edu
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: bitstring (>=4.1.4)
+Requires-Dist: click (>=8.0.1)
+Requires-Dist: freezegun (>=1.4.0,<2.0.0)
+Requires-Dist: sphinx (==5.0)
+Requires-Dist: typeguard (>=4.1.5,<5.0.0)
+Project-URL: Changelog, https://github.com/DmitrievichLevin/Renity/releases
+Project-URL: Documentation, https://Renity.readthedocs.io
+Project-URL: Repository, https://github.com/DmitrievichLevin/Renity
+Description-Content-Type: text/markdown
+
+# Renity Protocol Buffer
+
+[![PyPI](https://img.shields.io/pypi/v/Renity.svg)][pypi_]
+[![Status](https://img.shields.io/pypi/status/Renity.svg)][status]
+[![Python Version](https://img.shields.io/pypi/pyversions/Renity)][python version]
+[![License](https://img.shields.io/pypi/l/Renity)][license]
+
+[![Read the documentation at https://Renity.readthedocs.io/](https://img.shields.io/readthedocs/Renity/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Tests](https://github.com/DmitrievichLevin/Renity/workflows/Tests/badge.svg)][tests]
+[![Codecov](https://codecov.io/gh/DmitrievichLevin/Renity/branch/main/graph/badge.svg)][codecov]
+
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
+[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
+
+[pypi_]: https://pypi.org/project/Renity/
+[status]: https://pypi.org/project/Renity/
+[python version]: https://pypi.org/project/Renity
+[read the docs]: https://Renity.readthedocs.io/
+[tests]: https://github.com/DmitrievichLevin/Renity/actions?workflow=Tests
+[codecov]: https://app.codecov.io/gh/DmitrievichLevin/Renity
+[pre-commit]: https://github.com/pre-commit/pre-commit
+[black]: https://github.com/psf/black
+
+There are many ways to optimize data transimission over the wire, but one of
+the biggest impacts can be made from simply not sending data you don't need.
+Renity provides an Interface for rapidly defining the serialization format for
+Network Traffic solely in Python. Using Schema's that closely resemble an
+Object Relational Mapping(ORM) we are able to generate simple class definitions
+that contain fields and methods to serlialze/parse to and from raw bytes.
+
+## Advantages
+
+- Extendable
+- Backward Compatible Schema(s)
+- Fast Parsing
+- strict enforcement at the application level(optional)
+- Optimize size of transmissions
+
+## Example
+
+```
+    class CustomMessage(Message):
+        hello=StringField(default="World")
+        sentence=ListField(StringField(required=True),IntField())
+
+    example = CustomMessage({"sentence": ["Number of Apples:", 2]})
+
+    print(example.message)
+
+    Output:
+        {"hello": "World", "sentence": ["Number of Apples:", 2]}
+```
+
+## Features
+
+- TODO
+
+## Requirements
+
+- TODO
+
+## Installation
+
+You can install _Renity_ via [pip] from [PyPI]:
+
+```console
+$ pip install renity
+```
+
+## Usage
+
+Please see the [Command-line Reference] for details.
+
+## Contributing
+
+Contributions are very welcome.
+To learn more, see the [Contributor Guide].
+
+## License
+
+Distributed under the terms of the [Apache license][license],
+_Renity_ is free and open source software.
+
+## Issues
+
+If you encounter any problems,
+please [file an issue] along with a detailed description.
+
+## Credits
+
+[pypi]: https://pypi.org/
+[file an issue]: https://github.com/DmitrievichLevin/Renity/issues
+[pip]: https://pip.pypa.io/
+
+<!-- github-only -->
+
+[license]: https://github.com/DmitrievichLevin/Renity/blob/main/LICENSE
+[contributor guide]: https://github.com/DmitrievichLevin/Renity/blob/main/CONTRIBUTING.md
+[command-line reference]: https://Renity.readthedocs.io/en/latest/usage.html
+[apache license]: https://opensource.org/license/apache-2-0/
+
