@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+jsocket/__init__.py
+jsocket/jsocket_base.py
+jsocket/tserver.py
+jsocket.egg-info/PKG-INFO
+jsocket.egg-info/SOURCES.txt
+jsocket.egg-info/dependency_links.txt
+jsocket.egg-info/top_level.txt
