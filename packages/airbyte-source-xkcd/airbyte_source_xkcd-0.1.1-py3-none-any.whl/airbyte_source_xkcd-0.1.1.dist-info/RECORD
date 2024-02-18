@@ -1,0 +1,17 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/acceptance.py,sha256=lNQLXYq-pk1Nnnk5485I1ydqzOn5M9qj_cwxxeDoOQQ,313
+integration_tests/catalog.json,sha256=0bMewYaxmc6uVpWm2DgtuM6nnQNYq68jmERHTM4C5Io,312
+integration_tests/configured_catalog.json,sha256=Q2O8PSmaGR_G0yGGKLcuyDmY2LnfpSyq9b8iESqUsWg,237
+source_xkcd/__init__.py,sha256=pXx2Wik70N0_K3mllb2MKyB3NR8cH87zKzLXUzTPVWM,120
+source_xkcd/run.py,sha256=XJdSYHp1HK8teV_K6dcWdwJdPfhHT4PCvWuNhFtBhtU,224
+source_xkcd/source.py,sha256=G3FrsFoOpJe7coxgTKBeUBjtWDSCxsY3k5--jLzE6rQ,2128
+source_xkcd/spec.yaml,sha256=gBoHXzYI8tvE6Z5U-wf0jjFhLSV4Fj_sVHopi_P9pfU,195
+source_xkcd/schemas/xkcd.json,sha256=1saeXArgwxGDkWS04GZB4H5y5peyyjIvXO_azSSYcRE,706
+unit_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+unit_tests/test_source.py,sha256=8pAElHwm9EE7sb-UGPJB99lxEPTHWZu6hMq0KMGmVnM,546
+unit_tests/test_streams.py,sha256=A8DOQRqAiYWXYX5lj7RHDJ-KuumKXL7gZxXa6Iv_0yM,3895
+airbyte_source_xkcd-0.1.1.dist-info/METADATA,sha256=PvHmDLWRM9juk6CBIhKpc9ntyAfqKhuzq5reN53_42A,5344
+airbyte_source_xkcd-0.1.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_xkcd-0.1.1.dist-info/entry_points.txt,sha256=8R-rZ_VtD8fAbZ64xESqdWhmf4MDBpVncM5sBwQ4atI,52
+airbyte_source_xkcd-0.1.1.dist-info/top_level.txt,sha256=29zWxaKq1hCaCuXb3oKdcK1HjdzUOJSYl-uxB1PyVcA,41
+airbyte_source_xkcd-0.1.1.dist-info/RECORD,,

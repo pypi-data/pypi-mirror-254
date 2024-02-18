@@ -1,0 +1,2 @@
+[console_scripts]
+source-xkcd = source_xkcd.run:run
