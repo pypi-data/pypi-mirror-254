@@ -1,0 +1,3 @@
+recursive-include src/mattress/extern *
+recursive-include src/mattress/include *
+recursive-include src/mattress/lib *
