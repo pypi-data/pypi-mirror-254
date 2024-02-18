@@ -1,0 +1,20 @@
+anyio
+pydantic
+pydantic-settings
+croniter
+tenacity
+backoff
+redis
+hiredis
+xxhash
+makefun
+lazyops>=0.2.69
+typer
+
+[:python_version < "3.8"]
+typing-extensions
+
+[serialization]
+pysimdjson
+cloudpickle
+zstd
