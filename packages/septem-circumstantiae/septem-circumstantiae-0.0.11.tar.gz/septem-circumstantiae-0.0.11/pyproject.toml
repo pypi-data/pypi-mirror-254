@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "septem-circumstantiae"
+version = "0.0.11"
+authors = [
+    {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
+]
+description = "Septem Circumstantiae"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://github.com/septem-circumstantiae/septem-circumstantiae"
+"Bug Tracker" = "https://github.com/septem-circumstantiae/septem-circumstantiae/issues"
