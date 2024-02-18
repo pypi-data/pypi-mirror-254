@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "stixorm"
+version = "0.3.6"
+description = "Description"
+repository="https://github.com/os-threat/Stix-ORM"
+authors = [
+    "Brett Forbes <brett@cloudaccelerator.co>"
+]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+[project.urls]
+"Homepage" = "https://github.com/os-threat/Stix-ORM"
+"Bug Tracker" = "https://github.com/os-threat/Stix-ORM/issues"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+stix2 = "3.0.1"
+networkx = "^3.1"
+pydantic = "^2.1.1"
+loguru = "^0.7.0"
+validators = "^0.20.0"
+typedb-driver = "^2.25.6"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+flake8 = "^6.0.0"
+pyhamcrest = "^2.0.4"
+black = "^23.7.0"
+flake8-html = "^0.4.3"
+pytest-html = "^3.2.0"
+pytest-bdd-html = "^0.1.14a0"
+bandit = "^1.7.5"
+pytest-xdist = "^3.3.1"
+pytest-cov = "^4.1.0"
+pyinstrument = "^4.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
