@@ -1,0 +1,13 @@
+pandas
+modin[ray]
+polars
+pdpipe
+xarray-einstats
+flox
+fastcore
+pipe
+multipledispatch
+loguru
+plasmapy
+
+[dev]

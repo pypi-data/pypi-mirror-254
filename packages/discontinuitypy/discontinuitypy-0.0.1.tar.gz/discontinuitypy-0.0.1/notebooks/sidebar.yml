@@ -1,0 +1,23 @@
+website:
+  sidebar:
+    contents:
+      - index.qmd
+      - 00_ids_finder.ipynb
+      - 01_ids_detection.ipynb
+      - 02_ids_properties.ipynb
+      - 03_mag_plasma.ipynb
+      - 20_datasets.ipynb
+      - 21_datasets_kedro.ipynb
+      - 21_event.ipynb
+      - about.qmd
+      - section: properties
+        contents:
+          - properties/00_duration.ipynb
+          - properties/00_mva.ipynb
+      - section: utils
+        contents:
+          - utils/00_basic.ipynb
+          - utils/01_plotting.ipynb
+          - utils/02_analysis_utils.ipynb
+          - utils/10_polars.ipynb
+          - utils/15_kedro.ipynb

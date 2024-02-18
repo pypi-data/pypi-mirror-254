@@ -1,0 +1,45 @@
+# Define a generic data pipeline template
+data-pipeline: &data-pipeline
+  name: Data Pipeline
+  type: pipeline
+  pipelines:
+    - name: Load Data
+      type: node
+    - name: Preprocess Data
+      type: node
+    - name: Process Data
+      type: node
+    - name: Extract Features
+      type: node
+
+# Pipeline template for specific missions
+mission-pipeline: &mission-pipeline
+  name: Mission Specific Pipeline
+  type: pipeline
+  pipelines:
+    - name: Magnetic Field Data Pipeline
+      <<: *data-pipeline
+    - name: State Data Pipeline
+      <<: *data-pipeline
+    - name: Features Pipeline
+      type: pipeline
+      pipelines:
+        - name: Combine Features from Different Sources
+          type: node
+
+# Main pipeline encompassing multiple missions
+dataset-pipeline:
+  name: Overall Data Integration Pipeline
+  type: pipeline
+  pipelines: # Fixed typo
+    - name: JUNO Mission Pipeline
+      satellite: JUNO # Changed to satellite for clarity
+      <<: *mission-pipeline
+    - name: ARTEMIS Mission Pipeline
+      satellite: ARTEMIS
+      <<: *mission-pipeline
+    - name: STEREO Mission Pipeline
+      satellite: STEREO
+      <<: *mission-pipeline
+    - name: Combine Datasets from Different Missions
+      type: node
