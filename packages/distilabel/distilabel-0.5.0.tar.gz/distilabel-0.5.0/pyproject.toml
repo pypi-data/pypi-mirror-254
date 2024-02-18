@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "distilabel"
+description = "AI Feedback (AIF) framework"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = ["llm", "annotation", "alignment"]
+authors = [{ name = "Argilla", email = "admin@argilla.io" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "datasets >= 2.14.0",
+    "Jinja2 >= 3.1.2",
+    "rich >= 13.5.0",
+    "tenacity >= 8",
+    "importlib-resources >= 6.1.1; python_version < '3.9'",
+    "multiprocess",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["black == 23.10.0", "ruff == 0.1.0", "pre-commit >= 3.5.0"]
+hf-transformers = ["transformers >= 4.34.1", "torch >= 2.0.0"]
+hf-inference-endpoints = ["huggingface_hub >= 0.19.0"]
+llama-cpp = ["llama-cpp-python >= 0.2.0"]
+ollama = ["ollama >= 0.1.4"]
+openai = ["openai >= 1.0.0"]
+vllm = ["vllm >= 0.2.1"]
+vertexai = ["google-cloud-aiplatform >= 1.38.0"]
+together = ["together"]
+argilla = ["argilla >= 1.23.0", "sentence-transformers >= 2.0.0", "textdescriptives >= 2.0.0"]
+tests = ["pytest >= 7.4.0"]
+mistralai = ["mistralai >= 0.0.11"]
+docs = [
+    "mkdocs-material >= 9.5.0",
+    "mkdocstrings[python] >= 0.24.0",
+    "mkdocs-literate-nav >= 0.6.1",
+    "mkdocs-section-index >= 0.3.8",
+    "mkdocs-gen-files >= 0.5.0",
+    "mike >= 2.0.0",
+    "Pillow >= 9.5.0",
+    "CairoSVG >= 2.7.1",
+    "mknotebooks >= 0.8.0",
+]
+
+[project.urls]
+Documentation = "https://distilabel.argilla.io/"
+Issues = "https://github.com/argilla/distilabel/issues"
+Source = "https://github.com/argilla/distilabel"
+
+[tool.hatch.version]
+path = "src/distilabel/__init__.py"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "W", "F", "I", "C", "B"]
+ignore = ["E501", "B905", "B008"]
+exclude = ["docs"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 14
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

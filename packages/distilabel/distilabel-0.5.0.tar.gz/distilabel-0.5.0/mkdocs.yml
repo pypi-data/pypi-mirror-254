@@ -1,0 +1,97 @@
+# Project information
+site_name: distilabel
+site_url: https://argilla-io.github.io/distilabel
+site_author: Argilla, Inc.
+site_description: AI Feedback framework
+
+# Repository
+repo_name: argilla-io/distilabel
+repo_url: https://github.com/argilla-io/distilabel
+
+extra:
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme)"
+      primary: white
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+watch:
+  - src/distilabel
+
+# Extensions
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - footnotes
+  # activating permalink: true makes the anchor link works in the notebooks
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - docs/scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings
+  - social
+  - mknotebooks
+
+nav:
+  - Getting started: index.md
+  - Concepts: concepts.md
+  - Tutorials:
+      - ⚖️ Create a legal preference dataset: tutorials/pipeline-notus-instructions-preferences-legal.ipynb
+      - 🧼 Clean an existing preference dataset: tutorials/clean-preference-dataset-judgelm-gpt.ipynb
+      - 🧮 Create a mathematical preference dataset : tutorials/create-a-math-preference-dataset.ipynb
+      - 🦒 Improving Text Embeddings with LLMs : tutorials/improving-text-embeddings-with-llms.ipynb
+  - Technical References:
+      - Concept Guides:
+          - technical-reference/index.md
+          - LLMs: technical-reference/llms.md
+          - Tasks: technical-reference/tasks.md
+          - Pipelines: technical-reference/pipeline.md
+      - API Reference: reference/
