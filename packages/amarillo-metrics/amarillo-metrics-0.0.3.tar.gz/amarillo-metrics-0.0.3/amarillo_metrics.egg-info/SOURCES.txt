@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+amarillo/plugins/__init__.py
+amarillo/plugins/metrics/__init__.py
+amarillo/plugins/metrics/metrics.py
+amarillo_metrics.egg-info/PKG-INFO
+amarillo_metrics.egg-info/SOURCES.txt
+amarillo_metrics.egg-info/dependency_links.txt
+amarillo_metrics.egg-info/requires.txt
+amarillo_metrics.egg-info/top_level.txt
