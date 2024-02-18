@@ -1,0 +1,110 @@
+[tool.poetry]
+authors = ["Swedish-National-Archives-AI-lab <gabriel.borg@riksarkivet.se>"]
+description = "A short description of the project"
+license = "MIT"
+name = "htrflow_cookie"
+readme = ["README.md", "LICENSE"]
+version = "0.0.4a0"
+
+documentation = "https://Swedish-National-Archives-AI-lab.github.io/htrflow_cookie"
+repository = "https://github.com/Swedish-National-Archives-AI-lab/htrflow_cookie"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+packages = [{include = "htrflow_cookie", from = "src"}]
+
+[tool.poetry.dependencies]
+pandas = "*"
+python = ">=3.10, <4.0"
+
+[tool.poetry.group.test.dependencies]
+black = "*"
+coverage = "*"
+importlib-metadata = "==4.11.*"
+isort = "*"
+mypy = "*"
+pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-github-actions-annotate-failures = "*"
+python-dotenv = "*"
+rich = "*"
+ruff = "*"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "*"
+mkdocs-jupyter = "*"
+mkdocs-material = "*"
+mkdocstrings = {version = ">=0.20", extras = ["python"]}
+pymdown-extensions = "*"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.pytest.ini_options]
+addopts = """\
+    --cov htrflow_cookie \
+    --cov-report term-missing \
+    --no-cov-on-fail \
+"""
+markers = [
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+  "gpu: marks tests as gpu (deselect with '-m \"not gpu\"')",
+]
+pythonpath = "src"
+testpaths = ["tests/unit"]
+
+[tool.coverage.run]
+source = ["src/htrflow_cookie"] # Adjust the source directory as needed
+
+[tool.coverage.report]
+exclude_lines = [
+  "if __name__ == .__main__.:",
+  "pragma: no cover",
+  "def __repr__",
+  "if self\\.debug",
+  "raise AssertionError",
+  "raise NotImplementedError",
+]
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+mypy_path = "src"
+no_implicit_optional = true
+no_implicit_reexport = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+
+[tool.black]
+line-length = 119
+target-version = ['py310']
+
+[tool.ruff]
+ignore = ["C901", "E501", "E741", "W605"]
+line-length = 119
+select = ["C", "E", "F", "I", "W"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403", "F811"]
+
+[tool.ruff.isort]
+known-first-party = ["htrflow_cookie"]
+lines-after-imports = 2
+
+[tool.cruft]
+skip = ["src", "tests"]
