@@ -1,0 +1,2 @@
+include ./pybetterqs/libdor_qs.so
+include ./pybetterqs/dor_qs.dll
