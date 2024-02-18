@@ -1,0 +1,2 @@
+[console_scripts]
+source-woocommerce = source_woocommerce.run:run
