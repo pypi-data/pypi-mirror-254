@@ -1,0 +1,2 @@
+[console_scripts]
+llm-shell = llm_shell.llm_shell:main
