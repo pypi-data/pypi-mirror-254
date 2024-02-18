@@ -1,0 +1,93 @@
+{
+    "rootId": "r-w3ow",
+    "masterAccountId": "029921763173",
+    "noOutAccounts": [
+        {
+            "account": "029921763173",
+            "name": "Alejandro Velez"
+        }
+    ],
+    "organizationalUnits": {
+        "Research": {
+            "Id": "ou-w3ow-oegm0al0",
+            "Name": "Research",
+            "accounts": {},
+            "nestedOus": {}
+        },
+        "Dev": {
+            "Id": "ou-w3ow-k24p2opx",
+            "Name": "Dev",
+            "accounts": {
+                "LabVelCT": {
+                    "account": "994261317734",
+                    "name": "LabVelCT"
+                },
+                "Dev": {
+                    "account": "571340586587",
+                    "name": "Dev"
+                }
+            },
+            "nestedOus": {}
+        },
+        "Core": {
+            "Id": "ou-w3ow-93hiq3zr",
+            "Name": "Core",
+            "accounts": {
+                "Log archive": {
+                    "account": "884478634998",
+                    "name": "Log archive"
+                },
+                "Audit": {
+                    "account": "895882538541",
+                    "name": "Audit"
+                }
+            },
+            "nestedOus": {}
+        },
+        "Custom": {
+            "Id": "ou-w3ow-5qsqi8b5",
+            "Name": "Custom",
+            "accounts": {
+                "Prod": {
+                    "account": "582441254763",
+                    "name": "Prod"
+                }
+            },
+            "nestedOus": {
+                "NetstedOU": {
+                    "Id": "ou-w3ow-i9xzgb9x",
+                    "Name": "NetstedOU",
+                    "accounts": [],
+                    "nestedOus": {}
+                },
+                "NetstedOU2": {
+                    "Id": "ou-w3ow-i9xzgxxx",
+                    "Name": "NetstedOU2",
+                    "accounts": [],
+                    "nestedOus": {}
+                },
+                "NetstedOU3": {
+                    "Id": "ou-w3ow-i9xzgxx3",
+                    "Name": "NetstedOU3",
+                    "accounts": [],
+                    "nestedOus": {}
+                }
+            }
+        },
+        "Shared": {
+            "Id": "ou-w3ow-w7dzhzcz",
+            "Name": "Shared",
+            "accounts": {
+                "DevSecOps": {
+                    "account": "105171185823",
+                    "name": "DevSecOps"
+                },
+                "SharedServices": {
+                    "account": "155794986228",
+                    "name": "SharedServices"
+                }
+            },
+            "nestedOus": {}
+        }
+    }
+}
