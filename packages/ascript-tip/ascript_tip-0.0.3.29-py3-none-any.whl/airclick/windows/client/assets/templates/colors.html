@@ -1,0 +1,665 @@
+{% extends 'base.html' %}
+
+{% block nav_home %}  {% endblock %}
+{% block nav_jubing %}  {% endblock %}
+{% block nav_colors %} layui-this {% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="/assets/css/colors.css" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+<div id="nodetree_refresh"></div>
+
+<canvas id="preview_img_canvas" crossOrigin="anonymous" style="display: none"></canvas>
+  <input type="file" id="fileupload" accept-charset="utf-8" name="avatar" hidden>
+
+  <!-- <section class="p-0 m-0"> -->
+  <div style="width: 100%; height: 100%;display: flex; flex-direction: row;">
+    <div style="flex: 1; height: 100%; overflow: auto;  padding: 0; display: flex; flex-direction: column;">
+
+      <!-- Navbar nav -->
+      <div style="width: 100%; flex: 1;padding-bottom: 30px; display: flex; flex-direction: row; overflow: scroll;">
+        <div id="img_contain" style="display: flex; flex-direction: row; overflow: auto; width: 40%;height: 100%;">
+          <div class="img_toolbar shadow-lg" style="width: 30px; height: 100%; background-color: #efefef;">
+            <div id="image_loading" data-toggle="tooltip" unselectable="on" onselectstart="return false;" data-placement="right" title="图像加载中">
+              <div class="spinner-border text-info" style="width: 15px; height: 15px;" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <span id="findcolor_res" class="badge badge-soft-danger badge-pill mb-1 mt-1" data-toggle="tooltip"
+                data-placement="right" title="查询结果标记结果数量" style="font-size: x-small; display: none;">
+                -
+            </span>
+            <div id="findimage_capture" style="display: none; color: brown;" data-toggle="tooltip" data-placement="right" title="截图模式关闭">
+              <i class="bi bi-camera-video-off-fill"></i>
+            </div>
+
+            <div id="findcolor_res_reset" style="display: none; color: brown;" data-toggle="tooltip" data-placement="right" title="移除查询结果标注">
+                <i class="bi bi-x-square-fill"></i>
+            </div>
+            <div id="toolbar_zoom_reset" data-toggle="tooltip" data-placement="right" title="图像重置">
+              <i class="bi bi-arrow-repeat"></i>
+
+            </div>
+            <div id="toolbar_zoom_in" class="zoom_btn" data-toggle="tooltip" unselectable="on" onselectstart="return false;" data-placement="right" title="放大">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+            <div id="toolbar_zoom_out" data-toggle="tooltip" unselectable="on" onselectstart="return false;" data-placement="right" title="缩小">
+              <i class="bi bi-zoom-out"></i>
+            </div>
+          </div>
+          <div id="container_img" style="overflow:Scroll;flex-grow:1; position: relative;">
+            <!-- 设置图片源（src）为可以获取png图片的地址 -->
+            <img id="img_preview" crossOrigin="anonymous" src=""
+              style="image-rendering:pixelated; float: left; position: absolute; ">
+            </img>
+            <div id="part_box">
+              <!-- class="shadow-dark-lg" -->
+            </div>
+
+
+
+            <div id="findColor_res" style="z-index: 100;">
+              <div class="findcolor_marks">
+                <span class="markpoint shadow-2xl badge badge-danger" >·</span>
+                <span class="shadow-danger badge badge-soft-danger"><span class="marknumber">1</span><span class="mark_xy">(123,400)</span></span>
+              </div>
+            </div>
+
+            <div id="ocr_res" style="z-index: 100;">
+
+            </div>
+
+            <div id="findimage_res" style="z-index: 100;">
+
+            </div>
+
+
+          </div>
+
+        </div>
+        <div style=" display: flex; flex-direction: row; width: 60%; height: 100%;">
+          <div class="img_toolbar shadow-lg" style="width: 30px; height: 100%; background-color: #efefef;">
+
+            <div class="img_toolbar" style="height: 30%; padding-top: 5px;">
+              <div id="imagelist_loading" data-toggle="tooltip" unselectable="on" onselectstart="return false;" data-placement="right" title="图像列表加载中">
+                <div class="spinner-border text-info" style="width: 15px; height: 15px;" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <span id="imglist_size" class="badge badge-soft-dark badge-pill mb-1" data-toggle="tooltip"
+                data-placement="right" title="缓存截屏数量" style="font-size: x-small;">
+                -
+              </span>
+
+              <div id="toolbar_img_capture" data-toggle="tooltip" data-placement="right" title="截图">
+                <i class="bi bi-camera-fill"></i>
+              </div>
+              <div id="toolbar_zoom_upload" data-toggle="tooltip" data-placement="right" title="上传">
+                <i class="bi bi-upload"></i>
+
+              </div>
+
+              <div id="toolbar_img_delall" data-toggle="tooltip" data-placement="right" title="删除全部">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+
+            <div class="img_toolbar" style="height: 30%; padding-top: 5px;">
+              <div id="toolbar_color_reset" data-toggle="tooltip" data-placement="right" title="重置所有颜色">
+                <i class="bi bi-repeat"></i>
+              </div>
+            </div>
+
+
+          </div>
+          <div style="width: 100%; height: auto;  overflow: hidden; position: relative;">
+            <i id="delect_img" class="bi bi-trash btn-danger rounded-lg" style="position:absolute;left: 10px; top: 10px; display: none; cursor: pointer"></i>
+<!--            <button id="delect_img" type="button" class="btn btn-danger rounded-circle btn-icon-only "-->
+<!--              style="position:absolute;left: 10px; top: 10px; display: none; width: 30px; height: 30px;">-->
+
+<!--            </button>-->
+            <div id="imgs_con" style="width: 100%;height: 26%; padding-bottom: 3px; display: flex; flex-direction: row; overflow:scroll;">
+
+              <!-- <img class="imglist_item shadow-none hover-shadow-2xl"  data-toggle="tooltip" data-placement="bottom" title="截图" src="http://192.168.31.58:9096/api/tool/screen/capture" style=" ">
+              <img class="imglist_item shadow-none hover-shadow-lg" src="http://192.168.31.58:9096/api/tool/screen/capture" style="image-rendering:pixelated; height: 100%; width: auto; ">
+              <img class="imglist_item shadow-none hover-shadow-lg" src="http://192.168.31.58:9096/api/tool/screen/capture" style="image-rendering:pixelated; height: 100%; width: auto; "> -->
+
+            </div>
+
+            <div style="width: 100%;height: 74%; display: flex; flex-direction: column;" >
+              <ul class="nav nav-tabs justify-content-center shadow" style="cursor: pointer;">
+                <li class="nav-item">
+                  <a id="btn_findcolor" class="colorboard_nav nav-link active">多点找色</a>
+                </li>
+                <li class="nav-item">
+                  <a id="btn_comparecolor" class="colorboard_nav nav-link ">多点比色</a>
+                </li>
+                <li class="nav-item">
+                  <a id="btn_ocr" class="colorboard_nav nav-link ">文字识别</a>
+                </li>
+                <li class="nav-item">
+                  <a id="btn_findimage" class="colorboard_nav nav-link ">找图</a>
+                </li>
+              </ul>
+
+              <div id="con_findcolor_comaprecolor" style="width: 100%;height: auto; display: flex; flex-direction: row; ">
+                <div id="colors_con" class="colors_con" style="width: 40%; height: 100%;  overflow:scroll;">
+                  <div class="choose_colors_item">
+                    <div class="input-group input-group-sm mb-1">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" style="padding-left: 8px; padding-right: 8px;"><span
+                            class="choose_colors_item_no">1</span><span class="choose_colors_item_bgcolor "
+                            style="width: 20px; height: 20px; margin-left: 10px; background-color:transparent; border-radius: 10px;"></span>
+                        </span>
+                        <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                      </div>
+                      <input class="choose_colors_item_input form-control" type="text"
+                        aria-label=" with two button addons" aria-describedby="button-addon4">
+                      <div class="input-group-append">
+                        <button class="choose_colors_item_clear btn btn-sm btn-danger"
+                          style="padding-left: 10px; padding-right: 10px; z-index: 0;" type="button"> <i class="bi bi-trash"
+                            ></i> </button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div style="width: 60%; height: 100%; padding-left: 10px; padding-right: 10px;">
+
+                  <!-- <div class="btn-group btn-group-xsm" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="options" style="display: none;" id="option1" checked>多点找色
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="options" style="display: none; id="option2">多点比色
+                    </label>
+                  </div> -->
+
+                  <div class="card mt-2" >
+                    <div id="findcolor_body" class="card-body">
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">相似</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_color_sim" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="0.9" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="RGB 3通道 正负浮动偏差值">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">方向</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <!-- <input id="input_color_ori" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="2" aria-describedby="button-addon4"> -->
+                          <select id="input_color_ori" class="custom-select custom-select-sm "  data-toggle="tooltip" data-placement="left" title="匹配模式">
+                              <option value="1">1 左上角到右下角，纵向开始</option>
+                              <option value="2" selected="true">2 左上角到右下角，横向开始</option>
+                              <option value="3">3 右上角到左下角，横向开始</option>
+                              <option value="4">4 右上角到左下角，纵向开始</option>
+                              <option value="5">5 右下角到左上角，纵向开始</option>
+                              <option value="6">6 右下角到左上角，横向开始</option>
+                              <option value="7">7 左下角到右上角，横向开始</option>
+                              <option value="8">8 左下角到右上角，纵向开始</option>
+                            </select>
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="找色方向">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">间隔</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_color_space" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="5" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="找到结果之间的最小间隔">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <textarea id="findcolors_input" class="choose_colors_item_input text-primary form-control"
+                            style="font-size:smaller;" placeholder="这里将自动生成 多点找色(findColor) 代码语句." rows="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board" style="display: flex; align-items:flex-end;">
+                        <div class="input-group input-group-sm mt-1"
+                          style="display: flex; justify-content: space-between;">
+                          <div class="btn-group" role="group">
+
+                          </div>
+                          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                            <button id="findColor_type" class="choose_colors_item_clear btn btn-sm btn-outline-primary"
+                              style=" z-index: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="findcolor_type_des">查找一个</span>
+                              <i class="bi bi-chevron-down"></i>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a id="p_findcolor_one" class="dropdown-item" href="#">查找一个</a>
+                                <a id="p_findcolor_all" class="dropdown-item" href="#">查找全部</a>
+                              </div>
+                            </button>
+
+
+
+                            <button id="findColor_test" class="choose_colors_item_clear btn btn-sm btn-info"
+                              style=" z-index: 0;" type="button"><span>测试</span>
+                              <div id="findcolor_test_loading" class="spinner-border" style="width: 10px; height: 10px; display: none;" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                            </button>
+
+                            <button id="findColor_copy" class="choose_colors_item_clear btn btn-sm btn-success"
+                              style=" z-index: 0;" type="button">复制</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <div id="compare_body" class="card-body" style="display: none;">
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">相似度</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_color_compare_diff" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="0.9" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button  class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="RGB 3通道 正负浮动偏差值">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <textarea id="compareColor_input" class="choose_colors_item_input text-primary form-control"
+                            style="font-size:smaller;" placeholder="这里将自动生成 多点比色(compareColors) 代码语句." rows="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board" style="display: flex; align-items:flex-end;">
+                        <div class="input-group input-group-sm mt-1"
+                          style="display: flex; justify-content: space-between;">
+                          <div class="btn-group" role="group">
+
+                          </div>
+                          <div class="btn-group" role="group">
+                            <button id="compareColor_test" class="choose_colors_item_clear btn btn-sm btn-info"
+                              style=" z-index: 0;" type="button"><span>测试</span></button>
+                            <button id="compareColor_copy" class="choose_colors_item_clear btn btn-sm btn-success"
+                              style=" z-index: 0;" type="button">复制</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+              </div>
+
+              <div id="con_ocr" style="width: 100%;height: auto; display: flex; flex-direction: row; overflow: scroll;">
+                <div id="ocr_res_con" class="colors_con" style="width: 45%; height: 100%;">
+                  <div id="ocr_reslist" class="list-group-sm" style="overflow:scroll;" >
+                    <a href="#" class="ocr_item_dom list-group-item">
+                      <span class="ocr_item_dom_text" style="padding-left: 5px;">请点击‘识别按钮’来检索图片中的文字</span><br/>
+                      <span class="conf badge badge-soft-info"></span> <span class="rect badge badge-soft-info"></span>
+
+                    </a>
+
+                  </div>
+                </div>
+                <div style="width: 55%; height: 100%; padding-left: 10px; padding-right: 10px;">
+                  <div class="card mt-2" >
+                    <div id="ocr_body" class="card-body">
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">匹配</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_ocr_mathcer" placeholder="正则匹配" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="(pattern)从识别结果中用 正则表达式匹配出 相应的结果">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">置信度</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_ocr_similar" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="0.1" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="(confidence)置信度0-1之间,不可为1,引擎识别结果的可信度.">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">最大边长</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_ocr_max_slid" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="0" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="最大边长可以控制图片识别时的尺寸大小(对结果范围无影响,尺寸越小识别速度越快)">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <textarea id="ocrc_ode_input" class="choose_colors_item_input text-primary form-control"
+                            style="font-size:smaller;" placeholder="这里将自动生成 Ocr 识别 代码语句." rows="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board" style="display: flex; align-items:flex-end;">
+                        <div class="input-group input-group-sm mt-1"
+                          style="display: flex; justify-content: space-between;">
+                          <div class="btn-group" role="group">
+
+                          </div>
+                          <div class="btn-group" role="group">
+
+                            <button id="findocr_type" class="choose_colors_item_clear btn btn-sm btn-outline-primary"
+                              style=" z-index: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="ocr_type_des">识别一个</span>
+                              <i class="bi bi-chevron-down"></i>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a id="p_ocr_one" class="dropdown-item" href="#">识别一个</a>
+                                <a id="p_ocr_all" class="dropdown-item" href="#">识别全部</a>
+                              </div>
+                            </button>
+
+                            <button id="ocr_test" class="choose_colors_item_clear btn btn-sm btn-info"
+                              style=" z-index: 0;" type="button"><span>识别</span>
+                              <div id="ocr_test_loading" class="spinner-border" style="width: 10px; height: 10px; display: none;" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                            </button>
+                            <button id="ocr_copy" class="choose_colors_item_clear btn btn-sm btn-success"
+                              style=" z-index: 0;" type="button">复制</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="con_findimage" style="width: 100%;height: auto; display: flex; flex-direction: row; overflow: scroll;">
+                <div id="findimage_res_con" class="colors_con" style="width: 50%; height: 100%;">
+                  <div id="findimage_reslist" class="list-group-sm" style="overflow:scroll;" >
+
+                    <a href="#" class="findimg_item_dom list-group-item">
+                      <span class="ocr_item_dom_text" style="padding-left: 5px;">请点击‘找图’获得结果</span><br/>
+                      <span class="conf badge badge-soft-info"></span> <span class="rect badge badge-soft-info"></span>
+
+                    </a>
+
+                  </div>
+                </div>
+                <div style="width: 50%; height: 100%; padding-left: 10px; padding-right: 10px;">
+                  <div class="card mt-2" >
+                    <div id="ocr_body" class="card-body">
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+
+
+                          <div class="input-group-prepend">
+                            <button id="findimg_capture" class="choose_colors_item_clear btn btn-sm btn-facebook"
+                              style=" z-index: 0; padding-left: 5px; padding-right: 5px;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="截图完毕后,即可测试找图">
+                              <i data-feather="crop"></i>
+                              截图
+                            </button>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_findimage_name" placeholder="名称" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons" value="" aria-describedby="button-addon4">
+                            <select id="findimg_modules" class="custom-select custom-select-sm ">
+
+                            </select>
+                          <div class="input-group-append">
+                            <button id="findimg_save" class="choose_colors_item_clear btn btn-sm btn-success"
+                              style=" z-index: 0;padding-left: 5px; padding-right: 5px;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="图片名称不带.png的后缀">
+                              保存
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+
+                        <div class="findimg_preview" style="width: 100%; height: 90px; margin-top: 4px; background-color: antiquewhite;" >
+                          <img id="findimg_partimg" style="width: auto; height: auto; max-width: 100%; max-height: 100%;" >
+                        </div>
+
+
+                      </div>
+
+
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">置信度</span>
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                          <input id="input_findimage_confidence" class="choose_colors_item_input form-control" type="text"
+                            aria-label=" with two button addons"  value="" aria-describedby="button-addon4">
+                          <div class="input-group-append">
+                            <button class="choose_colors_item_clear btn btn-sm btn-secondary"
+                              style=" z-index: 0;" type="button" data-toggle="tooltip" data-placement="right"
+                              title="(confidence)置信度0-1之间,不可为1,引擎识别结果的可信度.">
+                              <i class="bi bi-info"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+                          <textarea id="findimage_code_input" class="choose_colors_item_input text-primary form-control"
+                            style="font-size:smaller;" placeholder="这里将自动生成 FindImage 找图代码语句." rows="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="color_control_board">
+                        <div class="input-group input-group-sm mt-1">
+
+
+                          <div class="input-group-prepend">
+
+                            <!-- <span id="choose_colors_item_color_1" class="input-group-text" style="background-color: aqua;"></span> -->
+                          </div>
+                            <select id="findimg_methods" class="custom-select custom-select-sm "  data-toggle="tooltip" data-placement="left" title="匹配模式">
+                              <option value="1">find</option>
+                              <option>find_all</option>
+                              <option>find_sift</option>
+                              <option>find_all_sift</option>
+                              <option>find_template</option>
+                              <option>find_all_template</option>
+                            </select>
+
+                          <div class="input-group-append">
+                            <button id="findimage_test_run" class="choose_colors_item_clear btn btn-sm btn-info"
+                              style=" z-index: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                              <span>查找</span>
+
+                              <div id="findimage_test_loading" class="spinner-border" style="width: 10px; height: 10px; display: none;" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                            </button>
+                            <button id="findimg_copy" class="choose_colors_item_clear btn btn-sm btn-success"
+                              style=" z-index: 0;" type="button">
+                              复制
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div style="display: flex; flex-direction: row;font-size: 15px; color: indianred;  align-items: center; margin-top: 5px;">
+                        <i class="bi bi-info"></i> <span id="find_method_des" style="margin-left: 10px;">查找一个结果</span>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <div id="con_tools_bar" class="con_tools_bar" style="position: absolute; bottom: 0; width: 100%;">
+
+    <span class="badge badge-secondary viewtree_toolsbar_item" data-toggle="tooltip" data-placement="bottom"
+      title="分辨率">
+      <i data-feather="minimize-2"></i> <span id="header_pixels"></span>
+    </span>
+
+
+    <div class="con_tools_bar_mouse" data-toggle="tooltip" data-placement="bottom" title="当前坐标与颜色">
+
+      <span class="badge badge-secondary">
+        <i data-feather="mouse-pointer"></i> </i> <span class="header_cur_colrshow shadow-dark-lg"
+          id="header_cur_colrshow"></span> <span id="header_cur_rgb"></span>
+      </span>
+      <span class="badge badge-secondary">
+        <span id="header_cur_xy"></span>
+      </span>
+    </div>
+
+    <span class="badge badge-secondary viewtree_toolsbar_item" data-toggle="tooltip" data-placement="bottom"
+      title="选择的范围">
+      <i data-feather="minimize-2"></i> <span id="header_rect"></span>
+    </span>
+
+  </div>
+
+  <div class="zoomContainer"
+    style="-webkit-transform: translateZ(0);position:absolute;left:500px;top:10px;height:585px;width:265px; display: none;">
+    <div class="zoomWindowContainer" style="width: 400px;">
+      <div
+        style="overflow: hidden; background-position: 200px 200px; text-align: center; background-color:   rgb(255, 255, 255); width: 160px; height: 160px; float: left;  z-index: 100;  background-repeat: no-repeat; position: absolute; "
+        class="zoomWindow shadow-dark-lg">
+        <div class="zoomWindow_lines">
+          <div class="shadow-info-sm" style="background-color: red; width: 100%;height: 1px;"></div>
+          <div class="shadow-info-sm" style="background-color: red; position: absolute; height: 100%;width: 1px;"></div>
+          <span style="width: 3px; height: 3px;position: absolute; background-color: transparent; border-radius: 20px; border: white solid 1px;"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="findres modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">找到符合条件坐标 共(<span id="findColorres_count">5</span>)个</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="overflow: auto; ">
+          <div id="findresult" class="row" style="justify-content: center; align-items: center;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block fotter %}
+<div style="height: 50px"></div>
+{% endblock %}
+
+
+{% block js %}
+<script src="/assets/js/colors/colors.js"></script>
+<script src="/assets/js/colors/colors_choosecolor.js"></script>
+<script src="/assets/js/colors/colors_findimage.js"></script>
+<script src="/assets/js/colors/ocr.js"></script>
+{% endblock %}
