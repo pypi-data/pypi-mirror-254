@@ -1,0 +1,27 @@
+PyYAML
+requests
+urllib3
+semantic_version
+
+[:python_version <= "3.6"]
+protobuf~=3.15.0
+grpcio~=1.35.0
+grpcio-tools~=1.35.0
+
+[:python_version > "3.6"]
+protobuf~=4.23.3
+grpcio-tools~=1.54.2
+grpcio~=1.54.2
+
+[convergence]
+snappi_convergence==0.4.1
+
+[ixnetwork]
+snappi_ixnetwork==0.9.1
+
+[testing]
+pytest
+flask
+
+[trex]
+snappi_trex
