@@ -1,0 +1,9 @@
+cellmaps_utils==0.1.0a23
+ndex2<4.0.0,>=3.7.0
+optuna
+scikit-learn
+networkx
+pandas
+torch
+torchvision
+torchaudio
