@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: jmanager
+Version: 2.0.2
+Summary: A lightweight Jupyter process manager
+License: MIT
+Author: Yasunori Horikoshi
+Author-email: hotoku@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8,<9)
+Requires-Dist: jupyterlab (>=4,<5)
