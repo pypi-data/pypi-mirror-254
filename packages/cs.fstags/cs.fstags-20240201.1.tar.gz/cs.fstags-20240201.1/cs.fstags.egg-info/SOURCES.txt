@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.fstags.egg-info/PKG-INFO
+cs.fstags.egg-info/SOURCES.txt
+cs.fstags.egg-info/dependency_links.txt
+cs.fstags.egg-info/entry_points.txt
+cs.fstags.egg-info/requires.txt
+cs.fstags.egg-info/top_level.txt
+lib/python/cs/fstags.1
+lib/python/cs/fstags.1.md
+lib/python/cs/fstags.5
+lib/python/cs/fstags.5.md
+lib/python/cs/fstags.py
