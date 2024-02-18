@@ -1,0 +1,95 @@
+/* CSS for AcclaimBadgeXBlock */
+.acclaimbadge h2 {
+  color: #646464;
+}
+
+/* Loader */
+.acclaimbadge .acclaimbadge--loading {
+  font-style: italic;
+  color: #AAA;
+}
+
+/* Error message */
+.acclaimbadge .acclaimbadge--error {
+  background-color: #fbf2f3;
+  border-bottom: 3px solid #a0050e;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.acclaimbadge .acclaimbadge--error h4 {
+  color: #a0050e;
+  margin-bottom: 10px;
+}
+
+.acclaimbadge .acclaimbadge--error .acclaimbadge--error-msg {
+  margin: 0;
+}
+
+/* Text */
+.acclaimbadge .acclaimbadge--text-badge-name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Badge card */
+.acclaimbadge .acclaimbadge--wrapper {
+  position: relative;
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 500px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* https://codepen.io/sdthornton/pen/wBZdXq */
+}
+
+.acclaimbadge .acclaimbadge--wrapper:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Badge image */
+.acclaimbadge .acclaimbadge--image {
+  max-width: 100px;
+  float: left;
+  margin-right: 10px;
+}
+
+/* Badge name */
+.acclaimbadge .acclaimbadge--name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Badge description */
+.acclaimbadge .acclaimbadge--description {
+  font-size: 0.8rem;
+}
+
+/* Badge description */
+.acclaimbadge .acclaimbadge--agreement {
+  font-size: 0.8rem;
+  font-style: italic;
+  padding-top: 20px;
+  clear: both;
+}
+
+/* Badge claim button */
+.acclaimbadge .acclaimbadge--button {
+  float: right;
+}
+
+/* Ribbon icon */
+.acclaimbadge .acclaimbadge--ribbon-icon {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  width: 35px;
+}
+
+.acclaimbadge .acclaimbadge--footnote {
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 30px;
+}
