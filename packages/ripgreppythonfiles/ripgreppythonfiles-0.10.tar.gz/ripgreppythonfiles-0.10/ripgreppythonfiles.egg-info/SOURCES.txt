@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ripgreppythonfiles/README.MD
+ripgreppythonfiles/__init__.py
+ripgreppythonfiles/requirements.txt
+ripgreppythonfiles/thirdparty.json
+ripgreppythonfiles.egg-info/PKG-INFO
+ripgreppythonfiles.egg-info/SOURCES.txt
+ripgreppythonfiles.egg-info/dependency_links.txt
+ripgreppythonfiles.egg-info/requires.txt
+ripgreppythonfiles.egg-info/top_level.txt

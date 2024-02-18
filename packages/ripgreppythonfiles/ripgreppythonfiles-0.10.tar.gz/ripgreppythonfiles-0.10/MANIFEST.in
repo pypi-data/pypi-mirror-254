@@ -1,0 +1,3 @@
+include ripgreppythonfiles/requirements.txt
+include ripgreppythonfiles/thirdparty.json
+include ripgreppythonfiles/README.MD
