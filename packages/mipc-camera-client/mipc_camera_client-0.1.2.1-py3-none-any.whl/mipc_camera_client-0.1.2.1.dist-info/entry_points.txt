@@ -1,0 +1,3 @@
+[console_scripts]
+mipc_camera_client=mipc_camera_client.cli:main
+
