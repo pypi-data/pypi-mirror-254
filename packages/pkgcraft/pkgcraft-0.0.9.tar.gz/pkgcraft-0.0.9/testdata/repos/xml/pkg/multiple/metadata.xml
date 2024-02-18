@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>a.person@email.com</email>
+		<name>A Person</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>b.person@email.com</email>
+		<name>B Person</name>
+	</maintainer>
+	<use lang="en">
+		<flag name="flag1">flag1 desc</flag>
+		<flag name="flag2">flag2 desc</flag>
+	</use>
+	<use lang="zx">
+		<flag name="flag1">flag1 desc</flag>
+		<flag name="flag2">flag2 desc</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">pkgcraft/pkgcraft</remote-id>
+		<remote-id type="pypi">pkgcraft</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		A wrapped
+		sentence.
+		Another sentence.
+
+		New paragraph.
+	</longdescription>
+	<longdescription lang="zx">
+		zx
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,4 @@
+EAPI=8
+DESCRIPTION="ebuild with single-line RESTRICT"
+SLOT=0
+RESTRICT="1 2"

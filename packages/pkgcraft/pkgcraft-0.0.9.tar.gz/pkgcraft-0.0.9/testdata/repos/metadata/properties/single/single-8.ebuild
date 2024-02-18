@@ -1,0 +1,4 @@
+EAPI=8
+DESCRIPTION="ebuild with single-line PROPERTIES"
+SLOT=0
+PROPERTIES="1 2"

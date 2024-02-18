@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=ebuild with multi-line LICENSE
+EAPI=8
+IUSE=u
+LICENSE=l1 u? ( l2 )
+SLOT=0
+_md5_=0747ec5c9441a08ac4148d3a22d70ccc

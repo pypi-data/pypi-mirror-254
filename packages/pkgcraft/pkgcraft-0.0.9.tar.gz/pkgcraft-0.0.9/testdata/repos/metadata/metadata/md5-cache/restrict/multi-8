@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=ebuild with multi-line RESTRICT
+EAPI=8
+IUSE=u
+RESTRICT=u? ( 1 2 )
+SLOT=0
+_md5_=61b942eb09a1e6ef4a4728c3e2bd638e

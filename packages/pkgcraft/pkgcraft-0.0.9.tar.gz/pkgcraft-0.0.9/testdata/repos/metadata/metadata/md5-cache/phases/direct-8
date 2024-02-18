@@ -1,0 +1,6 @@
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=ebuild with direct phase definitions
+EAPI=8
+LICENSE=l1
+SLOT=0
+_md5_=f2ec792505aa6e426f817b055a30a848

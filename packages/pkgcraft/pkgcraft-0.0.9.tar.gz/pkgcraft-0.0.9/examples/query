@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+# List all packages matching given restrictions.
+#
+# Example usage:
+# - all pkgs with $PN starting in 'e'
+#   query 'e*'
+#
+# - all non-gentoo repo pkgs:
+#   query --restrict 'repo != "gentoo"'
+#
+# - maintainer-needed pkgs:
+#   query --restrict 'maintainers is none'
+#
+# - pkgs maintained by three or more devs
+#   query --restrict 'maintainers all (email=~"gentoo.org$" && type=="person") && maintainers >= 3'
+#
+# - pkgs implicitly using the flag-o-matic eclass:
+#   query --restrict 'inherited >= {"flag-o-matic"} && !(inherit >= {"flag-o-matic"})'
+#
+# - dev-python/* pkgs with DEPEND=media-libs/* deps
+#   query --restrict 'depend any "media-libs/*"' 'dev-python/*'
+
+import argparse
+import logging
+from functools import reduce
+
+from pkgcraft.config import Config
+from pkgcraft.error import InvalidRestrict, PkgcraftError
+from pkgcraft.logging import logger
+from pkgcraft.restrict import Restrict
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--quiet", "-q", action="count", default=0)
+    parser.add_argument("--verbose", "-v", action="count", default=0)
+    parser.add_argument("--repo", "-r", metavar="REPO_PATH", dest="repos", action="append")
+    parser.add_argument("--restrict", metavar="RESTRICT", dest="restricts", action="append")
+    parser.add_argument("targets", metavar="TARGET", nargs="*")
+    args = parser.parse_args()
+
+    # set logging level, defaulting to warning
+    level = logging.WARNING + (args.quiet - args.verbose) * 10
+    logger.setLevel(level)
+
+    if not (args.restricts or args.targets):
+        parser.error("restrictions and/or targets must be specified")
+
+    def str_to_restrict(convert, combine, args):
+        try:
+            return reduce(combine, map(convert, args))
+        except InvalidRestrict as e:
+            parser.error(e)
+
+    # convert strings to restrictions
+    restricts = []
+    if args.restricts:
+        restricts.append(str_to_restrict(Restrict.pkg, lambda x, y: x & y, args.restricts))
+    if args.targets:
+        restricts.append(str_to_restrict(Restrict.dep, lambda x, y: x | y, args.targets))
+
+    # combine pkg and target restrictions
+    r = reduce(lambda x, y: x & y, restricts)
+
+    # try to load specified repos, falling back to repos.conf
+    config = Config()
+    try:
+        if args.repos:
+            for path in args.repos:
+                config.add_repo(path)
+        else:
+            config.load()
+    except PkgcraftError as e:
+        parser.error(e)
+
+    for pkg in config.repos.ebuild.iter(r):
+        print(pkg)
+
+
+if __name__ == "__main__":
+    main()

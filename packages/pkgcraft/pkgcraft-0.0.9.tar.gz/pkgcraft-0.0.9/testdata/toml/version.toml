@@ -1,0 +1,240 @@
+valid = [
+  # simple
+  "0",
+  "1a",
+  # operators
+  "<1",
+  "<=1",
+  "=1",
+  "=1*",
+  "~1",
+  ">=1",
+  ">1",
+  # numerical maximum -- u64::max
+  "18446744073709551615",
+  "1.18446744073709551615",
+  "1.2.18446744073709551615",
+  "1_p18446744073709551615",
+  "1-r18446744073709551615",
+]
+
+invalid = [
+  "",
+  "-1",
+  ".1",
+  "1.",
+  "a",
+  "1a-1",
+  "1aa",
+  "1.a",
+  "1_a",
+  "1a.2",
+  "1..2",
+  "~2-r1",
+  # numerical overflow -- u64::max + 1
+  "18446744073709551616",
+  "1.18446744073709551616",
+  "1.2.18446744073709551616",
+  "1_p18446744073709551616",
+  "1-r18446744073709551616",
+]
+
+# format: expression that evaluates to true
+compares = [
+  # simple major versions
+  "0 == 0",
+  "0 != 1",
+  # equal due to integer coercion and "-r0" being the revision default
+  "0 == 0-r0",
+  "1 == 01",
+  "01 == 001",
+  "1.00 == 1.0",
+  "1.0100 == 1.010",
+  "01.01 == 1.01",
+  "0001.1 == 1.1",
+  "1.2 == 001.2",
+  "1.0.2 == 1.0.2-r0",
+  "1.0.2-r0 == 1.000.2",
+  "1.000.2 == 1.00.2-r0",
+  "0-r0 == 0-r00",
+  "0_beta01 == 0_beta001",
+  "1.2_pre08-r09 == 1.2_pre8-r9",
+  "1.010.02 != 1.01.2",
+  # minor versions
+  "0.1 < 0.11",
+  "0.01 > 0.001",
+  "1.0 > 1",
+  "1.0_alpha > 1_alpha",
+  "1.0_alpha > 1",
+  "1.0_alpha < 1.0",
+  # version letter suffix
+  "0a < 0b",
+  "1.1z > 1.1a",
+  "1.010.1r_p < 1.0100.1s_beta",
+  # release types
+  "1_alpha < 1_beta",
+  "1_beta < 1_pre",
+  "1_pre < 1_rc",
+  "1_rc < 1",
+  "1 < 1_p",
+  # release suffix vs non-suffix
+  "1.2.3_alpha < 1.2.3",
+  "1.2.3_beta < 1.2.3",
+  "1.2.3_pre < 1.2.3",
+  "1.2.3_rc < 1.2.3",
+  "1.2.3_p > 1.2.3",
+  # release suffix version
+  "0_alpha1 < 0_alpha2",
+  "0_alpha2_beta1 > 0_alpha1_beta2",
+  "0_alpha2-r1 > 0_alpha1-r2",
+  "0_p1 < 0_p2",
+  # multiple suffixes
+  "1_alpha < 1_alpha_p",
+  "1_alpha > 1_alpha_beta_p",
+  "1_alpha_beta < 1_alpha_beta_p",
+  "1_alpha_beta > 1_alpha_beta_pre",
+  "1_alpha1 > 1_alpha_beta2",
+  # revision
+  "0-r1 > 0",
+  "0-r2 > 0-r1",
+  "1.0.2_pre01-r2 > 1.00.2_pre001-r1",
+]
+
+intersects = [
+  # equal non-op versions
+  { vals = ["0", "00", "0-r0", "0-r00"], status = true },
+  { vals = ["1.0.2", "1.0.2-r0", "1.000.2"], status = true },
+  # unequal non-op versions
+  { vals = ["0", "1", "2"], status = false },
+  { vals = ["1.1", "1.10", "1.100"], status = false },
+  # non-op and op versions
+  { vals = ["0", "<0"], status = false },
+  { vals = ["0", "<=0"], status = true },
+  { vals = ["0", "=0"], status = true },
+  { vals = ["0", "=0*"], status = true },
+  { vals = ["0", "~0"], status = true },
+  { vals = ["0", ">=0"], status = true },
+  { vals = ["0", ">0"], status = false },
+  # both unbounded in the same direction
+  { vals = ["<0", "<100"], status = true },
+  { vals = ["<0", "<=100"], status = true },
+  { vals = [">0", ">100"], status = true },
+  { vals = [">0", ">=100"], status = true },
+  # both approximate
+  { vals = ["~1", "~1.0"], status = false },
+  { vals = ["~1.0.2", "~1.000.2"], status = true },
+  # both glob
+  { vals = ["=1*", "=1.0*"], status = true },
+  { vals = ["=1.1*", "=1.0*"], status = false },
+  # glob and approximate
+  { vals = ["=1*", "~1.0"], status = true },
+  { vals = ["=1.1*", "~1.0"], status = false },
+  # unbounded in opposite directions
+  { vals = [">0", "<1"], status = true },
+  { vals = [">0", "<=1"], status = true },
+  { vals = [">=0", "<1"], status = true },
+  { vals = [">=0", "<=1"], status = true },
+  { vals = [">=0-r1", "<=0-r1"], status = true },
+  { vals = ["<0", ">1"], status = false },
+  { vals = ["<0", ">=1"], status = false },
+  { vals = ["<=0", ">1"], status = false },
+  { vals = ["<=0", ">=1"], status = false },
+  { vals = [">0-r1", "<0-r1"], status = false },
+  { vals = [">1", "<1"], status = false },
+  { vals = [">1", "<=1"], status = false },
+  { vals = [">=1", "<1"], status = false },
+  # unbounded and approximate
+  { vals = [">1", "~1"], status = true },
+  { vals = [">=1", "~1"], status = true },
+  { vals = ["<1", "~1"], status = false },
+  { vals = ["<=1", "~1"], status = true },
+  { vals = [">1-r1", "~1"], status = true },
+  { vals = [">=1-r1", "~1"], status = true },
+  { vals = ["<1-r1", "~1"], status = true },
+  { vals = ["<=1-r1", "~1"], status = true },
+  # unbounded and glob
+  { vals = [">1", "=1*"], status = true },
+  { vals = [">=1", "=1*"], status = true },
+  { vals = ["<1", "=1*"], status = true },
+  { vals = ["<=1", "=1*"], status = true },
+  { vals = [">1-r1", "=1*"], status = true },
+  { vals = [">=1-r1", "=1*"], status = true },
+  { vals = ["<1-r1", "=1*"], status = true },
+  { vals = ["<=1-r1", "=1*"], status = true },
+  { vals = ["<1", "=1-r1*"], status = false },
+  # approximate and glob with letter suffixes
+  { vals = ["~1", "=1a*"], status = false },
+  { vals = ["~1.1", "=1a*"], status = false },
+  { vals = ["~1a", "=1a*"], status = true },
+  { vals = ["~1a", "=1b*"], status = false },
+  { vals = ["~1a", "=1.1*"], status = false },
+  { vals = ["~1a", "=1_alpha*"], status = false },
+  # approximate and glob with release suffixes
+  { vals = ["~1", "=1_p*"], status = false },
+  { vals = ["~1.1", "=1_p*"], status = false },
+  { vals = ["~1_p", "=1_p*"], status = true },
+  { vals = ["~1_rc", "=1_p*"], status = false },
+  { vals = ["~1_p", "=1.1*"], status = false },
+  { vals = ["~1_p", "=1-r1*"], status = false },
+  # approximate and glob with release suffix versions
+  { vals = ["~1_rc1_p", "=1_rc_p*"], status = false },
+  { vals = ["~1_p1", "=1_p2*"], status = false },
+  { vals = ["~1_p", "=1_p1*"], status = false },
+  { vals = ["~1_p1", "=1_p*"], status = true },
+  # approximate and glob with revisions
+  { vals = [">=1.1-r1", "=1-r1*"], status = false },
+  { vals = [">=1-r12", "=1-r1*"], status = true },
+  { vals = [">=1-r1", "=1-r2*"], status = true },
+  { vals = [">=1", "=1-r1*"], status = true },
+  { vals = [">=1-r1", "=1*"], status = true },
+]
+
+sorting = [
+  # equal versions aren't sorted
+  { sorted = ["0", "00", "0-r0", "0-r00"], equal = true },
+  { sorted = ["1-r1", "01-r01", "001-r1", "1-r001"], equal = true },
+  { sorted = ["1.0.2", "1.0.2-r0", "1.000.2"], equal = true },
+  # simple versions
+  { sorted = ["0", "1", "2"], equal = false },
+  { sorted = ["1.1", "1.10", "1.100"], equal = false },
+  # letter suffixes
+  { sorted = ["1a", "1b", "1y", "1z"], equal = false },
+  # release suffixes
+  { sorted = ["1_alpha", "1_beta", "1_pre", "1_rc", "1_p"], equal = false },
+  { sorted = ["1_p0", "1_p1", "1_p2"], equal = false },
+  # revision suffixes
+  { sorted = ["1-r0", "1-r1", "1-r2"], equal = false },
+  # operators
+  { sorted = ["<1", "<=1", "=1", "=1*", "~1", ">=1", ">1"], equal = false },
+  # precedence
+  { sorted = [
+    # major version
+    "1.2.2b_beta2-r2", "2.1.1a_alpha1-r1",
+    # minor version
+    "2.1.1b_beta2-r2", "2.2.1a_alpha1-r1",
+    # patch version
+    "2.2.1b_beta2-r2", "2.2.2a_alpha1-r1",
+    # letter suffix
+    "2.2.2a_beta2-r2", "2.2.2b_alpha1-r1",
+    # release suffix
+    "2.2.2b_alpha2-r2", "2.2.2b_beta1-r1",
+    # release suffix version
+    "2.2.2b_beta1-r2", "2.2.2b_beta2-r1",
+    # revision
+    "2.2.2b_beta2-r1", "2.2.2b_beta2-r2",
+    ], equal = false },
+]
+
+hashing = [
+  { versions = ["0", "0-r0", "0-r00"], equal = true },
+  { versions = ["1-r10", "1-r010"], equal = true },
+  { versions = ["1", "01", "001"], equal = true },
+  { versions = ["1.0", "1.00"], equal = true },
+  { versions = ["0_beta1", "0_beta01", "0_beta001"], equal = true },
+  { versions = ["1.0.2", "1.0.2-r0", "1.000.2", "1.00.2-r0"], equal = true },
+  { versions = ["0", "1"], equal = false },
+  { versions = ["1-r1", "1-r10", "1-r100"], equal = false },
+  { versions = ["1.01.2", "1.010.02"], equal = false },
+  { versions = ["1.0", "1"], equal = false },
+  { versions = ["0.1", "0.01", "0.001"], equal = false },
+]

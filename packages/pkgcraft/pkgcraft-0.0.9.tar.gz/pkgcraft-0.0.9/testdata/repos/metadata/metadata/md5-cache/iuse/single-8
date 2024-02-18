@@ -1,0 +1,6 @@
+DEFINED_PHASES=-
+DESCRIPTION=ebuild with single-line IUSE
+EAPI=8
+IUSE=a +b -c
+SLOT=0
+_md5_=8681e25925e88239f3e0fd6a7be55448

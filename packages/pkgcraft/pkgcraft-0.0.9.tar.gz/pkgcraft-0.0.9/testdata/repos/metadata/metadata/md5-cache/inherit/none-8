@@ -1,0 +1,13 @@
+BDEPEND=cat/pkg ebuild/pkg
+DEFINED_PHASES=-
+DEPEND=cat/pkg ebuild/pkg
+DESCRIPTION=ebuild with no eclass inherits
+EAPI=8
+HOMEPAGE=https://github.com/pkgcraft
+IDEPEND=cat/pkg ebuild/pkg
+LICENSE=l1
+PDEPEND=cat/pkg ebuild/pkg
+RDEPEND=cat/pkg ebuild/pkg
+SLOT=0
+SRC_URI=https://github.com/pkgcraft/pkgcraft-9999.tar.xz
+_md5_=602759ec6be57447fc547e1a08437ae0

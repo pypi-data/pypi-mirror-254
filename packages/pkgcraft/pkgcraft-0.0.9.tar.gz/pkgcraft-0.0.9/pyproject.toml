@@ -1,0 +1,105 @@
+[build-system]
+requires = ["cython~=3.0", "setuptools>=65.6.0", "setuptools_scm[toml]>=7", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkgcraft"
+description = "python bindings for pkgcraft"
+authors = [{name = "Tim Harder", email = "radhermit@gmail.com"}]
+requires-python = ">=3.11"
+keywords = ["gentoo", "cython"]
+license = {text = "MIT"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = ["version", "readme"]
+
+[project.urls]
+homepage = "https://github.com/pkgcraft/pkgcraft-python"
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/pkgcraft/__version__.py"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.entry-points.pytest11]
+pkgcraft = "pkgcraft._pytest"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra"
+testpaths = ["tests"]
+doctest_optionflags = "ELLIPSIS"
+markers = [
+    "parallel: marks tests as inherently parallel (deselect with '-m \"not parallel\"')",
+]
+
+[tool.coverage.run]
+source = ["src/pkgcraft"]
+plugins = ["Cython.Coverage"]
+concurrency = ["multiprocessing", "thread"]
+parallel = true
+branch = true
+omit = [
+    "src/pkgcraft/__version__.py",
+    "src/pkgcraft/_pytest.py",
+    "tests/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    # re-enable the standard pragma
+    "pragma: no cover",
+
+    # ignore defensive assertions
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # ignore unexecutable code
+    "if __name__ == .__main__.:",
+]
+
+[tool.black]
+line_length = 100
+include = "/benches|/doc/conf.py|/examples|/tests|/setup.py"
+
+[tool.isort]
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.pylint]
+disable = ["C0103", "C0114", "C0115", "C0116", "E0401", "R0902", "R0903", "R0904", "W0621"]
+
+[tool.cibuildwheel]
+build = ["cp311-*", "cp312-*"]
+build-frontend = "build"
+build-verbosity = 1
+environment-pass = ["PKGCRAFT_C_REF"]
+before-all = "{package}/.ci/buildlib"
+test-requires = "pytest"
+test-command = "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest {package}/tests"
+
+[tool.cibuildwheel.linux]
+archs = ["x86_64", "aarch64", "pp64le"]
+skip = "*-musllinux*"
+# avoid testing on emulated architectures
+test-skip = "*-*linux_{aarch64,ppc64le,s390x}"
+manylinux-aarch64-image = "manylinux_2_28"
+manylinux-ppc64le-image = "manylinux_2_28"
+manylinux-x86_64-image = "manylinux_2_28"
+
+[tool.cibuildwheel.macos]
+archs = ["x86_64"]

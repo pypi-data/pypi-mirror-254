@@ -1,0 +1,20 @@
+autogen_warning = "# This file is auto-generated using cbindgen via:\n# PKGCRAFT_C_PATH=path/to/pkgcraft-c/dir tox -e cbindgen"
+language = "cython"
+tab_width = 4
+line_length = 100
+
+[enum]
+rename_variants = "QualifiedScreamingSnakeCase"
+
+[fn]
+sort_by = "Name"
+
+[cython]
+header = '"pkgcraft.h"'
+
+[parse]
+parse_deps = true
+include = ["pkgcraft"]
+
+[export]
+include = ["DepField"]

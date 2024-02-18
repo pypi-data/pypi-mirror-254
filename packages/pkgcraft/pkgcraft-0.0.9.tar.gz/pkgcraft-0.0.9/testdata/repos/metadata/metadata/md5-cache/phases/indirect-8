@@ -1,0 +1,8 @@
+DEFINED_PHASES=install prepare test
+DESCRIPTION=ebuild with indirect phase definitions
+EAPI=8
+INHERIT=phases
+LICENSE=l1
+SLOT=0
+_eclasses_=phases	8b96b28fd22c99fe36a73310d681cb0d
+_md5_=efe9b6410d9f2b408e64444fb3f2be08

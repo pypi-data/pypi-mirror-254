@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=ebuild with multi-line REQUIRED_USE
+EAPI=8
+IUSE=u1 u2
+REQUIRED_USE=^^ ( u1 u2 )
+SLOT=0
+_md5_=2ccb1ea9aa341256530e12bc0b95a81e

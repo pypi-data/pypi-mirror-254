@@ -1,0 +1,6 @@
+DEFINED_PHASES=-
+DESCRIPTION=ebuild with single-line KEYWORDS
+EAPI=8
+KEYWORDS=amd64 ~arm64
+SLOT=0
+_md5_=dfb04a28f7984a46911299066ead1cce
