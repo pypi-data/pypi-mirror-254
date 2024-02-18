@@ -1,0 +1,7 @@
+cython
+numpy
+orjson
+orso>=0.0.120
+pyarrow>=12.0.1
+requests
+typer
