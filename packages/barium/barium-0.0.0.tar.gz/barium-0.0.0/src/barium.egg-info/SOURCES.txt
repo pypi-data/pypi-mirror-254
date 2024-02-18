@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/barium/__init__.py
+src/barium/example.py
+src/barium.egg-info/PKG-INFO
+src/barium.egg-info/SOURCES.txt
+src/barium.egg-info/dependency_links.txt
+src/barium.egg-info/top_level.txt
