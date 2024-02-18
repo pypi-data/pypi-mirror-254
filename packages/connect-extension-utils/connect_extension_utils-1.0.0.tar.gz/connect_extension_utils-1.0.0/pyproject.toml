@@ -1,0 +1,104 @@
+[tool.poetry]
+name = "connect-extension-utils"
+version = "v1.0.0"
+description = "This repository extend EaaS's out-of-box functionality providing a set of common utilities that can be reused between different extensions."
+authors = ["Imgram Migro"]
+license = "Apache Software License 2.0"
+packages = [
+    { include = "connect_extension_utils" }
+]
+readme = "./README.md"
+repository = "https://github.com/cloudblue/connect-extension-utils"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+sqlalchemy = "^1.3.12"
+pyjwt = "^2.8.0"
+connect-eaas-core = "^30.3"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=6.1.2,<8"
+pytest-cov = ">=2.10.1,<5"
+pytest-mock = "^3.3.1"
+mock = { version = "^4.0.3", markers = "python_version < '3.8'" }
+coverage = {extras = ["toml"], version = ">=5.3,<7"}
+flake8 = ">=3.8,<6"
+flake8-black = "0.*"
+flake8-bugbear = ">=20,<23"
+flake8-cognitive-complexity = "^0.1"
+flake8-commas = "~2.1"
+flake8-future-import = "~0.4"
+flake8-isort = "^6.0"
+flake8-broken-line = ">=0.3,<0.7"
+flake8-pyproject = "^1.2.3"
+isort = "^5.10"
+pytest-factoryboy = "^2.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins.pytest11]
+"pytest_connect_extension_utils" = "connect_extension_utils.testing.fixtures"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=connect_extension_utils --cov-report=term-missing:skip-covered --cov-report=html --cov-report=xml"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+omit = [
+    "*/migrations/*",
+    "*/config/*",
+    "*/settings/*",
+    "*/manage.py",
+    "*/wsgi.py",
+    "*/urls.py",
+]
+
+exclude_lines = [
+    "pragma: no cover",
+    "def __str__",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "from",
+    "import",
+    "@pytest"
+]
+
+
+[tool.flake8]
+exclude = [
+    ".idea",
+    ".vscode",
+    ".git",
+    "pg_data",
+    "venv",
+    "*/settings/*.py",
+    "*/migrations/*.py"
+]
+show_source = true
+max_line_length = 100
+max_cognitive_complexity = 15
+ignore = ["FI1", "W503", "B008", "I100", "I201"]
+
+
+[tool.isort]
+src_paths = "*"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_first_party = ["connect"]
+group_by_package = true
+multi_line_output = 3
+force_grid_wrap = 4
+combine_as_imports = true
+use_parentheses = true
+include_trailing_comma = true
+line_length = 100
+lines_after_imports = 2
+
+[tool.black]
+line_length = 100
+skip-string-normalization = true
