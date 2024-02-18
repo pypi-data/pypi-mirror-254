@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pyZlBusSdk
+Version: 0.1.0
+Summary: ZeroLab wireless attitude chip, ZLBUS communication protocol API
+Home-page: https://www.zero-lab.tech
+Author: Larry.lv
+Author-email: larry.lv@zero-lab.tech
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy >=1.26.2
+Requires-Dist: bleak >=0.21.1
+Requires-Dist: bleak-winrt >=1.2.0
+
+# 使用如下
+
+```python
+
+import pyZlBusSdk.pyZlBus as zlb
+import pyZlBusSdk.test as ts
+import pyZlBusSdk.bleTest as bts
+
+# 实例
+ts.demo()
+# bts.bleDemo('ZL24-00000001-0000')
+
+
+
+
+
+```
+
+
