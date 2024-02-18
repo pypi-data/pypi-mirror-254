@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: webcitizen
+Version: 0.1.0
+Summary: SEO audits for websites
+Project-URL: homepage, https://github.com/pypa/sampleproject
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Not yet ready to be used. This is a work in progress.
+
+# python-webcitizen-audit
+Python library. HTML is the input, a set of audits are performed. Results are returned in a score or detailed score.
