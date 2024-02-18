@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+multicam_calibration/__init__.py
+multicam_calibration/_version.py
+multicam_calibration/bundle_adjustment.py
+multicam_calibration/calibration.py
+multicam_calibration/detection.py
+multicam_calibration/flatibration.py
+multicam_calibration/geometry.py
+multicam_calibration/io.py
+multicam_calibration/viz.py
+multicam_calibration.egg-info/PKG-INFO
+multicam_calibration.egg-info/SOURCES.txt
+multicam_calibration.egg-info/dependency_links.txt
+multicam_calibration.egg-info/requires.txt
+multicam_calibration.egg-info/top_level.txt
