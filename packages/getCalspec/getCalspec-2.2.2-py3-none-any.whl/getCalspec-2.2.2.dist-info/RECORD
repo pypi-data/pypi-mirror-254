@@ -1,0 +1,13 @@
+calspec_data/calspec.csv,sha256=5g6D6RGmo91CUWjUzqXZWSCiIFEVHitIIwN_66oqWaI,16308
+calspec_data/calspec.pkl,sha256=qOQYau-tZbppCOHIgZGR_UGOucXRIILx4nZTKFXSfIY,19278
+calspec_data/history.csv,sha256=a4kK3o74u-v_2T11D5ThkErleLLWWewBoHJAlewn_Mk,60176
+getCalspec/__init__.py,sha256=MwRPdfy046U863WgtnqT9gPXW_ImaRrAQpcr288OkNQ,49
+getCalspec/_version.py,sha256=WEnylk8phFzCjKbrFi6sUBJt_hWmlceQGDEZHkczFkk,1679
+getCalspec/build_calspec_table.py,sha256=7NL7Eh-ZJu6yC3U5C1Miv5-2DRHx1EbqXaNvjjsdUus,1866
+getCalspec/getCalspec.py,sha256=O3rtjWeG6K9ZztnD8ySM-tpWS5ou-KZChIKPXPxhxzY,11380
+getCalspec/rebuild.py,sha256=MAkWVxu3CgEeIdc7w5SH58cSkM2e0Xonq2QKGwibAUE,8743
+getCalspec-2.2.2.dist-info/LICENSE,sha256=UxaFZh-4juxT4bnDq-MbA-peHjeY7adJd7e-O5AtL0U,1553
+getCalspec-2.2.2.dist-info/METADATA,sha256=MS45zAV9T0cxG2_1jTIP7P3jRgxu_dPRxQGyQ_IVDr8,1952
+getCalspec-2.2.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+getCalspec-2.2.2.dist-info/top_level.txt,sha256=rqsgJGn-TR20-EjCsCIcOTi7ucpOtiHZQP4PjDoxliI,11
+getCalspec-2.2.2.dist-info/RECORD,,
