@@ -1,0 +1,29 @@
+In [2]: pcm.info()
+PyChemia
+--------
+
+Version: 0.24.2.1a0.dev0+00060a4
+Path:    /gpfs20/scratch/gufranco/PyChemia/pychemia
+Date:    February 1, 2024
+
+Python version=3.11.3 (main, Apr 13 2023, 10:52:46) [GCC 12.2.0]
+
+Mandatory dependencies:
+     numpy     1.26.3   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/numpy
+     scipy     1.12.0   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/scipy
+    spglib      2.3.0   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/spglib
+matplotlib      3.8.2   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/psutil
+
+Optional dependencies:
+      nose            Not Found
+  coverage            Not Found
+    pyhull            Not Found
+  pymatgen            Not Found
+  networkx            Not Found
+       ase            Not Found
+    mayavi            Not Found
+      qmpy            Not Found
+       vtk            Not Found
+
