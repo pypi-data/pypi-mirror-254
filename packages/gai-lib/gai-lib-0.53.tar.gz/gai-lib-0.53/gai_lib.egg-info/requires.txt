@@ -1,0 +1,6 @@
+pillow==10.2
+markdownify
+httpx
+openai
+anthropic
+python-dotenv
