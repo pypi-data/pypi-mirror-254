@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: pyiron_contrib
+Version: 0.1.14
+Summary: Repository for user-generated plugins to the pyiron IDE.
+Home-page: https://github.com/pyiron/pyiron_contrib
+Author: Max-Planck-Institut für Eisenforschung GmbH - Computational Materials Design (CM) Department
+Author-email: huber@mpie.de
+License: BSD
+Keywords: pyiron
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+Requires-Dist: matplotlib >=3.8.2
+Requires-Dist: numpy >=1.26.3
+Requires-Dist: pyiron-base >=0.7.2
+Requires-Dist: scipy >=1.12.0
+Requires-Dist: seaborn >=0.13.2
+Requires-Dist: pyparsing >=3.1.1
+Provides-Extra: atomistic
+Requires-Dist: ase >=3.22.1 ; extra == 'atomistic'
+Requires-Dist: pyiron-atomistics >=0.4.10 ; extra == 'atomistic'
+Requires-Dist: pycp2k >=0.2.2 ; extra == 'atomistic'
+Provides-Extra: fenics
+Requires-Dist: fenics >=2019.1.0 ; extra == 'fenics'
+Requires-Dist: mshr >=2019.1.0 ; extra == 'fenics'
+Provides-Extra: generic
+Requires-Dist: boto3 >=1.34.11 ; extra == 'generic'
+Requires-Dist: moto >=4.2.13 ; extra == 'generic'
+Provides-Extra: image
+Requires-Dist: scikit-image >=0.22.0 ; extra == 'image'
+Provides-Extra: tinybase
+Requires-Dist: distributed >=2024.1.1 ; extra == 'tinybase'
+Requires-Dist: pympipool >=0.7.9 ; extra == 'tinybase'
+Requires-Dist: h5io-browser >=0.0.6 ; extra == 'tinybase'
+
+http://pyiron.org
