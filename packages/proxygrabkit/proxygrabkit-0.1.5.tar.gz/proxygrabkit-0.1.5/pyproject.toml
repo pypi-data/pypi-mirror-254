@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools", "requests"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "proxygrabkit"
+
+authors = [
+  { name="Jose Guerra Carmenate", email="joseguerracarmenate@gmail.com" },
+]
+description = "A collection of utilities to get free proxies"
+
+requires-python = ">=3.8"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Internet :: Proxy Servers",
+    "Topic :: Utilities",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests",
+    "dataclasses",
+    "typing",
+]
+dynamic = ["readme", 'version']
+
+#[project.scripts]
+#my-script = "my_package.module:function"
+
+[project.urls]
+Homepage = "https://github.com/joseguerra3000/ProxyGrabKit"
+Issues = "https://github.com/joseguerra3000/ProxyGrabKit/issues"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "proxygrabkit.VERSION"}
+readme = {file = ["README.md", "USAGE.rst"], content-type = "text/markdown"}
+
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+
+
