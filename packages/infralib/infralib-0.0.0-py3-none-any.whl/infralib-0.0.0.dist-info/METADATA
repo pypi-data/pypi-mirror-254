@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: infralib
+Version: 0.0.0
+Summary: Simulation Environments for Large-Scale Infrastructure Management
+Home-page: https://github.com/pthangeda/Infralib
+Author: Pranay Thangeda
+Author-email: contact@prny.me
+License: MIT
+Keywords: simulation-environment,reinforcement-learning,optimization,resource-allocation,infrastructure-management,large-scale-systems
+Requires-Python: >=3.10.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# InfraLib
+Python library with simulation environments for large-scale infrastructure management
