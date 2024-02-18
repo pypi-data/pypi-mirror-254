@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: nimble-miner-api
+Version: 0.0.10
+Summary: nimble-miner-api
+Home-page: https://github.com/nimble-technology
+Author: nimble.technology
+Author-email: 
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+# nimble-miner-api
+
+## Release
+
+Run the following command to create dist folder
+```bash
+python setup.py sdist
+```
+
+Then use the following command to publish to pypi
+```bash
+twine upload dist/nimble-api-{version}.tar.gz
+```
