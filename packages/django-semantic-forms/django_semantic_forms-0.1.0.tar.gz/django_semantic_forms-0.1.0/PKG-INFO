@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: django-semantic-forms
+Version: 0.1.0
+Summary: Django Semantic UI forms
+Home-page: https://github.com/globophobe/django-semantic-forms
+License: MIT
+Keywords: django,semantic,forms
+Author: Alex
+Author-email: globophobe@gmail.com
+Requires-Python: >=3.8
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: django (>=3.2)
+Project-URL: Repository, https://github.com/globophobe/django-semantic-forms
+Description-Content-Type: text/markdown
+
+Django Semantic UI forms
+------------------------
+
