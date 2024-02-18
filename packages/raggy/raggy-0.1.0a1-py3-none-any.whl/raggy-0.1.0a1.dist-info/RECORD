@@ -1,0 +1,17 @@
+raggy/__init__.py,sha256=R4e_znOs0sHyZWJbUSXkX15sVwCdaQ38ddQgV4MST8w,32
+raggy/_version.py,sha256=G4wnMI8RU6k3gVoN8m-BWLWI4oA2lH61gZIWjCPmNZw,413
+raggy/documents.py,sha256=_ADUR21susdh1DoUGAhw2l-wzwZ3gavLfcs0JYSJO0A,3854
+raggy/settings.py,sha256=mVwCFNWDPznTvHJRWdZ0ysWP9cmuw0YqfpLyNTkm0vk,275
+raggy/utils.py,sha256=fqJLLzuz0N-de9eRK-_u-jzr4jJGQUxNnSkCSM6O71U,9449
+raggy/loaders/__init__.py,sha256=uYlnT2DW0bze6ulqz5-jK_DSNO-s21bYIQSVSgkSiJw,25
+raggy/loaders/base.py,sha256=1UScEAlbPo2hUta3MlxA-9KhmN8kqv046VfVo3Jvq3o,858
+raggy/loaders/github.py,sha256=hxfAwv_y-w46kXmtRRb2Q_Fp-m6DgGOqq0gMH81WXgE,9424
+raggy/loaders/pdf.py,sha256=tuqN7u8ggFcgih3CinsZVoBkD6YDvsBbMNiPjGyz2KU,1765
+raggy/loaders/web.py,sha256=v3zD7KTz4kC8nPZgsU2g14nWgTGX4HNJj7YetuJPmaQ,5746
+raggy/vectorstores/__init__.py,sha256=efRM1iBnRWtxKjWh3F4PDhZM8mrNST_yUf0bf4uaSPo,27
+raggy/vectorstores/chroma.py,sha256=3-9EiClrF20OCdz5RfBxoq543nbSQn3CS6CoK50SKsA,4748
+raggy/vectorstores/tpuf.py,sha256=PycLoi0b_GJVGT7XEusjX-kpb1TbU3EQeAR22dRvjhs,3037
+raggy-0.1.0a1.dist-info/METADATA,sha256=C1O9qHdUa13PGEePTjJK7UR84q9GVmMxxI4Elu7cYKQ,1096
+raggy-0.1.0a1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+raggy-0.1.0a1.dist-info/top_level.txt,sha256=ICPobSmqyF_bpn7a-2suyKnGuReM3SUTGAmPzzd6eH0,6
+raggy-0.1.0a1.dist-info/RECORD,,
