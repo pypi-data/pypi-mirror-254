@@ -1,0 +1,33 @@
+name: napari-ndev
+display_name: neuralDev
+contributions:
+  commands:
+    - id: napari-ndev.make_batch_workflow
+      python_name: napari_ndev._widget:batch_workflow
+      title: Make Batch Workflow Widget
+    - id: napari-ndev.make_utilities_container
+      python_name: napari_ndev._utilities_container:UtilitiesContainer
+      title: Image Utilities
+    - id: napari-ndev.make_apoc_container
+      python_name: napari_ndev._apoc_container:ApocContainer
+      title: Batch APOC
+    - id: napari-ndev.make_custom_apoc
+      python_name: napari_ndev._apoc_feature_stack:ApocFeatureStack
+      title: Custom APOC Feature Set
+    - id: napari-ndev.make_rescale_by
+      python_name: napari_ndev._rescale_by:RescaleBy
+      title: Make Rescale By
+
+  widgets:
+    - command: napari-ndev.make_batch_workflow
+      display_name: Batch Workflow
+    - command: napari-ndev.make_rescale_by
+      display_name: Rescale By
+    - command: napari-ndev.make_utilities_container
+      display_name: Image Utilities
+    - command: napari-ndev.make_apoc_container
+      display_name: Batch APOC
+    - command: napari-ndev.make_custom_apoc
+      display_name: Custom APOC Feature Set
+    - command: napari-ndev.make_rescale_by
+      display_name: Rescale By
