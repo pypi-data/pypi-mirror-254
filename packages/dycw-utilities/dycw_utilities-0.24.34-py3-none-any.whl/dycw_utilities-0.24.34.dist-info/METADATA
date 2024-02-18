@@ -1,0 +1,167 @@
+Metadata-Version: 2.1
+Name: dycw-utilities
+Version: 0.24.34
+Author-email: Derek Wan <d.wan@icloud.com>
+Requires-Python: >=3.10
+Requires-Dist: atomicwrites>=1.4.1
+Requires-Dist: beartype>=0.17.0
+Requires-Dist: bidict>=0.22.1
+Requires-Dist: cachetools>=5.3.2
+Requires-Dist: click>=8.1.7
+Requires-Dist: frozendict>=2.4.0
+Requires-Dist: loguru>=0.7.2
+Requires-Dist: more-itertools>=10.2.0
+Requires-Dist: pathvalidate>=3.2.0
+Requires-Dist: pyhumps>=3.8.0
+Requires-Dist: semver>=3.0.2
+Requires-Dist: tqdm>=4.66.1
+Requires-Dist: typed-settings>=24.0.0
+Requires-Dist: typing-extensions>=4.9.0
+Provides-Extra: airium
+Requires-Dist: airium>=0.2.6; extra == 'airium'
+Provides-Extra: ast-comments
+Requires-Dist: ast-comments>=1.2.1; extra == 'ast-comments'
+Provides-Extra: beautifulsoup4
+Requires-Dist: beautifulsoup4>=4.12.3; extra == 'beautifulsoup4'
+Provides-Extra: bottleneck
+Requires-Dist: bottleneck>=1.3.7; extra == 'bottleneck'
+Provides-Extra: cryptography
+Requires-Dist: cryptography>=42.0.2; extra == 'cryptography'
+Provides-Extra: cvxpy
+Requires-Dist: cvxpy>=1.4.2; extra == 'cvxpy'
+Provides-Extra: dev
+Requires-Dist: airium>=0.2.6; extra == 'dev'
+Requires-Dist: ast-comments>=1.2.1; extra == 'dev'
+Requires-Dist: beautifulsoup4>=4.12.3; extra == 'dev'
+Requires-Dist: bottleneck>=1.3.7; extra == 'dev'
+Requires-Dist: coverage-conditional-plugin>=0.9.0; extra == 'dev'
+Requires-Dist: cryptography>=42.0.2; extra == 'dev'
+Requires-Dist: cvxpy>=1.4.2; extra == 'dev'
+Requires-Dist: cx-oracle; extra == 'dev'
+Requires-Dist: exceptiongroup>=1.2.0; extra == 'dev'
+Requires-Dist: fastapi>=0.109.0; extra == 'dev'
+Requires-Dist: fpdf2>=2.7.7; extra == 'dev'
+Requires-Dist: freezegun>=1.4.0; extra == 'dev'
+Requires-Dist: hatch>=1.9.3; extra == 'dev'
+Requires-Dist: holoviews>=1.18.1; extra == 'dev'
+Requires-Dist: hypothesis>=6.97.3; extra == 'dev'
+Requires-Dist: luigi>=3.5.0; extra == 'dev'
+Requires-Dist: mdutils>=1.6.0; extra == 'dev'
+Requires-Dist: memory-profiler>=0.61.0; extra == 'dev'
+Requires-Dist: mysqlclient; extra == 'dev'
+Requires-Dist: nox; extra == 'dev'
+Requires-Dist: numbagg>=0.7.2; extra == 'dev'
+Requires-Dist: numpy>=1.26.3; extra == 'dev'
+Requires-Dist: pandas>=2.2.0; extra == 'dev'
+Requires-Dist: pip-tools; extra == 'dev'
+Requires-Dist: polars>=0.20.6; extra == 'dev'
+Requires-Dist: pqdm>=0.2.0; extra == 'dev'
+Requires-Dist: psutil>=5.9.6; extra == 'dev'
+Requires-Dist: psycopg2-binary; extra == 'dev'
+Requires-Dist: pydantic>=2.6.0; extra == 'dev'
+Requires-Dist: pyinstrument>=4.6.2; extra == 'dev'
+Requires-Dist: pyodbc; extra == 'dev'
+Requires-Dist: pypiserver[passlib]>=2.0.1; extra == 'dev'
+Requires-Dist: pytest-check>=2.3.1; extra == 'dev'
+Requires-Dist: pytest-cov>=4.1.0; extra == 'dev'
+Requires-Dist: pytest-instafail>=0.5.0; extra == 'dev'
+Requires-Dist: pytest-only>=2.0.0; extra == 'dev'
+Requires-Dist: pytest-randomly>=3.15.0; extra == 'dev'
+Requires-Dist: pytest-timeout>=2.2.0; extra == 'dev'
+Requires-Dist: pytest-xdist>=3.3.1; extra == 'dev'
+Requires-Dist: pytest>=8.0.0; extra == 'dev'
+Requires-Dist: scipy>=1.12.0; extra == 'dev'
+Requires-Dist: selenium>=4.17.2; extra == 'dev'
+Requires-Dist: sqlalchemy>=2.0.25; extra == 'dev'
+Requires-Dist: streamlit>=1.30.0; extra == 'dev'
+Requires-Dist: timeout-decorator>=0.5.0; extra == 'dev'
+Requires-Dist: xarray>=2024.1.1; extra == 'dev'
+Requires-Dist: xlrd>=2.0.1; extra == 'dev'
+Requires-Dist: zarr>=2.16.1; extra == 'dev'
+Provides-Extra: fastapi
+Requires-Dist: fastapi>=0.109.0; extra == 'fastapi'
+Provides-Extra: fpdf2
+Requires-Dist: fpdf2>=2.7.7; extra == 'fpdf2'
+Requires-Dist: holoviews>=1.18.1; extra == 'fpdf2'
+Requires-Dist: selenium>=4.17.2; extra == 'fpdf2'
+Provides-Extra: hatch
+Requires-Dist: hatch>=1.9.3; extra == 'hatch'
+Provides-Extra: holoviews
+Requires-Dist: holoviews>=1.18.1; extra == 'holoviews'
+Requires-Dist: selenium>=4.17.2; extra == 'holoviews'
+Provides-Extra: hypothesis
+Requires-Dist: hypothesis>=6.97.3; extra == 'hypothesis'
+Provides-Extra: luigi
+Requires-Dist: luigi>=3.5.0; extra == 'luigi'
+Provides-Extra: mdutils
+Requires-Dist: mdutils>=1.6.0; extra == 'mdutils'
+Provides-Extra: memory-profiler
+Requires-Dist: memory-profiler>=0.61.0; extra == 'memory-profiler'
+Provides-Extra: numbagg
+Requires-Dist: numbagg>=0.7.2; extra == 'numbagg'
+Provides-Extra: numpy
+Requires-Dist: numpy>=1.26.3; extra == 'numpy'
+Provides-Extra: pandas
+Requires-Dist: pandas>=2.2.0; extra == 'pandas'
+Provides-Extra: polars
+Requires-Dist: polars>=0.20.6; extra == 'polars'
+Provides-Extra: pqdm
+Requires-Dist: pqdm>=0.2.0; extra == 'pqdm'
+Provides-Extra: psutil
+Requires-Dist: psutil>=5.9.6; extra == 'psutil'
+Provides-Extra: pydantic
+Requires-Dist: pydantic>=2.6.0; extra == 'pydantic'
+Provides-Extra: pyinstrument
+Requires-Dist: pyinstrument>=4.6.2; extra == 'pyinstrument'
+Provides-Extra: pypiserver
+Requires-Dist: pypiserver[passlib]>=2.0.1; extra == 'pypiserver'
+Provides-Extra: pytest
+Requires-Dist: pytest>=8.0.0; extra == 'pytest'
+Provides-Extra: pytest-check
+Requires-Dist: pytest-check>=2.3.1; extra == 'pytest-check'
+Provides-Extra: scipy
+Requires-Dist: scipy>=1.12.0; extra == 'scipy'
+Provides-Extra: scripts-csv-to-markdown
+Requires-Dist: mdutils>=1.6.0; extra == 'scripts-csv-to-markdown'
+Provides-Extra: scripts-generate-snippets
+Requires-Dist: ast-comments>=1.2.1; extra == 'scripts-generate-snippets'
+Provides-Extra: scripts-luigi
+Requires-Dist: luigi>=3.5.0; extra == 'scripts-luigi'
+Provides-Extra: scripts-pypi
+Requires-Dist: pypiserver[passlib]>=2.0.1; extra == 'scripts-pypi'
+Provides-Extra: selenium
+Requires-Dist: selenium>=4.17.2; extra == 'selenium'
+Provides-Extra: sqlalchemy
+Requires-Dist: sqlalchemy>=2.0.25; extra == 'sqlalchemy'
+Provides-Extra: sqlalchemy-dbs
+Requires-Dist: cx-oracle; extra == 'sqlalchemy-dbs'
+Requires-Dist: mysqlclient; extra == 'sqlalchemy-dbs'
+Requires-Dist: psycopg2-binary; extra == 'sqlalchemy-dbs'
+Requires-Dist: pyodbc; extra == 'sqlalchemy-dbs'
+Provides-Extra: streamlit
+Requires-Dist: streamlit>=1.30.0; extra == 'streamlit'
+Provides-Extra: test
+Requires-Dist: exceptiongroup>=1.2.0; extra == 'test'
+Requires-Dist: pytest-instafail>=0.5.0; extra == 'test'
+Requires-Dist: pytest-randomly>=3.15.0; extra == 'test'
+Requires-Dist: pytest-xdist>=3.3.1; extra == 'test'
+Requires-Dist: pytest>=7.4.0; extra == 'test'
+Provides-Extra: xarray
+Requires-Dist: xarray>=2024.1.1; extra == 'xarray'
+Provides-Extra: xlrd
+Requires-Dist: xlrd>=2.0.1; extra == 'xlrd'
+Provides-Extra: zarr
+Requires-Dist: zarr>=2.16.1; extra == 'zarr'
+Description-Content-Type: text/markdown
+
+[![PyPI version](https://badge.fury.io/py/dycw-utilities.svg)](https://badge.fury.io/py/dycw-utilities)
+
+# `dycw-utilities`
+
+[All the Python functions I don't want to write twice.](https://github.com/nvim-lua/plenary.nvim)
+
+## Installation
+
+- `pip install dycw-utilities`
+
+or with [extras](https://github.com/dycw/python-utilities/blob/master/pyproject.toml).
