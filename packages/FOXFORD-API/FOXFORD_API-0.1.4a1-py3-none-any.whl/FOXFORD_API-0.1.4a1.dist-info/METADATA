@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: FOXFORD_API
+Version: 0.1.4a1
+Summary: FOXFORD Student API
+Author: VOLT_DIAMOND
+License: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: undetected-chromedriver
+Requires-Dist: selenium
+Requires-Dist: requests
+Requires-Dist: aiohttp
+Requires-Dist: packaging
+Requires-Dist: asyncio
+
+
+FOXFORD Student API
+
+Библиотека для взаимодействия с бекендом платформы FOXFORD, предназначенная для удобной работы с данными и функциональностью, предоставляемой этой образовательной платформой.
+
+Основные функции:
+- Получение информации о студентах, курсах и других объектах системы FOXFORD.
+- Взаимодействие с данными бекенда для автоматизации процессов.
+
+Эта библиотека позволяет легко интегрировать возможности FOXFORD в ваши приложения, обеспечивая быстрый и эффективный доступ к данным и функциям этой платформы.
+Документация: https://volt-diamond.gitbook.io/foxford-api-docs/
