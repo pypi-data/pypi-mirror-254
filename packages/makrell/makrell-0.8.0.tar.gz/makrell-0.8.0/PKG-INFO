@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: makrell
+Version: 0.8.0
+Summary: Makrell: A programming language family
+Home-page: https://github.com/hcholm/makrell-py
+Author: Hans-Christian Holm
+Author-email: jobb@hcholm.net
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Makrell 
+
+A programming language family
