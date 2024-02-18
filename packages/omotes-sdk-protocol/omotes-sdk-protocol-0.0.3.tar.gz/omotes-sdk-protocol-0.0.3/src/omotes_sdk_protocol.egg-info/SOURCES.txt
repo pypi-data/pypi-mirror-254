@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/omotes_sdk_protocol/__init__.py
+src/omotes_sdk_protocol/job_pb2.py
+src/omotes_sdk_protocol/job_pb2.pyi
+src/omotes_sdk_protocol.egg-info/PKG-INFO
+src/omotes_sdk_protocol.egg-info/SOURCES.txt
+src/omotes_sdk_protocol.egg-info/dependency_links.txt
+src/omotes_sdk_protocol.egg-info/requires.txt
+src/omotes_sdk_protocol.egg-info/top_level.txt
