@@ -1,0 +1,3 @@
+[console_scripts]
+datavis-cli=datavis_cli.__main__:cli
+
