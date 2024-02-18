@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "howdididolib"
+version = "0.2.2"
+description = "How Did I Do library"
+authors = ["Jonathon Adler <pypi@jadler.fea.st>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://bitbucket.org/jonathonadler/howdididolib"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.scripts]
+howdidido = 'howdididolib.console:main'
+
+[tool.poetry.dependencies]
+python = "^3.8"
+beautifulsoup4 = "^4"
+tabulate = "*"
+html5lib = "^1"
+aiohttp = "^3"
+asyncio = "^3"
+certifi = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

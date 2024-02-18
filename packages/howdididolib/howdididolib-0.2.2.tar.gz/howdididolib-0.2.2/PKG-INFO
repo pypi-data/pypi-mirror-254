@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: howdididolib
+Version: 0.2.2
+Summary: How Did I Do library
+Home-page: https://bitbucket.org/jonathonadler/howdididolib
+License: MIT
+Author: Jonathon Adler
+Author-email: pypi@jadler.fea.st
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aiohttp (>=3,<4)
+Requires-Dist: asyncio (>=3,<4)
+Requires-Dist: beautifulsoup4 (>=4,<5)
+Requires-Dist: certifi
+Requires-Dist: html5lib (>=1,<2)
+Requires-Dist: tabulate
+Project-URL: Repository, https://bitbucket.org/jonathonadler/howdididolib
+Description-Content-Type: text/markdown
+
+## About
+
+Library for getting golf booking & fixture information from How Did I Do website (https://www.howdidido.com).
+
+## Installation
+
+```shell
+$ pip install howdididolib
+```
+
+## Usage
+
+```shell
+$ howdidido --help
+usage: howdidido [-h] [--username USERNAME] [--password PASSWORD] [--save_auth] [--bookings] [--fixtures] [--debug]
+
+How Did I Do.
+
+options:
+  -h, --help           show this help message and exit
+  --username USERNAME  Provide username
+  --password PASSWORD  Provide password
+  --save_auth          Save authentication cookie
+  --bookings           Get bookings
+  --fixtures           Get fixtures
+  --debug              Enable debug logging
+```
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
