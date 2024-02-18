@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cmdo-testing-2313213221
+Version: 0.0.1
+Summary: A command orchestration tool
+Project-URL: Homepage, https://github.com/MQ-xz/cmdo
+Project-URL: Issues, https://github.com/MQ-xz/cmdo/issues
+Author-email: Mahshooq Zubair <kmahshooq@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# cmdo
+
+A command orchestrator for running multiple commands in parallel and sequentially.

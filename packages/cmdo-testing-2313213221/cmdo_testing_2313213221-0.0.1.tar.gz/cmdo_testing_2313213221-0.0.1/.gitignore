@@ -1,0 +1,8 @@
+# env
+env/
+
+# distribution
+dist/
+
+# cache
+__pycache__/

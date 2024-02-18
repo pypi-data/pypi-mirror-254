@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cmdo-testing-2313213221"
+version = "0.0.1"
+authors = [
+    { name="Mahshooq Zubair", email="kmahshooq@gmail.com" },
+]
+description = "A command orchestration tool"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+]
+
+[project.scripts]
+cmdo = "cmdo:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cmdo"]
+
+[project.urls]
+Homepage = "https://github.com/MQ-xz/cmdo"
+Issues = "https://github.com/MQ-xz/cmdo/issues"
+
+[tool.black]
+line-length = 79
+[tool.pylint]
+disable="cyclic-import, fixme"

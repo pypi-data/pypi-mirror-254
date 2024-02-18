@@ -1,0 +1,21 @@
+name: Pylint check
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pylint[spelling]==2.17.7 pylint-mongoengine
+      - name: Analysing the code with pylint
+        run: |
+          pylint --load-plugins=pylint_mongoengine $(git ls-files '*.py')
