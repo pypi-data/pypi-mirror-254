@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 OpenSynergy Indonesia
+     Copyright 2023 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+<record id="purchase_order_warehouse_user_rule" model="ir.rule">
+    <field name="name">Purchase Order - Warehouse</field>
+    <field name="model_id" ref="purchase.model_purchase_order" />
+    <field name="groups" eval="[(4, ref('purchase_order_warehouse_group'))]" />
+    <field
+            name="domain_force"
+        >[('picking_type_id.warehouse_id.id','=',user.warehouse_purchase_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+</odoo>
