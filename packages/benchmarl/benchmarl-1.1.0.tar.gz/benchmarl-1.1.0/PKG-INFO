@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: benchmarl
+Version: 1.1.0
+Summary: BenchMARL
+Home-page: https://github.com/facebookresearch/BenchMARL
+Author: Matteo Bettini
+Author-email: mb2389@cl.cam.ac.uk
+Provides-Extra: vmas
+Provides-Extra: pettingzoo
+Provides-Extra: gnn
+License-File: LICENSE
