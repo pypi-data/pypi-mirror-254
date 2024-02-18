@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: func-live
+Version: 1.0.0
+Summary: Allows you to import and call the functions on www.func.live
+Author: Aravind Vakil
+License: ISC
+Keywords: func.live func functions
+Requires-Dist: requests
+
