@@ -1,0 +1,14 @@
+{% extends 'base.htm' %}
+{% block title %}Update Command{% endblock %}
+{% block header %}
+{% endblock %}
+{% block main %}
+<form method="post">
+    <h2>Update Command</h2>
+    <label for="title">Title</label>
+    <input name="title" type="text" value="{{ row.title }}" required><br>
+    <label for="scpi">SCPI</label>
+    <input name="scpi" type="text" value="{{ row.scpi }}" required><br>
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

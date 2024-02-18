@@ -1,0 +1,7 @@
+include LICENSE
+include minstrel/schema.sql
+graft minstrel/api
+graft minstrel/static
+graft minstrel/templates
+graft tests
+global-exclude *.pyc

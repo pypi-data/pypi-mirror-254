@@ -1,0 +1,10 @@
+pyjwt
+quart
+uscpi>=0.3.0
+
+[dev]
+black
+coverage
+
+[prod]
+uvicorn

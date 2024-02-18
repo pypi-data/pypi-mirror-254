@@ -1,0 +1,51 @@
+{% extends 'base.htm' %}
+{% block title %}Home{% endblock %}
+{% block nav %}
+<div class="filter-search">
+    <input id="user_input" type="search" onkeyup="userFilter()" placeholder="Filter...">
+</div>
+{% endblock %}
+{% block main %}
+<div class="container" id="filter_container">
+    {% for state in states|sort(attribute='title') %}
+    <div class="item">
+        <a href="{{ url_for('home.configure', state_id=state['id']) }}">{{ state.title }}</a>
+    </div>
+    {% endfor %}
+</div>
+<button id="scroll-top" title="Return To Top" onclick="userScrollTop()">
+    <span class="material-symbols material-symbols--arrow-upward">arrow_upward</span>
+</button>
+<script>
+    function userFilter() {
+        var a, i, txtValue;
+        var input = document.getElementById('user_input');
+        var filter = input.value.toUpperCase();
+        var container = document.getElementById("filter_container");
+        var items = container.getElementsByClassName('item');
+        for (i = 0; i < items.length; i++) {
+            a = items[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
+    let scrollTopButton = document.getElementById("scroll-top");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              scrollTopButton.style.display = "flex";
+        } else {
+              scrollTopButton.style.display = "none";
+        }
+    }
+
+    function userScrollTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+{% endblock %}

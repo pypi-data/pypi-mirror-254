@@ -1,0 +1,28 @@
+{% extends 'base.htm' %}
+{% block title %}Create Sequence{% endblock %}
+{% block header %}
+{% endblock %}
+{% block main %}
+<form method="post">
+    <h2>Create Sequence</h2>
+    <label for="state_id">State</label>
+    <select name="state_id" required>
+        {% for state in states|sort(attribute='title') %}
+        <option value={{ state.id }}>{{ state.title }}</option>
+        {% endfor %}
+    </select><br>
+    <label for="instrument_id">Instrument</label>
+    <select name="instrument_id" required>
+        {% for instrument in instruments|sort(attribute='title') %}
+        <option value={{ instrument.id }}>{{ instrument.title }}</option>
+        {% endfor %}
+    </select><br>
+    <label for="command_id">Command</label>
+    <select name="command_id" required>
+        {% for command in commands|sort(attribute='title') %}
+        <option value={{ command.id }}>{{ command.title }}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" value="Create">
+</form>
+{% endblock %}

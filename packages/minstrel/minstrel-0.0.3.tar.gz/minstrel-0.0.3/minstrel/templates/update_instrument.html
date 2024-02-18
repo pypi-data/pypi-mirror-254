@@ -1,0 +1,16 @@
+{% extends 'base.htm' %}
+{% block title %}Update Instrument{% endblock %}
+{% block header %}
+{% endblock %}
+{% block main %}
+<form method="post">
+    <h2>Update Instrument</h2>
+    <label for="title">Title</label>
+    <input name="title" type="text" value="{{ row.title }}" required><br>
+    <label for="host">Host</label>
+    <input name="host" type="text" value="{{ row.host }}" required><br>
+    <label for="port">Port</label>
+    <input name="port" type="number" value="{{ row.port }}" required><br>
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

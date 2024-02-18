@@ -1,0 +1,27 @@
+[project]
+name = "minstrel"
+description = "Instrumentation hardware orchestration platform."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["instrumentation", "scpi"]
+dynamic = ["version"]
+dependencies = ["pyjwt", "quart", "uscpi>=0.3.0"]
+requires-python = ">=3.11"
+
+[project.urls]
+homepage = "https://github.com/mcpcpc/minstrel"
+repository = "https://github.com/mcpcpc/minstrel"
+
+[project.optional-dependencies]
+dev = ["black", "coverage"]
+prod = ["uvicorn"]
+
+[tool.setuptools.dynamic]
+version = {attr = "minstrel.__version__"}
+
+[tool.setuptools]
+packages = ["minstrel"]
+
+[tool.coverage.run]
+branch = true
+source = ["minstrel"]

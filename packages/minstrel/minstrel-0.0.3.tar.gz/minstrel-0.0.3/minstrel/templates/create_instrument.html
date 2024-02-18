@@ -1,0 +1,16 @@
+{% extends 'base.htm' %}
+{% block title %}Create Instrument{% endblock %}
+{% block header %}
+{% endblock %}
+{% block main %}
+<form method="post">
+    <h2>Create Instrument</h2>
+    <label for="title">Title</label>
+    <input name="title" type="text" required><br>
+    <label for="host">Host</label>
+    <input name="host" type="text" required><br>
+    <label for="port">Port</label>
+    <input name="port" type="number" required><br>
+    <input type="submit" value="Create">
+</form>
+{% endblock %}
