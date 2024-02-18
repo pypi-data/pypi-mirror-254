@@ -1,0 +1,3 @@
+[console_scripts]
+rcli = reduct_cli:main
+reduct-cli = reduct_cli:main

@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: reduct-cli
+Version: 0.10.0
+Summary: CLI client for ReductStore
+Author-email: Alexey Timin <atimin@gmail.com>
+Maintainer-email: Alexey Timin <atimin@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 ReductStore
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: ReductStorage, https://www.reduct.store
+Project-URL: Documentation, https://cli.reduct.store
+Project-URL: SourceCode, https://github.com/reductstore/reduct-cli
+Project-URL: Changelog, https://github.com/reductstore/reduct-cli/blob/main/CHANGELOG.md
+Project-URL: Twitter, https://twitter.com/ReductStore
+Project-URL: Blog, https://www.reductstore/blog
+Keywords: cli,reductstore,tool,database,time series database
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Database :: Front-Ends
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: reduct-py ~=1.8
+Requires-Dist: click ~=8.1
+Requires-Dist: tomlkit ~=0.12
+Requires-Dist: rich ~=13.7
+Provides-Extra: docs
+Requires-Dist: mkdocs ~=1.5 ; extra == 'docs'
+Requires-Dist: mkdocs-material ~=9.5 ; extra == 'docs'
+Requires-Dist: plantuml-markdown ~=3.9 ; extra == 'docs'
+Requires-Dist: mkdocs-same-dir ~=0.1 ; extra == 'docs'
+Requires-Dist: mkdocs-click ~=0.8 ; extra == 'docs'
+Provides-Extra: format
+Requires-Dist: black ~=23.10 ; extra == 'format'
+Provides-Extra: lint
+Requires-Dist: pylint ~=3.0 ; extra == 'lint'
+Provides-Extra: test
+Requires-Dist: pytest ~=7.4 ; extra == 'test'
+Requires-Dist: pytest-mock ~=3.12 ; extra == 'test'
+Requires-Dist: pytest-asyncio ~=0.23 ; extra == 'test'
+
+# ReductStore CLI
+
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reduct-storage/reduct-cli)](https://pypi.org/project/reduct-cli)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/reduct-cli)](https://pypi.org/project/reduct-cli)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/reductstore/reduct-cli/ci.yml?branch=main)](https://github.com/reductstore/reduct-cli/actions)
+
+The ReductStore CLI is a command line client for [ReductStore](https://www.reduct.store), a time series database for
+blob data. It is written in Python and uses the [ReductStore Client SDK for Python](https://py.reduct.store/).
+
+## Features
+
+* Support for ReductStore API v1.8
+* Easy management of buckets, tokens and replications
+* Ability to check the status of a storage engine
+* Aliases for storing server credentials
+* Export and mirror data
+
+## Requirements
+
+* Python >= 3.9
+* pip
+
+## Installing
+
+To install the ReductStore CLI, simply use pip:
+
+```
+pip install reduct-cli
+```
+
+## Usage
+
+Check with our [demo server](https://play.reduct.store):
+
+```shell
+rcli alias add -L  https://play.reduct.store -t reduct play
+rcli server status play
+rcli bucket ls --full play
+rcli export folder play/data . --inlcude size=big
+```
+
+## Links
+
+* [Project Homepage](https://www.reduct.store)
+* [Documentation](https://cli.reduct.store)
+* [ReductStore Client SDK for Python](https://github.com/reductstore/reduct-py)
+* [ReductStore](https://github.com/reductstore/reductstore)
