@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="cs_invoicing_res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">sm_partago_invoicing_rest_api.res.config.settings.view.inherit</field>
+    <field name="model">res.config.settings</field>
+    <field name="priority" eval="100"/>
+    <field name="inherit_id" ref="sm_partago_invoicing.cs_invoicing_res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('sm_reservation_rating')]" position="after">
+        <div class="sm_app_api">
+          <h2>APP invoicing oneshot</h2>
+          <div class="row mt16 o_settings_container mb16">
+            <group>
+              <field name="cs_app_oneshot_payment_mode_id"/>
+              <field name="cs_app_oneshot_product_id"/>
+              <field name="cs_app_oneshot_account_journal_id"/>
+            </group>
+          </div>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>
