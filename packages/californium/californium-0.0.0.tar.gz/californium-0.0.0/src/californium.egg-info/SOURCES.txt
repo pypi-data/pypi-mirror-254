@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/californium/__init__.py
+src/californium/example.py
+src/californium.egg-info/PKG-INFO
+src/californium.egg-info/SOURCES.txt
+src/californium.egg-info/dependency_links.txt
+src/californium.egg-info/top_level.txt
