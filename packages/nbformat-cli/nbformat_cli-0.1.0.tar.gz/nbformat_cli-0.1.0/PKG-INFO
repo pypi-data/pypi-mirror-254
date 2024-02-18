@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: nbformat-cli
+Version: 0.1.0
+Summary: 
+Author: Ben Skubi
+Author-email: bskubi@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.0,<9.0)
+Requires-Dist: nbformat (>=5.0,<6.0)
+Description-Content-Type: text/markdown
+
+nbformat-cli is an interface for the nbformat package to edit cells in a jupyter notebook
+
