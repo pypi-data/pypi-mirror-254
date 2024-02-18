@@ -1,0 +1,2 @@
+[console_scripts]
+verbatim = verbatim.__main__:main
