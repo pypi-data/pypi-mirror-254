@@ -1,0 +1,5 @@
+mkdocs>=1.0
+GitPython
+babel>=2.7.0
+pytz
+markupsafe
