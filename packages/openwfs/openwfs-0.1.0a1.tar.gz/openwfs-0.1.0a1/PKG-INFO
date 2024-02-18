@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: openwfs
+Version: 0.1.0a1
+Summary: A libary for performing wavefront shaping experiments and simulations
+Home-page: https://github.com/ivovellekoop/openwfs
+License: BSD-3-Clause
+Author: Ivo Vellekoop
+Author-email: i.m.vellekoop@utwente.nl
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: Pillow (>=10.0.1)
+Requires-Dist: PyOpenGL (>=3.1.7)
+Requires-Dist: astropy (>=5.3.4)
+Requires-Dist: glfw (>=2.5.9)
+Requires-Dist: harvesters (>=1.4.2,<1.5.0)
+Requires-Dist: matplotlib (>=3.7.3)
+Requires-Dist: nidaqmx (>=0.8.0)
+Requires-Dist: numpy (>=1.25.2)
+Requires-Dist: opencv-python (>=4.9.0.80)
+Requires-Dist: scikit-image (>=0.21.0)
+Requires-Dist: scipy (>=1.11.3)
+Project-URL: Documentation, https://openwfs.readthedocs.io/en/latest/
+Project-URL: Repository, https://github.com/ivovellekoop/openwfs
+Description-Content-Type: text/x-rst
+
+OpenWFS
+************************************************************
+This repository holds Python code for conducting and simulating a wide range
+of wavefront shaping experiments in a Python environment.
+
+OpenWFS is a modular platform for:
+
+* Controlling spatial light modulators usen OpenGL acceleration.
+* Controlling a laser-scanning microscope using a NI Data Acquisition Card.
+* Conducting wavefront shaping experiments using a variety of algorithms.
+* Simulating wavefront shaping experiments using a variety of algorithms.
+
+Highlighted features:
+
+* automatic synchronization of the SLM and camera, and a pipelined measurement mode that avoids the delay normally caused by the latency of the video card and SLM.
+* a modular design that allows for easy addition of new algorithms and devices.
+* extensive framework for testing and simulating wavefront shaping algorithms, including the effect of noise, and user-defined aberrations.
+
+
+Note: this code is designed so that it can be used in conjunction with MicroManager,
+a free and open-source microscopy, without any modification.
+To use this code in MicroManager, you need the PyDevice plugin, which can be found here:
+https://www.github.com/IvoVellekoop/pydevice
+
+Installation instructions
+============================================================
+>>> pip install openwfs
+
+To run the examples, create a local directory and clone the repository from github using
+
+>>> git clone http://www.github.com/IvoVellekoop/openwfs.git
+
+The examples are located in the openwfs/examples folder.
+
+
+
