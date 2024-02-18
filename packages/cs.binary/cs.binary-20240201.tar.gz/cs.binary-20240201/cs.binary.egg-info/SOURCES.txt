@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.binary.egg-info/PKG-INFO
+cs.binary.egg-info/SOURCES.txt
+cs.binary.egg-info/dependency_links.txt
+cs.binary.egg-info/requires.txt
+cs.binary.egg-info/top_level.txt
+lib/python/cs/binary.py
