@@ -1,0 +1,11 @@
+
+[dev]
+build
+mypy
+pre-commit
+pylint
+pylint-pytest
+pytest
+pytest-cov
+pytest-mock
+pytest-xdist
