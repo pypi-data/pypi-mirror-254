@@ -1,0 +1,3 @@
+[console_scripts]
+spotify_autopush=spotify_autopush.main:app
+

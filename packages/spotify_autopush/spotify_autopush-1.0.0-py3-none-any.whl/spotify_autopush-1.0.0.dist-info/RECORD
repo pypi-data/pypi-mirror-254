@@ -1,0 +1,11 @@
+spotify_autopush/README.md,sha256=jy4ts-ncDV7HnBFuVETzl6hWKdrMu0MmyyPR9Z7-IOg,732
+spotify_autopush/__main__.py,sha256=IlLVfGd-IUKl4Vxk_USnQecyDJ9TjWKBkvFLBGvcj78,27
+spotify_autopush/main.py,sha256=cFQJYdiOkl6-HSTOKcnmKcBJHcSt2aULiEcgYq97NtI,500
+spotify_autopush/src/models/env_loader.py,sha256=s2iQyllrb_BdUMPSwW9c6p06BiE16d1qB7TwSCTvRIU,1446
+spotify_autopush/src/models/github.py,sha256=zP9sRcv_3yjRDorUNJvrpvfj5M2QqiHHXGenxxP_tRo,3580
+spotify_autopush/src/models/spotify.py,sha256=08TM1ZT2C-vxPjkz4dxqCykU1Of1syQtaFP68dAnrVs,2638
+spotify_autopush-1.0.0.dist-info/LICENSE,sha256=QTcjT8MxloYaNyf5eYyevKFC-WF_JkgTJLTE-copOOY,1066
+spotify_autopush-1.0.0.dist-info/METADATA,sha256=hN-n_2X5GqaWquO24fhFqwf9LOstbZy_KmAAFll8VZc,2064
+spotify_autopush-1.0.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+spotify_autopush-1.0.0.dist-info/entry_points.txt,sha256=0lDhsOpzbpSmOa8mRBCCBCls4JeURDhnLDdii2JnCKo,62
+spotify_autopush-1.0.0.dist-info/RECORD,,
