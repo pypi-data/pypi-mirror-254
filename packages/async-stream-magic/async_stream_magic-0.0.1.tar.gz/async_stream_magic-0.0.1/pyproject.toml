@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "async_stream_magic"
+version = "0.0.1"
+authors = [
+  { name="Robert Leusmann", email="info@leusmann.eu" },
+]
+description = "Async Cambridge Audio StreamMagic"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/rleusmann/async_stream_magic"
+Issues = "https://github.com/rleusmann/async_stream_magic/issues"
