@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: llm-inflation
+Version: 0.1.4
+Summary: Project: Machine Learning for Trading and Portfolio Management (ENSAE)
+License: MIT
+Author: Thomas Kientz
+Author-email: thomas@kientz.net
+Requires-Python: >=3.9,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: cpilib (>=0.3.0,<0.4.0)
+Requires-Dist: darts (>=0.27.2,<0.28.0)
+Requires-Dist: ecb-scraper (==0.1.2)
+Requires-Dist: matplotlib (>=3.8.2,<4.0.0)
+Requires-Dist: nbformat (>=5.9.2,<6.0.0)
+Requires-Dist: openai (>=1.10.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+
