@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: email-message-aws-ses-local
+Version: 0.0.10
+Summary: PyPI Package for Circles AWS email
+Home-page: https://github.com/circles-zone/email-message-aws-ses-local-python-package
+Author: Circles
+Author-email: info@circlez.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: boto3 >=1.28.70
+Requires-Dist: logger-local >=0.0.51
+Requires-Dist: message-local
+Requires-Dist: python-sdk-remote
+
+PyPI Package for Circles AWS email
