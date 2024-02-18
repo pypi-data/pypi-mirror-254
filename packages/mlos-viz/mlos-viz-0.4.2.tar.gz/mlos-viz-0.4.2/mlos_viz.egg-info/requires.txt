@@ -1,0 +1,11 @@
+mlos-bench==0.4.2
+dabl>=0.2.6
+
+[full]
+
+[full-tests]
+pytest
+pytest-forked
+pytest-xdist
+pytest-cov
+pytest-local-badge
