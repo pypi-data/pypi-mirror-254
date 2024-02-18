@@ -1,0 +1,15 @@
+discord/ext/i17n/__init__.py,sha256=Cs70pDkAKTjSlwchff62RZhB7O8AVfUmoXPnFwgnvAw,121
+discord/ext/i17n/agent.py,sha256=41lNnrXKFy3sXHTPo6it2JR4_xwmpPqDCEpkbRnAZos,16235
+discord/ext/i17n/cache.py,sha256=LkUGqgB2gc8-hSbbDd--JoGZo_fmbiJCIl26v8vrbKk,2295
+discord/ext/i17n/language.py,sha256=-TxaIthDigUIoPtq56Gzm70f9fiQFmWH19jg5j37NwI,13523
+discord/ext/i17n/preprocess.py,sha256=uFa7_gWZAByj8i24USxyS3ZzdaTnuSqPpwIDZ5lU3cY,14340
+discord_ext_i17n-0.1.0.dist-info/tests/test_agent.py,sha256=br2RBOt4Yys-_0n0Tmqkhxkodabc-zFbRT7FxdH47AA,2883
+discord_ext_i17n-0.1.0.dist-info/tests/test_cache.py,sha256=1JT0A_ixLD7GdLOGfKZl8VXmCrI2VV_76fLgM4o481k,1235
+discord_ext_i17n-0.1.0.dist-info/tests/test_def_trans.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+discord_ext_i17n-0.1.0.dist-info/tests/test_language.py,sha256=6x1pbWMOq7Os1BhQnFnFAv4Y0NNQCxTMJn5fhy2YqPA,3025
+discord_ext_i17n-0.1.0.dist-info/tests/test_preprocess.py,sha256=syHLepG0UAqTzh93YLix4MLu6X4gridmoFg-eDxisRM,2703
+discord_ext_i17n-0.1.0.dist-info/tests/utils.py,sha256=yefxQI20mm-LSsmgoDDpXojCuJ3pyM-57xb5CvjiHNg,1456
+discord_ext_i17n-0.1.0.dist-info/METADATA,sha256=N3sRWsMHmmcQ7ihLEwK4Bvd8tMBJd1R8E1jcdXYCrfw,9687
+discord_ext_i17n-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+discord_ext_i17n-0.1.0.dist-info/top_level.txt,sha256=fJkrNbR-_8ubMBUcDEJBcfkpECrvSEmMrNKgvLlQFoM,8
+discord_ext_i17n-0.1.0.dist-info/RECORD,,
