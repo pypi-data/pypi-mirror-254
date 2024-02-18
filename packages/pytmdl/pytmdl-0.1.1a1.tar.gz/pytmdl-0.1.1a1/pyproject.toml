@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pytmdl"
+version = "0.1.1a1"
+description = ""
+authors = ["Léo Grosjean <leo.grosjean@servier.com>"]
+readme = "README.md"
+packages = [{ include = "tmdl", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyparsing = "^3.1.1"
+pydantic = "^2.6.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+black = "^24.1.1"
+pylint = "^3.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
