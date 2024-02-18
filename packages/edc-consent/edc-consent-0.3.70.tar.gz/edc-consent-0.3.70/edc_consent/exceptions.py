@@ -1,0 +1,30 @@
+class NotConsentedError(Exception):
+    pass
+
+
+class ConsentVersionSequenceError(Exception):
+    pass
+
+
+class ConsentError(Exception):
+    pass
+
+
+class ConsentDefinitionError(Exception):
+    pass
+
+
+class ConsentDefinitionDoesNotExist(Exception):
+    pass
+
+
+class ConsentDefinitionValidityPeriodError(Exception):
+    pass
+
+
+class AlreadyRegistered(Exception):
+    pass
+
+
+class SiteConsentError(Exception):
+    pass
