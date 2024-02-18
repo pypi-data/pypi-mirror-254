@@ -1,0 +1,2 @@
+[console_scripts]
+img-resizer = img_resizer.main:main
