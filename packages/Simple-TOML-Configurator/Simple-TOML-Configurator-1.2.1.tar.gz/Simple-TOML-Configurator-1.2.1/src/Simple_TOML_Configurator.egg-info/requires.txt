@@ -1,0 +1,7 @@
+tomlkit>=0.12.1
+python-dateutil>=2.8.2
+
+[dev]
+pytest
+pytest-cov
+pytest-mock

@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/Simple_TOML_Configurator.egg-info/PKG-INFO
+src/Simple_TOML_Configurator.egg-info/SOURCES.txt
+src/Simple_TOML_Configurator.egg-info/dependency_links.txt
+src/Simple_TOML_Configurator.egg-info/requires.txt
+src/Simple_TOML_Configurator.egg-info/top_level.txt
+src/simple_toml_configurator/__init__.py
+src/simple_toml_configurator/exceptions.py
+src/simple_toml_configurator/toml_configurator.py
+tests/test_toml_configurator.py
