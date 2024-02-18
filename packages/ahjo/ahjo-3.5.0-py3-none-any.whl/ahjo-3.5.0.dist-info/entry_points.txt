@@ -1,0 +1,8 @@
+[console_scripts]
+ahjo = ahjo.scripts.master:main
+ahjo-config = ahjo.scripts.config:main
+ahjo-init-project = ahjo.scripts.init_project:main
+ahjo-install-git-hook = ahjo.scripts.install_git_hook:main
+ahjo-multi-project-build = ahjo.scripts.multi_project_build:main
+ahjo-scan = ahjo.scripts.scan_project:main
+ahjo-upgrade = ahjo.scripts.upgrade_project:main
