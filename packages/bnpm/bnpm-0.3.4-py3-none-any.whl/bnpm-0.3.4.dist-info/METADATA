@@ -1,0 +1,257 @@
+Metadata-Version: 2.1
+Name: bnpm
+Version: 0.3.4
+Summary: A library of useful modules for data analysis.
+Home-page: https://github.com/RichieHakim/basic_neural_processing_modules
+Author: Richard Hakim
+License: LICENSE
+Keywords: data analysis,machine learning,neuroscience
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: all
+Requires-Dist: h5py ; extra == 'all'
+Requires-Dist: eva-decord ; extra == 'all'
+Requires-Dist: ipywidgets ; extra == 'all'
+Requires-Dist: kornia ; extra == 'all'
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: natsort ; extra == 'all'
+Requires-Dist: numba ; extra == 'all'
+Requires-Dist: numpy ; extra == 'all'
+Requires-Dist: opencv-contrib-python ; extra == 'all'
+Requires-Dist: optuna ; extra == 'all'
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: paramiko ; extra == 'all'
+Requires-Dist: psutil ; extra == 'all'
+Requires-Dist: PyYAML ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: scikit-learn ; extra == 'all'
+Requires-Dist: tqdm ; extra == 'all'
+Requires-Dist: sparse ; extra == 'all'
+Requires-Dist: scipy ; extra == 'all'
+Requires-Dist: xxhash ; extra == 'all'
+Requires-Dist: torch ; extra == 'all'
+Requires-Dist: torchvision ; extra == 'all'
+Requires-Dist: torchaudio ; extra == 'all'
+Requires-Dist: tables ; extra == 'all'
+Requires-Dist: opt-einsum ; extra == 'all'
+Requires-Dist: pulp ; extra == 'all'
+Requires-Dist: spconv ; extra == 'all'
+Requires-Dist: torch-sparse ; extra == 'all'
+Requires-Dist: av ; extra == 'all'
+Requires-Dist: pynwb ; extra == 'all'
+Requires-Dist: sendgrid ; extra == 'all'
+Requires-Dist: pycuda ; extra == 'all'
+Requires-Dist: cuml ; extra == 'all'
+Requires-Dist: cupy ; extra == 'all'
+Requires-Dist: cudf ; extra == 'all'
+Requires-Dist: scanimage-tiff-reader ; extra == 'all'
+Requires-Dist: jupyter ; extra == 'all'
+Requires-Dist: PyWavelets ; extra == 'all'
+Requires-Dist: mat73 ; extra == 'all'
+Provides-Extra: all_latest
+Requires-Dist: h5py ; extra == 'all_latest'
+Requires-Dist: eva-decord ; extra == 'all_latest'
+Requires-Dist: ipywidgets ; extra == 'all_latest'
+Requires-Dist: kornia ; extra == 'all_latest'
+Requires-Dist: matplotlib ; extra == 'all_latest'
+Requires-Dist: natsort ; extra == 'all_latest'
+Requires-Dist: numba ; extra == 'all_latest'
+Requires-Dist: numpy ; extra == 'all_latest'
+Requires-Dist: opencv-contrib-python ; extra == 'all_latest'
+Requires-Dist: optuna ; extra == 'all_latest'
+Requires-Dist: pandas ; extra == 'all_latest'
+Requires-Dist: paramiko ; extra == 'all_latest'
+Requires-Dist: psutil ; extra == 'all_latest'
+Requires-Dist: PyYAML ; extra == 'all_latest'
+Requires-Dist: pytest ; extra == 'all_latest'
+Requires-Dist: scikit-learn ; extra == 'all_latest'
+Requires-Dist: tqdm ; extra == 'all_latest'
+Requires-Dist: sparse ; extra == 'all_latest'
+Requires-Dist: scipy ; extra == 'all_latest'
+Requires-Dist: xxhash ; extra == 'all_latest'
+Requires-Dist: torch ; extra == 'all_latest'
+Requires-Dist: torchvision ; extra == 'all_latest'
+Requires-Dist: torchaudio ; extra == 'all_latest'
+Requires-Dist: tables ; extra == 'all_latest'
+Requires-Dist: opt-einsum ; extra == 'all_latest'
+Requires-Dist: pulp ; extra == 'all_latest'
+Requires-Dist: spconv ; extra == 'all_latest'
+Requires-Dist: torch-sparse ; extra == 'all_latest'
+Requires-Dist: av ; extra == 'all_latest'
+Requires-Dist: pynwb ; extra == 'all_latest'
+Requires-Dist: sendgrid ; extra == 'all_latest'
+Requires-Dist: pycuda ; extra == 'all_latest'
+Requires-Dist: cuml ; extra == 'all_latest'
+Requires-Dist: cupy ; extra == 'all_latest'
+Requires-Dist: cudf ; extra == 'all_latest'
+Requires-Dist: scanimage-tiff-reader ; extra == 'all_latest'
+Requires-Dist: jupyter ; extra == 'all_latest'
+Requires-Dist: PyWavelets ; extra == 'all_latest'
+Requires-Dist: mat73 ; extra == 'all_latest'
+Provides-Extra: core
+Requires-Dist: numpy ; extra == 'core'
+Requires-Dist: scipy ; extra == 'core'
+Requires-Dist: kornia ; extra == 'core'
+Requires-Dist: matplotlib ; extra == 'core'
+Requires-Dist: numba ; extra == 'core'
+Requires-Dist: scikit-learn ; extra == 'core'
+Requires-Dist: tqdm ; extra == 'core'
+Requires-Dist: h5py ; extra == 'core'
+Requires-Dist: opencv-contrib-python ; extra == 'core'
+Requires-Dist: optuna ; extra == 'core'
+Requires-Dist: sparse ; extra == 'core'
+Requires-Dist: natsort ; extra == 'core'
+Requires-Dist: paramiko ; extra == 'core'
+Requires-Dist: pandas ; extra == 'core'
+Requires-Dist: psutil ; extra == 'core'
+Requires-Dist: pytest ; extra == 'core'
+Requires-Dist: PyYAML ; extra == 'core'
+Requires-Dist: torch ; extra == 'core'
+Requires-Dist: torchvision ; extra == 'core'
+Requires-Dist: torchaudio ; extra == 'core'
+Requires-Dist: ipywidgets ; extra == 'core'
+Requires-Dist: eva-decord ; extra == 'core'
+Provides-Extra: core_cv2headless
+Requires-Dist: numpy ; extra == 'core_cv2headless'
+Requires-Dist: scipy ; extra == 'core_cv2headless'
+Requires-Dist: kornia ; extra == 'core_cv2headless'
+Requires-Dist: matplotlib ; extra == 'core_cv2headless'
+Requires-Dist: numba ; extra == 'core_cv2headless'
+Requires-Dist: scikit-learn ; extra == 'core_cv2headless'
+Requires-Dist: tqdm ; extra == 'core_cv2headless'
+Requires-Dist: h5py ; extra == 'core_cv2headless'
+Requires-Dist: opencv-contrib-python-headless ; extra == 'core_cv2headless'
+Requires-Dist: optuna ; extra == 'core_cv2headless'
+Requires-Dist: sparse ; extra == 'core_cv2headless'
+Requires-Dist: natsort ; extra == 'core_cv2headless'
+Requires-Dist: paramiko ; extra == 'core_cv2headless'
+Requires-Dist: pandas ; extra == 'core_cv2headless'
+Requires-Dist: psutil ; extra == 'core_cv2headless'
+Requires-Dist: pytest ; extra == 'core_cv2headless'
+Requires-Dist: PyYAML ; extra == 'core_cv2headless'
+Requires-Dist: torch ; extra == 'core_cv2headless'
+Requires-Dist: torchvision ; extra == 'core_cv2headless'
+Requires-Dist: torchaudio ; extra == 'core_cv2headless'
+Requires-Dist: ipywidgets ; extra == 'core_cv2headless'
+Requires-Dist: eva-decord ; extra == 'core_cv2headless'
+Provides-Extra: core_latest
+Requires-Dist: numpy ; extra == 'core_latest'
+Requires-Dist: scipy ; extra == 'core_latest'
+Requires-Dist: kornia ; extra == 'core_latest'
+Requires-Dist: matplotlib ; extra == 'core_latest'
+Requires-Dist: numba ; extra == 'core_latest'
+Requires-Dist: scikit-learn ; extra == 'core_latest'
+Requires-Dist: tqdm ; extra == 'core_latest'
+Requires-Dist: h5py ; extra == 'core_latest'
+Requires-Dist: opencv-contrib-python ; extra == 'core_latest'
+Requires-Dist: optuna ; extra == 'core_latest'
+Requires-Dist: sparse ; extra == 'core_latest'
+Requires-Dist: natsort ; extra == 'core_latest'
+Requires-Dist: paramiko ; extra == 'core_latest'
+Requires-Dist: pandas ; extra == 'core_latest'
+Requires-Dist: psutil ; extra == 'core_latest'
+Requires-Dist: pytest ; extra == 'core_latest'
+Requires-Dist: PyYAML ; extra == 'core_latest'
+Requires-Dist: torch ; extra == 'core_latest'
+Requires-Dist: torchvision ; extra == 'core_latest'
+Requires-Dist: torchaudio ; extra == 'core_latest'
+Requires-Dist: ipywidgets ; extra == 'core_latest'
+Requires-Dist: eva-decord ; extra == 'core_latest'
+Provides-Extra: core_latest_cv2headless
+Requires-Dist: numpy ; extra == 'core_latest_cv2headless'
+Requires-Dist: scipy ; extra == 'core_latest_cv2headless'
+Requires-Dist: kornia ; extra == 'core_latest_cv2headless'
+Requires-Dist: matplotlib ; extra == 'core_latest_cv2headless'
+Requires-Dist: numba ; extra == 'core_latest_cv2headless'
+Requires-Dist: scikit-learn ; extra == 'core_latest_cv2headless'
+Requires-Dist: tqdm ; extra == 'core_latest_cv2headless'
+Requires-Dist: h5py ; extra == 'core_latest_cv2headless'
+Requires-Dist: opencv-contrib-python-headless ; extra == 'core_latest_cv2headless'
+Requires-Dist: optuna ; extra == 'core_latest_cv2headless'
+Requires-Dist: sparse ; extra == 'core_latest_cv2headless'
+Requires-Dist: natsort ; extra == 'core_latest_cv2headless'
+Requires-Dist: paramiko ; extra == 'core_latest_cv2headless'
+Requires-Dist: pandas ; extra == 'core_latest_cv2headless'
+Requires-Dist: psutil ; extra == 'core_latest_cv2headless'
+Requires-Dist: pytest ; extra == 'core_latest_cv2headless'
+Requires-Dist: PyYAML ; extra == 'core_latest_cv2headless'
+Requires-Dist: torch ; extra == 'core_latest_cv2headless'
+Requires-Dist: torchvision ; extra == 'core_latest_cv2headless'
+Requires-Dist: torchaudio ; extra == 'core_latest_cv2headless'
+Requires-Dist: ipywidgets ; extra == 'core_latest_cv2headless'
+Requires-Dist: eva-decord ; extra == 'core_latest_cv2headless'
+
+[![PyPI version](https://badge.fury.io/py/bnpm.svg)](https://badge.fury.io/py/bnpm)
+[![Downloads](https://pepy.tech/badge/bnpm)](https://pepy.tech/project/bnpm)
+[![repo size](https://img.shields.io/github/repo-size/RichieHakim/basic_neural_processing_modules)](https://github.com/RichieHakim/basic_neural_processing_modules/)
+
+#  basic_neural_processing_modules 
+Personal library of functions used in analyzing neural data.
+If you find a bug or just want to reach out: RichHakim@gmail.com
+
+## Installation 
+Normal installation of `bnpm` does not install all possible dependencies; there are some specific functions that wrap libraries that may need to be installed separately on a case-by-case basis.
+
+Install stable version:
+```
+pip install bnpm[core]
+```
+
+If installing on a server or any computer without graphics/display, after installing `bnpm`, please uninstall `opencv-contrib-python` and install `opencv-contrib-python-headless` instead. 
+```
+pip uninstall opencv-contrib-python
+pip install opencv-contrib-python-headless
+```
+
+Install development version:
+```
+pip install git+https://github.com/RichieHakim/basic_neural_processing_modules.git
+```
+
+import with:
+```
+import bnpm
+```
+
+
+## Usage 
+My favorites:
+- **`featurization.Toeplitz_convolution2d`**
+    - 1D and 2D convolution. Uses sparse Toeplitz matrix multiplication to speed up computation.
+    - **Allows for sparse convolution.**
+    - Same options as scipy.signal.convolve2d, but orders of magnitude faster in most cases.
+- **`spectral.VQT`**
+    - Variable-Q transform. Generates spectrograms with variable frequency resolution.
+    - Comparable to librosa's VQT, but faster, more flexible, without approximations, with GPU support, and pytorch autograd compatible.
+
+
+Other useful functions:
+- Signal Processing:
+    - `timeSeries.rolling_percentile_rq_multicore`
+        - Fast rolling percentile calculation
+    -  `timeSeries.event_triggered_traces`
+        - Fast creation of a matrix of aligned traces relative to specified event times
+
+- Machine Learning:
+    - `decomposition.torch_PCA`
+        - Fast standard PCA using PyTorch
+    - `linear_regression.LinearRegression_sweep`
+        - Performs linear regression with a variety of hyperparameters and methods (L1, L2, Logistic, optional GPU methods using cuml)
+    - `misc.make_batches`
+        - Creates batches of data or any other iterable
+    - `similarity.orthogonalize` and `similarity.pairwise_orthogonalization`
+        - Orthogonalize a matrix relative to a set of vectors using a Gram-Schmidt related process
+
+- Miscellaneous
+    - `path_helpers.find_paths`
+        - Find paths to files and/or folders in a directory. Searches recursively using regex.
+    - `misc.estimate_size_of_float_array`
+        - Estimates the size of a float array in bytes
+    - `image_processing.play_video_cv2`
+        - Plays and/or saves a 3D array as a video using OpenCV
+    - `h5_handling.simple_save` and `h5_handling.simple_load`
+        - Simple lazy loading and saving of dictionaries as nested h5 files
+    - `parallel_helpers.multiprocessing_pool_along_axis`
+        - Easy parallelization of a function along an axis
+    - `plotting_helpers.get_subplot_indices`
+        - Returns the subscript indices of the subplots in a figure
