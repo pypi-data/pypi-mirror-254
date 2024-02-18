@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: nrobo
+Version: 2024.0.6
+Summary: Project description
+Project-URL: Documentation, https://github.com/unknown/nrobo#readme
+Project-URL: Issues, https://github.com/unknown/nrobo/issues
+Project-URL: Source, https://github.com/unknown/nrobo
+Author-email: Panchdev Singh Chauhan <erpanchdev@gmail.com>
+Maintainer-email: Panchdev Singh Chauhan <erpanchdev@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: cowsay
+Requires-Dist: pytest
+Description-Content-Type: text/markdown
+
+# nrobo
+
+[![PyPI - Version](https://img.shields.io/pypi/v/nrobo.svg)](https://pypi.org/project/nrobo)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nrobo.svg)](https://pypi.org/project/nrobo)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install nrobo
+```
+
+## License
+
+`nrobo` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
