@@ -1,0 +1,50 @@
+.gitignore
+.pre-commit-config.yaml
+LICENSE
+MANIFEST.in
+Plugin-Abstract.png
+README.md
+mkdocs.yml
+pyproject.toml
+setup.cfg
+tox.ini
+.github/workflows/test_and_deploy.yml
+.napari-hub/DESCRIPTION.md
+.napari-hub/config.yml
+docs/index.md
+docs/installation.md
+docs/widget_reference/annotation_saver.md
+docs/widget_reference/batch_predict.md
+docs/widget_reference/batch_training.md
+docs/widget_reference/batch_utilities.md
+docs/widget_reference/batch_workflow.md
+src/napari_ndev/__init__.py
+src/napari_ndev/_apoc_container.py
+src/napari_ndev/_apoc_feature_stack.py
+src/napari_ndev/_rescale_by.py
+src/napari_ndev/_utilities_container.py
+src/napari_ndev/_version.py
+src/napari_ndev/_widget.py
+src/napari_ndev/napari.yaml
+src/napari_ndev.egg-info/PKG-INFO
+src/napari_ndev.egg-info/SOURCES.txt
+src/napari_ndev.egg-info/dependency_links.txt
+src/napari_ndev.egg-info/entry_points.txt
+src/napari_ndev.egg-info/requires.txt
+src/napari_ndev.egg-info/top_level.txt
+src/napari_ndev/_tests/__init__.py
+src/napari_ndev/_tests/test_apoc_container.py
+src/napari_ndev/_tests/test_apoc_feature_stack.py
+src/napari_ndev/_tests/test_rescale_by.py
+src/napari_ndev/_tests/test_utilities_container.py
+src/napari_ndev/_tests/resources/RGB.tif
+src/napari_ndev/_tests/resources/Apoc/Annotations/SPF-4MM-22 slide 9-S6_Top Slide_TR2_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/Annotations/SPF-4MM-22 slide 9-S9_Top Slide_TR5_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/Classifiers/test_classifier.log.txt
+src/napari_ndev/_tests/resources/Apoc/Images/SPF-4MM-22 slide 9-S6_Top Slide_TR2_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/Images/SPF-4MM-22 slide 9-S9_Top Slide_TR5_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/OutputLabels/SPF-4MM-22 slide 9-S6_Top Slide_TR2_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/OutputLabels/SPF-4MM-22 slide 9-S9_Top Slide_TR5_p00_0_A01f00d0.tif
+src/napari_ndev/_tests/resources/Apoc/OutputLabels/log.txt
+src/napari_ndev/_tests/resources/outputs/Images/RGB.tif
+src/napari_ndev/_tests/resources/outputs/Labels/RGB.tif
