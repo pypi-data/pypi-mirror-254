@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+tests/test_exp.py
+xeye/__init__.py
+xeye/build_dataset.py
+xeye/dataset.py
+xeye/manual_dataset.py
+xeye.egg-info/PKG-INFO
+xeye.egg-info/SOURCES.txt
+xeye.egg-info/dependency_links.txt
+xeye.egg-info/requires.txt
+xeye.egg-info/top_level.txt

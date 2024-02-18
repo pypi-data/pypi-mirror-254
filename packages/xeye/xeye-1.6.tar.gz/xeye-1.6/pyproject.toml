@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xeye"
+version = "1.6"
+authors = [
+  { name="Marco Salvalaggio", email="mar.salvalaggio@gmail.com" },
+]
+description = "Create datasets for computer vision applications"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "opencv-python",
+    "numpy",
+    "scikit-learn",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/marcosalvalaggio/xeye"
+"Bug Tracker" = "https://github.com/marcosalvalaggio/xeye"
