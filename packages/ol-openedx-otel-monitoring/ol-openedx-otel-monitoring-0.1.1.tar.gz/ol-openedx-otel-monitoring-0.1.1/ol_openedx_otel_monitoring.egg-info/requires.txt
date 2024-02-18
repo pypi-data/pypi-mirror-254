@@ -1,0 +1,6 @@
+Django>2.0
+edx-django-utils>4.0.0
+opentelemetry-distro
+opentelemetry-exporter-otlp-proto-http
+opentelemetry-exporter-richconsole
+opentelemetry-instrumentation-django
