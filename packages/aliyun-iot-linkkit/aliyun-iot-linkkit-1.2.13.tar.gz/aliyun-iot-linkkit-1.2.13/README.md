@@ -1,0 +1,51 @@
+#Python SDK for Aliyun IoT device
+
+This is a python sdk for Aliyun IoT device. 
+* MQTT connection:MQTTV31,MQTTV311
+* Aliyun IoT Thing Model
+
+
+## Release Notes
+### 1.2.1
+* [ADD] support to configure the custom endpoint for MQTT config_mqtt 
+* [ADD] support to configure the custom endpoint for HTTP2 config_http2
+* [UPDATE] support to receive any unsubscribed message by on_topic_message
+
+
+### 1.2.2
+* [UPDATE] fix the onConnect callback invoked at wrong time issue
+
+### 1.2.3
+* [UPDATE] fix tsl parsing error for simplified tsl products
+
+### 1.2.4
+* [UPDATE] add gateway feature
+
+### 1.2.5
+* [UPDATE] add mqtt dynamic-register without pre-registration feature
+
+### 1.2.6
+* [UPDATE] set Endpoint parameter with default value
+
+### 1.2.7
+* [UPDATE] add ota feature
+
+### 1.2.8
+* [UPDATE] add mqtt dynamic-register with pre-registration feature
+
+### 1.2.9
+* [UPDATE] add api to enable users to re-connect to iot platform manually in case of exceptions
+
+### 1.2.10
+* [UPDATE] fix handshake error in python 3.10/3.11
+* [UPDATE] fix Timeout exception in lossy network
+* [UPDATE] make the API force_reconnect async
+
+### 1.2.11
+* [UPDATE] use new root certifications. The S1 certificate would not expire untill 2053.
+
+### 1.2.12
+* [UPDATE] return error codes when pub/sub messages, do not throw exceptions any more; set keepalive range to be [30,1800]
+
+### 1.2.13
+* [UPDATE] add option to turn on/off host_name check during tls handshake
