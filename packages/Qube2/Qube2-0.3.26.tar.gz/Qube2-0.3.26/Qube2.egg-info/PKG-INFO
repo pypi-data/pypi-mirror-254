@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: Qube2
+Version: 0.3.26
+Summary: Qube
+Home-page: https://github.com/dmarienko/Qube
+Author: Dmitry Marienko
+Author-email: dmitry.ema@gmail.com
+Project-URL: Bug Tracker, https://github.com/dmarienko/Qube/issues
+Keywords: quantitative,backtesting,backtester,quantitative finance
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas>=1.3.4
+Requires-Dist: pandas-datareader
+Requires-Dist: scikit-learn
+Requires-Dist: qpython
+Requires-Dist: matplotlib
+Requires-Dist: statsmodels
+Requires-Dist: pymongo
+Requires-Dist: nose2
+Requires-Dist: flask
+Requires-Dist: patool
+Requires-Dist: pymemcache
+Requires-Dist: airspeed
+Requires-Dist: flask_jsonpify
+Requires-Dist: Flask-BasicAuth
+Requires-Dist: python-dotenv
+Requires-Dist: cycler
+Requires-Dist: ntplib
+Requires-Dist: bs4
+Requires-Dist: dill
+Requires-Dist: sortedcontainers
+Requires-Dist: cython
+Requires-Dist: plotly==5.8.0
+Requires-Dist: seaborn
+Requires-Dist: rich
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: tqdm
+
+Quantitative Backtesting Environment
