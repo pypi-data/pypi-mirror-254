@@ -1,0 +1,84 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-vcs"]
+
+[project]
+authors = [{ name = "Ian Czekala", email = "ic95@st-andrews.ac.uk" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "astropy",
+    "matplotlib"
+]
+description = "Computational Assignment for AS4012"
+dynamic = ["version"]
+name = "as4012_sstr"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "mypy"
+]
+
+doc = [
+    "sphinx>=7.0.0",
+    "sphinx_book_theme>=0.9.3",
+    "myst-nb>=1.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/iancze/AS4012-MESA"
+Issues = "https://github.com/iancze/AS4012-MESA/issues"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/as4012_sstr/as4012_sstr_version.py"
+
+[tool.black]
+line-length = 88
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "astropy.*",
+    "matplotlib.*",
+    "scipy.*"
+]
+ignore_missing_imports = true
+
+# [[tool.mypy.overrides]]
+# module = [
+#     "as4012_mesa.constants",
+#     ]
+# disallow_untyped_defs = true
+
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+select = ["F", "I", "E", "W", "YTT", "B", "Q", "PLE", "PLR", "PLW", "UP"]
+ignore = [
+    "E741",    # Allow ambiguous variable names
+    "PLR0911", # Allow many return statements
+    "PLR0913", # Allow many arguments to functions
+    "PLR0915", # Allow many statements
+    "PLR2004", # Allow magic numbers in comparisons
+]
+exclude = []
+
+[tool.ruff.isort]
+known-first-party = ["as4012_sstr"]
+combine-as-imports = true
