@@ -1,0 +1,14 @@
+odbcinst
+pyodbc
+sqlalchemy<2,>=1.3.24
+
+[lint]
+black
+flake8
+mypy
+isort
+pre-commit
+
+[test]
+pytest
+pytest-cov[all]
