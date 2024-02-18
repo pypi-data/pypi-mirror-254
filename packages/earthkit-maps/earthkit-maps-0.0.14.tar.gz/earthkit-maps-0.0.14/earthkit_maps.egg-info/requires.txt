@@ -1,0 +1,6 @@
+earthkit-data
+cartopy>=0.22.0
+matplotlib
+pyyaml
+numpy
+adjustText
