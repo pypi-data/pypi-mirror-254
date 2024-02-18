@@ -1,0 +1,87 @@
+{
+    "AWSSecurityAuditPowerUsers": {
+        "group_id": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+        "group_name": "AWSSecurityAuditPowerUsers",
+        "members": []
+    },
+    "SecOps_Adms": {
+        "group_id": "913ba5c0-f071-70e1-05c5-a927586dc132",
+        "group_name": "SecOps_Adms",
+        "members": [
+            {
+                "IdentityStoreId": "d-9a672b3314",
+                "MembershipId": "f13b3520-c051-7094-92e6-a4faceafccfa",
+                "GroupId": "913ba5c0-f071-70e1-05c5-a927586dc132",
+                "MemberId": {
+                    "UserId": "c1eb9540-e0f1-702f-c53f-405c01d9f991",
+                    "UserName": "w.alejovl+secops-labs@gmail.com"
+                }
+            }
+        ]
+    },
+    "AWSServiceCatalogAdmins": {
+        "group_id": "9a672b3314-7f743f07-169a-4172-bdbc-561e7908e463",
+        "group_name": "AWSServiceCatalogAdmins",
+        "members": []
+    },
+    "AWSControlTowerAdmins": {
+        "group_id": "9a672b3314-43117aac-887b-48ee-af49-b6b6cd059199",
+        "group_name": "AWSControlTowerAdmins",
+        "members": [
+            {
+                "IdentityStoreId": "d-9a672b3314",
+                "MembershipId": "e14b3500-3051-70b2-25b7-d5729d383061",
+                "GroupId": "9a672b3314-43117aac-887b-48ee-af49-b6b6cd059199",
+                "MemberId": {
+                    "UserId": "9a672b3314-bd21c8b3-1aa0-4922-9374-92321b4979bf",
+                    "UserName": "velez94@protonmail.com"
+                }
+            }
+        ]
+    },
+    "AWSAccountFactory": {
+        "group_id": "9a672b3314-f8065505-3174-4d46-a1b4-f134fd0ca2fc",
+        "group_name": "AWSAccountFactory",
+        "members": [
+            {
+                "IdentityStoreId": "d-9a672b3314",
+                "MembershipId": "e18bb590-9031-70a0-5469-42c9799e8a6b",
+                "GroupId": "9a672b3314-f8065505-3174-4d46-a1b4-f134fd0ca2fc",
+                "MemberId": {
+                    "UserId": "9a672b3314-bd21c8b3-1aa0-4922-9374-92321b4979bf",
+                    "UserName": "velez94@protonmail.com"
+                }
+            }
+        ]
+    },
+    "DevSecOps_Admins": {
+        "group_id": "318bc590-a071-70f5-63f6-ab21233e4e33",
+        "group_name": "DevSecOps_Admins",
+        "members": [
+            {
+                "IdentityStoreId": "d-9a672b3314",
+                "MembershipId": "51bbe5a0-7001-7010-d7c0-46f5044d014e",
+                "GroupId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+                "MemberId": {
+                    "UserId": "010be510-1061-70df-8274-96526bc47eb7",
+                    "UserName": "DevSecOpsAdm"
+                }
+            }
+        ]
+    },
+    "AWSLogArchiveAdmins": {
+        "group_id": "9a672b3314-c481fbee-8062-432a-8b87-eeaa36b763a8",
+        "group_name": "AWSLogArchiveAdmins",
+        "members": []
+    },
+    "AWSLogArchiveViewers": {
+        "group_id": "9a672b3314-ff479c57-03cb-440e-8902-be8ea9d7d25b",
+        "group_name": "AWSLogArchiveViewers",
+        "members": []
+    },
+    "AWSSecurityAuditors": {
+        "group_id": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+        "group_name": "AWSSecurityAuditors",
+        "members": []
+    }
+}
