@@ -1,0 +1,22 @@
+trio
+async_exit_stack
+async_generator
+greenlet
+greenlet >= 3.0.3; implementation_name == "cpython"
+greenback
+
+# Testing
+pytest
+pytest-cov
+pytest-trio
+
+# Tools
+black; implementation_name == "cpython"
+mypy; implementation_name == "cpython"
+trio-typing
+flake8
+
+# typed-ast is required by black + mypy and doesn't build on PyPy;
+# it will be unconstrained in requirements.txt if we don't
+# constrain it here
+typed-ast; implementation_name == "cpython"
