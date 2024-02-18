@@ -1,0 +1,2 @@
+[console_scripts]
+wavespectra = wavespectra.cli:main
