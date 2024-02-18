@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "aiknow"
+version = "0.0.3"
+description = ""
+authors = ["isaac-fei <isaac.omega.fei@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^1.6.1"
+qianfan = "^0.2.5"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.28.0"
+nbconvert = "^7.14.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
