@@ -1,0 +1,17 @@
+pymablock/__init__.py,sha256=IQ0enUxIVWiwpzynJlIpXki38SpTlbyyIe90eVVDAcI,385
+pymablock/_version.py,sha256=o9XMlNC6GoiUn7mwoOOgJdijgp3B_2fLdgizcKs1i2o,411
+pymablock/block_diagonalization.py,sha256=NKCKnXsTENg_VYrjkjW9bpSrnPJOocBXGsqCwbC1qfI,44953
+pymablock/kpm.py,sha256=mtwh77ag5HugcBZTeMxYekP3RZjDZYxIx4jr1Eyy2cM,5435
+pymablock/linalg.py,sha256=NqK8GNV1CNGAU5QZLgVf3Y5CWjNeM7LfuSWbA6uXJgQ,5423
+pymablock/series.py,sha256=IfPGKicvdcIr1-GRWmU4KIbYqKa-q-fdxz4NX33sR9o,15579
+pymablock/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pymablock/tests/test_block_diagonalization.py,sha256=ZrGzLKuU_cyAFL_UUI4lQEjAPuq-Fgn-wsUG5CSONLU,40009
+pymablock/tests/test_kpm.py,sha256=JjBSu3k1Xqcu3UDZ1OYYrzHVf4nSObws9FhtMz10s18,922
+pymablock/tests/test_linalg.py,sha256=5AKwMMWwtjYNqNva1ffYUbCx7JJXVgJuzH9DHj767Gs,2438
+pymablock/tests/test_series.py,sha256=NNFW-Xn6-yJtMfOVwg52mtl1WaWZZTlsWjAXHfpxYwI,4344
+pymablock/tests/test_block_diagonalization/test_number_products.yml,sha256=LL5U3eZJehYwdKEn_Xs-XsbNhI7KyGcTS35Ks_jleeo,399
+pymablock-2.0.0.dist-info/METADATA,sha256=_kewbSotQji1zP_JtYPh_QAO175fI2VyA6IcF4IpYgE,2220
+pymablock-2.0.0.dist-info/WHEEL,sha256=TJPnKdtrSue7xZ_AVGkp9YXcvDrobsjBds1du3Nx6dc,87
+pymablock-2.0.0.dist-info/licenses/AUTHORS.md,sha256=o3dzwxTiiZtBZ12Vr8jFjqoXElvkoJga1bubCEEARBI,572
+pymablock-2.0.0.dist-info/licenses/LICENSE,sha256=rREHCfZUUVUsSgcGzotai28irP6ehMY0dkn81ttpZ_Q,1327
+pymablock-2.0.0.dist-info/RECORD,,
