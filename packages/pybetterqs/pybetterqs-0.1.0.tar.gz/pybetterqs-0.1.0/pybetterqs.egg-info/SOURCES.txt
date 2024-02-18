@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+./pybetterqs/libdor_qs.so
+pybetterqs/__init__.py
+pybetterqs/libdor_qs.so
+pybetterqs/pybetterqs.py
+pybetterqs.egg-info/PKG-INFO
+pybetterqs.egg-info/SOURCES.txt
+pybetterqs.egg-info/dependency_links.txt
+pybetterqs.egg-info/top_level.txt

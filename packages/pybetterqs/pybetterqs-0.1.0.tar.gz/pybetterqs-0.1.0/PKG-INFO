@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: pybetterqs
+Version: 0.1.0
+Summary: betterqs wrapper for python using ffi.just send params to it and get json params.better qs is better than urllib parse_qs
+Author: blotterchains
+Author-email: rezagina68@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
