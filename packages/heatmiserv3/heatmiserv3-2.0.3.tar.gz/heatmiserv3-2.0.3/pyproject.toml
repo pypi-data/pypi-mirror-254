@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "heatmiserv3"
+version = "2.0.3"
+description = "A library to interact with Heatmiser Themostats using V3 protocol."
+authors = ["Andy Loughran <andy@lockran.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+appdirs = "^1.4.4"
+pyserial = "^3.5"
+pyserial-asyncio = "^0.6"
+pyyaml = "^6.0.1"
+importlib-resources = "^6.1.1"
+
+
+[tool.poetry.group.test.dependencies]
+flake8 = "^7.0.0"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+mock = "^5.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
