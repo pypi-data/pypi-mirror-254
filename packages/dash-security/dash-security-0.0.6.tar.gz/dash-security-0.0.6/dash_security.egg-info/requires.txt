@@ -1,0 +1,7 @@
+Flask-Login>=0.6.3
+dash>=2.14.2
+python-dotenv
+bcrypt
+pydantic
+SQLAlchemy>=2.0.25
+urllib3>=2.1.0
