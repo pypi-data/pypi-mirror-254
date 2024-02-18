@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+escape/__init__.py
+escape/errors.py
+escape/proxy_module.py
+escape/py.typed
+escape/wrapper.py
+exception_escaping.egg-info/PKG-INFO
+exception_escaping.egg-info/SOURCES.txt
+exception_escaping.egg-info/dependency_links.txt
+exception_escaping.egg-info/top_level.txt
+tests/test_proxy_module.py
