@@ -1,0 +1,84 @@
+In [2]: pcm.info()
+PyChemia
+--------
+
+Version: 0.24.2.1a0.dev0+00060a4
+Path:    /gpfs20/scratch/gufranco/PyChemia/pychemia
+Date:    February 1, 2024
+
+Python version=3.11.3 (main, Apr 13 2023, 10:52:46) [GCC 12.2.0]
+
+Mandatory dependencies:
+     numpy     1.26.3   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/numpy
+     scipy     1.12.0   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/scipy
+    spglib      2.3.0   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/spglib
+matplotlib      3.8.2   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/PyChemia/pychemia_ve/lib/python3.11/site-packages/psutil
+
+Optional dependencies:
+      nose            Not Found
+  coverage            Not Found
+    pyhull            Not Found
+  pymatgen            Not Found
+  networkx            Not Found
+       ase            Not Found
+    mayavi            Not Found
+      qmpy            Not Found
+       vtk            Not Found
+
+36
+Mandatory dependencies:
+     numpy     1.19.5   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/numpy
+     scipy      1.5.4   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/scipy
+    spglib      2.0.2   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/spglib
+matplotlib      3.3.4   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/matplotlib
+   pymongo      4.1.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py36/lib/python3.6/site-packages/psutil
+
+37
+Mandatory dependencies:
+     numpy     1.21.6   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/numpy
+     scipy      1.7.3   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/scipy
+    spglib      2.2.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/spglib
+matplotlib      3.5.3   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py37/lib/python3.7/site-packages/psutil
+
+38
+Mandatory dependencies:
+     numpy     1.24.4   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/numpy
+     scipy     1.10.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/scipy
+    spglib      2.3.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/spglib
+matplotlib      3.7.4   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py38/lib/python3.8/site-packages/psutil
+
+39
+Mandatory dependencies:
+     numpy     1.26.3   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py39/lib/python3.9/site-packages/numpy
+     scipy     1.12.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py39/lib/python3.9/site-packages/scipy
+    spglib      2.2.0   /users/gufranco/.local/lib/python3.9/site-packages/spglib
+matplotlib      3.8.2   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py39/lib/python3.9/site-packages/matplotlib
+   pymongo      4.6.1   /users/gufranco/.local/lib/python3.9/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py39/lib/python3.9/site-packages/psutil
+
+310
+Mandatory dependencies:
+     numpy     1.26.3   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/numpy
+     scipy     1.12.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/scipy
+    spglib      2.3.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/spglib
+matplotlib      3.8.2   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py310/lib/python3.10/site-packages/psutil
+
+311
+Mandatory dependencies:
+     numpy     1.26.3   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/numpy
+     scipy     1.12.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/scipy
+    spglib      2.3.0   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/spglib
+matplotlib      3.8.2   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/matplotlib
+   pymongo      4.6.1   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/pymongo
+    psutil      5.9.8   /gpfs20/scratch/gufranco/mambaforge3/envs/pcm_py311/lib/python3.11/site-packages/psutil
+
+

@@ -1,0 +1,266 @@
+Quick Start
+===========
+
+PyChemia is built from several layers of code, the foundations being the ability to manipulate conglomerates of atoms,
+either molecules or crystals. Before doing more complex operations such execute tasks on various electronic structure
+codes or running structural searches we need to understand how the fundamental blocks work and that is the purpose of
+this quick start section.
+
+For the examples presented here you can use the official python terminal, however, the IPython terminal or a Jupyter
+notebook offers you more power to go across the examples and explore what PyChemia can do for you. At least, installing
+IPython is very simple on many operating systems.
+
+For example on machines running a debian derivative (Ubuntu, Mint and several others) you can use the following command
+to install the IPython terminal::
+
+    sudo apt-get install python-ipython
+
+or for python 3.x::
+
+    sudo apt-get install python3-python
+
+On MacOS using macports::
+
+    sudo port install py27-ipython
+
+or for python 3.x::
+
+    sudo port install py35-ipython
+
+
+Element
+-------
+
+PyChemia is about materials, molecules, cluster and crystals. A class for elements can become handy to serve as a
+periodic table and inquire for the properties of a given specie. Alchemy was all about transmuting materials into gold.
+Lets explore what PyChemia can tell us about that element::
+
+    In [1]: import pychemia
+
+    In [2]: ele=pychemia.Element('Au')
+
+    In [3]: ele.atomic_number
+    Out[3]: 79
+
+    In [4]: ele.name
+    Out[4]: 'Gold'
+
+    In [5]: ele.electronegativity
+    Out[5]: 2.54
+
+    In [6]: ele.group
+    Out[6]: 11
+
+    In [7]: ele.period
+    Out[7]: 6
+
+    In [8]: ele.block
+    Out[8]: 'd'
+
+    In [9]: ele.mass
+    Out[9]: 196.96654
+
+    In [10]: ele.electronic_configuration
+    Out[10]: ['Xe', '6s1', '4f14', '5d10']
+
+    In [11]: ele.is_madelung_exception
+    Out[11]: True
+
+    In [12]: ele.oxidation_states
+    Out[12]: (-3, -2, -1, 1, 2, 3, 5)
+
+    In [13]: ele.oxidation_states_common
+    Out[13]: (3,)
+
+    In [14]: ele.covalent_radius
+    Out[14]: 1.36
+
+The Element class provide a set of useful properties about all elements in the periodic table. The chapter about Element
+will explain the several properties that can be accessed on the Element class.
+
+Composition
+-----------
+
+Now, atoms group themselves into molecules, clusters or crystals. Without entering into the geometry, we can think only
+about the composition, the list of atoms contained in the molecule or cluster or the list of atoms in the cell that
+builds the crystal. The Composition class offers a set of routines to manipulate lists of atoms. Lets consider for
+example Gold(III) oxide (Au2O3)::
+
+    In [1]: import pychemia
+
+    In [2]: comp=pychemia.Composition('Au2O3')
+
+    In [3]: comp
+    Out[3]: Composition({'Au': 2, 'O': 3})
+
+    In [4]: comp['Au']
+    Out[4]: 2
+
+    In [5]: comp.nspecies
+    Out[5]: 2
+
+    In [6]: comp.symbols
+    Out[6]: ['Au', 'Au', 'O', 'O', 'O']
+
+Compositions can be created from the formula and also from a python dictionary and after you can use the composition
+object to ask for the number of atoms of each specie.
+
+Structure
+---------
+
+In most cases, pychemia uses Structures. A PyChemia Structure stores atomic positions and cell
+parameters for periodic structures. Lets start with a very simple structure, the FCC structure of gold. One way of
+creating and structure is by directly specifying atomic positions and cell parameters, for example::
+
+    In [1]: import pychemia
+
+    In [2]: a=4.05
+
+    In [3]: b=a/2
+
+    In [4]: fcc = pychemia.Structure(symbols=['Au'], cell=[[0, b, b], [b, 0, b], [b, b, 0]], periodicity=True)
+
+    In [5]: fcc
+    Out[5]: Structure(symbols=['Au'], cell=[[0.0, 2.025, 2.025], [2.025, 0.0, 2.025], [2.025, 2.025, 0.0]],
+    reduced=[[0.0, 0.0, 0.0]], periodicity=True)
+
+You have created your first structure on PyChemia. The structure contains one atom of Gold and the cell is the
+primitive cell of a FCC structure with one atom. You can 'see' the structure using the 'print' function::
+
+    In [6]: print(fcc)
+    1
+
+     Symb  (             Positions            ) [     Cell-reduced coordinates     ]
+       Au  (     0.0000     0.0000     0.0000 ) [     0.0000     0.0000     0.0000 ]
+
+    Periodicity:  X Y Z
+
+    Lattice vectors:
+         0.0000     2.0250     2.0250
+         2.0250     0.0000     2.0250
+         2.0250     2.0250     0.0000
+
+We can now be interested in see the spacegroup of the structure just created. A pychemia.crystal.CrystalSymmetry
+object allow us to get access to symmetry calculations provided by the ``spglib`` library::
+
+    In [7]: cs=pychemia.crystal.CrystalSymmetry(fcc)
+
+    In [8]: cs.number()
+    Out[8]: 225
+
+    In [9]: cs.symbol()
+    Out[9]: 'Fm-3m'
+
+Both the space group number and the International symbol are accessible from the CrystalSymmetry object. Now we can
+use the CrystalSymmetry object to recreate the convenctional FCC cell::
+
+    In [10]: fcc_conv=cs.refine_cell()
+
+    In [11]: fcc
+    fcc       fcc_conv
+
+    In [12]: fcc_conv
+    Out[12]: Structure(symbols=['Au', 'Au', 'Au', 'Au'], cell=4.05, reduced=[[0.0, 0.0, 0.0], [0.0, 0.5, 0.5],
+    [0.5, 0.0, 0.5], [0.5, 0.5, 0.0]], periodicity=True)
+
+    In [11]: print(fcc_conv)
+    4
+
+     Symb  (             Positions            ) [     Cell-reduced coordinates     ]
+       Au  (     0.0000     0.0000     0.0000 ) [     0.0000     0.0000     0.0000 ]
+       Au  (     0.0000     2.0250     2.0250 ) [     0.0000     0.5000     0.5000 ]
+       Au  (     2.0250     0.0000     2.0250 ) [     0.5000     0.0000     0.5000 ]
+       Au  (     2.0250     2.0250     0.0000 ) [     0.5000     0.5000     0.0000 ]
+
+    Periodicity:  X Y Z
+
+    Lattice vectors:
+         4.0500     0.0000     0.0000
+         0.0000     4.0500     0.0000
+         0.0000     0.0000     4.0500
+
+The lattice vectors are now making a cube, and the structure is made of 4 gold atoms. Now we can want to create a
+supercell, 2x2x1 using the supercell method::
+
+    In [13]: fcc221=fcc_conv.supercell(size=(2,2,1))
+
+    In [14]: print(fcc221)
+    16
+
+     Symb  (             Positions            ) [     Cell-reduced coordinates     ]
+       Au  (     0.0000     0.0000     0.0000 ) [     0.0000     0.0000     0.0000 ]
+       Au  (     0.0000     2.0250     2.0250 ) [     0.0000     0.2500     0.5000 ]
+       Au  (     2.0250     0.0000     2.0250 ) [     0.2500     0.0000     0.5000 ]
+       Au  (     2.0250     2.0250     0.0000 ) [     0.2500     0.2500     0.0000 ]
+       Au  (     0.0000     4.0500     0.0000 ) [     0.0000     0.5000     0.0000 ]
+       Au  (     0.0000     6.0750     2.0250 ) [     0.0000     0.7500     0.5000 ]
+       Au  (     2.0250     4.0500     2.0250 ) [     0.2500     0.5000     0.5000 ]
+       Au  (     2.0250     6.0750     0.0000 ) [     0.2500     0.7500     0.0000 ]
+       Au  (     4.0500     0.0000     0.0000 ) [     0.5000     0.0000     0.0000 ]
+       Au  (     4.0500     2.0250     2.0250 ) [     0.5000     0.2500     0.5000 ]
+       Au  (     6.0750     0.0000     2.0250 ) [     0.7500     0.0000     0.5000 ]
+       Au  (     6.0750     2.0250     0.0000 ) [     0.7500     0.2500     0.0000 ]
+       Au  (     4.0500     4.0500     0.0000 ) [     0.5000     0.5000     0.0000 ]
+       Au  (     4.0500     6.0750     2.0250 ) [     0.5000     0.7500     0.5000 ]
+       Au  (     6.0750     4.0500     2.0250 ) [     0.7500     0.5000     0.5000 ]
+       Au  (     6.0750     6.0750     0.0000 ) [     0.7500     0.7500     0.0000 ]
+
+    Periodicity:  X Y Z
+
+    Lattice vectors:
+         8.1000     0.0000     0.0000
+         0.0000     8.1000     0.0000
+         0.0000     0.0000     4.0500
+
+PyChemia is much more than just elements, compositions and structures. For the purpose of this introduction, those are
+the most basic building blocks for most of the of higher level operations such as populations and global searches.
+
+Lattice
+-------
+
+For periodic structures, the lattice is fundamental to describe how the geometry of the atoms is repeated. PyChemia
+offers a class Lattice for manipulate cell parameters both for the real space lattice and the reciprocal one. For
+example from the example before::
+
+    In [1]: import pychemia
+
+    In [2]: a=4.05
+
+    In [3]: b=a/2
+
+    In [4]: fcc = pychemia.Structure(symbols=['Au'], cell=[[0, b, b], [b, 0, b], [b, b, 0]], periodicity=True)
+
+    In [5]: lat=fcc.lattice
+
+    In [6]: print(lat)
+    Cell=       0.000        2.025        2.025
+                2.025        0.000        2.025
+                2.025        2.025        0.000
+
+    Angles: alpha =       60.000
+             beta =       60.000
+            gamma =       60.000
+
+    Lengths:    a =        2.864
+                b =        2.864
+                c =        2.864
+
+
+    In [7]: rlat = lat.reciprocal()
+
+    In [8]: print(rlat)
+    Cell=      -0.247        0.247        0.247
+                0.247       -0.247        0.247
+                0.247        0.247       -0.247
+
+    Angles: alpha =      109.471
+             beta =      109.471
+            gamma =      109.471
+
+    Lengths:    a =        0.428
+                b =        0.428
+                c =        0.428
+
+As you can see from the example above, the reciprocal lattice can be obtained from the real space lattice. The class is
+useful to obtain the Brillouin zone via computing the Wigner Seitz from the reciprocal lattice. Those and several other
+functionality can be accessed from the class as described on the corresponding chapter.
