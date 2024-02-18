@@ -1,0 +1,2 @@
+[console_scripts]
+flutter_gen = flutter_gen.__main__:main
