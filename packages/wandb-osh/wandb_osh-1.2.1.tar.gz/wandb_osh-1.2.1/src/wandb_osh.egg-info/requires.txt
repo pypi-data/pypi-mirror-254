@@ -1,0 +1,15 @@
+colorlog
+wandb
+
+[:python_version < "3.8"]
+importlib-metadata>=0.12
+
+[lightning]
+pytorch-lightning
+
+[ray]
+ray[tune]
+
+[testing]
+pytest
+pytest-coverage
