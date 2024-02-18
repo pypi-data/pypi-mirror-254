@@ -1,0 +1,101 @@
+#
+# SOME DESCRIPTIVE TITLE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE 1.0\n"
+"POT-Creation-Date: 2023-04-12 15:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Lingua 4.15.0\n"
+
+#: ./src/pyams_chat/interfaces.py:34
+msgid "Message host name"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:36
+msgid "Message channel"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:38
+msgid "Message action"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:40
+msgid "Message category"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:42
+msgid "Message status"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:44
+msgid "Message title"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:46
+msgid "Message content"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:48
+msgid "Message image URL"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:51
+msgid "Message source"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:52
+msgid "Attributes of the principal which emitted the notification"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:56
+msgid "Message target"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:57
+msgid "Message targets can be principals, roles..."
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:60
+msgid "Notification URL"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:61
+msgid "URL target of this message notification"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:64
+msgid "Message timestamp in ISO-8601 format"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:66
+msgid "Internal user data"
+msgstr ""
+
+#: ./src/pyams_chat/interfaces.py:67
+msgid ""
+"User data used for internal usage; these data are not sent in notifications "
+"contents"
+msgstr ""
+
+#: ./src/pyams_chat/zmi/viewlet/templates/notifications.pt:23
+#: ./src/pyams_chat/zmi/viewlet/templates/notifications.pt:37
+msgid "Notifications"
+msgstr ""
+
+#: ./src/pyams_chat/handler/login.py:48
+msgid "User login"
+msgstr ""
+
+#: ./src/pyams_chat/handler/login.py:49
+#, python-format
+msgid "{} logged in..."
+msgstr ""
