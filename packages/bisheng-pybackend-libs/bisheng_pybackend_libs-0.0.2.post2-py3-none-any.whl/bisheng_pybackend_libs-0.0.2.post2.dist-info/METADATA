@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: bisheng-pybackend-libs
+Version: 0.0.2.post2
+Summary: libraries for bisheng rt pybackend
+Home-page: https://github.com/dataelement/bisheng-rt/python/pybackend_libs
+Author: DataElem Inc.
+Author-email: contact@dataelem.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: lanms ==1.0.2
+Requires-Dist: tensorflow ==1.15.5+nv
+Requires-Dist: torch ==2.1.2
+Requires-Dist: torchvision ==0.16.2
+Requires-Dist: flash-attn ==2.3.6
+Requires-Dist: urllib3 ==1.25.4
+Requires-Dist: pydantic <2
+Requires-Dist: tokenizers ==0.15.0
+Requires-Dist: tiktoken ==0.5.1
+Requires-Dist: sentencepiece ==0.1.99
+Requires-Dist: einops ==0.7.0
+Requires-Dist: huggingface-hub ==0.19.4
+Requires-Dist: transformers ==4.36.2
+Requires-Dist: transformers-stream-generator ==0.0.4
+Requires-Dist: SwissArmyTransformer ==0.4.8
+Requires-Dist: cpm-kernels ==1.0.11
+Requires-Dist: accelerate ==0.24.1
+Requires-Dist: vllm ==0.2.6
+Requires-Dist: anyio ==3.7.1
+Requires-Dist: starlette ==0.27.0
+Requires-Dist: sse-starlette ==1.6.5
+Requires-Dist: streamlit >=1.24.0
+Requires-Dist: mdtex2html ==1.2.0
+Requires-Dist: shapely ==2.0.2
+Requires-Dist: lxml ==4.9.3
+Requires-Dist: openpyxl ==3.1.2
+Requires-Dist: premailer ==3.10.0
+Requires-Dist: scipy ==1.10.1
+Requires-Dist: pillow ==10.2.0
+Requires-Dist: opencv-python ==4.5.5.64
+Requires-Dist: scikit-image ==0.21.0
+Requires-Dist: auto-gptq ==0.5.1
+Requires-Dist: optimum ==1.14.1
+Requires-Dist: llama-cpp-python ==0.2.25
+Requires-Dist: fsspec ==2023.10.0
+Requires-Dist: timm ==0.5.4
+Requires-Dist: albumentations ==1.3.1
+Requires-Dist: x-transformers ==0.15.0
+
+## Repository for python backend's library
+
+
+### Update the repository documentation
+
+
+
