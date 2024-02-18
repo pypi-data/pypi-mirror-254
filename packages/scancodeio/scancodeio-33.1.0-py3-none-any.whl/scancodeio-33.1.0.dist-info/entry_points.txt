@@ -1,0 +1,16 @@
+[console_scripts]
+scanpipe = scancodeio:command_line
+
+[scancodeio_pipelines]
+analyze_docker_image = scanpipe.pipelines.docker:Docker
+analyze_root_filesystem_or_vm_image = scanpipe.pipelines.root_filesystem:RootFS
+analyze_windows_docker_image = scanpipe.pipelines.docker_windows:DockerWindows
+find_vulnerabilities = scanpipe.pipelines.find_vulnerabilities:FindVulnerabilities
+inspect_packages = scanpipe.pipelines.inspect_packages:InspectPackages
+load_inventory = scanpipe.pipelines.load_inventory:LoadInventory
+map_deploy_to_develop = scanpipe.pipelines.deploy_to_develop:DeployToDevelop
+match_to_purldb = scanpipe.pipelines.match_to_purldb:MatchToPurlDB
+populate_purldb = scanpipe.pipelines.populate_purldb:PopulatePurlDB
+scan_codebase = scanpipe.pipelines.scan_codebase:ScanCodebase
+scan_codebase_packages = scanpipe.pipelines.scan_codebase_packages:ScanCodebasePackages
+scan_single_package = scanpipe.pipelines.scan_single_package:ScanSinglePackage
