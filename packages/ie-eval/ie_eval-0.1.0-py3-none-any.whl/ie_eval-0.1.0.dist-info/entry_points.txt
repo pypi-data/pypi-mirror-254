@@ -1,0 +1,2 @@
+[console_scripts]
+ie-eval = ie_eval.cli:main
