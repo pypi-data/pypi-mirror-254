@@ -1,0 +1,12 @@
+colorama
+pycryptodome
+python-gnupg
+openssl_enc_compat
+pyzipper
+pywin32
+
+[all]
+chi_io
+
+[chi_io]
+chi_io
