@@ -1,0 +1,28 @@
+{
+    "author": "Name",
+    "sitename": "Site name",
+    "siteurl": "https://address.com",
+    "timezone": "Europe/Stockholm",
+    "default_lang": "en-gb",
+    "theme_path": "tests/fixtures/theme",
+    "src_path": "tests/fixtures/content",
+    "build_path": "tests/output",
+    "home": "home",
+    "menuitems": {
+        "home": "",
+        "archive": "archive"
+    },
+    "post_url": "{{post_url}}",
+    "build_date_template": "{{update_date}}",
+    "thumbnail_size": [
+        300,
+        300
+    ],
+    "markdown_extensions": [
+        "meta",
+        "fenced_code",
+        "mdx_math"
+    ],
+    "s3-bucket": false,
+    "mangle_image_name": false
+}
