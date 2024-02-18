@@ -1,0 +1,11 @@
+Pillow>=6.2.0
+PyExecJS==1.5.1
+bs4==0.0.1
+jsbeautifier
+lzstring>=1.0.4
+hyper>=0.7.0
+httpx>=0.23.0
+httpx-socks>=0.7.4
+PySocks>=1.7.1
+pycryptodomex>=3.18.0
+chardet>=5.2.0
