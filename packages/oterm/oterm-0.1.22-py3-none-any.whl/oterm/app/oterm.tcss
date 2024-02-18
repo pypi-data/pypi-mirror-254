@@ -1,0 +1,192 @@
+ChatContainer {
+    height: auto;
+}
+#messageContainer {
+    overflow-y: auto;
+    padding-bottom: 1;
+    padding-right: 1;
+    height: 100%;
+}
+
+ChatItem {
+    padding: 1;
+    padding-bottom: 0;
+    height: auto;
+}
+
+ChatItem .chatItem {
+    height: auto;
+}
+
+ChatItem .author {
+    width: 8%;
+    padding: 1;
+    color: $secondary;
+
+}
+
+ChatItem .USER {
+    background: $panel;
+}
+
+ChatItem .OLLAMA {
+    background: $panel-lighten-1;
+}
+
+ChatItem .text{
+    margin: 1;
+    width: 90%;
+}
+
+#prompt {
+    background: $panel;
+    margin: 1;
+    margin-bottom: 0;
+    dock: bottom;
+}
+
+#prompt.singleline {
+    height: 5;
+    margin: 1;
+    padding: 1;
+    margin-bottom: 0;
+}
+
+#prompt.multiline #promptInput {
+    display: none;
+}
+
+
+#prompt.singleline #promptArea {
+    display: none;
+}
+
+#prompt.multiline {
+    height: 10;
+}
+
+#prompt #promptInput #promptArea {
+    width: 70%;
+    dock: left;
+}
+
+#prompt #button-container {
+    padding-left: 1;
+    width: 35;
+    dock: right;
+}
+
+#prompt #button-container #toggle-multiline {
+    margin-left:1;
+}
+
+#info {
+    color: $primary-lighten-1;
+    text-align: right;
+    padding-right: 5;
+    text-style: italic;
+}
+
+LoadingIndicator {
+    height: 3;
+}
+
+#model-select-container {
+    background: $panel;
+    border: $panel-lighten-2;
+    margin: 2;
+    padding: 1;
+}
+
+#model-select-container .title {
+    color: $secondary;
+}
+
+#model-select-container .button-container {    
+    height: 3;
+}
+#model-select-container .button-container Button {    
+    margin-right: 1;
+}
+
+#model-select {
+    margin-top: 1;
+    max-height: 70%;
+}
+
+#model-details {
+    margin: 1;
+}
+
+#model-select-container .button-container  {
+    margin: 1;
+}
+
+#model-select-container .json-format {
+    background: $panel;
+    color: $secondary;
+}
+
+#chat-rename-container {
+    width: 80%;
+    height: 10;
+    background: $panel;
+    border: $panel-lighten-2;
+    margin-top: 2;
+    margin-left: 2;
+    padding: 1;
+}
+
+#chat-rename-container .title {
+    color: $secondary;
+}
+
+#chat-rename-input {
+    margin: 2;
+}
+#image-select-container {
+    background: $panel;
+}
+#image-select-container .title {
+    color: $secondary;
+    width: 100%;
+    padding-top: 1;
+    padding-bottom: 1;
+    text-align: center;
+}
+#image-select-container #image-directory-tree {
+    width: 30%;
+}
+
+#image-select-container #image-preview{
+    width: 70%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#image-select-container Input {
+    margin: 1;
+    padding: 0;
+}
+
+Notification {
+    background: $panel;
+    color: $secondary;
+    margin: 1;
+    border: $panel-lighten-2;
+    padding-left: 1;
+    height: 3;
+}
+
+#splash-container {
+    height: 100%;
+    width: 100%;
+    background: $panel;
+}
+
+#splash {
+    color: $secondary;
+    height: 100%;
+    width: 100%;
+    content-align: center middle;
+}
