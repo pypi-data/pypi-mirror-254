@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "py-infraflow-cdk"
+version = "0.1.5"
+description = "Build Event Based and Microservice infrastructure and connections using these reusable AWS CDK patterns"
+authors = ["Matthew Beatty <infraflow@upcontent.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "infraflow"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+redis = "^4.5.1"
+boto3 = "^1.26.93"
+urllib3 = "^1.26.15"
+aws-cdk-lib = "^2.69.0"
+constructs = "^10.1.280"
+pydantic = "^2.1.1"
+aws-wsgi = "^0.2.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.5"
+pytest-snapshot = "^0.9.0"
+mock = "^5.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
