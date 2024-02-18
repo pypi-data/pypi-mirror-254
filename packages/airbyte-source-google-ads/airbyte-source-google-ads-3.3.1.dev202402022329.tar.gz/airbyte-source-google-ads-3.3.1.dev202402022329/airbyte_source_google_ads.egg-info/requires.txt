@@ -1,0 +1,10 @@
+airbyte-cdk>=0.51.3
+google-ads==22.1.0
+protobuf
+pendulum<3.0.0
+
+[tests]
+pytest~=6.1
+pytest-mock
+freezegun
+requests-mock
