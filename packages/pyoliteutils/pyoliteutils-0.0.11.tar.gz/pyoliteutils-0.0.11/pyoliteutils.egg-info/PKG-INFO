@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyoliteutils
+Version: 0.0.11
+Summary: Utils for making pyolite easier to use inside MS Teams notebooks.
+Home-page: UNKNOWN
+Author: Marty Eggleton @ UTC Sheffield OLP
+Author-email: meggleton@utcsheffield.org.uk
+License: UNKNOWN
+Description: # pyoliteutils
+        Utils for making pyolite easier to use inside MS Teams notebooks
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
