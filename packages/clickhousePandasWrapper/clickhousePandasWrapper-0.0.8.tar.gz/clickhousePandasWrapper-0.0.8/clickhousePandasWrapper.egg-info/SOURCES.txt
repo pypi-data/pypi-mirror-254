@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+clickhousePandasWrapper/__init__.py
+clickhousePandasWrapper/insert.py
+clickhousePandasWrapper.egg-info/PKG-INFO
+clickhousePandasWrapper.egg-info/SOURCES.txt
+clickhousePandasWrapper.egg-info/dependency_links.txt
+clickhousePandasWrapper.egg-info/top_level.txt
