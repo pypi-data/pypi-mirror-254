@@ -1,0 +1,67 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "godata"
+version = "0.9.0"
+description = ""
+authors = ["Patrick Wells <pwells@ucdavis.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.7.2"
+aiohttp = "^3.9.1"
+requests = "^2.31.0"
+click = "^8.1.7"
+portalocker = "^2.8.2"
+appdirs = "^1.4.4"
+packaging = "^23.2"
+
+[tool.poetry.scripts]
+godata = "godata.cli.cli:main"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.7"
+black = "^23.11.0"
+isort = "^5.13.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+numpy = "^1.26.2"
+pandas = "^2.1.4"
+toml = "^0.10.2"
+polars = "^0.20.5"
+pyarrow = "^14.0.2"
+astropy = "^6.0.0"
+
+
+[tool.poetry.group.tests.dependencies]
+astropy = "^6.0.0"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+extend-exclude = '''
+(
+dev/*
+| io/*
+)
+'''
+
+[tool.ruff]
+
+exclude = [
+"dev",
+"io",
+"test*"
+]
+
