@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: cyb600-lab1-perreaua10
+Version: 1.0.1
+Author: Andrew Perreault
+Author-email: perreaua@canisius.edu
+License: Apache License Version 2.0
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+
