@@ -1,0 +1,2 @@
+from testaddmoduletest2 import add
+from testaddmoduletest2.multiply import multiplication
