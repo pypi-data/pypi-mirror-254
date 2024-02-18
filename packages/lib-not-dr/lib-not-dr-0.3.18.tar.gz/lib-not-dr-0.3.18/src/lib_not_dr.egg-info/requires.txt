@@ -1,0 +1,7 @@
+
+[dev]
+twine
+
+[nuitka]
+tomli>=2.0.1
+nuitka
