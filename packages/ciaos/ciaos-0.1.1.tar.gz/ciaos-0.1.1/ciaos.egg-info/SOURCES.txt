@@ -1,0 +1,11 @@
+README.md
+setup.py
+ciaos/__init__.py
+ciaos/client.py
+ciaos.egg-info/PKG-INFO
+ciaos.egg-info/SOURCES.txt
+ciaos.egg-info/dependency_links.txt
+ciaos.egg-info/entry_points.txt
+ciaos.egg-info/requires.txt
+ciaos.egg-info/top_level.txt
+test/test.py
