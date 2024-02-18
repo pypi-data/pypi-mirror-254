@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "seguid_calculator"
+version = "2.0.0a2"
+description = "Gui for calculating seguid checksums for biological sequences."
+authors = ["BjornFJohansson <bjornjobb@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.12"
+wxPython = ">=4.0.0, <=4.2.1"
+seguid = ">=0.0.3"
+
+[tool.poetry-dynamic-versioning]
+enable = false
+[build-system]
+requires = "poetry-core"
