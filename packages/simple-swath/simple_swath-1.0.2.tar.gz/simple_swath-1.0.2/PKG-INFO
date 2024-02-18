@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: simple_swath
+Version: 1.0.2
+Summary: Module that provides tools to extract swath profile using a shapefile
+Home-page: https://github.com/robertxa/Simple_Swath
+Author: Xavier Robert
+Author-email: xavier.robert@ird.fr
+License: GPL-V3.0
+License-File: LICENCE.txt
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: gdal
+Requires-Dist: shapely
+Requires-Dist: rasterstats
+Requires-Dist: matplotlib
+Requires-Dist: matplotlib_scalebar
+Requires-Dist: alive_progress

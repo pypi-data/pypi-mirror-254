@@ -1,0 +1,16 @@
+LICENCE.txt
+LICENSE
+MANIFEST.in
+README.rst
+To_Do.txt
+setup.py
+simple_swath/__init__.py
+simple_swath/_version.py
+simple_swath/simple_swath.py
+simple_swath.egg-info/PKG-INFO
+simple_swath.egg-info/SOURCES.txt
+simple_swath.egg-info/dependency_links.txt
+simple_swath.egg-info/entry_points.txt
+simple_swath.egg-info/not-zip-safe
+simple_swath.egg-info/requires.txt
+simple_swath.egg-info/top_level.txt
