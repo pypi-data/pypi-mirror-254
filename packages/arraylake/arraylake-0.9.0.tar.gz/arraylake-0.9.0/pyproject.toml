@@ -1,0 +1,164 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry]
+name = "arraylake"
+version = "0.9.0"  # placeholder
+description = "Python client for ArrayLake"
+authors = ["Joe Hamman <joe@earthmover.io>"]
+readme = "README.md"
+packages = [{include = "arraylake"}]
+
+[tool.poetry-dynamic-versioning]
+enable = false
+vcs = "git"
+style = "pep440"
+strict = true
+
+
+# Poetry doesn't allows us to install min specified version, so we duplicate
+# from ci/client-install-min-deps.sh here
+# https://github.com/python-poetry/poetry/issues/3527#issuecomment-939549116
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+aiobotocore = { version = "^2.4.0", extras = ["boto3"]}
+boto3 = "^1.24"
+botocore = "^1.27"
+uvloop = { version = ">=0.17,<1.0", markers="os_name=='posix'", optional = true}
+zarr = ">=2.14,<=2.16"
+numcodecs = "!=0.12.0"
+numpy = "^1.20"
+donfig = ">=0.7,<1.0"
+pydantic = {extras = ["email"], version = "^2.3"}
+httpx = ">=0.23.0,<1.0"
+ruamel-yaml = { version = ">=0.17,<1.0" }
+typer = { version = ">=0.6.1,<1.0" }
+rich = { version = ">=12.6,<14.0" }
+cachetools = "^5.3.2"
+structlog = "^23.1.0"
+python-dateutil = "^2.8"
+click = { version = "^8.1" }
+aioitertools = "^0.11.0"
+fsspec = ">=2022.11.0"
+gcsfs = ">=2022.11"
+kerchunk = { version = ">=0.1,<1.0,!=0.2.1", optional = true }
+tifffile = { version = ">=2023.2.27", optional = true }
+h5py = { version = "^3.7.0", optional = true }
+s3fs = { version = ">=2022.11.0", optional = true }
+ipytree = { version = ">=0.2.2,<1.0", optional = true }
+xarray = { version = ">=v2022.12.0", optional = true }
+cfgrib = {version = "^0.9", optional = true}
+eccodes = {version = "^1.6", optional = true}
+ecmwflibs = {version = ">=0.5,<=0.5.1", optional = true}
+types-cachetools = "^5.3.0.7"
+
+[tool.poetry.group.dev.dependencies]
+boto3-stubs = "^1.34.30"
+pytest = "^7.3"
+pytest-cov = "^4.0.0"
+pytest-click = "^1.1.0"
+pytest-timeout = "^2.1.0"
+pytest-asyncio = "^0.21.1"
+pytest-reportlog = "^0.4.0"
+pooch = "^1.6.0"
+boto3 = "^1.28"
+respx = "^0.20.1"
+arraylake-mongo-metastore = {path = "../mongo-metastore", develop = true}
+hypothesis = "^6.88.1"
+mypy = "^1.6"
+pyyaml = "^6.0.1"
+types-pyyaml = "^6.0.12.12"
+types-python-dateutil = "^2.8.19.14"
+motor-types = "^1.0.0b3"
+types-urllib3 = "^1.26.25.14"
+s3fs = "^2023.12.2"
+cloudpickle = "^3.0.0"
+
+[tool.poetry.group.maximal]
+# By default, dependencies across all non-optional groups will be installed when executing poetry install.
+optional = false
+[tool.poetry.group.maximal.dependencies]
+netCDF4 = "^1.6.1"
+xarray = ">=2022.12.0"
+rioxarray = "^0.15"
+pandas = "^1.3"
+dask = "^2022.10.2"
+distributed = "^2022.10.2"
+scipy = "^1.10.1"
+cfgrib = "^0.9"
+eccodes = "^1.6"
+ecmwflibs = ">=0.5,<=0.5.1"
+ipdb = "^0.13.13"
+
+[tool.poetry.group.performance]
+# By default, dependencies across all non-optional groups will be installed when executing poetry install.
+optional = true
+
+[tool.poetry.group.performance.dependencies]
+locust = "^2.16.1"
+xarray = ">=2022.12.0"
+pandas = "^1.3"
+dask = "^2022.10.2"
+distributed = "^2022.10.2"
+
+[tool.poetry.scripts]
+arraylake = 'arraylake.cli.main:app'
+al = 'arraylake.cli.main:app'
+
+[tool.poetry.extras]
+virtual = ["kerchunk", "h5py", "s3fs", "tifffile", "cfgrib", "eccodes", "ecmwflibs"]
+widgets = ["ipytree"]
+xarray = ["xarray"]
+
+[tool.coverage.run]
+branch = true
+source = ["arraylake/*"]
+include = ["arraylake/*"]
+omit = ["tests/*", "**/__init__.py", "**/__main__.py", "arraylake/token.py", "arraylake/cli/auth.py"]
+
+[tool.coverage.report]
+include = ["arraylake/*"]
+
+[tool.pytest.ini_options]
+markers = ["slow: mark test as slow", "add_object_store: add object store backend to test"]
+norecursedirs = ["tests/helpers"]
+filterwarnings = [
+    'ignore:.*pkg_resources.*:DeprecationWarning',
+    'ignore:.*make_current is deprecated; start the event loop first.*:DeprecationWarning',
+    'ignore:.*no current event loop.*:DeprecationWarning',
+]
+asyncio_mode = "auto"
+
+
+[tool.mypy]
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+strict_equality = true
+extra_checks = true
+check_untyped_defs = true
+disallow_subclassing_any = true
+disallow_untyped_decorators = true
+#disallow_any_generics = true  #TODO
+exclude = [
+    '^tests/',  # TOML literal string (single-quotes, no escaping necessary)
+    '^flycheck_\.',  # for emacs
+]
+
+# TODO: mypy improvements for these
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module=[
+"aiobotocore.*",
+"botocore",
+"cfgrib.*",
+"donfig",
+"fsspec.*",
+"kerchunk.*",
+"ipytree",
+"s3fs",
+"types_aiobotocore_s3",
+"uvloop",
+"zarr.*",
+]
