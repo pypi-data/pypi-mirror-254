@@ -1,0 +1,141 @@
+Metadata-Version: 2.1
+Name: htrflow_cookie
+Version: 0.0.4
+Summary: A short description of the project
+Home-page: https://github.com/Swedish-National-Archives-AI-lab/htrflow_cookie
+License: MIT
+Author: Swedish-National-Archives-AI-lab
+Author-email: gabriel.borg@riksarkivet.se
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Dist: pandas
+Project-URL: Documentation, https://Swedish-National-Archives-AI-lab.github.io/htrflow_cookie
+Project-URL: Repository, https://github.com/Swedish-National-Archives-AI-lab/htrflow_cookie
+Description-Content-Type: text/markdown
+
+# htrflow_cookie
+
+[![PyPI](https://img.shields.io/pypi/v/htrflow_cookie?style=flat-square)](https://pypi.python.org/pypi/htrflow_cookie/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/htrflow_cookie?style=flat-square)](https://pypi.python.org/pypi/htrflow_cookie/)
+[![PyPI - License](https://img.shields.io/pypi/l/htrflow_cookie?style=flat-square)](https://pypi.python.org/pypi/htrflow_cookie/)
+
+---
+
+**Documentation**: [https://Swedish-National-Archives-AI-lab.github.io/htrflow_cookie](https://Swedish-National-Archives-AI-lab.github.io/htrflow_cookie)
+
+**Source Code**: [https://github.com/Swedish-National-Archives-AI-lab/htrflow_cookie](https://github.com/Swedish-National-Archives-AI-lab/htrflow_cookie)
+
+**PyPI**: [https://pypi.org/project/htrflow_cookie/](https://pypi.org/project/htrflow_cookie/)
+
+---
+
+A short description of the project
+
+## Installation
+
+```sh
+pip install htrflow_cookie
+```
+
+## Development
+
+- Clone this repository
+- Requirements:
+  - [Poetry](https://python-poetry.org/)
+  - Python 3.10+
+- Create a virtual environment and install the dependencies
+
+```sh
+poetry install
+```
+
+- Activate the virtual environment
+
+```sh
+poetry shell
+```
+
+### Testing
+
+Poetry provides a run command to execute the given command inside the project’s virtual environment. So execute the following command to run the tests:
+
+```sh
+poetry run pytest -v
+```
+
+And if your inside the virtual environment run:
+
+```sh
+pytest
+```
+
+---
+
+### Building the package
+
+For Poetry, the equivalent of `pip install -e` . (which is used to install a package in editable mode with pip) is to use the poetry install command in the root directory of the project.
+
+When you run `poetry install` in a project that is managed by Poetry, it installs the project's dependencies as well as the project itself in editable mode. This means that changes to the project's code will immediately affect the installed package without the need for reinstallation.
+
+> You can run poetry install whether you're inside the Poetry-created virtual environment (activated using poetry shell) or not. Poetry will handle the installation of the project in editable mode correctly in either case.
+
+---
+
+### Publish the Package
+
+But before you can publish your library, you need to package it with the build command:
+
+```sh
+poetry build
+```
+
+To publish your library, you will need to properly configure your PyPI credentials, as Poetry will publish the library to PyPI by default.
+
+```sh
+poetry config repositories.test-pypi https://test.pypi.org/legacy/
+```
+
+Configure key:
+
+```sh
+poetry config pypi-token.test-pypi pypi-<tokenv_value>
+```
+
+Once the library is packaged, you can use the publish command to publish it.
+
+```sh
+# Only `poetry publish` will push by default to pypi directly
+poetry publish -r test-pypi
+```
+
+MIT License
+
+Copyright (c) 2023 Borg93
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
