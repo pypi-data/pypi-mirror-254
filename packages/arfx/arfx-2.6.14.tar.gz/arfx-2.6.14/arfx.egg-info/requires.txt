@@ -1,0 +1,7 @@
+arf>=2.6.7
+ewave>=1.0.7
+tqdm
+natsort
+
+[test]
+pytest>=7.0
