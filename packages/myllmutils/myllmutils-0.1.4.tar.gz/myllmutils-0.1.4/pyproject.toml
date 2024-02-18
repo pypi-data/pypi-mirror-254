@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "MyLlmUtils"
+packages = [
+    { include = "MyLlmUtils" }
+]
+version = "0.1.4"
+description = ""
+authors = ["Ken Hu <ken.hu@hwacom.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+langchain = "^0.1.4"
+langchain-openai = "^0.0.5"
+pytest = "^8.0.0"
+langchain-community = "^0.0.16"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
