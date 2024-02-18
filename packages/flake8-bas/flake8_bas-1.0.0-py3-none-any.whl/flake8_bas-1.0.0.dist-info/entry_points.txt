@@ -1,0 +1,3 @@
+[flake8.extension]
+BAS=flake8_bas:StatementChecker
+
