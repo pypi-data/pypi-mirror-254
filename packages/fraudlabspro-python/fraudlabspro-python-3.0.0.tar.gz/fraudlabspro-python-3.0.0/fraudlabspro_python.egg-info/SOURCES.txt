@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+fraudlabspro/__init__.py
+fraudlabspro/fraudvalidation.py
+fraudlabspro/smsverification.py
+fraudlabspro_python.egg-info/PKG-INFO
+fraudlabspro_python.egg-info/SOURCES.txt
+fraudlabspro_python.egg-info/dependency_links.txt
+fraudlabspro_python.egg-info/top_level.txt
+tests/test_fraudvalidation.py
+tests/test_smsverification.py
