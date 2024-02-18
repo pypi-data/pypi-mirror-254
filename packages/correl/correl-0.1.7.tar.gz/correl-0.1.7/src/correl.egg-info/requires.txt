@@ -1,0 +1,8 @@
+numpy
+matplotlib
+scipy
+h5py
+
+[tests]
+pytest
+pytest-cov
