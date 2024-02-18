@@ -1,0 +1,5 @@
+[console_scripts]
+openplot=pickleplot.__main__:cli
+pickleplot=pickleplot.__main__:cli
+plotopen=pickleplot.__main__:cli
+

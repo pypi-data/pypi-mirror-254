@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pickleplot
+Version: 0.1.0
+Summary: Save and open matplotlib plots as compressed pickle files
+Author: Yann Büchau
+Author-email: nobodyinperson@posteo.de
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: braceexpand (>=0.1.7,<0.2.0)
+Requires-Dist: dill (>=0.3.8,<0.4.0)
+Requires-Dist: matplotlib (>3)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Requires-Dist: zstandard (>=0.22.0,<0.23.0)
+Description-Content-Type: text/markdown
+
+# `pickleplot` - store and open matplotlib figures as `pickle`d files
+
+...
+
