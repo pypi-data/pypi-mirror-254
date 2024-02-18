@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# enable version inference
+
+[tool.black]
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+extend-exclude = "src/auditwheel/_vendor"
+
+[tool.isort]
+py_version = 38
+profile = "black"
+extend_skip_glob = "src/auditwheel/_vendor/**/*.py"
+
+[tool.mypy]
+follow_imports = "silent"
+ignore_missing_imports = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "auditwheel._vendor.*"
+follow_imports = "skip"
+ignore_errors = true
