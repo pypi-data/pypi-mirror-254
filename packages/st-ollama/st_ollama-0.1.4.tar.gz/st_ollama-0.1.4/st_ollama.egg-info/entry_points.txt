@@ -1,0 +1,2 @@
+[console_scripts]
+ollachat = ollachat.cli:run_streamlit

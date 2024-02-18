@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+ollachat/__init__.py
+ollachat/agents.py
+ollachat/chatbot.py
+ollachat/chatbot_ar.py
+ollachat/cli.py
+ollachat/list_ollama_models.py
+st_ollama.egg-info/PKG-INFO
+st_ollama.egg-info/SOURCES.txt
+st_ollama.egg-info/dependency_links.txt
+st_ollama.egg-info/entry_points.txt
+st_ollama.egg-info/requires.txt
+st_ollama.egg-info/top_level.txt
