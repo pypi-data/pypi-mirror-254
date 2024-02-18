@@ -1,0 +1,10 @@
+setup.py
+jinsh/__init__.py
+jinsh/dboper.py
+jinsh/ociTool.py
+jinsh/tool.py
+jinsh.egg-info/PKG-INFO
+jinsh.egg-info/SOURCES.txt
+jinsh.egg-info/dependency_links.txt
+jinsh.egg-info/requires.txt
+jinsh.egg-info/top_level.txt
