@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "advik"
+version = "0.1.0"
+description = ""
+authors = ["Advik <adviksingh6632@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.21.0"
+
+[tool.poetry.scripts]
+advik = "advik:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
