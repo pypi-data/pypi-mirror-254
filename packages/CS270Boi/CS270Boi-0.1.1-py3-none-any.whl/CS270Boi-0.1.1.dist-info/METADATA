@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: CS270Boi
+Version: 0.1.1
+Summary: An awesome package for discussions.
+Home-page: http://pypi.python.org/pypi/CS270Boi/
+Author: Jake Cahoon
+Author-email: jacobbcahoon@gmail.com
+License: LICENSE.txt
+Description-Content-Type: text/markdown
+Requires-Dist: ipywidgets
+Requires-Dist: IPython
+
+I'll get around to doing this...
