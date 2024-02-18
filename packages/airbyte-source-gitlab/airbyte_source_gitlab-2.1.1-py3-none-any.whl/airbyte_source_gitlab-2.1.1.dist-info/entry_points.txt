@@ -1,0 +1,2 @@
+[console_scripts]
+source-gitlab = source_gitlab.run:run
