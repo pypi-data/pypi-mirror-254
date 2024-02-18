@@ -1,0 +1,13 @@
+cmake>=3.26
+numpy>=1.21
+numpydoc>=1.5
+scipy>=1.8
+matplotlib>=3
+Pillow>=8.1
+MDAnalysis>=2.4.0
+cython
+fabio
+pdb2pqr
+requests
+nglview
+emcee
