@@ -1,0 +1,8 @@
+airbyte-cdk
+vcrpy==4.1.1
+
+[tests]
+requests-mock~=1.9.3
+pytest~=6.1
+requests_mock
+pytest-mock
