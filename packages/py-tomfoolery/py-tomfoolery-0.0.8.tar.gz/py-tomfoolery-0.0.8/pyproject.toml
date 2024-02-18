@@ -1,0 +1,44 @@
+[build-system]
+requires = [
+    'setuptools>=61.2', 
+    'setuptools-scm'    
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-tomfoolery"
+version = "0.0.8"
+authors = [
+    {name = "Tom Krut"},
+]
+description = "SoundCloud / YouTube / Bandcamp downloader /w a GUI"
+keywords = ["soundcloud", "youtube", "bandcamp", "scraper", "downloader"]
+requires-python = ">=3.9"
+classifiers = [    
+    "Programming Language :: Python :: 3",
+]
+readme = {file = "README.md", content-type = "text/markdown"}
+dependencies = [
+    'PyQt6>=6.5.2',
+    'appdirs>=1.4.4',
+    'clint>=0.5.1',
+    'debugpy>=1.6.7',
+    'demjson3>=3.0.6',
+    'ffmpeg_python>=0.2.0',
+    'moviepy>=1.0.3',
+    'mutagen>=1.46.0',
+    'pathvalidate>=3.0.0',
+    'pytube>=15.0.0',
+    'Requests>=2.31.0',
+    'soundcloud_v2>=1.3.1',
+    'tqdm>=4.65.0'
+]
+
+[project.urls]
+Repository = "https://github.com/tomkrut/tomfoolery.git"
+
+[project.gui-scripts]
+tomfoolery = "tomfoolery.main:main"
+
+[tool.setuptools.package-data]
+"*" = ["*.png", "*.qss"]

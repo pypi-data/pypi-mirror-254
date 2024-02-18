@@ -1,0 +1,10 @@
+.vscode
+.idea
+*.egg-info*
+/build
+/dist
+*.DS_Store
+*.spec
+*.toml
+README.md
+__pycache__
