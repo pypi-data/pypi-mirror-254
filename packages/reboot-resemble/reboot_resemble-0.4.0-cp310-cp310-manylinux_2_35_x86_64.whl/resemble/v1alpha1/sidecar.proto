@@ -1,0 +1,229 @@
+syntax = "proto3";
+
+package resemble.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/descriptor.proto";
+import "resemble/v1alpha1/tasks.proto";
+
+////////////////////////////////////////////////////////////////////////
+
+message Actor {
+  string service = 1;
+  string actor_id = 2;
+  // We make 'state' explicitly optional because we use 'Actor' both as a way
+  // to identify an actor instance by the tuple (service, actor_id) and as a
+  // container for passing around the state associated with the actor identified
+  // by that tuple.
+  //
+  optional bytes state = 3;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+// Sidecar specific transaction message, not used by the 'Coordinator'
+// or 'Participant' services defined in 'transactions.proto'.
+message Transaction {
+  string service = 1;
+  string actor_id = 2;
+
+  bytes transaction_id = 3;
+
+  string coordinator_service = 4;
+  string coordinator_actor_id = 5;
+
+  // During recovery any transactions that were not prepared must
+  // abort because rocksdb only persists transactions that have been
+  // prepared.
+  //
+  // TODO(benh): consider a more robust approach in the future that
+  // persists each state update such that transactions can still be
+  // prepared/committed even after a participant restarts.
+  bool prepared = 6;
+
+  // Tasks that will need to be dispatched if the transaction commits.
+  repeated Task uncommitted_tasks = 7;
+
+  // Uncommitted idempotent mutations made within this transaction.
+  repeated IdempotentMutation uncommitted_idempotent_mutations = 8;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+message Task {
+  enum Status {
+    UNKNOWN = 0;
+    PENDING = 1;
+    COMPLETED = 2;
+  }
+
+  TaskId task_id = 1;
+  string method = 2;
+  Status status = 3;
+  bytes request = 4;  // Serialized proto message.
+  optional google.protobuf.Timestamp timestamp = 5;
+
+  // Invariant: response is empty until the Task status is COMPLETED, and
+  // reflects the returned method response once the Task status is COMPLETED
+  // (although that response might itself also be empty).
+  optional bytes response = 6;  // Serialized proto message.
+}
+
+////////////////////////////////////////////////////////////////////////
+
+// NOTE: "wrapper" message of all the transaction participants for
+// storing in database.
+message Participants {
+  message ActorIds {
+    repeated string actor_ids = 1;
+  }
+
+  map<string, ActorIds> participants = 1;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+message IdempotentMutation {
+  bytes key = 1;
+
+  // TODO(benh): also store the fully qualified method name so that we
+  // can detect user errors.
+  //
+  // string method = 2;
+
+  // TODO(benh): consider storing the service and actor as well to
+  // better detect user errors?
+
+  // TODO(benh): also include whether or not this mutation occurred
+  // within a transaction so we can detect user errors, e.g., we can
+  // raise a helpful error if a duplicate mutation is encountered
+  // where the original was performed within a transaction but the
+  // current one is not.
+
+  // TODO(benh): also store the request, or a hash of the request if
+  // that is smaller, so that we can validate when idempotent mutations
+  // are made with the same idempotency key but a different request.
+  //
+  // oneof request {
+  //   bytes request = 3;
+  //   bytes request_hash = 4;
+  // }
+
+  bytes response = 2;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+message LoadRequest {
+  // Invariant: actor's 'state' is expected to be unset.
+  repeated Actor actors = 1;
+  repeated TaskId task_ids = 2;
+}
+
+message LoadResponse {
+  // Invariant: actor's 'state' is expected to be set, although it may be empty.
+  repeated Actor actors = 1;
+  repeated Task tasks = 2;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+message StoreRequest {
+  // Invariant: actor's 'state' is expected to be set, although it may be empty.
+  repeated Actor actor_upserts = 1;
+  repeated Task task_upserts = 2;
+  optional Transaction transaction = 3;
+  optional IdempotentMutation idempotent_mutation = 4;
+  optional google.protobuf.FileDescriptorSet file_descriptor_set = 5;
+}
+
+message StoreResponse {}
+
+////////////////////////////////////////////////////////////////////////
+
+message RecoverRequest {}
+
+message RecoverResponse {
+  repeated Actor actors = 6;
+  repeated Task pending_tasks = 1;
+  repeated Transaction participant_transactions = 2;
+
+  // Transaction UUID -> Participants for every transaction that a
+  // coordinator completed the prepare phase of two phase commit.
+  //
+  // NOTE: because a map key can not be bytes we pass a stringified
+  // UUID where as other places we pass the UUID in its bytes form.
+  map<string, Participants> prepared_coordinator_transactions = 3;
+
+  repeated IdempotentMutation idempotent_mutations = 4;
+  optional google.protobuf.FileDescriptorSet file_descriptor_set = 5;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+message TransactionParticipantPrepareRequest {
+  string service = 1;
+  string actor_id = 2;
+}
+
+message TransactionParticipantPrepareResponse {}
+
+////////////////////////////////////////////////////////////////////////
+
+message TransactionParticipantCommitRequest {
+  string service = 1;
+  string actor_id = 2;
+}
+
+message TransactionParticipantCommitResponse {}
+
+////////////////////////////////////////////////////////////////////////
+
+message TransactionParticipantAbortRequest {
+  string service = 1;
+  string actor_id = 2;
+}
+
+message TransactionParticipantAbortResponse {}
+
+////////////////////////////////////////////////////////////////////////
+
+message TransactionCoordinatorPreparedRequest {
+  bytes transaction_id = 1;
+  Participants participants = 2;
+}
+
+message TransactionCoordinatorPreparedResponse {}
+
+////////////////////////////////////////////////////////////////////////
+
+// NOTE: This sidecar API expects each `ServerDeployment` to get its own
+// sidecar. If we want to allow two different consensuses for two different
+// `ServerDeployment`s to use the same sidecar, we will need to add
+// disambiguation for `ServerDeployment`-level information (such as encoded
+// `FileDescriptorSet`s).
+service Sidecar {
+  // Returns an actor state data, or empty data if no such actor yet
+  // exists.
+  rpc Load(LoadRequest) returns (LoadResponse);
+
+  // Stores the specified data.
+  rpc Store(StoreRequest) returns (StoreResponse);
+
+  // Returns state needed to recover the server after a potential restart.
+  rpc Recover(RecoverRequest) returns (RecoverResponse);
+
+  rpc TransactionParticipantPrepare(TransactionParticipantPrepareRequest)
+      returns (TransactionParticipantPrepareResponse);
+
+  rpc TransactionParticipantCommit(TransactionParticipantCommitRequest)
+      returns (TransactionParticipantCommitResponse);
+
+  rpc TransactionParticipantAbort(TransactionParticipantAbortRequest)
+      returns (TransactionParticipantAbortResponse);
+
+  rpc TransactionCoordinatorPrepared(TransactionCoordinatorPreparedRequest)
+      returns (TransactionCoordinatorPreparedResponse);
+}
+
+////////////////////////////////////////////////////////////////////////

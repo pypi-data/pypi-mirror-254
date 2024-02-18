@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+// To build this proto with bazel, the proto and bazel rule must be in the same
+// package, which means that the proto file must have a package declaration
+// matching the Bazel workspace's folder structure.
+package resemble.v1alpha1;
+
+import "google/protobuf/descriptor.proto";
+
+service PlacementPlanner {
+  rpc ListenForPlan(ListenForPlanRequest) returns (
+      stream ListenForPlanResponse);
+}
+
+message ListenForPlanRequest {}
+
+message ListenForPlanResponse {
+  PlanWithLocations plan_with_locations = 1;
+}
+
+message PlanWithLocations {
+  Plan plan = 1;
+  repeated ConsensusAddresses locations = 2;
+}
+
+message Plan {
+  // This version must strictly increase from plan to plan.
+  int64 version = 1;
+  repeated ServicePlan service_plans = 2;
+}
+
+message ServicePlan {
+  // The Resemble service that this ServicePlan describes.
+  string service_name = 1;
+  // A unique name of the initiating ServerConfig. When running in kubernetes,
+  // this will encode a combination of the namespace and object name of the
+  // server config. When running locally this may take on any unique value.
+  string server_config_unique_name = 2;
+
+  repeated PartitionAssignment partition_assignments = 3;
+}
+
+message PartitionAssignment {
+  Partition partition = 1;
+  string consensus_name = 2;
+}
+
+message Partition {
+  string first_key = 1;  // Inclusive. Empty string = begin.
+  string last_key = 2;   // Exclusive. Empty string = end.
+}
+
+message ConsensusAddresses {
+  // E.g. "c1234". Matches `PartitionAssignment.consensus_name` and
+  // `Consensus.consensus_name`.
+  string consensus_name = 1;
+  // All of the routable addresses for this consensus. There will be at least
+  // one, and possibly multiple (e.g. when there are multiple replicas for a
+  // consensus). All addresses are equally valid, and clients may pick any.
+  repeated ConsensusAddress addresses = 2;
+  // The kubernetes namespace in which the consensus lives. Unused if not on
+  // kubernetes.
+  string kubernetes_namespace = 3;
+}
+
+// TODO: consider consolidating with Respect's NetworkAddress?
+message ConsensusAddress {
+  // E.g. "c1234.mynamespace.svc.cluster.local", or "localhost".
+  string host = 1;
+  int32 port = 2;
+}
+
+// ISSUE(https://github.com/reboot-dev/respect/issues/1452): Replace proto
+// message Consensus with python object.
+message Consensus {
+  // E.g. "c1234". Matches `PartitionAssignment.consensus_name` and
+  // `ConsensusAddresses.consensus_name`.
+  string consensus_name = 1;
+
+  // Unused for local consensuses.
+  string container_image_name = 2;
+
+  // Unused for local consensuses.
+  string k8s_namespace = 3;
+
+  // A list of all the Resemble services this consensus is expected to serve.
+  // Unused for k8s.
+  repeated string service_names = 4;
+
+  // A `FileDescriptorSet` for this consensus' services.
+  google.protobuf.FileDescriptorSet file_descriptor_set = 5;
+}

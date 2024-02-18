@@ -1,0 +1,33 @@
+function envoy_on_request(request_handle)
+  -- Lua code generated from `routing_filter.lua.j2` template.
+  -- This follows internet wisdom, most notably:
+  --   https://medium.com/gojekengineering/how-not-to-write-an-envoy-lua-filter-51eeec71e9f0
+  -- And from that, most notably:
+  --   * We never use global (= not-explicitly-`local`) variables.
+  --   * We operate only on headers, and avoid reading the whole body of the request.
+  --   * We log only in case of errors.
+  --   * We do not hold references to anything returned by the `request_handle`.
+  -- Follows the following hardcoded (generated) routing table.
+  local consensus_id_by_service_name = {
+    {% for service_name, consensus_name in consensuses_by_service.items() %}
+    ["{{ service_name }}"] = "{{ consensus_name }}",
+    {% endfor %}
+  }
+  local service_name = request_handle:headers():get("x-resemble-service-name")
+  if service_name == nil then
+    print("Missing x-resemble-service-name")
+    request_handle:respond(
+      {[":status"] = "400"},
+      "ERROR: Missing required x-resemble-service-name header")
+  else
+    local consensus_id = consensus_id_by_service_name[service_name]
+    if consensus_id == nil then
+      print("Unknown x-resemble-service-name: " .. service_name)
+      request_handle:respond(
+        {[":status"] = "400"},
+        "ERROR: Invalid value " .. service_name .. " for x-resemble-service-name header")
+    else
+      request_handle:headers():add("x-resemble-consensus-id", consensus_id)
+    end
+  end
+end
