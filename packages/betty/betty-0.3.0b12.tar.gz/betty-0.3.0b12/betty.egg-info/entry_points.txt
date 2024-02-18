@@ -1,0 +1,13 @@
+[betty.extensions]
+betty.extension.CottonCandy = betty.extension.CottonCandy
+betty.extension.Demo = betty.extension.Demo
+betty.extension.Deriver = betty.extension.Deriver
+betty.extension.Gramps = betty.extension.Gramps
+betty.extension.HttpApiDoc = betty.extension.HttpApiDoc
+betty.extension.Maps = betty.extension.Maps
+betty.extension.Privatizer = betty.extension.Privatizer
+betty.extension.Trees = betty.extension.Trees
+betty.extension.Wikipedia = betty.extension.Wikipedia
+
+[console_scripts]
+betty = betty.cli:main
