@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+LatexToCNF/__init__.py
+LatexToCNF/__main__.py
+LatexToCNF/cnf_builder.py
+LatexToCNF/formula_validetor.py
+LatexToCNF/latex_parser.py
+LatexToCNF.egg-info/PKG-INFO
+LatexToCNF.egg-info/SOURCES.txt
+LatexToCNF.egg-info/dependency_links.txt
+LatexToCNF.egg-info/entry_points.txt
+LatexToCNF.egg-info/requires.txt
+LatexToCNF.egg-info/top_level.txt
