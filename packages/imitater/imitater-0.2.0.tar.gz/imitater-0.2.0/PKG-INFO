@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: imitater
+Version: 0.2.0
+Home-page: https://github.com/the-seeds/imitater
+Author: the-seeds
+License: Apache 2.0 License
+Keywords: LLM
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: sse-starlette
+Requires-Dist: infinity-emb[torch]
+Requires-Dist: openai>=1.5.0
+Requires-Dist: transformers>=4.37.2
+Requires-Dist: vllm>=0.3.0
+
+# Imitater
+
+[![GitHub Code License](https://img.shields.io/github/license/the-seeds/imitater)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/imitater)](https://pypi.org/project/imitater/)
+
+A unified language model server built upon [vllm](https://github.com/vllm-project/vllm) and [infinity](https://github.com/michaelfeil/infinity).
+
+## Usage
+
+### Install
+
+
+```bash
+pip install -U imitater
+```
+
+### Launch Server
+
+```bash
+python -m imitater.service.app -c config/example.yaml
+```
+
+> [!NOTE]
+> [Chat template](https://huggingface.co/docs/transformers/chat_templating) is required for the chat models.
+
+### Test Server
+
+```bash
+python tests/test_openai.py -c config/example.yaml
+```
