@@ -1,0 +1,22 @@
+{% assert tab in ("diff", "changelog") %}
+
+<div class="main">
+
+  <div class="main_sticky_header">
+    {% include "screens/git/form.jinja" %}
+    {% include "screens/git/nav_tabs.jinja" %}
+  </div>
+
+  {% if project_config.is_running_on_server %}
+    {% if error_message is none and left_revision is not none and right_revision is not none and left_revision|length > 0 and right_revision|length > 0 %}
+      <turbo-frame id="diff_result" src="/diff_result?tab={{ tab }}&left_revision={{ left_revision_urlencoded }}&right_revision={{ right_revision_urlencoded }}">
+      {% include "screens/git/skeleton.jinja" %}
+      </turbo-frame>
+    {% else %}
+      {% include "screens/git/legend.jinja" %}
+    {% endif %}
+  {% else %}
+    {% include "screens/git/frame_"~tab~"_result.jinja" %}
+  {% endif %}
+
+</div>
