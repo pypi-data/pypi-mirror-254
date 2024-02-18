@@ -1,0 +1,67 @@
+{% extends "page.html.j2" %}
+
+{% block container %}
+<div class="row mb-3">
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-9">
+        <h2>Last 30 days</h2>
+        {{ vega_direct("distance-last-30-days", distance_last_30_days_plot) }}
+    </div>
+    <div class="col-md-3">
+        <h2>Search activities</h2>
+        <form method="post" action="/search">
+            <input type="search" name="name" />
+            <input type="submit" class="button" />
+        </form>
+    </div>
+</div>
+
+
+<div class="row mb-3">
+    <div class="col">
+        <h2>Latest activities</h2>
+    </div>
+</div>
+
+<script>
+    function add_map(id, geojson) {
+        let map = L.map(`map-${id}`, {
+            fullscreenControl: true
+        })
+        L.tileLayer('/tile/color/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map)
+
+        let geojson_layer = L.geoJSON(geojson).addTo(map)
+        map.fitBounds(geojson_layer.getBounds())
+        return map
+    }
+</script>
+
+{% for activity_batch in latest_activities|batch(3) %}
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+    {% for elem in activity_batch %}
+    <div class="col">
+        <div class="card {{ '' if elem.activity.commute else 'border-primary' }}">
+            <div class="card-img-top" id="map-{{ elem.activity.id }}" style="height: 200px; width: 100%;"></div>
+            <script>
+                let map{{ elem.activity.id }} = add_map("{{ elem.activity.id }}", {{ elem.line_geojson | safe }})
+            </script>
+            <div class="card-body">
+                <a href="/activity/{{ elem.activity.id }}">
+                    <h5 class="card-title">{{ elem.activity["name"] }}</h5>
+                </a>
+                <p class="card-text">{{ elem.activity.kind }} with {{ (elem.activity.distance_km)|round(1) }} km in {{
+                    elem.activity.elapsed_time }}</p>
+                <p class="card-text"><small class="text-body-secondary">{{ elem.activity.start }}</small></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
