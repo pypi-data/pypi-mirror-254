@@ -1,0 +1,84 @@
+[tool.poetry]
+name = "asyncify"
+version = "0.10.0"
+description = "sync 2 async"
+license = "MIT"
+authors = ["jesse <jesse@dgi.com>"]
+repository = "https://github.com/dynamic-graphics-inc/dgpy-libs"
+homepage = "https://github.com/dynamic-graphics-inc/dgpy-libs/tree/main/libs/asyncify"
+readme = 'README.md'
+packages = [{ include = "asyncify", from = "." }]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Typing :: Typed",
+]
+keywords = ["async", "asyncify", "asyncio", "dgpy"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+funkify = ">=0.4.0"
+xtyping = ">=0.5.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.3"
+anyio = { extras = ["trio"], version = "^4.2.0" }
+xdoctest = ">=1.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+  "--doctest-modules",
+  "--disable-warnings",
+  "--cov-config=pyproject.toml",
+  "--ignore-glob=*/_meta.py",
+]
+xfail_strict = true
+filterwarnings = [
+  "error",
+  'ignore:"@coroutine" decorator is deprecated since Python 3\.8, use "async def" instead:DeprecationWarning',
+  "ignore::RuntimeWarning",
+  "ignore::pytest.PytestUnraisableExceptionWarning",
+]
+markers = ["asyncio", "anyio"]
+testpaths = ["asyncify", "tests"]
+
+[tool.coverage.run]
+source = ['asyncify']
+branch = true
+context = '${CONTEXT}'
+omit = ["**/__main__.py"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+exclude_lines = [
+  'pragma: no cover',
+  'raise NotImplementedError',
+  'if TYPE_CHECKING:',
+  '@overload',
+  '\(Protocol\):$',
+  'class BaseAsync:',
+  'if 0:',
+  'if False:',
+]
+
+[tool.coverage.paths]
+source = ['asyncify/']
+
+[tool.ruff]
+extend = "../../pyproject.toml"
