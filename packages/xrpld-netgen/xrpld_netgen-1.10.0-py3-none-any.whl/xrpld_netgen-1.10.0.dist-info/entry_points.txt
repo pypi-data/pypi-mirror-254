@@ -1,0 +1,4 @@
+[console_scripts]
+create-standalone=xrpld_netgen.cli.create_standalone:main
+xrpld-netgen=xrpld_netgen.cli:main
+
