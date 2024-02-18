@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: api-pipe
+Version: 1.0.23
+Summary: API Pipe
+Author: Rafael Roman Otero
+Author-email: rromanotero@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: httpx (>=0.26.0,<0.27.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Description-Content-Type: text/markdown
+
+## API pipe
