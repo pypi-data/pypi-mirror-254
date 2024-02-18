@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "numpydantic"
+version = "0.0.0"
+description = "Type and shape validation and serialization for numpy arrays in pydantic models"
+authors = ["sneakers-the-rat <sneakers-the-rat@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
