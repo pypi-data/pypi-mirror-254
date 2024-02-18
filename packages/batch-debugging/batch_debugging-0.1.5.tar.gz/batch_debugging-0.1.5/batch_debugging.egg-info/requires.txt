@@ -1,0 +1,10 @@
+httpx
+attrs
+boto3
+pulumi
+pulumi-gcp
+pulumi-command
+google-cloud-batch
+google-cloud-storage
+PyYAML
+google-cloud-core

@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: batch_debugging
+Version: 0.1.5
+Summary: A SDK that helps debug batch compute enviornments in AWS, GCP and Azure and Kubernetes
+Author: shahbaz mahmood
+Author-email: shahbazmahmooood@gmail.com
+License: MIT
+Keywords: conversion
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: httpx
+Requires-Dist: attrs
+Requires-Dist: boto3
+Requires-Dist: pulumi
+Requires-Dist: pulumi-gcp
+Requires-Dist: pulumi-command
+Requires-Dist: google-cloud-batch
+Requires-Dist: google-cloud-storage
+Requires-Dist: PyYAML
+Requires-Dist: google-cloud-core
+
+A package that makes it easier to debug issues with batch compute enviornments in GCP, AWS and Azure
