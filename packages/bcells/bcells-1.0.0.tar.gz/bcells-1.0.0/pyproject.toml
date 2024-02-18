@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bcells"
+version = "1.0.0"
+dependencies = [
+  "numpy",
+  "pandas",
+  "nd2",
+  "matplotlib",
+  "bm3d",
+  "scikit-image",
+  "cvxopt",
+  "scipy"
+]
+requires-python = ">=3.10"
+authors = [
+  {name = "Torben Maaß", email = "torben.maass@stud.uni-goettingen.de"},
+  {name = "Housen Li"}
+]
+description = "Analysis of videos of cells with respect to their change in brightness over time."
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+keywords = ["cell"]
+classifiers = [
+  "Programming Language :: Python",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+Repository = "https://gitlab.gwdg.de/torben.maass/bcells"
