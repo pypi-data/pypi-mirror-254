@@ -1,0 +1,2 @@
+[console_scripts]
+osemosys2iamc = osemosys2iamc.resultify:entry_point
