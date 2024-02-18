@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: rov-sent-api
+Version: 0.1.14
+Summary: 
+Author: Pablo Cano
+Author-email: pablo.cano@rovisen.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: certifi (>=2023.7.22,<2024.0.0)
+Requires-Dist: pytest (>=7.4.4,<8.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+
