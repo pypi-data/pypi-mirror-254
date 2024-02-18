@@ -1,0 +1,9 @@
+dmidecode/__init__.py,sha256=Mnu94RvPNHDjPQTwlfxJEgsca7ucT-v6ZKws8iLLPQQ,141
+dmidecode/decode.py,sha256=YPD08PVEnv7ssWOdtbQstat84UqxVUieKTIe3E0Z1aA,700
+dmidecode/parse.py,sha256=0Af73prQqcExcgLHNNRC_8EsyWksUi8do32WqXE7Rig,6432
+dmidecode/parse_test.py,sha256=ndTNHYEmZ3CHSTke2bP3V0H19XDRdTKqjbajJF1N9q4,10151
+dmidecode/tests/fixtures/dmidecode.txt,sha256=J-lh9x-V_ES9rVWsWPXyx57aRItN-MHEIxGnaQQO0Gw,4770
+py_dmidecode-0.1.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+py_dmidecode-0.1.3.dist-info/METADATA,sha256=YEz6pq8UW5N21A2ZAtN4gkJUvHpQXxDYcPdAcn0zLy4,2250
+py_dmidecode-0.1.3.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+py_dmidecode-0.1.3.dist-info/RECORD,,
