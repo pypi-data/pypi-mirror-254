@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/onnx_embedding_models/__init__.py
+src/onnx_embedding_models/model.py
+src/onnx_embedding_models/registry.py
+src/onnx_embedding_models.egg-info/PKG-INFO
+src/onnx_embedding_models.egg-info/SOURCES.txt
+src/onnx_embedding_models.egg-info/dependency_links.txt
+src/onnx_embedding_models.egg-info/requires.txt
+src/onnx_embedding_models.egg-info/top_level.txt
