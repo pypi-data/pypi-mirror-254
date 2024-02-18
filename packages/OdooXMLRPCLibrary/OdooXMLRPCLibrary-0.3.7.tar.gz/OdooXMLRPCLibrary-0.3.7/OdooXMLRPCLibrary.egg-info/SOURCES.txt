@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+OdooXMLRPCLibrary.egg-info/PKG-INFO
+OdooXMLRPCLibrary.egg-info/SOURCES.txt
+OdooXMLRPCLibrary.egg-info/dependency_links.txt
+OdooXMLRPCLibrary.egg-info/entry_points.txt
+OdooXMLRPCLibrary.egg-info/requires.txt
+OdooXMLRPCLibrary.egg-info/top_level.txt
+odoo_library/__init__.py
+odoo_library/create_rental.py
+odoo_library/res_partner.py
+odoo_library/sale_order.py
+tests/__init__.py
+tests/test_create_contact.py
+tests/test_odoo_library.py

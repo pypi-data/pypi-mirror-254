@@ -1,0 +1,6 @@
+[console_scripts]
+create_contact = OdooXMLRPCLibrary.ResPartnerModel:create_contact
+create_sale_order = OdooXMLRPCLibrary.SaleOrderModel:create_sale_order
+get_contact_data = OdooXMLRPCLibrary.ResPartnerModel:get_contact_data
+get_sale_order_data = OdooXMLRPCLibrary.SaleOrderModel:get_sale_order_data
+
