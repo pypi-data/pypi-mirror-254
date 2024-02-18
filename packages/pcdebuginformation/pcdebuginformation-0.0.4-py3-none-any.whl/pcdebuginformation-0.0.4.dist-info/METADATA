@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pcdebuginformation
+Version: 0.0.4
+Summary: This package will extract all the important details from linux system and create a report.
+Author-email: Ravi Nain <ravinain100@gmail.com>
+Project-URL: Homepage, https://github.com/qaravinain/hybridtoolkit
+Project-URL: Bug Tracker, https://github.com/qaravinain/hybridtoolkit/issues
+Project-URL: Linked In, https://www.linkedin.com/in/ravi-nain-2029691a0/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# hybridtoolkit
+
+## Greetings.
+Hello Reader,
+
+I am Ravi Nain. I have created this python package to retrieve system details quick and easy.
+This will be useful for developers who need to understand the system or IT guy who want to ensure the Operating system security.
+
+This ToolKit is designed to get quick information of Linux Distribution Systems.
+
+If you want to contribute please reach me in github issues or via my email (ravinain100@gmail.com)
+
+[Github Code](https://github.com/qaravinain/hybridtoolkit)
+
