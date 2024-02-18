@@ -1,0 +1,7 @@
+importlib-metadata
+PyQt6
+
+[testing]
+setuptools
+pytest
+pytest-cov
