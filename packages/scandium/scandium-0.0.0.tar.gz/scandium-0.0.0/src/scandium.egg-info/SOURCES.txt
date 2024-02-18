@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/scandium/__init__.py
+src/scandium/example.py
+src/scandium.egg-info/PKG-INFO
+src/scandium.egg-info/SOURCES.txt
+src/scandium.egg-info/dependency_links.txt
+src/scandium.egg-info/top_level.txt
