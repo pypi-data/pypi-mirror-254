@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+archivematica_tools/__init__.py
+archivematica_tools/_modidx.py
+archivematica_tools/api.py
+archivematica_tools/aws.py
+archivematica_tools/task.py
+archivematica_tools.egg-info/PKG-INFO
+archivematica_tools.egg-info/SOURCES.txt
+archivematica_tools.egg-info/dependency_links.txt
+archivematica_tools.egg-info/entry_points.txt
+archivematica_tools.egg-info/not-zip-safe
+archivematica_tools.egg-info/requires.txt
+archivematica_tools.egg-info/top_level.txt
