@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: make_moments
+Version: 1.0.6
+Summary: Development Status :: 1 - Beta
+Home-page: https://github.com/PeterKamphuis/make_moments
+Author: P. Kamphuis
+Author-email: peterkamphuisastronomy@gmail.com
+License: GNU GPL v3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.14
+Requires-Dist: omegaconf
+Requires-Dist: scipy
+Requires-Dist: astropy
+Requires-Dist: future-fstrings
+Requires-Dist: importlib_resources>=3.3.0
+Requires-Dist: importlib_metadata
+
+# make_moments
+A stand alone version of the pyFAT make_moments and create xv_diagram function. The function can be imported to your python code or you can run it by itself from command line after a pip install:
+
+  pip install make-moments
+
+
+For moment maps:
+
+use as:
+  make_moments filename=Cub.fits mask=mask.fits
+
+If the maps already exist add overwrite=True
+
+For an overview of the possible input type 'make_moments -e' to print the default yaml file.
+
+to configure setting from a yaml file
+
+  make_moments -c my_input_file.yml
+
+To use in python script:
+
+from make_moments.functions import moments
+
+And then use the moments() function
+
+For PV-diagrams:
+
+create_PV_diagram filename=Cub.fits PA=16.
+
+to configure setting from a yaml file
+
+  create_PV_diagram -c my_input_file.yml
+
+To use in python script:
+
+from make_moments.functions import pv_diagram
+
+And then use the pv_diagram() function
