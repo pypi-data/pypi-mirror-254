@@ -1,0 +1,171 @@
+Metadata-Version: 2.1
+Name: cs.app.playon
+Version: 20240201
+Summary: PlayOn facilities, primarily access to the download API. Includes a nice command line tool.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: Cameron Simpson <cs@cskk.id.au>
+License: GNU General Public License v3 or later (GPLv3+)
+Project-URL: URL, https://bitbucket.org/cameron_simpson/css/commits/all
+Keywords: python3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: text/markdown
+Requires-Dist: cs.cmdutils >=20240201
+Requires-Dist: cs.context >=20230331
+Requires-Dist: cs.deco >=20231129
+Requires-Dist: cs.fileutils >=20210731
+Requires-Dist: cs.lex >=20231018
+Requires-Dist: cs.logutils >=20230212
+Requires-Dist: cs.pfx >=20210731
+Requires-Dist: cs.progress >=20230401
+Requires-Dist: cs.resources >=20240201
+Requires-Dist: cs.result >=20231221
+Requires-Dist: cs.service-api >=20230703
+Requires-Dist: cs.sqltags >=20240201
+Requires-Dist: cs.threads >=20231129
+Requires-Dist: cs.units
+Requires-Dist: cs.upd >=20240201
+Requires-Dist: icontract
+Requires-Dist: requests
+Requires-Dist: typeguard
+
+PlayOn facilities, primarily access to the download API.
+Includes a nice command line tool.
+
+*Latest release 20240201*:
+* PlayOnCommand.cmd_dl: collapse dashes more reliably, restore the space squashing, make the downloads interruptable.
+* PlayOnCommand._list: sort each listing argument by recording id.
+
+## Function `main(argv=None)`
+
+Playon command line mode;
+see the `PlayOnCommand` class below.
+
+## Class `PlayOnAPI(cs.service_api.HTTPServiceAPI, cs.service_api.ServiceAPI, cs.resources.MultiOpenMixin, cs.context.ContextManagerMixin)`
+
+Access to the PlayOn API.
+
+## Class `PlayOnCommand(cs.cmdutils.BaseCommand)`
+
+Playon command line implementation.
+
+Command line usage:
+
+    Usage: playon subcommand [args...]
+
+        Environment:
+          PLAYON_USER               PlayOn login name, default from $EMAIL.
+          PLAYON_PASSWORD           PlayOn password.
+                                    This is obtained from .netrc if omitted.
+          PLAYON_FILENAME_FORMAT  Format string for downloaded filenames.
+                                    Default: {series_prefix}{series_episode_name}--{resolution}--{playon.ProviderID}--playon--{playon.ID}
+          PLAYON_TAGS_DBURL         Location of state tags database.
+                                    Default: ~/var/playon.sqlite
+
+        Recording specification:
+          an int        The specific recording id.
+          all           All known recordings.
+          downloaded    Recordings already downloaded.
+          expired       Recording which are no longer available.
+          pending       Recordings not already downloaded.
+          /regexp       Recordings whose Series or Name match the regexp,
+                        case insensitive.
+
+      Subcommands:
+        account
+          Report account state.
+        api suburl
+          GET suburl via the API, print result.
+        cds suburl
+          GET suburl via the content delivery API, print result.
+          Example subpaths:
+            content
+            content/provider-name
+        dl [-j jobs] [-n] [recordings...]
+          Download the specified recordings, default "pending".
+          -j jobs   Run this many downloads in parallel.
+                    The default is 2.
+          -n        No download. List the specified recordings.
+        downloaded recordings...
+          Mark the specified recordings as downloaded and no longer pending.
+        feature [feature_id]
+          List features.
+        help [-l] [subcommand-names...]
+          Print the full help for the named subcommands,
+          or for all subcommands if no names are specified.
+          -l  Long help even if no subcommand-names provided.
+        ls [-l] [recordings...]
+          List available downloads.
+          -l        Long listing: list tags below each entry.
+          -o format Format string for each entry.
+          Default format: {playon.ID} {playon.HumanSize} {resolution} {playon.Series} {playon.Name} {playon.ProviderID} {status:upper}
+        poll ...
+        q [-l] [recordings...]
+          List queued recordings.
+          -l        Long listing: list tags below each entry.
+          -o format Format string for each entry.
+          Default format: {playon.ID} {playon.Series} {playon.Name} {playon.ProviderID}
+        queue [-l] [recordings...]
+          List queued recordings.
+          -l        Long listing: list tags below each entry.
+          -o format Format string for each entry.
+          Default format: {playon.ID} {playon.Series} {playon.Name} {playon.ProviderID}
+        refresh [queue] [recordings]
+          Update the db state from the PlayOn service.
+        service [service_id]
+          List services.
+        shell
+          Run a command prompt via cmd.Cmd using this command's subcommands.
+
+## Class `PlayOnSQLTags(cs.sqltags.SQLTags, cs.tagset.BaseTagSets, cs.resources.MultiOpenMixin, cs.context.ContextManagerMixin, collections.abc.MutableMapping, collections.abc.Mapping, collections.abc.Collection, collections.abc.Sized, collections.abc.Iterable, collections.abc.Container, cs.deco.Promotable)`
+
+`SQLTags` subclass with PlayOn related methods.
+
+## Class `Recording(cs.sqltags.SQLTagSet, cs.obj.SingletonMixin, cs.tagset.TagSet, builtins.dict, cs.dateutils.UNIXTimeMixin, cs.lex.FormatableMixin, cs.lex.FormatableFormatter, string.Formatter, cs.mappings.AttrableMappingMixin)`
+
+An `SQLTagSet` with knowledge about PlayOn recordings.
+
+# Release Log
+
+
+
+*Release 20240201*:
+* PlayOnCommand.cmd_dl: collapse dashes more reliably, restore the space squashing, make the downloads interruptable.
+* PlayOnCommand._list: sort each listing argument by recording id.
+
+*Release 20230705*:
+DEFAULT_FILENAME_FORMAT: replace naive playon.Name with series_episode_name which is the name with leading series/episode info removed, honour in "playon dl".
+
+*Release 20230703*:
+* PlayOnAPI: features, feature, featured_image_url, service_image_url.
+* PlayOnCommand: new cmd_feature like cmd_service but for featured shows.
+* PlayOnAPI.suburl: infer _base_url from api_version if _base_url is None and api_version is provided.
+* Recording.is_downloaded: also check for a 'downloaded' tag, fallback for when the downloaded_path is empty.
+* PlayOnCommand.cmd_downloaded: add 'downloaded" tag to specified recordings.
+
+*Release 20230217*:
+* Move some core stuff off into cs.service_api.HTTPServiceAPI.
+* Move core Recording.is_stale() method to TagSet.is_stale(), leave override method behind.
+* Persist login tokens in a db for reuse while still fresh.
+* "playon dl": allow interrupting downloads.
+* Cleaner handling of playon.Name having a leading SNNeNN prefix.
+
+*Release 20221228*:
+* PlayOnAPI.suburl_data: progress reporting, raise on bad response, upgrade JSON error warning.
+* PlayOnAPI: use a common cookie jar across API calls.
+* PlayOnCommand: new "api" and "cds" API access subcommands.
+* PlayOnCommand._refresh_sqltags_data: bugfix "expired cache" logic.
+* PlayOnCommand: new "poll" subcommand reporting the API notifications response.
+
+*Release 20220311*:
+Bugfix criteria for refreshing the PlayOn state.
+
+*Release 20211212*:
+Initial release.
