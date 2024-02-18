@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: codeserializerlib
+Version: 1.0.0
+Summary: Python library for the code serializer
+Home-page: UNKNOWN
+Author: Tony Meissner
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: spacy
+Provides-Extra: dev
+Requires-Dist: spacy ; extra == 'dev'
+Requires-Dist: label-studio-ml ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-runner ; extra == 'dev'
+
+UNKNOWN
+
