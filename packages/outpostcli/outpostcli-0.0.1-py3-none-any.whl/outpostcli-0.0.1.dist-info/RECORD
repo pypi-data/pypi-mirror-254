@@ -1,0 +1,15 @@
+outpostcli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+outpostcli/cli.py,sha256=RmZpeiTCQguar2_fs5OAIRCMKYDpGRJroI1c-L0in9o,2524
+outpostcli/config_utils.py,sha256=hsOxd7PyLcV3qzKHIiAVRr8eOXwa0OdzmGBuAZm8xn0,1365
+outpostcli/constants.py,sha256=W3TO46yF0dBqjrc6bua3Sluv_oz2b8VDcghc2USIB-c,22
+outpostcli/core.py,sha256=RXubBqaZtGOHW4YNbWlyr7hZutuXPAz9b_WCdybMCOw,387
+outpostcli/exceptions.py,sha256=xALagRz-ggDMjLQFbp7JafWg8AfhEAqbnLfapm9fw_Q,97
+outpostcli/inference.py,sha256=KqmJEv8FEKT18B90gWWGQ0y5CsPXmLbxihRyhPLC8og,2108
+outpostcli/inferences.py,sha256=NOAVFz4EFKGvl5u8tTciCMC80vbrwkvRlcpMt9LnqMk,3443
+outpostcli/utils.py,sha256=Zibh_Ce0dr0ZeOG4zrAgr3pCzfwWxo3AKHXBFJCnFAU,1878
+outpostcli-0.0.1.dist-info/LICENSE,sha256=ik0UpJDZmTrM6ImPYErFDBcefRPSD_ArxZhd9WVQ9dU,1082
+outpostcli-0.0.1.dist-info/METADATA,sha256=W-ucDn5qee9W89_hXi6o4J7UCR31qdLPmI-O9Yt0C9Y,2635
+outpostcli-0.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+outpostcli-0.0.1.dist-info/entry_points.txt,sha256=8mmlRV-UY1KIiG0nHmcCfkDrsWx8MMaLAhu3055KusU,57
+outpostcli-0.0.1.dist-info/top_level.txt,sha256=mm2p7C8ttN8OyssbI8skNCHoWKcDlZrOpdqHWAQileg,11
+outpostcli-0.0.1.dist-info/RECORD,,
