@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: dj-mpesa-payment
+Version: 1.0.0
+Requires-Dist: Django
+Requires-Dist: django-phonenumber-field
+Requires-Dist: phonenumbers
+Requires-Dist: python-dateutil
+Requires-Dist: requests
