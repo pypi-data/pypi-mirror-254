@@ -1,0 +1,12 @@
+[Unit]
+Description=Service that runs nidibot
+After=network.service
+
+[Service]
+Type=simple
+Restart=no
+User=root
+ExecStart=/user/bin/python3 /home/nidibot/start_bot.py
+
+[Install]
+WantedBy=multi-user.target
