@@ -1,0 +1,21 @@
+Producing import graphs listing all imported names
+==================================================
+
+findimports can produce a detailed list of all imported names
+
+    >>> from findimports import main
+    >>> exitcode = main(['findimports', '--names', sample_tree])
+    apple:
+      os
+      os.path
+      sys
+      sys
+    box.__init__:
+    <BLANKLINE>
+    box.cat:
+      gc
+      yarn
+    box.yarn:
+    <BLANKLINE>
+    orange:
+      gc
