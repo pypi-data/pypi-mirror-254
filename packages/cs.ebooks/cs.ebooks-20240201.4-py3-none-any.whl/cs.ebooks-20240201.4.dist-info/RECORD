@@ -1,0 +1,15 @@
+lib/python/cs/ebooks/__init__.py,sha256=ykTxY9uiviCY_V63wLWZSRWiiKzq0BjsTXNLZm0OvbI,12122
+lib/python/cs/ebooks/__main__.py,sha256=DHUqYNx_u3lSVnHIToJDOuuUR2zZ3Uk8AyrIOkjqSzo,771
+lib/python/cs/ebooks/apple.py,sha256=cRiVOfk94sAHplCVNJf4lQkjA5KiBnA8eQuFbmjNHfg,8225
+lib/python/cs/ebooks/calibre.py,sha256=ofrosARZJuwWX7QmeNH4dRbgpIfmuUsPa2ICkw5FrLE,60690
+lib/python/cs/ebooks/cbz.py,sha256=dJJHfWJyTJT3h1neANup3Wij_jAeoE_nUYEzsH5qeQM,2315
+lib/python/cs/ebooks/dedrm.py,sha256=Hslyfv7y3CL3tWvu08bJk9yItBuUbcwcP07kDI36X6Q,21232
+lib/python/cs/ebooks/kindle.py,sha256=jmQfjdIdDkmEoYwlpnYshn3zWChdLd8mHo66AtMmaD0,28777
+lib/python/cs/ebooks/kobo.py,sha256=Evy3PPiH-AbSCftYitl2IqkUsEFdvdsGaVO36It1oLQ,14279
+lib/python/cs/ebooks/mobi.py,sha256=LgVf9F5LYU2k-XO0txdX6r3guXZFjHtznGAsKihS2A0,5018
+lib/python/cs/ebooks/pdf.py,sha256=v-BLaijmsH3qpu8WpQhB1RnyO3NWtzbz5r_zTVBQIf4,46038
+cs.ebooks-20240201.4.dist-info/METADATA,sha256=lrdoGA5t5XYz7OqvaNH5CibB8Suefa6Rklt2Ii6arxk,14910
+cs.ebooks-20240201.4.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+cs.ebooks-20240201.4.dist-info/entry_points.txt,sha256=xz3YuDtpcHzoS_6wsgsT_ECeQBEUkD0F6_8fkhdM0Os,51
+cs.ebooks-20240201.4.dist-info/top_level.txt,sha256=oyXcrLgLICoBS0ILk_wZBhkAAY-M4hbQoMsA1hDsf5c,4
+cs.ebooks-20240201.4.dist-info/RECORD,,
