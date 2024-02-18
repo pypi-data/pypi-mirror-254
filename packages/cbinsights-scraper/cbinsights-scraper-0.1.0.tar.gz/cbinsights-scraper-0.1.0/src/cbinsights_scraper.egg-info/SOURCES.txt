@@ -1,0 +1,9 @@
+setup.py
+src/cbinsights_scraper.egg-info/PKG-INFO
+src/cbinsights_scraper.egg-info/SOURCES.txt
+src/cbinsights_scraper.egg-info/dependency_links.txt
+src/cbinsights_scraper.egg-info/requires.txt
+src/cbinsights_scraper.egg-info/top_level.txt
+src/cbinsigths/CBInsights.py
+src/cbinsigths/__init__.py
+src/cbinsigths/utils.py
