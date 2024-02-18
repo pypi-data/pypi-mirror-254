@@ -1,0 +1,2 @@
+[console_scripts]
+source-smartsheets = source_smartsheets.run:run
