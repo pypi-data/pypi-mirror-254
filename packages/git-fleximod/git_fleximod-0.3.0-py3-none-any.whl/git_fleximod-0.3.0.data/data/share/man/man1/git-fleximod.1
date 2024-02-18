@@ -1,0 +1,59 @@
+.TH GIT\-FLEXIMOD "1" "2024\-02\-02" "git\-fleximod 0.3.0" "Generated Python Manual"
+.SH NAME
+git\-fleximod
+.SH SYNOPSIS
+.B git\-fleximod
+[-h] [-C PATH] [-g [GITMODULES]] [-x [EXCLUDE ...]] [-f] [-o] [-v] [-V] [--backtrace] [-d] {update,checkout,status,test} [components ...]
+.SH DESCRIPTION
+    %(prog)s manages checking out groups of gitsubmodules with addtional support for Earth System Models
+    
+
+.TP
+\fB{update,checkout,status,test}\fR
+Subcommand of fleximod, choices are ['update', 'checkout', 'status']
+
+.TP
+\fBcomponents\fR
+Specific component(s) to checkout. By default, all required submodules are checked out.
+
+.SH OPTIONS
+.TP
+\fB\-C\fR \fI\,PATH\/\fR, \fB\-\-path\fR \fI\,PATH\/\fR
+Toplevel repository directory.  Defaults to top git directory relative to current.
+
+.TP
+\fB\-g\fR \fI\,[GITMODULES]\/\fR, \fB\-\-gitmodules\fR \fI\,[GITMODULES]\/\fR
+The submodule description filename. Default: .gitmodules.
+
+.TP
+\fB\-x\fR \fI\,[EXCLUDE ...]\/\fR, \fB\-\-exclude\fR \fI\,[EXCLUDE ...]\/\fR
+Component(s) listed in the gitmodules file which should be ignored.
+
+.TP
+\fB\-f\fR, \fB\-\-force\fR
+Override cautions and update or checkout over locally modified repository.
+
+.TP
+\fB\-o\fR, \fB\-\-optional\fR
+By default only the required submodules are checked out. This flag will also checkout the optional submodules relative to the toplevel directory.
+
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Output additional information to the screen and log file. This flag can be used up to two times, increasing the verbosity level each time.
+
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Print version and exit.
+
+.TP
+\fB\-\-backtrace\fR
+DEVELOPER: show exception backtraces as extra debugging output
+
+.TP
+\fB\-d\fR, \fB\-\-debug\fR
+DEVELOPER: output additional debugging information to the screen and log file.
+
+.SH AUTHOR
+.nf
+Jim Edwards
+.fi
