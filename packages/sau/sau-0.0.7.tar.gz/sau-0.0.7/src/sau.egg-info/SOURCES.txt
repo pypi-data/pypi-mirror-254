@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/sau/__init__.py
+src/sau/__main__.py
+src/sau.egg-info/PKG-INFO
+src/sau.egg-info/SOURCES.txt
+src/sau.egg-info/dependency_links.txt
+src/sau.egg-info/requires.txt
+src/sau.egg-info/top_level.txt
+tests/test_sau.py
