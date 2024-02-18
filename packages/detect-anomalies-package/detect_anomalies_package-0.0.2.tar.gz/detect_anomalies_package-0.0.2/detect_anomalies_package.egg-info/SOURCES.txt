@@ -1,0 +1,10 @@
+setup.py
+detect_anomalies_package/__init__.py
+detect_anomalies_package/detect_anomalies.py
+detect_anomalies_package.egg-info/PKG-INFO
+detect_anomalies_package.egg-info/SOURCES.txt
+detect_anomalies_package.egg-info/dependency_links.txt
+detect_anomalies_package.egg-info/requires.txt
+detect_anomalies_package.egg-info/top_level.txt
+tests/__init__.py
+tests/test_detect_anomalies.py
