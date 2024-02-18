@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "DiscordSR"
+version = "0.1.5"
+authors = [
+  { name="IQminecraft", email="admin@iqminecraft.net" },
+]
+description = "This library allows http requests to Discord to be simplified."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+
+]
+
+[project.urls]
+Discrd = "https://discord.gg/jpKJTpDpN4"
+issues = "https://github.com/IQminecraft/DiscordSR/issues"
+Author-Homepage = "https://iqminecraft.net"

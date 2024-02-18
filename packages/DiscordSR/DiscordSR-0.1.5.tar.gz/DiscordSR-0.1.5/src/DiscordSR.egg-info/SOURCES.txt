@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/DiscordSR/__init__.py
+src/DiscordSR/guild.py
+src/DiscordSR/mode.py
+src/DiscordSR/other.py
+src/DiscordSR/user.py
+src/DiscordSR/webhook.py
+src/DiscordSR.egg-info/PKG-INFO
+src/DiscordSR.egg-info/SOURCES.txt
+src/DiscordSR.egg-info/dependency_links.txt
+src/DiscordSR.egg-info/top_level.txt
