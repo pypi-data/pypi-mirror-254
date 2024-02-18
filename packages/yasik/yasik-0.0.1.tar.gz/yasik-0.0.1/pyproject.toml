@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "yasik"
+version = "0.1.0"
+description = ""
+authors = ["Ruslan Shaiakhmetov <ruslan.shaiakhmetov@unibo.it>"]
+readme = "README.md"
+packages = [{include = "yasik"}]
+
+[tool.poetry.dependencies]
+python = "^3.9.13"
+antlr4-python3-runtime = "4.13.1"
+flake8 = "7.0.0"
+numpy = "^1.26.2"
+pytest = "^7.4.3"
+pyyaml = "^6.0.1"
+treelib = "^1.7.0"
+twine = "^4.0.2"
+
+[tool.poetry.build]
+generate-setup-file = false
+script = "pre_build.py"
+
+[build-system]
+requires = ["poetry-core", "pyyaml"]
+build-backend = "poetry.core.masonry.api"
