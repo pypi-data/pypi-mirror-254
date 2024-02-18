@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: myre
+Version: 0.0.6
+Summary: Human Readable Regular Expression
+Home-page: https://github.com/blurhead/myre
+License: MIT
+Author: blurhead
+Author-email: blurhead@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: typing-extensions (>=4.9.0,<5.0.0)
+Project-URL: Repository, https://github.com/blurhead/myre
+Description-Content-Type: text/markdown
+
+# myre
+Another Way To Write Regular Expression.
+
