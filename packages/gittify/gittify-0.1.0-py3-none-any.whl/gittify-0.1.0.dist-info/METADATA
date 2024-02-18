@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: gittify
+Version: 0.1.0
+Requires-Dist: beautifish
+Requires-Dist: pywin32
+Requires-Dist: ctypes
+
