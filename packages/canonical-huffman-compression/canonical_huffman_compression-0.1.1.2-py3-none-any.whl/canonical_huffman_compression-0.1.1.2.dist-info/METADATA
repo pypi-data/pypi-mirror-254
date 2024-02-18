@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: canonical-huffman-compression
+Version: 0.1.1.2
+Summary: A package for canonical Huffman compression
+Home-page: https://github.com/craigwatkins/Huffman-Compression
+Author: Craig Watkins
+Author-email: craigwatkinsdev@gmail.com
+License: MIT
+Keywords: huffman compression canonical
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Canonical Huffman-Compression
+
+I created this code because I wanted an implementation of the Huffman algorithm that I couldn't find in python. It uses canonical code and saves the Huffman code dictionary with a combination of sorted symbols and the number occurrences for each code length. This is ideal for situations where the number of symbols used is significantly smaller than the number of possible symbols.
+
+In addition to the Huffman compression/decompression, it allows for the saving and loading of compressed files. The data input must be formatted as a list of integers. 
+
+TO USE:
+Start off with huffman_demo.py. I believe the implementation is fairly straightforward
+
+
+
