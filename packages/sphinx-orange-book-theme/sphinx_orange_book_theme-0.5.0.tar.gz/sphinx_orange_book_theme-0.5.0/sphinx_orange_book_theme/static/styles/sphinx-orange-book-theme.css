@@ -1,0 +1,24 @@
+/* ****************************************************************************
+ * Customization of sphinx-book-theme.
+ * Reference: https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/styling.html
+ *************************************************************************** */
+
+@import url("sphinx-book-theme.css");
+@import url("sphinx-orange-book-theme-colors.css");
+
+/* ****************************************************************************
+   * Font sizes
+   *************************************************************************** */
+html {
+  --pst-font-size-h1: 2.5rem;
+  --pst-font-size-h2: 2.2rem;
+  --pst-font-size-h3: 1.6rem;
+  --pst-font-size-h4: 1.3rem;
+  --pst-font-size-h5: 1.2rem;
+  --pst-font-size-h6: 1.1rem;
+}
+/* Difference of h1 and h2 in font sizes is small, so add a border line. */
+article section h1 {
+  border-bottom: thin solid var(--pst-color-border);
+  padding-bottom: 0.7rem;
+}
