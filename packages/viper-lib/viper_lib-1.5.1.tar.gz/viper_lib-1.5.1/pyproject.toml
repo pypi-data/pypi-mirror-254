@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "viper_lib"
+version = "1.5.1"
+authors = [
+  { name="Vincent Raulin", email="vincent.raulin.n7@gmail.com" },
+]
+description = "A Python library full of useful Python tools."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.hatch.build]
+exclude = [
+  "/Viper/test"
+]
+include = [
+  "/Viper",
+  "/LICENSE",
+  "/README.md",
+  "Viper.pth"
+]
+
+[project.urls]
+"Repository" = "https://github.com/MrVoustache/Viper"
+"Bug Tracker" = "https://github.com/MrVoustache/Viper/issues"
