@@ -1,0 +1,2 @@
+[console_scripts]
+visarch = visarchpy.cli.main:app
