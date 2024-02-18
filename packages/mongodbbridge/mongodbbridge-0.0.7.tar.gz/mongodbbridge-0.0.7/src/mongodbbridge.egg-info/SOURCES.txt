@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/mongodbbridge/__init__.py
+src/mongodbbridge/mongo_main.py
+src/mongodbbridge.egg-info/PKG-INFO
+src/mongodbbridge.egg-info/SOURCES.txt
+src/mongodbbridge.egg-info/dependency_links.txt
+src/mongodbbridge.egg-info/requires.txt
+src/mongodbbridge.egg-info/top_level.txt
