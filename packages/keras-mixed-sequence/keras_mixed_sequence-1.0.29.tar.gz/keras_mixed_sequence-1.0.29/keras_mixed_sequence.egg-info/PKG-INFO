@@ -1,0 +1,178 @@
+Metadata-Version: 2.1
+Name: keras-mixed-sequence
+Version: 1.0.29
+Summary: Lazily loading mixed sequences using Keras Sequence, focused on multi-task models.
+Home-page: https://github.com/LucaCappelletti94/keras_mixed_sequence
+Author: Luca Cappelletti
+Author-email: cappelletti.luca94@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >3.5.2
+Provides-Extra: test
+License-File: LICENSE
+
+keras_mixed_sequence
+=========================================================================================
+|pip| |downloads|
+
+Lazily loading mixed sequences using Keras Sequence,
+focused on multi-task models.
+
+How do I install this package?
+----------------------------------------------
+As usual, just download it using pip:
+
+.. code:: shell
+
+    pip install keras_mixed_sequence
+
+
+Usage examples
+----------------------------------------------
+
+Example for traditional single-task models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+First of all let's create a simple single-task model:
+
+.. code:: python
+
+    from tensorflow.keras.layers import Dense
+    from tensorflow.keras.models import Sequential
+
+    model = Sequential([
+        Dense(1, activation="relu")
+    ])
+    model.compile(
+        optimizer="nadam",
+        loss="relu"
+    )
+
+Then we proceed to load or otherwise create the training data.
+Here there will be listed, in the future, some custom
+Sequence objects that have been created for the purpose
+of being used alongside this library.
+
+.. code:: python
+
+    X = either_a_numpy_array_or_sequence_for_input
+    y = either_a_numpy_array_or_sequence_for_output
+
+Now we combine the training data using the MixedSequence
+object.
+
+.. code:: python
+
+    from keras_mixed_sequence import MixedSequence
+
+    sequence = MixedSequence(
+        X, y,
+        batch_size=batch_size
+    )
+
+Finally, we can train the model:
+
+.. code:: python
+
+    from multiprocessing import cpu_count
+
+    model.fit_generator(
+        sequence,
+        steps_per_epoch=sequence.steps_per_epoch,
+        epochs=2,
+        verbose=0,
+        use_multiprocessing=True,
+        workers=cpu_count(),
+        shuffle=True
+    )
+
+
+Example for multi-task models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+First of all let's create a simple multi-taks model:
+
+.. code:: python
+
+    from tensorflow.keras.models import Model
+    from tensorflow.keras.layers import Dense, Input
+
+    inputs = Input(shape=(10,))
+
+    output1 = Dense(
+        units=10,
+        activation="relu",
+        name="output1"
+    )(inputs)
+    output2 = Dense(
+        units=10,
+        activation="relu",
+        name="output2"
+    )(inputs)
+
+    model = Model(
+        inputs=inputs,
+        outputs=[output1, output2],
+        name="my_model"
+    )
+
+    model.compile(
+        optimizer="nadam",
+        loss="MSE"
+    )
+
+Then we proceed to load or otherwise create the training data.
+Here there will be listed, in the future, some custom
+Sequence objects that have been created for the purpose
+of being used alongside this library.
+
+.. code:: python
+
+    X = either_a_numpy_array_or_sequence_for_input
+    y1 = either_a_numpy_array_or_sequence_for_output1
+    y2 = either_a_numpy_array_or_sequence_for_output2
+
+Now we combine the training data using the MixedSequence
+object.
+
+.. code:: python
+
+    from keras_mixed_sequence import MixedSequence
+
+    sequence = MixedSequence(
+        x=X,
+        y={
+            "output1": y1,
+            "output2": y2
+        },
+        batch_size=batch_size
+    )
+
+Finally, we can train the model:
+
+.. code:: python
+
+    from multiprocessing import cpu_count
+
+    model.fit_generator(
+        sequence,
+        steps_per_epoch=sequence.steps_per_epoch,
+        epochs=2,
+        verbose=0,
+        use_multiprocessing=True,
+        workers=cpu_count(),
+        shuffle=True
+    )
+
+
+.. |pip| image:: https://badge.fury.io/py/keras-mixed-sequence.svg
+    :target: https://badge.fury.io/py/keras-mixed-sequence
+    :alt: Pypi project
+
+.. |downloads| image:: https://pepy.tech/badge/keras-mixed-sequence
+    :target: https://pepy.tech/badge/keras-mixed-sequence
+    :alt: Pypi total project downloads
+
+
+
