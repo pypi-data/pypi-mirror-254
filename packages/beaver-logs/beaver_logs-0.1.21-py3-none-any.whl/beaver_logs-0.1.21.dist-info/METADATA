@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: beaver_logs
+Version: 0.1.21
+Summary: Client package for python logging with beaver logs
+Project-URL: Homepage, https://github.com/beaver-logs
+Author-email: Will Priebe <wpriebe16124@gmail.com>
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# beaver_logs
