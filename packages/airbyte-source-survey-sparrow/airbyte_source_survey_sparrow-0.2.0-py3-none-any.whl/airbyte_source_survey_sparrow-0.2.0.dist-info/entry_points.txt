@@ -1,0 +1,2 @@
+[console_scripts]
+source-survey-sparrow = source_survey_sparrow.run:run
