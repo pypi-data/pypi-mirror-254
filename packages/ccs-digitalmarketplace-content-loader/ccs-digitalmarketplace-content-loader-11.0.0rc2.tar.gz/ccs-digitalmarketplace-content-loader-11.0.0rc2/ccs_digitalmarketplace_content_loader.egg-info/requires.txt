@@ -1,0 +1,5 @@
+Flask<3,>=2.0
+Markdown<4.0.0,>=3.0.0
+PyYAML<7.0,>=5.1.2
+inflection<1.0.0,>=0.3.1
+ccs-digitalmarketplace-utils>=65.0.0rc1
