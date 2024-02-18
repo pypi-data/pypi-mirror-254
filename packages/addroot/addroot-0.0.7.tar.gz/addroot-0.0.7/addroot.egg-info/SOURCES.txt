@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+addroot/__init__.py
+addroot/_modidx.py
+addroot/addgitroot.py
+addroot.egg-info/PKG-INFO
+addroot.egg-info/SOURCES.txt
+addroot.egg-info/dependency_links.txt
+addroot.egg-info/entry_points.txt
+addroot.egg-info/not-zip-safe
+addroot.egg-info/requires.txt
+addroot.egg-info/top_level.txt
