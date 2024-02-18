@@ -1,0 +1,20 @@
+[tool.pdm]
+
+[project]
+name = "python-conjure"
+version = "0.1.0"
+description = "Conjure AI's Python SDK"
+authors = [
+    {name = "Conjure AI", email = "kyle@conjure-ai.com"},
+]
+dependencies = [
+    "pydantic>=2.6.0",
+    "httpx>=0.26.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+conjure/__init__.py
+conjure/conjure_client.py
+conjure/models/__init__.py
+conjure/models/annotation/__init__.py
+conjure/models/annotation/bounding_box.py
+conjure/models/annotation/classification.py
+conjure/models/annotation/object_detection.py
+python_conjure.egg-info/PKG-INFO
+python_conjure.egg-info/SOURCES.txt
+python_conjure.egg-info/dependency_links.txt
+python_conjure.egg-info/requires.txt
+python_conjure.egg-info/top_level.txt
