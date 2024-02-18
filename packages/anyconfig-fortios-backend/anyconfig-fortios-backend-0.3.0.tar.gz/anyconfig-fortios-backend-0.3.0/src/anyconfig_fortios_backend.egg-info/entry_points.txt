@@ -1,0 +1,5 @@
+[anyconfig_backends]
+fortios.fortios = anyconfig_fortios_backend:Parser
+
+[anyconfig_loaders]
+fortios.fortios = anyconfig_fortios_backend:Loader
