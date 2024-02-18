@@ -1,0 +1,2 @@
+[console_scripts]
+owaspzaphistoricparser = owasp_zap_historic_parser.runner:main
