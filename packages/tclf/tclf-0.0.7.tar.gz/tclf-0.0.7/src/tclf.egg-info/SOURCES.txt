@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/tclf/__init__.py
+src/tclf/classical_classifier.py
+src/tclf/types.py
+src/tclf.egg-info/PKG-INFO
+src/tclf.egg-info/SOURCES.txt
+src/tclf.egg-info/dependency_links.txt
+src/tclf.egg-info/requires.txt
+src/tclf.egg-info/top_level.txt
+tests/test_classical_classifier.py
