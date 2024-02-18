@@ -1,0 +1,54 @@
+packaging
+ruamel.yaml
+
+[:python_version < "3.8"]
+typing_extensions
+
+[all]
+conda-lock
+conda-package-handling
+pytest
+GitPython
+rich-argparse
+pip-tools
+
+[all:python_version < "3.11"]
+tomli
+
+[conda-lock]
+conda-lock
+conda-package-handling
+
+[docs]
+myst-parser
+sphinx
+furo
+emoji
+sphinx-autodoc-typehints
+
+[pip-compile]
+pip-tools
+
+[pytest]
+pytest
+GitPython
+
+[rich]
+rich-argparse
+
+[test]
+tomli_w
+pytest
+pre-commit
+coverage
+pytest-cov
+pytest-mock
+conda-package-handling
+
+[test:python_version < "3.11"]
+tomli
+
+[toml]
+
+[toml:python_version < "3.11"]
+tomli
