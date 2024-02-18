@@ -1,0 +1,22 @@
+<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
+  <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+    {{ title }}
+  </h1>
+  {% if breadcrumb %}
+    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+    {% for item in breadcrumb %}
+      <li class="breadcrumb-item{% if forloop.last %} text-dark{% else %} text-muted{% endif %}">
+        {% if 'url' in item %}
+          <a href="{{ item.url }}" class="text-muted text-hover-primary">
+            {{ item.title }} </a>
+        {% else %} {{ item.title }} {% endif %}
+      </li>
+      {% if not forloop.last %}
+        <li class="breadcrumb-item">
+          <span class="bullet bg-gray-400 w-5px h-2px"></span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  </ul>
+</div>

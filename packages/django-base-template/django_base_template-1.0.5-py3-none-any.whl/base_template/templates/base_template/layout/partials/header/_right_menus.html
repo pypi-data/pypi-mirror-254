@@ -1,0 +1,11 @@
+{% load static %}
+<div class="app-navbar flex-shrink-0">
+  {% for menu in header.right_menus %}
+    <div class="app-navbar-item ms-1 ms-md-4"
+        {% if menu.id %}
+         id="{{ menu.id }}"
+        {% endif %}>
+      {% include menu.template_name %}
+    </div>
+  {% endfor %}
+</div>
