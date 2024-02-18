@@ -1,0 +1,2 @@
+include johnsnowlabs/auto_install/docker/build/base_dockerfile
+include johnsnowlabs/auto_install/docker/build/serve
