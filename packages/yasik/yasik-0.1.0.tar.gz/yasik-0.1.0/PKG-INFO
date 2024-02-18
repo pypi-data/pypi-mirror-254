@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: yasik
+Version: 0.1.0
+Summary: 
+Author: Ruslan Shaiakhmetov
+Author-email: ruslan.shaiakhmetov@unibo.it
+Requires-Python: >=3.9.13,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: antlr4-python3-runtime (==4.13.1)
+Requires-Dist: flake8 (==7.0.0)
+Requires-Dist: numpy (>=1.26.2,<2.0.0)
+Requires-Dist: pytest (>=7.4.3,<8.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: treelib (>=1.7.0,<2.0.0)
+Requires-Dist: twine (>=4.0.2,<5.0.0)
+Description-Content-Type: text/markdown
+
+# Yasik: Optimization Pipeline Integration for Racecar Simulation
+## Overview
+Yasik is a domain-specific language (DSL) designed to seamlessly connect optimization pipelines with racecar simulations. It provides a powerful and flexible interface to streamline the integration of optimization algorithms into the simulation environment, enabling efficient tuning and enhancement of racecar performance.
+## Features
+- Optimization Pipeline Integration: Yasik serves as a bridge between optimization algorithms and racecar simulations, facilitating the exchange of data and control commands.
+- Parameter Configuration: Easily define and configure the parameters to be optimized in the racecar simulation. Yasik allows users to specify the variables subject to optimization and their respective ranges.
+- Real-time Communication: The language supports real-time communication between the optimization pipeline and the racecar simulation, enabling dynamic adjustments and rapid iterations during the optimization process.
+- Customizable Fitness Functions: Users can define and implement custom fitness functions tailored to their specific optimization goals. This allows for a wide range of optimization scenarios, from speed improvement to energy efficiency.
+
