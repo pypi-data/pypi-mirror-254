@@ -1,0 +1,21 @@
+[project]
+name = "draw_real_time"
+version = "0.1.2"
+authors = [
+  { name="zkv", email="zakiryanov.iskander@mail.ru" },
+]
+description = "This is a library foundation on dash_canvas to easy create canvas in jupyter cells"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ZiskanderZ/DrawRealTime"
+
+[build-system]
+requires = ["setuptools>=61.0", "dash>=2.11.1", "dash_canvas>=0.1.0", "numpy>=1.24.3"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: draw_real_time
+Version: 0.1.2
+Summary: This is a library foundation on dash_canvas to easy create canvas in jupyter cells
+Author-email: zkv <zakiryanov.iskander@mail.ru>
+Project-URL: Homepage, https://github.com/ZiskanderZ/DrawRealTime
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# DrawRealTime
+
+This is a library foundation on `dash_canvas` to easy create canvas in jupyter cells
