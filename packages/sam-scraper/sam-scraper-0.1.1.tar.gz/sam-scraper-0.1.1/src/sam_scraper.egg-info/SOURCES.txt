@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+src/sam/Sam.py
+src/sam/__init__.py
+src/sam/utils.py
+src/sam_scraper.egg-info/PKG-INFO
+src/sam_scraper.egg-info/SOURCES.txt
+src/sam_scraper.egg-info/dependency_links.txt
+src/sam_scraper.egg-info/requires.txt
+src/sam_scraper.egg-info/top_level.txt
