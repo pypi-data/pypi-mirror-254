@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+pyometiff/__init__.py
+pyometiff/__version.py
+pyometiff/omereader.py
+pyometiff/omewriter.py
+pyometiff/omexml.py
+pyometiff.egg-info/PKG-INFO
+pyometiff.egg-info/SOURCES.txt
+pyometiff.egg-info/dependency_links.txt
+pyometiff.egg-info/requires.txt
+pyometiff.egg-info/top_level.txt
