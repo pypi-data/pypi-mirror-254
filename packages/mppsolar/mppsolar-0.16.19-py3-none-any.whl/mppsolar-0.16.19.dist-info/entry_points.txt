@@ -1,0 +1,7 @@
+[console_scripts]
+jkbms=mppsolar:main
+mpp-solar=mppsolar:main
+mppsolar=mppsolar:main
+powermon=powermon:main
+powermon-api=powermon_api.api:main
+
