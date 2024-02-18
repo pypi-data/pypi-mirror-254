@@ -1,0 +1,2 @@
+[console_scripts]
+esbmc_ai = esbmc_ai.__main__:main
