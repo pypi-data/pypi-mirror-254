@@ -1,0 +1,126 @@
+#
+# Sample Queries for CEUR-WS library
+#
+# WF 2022-08-13
+'Proceedings':
+  sparql: |
+    #
+    # get CEUR-WS Proceedings records by Volume with linked Event and EventSeries
+    #
+    # WF 2022-08-13
+    #
+    # the Volume number P478 is sometimes available with the proceedings item and sometimes as a qualifier
+    # of
+    #
+    PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+    PREFIX p: <http://www.wikidata.org/prop/>
+    PREFIX schema: <http://schema.org/>
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX ps: <http://www.wikidata.org/prop/statement/>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT DISTINCT
+      ?item 
+      ?itemLabel 
+      ?itemDescription 
+      ?ceurwspart 
+      ?sVolume 
+      ?Volume 
+      ?short_name 
+      ?dblpProceedingsId 
+      ?ppnId 
+      ?event 
+      ?eventLabel 
+      ?dblpEventId 
+      ?eventSeries 
+      ?eventSeriesLabel 
+      ?eventSeriesOrdinal 
+      ?title 
+      ?language_of_work_or_name 
+      ?language_of_work_or_nameLabel 
+      ?URN_NBN 
+      ?publication_date 
+      ?fullWorkUrl 
+      ?described_at_URL 
+      ?homePage 
+    WHERE {
+      ?item wdt:P31 wd:Q1143604;
+        wdt:P179 wd:Q27230297;
+        rdfs:label ?itemLabel.
+      FILTER((LANG(?itemLabel)) = "en")
+      OPTIONAL {
+        ?item schema:description ?itemDescription.
+        FILTER((LANG(?itemDescription)) = "en")
+      }
+      OPTIONAL { ?item wdt:P478 ?Volume. }
+      OPTIONAL { ?item (p:P179/pq:P478) ?_sVolume. BIND(xsd:integer(?_sVolume) as ?sVolume)}
+      OPTIONAL { ?item wdt:P1813 ?short_name. }
+      OPTIONAL { ?item wdt:P8978 ?dblpProceedingsId. }
+      OPTIONAL { ?item wdt:P6721 ?ppnId. }
+      OPTIONAL {?item wdt:P4109 ?URN_NBN.}        
+      OPTIONAL { ?item wdt:P1476 ?title. }
+      OPTIONAL { ?item wdt:P577 ?publication_date. }
+      OPTIONAL { ?item wdt:P953 ?fullWorkUrl. }
+      OPTIONAL { ?item wdt:P973 ?described_at_URL. }
+      OPTIONAL { ?item wdt:P856 ?homePage. }
+      OPTIONAL {
+        ?item wdt:P407 ?language_of_work_or_name.
+        ?language_of_work_or_name rdfs:label ?language_of_work_or_nameLabel.
+        FILTER((LANG(?language_of_work_or_nameLabel)) = "en")
+      }
+    }
+    ORDER BY ?sVolume
+'EventsByProceeding':
+  'sparql': |
+    SELECT DISTINCT
+      ?item 
+      (GROUP_CONCAT(?_event; SEPARATOR = "|") AS ?event) 
+      (GROUP_CONCAT(?_eventLabel; SEPARATOR = "|") AS ?eventLabel) 
+      (GROUP_CONCAT(?_eventSeries; SEPARATOR = "|") AS ?eventSeries) 
+      (GROUP_CONCAT(?_eventSeriesLabel; SEPARATOR = "|") AS ?eventSeriesLabel) 
+      (GROUP_CONCAT(?_eventSeriesOrdinal; SEPARATOR = "|") AS ?eventSeriesOrdinal)
+      (GROUP_CONCAT(?_dblpEventId; SEPARATOR = "|") AS ?dblpEventId) 
+    WHERE {
+      ?item wdt:P31 wd:Q1143604;
+        wdt:P179 wd:Q27230297;
+        wdt:P4745 ?_event.
+      ?_event rdfs:label ?_eventLabel.
+      FILTER((LANG(?_eventLabel)) = "en")
+      OPTIONAL { ?_event wdt:P10692 ?_dblpEventId. }
+      OPTIONAL {
+        ?_event p:P179 ?_partOfTheEventSeriesStmt.
+        ?_partOfTheEventSeriesStmt ps:P179 ?_eventSeries;
+          pq:P1545 ?_eventSeriesOrdinal.
+        ?_eventSeries rdfs:label ?_eventSeriesLabel.
+        FILTER((LANG(?_eventSeriesLabel)) = "en")
+      }
+    }
+    GROUP BY ?item
+'SubmittedByGt6':
+  sql: |
+    SELECT count(*) as count,submittedBy
+    FROM "volumes"
+    GROUP BY submittedBY
+    HAVING COUNT(*) > 6
+    ORDER BY 1 DESC
+'SubmittedByGt6ForWiki':
+  sql: |
+    SELECT count(*) as count,"{{Link|target="||submittedBy||"}}"
+    FROM "volumes"
+    GROUP BY submittedBY
+    HAVING COUNT(*) > 6
+    ORDER BY 1 DESC
+'VolumesWithoutDescription':
+  sql: |
+    select count(*) from volumes where desc ="?"
+'AcronymLen':
+  sql: |
+    select
+     count(*) as count,
+     length(desc) as acronymLen
+    from volumes
+    where acronymlen < 20
+    group by acronymlen
+    order by 2 desc
