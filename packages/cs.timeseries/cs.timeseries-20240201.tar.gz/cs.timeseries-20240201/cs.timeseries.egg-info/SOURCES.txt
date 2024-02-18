@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.timeseries.egg-info/PKG-INFO
+cs.timeseries.egg-info/SOURCES.txt
+cs.timeseries.egg-info/dependency_links.txt
+cs.timeseries.egg-info/entry_points.txt
+cs.timeseries.egg-info/requires.txt
+cs.timeseries.egg-info/top_level.txt
+lib/python/cs/timeseries.py
