@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: CNVoyant
+Version: 1.0.17
+Summary: Copy Number Variant Pathogenicity Classifier
+Home-page: https://github.com/nch-igm/CNVoyant
+Author: Rob Schuetz
+Author-email: robert.schuetz@nationwidechildrens.org
+License: MIT
+Project-URL: Bug Tracker, https://github.com/nch-igm/CNVoyant/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# CNVoyant
+A great package for classify Copy Number Variants (CNVs) as pathogenic, or disease-causing.
