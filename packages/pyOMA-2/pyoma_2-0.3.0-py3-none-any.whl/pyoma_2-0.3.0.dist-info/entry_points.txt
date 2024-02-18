@@ -1,0 +1,5 @@
+[console_scripts]
+pyoma2_example_MSposER = pyoma2.Example_MSposER:main
+pyoma2_example_MSpreGER = pyoma2.Example_MSpreGER:main
+pyoma2_example_SS = pyoma2.Example_SS:main
+
