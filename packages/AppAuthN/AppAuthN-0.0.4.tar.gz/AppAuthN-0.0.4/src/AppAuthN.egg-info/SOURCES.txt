@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+src/AppAuthN/CertificationReceiver.py
+src/AppAuthN/CloseLoopCounter.py
+src/AppAuthN/InferenceResult.py
+src/AppAuthN/__init__.py
+src/AppAuthN/receiver.py
+src/AppAuthN/test.py
+src/AppAuthN.egg-info/PKG-INFO
+src/AppAuthN.egg-info/SOURCES.txt
+src/AppAuthN.egg-info/dependency_links.txt
+src/AppAuthN.egg-info/requires.txt
+src/AppAuthN.egg-info/top_level.txt
