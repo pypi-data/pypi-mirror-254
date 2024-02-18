@@ -1,0 +1,12 @@
+setup.py
+./pybpf.egg-info/PKG-INFO
+./pybpf.egg-info/SOURCES.txt
+./pybpf.egg-info/dependency_links.txt
+./pybpf.egg-info/requires.txt
+./pybpf.egg-info/top_level.txt
+./test/test_main.py
+pybpf.egg-info/PKG-INFO
+pybpf.egg-info/SOURCES.txt
+pybpf.egg-info/dependency_links.txt
+pybpf.egg-info/top_level.txt
+test/test_main.py
