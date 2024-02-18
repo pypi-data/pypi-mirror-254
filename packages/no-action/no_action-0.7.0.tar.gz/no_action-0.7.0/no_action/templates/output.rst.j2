@@ -1,0 +1,31 @@
+{# Define a macro for underlining a title to the length of the title following rst spec. #}
+{% macro underline(char, len=100) -%}
+  {% for i in range(len) -%}
+    {{ char }}
+  {%- endfor %}
+{%- endmacro %}
+{#
+
+#}
+Procedure: {{ procedure.title }}
+{{ underline("#", procedure.title | length + "Procedure: " | length) }}
+
+{{ procedure.description }}
+Steps
+=====
+
+{% for step in procedure.step_list -%}
+{{ step.get_truncated() }}
+{{ underline("-", step.get_truncated()| length) }}
+
+{{step.get_body() }}
+
+{% endfor %}
+
+----
+
+::
+
+  generated_at: "{{ now }}"
+  generated_by: "{{ procedure.context.version }}"
+  source: "{{ procedure.context.prog }}"

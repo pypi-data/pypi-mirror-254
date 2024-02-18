@@ -1,0 +1,17 @@
+# Procedure: {{ procedure.title }}
+{{ procedure.description }}
+## Steps
+
+{% for step in procedure.step_list -%}
+### {{ step.get_truncated() }}
+{{step.get_body() }}
+
+{% endfor -%}
+
+---
+
+```yaml
+generated_at: "{{ now }}"
+generated_by: "{{ procedure.context.version }}"
+source: "{{ procedure.context.prog }}"
+```
