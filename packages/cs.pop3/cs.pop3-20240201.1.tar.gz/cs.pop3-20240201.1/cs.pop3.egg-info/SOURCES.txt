@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.pop3.egg-info/PKG-INFO
+cs.pop3.egg-info/SOURCES.txt
+cs.pop3.egg-info/dependency_links.txt
+cs.pop3.egg-info/entry_points.txt
+cs.pop3.egg-info/requires.txt
+cs.pop3.egg-info/top_level.txt
+lib/python/cs/pop3.py
