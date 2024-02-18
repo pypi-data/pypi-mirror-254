@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: pypz-k8s-deployer
+Version: 0.9.0b5
+Summary: This package provides the Kubernetes implementation of the deployer interface for pypz.
+Author-email: Laszlo Anka <laszlo.anka@gmail.com>
+Keywords: pypz,k8s,kubernetes,deployer
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pypz-core
+Requires-Dist: kubernetes==v28.1.0
+Requires-Dist: certifi~=2023.7.22
+
+# Local testing
+
+## Requirements
+- go - https://go.dev/doc/install
+- kind - https://kind.sigs.k8s.io/
+
+It requires go to be installed
+
+## Set up the environment
+1. Start the cluster
+```shell
+kind create cluster
+```
+2. Buid the test images (test/resources)
+```shell
+docker build -t pypz-test-image .
+```
+3. Load the test image onto the kind node
+```shell
+kind load docker-image pypz-test-image
+```
+
+## Clean up the environment
+1. Delete cluster
+```shell
+kind delete cluster
+```
