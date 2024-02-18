@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: redlite
+Version: 0.0.16
+Summary: LLM testing on steroids
+Author-email: Mike Kroutikov <mkroutikov@innodata.com>, David Nadeau <dnadeau@innodata.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/innodatalabs/redlite
+Project-URL: Documentation, https://redlite.readthedocs.org
+Project-URL: Repository, https://github.com/innodatalabs/redlite.git
+Project-URL: Issues, https://github.com/innodatalabs/redlite/issues
+Project-URL: Changelog, https://github.com/innodatalabs/redlite/blob/master/CHANGELOG.md
+Keywords: large langualge models,evaluation,datasets
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: duoname ~=0.0.2
+Requires-Dist: tqdm
+Provides-Extra: all
+Requires-Dist: redlite[hf,openai,server,zeno] ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: portray ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Requires-Dist: pytest-aiohttp ; extra == 'dev'
+Provides-Extra: hf
+Requires-Dist: datasets ; extra == 'hf'
+Provides-Extra: openai
+Requires-Dist: openai ; extra == 'openai'
+Provides-Extra: server
+Requires-Dist: aiohttp ; extra == 'server'
+Requires-Dist: aiohttp-cors ; extra == 'server'
+Provides-Extra: zeno
+Requires-Dist: zeno-client ; extra == 'zeno'
+
+# RedLite
+
+An opinionated toolset for testing Language Models for safety.
+
+## User experience
+
+1. `pip install redlite[all]`
+2. Generate several runs (using Python scripting, see below)
+3. `redlite server --port <PORT>`
+
+## Python API
+
+```python
+import os
+from redlite import run, load_dataset
+from redlite.openai import OpenAIModel
+from redlite.metric import PrefixMetric
+
+
+model = OpenAIModel(api_key=os.environ["OPENAI_API_KEY"])
+dataset = load_dataset("hf:innodatalabs/rt-gaia")
+metric = PrefixMetric(ignore_case=True, ignore_punct=True, strip=True)
+
+run(model=model, dataset=dataset, metric=metric)
+```
+
+## Develop
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install -e .[dev,all]
+```
+
+Make commands:
+
+* test
+* test-server
+* lint
+* wheel
+* docs
+* black
+
+## TODO
+
+- [x] deps cleanup (randomname!)
+- [ ] review/improve module structure
+- [ ] automate CI/CD
+- [ ] write docs
+- [ ] publish docs automatically (CI/CD)
+- [ ] web UI styling
+- [ ] better test server
+- [ ] tests
+- [ ] Integrations (HF, OpenAI, Anthropic, vLLM)
+- [x] Fix data format in HF datasets (innodatalabs/rt-* ones) to match standard
+- [ ] more robust backend API (future-proof)
+- [ ] better error handling for missing deps
+- [ ] document which deps we need when
+- [ ] export to CSV
+- [x] Upload to Zeno
