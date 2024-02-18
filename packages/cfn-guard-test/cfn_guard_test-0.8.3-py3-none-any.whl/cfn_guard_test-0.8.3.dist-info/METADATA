@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cfn-guard-test
+Version: 0.8.3
+Summary: cfn-guard-test is a wrapper for cfn-guard that allows you to run unit tests for your cfn-guard rules.
+License: MIT
+Author: Joris Conijn
+Author-email: joris@conijnonline.nl
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.0.3,<9.0.0)
+Requires-Dist: junit-xml (>=1.9,<2.0)

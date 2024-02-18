@@ -1,0 +1,3 @@
+[console_scripts]
+cfn-guard-test=cfn_guard_test:main
+
