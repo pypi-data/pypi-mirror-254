@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ecb-scraper
+Version: 0.1.0
+Summary: Scraper for ECB press conferences
+License: MIT
+Author: Thomas Kientz
+Author-email: thomas@kientz.net
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: beautifulsoup4 (>=4.12.3,<5.0.0)
+Requires-Dist: numexpr (>=2.9.0,<3.0.0)
+Requires-Dist: pandas (>=2.2.0,<3.0.0)
+Requires-Dist: pyarrow (>=15.0.0,<16.0.0)
+Description-Content-Type: text/markdown
+
+# ECB-scraper
+Scraper for ECB press conferences
+
