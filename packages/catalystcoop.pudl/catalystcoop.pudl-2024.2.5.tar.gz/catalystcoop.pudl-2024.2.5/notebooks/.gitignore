@@ -1,0 +1,10 @@
+*scratch*.ipynb
+*.pkl
+*.csv
+*.mp4
+*.png
+*.zip
+ef_nat_gas/
+/**/*.jpg
+local/**
+!local/README.md
