@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: texatlas
+Version: 0.2.0
+Summary: Atlas Texture generator for Images and Fonts
+Home-page: https://github.com/szabolcsdombi/texatlas/
+Author: Szabolcs Dombi
+Author-email: szabolcs@szabolcsdombi.com
+License: MIT
+Project-URL: Source, https://github.com/szabolcsdombi/texatlas/
+Project-URL: Bug Tracker, https://github.com/szabolcsdombi/texatlas/issues/
+Keywords: font,atlas,truetype,rectpack
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: Environment :: MacOS X
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
