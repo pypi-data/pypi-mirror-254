@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: ben_package_test
+Version: 0.1.0
+Summary: Add a short description here!
+Home-page: https://github.com/pyscaffold/ben_package_test/
+Author: Ben-unbelieveable
+Author-email: 614347533@qq.com
+License: MIT
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+.. These are examples of badges you might want to add to your README:
+   please update the URLs accordingly
+
+    .. image:: https://api.cirrus-ci.com/github/<USER>/ben_package_test.svg?branch=main
+        :alt: Built Status
+        :target: https://cirrus-ci.com/github/<USER>/ben_package_test
+    .. image:: https://readthedocs.org/projects/ben_package_test/badge/?version=latest
+        :alt: ReadTheDocs
+        :target: https://ben_package_test.readthedocs.io/en/stable/
+    .. image:: https://img.shields.io/coveralls/github/<USER>/ben_package_test/main.svg
+        :alt: Coveralls
+        :target: https://coveralls.io/r/<USER>/ben_package_test
+    .. image:: https://img.shields.io/pypi/v/ben_package_test.svg
+        :alt: PyPI-Server
+        :target: https://pypi.org/project/ben_package_test/
+    .. image:: https://img.shields.io/conda/vn/conda-forge/ben_package_test.svg
+        :alt: Conda-Forge
+        :target: https://anaconda.org/conda-forge/ben_package_test
+    .. image:: https://pepy.tech/badge/ben_package_test/month
+        :alt: Monthly Downloads
+        :target: https://pepy.tech/project/ben_package_test
+    .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
+        :alt: Twitter
+        :target: https://twitter.com/ben_package_test
+
+.. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
+    :alt: Project generated with PyScaffold
+    :target: https://pyscaffold.org/
+
+|
+
+================
+ben_package_test
+================
+
+
+    Add a short description here!
+
+
+A longer description of your project goes here...
+
+
+.. _pyscaffold-notes:
+
+Note
+====
+
+This project has been set up using PyScaffold 4.5. For details and usage
+information on PyScaffold see https://pyscaffold.org/.
