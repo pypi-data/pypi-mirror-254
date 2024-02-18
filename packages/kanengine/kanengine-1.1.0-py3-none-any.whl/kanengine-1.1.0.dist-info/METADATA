@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: kanengine
+Version: 1.1.0
+Summary: algorithm engine
+Home-page: UNKNOWN
+Author: linzhao
+Author-email: 1627264105@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.10
+Requires-Dist: opencv-python (==4.7.0.72)
+Requires-Dist: torch (>=1.11.0)
+Requires-Dist: torchvision (>=0.12.0)
+Requires-Dist: toml (==0.10.2)
+Requires-Dist: numpy (~=1.23.1)
+
+UNKNOWN
+
