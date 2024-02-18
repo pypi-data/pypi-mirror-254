@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: MEFrpLib
+Version: 2.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/LxHTT/MEFrpLib
+Author: LxHTT
+Author-email: lxhtt@vip.qq.com
+License: MIT
+Project-URL: Documentation, https://github.com/LxHTT/MEFrpLib/blob/master/README.md
+Project-URL: Source Code, https://github.com/LxHTT/MEFrpLib
+Project-URL: Bug Tracker, https://github.com/LxHTT/MEFrpLib/issues
+Description: ## MEFrpLib
+        
+        <p align="right">based on MEFrp API<br>presented by LxHTT</p>
+        
+        这是一个封装了MirrorEdgeFrp API的Python库。
+        
+        ### 安装
+        
+        ___
+        
+        ```command
+        pip install MEFrpLib
+        ```
+        
+        ### 开始使用  
+        
+        ___
+        
+        #### 导入  
+        
+        ```python
+        import MEFrpLib
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
