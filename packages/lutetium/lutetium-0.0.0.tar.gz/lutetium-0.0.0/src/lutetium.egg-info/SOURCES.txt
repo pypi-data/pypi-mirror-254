@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/lutetium/__init__.py
+src/lutetium/example.py
+src/lutetium.egg-info/PKG-INFO
+src/lutetium.egg-info/SOURCES.txt
+src/lutetium.egg-info/dependency_links.txt
+src/lutetium.egg-info/top_level.txt
