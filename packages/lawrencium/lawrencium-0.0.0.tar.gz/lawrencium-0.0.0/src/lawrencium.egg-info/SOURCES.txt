@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/lawrencium/__init__.py
+src/lawrencium/example.py
+src/lawrencium.egg-info/PKG-INFO
+src/lawrencium.egg-info/SOURCES.txt
+src/lawrencium.egg-info/dependency_links.txt
+src/lawrencium.egg-info/top_level.txt
