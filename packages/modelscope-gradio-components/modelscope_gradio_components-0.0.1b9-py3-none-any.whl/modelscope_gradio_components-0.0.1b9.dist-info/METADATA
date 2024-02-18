@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: modelscope_gradio_components
+Version: 0.0.1b9
+Summary: Python library for easily interacting with trained machine learning models
+Author-email: YOUR NAME <YOUREMAIL@domain.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: gradio-custom-component,modelscope-gradio-components
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.8
+Requires-Dist: gradio<5.0,>=4.0
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Description-Content-Type: text/markdown
+
+<h1>Modelscope Gradio Components</h1>
+
+<p align="center">
+    <br>
+    <img src="https://modelscope.oss-cn-beijing.aliyuncs.com/modelscope.gif" width="400"/>
+    <br>
+<p>
+
+<p align="center">
+<a href="https://modelscope.cn/home">Modelscope Hub</a> ｜ <a href="https://modelscope.cn/studios/modelscope/modelscope_gradio_components/summary">Docs</a>
+<br>
+        <a href="README-zh_CN.md">中文</a>&nbsp ｜ &nbspEnglish
+</p>
+
+A components library for gradio.
+
+![quickstart](./resources/sample.gif)
+
+## Install
+
+```sh
+pip install modelscope_gradio_components
+```
+
+## Quickstart
+
+```python
+import time
+
+import gradio as gr
+
+import modelscope_gradio_components as mgr
+
+
+def submit(_input, _chatbot):
+    print('text：', _input.text)
+    print('files: ', _input.files)
+    _chatbot.append([_input, None])
+    yield _chatbot
+    time.sleep(1)
+    _chatbot[-1][1] = [{
+        "flushing": False,
+        "text": 'bot1: ' + _input.text + '!'
+    }, {
+        "text": 'bot2: ' + _input.text + '!'
+    }]
+    yield {
+        chatbot: _chatbot,
+    }
+
+
+with gr.Blocks() as demo:
+    chatbot = mgr.Chatbot(height=400)
+
+    input = mgr.MultimodalInput()
+    input.submit(fn=submit, inputs=[input, chatbot], outputs=[chatbot])
+
+demo.queue().launch()
+```
+
+![quickstart](./resources/quickstart.png)
+
+## Development
+
+Clone this repo locally:
+
+```sh
+git clone git@github.com:modelscope/modelscope-gradio-components.git
+cd modelscope-gradio-components
+# for backend
+pip install -e '.'
+# for frontend
+npm install pnpm -g
+
+pnpm install
+pnpm build
+```
+
+Run demo!
+
+```sh
+gradio docs/app.py
+```
+
+or run a single demo like this:
+
+```sh
+gradio docs/components/Chatbot/demos/basic.py
+```
+
+## Component Docs
+
+See [docs](https://modelscope.cn/studios/modelscope/modelscope_gradio_components/summary)
