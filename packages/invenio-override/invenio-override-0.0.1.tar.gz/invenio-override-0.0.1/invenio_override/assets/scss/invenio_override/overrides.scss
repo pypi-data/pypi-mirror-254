@@ -1,0 +1,43 @@
+/*
+ *   Copyright (C) 2024 Shared RDM.
+ *
+ * invenio-override  is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
+
+/*
+* Logos background frontpage.
+* from rgba(173, 206, 224, 0.52)
+* to #ffffff
+*/
+.section-content-light-bg {
+  background-color: #ffffff;
+}
+
+  /*
+* section title.
+* from #0377cd
+* to #000000
+*/
+.section-title {
+color: #000000;
+}
+
+/***
+login background color
+from : rgba(13,95,137,.8)
+To #ffffff
+*/
+.cover-page {
+  //text-align: center;
+  background-color: #ffffff;
+}
+
+/***
+login & sigup page title
+from : #0377cd
+To #000000
+*/
+.panel-free-title {
+  color: #000000;
+}

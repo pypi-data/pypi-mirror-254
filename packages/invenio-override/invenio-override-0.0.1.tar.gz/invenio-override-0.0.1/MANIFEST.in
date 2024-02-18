@@ -1,0 +1,102 @@
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2024 Shared RDM.
+#
+# invenio-override is free software; you can redistribute it and/or
+# modify it under the terms of the MIT License; see LICENSE file for more
+# details.
+
+include .dockerignore
+include .editorconfig
+include .tx/config
+prune docs/_build
+recursive-include invenio-override/translations *.po *.pot *.mo
+
+# added by check_manifest.py
+include *.md
+include *.rst
+include *.sh
+include *.txt
+include *.rst
+include LICENSE
+include babel.ini
+include pytest.ini
+recursive-include docs *.bat
+recursive-include docs *.py
+recursive-include docs *.rst
+recursive-include docs *.txt
+recursive-include docs Makefile
+recursive-include invenio-override *.html
+recursive-include invenio-override *.js
+recursive-include invenio-override *.png
+recursive-include invenio-override *.scss
+recursive-include invenio-override *.svg
+recursive-include invenio-override *.less
+recursive-include invenio-override *.ico
+recursive-include invenio-override *.pdf
+recursive-include invenio-override *.ttf
+recursive-include invenio-override *.txt
+
+recursive-include tests *.py
+recursive-include invenio-override *.jpg
+recursive-include invenio-override *.gitkeep
+recursive-include .github/workflows *.yml
+include .git-blame-ignore-revs
+  invenio_override/assets/scss/invenio_override/footer.scss
+  invenio_override/assets/scss/invenio_override/header.scss
+  invenio_override/assets/scss/invenio_override/overrides.scss
+  invenio_override/assets/scss/invenio_override/search/footer.scss
+  invenio_override/assets/scss/invenio_override/search/theme.scss
+  invenio_override/assets/scss/invenio_override/search/variables.scss
+  invenio_override/assets/scss/invenio_override/theme.scss
+  invenio_override/assets/scss/invenio_override/variables.scss
+  invenio_override/assets/semantic-ui/js/invenio_override/theme.js
+  invenio_override/assets/semantic-ui/less/invenio_override/accounts.less
+  invenio_override/assets/semantic-ui/less/invenio_override/communities.less
+  invenio_override/assets/semantic-ui/less/invenio_override/deposit.less
+  invenio_override/assets/semantic-ui/less/invenio_override/fonts/SourceSansPro/OFL.txt
+  invenio_override/assets/semantic-ui/less/invenio_override/fonts/SourceSansPro/SourceSansPro-Italic.ttf
+  invenio_override/assets/semantic-ui/less/invenio_override/fonts/SourceSansPro/SourceSansPro-Regular.ttf
+  invenio_override/assets/semantic-ui/less/invenio_override/footer.less
+  invenio_override/assets/semantic-ui/less/invenio_override/frontpage.less
+  invenio_override/assets/semantic-ui/less/invenio_override/header.less
+  invenio_override/assets/semantic-ui/less/invenio_override/login.less
+  invenio_override/assets/semantic-ui/less/invenio_override/macros.less
+  invenio_override/assets/semantic-ui/less/invenio_override/overrides.less
+  invenio_override/assets/semantic-ui/less/invenio_override/record.less
+  invenio_override/assets/semantic-ui/less/invenio_override/search.less
+  invenio_override/assets/semantic-ui/less/invenio_override/theme.less
+  invenio_override/assets/semantic-ui/less/invenio_override/variables.less
+  invenio_override/static/extra/orcid.png
+  invenio_override/static/favicon.ico
+  invenio_override/static/images/icon_use.png
+  invenio_override/static/images/logo.svg
+  invenio_override/templates/invenio_override/accounts/accounts_base.html
+  invenio_override/templates/invenio_override/accounts/header_login.html
+  invenio_override/templates/invenio_override/accounts/login_user.html
+  invenio_override/templates/invenio_override/accounts/register_user.html
+  invenio_override/templates/invenio_override/base.html
+  invenio_override/templates/invenio_override/benefits.html
+  invenio_override/templates/invenio_override/comingsoon.html
+  invenio_override/templates/invenio_override/footer.html
+  invenio_override/templates/invenio_override/header.html
+  invenio_override/templates/invenio_override/index.html
+  invenio_override/templates/invenio_override/macros/authors.html
+  invenio_override/templates/invenio_override/navbar.html
+  invenio_override/translations/.gitkeep
+  invenio_override/translations/de/LC_MESSAGES/messages.po
+  invenio_override/translations/messages.pot
+suggested MANIFEST.in rules:
+  recursive-include invenio_override *.gitkeep
+  recursive-include invenio_override *.html
+  recursive-include invenio_override *.ico
+  recursive-include invenio_override *.jpg
+  recursive-include invenio_override *.js
+  recursive-include invenio_override *.less
+  recursive-include invenio_override *.png
+  recursive-include invenio_override *.po
+  recursive-include invenio_override *.pot
+  recursive-include invenio_override *.scss
+  recursive-include invenio_override *.svg
+  recursive-include invenio_override *.ttf
+  recursive-include invenio_override *.txt
