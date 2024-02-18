@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: my_unique_distribution_name
+Version: 0.2
+Summary: A library of probability distributions
+Home-page: https://example.com/distribution
+Author: Latif Jan
+Author-email: latifjan@example.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Keywords: distributions probability
+Platform: UNKNOWN
+Requires-Python: >=3.6
