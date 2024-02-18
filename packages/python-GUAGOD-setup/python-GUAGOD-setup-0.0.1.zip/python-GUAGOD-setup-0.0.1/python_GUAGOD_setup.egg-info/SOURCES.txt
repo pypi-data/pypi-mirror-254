@@ -1,0 +1,12 @@
+README.md
+setup.py
+lib1/__init__.py
+lib1/add.py
+lib1/lib1_sub/__init__.py
+lib1/lib1_sub/a2.py
+lib2/__init__.py
+lib2/sub.py
+python_GUAGOD_setup.egg-info/PKG-INFO
+python_GUAGOD_setup.egg-info/SOURCES.txt
+python_GUAGOD_setup.egg-info/dependency_links.txt
+python_GUAGOD_setup.egg-info/top_level.txt
