@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.app.playon.egg-info/PKG-INFO
+cs.app.playon.egg-info/SOURCES.txt
+cs.app.playon.egg-info/dependency_links.txt
+cs.app.playon.egg-info/entry_points.txt
+cs.app.playon.egg-info/requires.txt
+cs.app.playon.egg-info/top_level.txt
+lib/python/cs/app/playon.py
