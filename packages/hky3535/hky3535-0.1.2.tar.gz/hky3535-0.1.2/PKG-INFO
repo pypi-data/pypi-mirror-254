@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: hky3535
+Version: 0.1.2
+Home-page: https://github.com/hky3535/hky3535.git
+Author: hky3535
+Author-email: hky3535@163.com
+License: Apache
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: tqdm
+Requires-Dist: requests
+
+# hky3535
