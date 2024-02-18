@@ -1,0 +1,15 @@
+integration_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+integration_tests/acceptance.py,sha256=VpQhkCpkovNSs0uLNh6iAdJ0WY-gYg0FbSBl8te_D0A,314
+integration_tests/configured_catalog.json,sha256=Og0nRpA-pi4pfODljt2-i0ZTKnhqNERZjVZVwaEvZis,346
+integration_tests/integration_test.py,sha256=BZMP-6hW3VYbTqR-sB0V2QsmlIjlhugi4FfNeG9qKfQ,103
+integration_tests/invalid_config.json,sha256=BhmR8cJVFNgnZNVA8LeOL_2HVXrZTk2J_X5P-4c2TYk,136
+integration_tests/sample_config.json,sha256=kP86OW92sSyLBl7bSLDtDbPBhBeMeSCckv0qlSNlBJQ,200
+source_us_census/__init__.py,sha256=4rmSBo8JpevCx0fdbMZsJ_kxBoZpAew4HyiSZ6LfiW0,1138
+source_us_census/run.py,sha256=b2F7w3ewCkjMrrP90B27q7k_7G4VPWVivxhmjkdlcsE,237
+source_us_census/source.py,sha256=Hdw4rP-0TUD-9wJUQwR4lqonGm4r7b1vK6D1dnkuu24,8042
+source_us_census/spec.json,sha256=6sXVMK2RX19n9aA-pomBnOwSuCJi3b-prqu5HfnAb-c,1321
+airbyte_source_us_census-0.1.3.dist-info/METADATA,sha256=mZuncD27VeRV22ZlA2o2a10r5tT15j4JKlX1KDYWgVY,5455
+airbyte_source_us_census-0.1.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_us_census-0.1.3.dist-info/entry_points.txt,sha256=jXpaMEZYEoW56FpLgVDH9SCkV29e4OI7h3ae0lOfRvM,62
+airbyte_source_us_census-0.1.3.dist-info/top_level.txt,sha256=LPccgCgJJxIXxAe4rJL3yo1xhSq4T0PbJwD3JaIKeVo,35
+airbyte_source_us_census-0.1.3.dist-info/RECORD,,
