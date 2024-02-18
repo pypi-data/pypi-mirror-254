@@ -1,0 +1,171 @@
+Metadata-Version: 2.1
+Name: openaoe
+Version: 0.0.4
+Summary: LLM Group Chat Framework: chat with multiple LLMs at the same time
+Home-page: https://github.com/internlm/openaoe
+Author: arkmon
+Author-email: 
+License: Apache License 2.0
+Keywords: openaoe,open-aoe
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: fastapi==0.103.0
+Requires-Dist: pydantic==2.4.2
+Requires-Dist: requests==2.26.0
+Requires-Dist: openai==1.6.1
+Requires-Dist: websocket-client==0.58.0
+Requires-Dist: anthropic==0.3.11
+Requires-Dist: bardapi==0.1.38
+Requires-Dist: pytz==2022.7
+Requires-Dist: starlette==0.27.0
+Requires-Dist: slack_sdk==3.26.2
+Requires-Dist: pyyaml==6.0.1
+Requires-Dist: httpx==0.25.0
+Requires-Dist: sse-starlette==1.8.2
+Requires-Dist: anyio==3.7.1
+Requires-Dist: jsonstreamer==1.3.8
+
+<div align="center">
+  <img src="docs/_static/image/aoe-logo.svg" width="250"/>
+
+[![PyPI](https://img.shields.io/pypi/v/OpenAOE)](https://pypi.org/project/OpenAOE)
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/opensealion/openaoe?label=docker)](https://hub.docker.com/r/opensealion/openaoe?label=docker)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/internlm/openaoe?label=commits)
+![PyPI - Downloads](https://img.shields.io/pypi/dw/openaoe?label=pip%20downloads)
+
+
+
+
+
+English | [简体中文](docs/README_zh-CN.md)
+
+</div>
+
+
+## Latest Progress 🎉
+- \[February 2024\] Add gemini-pro model
+- \[January 2024\] refactor the config-template.yaml to control the backend and the frontend settings at the same time, [click](https://github.com/InternLM/OpenAOE/blob/main/docs/tech-report/config-template.md) to find more introduction about the `config-template.yaml`
+- \[January 2024\] Add internlm2-chat-7b model
+- \[January 2024\] Released version v0.0.1, officially open source！
+______________________________________________________________________
+
+# Introduction
+## What is OpenAOE?
+AOE, an acronym from DOTA2 for Area Of Effect, denotes an ability that can affect a group of targets within a certain area.
+Here, AOE in AI implies that user can obtain parallel outputs from multiple LLMs with one single prompt at the same time.
+
+![](docs/_static/gif/aoe-en.gif)
+
+
+## What problem does OpenAOE want to solve?
+Currently, there are many open-source frameworks based on the ChatGPT for chat, but the LGC(LLM Group Chat) framework is still not coming yet.
+
+The emergence of OpenAOE fills this gap:
+OpenAOE can help LLM researchers, evaluators, engineering developers, and even non-professionals to quickly access the market's well-known commercial and open-source LLMs, providing both single model serial response mode and multi-models parallel response mode.
+
+
+
+## What can you get from OpenAOE?
+OpenAOE can:
+1. return one or more LLMs' answers **at the same time** by a single prompt.
+2. provide access to commercial LLM APIs, with default support for gpt3.5, gpt4, Google Palm, Minimax, Claude, Spark, etc., and also support user-defined access to other large model APIs. (API keys need to be prepared in advanced)
+3. provide access to open-source LLM APIs. ( We recommend to use [LMDeploy](https://github.com/InternLM/lmdeploy) to deploy with one click)
+4. provide backend APIs and a WEB-UI to meet the needs of different requirements.
+
+
+
+# Quick Run
+> [!TIP]
+> Require python >= 3.9
+
+We provide three different ways to run OpenAOE: `run by pip`， `run by docker` and `run by source code` as well.
+
+## Run by pip 
+### **Install**
+```shell
+pip install -U openaoe 
+```
+### **Start**
+```shell
+openaoe -f /path/to/your/config-template.yaml
+```
+
+## Run by docker
+### **Install**
+
+There are two ways to get the OpenAOE docker image by:
+1. pull the OpenAOE docker image
+```shell
+docker pull opensealion/openaoe:latest
+```
+
+2. or build a docker image
+```shell
+git clone https://github.com/internlm/OpenAOE
+cd OpenAOE
+docker build . -f docker/Dockerfile -t opensealion/openaoe:latest
+```
+
+### **Start**
+```shell
+docker run -p 10099:10099 -v /path/to/your/config-template.yaml:/app/config.yaml --name OpenAOE opensealion/openaoe:latest
+```
+
+## Run by source code
+### **Install**
+1. clone this project
+```shell
+git clone https://github.com/internlm/OpenAOE
+```
+2. [_optional_] build the frontend project when the frontend codes are changed
+```shell
+cd OpenAOE/openaoe/frontend
+npm install
+npm run build
+```
+
+
+### **Start**
+```shell
+cd OpenAOE # this OpenAOE is the clone directory
+pip install -r openaoe/backend/requirements.txt
+python -m openaoe.main -f /path/to/your/config-template.yaml
+```
+
+
+> [!TIP]
+> `/path/to/your/config-template.yaml` is the configuration file loaded by OpenAOE at startup, 
+> which contains the relevant configuration information for the LLMs,
+> including: API URLs, AKSKs, Tokens, etc.
+> A template configuration yaml file can be found in `openaoe/backend/config/config-template.yaml`.
+
+
+#  Tech Report
+> **You are always welcome to fork this project to contribute your work**
+> **and find the [TODOs in furture](docs/todo/TODO.md).**
+
+If you want to add more LLMs' APIs or features based on OpenAOE, the following info might be helpful.
+
+## Tech Stack
+The technology stack we use includes:
+
+1. Backend framework based on python + fastapi;
+2. Frontend framework based on typescript + Sealion-Client (encapsulated based on React) + Sealion-UI.
+3. Build tools:
+   1. conda: quickly create a virtual python env to install necessary packages
+   2. npm: build the frontend project
+
+> [!TIP]
+> The build tools can be installed quickly by `pip install -U sealion-cli`
+
+## Organization of the Repo
+- Frontend codes are in `openaoe/frontend`
+- Backend codes are in `openaoe/backend`
+- Project entry-point is `openaoe/main.py`
+
+## How to add a new model
+### Frontend
+- Add new model info like `name`, `avatar`, `provider`, etc in `openaoe/frontend/src/config/model-config.ts`
+- Add a new model basic API request payload configuration in `openaoe/frontend/src/config/api-config.ts`
+- Modify your new model's payload specifically in `openaoe/frontend/src/services/fetch.ts`, you may need to change the payload structure and handle corner cases according to your model's API definition.
