@@ -1,0 +1,3 @@
+[console_scripts]
+text-to-video = text_to_video:main
+
