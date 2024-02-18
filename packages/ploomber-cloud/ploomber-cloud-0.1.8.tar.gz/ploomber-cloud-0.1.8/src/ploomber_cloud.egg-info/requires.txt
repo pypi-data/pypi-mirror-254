@@ -1,0 +1,11 @@
+click
+requests
+ploomber-core>=0.2.19
+python-dotenv
+
+[dev]
+pytest
+flake8
+twine
+pkgmt
+ipdb
