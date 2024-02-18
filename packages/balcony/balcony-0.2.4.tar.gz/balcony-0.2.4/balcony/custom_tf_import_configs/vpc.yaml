@@ -1,0 +1,114 @@
+maintainers:
+  - name: "Oguzhan Yilmaz"
+    github: "oguzhan_yilmaz"
+import_configurations:
+  - id_generator_jinja2_template: '{{ SubnetId }}'
+    jmespath_query: '[].Subnets[]'
+    operation_name: DescribeSubnets
+    resource_node: Subnets
+    service: ec2
+    to_resource_name_jinja2_template: '{{ SubnetId ~ ''-'' ~ tag_Name}}'
+    to_resource_type: aws_subnet
+
+  - id_generator_jinja2_template: '{{ RouteTableId }}'
+    jmespath_query: '[].RouteTables[]'
+    operation_name: DescribeRouteTables
+    resource_node: RouteTables
+    service: ec2
+    to_resource_name_jinja2_template: '{{ RouteTableId }}'
+    to_resource_type: aws_route_table
+    
+
+  - id_generator_jinja2_template: '
+      {% for route in data.Routes %}
+        {% if route.DestinationPrefixListId is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationPrefixListId }} 
+        {% elif route.DestinationIpv6CidrBlock is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationIpv6CidrBlock }}
+        {% elif route.DestinationCidrBlock is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationCidrBlock }}
+        {% endif %}
+      {% endfor %}
+      '
+    jmespath_query: '[].RouteTables[]'
+    operation_name: DescribeRouteTables
+    resource_node: RouteTables
+    service: ec2
+    to_resource_name_jinja2_template: '
+      {% for route in data.Routes %}
+        {% if route.DestinationPrefixListId is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationPrefixListId }} 
+        {% elif route.DestinationIpv6CidrBlock is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationIpv6CidrBlock }}
+        {% elif route.DestinationCidrBlock is defined %}
+          {{ data.RouteTableId }}_{{ route.DestinationCidrBlock }}
+        {% endif %}
+      {% endfor %}
+      '
+    to_resource_type: aws_route
+    multiline_output: true
+
+
+  - id_generator_jinja2_template: '
+      {% for assoc in data.Associations %}
+        {% if assoc.SubnetId is defined %}
+          {{ assoc.SubnetId }}/{{ data.RouteTableId }}
+        {% elif assoc.GatewayId is defined %}
+          {{ assoc.GatewayId }}/{{ data.RouteTableId }}
+        {% endif %}
+      {% endfor %}
+      '
+    jmespath_query: '[].RouteTables[]'
+    operation_name: DescribeRouteTables
+    resource_node: RouteTables
+    service: ec2
+    to_resource_name_jinja2_template: '
+      {% for assoc in data.Associations %}
+        {% if assoc.SubnetId is defined %}
+          rtb_assoc_{{ assoc.SubnetId }}/{{ data.RouteTableId }}
+        {% elif assoc.GatewayId is defined %}
+          rtb_assoc_{{ assoc.GatewayId }}/{{ data.RouteTableId }}
+        {% endif %}
+      {% endfor %}
+      '
+    to_resource_type: aws_route_table_association
+    multiline_output: true
+  - id_generator_jinja2_template: '{{ NatGatewayId }}'
+    jmespath_query: '[].NatGateways[]'
+    operation_name: DescribeNatGateways
+    resource_node: NatGateways
+    service: ec2
+    to_resource_name_jinja2_template: 'nat_gw_{{ NatGatewayId }}'
+    to_resource_type: aws_nat_gateway
+
+  - id_generator_jinja2_template: '{{ InternetGatewayId }}'
+    jmespath_query: '[].InternetGateways[]'
+    operation_name: DescribeInternetGateways
+    resource_node: InternetGateways
+    service: ec2
+    to_resource_name_jinja2_template: 'internet_gateway_{{ InternetGatewayId }}'
+    to_resource_type: aws_internet_gateway
+
+
+  - service: ec2
+    resource_node: InternetGateways
+    operation_name: DescribeInternetGateways
+    jmespath_query: '[].InternetGateways[]'
+    to_resource_type: aws_internet_gateway_attachment
+    multiline_output: true
+    id_generator_jinja2_template: '
+      {% for attachment in data.Attachments %}
+        {% if attachment.VpcId is defined %}
+          {{ data.InternetGatewayId }}:{{ attachment.VpcId }}
+        {% elif attachment.GatewayId is defined %}
+          {{ attachment.GatewayId }}:{{ data.RouteTableId }}
+        {% endif %}
+      {% endfor %}'
+    to_resource_name_jinja2_template: '
+      {% for attachment in data.Attachments %}
+        {% if attachment.VpcId is defined %}
+          {{ data.InternetGatewayId }}:{{ attachment.VpcId }}
+        {% elif attachment.GatewayId is defined %}
+          {{ attachment.GatewayId }}:{{ data.RouteTableId }}
+        {% endif %}
+      {% endfor %}'
