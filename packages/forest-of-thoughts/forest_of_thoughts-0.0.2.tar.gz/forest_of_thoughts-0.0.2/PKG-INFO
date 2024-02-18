@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: forest-of-thoughts
+Version: 0.0.2
+Summary: Paper - Pytorch
+Home-page: https://github.com/kyegomez/forest-of-thoughts
+License: MIT
+Keywords: artificial intelligence,deep learning,optimizers,Prompt Engineering
+Author: Kye Gomez
+Author-email: kye@apac.ai
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: chromadb
+Requires-Dist: swarms
+Requires-Dist: uuid
+Project-URL: Repository, https://github.com/kyegomez/forest-of-thoughts
+Description-Content-Type: text/markdown
+
+[![Multi-Modality](agorabanner.png)](https://discord.gg/qUtxnK2NMf)
+
+# Forest of thoughts
+
+## Install
+
+
+## Usage
+```python
+import os
+from swarms import OpenAIChat, Mixtral
+from fot.main import ForestOfAgents
+from dotenv import load_dotenv
+
+# Load env
+load_dotenv()
+
+# OpenAI API key
+api_key = os.getenv("OPENAI_API_KEY")
+
+# create llm
+openai = OpenAIChat(openai_api_base=api_key)
+llm = Mixtral(max_new_tokens=3000, load_in_4bit=True)
+
+# Create a forest of agents
+forest = ForestOfAgents(
+    openai, num_agents=5, max_loops=1, max_new_tokens=100
+)
+
+# Distribute tasks to the agents
+forest.run("What is the meaning of life?")
+
+
+```
+
+
+# License
+MIT
+
+
