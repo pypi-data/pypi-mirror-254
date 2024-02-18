@@ -1,0 +1,4 @@
+nerfstudio==0.3.4
+torchtyping
+torch<2.1.0
+tyro==0.6.0
