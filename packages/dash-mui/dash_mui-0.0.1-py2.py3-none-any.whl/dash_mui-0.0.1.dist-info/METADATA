@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: dash-mui
+Version: 0.0.1
+Summary: Material UI components for Plotly Dash
+Author: Lachlan Teale <lachlan.teale@gmail.com>
+License: MIT
+Classifier: Framework :: Dash
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+License-File: LICENSE
+
