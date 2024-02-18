@@ -1,0 +1,10 @@
+setup.py
+distributionAnggi.egg-info/PKG-INFO
+distributionAnggi.egg-info/SOURCES.txt
+distributionAnggi.egg-info/dependency_links.txt
+distributionAnggi.egg-info/not-zip-safe
+distributionAnggi.egg-info/top_level.txt
+distributionsAnggi/Binomialdistribution.py
+distributionsAnggi/Gaussiandistribution.py
+distributionsAnggi/Generaldistribution.py
+distributionsAnggi/__init__.py
