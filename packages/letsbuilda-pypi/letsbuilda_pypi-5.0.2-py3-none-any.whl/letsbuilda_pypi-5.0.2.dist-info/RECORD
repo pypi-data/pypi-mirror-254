@@ -1,0 +1,14 @@
+letsbuilda/pypi/__init__.py,sha256=tdUXHv8xog9tbp70m_XABs2ngr9haS3fHmF9AHMKUmk,329
+letsbuilda/pypi/async_client.py,sha256=Gyd4IngAC4D6e8TFtxLbwOHi_l0oyvumyPpaSG8467I,1875
+letsbuilda/pypi/exceptions.py,sha256=1vzLPheZ6Po2MwwCZMnz3rfU1uiGF2sR1Ud6iUcEHzs,510
+letsbuilda/pypi/py.typed,sha256=bWew9mHgMy8LqMu7RuqQXFXLBxh2CRx0dUbSx-3wE48,27
+letsbuilda/pypi/sync_client.py,sha256=JsOCx4qot8chk4cx0zLKVihLuW3gUQ2ZHTce-2Sl3W8,1838
+letsbuilda/pypi/models/__init__.py,sha256=xJgOcUG4R4bPMcuBj9gP2WAYPKWCfq-Mebh64wPUQp0,239
+letsbuilda/pypi/models/models_json.py,sha256=tQQhG5jb4EPqD3ar5pczJ7NW50fesxt-cADXRBi9PcQ,3500
+letsbuilda/pypi/models/models_package.py,sha256=sgIXqEukhyRaloqACzhbd3n0K6-3F9XcNQDTg2Py-xg,1347
+letsbuilda/pypi/models/models_rss.py,sha256=o5dq06_IcLqCx8yVCt4VPh8tdxsCMgFSm8Uk6xCfJIc,1070
+letsbuilda_pypi-5.0.2.dist-info/LICENSE,sha256=j5wyo9mjJ7buoxF48MrvPTKfBz5Zr4A43T9jysM07j8,1074
+letsbuilda_pypi-5.0.2.dist-info/METADATA,sha256=9rtE4qucwihJ3icIEDJOsPFu6MLHoDtKj_ntmUkPVFM,1631
+letsbuilda_pypi-5.0.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+letsbuilda_pypi-5.0.2.dist-info/top_level.txt,sha256=vVUfQ2ULXZ4WFmEqzU3PO-lM3S8o7w2VRMSsX8oL3zs,11
+letsbuilda_pypi-5.0.2.dist-info/RECORD,,
