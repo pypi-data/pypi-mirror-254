@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+tests/test_vekterdb.py
+vekterdb/__init__.py
+vekterdb/vekterdb.py
+vekterdb.egg-info/PKG-INFO
+vekterdb.egg-info/SOURCES.txt
+vekterdb.egg-info/dependency_links.txt
+vekterdb.egg-info/requires.txt
+vekterdb.egg-info/top_level.txt
