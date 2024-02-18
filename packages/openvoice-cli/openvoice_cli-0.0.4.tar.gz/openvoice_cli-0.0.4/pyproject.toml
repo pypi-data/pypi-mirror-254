@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling","hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openvoice-cli"
+version = "0.0.4"
+authors = [
+  { name="daswer123", email="daswerq123@gmail.com" },
+]
+description = "Use OpenVoice 2 stage via console or python scripts"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "librosa==0.9.1",
+  "pydub==0.25.1",
+  "wavmark==0.0.3",
+  "faster-whisper>=0.9.0",
+  "whisper-timestamped>=1.14.2",
+  "torch>=1.13.1",
+  "torchaudio>=0.13.1",
+  "typing-extensions>=4.6.1",
+  "numpy>1.24.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/daswer123/OpenVoice-cli"
+"Bug Tracker" = "https://github.com/daswer123/OpenVoice-cli/issues"
+
+[tool.hatch.build.targets.wheel]
+only-include=["openvoice_cli"]
