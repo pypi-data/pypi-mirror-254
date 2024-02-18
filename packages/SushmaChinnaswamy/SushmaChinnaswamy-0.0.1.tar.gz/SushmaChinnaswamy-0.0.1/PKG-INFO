@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: SushmaChinnaswamy
+Version: 0.0.1
+Summary: This is a very simple calculator
+Home-page: 
+Author: Sushma Chinnaswamy
+Author-email: schinn13@asu.edu
+License: MIT
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: MacOS X
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.0
+License-File: LICENSE.txt
+
+This is a very simple calculator. That takes 2 numbers that either adds, subtracts, multiplies or divides them.
+
+Change log
+==========
+
+0.0.1 (02/02/2024)
+-------------------
+-First Release
