@@ -1,0 +1,17 @@
+fontquery/__init__.py,sha256=uOSw8zZ5pZ4r2b4ATUnQCYrNbTJ4MG-D5Wm5UtyqHW8,1084
+fontquery/build.py,sha256=Ymw6WHS-mH7WaPl5KlT_6q3IjbitP3Sq51mfAP2seZU,10807
+fontquery/cache.py,sha256=DUWdCAFLmd_JNGC2qofaKyBBlGH53Es9lEMC80tkXNM,1975
+fontquery/client.py,sha256=p6O0XlwgH6oY34PeGBkPleoxRTb_OMmL8bKRYgzML8k,6235
+fontquery/container.py,sha256=wQZfgU7SwhK2VtCvoKWzJqL-W8c8h3te7p4OkhdVeCc,9372
+fontquery/diff.py,sha256=ookf2ij3wv4w74-z8tqN2cqyBvnZ1r0DDDEAmTbPLlU,6600
+fontquery/htmlformatter.py,sha256=Se1fX3_yEvzKU6LxTkx4VNzE-hLVlOszaeWS6VFYGA8,23967
+fontquery/version.py,sha256=W5PnphFCEXfvdpQUN0B7sKlMg9z_3Abu-ZnUwbliqhg,1350
+fontquery/version.txt,sha256=foLQ13dAOivXjrHTUJdwssL_4XaKbt4DriRPf5DmU5I,15
+fontquery/data/Containerfile,sha256=XDrWEHyxpfEYJTJVTIviHj-0tOj6j3gLY-alt4T6eFk,1818
+fontquery/scripts/fontquery-setup.sh,sha256=u8L3ejQQolvpfOUPz7aEWEaLdRSPGlwPHqs9eNQ5ehY,3798
+fontquery-1.8.dist-info/LICENSE,sha256=TJchhLtmPWPt1CQ-BcEsJ-RkZknb85zwwy7yvISncHg,1070
+fontquery-1.8.dist-info/METADATA,sha256=Or3wGf3JPDdPFpaTAn1vq7SWOe1SCSdy59ezieNRysU,4289
+fontquery-1.8.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+fontquery-1.8.dist-info/entry_points.txt,sha256=wgQvtTKg7c3qtcldN6AxRqJWOKt_qKoywW9sFBUhkQo,214
+fontquery-1.8.dist-info/top_level.txt,sha256=bEkVunUY5xJHDx9Mapxvk64_0C0qeuU4M97H8Fuvy9E,10
+fontquery-1.8.dist-info/RECORD,,
