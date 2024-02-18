@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+idc_index/__init__.py
+idc_index/index.py
+idc_index.egg-info/PKG-INFO
+idc_index.egg-info/SOURCES.txt
+idc_index.egg-info/dependency_links.txt
+idc_index.egg-info/requires.txt
+idc_index.egg-info/top_level.txt
+tests/__init__.py
+tests/idcindex.py
