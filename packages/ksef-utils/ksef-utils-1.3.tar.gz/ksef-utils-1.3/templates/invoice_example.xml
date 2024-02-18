@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<Faktura xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://crd.gov.pl/wzor/2023/06/29/12648/">
+  <Naglowek>
+    <KodFormularza kodSystemowy="FA (2)" wersjaSchemy="1-0E">FA</KodFormularza>
+    <WariantFormularza>2</WariantFormularza>
+    <DataWytworzeniaFa>{{ invoice.creation_date }}</DataWytworzeniaFa>
+  </Naglowek>
+  <Podmiot1>
+    <DaneIdentyfikacyjne>
+      <NIP>{{ vendor1.nip }}</NIP>
+      <Nazwa>{{ vendor1.name }}</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>{{ vendor1.country_code }}</KodKraju>
+      <AdresL1>{{ vendor1.address1 }}</AdresL1>
+      <AdresL2>{{ vendor1.address2 }}</AdresL2>
+    </Adres>
+    {% if "contact" in vendor1 %}
+    <DaneKontaktowe>
+      <Email>{{ vendor1.contact.email }}</Email>
+      <Telefon>{{ vendor1.contact.phone }}</Telefon>
+    </DaneKontaktowe>
+    {% endif %}
+  </Podmiot1>
+  <Podmiot2>
+    <DaneIdentyfikacyjne>
+      <NIP>{{ vendor2.nip }}</NIP>
+      <Nazwa>{{ vendor2.name }}</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>{{ vendor2.country_code }}</KodKraju>
+      <AdresL1>{{ vendor2.address1 }}</AdresL1>
+      <AdresL2>{{ vendor2.address2 }}</AdresL2>
+    </Adres>
+    {% if "contact" in vendor2 %}
+    <DaneKontaktowe>
+      <Email>{{ vendor2.contact.email }}</Email>
+      <Telefon>{{ vendor2.contact.phone }}</Telefon>
+    </DaneKontaktowe>
+    {% endif %}
+  </Podmiot2>
+  <Fa>
+    <KodWaluty>{{ invoice.currency }}</KodWaluty>
+    <P_1>{{ invoice.date_of_sale }}</P_1>
+    <P_1M>{{ invoice.location }}</P_1M>
+    <P_2>{{ invoice.number }}</P_2>
+    <P_13_1>{{ invoice.total_value }}</P_13_1>
+    <P_14_1>{{ invoice.total_vat_value }}</P_14_1>
+    <P_15>{{ invoice.total_gross_value }}</P_15>
+    <Adnotacje>
+      <P_16>2</P_16>
+      <P_17>2</P_17>
+      <P_18>2</P_18>
+      <P_18A>2</P_18A>
+      <Zwolnienie>
+        <P_19N>1</P_19N>
+      </Zwolnienie>
+      <NoweSrodkiTransportu>
+        <P_22N>1</P_22N>
+      </NoweSrodkiTransportu>
+      <P_23>2</P_23>
+      <PMarzy>
+        <P_PMarzyN>1</P_PMarzyN>
+      </PMarzy>
+    </Adnotacje>
+    <RodzajFaktury>{{ invoice.type }}</RodzajFaktury>
+    {% for item in invoice.services %}<FaWiersz>
+      <NrWierszaFa>{{ item.number }}</NrWierszaFa>
+      <P_7>{{ item.title }}</P_7>
+      <P_8A>{{ item.unit }}</P_8A>
+      <P_8B>{{ item.quantity }}</P_8B>
+      <P_9A>{{ item.net_price }}</P_9A>
+      <P_11>{{ item.net_value }}</P_11>
+      <P_12>{{ item.vat }}</P_12>
+    </FaWiersz>{% endfor %}
+    <Platnosc>
+      <TerminPlatnosci>
+        <Termin>{{ invoice.payment.due_date }}</Termin>
+        <TerminOpis>{{ invoice.payment.description }}</TerminOpis>
+      </TerminPlatnosci>
+      <FormaPlatnosci>{{ invoice.payment.form }}</FormaPlatnosci>
+      {% if "bank_account" in vendor1 %}
+      <RachunekBankowy>
+        <NrRB>{{ vendor1.bank_account.nr }}</NrRB>
+        <SWIFT>{{ vendor1.bank_account.swift }}</SWIFT>
+        {% if "type" in vendor1.bank_account %}<RachunekWlasnyBanku>{{ vendor1.bank_account.type }}</RachunekWlasnyBanku>{% endif %}
+        <NazwaBanku>{{ vendor1.bank_account.bank_name }}</NazwaBanku>
+        {% if "description" in vendor1.bank_account %}<OpisRachunku>{{ vendor1.bank_account.description }}</OpisRachunku>{% endif %}
+      </RachunekBankowy>
+      {% endif %}
+    </Platnosc>
+  </Fa>
+  <Stopka>
+    <Informacje>
+      <StopkaFaktury>{{ invoice.footer_note }}</StopkaFaktury>
+    </Informacje>
+  </Stopka>
+</Faktura>
