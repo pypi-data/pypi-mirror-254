@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: S_Taper
+Version: 0.8.3.3
+Summary: Simple write-read add-on to SQLite3
+Author: STaper_Admin
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: aiosqlite
+
+This module is an add-on to sqlite3. It helps to perform the simplest tasks with tables: reading and writing. 
+It was created as part of a Python programming course for high school students, but you can use it too.
