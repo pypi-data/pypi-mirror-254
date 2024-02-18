@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/picardium/__init__.py
+src/picardium/example.py
+src/picardium.egg-info/PKG-INFO
+src/picardium.egg-info/SOURCES.txt
+src/picardium.egg-info/dependency_links.txt
+src/picardium.egg-info/top_level.txt
