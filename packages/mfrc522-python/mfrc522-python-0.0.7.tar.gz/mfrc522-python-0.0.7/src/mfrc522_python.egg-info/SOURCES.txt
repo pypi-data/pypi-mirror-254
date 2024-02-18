@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/mfrc522/BasicMFRC522.py
+src/mfrc522/MFRC522.py
+src/mfrc522/SimpleMFRC522.py
+src/mfrc522/__init__.py
+src/mfrc522_python.egg-info/PKG-INFO
+src/mfrc522_python.egg-info/SOURCES.txt
+src/mfrc522_python.egg-info/dependency_links.txt
+src/mfrc522_python.egg-info/top_level.txt
