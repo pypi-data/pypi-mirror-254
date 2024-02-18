@@ -1,0 +1,3 @@
+include dropduplicatesplanb/requirements.txt
+include dropduplicatesplanb/thirdparty.json
+include dropduplicatesplanb/README.MD

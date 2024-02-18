@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+dropduplicatesplanb/README.MD
+dropduplicatesplanb/__init__.py
+dropduplicatesplanb/requirements.txt
+dropduplicatesplanb/thirdparty.json
+dropduplicatesplanb.egg-info/PKG-INFO
+dropduplicatesplanb.egg-info/SOURCES.txt
+dropduplicatesplanb.egg-info/dependency_links.txt
+dropduplicatesplanb.egg-info/requires.txt
+dropduplicatesplanb.egg-info/top_level.txt
