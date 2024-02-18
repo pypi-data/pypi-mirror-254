@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+durakonline/__init__.py
+durakonline/authorization.py
+durakonline/durakonline.py
+durakonline/friend.py
+durakonline/game.py
+durakonline/socket_listener.py
+durakonline.py.egg-info/PKG-INFO
+durakonline.py.egg-info/SOURCES.txt
+durakonline.py.egg-info/dependency_links.txt
+durakonline.py.egg-info/requires.txt
+durakonline.py.egg-info/top_level.txt
+durakonline/utils/__init__.py
+durakonline/utils/enums.py
+durakonline/utils/objects.py
