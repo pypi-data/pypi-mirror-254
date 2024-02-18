@@ -1,0 +1,13 @@
+pytabulator/__init__.py,sha256=VxehuAS8mIltKmFWcT6Dsk78FmAHT4XZP43UrLTf7vY,195
+pytabulator/_utils.py,sha256=YWY02dYv49EoHelU8FOPv757Qr2bT_9tnd3MfDfjcVU,146
+pytabulator/shiny_bindings.py,sha256=P1AMvYSSUHnm4PQssftG2nW0jw2xC4rBLbQxd7icXAw,2941
+pytabulator/srcjs/tabulator-bindings.js,sha256=zrSQwIEUGB5TVZ8aNq6P6JfwvrO48KZLts8yFXbBwmw,1916
+pytabulator/srcjs/tabulator.min.css,sha256=5Q7lr1zi57DkG0psNg11nfBoNec7yst50QhCM27PeH8,25315
+pytabulator/srcjs/tabulator.min.js,sha256=yJ6ZlkNFnrnAyiHwY6zlVyWzPqCwZpkORQneDtSIzGQ,392286
+pytabulator/tabulator.py,sha256=xeesC6iE1UcGJEL7BuFipW1uacLLVz4tyD82tRu5E0s,5340
+pytabulator/tabulator_context.py,sha256=yfKxb5ejSNRHnPY6p1aa-SvGLHzMkaBSbizhYvZOKQU,2260
+pytabulator/utils.py,sha256=EhsW_XVVnz7e6HfByyWP6yGLQKR7vf7Z7lTuxWL4784,1378
+pytabulator-0.2.1.dist-info/LICENSE,sha256=UgGON6d1faHThvcWVRT41UQkBd9FsHbZP0dUGKNx6CE,1066
+pytabulator-0.2.1.dist-info/METADATA,sha256=ZQUOtxtdYVFowChCOdYFvOwJz5yA_sTduhJOCgpgx_c,2646
+pytabulator-0.2.1.dist-info/WHEEL,sha256=7Z8_27uaHI_UZAc4Uox4PpBhQ9Y5_modZXWMxtUi4NU,88
+pytabulator-0.2.1.dist-info/RECORD,,
