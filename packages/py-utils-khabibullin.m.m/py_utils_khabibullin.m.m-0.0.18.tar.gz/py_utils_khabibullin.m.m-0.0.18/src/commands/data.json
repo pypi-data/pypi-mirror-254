@@ -1,0 +1,12 @@
+{
+  "commands": [
+    {
+      "id": 1,
+      "command": "gcloud auth login"
+    },
+    {
+      "id": 2,
+      "command": "gcloud auth application-default login"
+    }
+  ]
+}
