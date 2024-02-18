@@ -1,0 +1,3 @@
+[console_scripts]
+lineage=lineage_aq.__main__:main
+

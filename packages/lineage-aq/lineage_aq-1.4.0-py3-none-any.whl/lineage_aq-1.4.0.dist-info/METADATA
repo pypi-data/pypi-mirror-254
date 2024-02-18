@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: lineage-aq
+Version: 1.4.0
+Summary: Interactive command line interface to create and edit lineage of families.
+Home-page: https://github.com/aqdasak/Lineage/
+License: MIT
+Keywords: python,lineage,genealogy
+Author: Aqdas Ahmad Khan
+Author-email: aqdasak@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: colorama (>=0.4.5,<0.5.0)
+Requires-Dist: networkx (>=2.8.5,<3.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/aqdasak/Lineage/
+Description-Content-Type: text/markdown
+
+# Lineage
+
+Genealogy management software  
+Stores lineage of family. Interactive command line interface to create and edit lineage of families. 
+
+
+### Lineage
+noun:
+the series of families that somebody comes from originally  
+वंश, वंशावली
+
+
+# Install
+###### Recommended (To install pipx click [here](https://github.com/pypa/pipx#install-pipx))
+```
+pipx install lineage-aq
+```
+
+###### or
+```
+pip install lineage-aq
+```
+
+#### Or upgrade by:
+```
+pipx upgrade lineage-aq
+```
+###### or
+```
+pip install --upgrade lineage-aq
+```
+# Usage
+
+### Execute:
+```
+lineage
+```
+
+
+# Install from source
+Poetry is required. For installation click [here](https://python-poetry.org/docs/#installation).
+
+   Download the source and install the dependencies by running:
+  
+   ``` 
+   git clone https://github.com/aqdasak/Lineage.git
+   cd Lineage
+   poetry install
+   ```
+
+### Run
+In the source folder containing pyproject.toml, run
+```
+poetry shell
+lineage
+```
+
+> For Python3.7 compatible version click [here](https://github.com/aqdasak/Lineage-py37)
+
