@@ -1,0 +1,9 @@
+LICENSE
+README.md
+lvldb.py
+setup.py
+lvldb.egg-info/PKG-INFO
+lvldb.egg-info/SOURCES.txt
+lvldb.egg-info/dependency_links.txt
+lvldb.egg-info/top_level.txt
+tests/test_lvldb.py
