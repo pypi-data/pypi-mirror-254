@@ -1,0 +1,6 @@
+THB = [currency] = บ = บาท
+
+@context FX
+    THB = 1.11254 USD
+    GBP = 1.16956 EUR
+@end

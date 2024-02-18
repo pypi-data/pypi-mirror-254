@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: rezipe
+Version: 0.2.0
+Summary: A way to write down your cooking/baking recipes in Python. This is an actual library, no joke (period). Made with ❤ for everyone with minimum coding literacy.
+Home-page: https://github.com/CircleOnCircles/recipe
+License: ISC
+Author: Nutchanon Ninyawee
+Author-email: nutchanon@codustry.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: joblib (>=1.3.2,<2.0.0)
+Requires-Dist: marvin (>=2.1.3,<3.0.0)
+Requires-Dist: pandas (>=2.2.0,<3.0.0)
+Requires-Dist: pint (>=0.23,<0.24)
+Requires-Dist: pint-pandas (>=0.5,<0.6)
+Requires-Dist: pydantic (>=2.6.0,<3.0.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Project-URL: Repository, https://github.com/CircleOnCircles/recipe
+Description-Content-Type: text/markdown
+
+# rezipe
+
+[![PyPI - Version](https://img.shields.io/pypi/v/rezipe.svg)](https://pypi.org/project/rezipe)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rezipe.svg)](https://pypi.org/project/rezipe)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install rezipe
+```
+
+## License
+
+`rezipe` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
