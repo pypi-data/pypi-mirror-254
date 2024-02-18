@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: wai.pycocotools
+Version: 12.1.1
+Summary: Public release of open-mmlab/cocoapi on PyPI
+Home-page: https://github.com/waikato-ufdl/cocoapi
+License: BSD License
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: setuptools >=18.0
+Requires-Dist: cython <3.0.0,>=0.27.3
+Requires-Dist: matplotlib >=2.1.0
+
