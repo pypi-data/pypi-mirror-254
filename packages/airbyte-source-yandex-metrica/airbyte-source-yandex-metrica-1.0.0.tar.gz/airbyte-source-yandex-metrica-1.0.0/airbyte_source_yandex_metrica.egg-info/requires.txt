@@ -1,0 +1,8 @@
+airbyte-cdk
+
+[tests]
+requests-mock~=1.9.3
+freezegun
+pytest~=6.1
+pytest-mock
+requests_mock
