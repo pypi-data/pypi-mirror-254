@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "endoreg-db"
+version = "0.1.0"
+description = "EndoReg projects db backend"
+authors = ["Thomas J. Lux"]
+license = "GNU v3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pillow = "^10.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
