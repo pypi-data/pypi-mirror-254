@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: csmc
+Version: 0.1.5
+Summary: Matrix completion with column subset selection.
+Home-page: https://github.com/ZAL-NASK/CSMC
+Author: Antonina Krajewska
+Author-email: antonina.krajewska@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: SciPy (>=1.11.4,<2.0.0)
+Requires-Dist: cvxpy (>=1.4.1,<2.0.0)
+Requires-Dist: fbpca (>=1.0,<2.0)
+Requires-Dist: numba (>=0.58.1,<0.59.0)
+Requires-Dist: threadpoolctl (>=3.2.0,<4.0.0)
+Requires-Dist: torch (>=2.1.2,<3.0.0)
