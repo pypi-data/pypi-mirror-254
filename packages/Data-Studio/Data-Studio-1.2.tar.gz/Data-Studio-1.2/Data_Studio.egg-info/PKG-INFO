@@ -1,0 +1,279 @@
+Metadata-Version: 2.1
+Name: Data-Studio
+Version: 1.2
+Summary: Data Studio annotation tool
+Home-page: https://github.com/LabelStudio-IndikaAI/data-studio.git
+Author: Heartex
+Author-email: Data@indikaai.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: mysql
+License-File: LICENSE
+License-File: NOTICE
+
+<img src="https://user-images.githubusercontent.com/12534576/192582340-4c9e4401-1fe6-4dbb-95bb-fdbba5493f61.png"/>
+
+![GitHub](https://img.shields.io/github/license/heartexlabs/data-studio?logo=heartex) ![data-studio:build](https://github.com/heartexlabs/data-studio/workflows/data-studio:build/badge.svg) ![GitHub release](https://img.shields.io/github/v/release/heartexlabs/data-studio?include_prereleases)
+
+[Website](https://labelstud.io/) • [Docs](https://labelstud.io/guide/) • [Twitter](https://twitter.com/labelstudiohq) • [Join Slack Community <img src="https://app.heartex.ai/docs/images/slack-mini.png" width="18px"/>](https://slack.labelstud.io/?source=github-1)
+
+
+## What is Data Studio?
+
+<!-- <a href="https://labelstud.io/blog/release-130.html"><img src="https://github.com/heartexlabs/data-studio/raw/master/docs/themes/htx/source/images/release-130/LS-Hits-v1.3.png" align="right" /></a> -->
+
+Data Studio is an open source data labeling tool. It lets you label data types like audio, text, images, videos, and time series with a simple and straightforward UI and export to various model formats. It can be used to prepare raw data or improve existing training data to get more accurate ML models.
+
+- [Try out Data Studio](#try-out-data-studio)
+- [What you get from Data Studio](#what-you-get-from-data-studio)
+- [Included templates for labeling data in Data Studio](#included-templates-for-labeling-data-in-data-studio)
+- [Set up machine learning models with Data Studio](#set-up-machine-learning-models-with-data-studio)
+- [Integrate Data Studio with your existing tools](#integrate-data-studio-with-your-existing-tools)
+
+![Gif of Data Studio annotating different types of data](https://raw.githubusercontent.com/heartexlabs/data-studio/master/images/annotation_examples.gif)
+
+Have a custom dataset? You can customize Data Studio to fit your needs. Read an [introductory blog post](https://towardsdatascience.com/introducing-data-studio-a-swiss-army-knife-of-data-labeling-140c1be92881) to learn more. 
+
+## Try out Data Studio
+
+Install Data Studio locally, or deploy it in a cloud instance. [Or, sign up for a free trial of our Enterprise edition.](https://heartex.com/free-trial).
+
+- [Install locally with Docker](#install-locally-with-docker)
+- [Run with Docker Compose (Data Studio + Nginx + PostgreSQL)](#run-with-docker-compose)
+- [Install locally with pip](#install-locally-with-pip)
+- [Install locally with Anaconda](#install-locally-with-anaconda)
+- [Install for local development](#install-for-local-development)
+- [Deploy in a cloud instance](#deploy-in-a-cloud-instance)
+
+### Install locally with Docker
+Official Data Studio docker image is [here](https://hub.docker.com/r/heartexlabs/data-studio) and it can be downloaded with `docker pull`. 
+Run Data Studio in a Docker container and access it at `http://localhost:8080`.
+
+
+```bash
+docker pull heartexlabs/data-studio:latest
+docker run -it -p 8080:8080 -v $(pwd)/mydata:/data-studio/data heartexlabs/data-studio:latest
+```
+You can find all the generated assets, including SQLite3 database storage `data_studio.sqlite3` and uploaded files, in the `./mydata` directory.
+
+#### Override default Docker install
+You can override the default launch command by appending the new arguments:
+```bash
+docker run -it -p 8080:8080 -v $(pwd)/mydata:/data-studio/data heartexlabs/data-studio:latest data-studio --log-level DEBUG
+```
+
+#### Build a local image with Docker
+If you want to build a local image, run:
+```bash
+docker build -t heartexlabs/data-studio:latest .
+```
+
+### Run with Docker Compose
+Docker Compose script provides production-ready stack consisting of the following components:
+
+- Data Studio
+- [Nginx](https://www.nginx.com/) - proxy web server used to load various static data, including uploaded audio, images, etc.
+- [PostgreSQL](https://www.postgresql.org/) - production-ready database that replaces less performant SQLite3.
+
+To start using the app from `http://localhost` run this command:
+```bash
+docker-compose up
+```
+
+### Run with Docker Compose + MinIO
+You can also run it with an additional MinIO server for local S3 storage. This is particularly useful when you want to 
+test the behavior with S3 storage on your local system. To start Data Studio in this way, you need to run the following command:
+````bash
+# Add sudo on Linux if you are not a member of the docker group
+docker compose -f docker-compose.yml -f docker-compose.minio.yml up -d
+````
+If you do not have a static IP address, you must create an entry in your hosts file so that both Data Studio and your 
+browser can access the MinIO server. For more detailed instructions, please refer to [our guide on storing data](docs/source/guide/storedata.md).
+
+
+### Install locally with pip
+
+```bash
+# Requires Python >=3.8
+pip install data-studio
+
+# Start the server at http://localhost:8080
+data-studio
+```
+
+### Install locally with Anaconda
+
+```bash
+conda create --name data-studio
+conda activate data-studio
+conda install psycopg2
+pip install data-studio
+```
+
+### Install for local development
+
+You can run the latest Data Studio version locally without installing the package with pip. 
+
+```bash
+# Install all package dependencies
+pip install -e .
+# Run database migrations
+python data_studio/manage.py migrate
+python data_studio/manage.py collectstatic
+# Start the server in development mode at http://localhost:8080
+python data_studio/manage.py runserver
+```
+
+### Deploy in a cloud instance
+
+You can deploy Data Studio with one click in Heroku, Microsoft Azure, or Google Cloud Platform: 
+
+[<img src="https://www.herokucdn.com/deploy/button.svg" height="30px">](https://heroku.com/deploy?template=https://github.com/heartexlabs/data-studio/tree/heroku-persistent-pg)
+[<img src="https://aka.ms/deploytoazurebutton" height="30px">](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fheartexlabs%2Flabel-studio%2Fmaster%2Fazuredeploy.json)
+[<img src="https://deploy.cloud.run/button.svg" height="30px">](https://deploy.cloud.run)
+
+
+#### Apply frontend changes
+
+The frontend part of Data Studio app lies in the `frontend/` folder and written in React JSX. In case you've made some changes there, the following commands should be run before building / starting the instance:
+
+```
+cd data_studio/frontend/
+yarn install --frozen-lockfile
+npx webpack
+cd ../..
+python data_studio/manage.py collectstatic --no-input
+```
+
+### Troubleshoot installation
+If you see any errors during installation, try to rerun the installation
+
+```bash
+pip install --ignore-installed data-studio
+```
+
+#### Install dependencies on Windows 
+To run Data Studio on Windows, download and install the following wheel packages from [Gohlke builds](https://www.lfd.uci.edu/~gohlke/pythonlibs) to ensure you're using the correct version of Python:
+- [lxml](https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml)
+
+```bash
+# Upgrade pip 
+pip install -U pip
+
+# If you're running Win64 with Python 3.8, install the packages downloaded from Gohlke:
+pip install lxml‑4.5.0‑cp38‑cp38‑win_amd64.whl
+
+# Install Data Studio
+pip install data-studio
+```
+
+### Run test suite
+To add the tests' dependencies to your local install:
+
+```bash
+pip install -r deploy/requirements-test.txt
+```
+
+Alternatively, it is possible to run the unit tests from a Docker container in which the test dependencies are installed:
+
+
+```bash
+make build-testing-image
+make docker-testing-shell
+```
+
+In either case, to run the unit tests:
+
+```bash
+cd data_studio
+
+# sqlite3
+DJANGO_DB=sqlite DJANGO_SETTINGS_MODULE=core.settings.data_studio pytest -vv
+
+# postgres (assumes default postgres user,db,pass. Will not work in Docker
+# testing container without additional configuration)
+DJANGO_DB=default DJANGO_SETTINGS_MODULE=core.settings.data_studio pytest -vv
+```
+
+
+## What you get from Data Studio
+
+![Screenshot of Data Studio data manager grid view with images](https://raw.githubusercontent.com/heartexlabs/data-studio/master/images/labelstudio-ui.gif)
+
+- **Multi-user labeling** sign up and login, when you create an annotation it's tied to your account.
+- **Multiple projects** to work on all your datasets in one instance.
+- **Streamlined design** helps you focus on your task, not how to use the software.
+- **Configurable label formats** let you customize the visual interface to meet your specific labeling needs.
+- **Support for multiple data types** including images, audio, text, HTML, time-series, and video. 
+- **Import from files or from cloud storage** in Amazon AWS S3, Google Cloud Storage, or JSON, CSV, TSV, RAR, and ZIP archives. 
+- **Integration with machine learning models** so that you can visualize and compare predictions from different models and perform pre-labeling.
+- **Embed it in your data pipeline** REST API makes it easy to make it a part of your pipeline
+
+## Included templates for labeling data in Data Studio 
+
+Data Studio includes a variety of templates to help you label your data, or you can create your own using specifically designed configuration language. The most common templates and use cases for labeling include the following cases:
+
+<img src="https://raw.githubusercontent.com/heartexlabs/data-studio/master/images/templates-categories.jpg" />
+
+## Set up machine learning models with Data Studio
+
+Connect your favorite machine learning model using the Data Studio Machine Learning SDK. Follow these steps:
+
+1. Start your own machine learning backend server. See [more detailed instructions](https://github.com/heartexlabs/data-studio-ml-backend).
+2. Connect Data Studio to the server on the model page found in project settings.
+
+This lets you:
+
+- **Pre-label** your data using model predictions. 
+- Do **online learning** and retrain your model while new annotations are being created. 
+- Do **active learning** by labeling only the most complex examples in your data.
+
+## Integrate Data Studio with your existing tools
+
+You can use Data Studio as an independent part of your machine learning workflow or integrate the frontend or backend into your existing tools.  
+
+* Use the [Data Studio Frontend](https://github.com/heartexlabs/data-studio-frontend) as a separate React library. See more in the [Frontend Library documentation](https://labelstud.io/guide/frontend.html). 
+
+## Ecosystem
+
+| Project | Description |
+|-|-|
+| data-studio | Server, distributed as a pip package |
+| [data-studio-frontend](https://github.com/heartexlabs/data-studio-frontend) | React and JavaScript frontend and can run standalone in a web browser or be embedded into your application. |  
+| [data-manager](https://github.com/heartexlabs/dm2) | React and JavaScript frontend for managing data. Includes the Data Studio Frontend. Relies on the data-studio server or a custom backend with the expected API methods. | 
+| [data-studio-converter](https://github.com/heartexlabs/data-studio-converter) | Encode labels in the format of your favorite machine learning library | 
+| [data-studio-transformers](https://github.com/heartexlabs/data-studio-transformers) | Transformers library connected and configured for use with Data Studio |
+
+
+## Roadmap
+
+Want to use **The Coolest Feature X** but Data Studio doesn't support it? Check out [our public roadmap](roadmap.md)!
+
+## Citation
+
+```tex
+@misc{Data Studio,
+  title={{Data Studio}: Data labeling software},
+  url={https://github.com/heartexlabs/data-studio},
+  note={Open source software available from https://github.com/heartexlabs/data-studio},
+  author={
+    Maxim Tkachenko and
+    Mikhail Malyuk and
+    Andrey Holmanyuk and
+    Nikolai Liubimov},
+  year={2020-2022},
+}
+```
+
+## License
+
+This software is licensed under the [Apache 2.0 LICENSE](/LICENSE) © [Heartex](https://www.heartex.com/). 2020-2022
+
+<img src="https://user-images.githubusercontent.com/12534576/192582529-cf628f58-abc5-479b-a0d4-8a3542a4b35e.png" title="Hey everyone!" width="180" />
+
+

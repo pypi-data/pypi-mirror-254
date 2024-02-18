@@ -1,0 +1,3 @@
+[console_scripts]
+data-studio = data_studio.server:main
+

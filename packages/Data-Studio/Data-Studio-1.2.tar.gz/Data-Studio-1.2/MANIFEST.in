@@ -1,0 +1,39 @@
+include deploy/requirements.txt
+
+# react LSF / react-app with dm
+recursive-include data_studio/frontend/dist/lsf *
+include data_studio/frontend/dist/react-app/*
+recursive-include data_studio/frontend/dist/dm/ *
+
+# html template files
+recursive-include data_studio *.html
+
+# exclude node modules
+prune data_studio/frontend/node_modules
+prune data_studio/frontend/build-tmp
+
+# annotation templates
+recursive-include data_studio/annotation_templates *
+
+# core
+recursive-include data_studio/core/static *
+recursive-include data_studio/core/static_build *
+include data_studio/core/utils/schema/*.json
+include data_studio/core/templatetags/*.py
+include data_studio/core/version_.py
+include data_studio/core/all_urls.json
+
+# io storages
+recursive-include data_studio/io_storages *.yml
+
+# tests
+recursive-include data_studio/tests *.sh
+recursive-include data_studio/tests/loadtests *.txt
+recursive-include data_studio/tests/test_data *.yml
+recursive-include data_studio/tests/test_suites/samples *
+recursive-include data_studio/tests/test_suites *.yml
+
+include data_studio/pytest.ini
+
+# feature flags
+include data_studio/feature_flags.json
