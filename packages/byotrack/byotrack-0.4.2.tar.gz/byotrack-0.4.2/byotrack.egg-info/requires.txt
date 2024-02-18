@@ -1,0 +1,14 @@
+numba
+numpy
+opencv-python
+pillow
+pylapy[scipy]
+torch
+torch_tps
+tqdm
+
+[full]
+tifffile
+matplotlib
+stardist
+tensorflow
