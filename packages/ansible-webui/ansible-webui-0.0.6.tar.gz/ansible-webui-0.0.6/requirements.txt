@@ -1,0 +1,25 @@
+# webui
+gunicorn
+Django==4.*
+pycryptodome
+pytz
+pyyaml
+ua-parser
+user-agents
+django-user-agents
+django-auto-logout
+pycryptodome
+
+## api
+djangorestframework==3.*
+djangorestframework-api-key==2.*
+drf-spectacular
+
+## styles
+fontawesomefree
+
+# scheduling
+crontab
+
+# ansible
+ansible-runner

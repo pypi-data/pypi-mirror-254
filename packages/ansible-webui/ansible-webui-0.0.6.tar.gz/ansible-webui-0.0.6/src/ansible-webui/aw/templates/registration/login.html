@@ -1,0 +1,44 @@
+{% extends "../body.html" %}
+{% load util %}
+{% load static %}
+{% block content %}
+    <div align="center" style="display: block;">
+        <img src="{% static 'img/ansible.svg' %}" alt="" onerror="this.style.display='none'" class="aw-img-float"/>
+    </div>
+    <div class="aw-login">
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if not user.is_authenticated %}
+            <div class="alert alert-info">
+                Please login to see this page.
+            </div>
+        {% endif %}
+        <br>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="id_username" class="aw-login-fields">
+                Username:
+                <input class="aw-login-fields form-control" type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+            </label>
+            <br>
+            <label for="id_password" class="aw-login-fields">
+                Password:
+                <input class="aw-login-fields form-control" type="password" name="password" autocomplete="current-password" required="" id="id_password">
+            </label>
+            <br>
+            <button type="submit" value="login" class="btn btn-secondary">Login</button>
+        </form>
+    </div>
+{% endblock %}
