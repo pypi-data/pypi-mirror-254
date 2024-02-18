@@ -1,0 +1,363 @@
+{
+    "Log archive": [
+        {
+            "AccountId": "884478634998",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "884478634998",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-43117aac-887b-48ee-af49-b6b6cd059199",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSControlTowerAdmins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "884478634998",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-c481fbee-8062-432a-8b87-eeaa36b763a8",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSLogArchiveAdmins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "884478634998",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        },
+        {
+            "AccountId": "884478634998",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-ff479c57-03cb-440e-8902-be8ea9d7d25b",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSLogArchiveViewers",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "SecOps": [
+        {
+            "AccountId": "835863553119",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "835863553119",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "c1eb9540-e0f1-702f-c53f-405c01d9f991",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+secops-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "835863553119",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "Prod": [
+        {
+            "AccountId": "582441254763",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "582441254763",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "582441254763",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "31eb65d0-f051-70a8-3786-9be14e01dc0e",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+prod-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "582441254763",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "SecurityTooling": [
+        {
+            "AccountId": "895882538541",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "895882538541",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-83071c7372606026",
+            "PrincipalId": "913ba5c0-f071-70e1-05c5-a927586dc132",
+            "PrincipalType": "GROUP",
+            "GroupName": "SecOps_Adms",
+            "PermissionSetName": "LabvelSecOpsAdms"
+        },
+        {
+            "AccountId": "895882538541",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-43117aac-887b-48ee-af49-b6b6cd059199",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSControlTowerAdmins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "895882538541",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-faf36c54-a70c-4db6-aefc-e5ac006ad5a1",
+            "PrincipalType": "GROUP"
+        },
+        {
+            "AccountId": "895882538541",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "DevSecOps": [
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-002383fcbd1b90d7",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "LabvelDevSecOpsUsers"
+        },
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "81bb65b0-40f1-7082-2b16-83138563c37b",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+devsecops-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-e370384c6f6d9b8a",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "LabvelDevSecOpsRW"
+        },
+        {
+            "AccountId": "105171185823",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "Ops": [
+        {
+            "AccountId": "994261317734",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "994261317734",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-f7e9ac54-7407-4428-8562-f8e3afebbe76",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+ct-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "994261317734",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "SharedServices": [
+        {
+            "AccountId": "155794986228",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "155794986228",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "155794986228",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "417b65f0-2021-707d-6483-08a1fa4997c6",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+shared-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "155794986228",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "ClowPiloto": [],
+    "LabVel": [
+        {
+            "AccountId": "029921763173",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "029921763173",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-7cc34a5a03379f6f",
+            "PrincipalId": "9a672b3314-f8065505-3174-4d46-a1b4-f134fd0ca2fc",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSAccountFactory",
+            "PermissionSetName": "AWSServiceCatalogEndUserAccess"
+        },
+        {
+            "AccountId": "029921763173",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "9a672b3314-43117aac-887b-48ee-af49-b6b6cd059199",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSControlTowerAdmins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "029921763173",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        },
+        {
+            "AccountId": "029921763173",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-83e7c23c8b2df8b3",
+            "PrincipalId": "9a672b3314-7f743f07-169a-4172-bdbc-561e7908e463",
+            "PrincipalType": "GROUP"
+        }
+    ],
+    "OrganizationManager": [
+        {
+            "AccountId": "837696987585",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "837696987585",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-83071c7372606026",
+            "PrincipalId": "913ba5c0-f071-70e1-05c5-a927586dc132",
+            "PrincipalType": "GROUP",
+            "GroupName": "SecOps_Adms",
+            "PermissionSetName": "LabvelSecOpsAdms"
+        },
+        {
+            "AccountId": "837696987585",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "c19b15f0-4001-7011-b67d-3e211db16680",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+orgman-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "837696987585",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ],
+    "Dev": [
+        {
+            "AccountId": "571340586587",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-ab185f05acde5e90",
+            "PrincipalId": "9a672b3314-b858476a-2ef9-4018-90e7-29e5e4bc4388",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditPowerUsers",
+            "PermissionSetName": "AWSPowerUserAccess"
+        },
+        {
+            "AccountId": "571340586587",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "318bc590-a071-70f5-63f6-ab21233e4e33",
+            "PrincipalType": "GROUP",
+            "GroupName": "DevSecOps_Admins",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "571340586587",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-21058a9d1f62c7e2",
+            "PrincipalId": "41fbf590-8001-70d1-334c-2bbb4adb9989",
+            "PrincipalType": "USER",
+            "UserName": "w.alejovl+dev-labs@gmail.com",
+            "PermissionSetName": "AWSAdministratorAccess"
+        },
+        {
+            "AccountId": "571340586587",
+            "PermissionSetArn": "arn:aws:sso:::permissionSet/ssoins-66845289d6823727/ps-cf27b0efdc941a09",
+            "PrincipalId": "9a672b3314-f46f413e-44d7-4d3d-918b-f86721413097",
+            "PrincipalType": "GROUP",
+            "GroupName": "AWSSecurityAuditors",
+            "PermissionSetName": "AWSReadOnlyAccess"
+        }
+    ]
+}
