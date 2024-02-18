@@ -1,0 +1,22 @@
+name: Test typing
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  typing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache-dependency-path: setup.cfg
+      - name: Install tox
+        run: |
+          pip install tox
+
+      - name: Run mypy on typed modules
+        run: tox -e mypy
