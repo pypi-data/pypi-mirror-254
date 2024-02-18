@@ -1,0 +1,12 @@
+applyllm/__init__.py,sha256=5nEC4I_M1LwU60F6rKuvXs1yRHOnGqXidXZR17ID5kM,12415
+applyllm/accelerator_utils.py,sha256=TLPtiANQAZb41Eq5JW4NvQr12UJ_faI6IyG301DxmGA,7399
+applyllm/objectstore_utils.py,sha256=_6yajj3sokL3Y3BaOV_MLB5GlH8WAFLu3NStfuvw_HM,7292
+applyllm/pdf_text_loader.py,sha256=V9l28s6tpJBXCLxUqmXwv-PYMKxcGRWIR0nCsIU_zzQ,3386
+applyllm/test.py,sha256=V800hmQbUOpkiLBYP3B008YHDR7BKR_CY_w4b_HLDK8,56
+llm-examples/setup/download_llms.py,sha256=1c5GFkW0ALJRqGrAPtMFIJ-KCgLpXEIg339-wyOFe-w,5431
+llm-examples/setup/download_translator.py,sha256=PScQlQonwCEhdjH0gDaRSd_DvUt1poUWyHE1LpseVvk,5456
+applyllm-0.0.1.dist-info/LICENSE,sha256=Gxl5Q149UZ1mYu-50deu1hXTVwheTfzrzu-xpw4Uncw,11371
+applyllm-0.0.1.dist-info/METADATA,sha256=e_xfxZgNmzn4F9D5FpXaTkuuZNHPbkVuJ_JcNh1zWbE,447
+applyllm-0.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+applyllm-0.0.1.dist-info/top_level.txt,sha256=Ly7g8bWDRk8Sdd2kUm5HD0CAEHfxArfZcN8jAL5E6dI,22
+applyllm-0.0.1.dist-info/RECORD,,
