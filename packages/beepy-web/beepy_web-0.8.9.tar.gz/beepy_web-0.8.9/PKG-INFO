@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: beepy-web
+Version: 0.8.9
+Summary: The modern frontend web framework for Python
+Project-URL: Homepage, https://bit.ly/beepy
+Project-URL: Repository, https://github.com/kor0p/BeePy
+Project-URL: Docs, https://bee-py.readthedocs.io/en/latest/
+Author-email: kor0p <3.kor0p@gmail.com>
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10.10
+Requires-Dist: boltons==23.1.1
+Requires-Dist: pyodide-py==0.24.1
+Requires-Dist: python-dotenv==1.0.0
+Provides-Extra: contributing
+Requires-Dist: pre-commit; extra == 'contributing'
+Provides-Extra: dev
+Requires-Dist: micropip==0.3.0; extra == 'dev'
+Requires-Dist: requests==2.31.0; extra == 'dev'
+Requires-Dist: watchdog==3.0.0; extra == 'dev'
+Requires-Dist: websockets==11.0.3; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# 🐝 BeePy
+
+[![NPM Package](https://img.shields.io/npm/v/@kor0p/beepy)](https://www.npmjs.com/package/@kor0p/beepy)
+[![Documentation](https://readthedocs.org/projects/bee-py/badge/?version=latest)](https://bee-py.readthedocs.io/en/latest/)
+
+## The _frontend_ web framework for python
+### Thanks for [Pyodide](https://pyodide.org/) - port of Python to [Emscripten](https://emscripten.org/), based on [WASM](https://webassembly.org/).
+### Use Python in browser to build modern frontend via BeePy!
+
+## Try it out! [CodeSandBox](https://codesandbox.io/s/beepy-two-synced-counters-k5sm9j) and [BeePy Sandbox](https://kor0p.github.io/BeePy/examples/sandbox/)
+
+## Join our community at [Telegram chat](https://t.me/bee_py/)
+
+## Local development:
+### Firstly, install BeePy
+### `pip install -U beepy-web[dev]`
+### Then, add `index.html` and `__init__.py` to root of project
+### and start local server at same directory
+### `python -m beepy.dev`
+### That's it!
+### Now, click on link in console to visit your server
+### and change code to see updates in browser in no time!
+
+Code (custom_url.py from examples):
+```python
+from beepy import Tag, mount, state, on
+
+class IncrementButton(Tag, name='button'):
+    count = state(0)
+
+    @on
+    def click(self):
+        self.count += 1
+
+    def content(self):
+        return f'Count: {self.count}'
+
+mount(IncrementButton(), '#root')
+```
+will render html as below, and will react on buttons click like native JS
+```html
+<body>
+    <div id="root">
+        <button>
+            <div>Count: 5</div>
+        </button>
+    </div>
+</body>
+```
+
+## Examples:
+- [List of examples (with Tabs)](https://beepy-web-ba63e5a12994.herokuapp.com/e/)
+- [Admin panel](https://beepy-web-ba63e5a12994.herokuapp.com/e/admin)
+- [Dynamic plot](https://beepy-web-ba63e5a12994.herokuapp.com/e/plot)
+- [First try](https://beepy-web-ba63e5a12994.herokuapp.com/e/buttons)
+- [Todo List](https://beepy-web-ba63e5a12994.herokuapp.com/e/todos)
+- [Modal](https://beepy-web-ba63e5a12994.herokuapp.com/e/modal)
+- [Context Menu](https://beepy-web-ba63e5a12994.herokuapp.com/e/context-menu)
+- [Dynamic URL](https://beepy-web-ba63e5a12994.herokuapp.com/e/dynamic-url)
+- [Timer](https://beepy-web-ba63e5a12994.herokuapp.com/e/timer)
+- [Input's model](https://beepy-web-ba63e5a12994.herokuapp.com/e/text-sync)
+- [Multiple apps on one page](https://beepy-web-ba63e5a12994.herokuapp.com/multiple-apps)
+- [Just the other one example](https://beepy-web-ba63e5a12994.herokuapp.com/e/custom_url)
+- [BeePy Sandbox](https://kor0p.github.io/BeePy/examples/sandbox/)
