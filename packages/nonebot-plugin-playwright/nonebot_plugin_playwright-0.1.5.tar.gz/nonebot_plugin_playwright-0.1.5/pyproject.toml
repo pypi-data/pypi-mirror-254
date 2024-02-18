@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "nonebot-plugin-playwright"
+version = "0.1.5"
+description = "NoneBot Playwright插件"
+authors = ["eya46 <61458340+eya46@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{ include = "nonebot_plugin_playwright" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+nonebot2 = "^2.0.1"
+playwright = "^1.0.0"
+nonebot-plugin-localstore = { version = ">=0.5.0", optional = true }
+
+[tool.poetry.extras]
+localstore = ["nonebot-plugin-localstore"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["E", "W", "F", "UP", "C", "T", "PYI", "PT", "Q"]
+ignore = ["E722"]
+
+line-length = 121
+target-version = "py38"
