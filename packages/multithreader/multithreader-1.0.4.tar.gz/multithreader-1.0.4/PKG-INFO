@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: multithreader
+Version: 1.0.4
+Summary: Execute Python functions with multithreading.
+Home-page: https://gitlab.com/fer1035_python/modules/pypi-multithreader
+License: GPL-2.0-only
+Keywords: multithreading,functions,threading,parallel,concurrent
+Author: Ahmad Ferdaus Abd Razak
+Author-email: ahmad.ferdaus.abd.razak@ni.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Project-URL: Repository, https://gitlab.com/fer1035_python/modules/pypi-multithreader
+Description-Content-Type: text/x-rst
+
+=================
+**multithreader**
+=================
+
+Overview
+--------
+
+Execute Python functions with multithreading.
+
+Usage
+-----
+
+Installation:
+
+.. code-block:: BASH
+
+    pip3 install multithreader
+    # or
+    python3 -m pip install multithreader
+
+Example:
+
+.. code-block:: PYTHON
+
+    def test_function(
+        iterator,
+        items
+    ) -> int:
+        """Sum two numbers."""
+        print(iterator)
+        sleep(1)
+        return items['a'] + items['b']
+
+    # Import multithreader.
+    from multithreader import threads
+
+    # Define arguments.
+    items = {
+        'a': 1,
+        'b': 2
+    }
+
+    # Define iterators.
+    iterators = [1, 2, 3, 4, 5]
+
+    # Execute function with multithreading.
+    results = threads(
+        test_function,
+        iterators,
+        items,
+        thread_num=int(sys.argv[1])
+    )
+
+    # Print results.
+    print(results)
+
+Full Example
+------------
+
+- `List AWS Hosted Zones in an organization <https://gitlab.com/fer1035_python/modules/pypi-multithreader/-/blob/main/examples/org_hosted_zones.py>`_
+
