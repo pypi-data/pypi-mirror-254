@@ -1,0 +1,3 @@
+[console_scripts]
+manual-test-run=api_pipe.manual_test_run:main
+
