@@ -1,0 +1,2 @@
+[console_scripts]
+source-wikipedia-pageviews = source_wikipedia_pageviews.run:run
