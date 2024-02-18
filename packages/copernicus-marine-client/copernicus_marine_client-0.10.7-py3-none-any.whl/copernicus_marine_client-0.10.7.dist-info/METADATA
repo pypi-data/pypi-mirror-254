@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: copernicus-marine-client
+Version: 0.10.7
+Summary: 
+Author: Copernicus Marine User Support
+Author-email: servicedesk.cmems@mercator-ocean.eu
+Requires-Python: >=3.9,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.8.5,<4.0.0)
+Requires-Dist: boto3 (>=1.25,<1.34)
+Requires-Dist: cachier (>=2.2.1,<3.0.0)
+Requires-Dist: click (>=8.0.4,<9.0.0)
+Requires-Dist: dask (>=2022,<2024)
+Requires-Dist: lxml (>=4.9.0,<5.0.0)
+Requires-Dist: motuclient (>=1.8.4,<2.0.0)
+Requires-Dist: nest-asyncio (>=1.5.8,<2.0.0)
+Requires-Dist: netCDF4 (>=1.6.3,<2.0.0)
+Requires-Dist: pydap (>=3.2.2,<4.0.0)
+Requires-Dist: pystac (>=1.8.3,<2.0.0)
+Requires-Dist: requests (>=2.27.1,<3.0.0)
+Requires-Dist: semver (>=3.0.2,<4.0.0)
+Requires-Dist: setuptools (>=68.2.2,<69.0.0)
+Requires-Dist: tqdm (>=4.65.0,<5.0.0)
+Requires-Dist: xarray (>=2023.9,<2023.12)
+Requires-Dist: zarr (>=2.13.3,<3.0.0)
+Description-Content-Type: text/markdown
+
+⚠️⚠️⚠️ The `coernicus-marine-client` PyPI package is deprecated. Please use `copernicusmarine` instead ⚠️⚠️⚠️
+
+Here is the link to the new pypi repository: [https://pypi.org/project/copernicusmarine/](https://pypi.org/project/copernicusmarine/)"
+Or install it using the following command: `pip install copernicusmarine`
+
+If you were using this deprecated version, you may also want to delete the following folders:
+
+- `~/.copernicus-marine-client`
+- `~/.cachier` (⚠️ Be carefull with this one as it can contains other stuffs unrelated to the `copernicus-marine-client` package !)
+
+# Reason for the deprecation
+
+The official version 1.0.0 of the package has been released and it has been decided to rename the package to `copernicusmarine`.
+That way, the command will always be the same, no matter what interface you are using (python or CLI).
+
