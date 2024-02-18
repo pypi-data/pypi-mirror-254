@@ -1,0 +1,14 @@
+atoti_aws/__init__.py,sha256=H25XLUOIm1xJLxbBRU_69C95jdzRjVye93timuryulU,728
+atoti_aws/_plugin.py,sha256=MW6Sb5Svae_JL-e9vdZVClkq5md49a5u34nn8I1qCRA,400
+atoti_aws/_s3_ping_discovery_protocol.py,sha256=cOqi6uFYPpq9tZMIXBetLpGFxDljk7JeiL1yPfaGJyw,1131
+atoti_aws/client_side_encryption/__init__.py,sha256=Da2ZFWnhuo5CovZ7t8qojv2bYsyPSFFjIhmO54OmxxE,100
+atoti_aws/client_side_encryption/_client_side_encryption.py,sha256=gA3xjVy8-yezumIgbCMsaR5aE-XE_LFMRSvjm5weRZA,221
+atoti_aws/client_side_encryption/key_pair.py,sha256=u5Zp4vWAMgb4alORxhYWqO-xgdmf7gala3d4IgUcN9k,740
+atoti_aws/client_side_encryption/kms_config.py,sha256=1k9D05E77YmzY2GxNiDtclhykEu0Qc6NuDlTMGc-Za4,962
+atoti_aws/client_side_encryption.py,sha256=xx283prh2cx5-2rY8iNlUgs9AZmsJhlWlQav_sefBjE,1621
+atoti_aws/data/atoti-aws.jar,sha256=ljx3EzG0iBpYWRgWoQ_yX-9upypcj8isghO1R4oqWzA,22919607
+atoti_aws/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+atoti_aws-0.8.9.dist-info/METADATA,sha256=ezI0bkSxG5R3x7ZifswmX1tHys9OMSJO5gXp-Ggj9m0,1048
+atoti_aws-0.8.9.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+atoti_aws-0.8.9.dist-info/entry_points.txt,sha256=eY1G9cchip7feGCnZwetPIwGPsnvknIr3HEnQS8UF4U,49
+atoti_aws-0.8.9.dist-info/RECORD,,
