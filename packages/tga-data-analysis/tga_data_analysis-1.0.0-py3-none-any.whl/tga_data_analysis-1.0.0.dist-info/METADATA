@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: tga-data-analysis
+Version: 1.0.0
+Summary: Tool for automatic analysis of multiple TGA results
+Home-page: https://github.com/mpecchi/PyTGA
+Author: Matteo Pecchi
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pathlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: openpyxl
+Requires-Dist: pyarrow
+Requires-Dist: scipy
+Requires-Dist: lmfit
+
+The example is available in the example folder (with necessary data) and demonstrates how to use the tga_data_analysis package for basic TGA data analysis and visualization.
