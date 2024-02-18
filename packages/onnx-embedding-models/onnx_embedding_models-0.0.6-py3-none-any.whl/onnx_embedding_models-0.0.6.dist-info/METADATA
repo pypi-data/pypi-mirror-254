@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: onnx_embedding_models
+Version: 0.0.6
+Summary: Python utility for text embeddings in ONNX.
+Author-email: Benjamin Anderson <ben@trytaylor.ai>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: onnxruntime
+Requires-Dist: numpy
+Requires-Dist: transformers
+Requires-Dist: huggingface-hub
+
+# onnx_embedding_models
+utilities for loading and running text embeddings with onnx
