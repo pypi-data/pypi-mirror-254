@@ -1,0 +1,2 @@
+[console_scripts]
+xicsrt = xicsrt.__main__:run
