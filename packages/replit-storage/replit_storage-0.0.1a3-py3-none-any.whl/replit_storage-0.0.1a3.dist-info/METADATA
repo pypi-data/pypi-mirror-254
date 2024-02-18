@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: replit-storage
+Version: 0.0.1a3
+Summary: A library for interacting with Object Storage on Replit
+Home-page: https://github.com/replit/replit-storage-python
+License: ISC
+Author: Repl.it
+Author-email: contact@repl.it
+Requires-Python: >=3.10.0,<3.11
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: google-cloud-storage (>=2.14.0,<3.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/replit/replit-storage-python
+Description-Content-Type: text/markdown
+
+# replit-storage-python
+The library for Replit Object Storage. Development should "just work" on Replit!
+
+## Development
+
+To get setup, run:
+```bash
+make install
+```
+
+To run the linter, run:
+```bash
+make lint
+```
+
+or to fix (fixable) lint issues, run:
+```bash
+make lint-fix
+```
+
+To run tests, run:
+```bash
+make test
+```
+
+## Release
+
+To check that the package builds, you can run:
+```bash
+make prerelease
+```
+
+To perform a release, first bump the version in `pyproject.toml`. Then run:
+```bash
+make release
+```
