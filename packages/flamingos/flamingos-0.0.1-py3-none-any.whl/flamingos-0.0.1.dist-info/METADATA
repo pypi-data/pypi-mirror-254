@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: flamingos
+Version: 0.0.1
+Summary: official python library of Flamingos.
+Author: tausif
+Requires-Dist: httpx
+
