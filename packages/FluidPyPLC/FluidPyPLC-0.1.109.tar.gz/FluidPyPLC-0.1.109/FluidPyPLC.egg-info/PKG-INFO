@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: FluidPyPLC
+Version: 0.1.109
+Summary: FluidSim Circuits Analyzer & PLC ST Code Generator
+Home-page: https://github.com/MrLostInTheInternet/FluidPyPLC
+Author: MrLostInTheInternet (Eugen Iofciu Vasile)
+Author-email: <eugen.iofciuvasile@hotmail.com>
+License: GPLv3
+Keywords: python,plc,fluidsim,structured text,plc python,codesys,circuits,pneumatics,oleodynamics,plc programming
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PySimpleGUI
+Requires-Dist: matplotlib
+Requires-Dist: tk
+
+FluidPyPLC
+
+FluidPyPLC is an updated version of the previous FluidPy, it is more light and efficient than before. It has new settings and can handle more sequence's cases.
+Enjoy the new version.
+
+What is FluidPyPLC?
+It's a python script that takes any sequence of pistons e.g. A+/B-/B+/A-. It solves all the blocks of the inserted sequence, it draws the Phases' Diagram, and converts the solution in Structured Text for PLCs. The GUI mode will show you the data structure of the sequence, the plc ST code and the plot. You can then copy and paste the ST code in any program you want that reads it, e.g. CODESYS.
+(I tried with CODESYS and works)
