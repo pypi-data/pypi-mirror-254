@@ -1,0 +1,2 @@
+[console_scripts]
+qcom-nandc-pagify = qcom_nandc_pagify._main:main
