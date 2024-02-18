@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.bibi": "xml",
+    "*.exc": "xml",
+    "*.h": "c",
+    "*.c": "c"
+  }
+}
