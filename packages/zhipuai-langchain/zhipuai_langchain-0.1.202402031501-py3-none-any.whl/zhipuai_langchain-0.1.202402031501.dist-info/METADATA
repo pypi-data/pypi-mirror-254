@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: zhipuai-langchain
+Version: 0.1.202402031501
+Maintainer: Lin calvin
+Maintainer-email: calvinchaochao@outlook.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: zhipuai
+Requires-Dist: langchain
+
