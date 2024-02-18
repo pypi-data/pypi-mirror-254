@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+jinja_partials/__init__.py
+jinja_partials.egg-info/PKG-INFO
+jinja_partials.egg-info/SOURCES.txt
+jinja_partials.egg-info/dependency_links.txt
+jinja_partials.egg-info/requires.txt
+jinja_partials.egg-info/top_level.txt
+tests/test_rendering.py
