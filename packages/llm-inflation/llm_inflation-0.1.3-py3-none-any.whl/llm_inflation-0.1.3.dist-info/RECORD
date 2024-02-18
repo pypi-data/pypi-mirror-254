@@ -1,0 +1,12 @@
+llm_inflation/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+llm_inflation/data/covariates.csv,sha256=keTHUKJUlzhoq5NO1nbtBKkvOp0IJoyrit6YNj4fb_k,7040
+llm_inflation/data/fomc_statements.parquet,sha256=BBmn3FbKFZtjmsQT32xoIZRv0iOe2rni87eSLhCRmuE,116030
+llm_inflation/data/statements_with_metrics.csv,sha256=ksvjp19-YzDf_u5I8-OVL_6UnPqG-Q_FoZE4tP5S25U,554373
+llm_inflation/data.py,sha256=0ZUPXk-SFeNPowjX7UpKYriIlqxJl0L1nH-aIPtQjwc,164
+llm_inflation/llm.py,sha256=3RN5xFheh031lnkNdufF871Ix_1dwT344v_a7cVbOYQ,3727
+llm_inflation/model/__init__.py,sha256=MvTXzbecSdC30F7HVKpwF7zv2U7q0Jmk1CU5vJHxo7g,49
+llm_inflation/model/multivariate.py,sha256=OzJOk7Ot7-7XEdutLRQCHiRfPs84046aAz3Z5Tn9Ozs,7306
+llm_inflation/utils.py,sha256=Fujd3fCwBVBiGStNlNefrFPJAZZFBWpG_HKDM3uQ49Y,2931
+llm_inflation-0.1.3.dist-info/METADATA,sha256=yppxGM_BWhtiS4hi3FTYnE8Z-Opqb_VeIen51sPwB-w,766
+llm_inflation-0.1.3.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+llm_inflation-0.1.3.dist-info/RECORD,,
