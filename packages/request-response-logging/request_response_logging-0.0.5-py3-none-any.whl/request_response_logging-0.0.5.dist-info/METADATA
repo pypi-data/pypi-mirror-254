@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: request-response-logging
+Version: 0.0.5
+Summary: Django logger to log request response
+Home-page: UNKNOWN
+Author: Pravin Tiwari
+Author-email: pravint198@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: simplejson
+
+This logs request and response and also helps in generating request_id for each execution
+
+
