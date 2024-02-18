@@ -1,0 +1,3 @@
+[console_scripts]
+triple = triple._cmd_:main
+triple-start = triple._cmd_:main
