@@ -1,0 +1,3 @@
+[console_scripts]
+my-restore = my_snaps.my_restore:run
+my-snaps = my_snaps.my_snaps:run
