@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "spark-loader"
+version = "0.1.0"
+description = "loads spark"
+authors = ["Edward Yang <eddiepyang@gmail.com>"]
+readme = "README.md"
+packages = [{include = "spark_loader"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+pyspark = "~3.5"
+hydra-core = "^1.1.1"
+pyarrow = "^14.0.1"
+structlog = "^23.2.0"
+spark-nlp = "^5.2.0"
+python-rapidjson = "^1.13"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "~7.1.1"
+pylint = "^3.0.2"
+
+
+[tool.poetry.group.analysis.dependencies]
+ipykernel = "^6.27.1"
+
+[tool.poetry.dev-dependencies.black]
+version = "^22.1.0"
+allow-prereleases = true
+python = ">=3.9.2,<3.11"
+markers = "platform_python_implementation == 'CPython'"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
