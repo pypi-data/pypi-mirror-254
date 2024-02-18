@@ -1,0 +1,94 @@
+
+
+
+#
+#	(rm -rf dist && python3 -m build && twine upload dist/*)
+#
+
+
+#
+#	how to publish:
+#
+#		python3 publish.py
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onesie"
+version = "1.0.9"
+requires-python = ">=3.8"
+dependencies = [
+	'body_scan',
+
+	'botanist',
+	'shares',
+	
+	'click',
+	'flask',
+	'pdoc3',
+	'requests',
+	'textual',
+	'tinydb'
+]
+
+#license = { file = "license.txt" }
+license = { text = "GPL 3.0" }
+
+description = "health checks module"
+readme = "structures/decor/onesie/module.MD"
+classifiers = []
+
+#
+#	https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#keywords
+#
+keywords = [
+	"homeostasis",
+	"reliability",
+	"consistency",
+	"integrity",
+	
+	"guarantees",
+	"vows",
+	"oaths",
+	"assurances",
+	"insurances",
+	"ensurances",
+
+	"speed",
+	"calmness",
+
+	"education",
+
+	"augmentation",
+	"enhancement",
+	"improvements"
+]
+
+[project.urls]
+GitLab = "https://gitlab.com/offline-money/squash-1/onesie"
+
+
+[project.scripts]
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from this_module import clique; clique ()
+#
+onesie = "onesie:clique"
+
+
+[tool.setuptools.packages.find]
+where = [ "structures/decor" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.HTML", "*.json" ]
+
+
+
+
+
