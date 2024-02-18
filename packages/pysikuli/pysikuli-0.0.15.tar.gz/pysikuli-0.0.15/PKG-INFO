@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: pysikuli
+Version: 0.0.15
+Summary: Fast cross-platform RPA tool for GUI automation
+License: LICENSE.txt
+Keywords: gui,automation,desktop,RPA,test,testing,cross-platform,window,control,menu,title,name,geometry,size,position,move,resize,minimize,maximize,restore,hide,show,activate,raise,lower,close,screen-size,mouse-position,keyboard,mouse,cursor,click,press,keystroke,screen,screenshot,screencapture,screengrab,clipboard
+Author: OlegSmoliakov
+Author-email: smailzpro@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Utilities
+Requires-Dist: gitignore-parser (>=0.1.11,<0.2.0)
+Requires-Dist: mss (>=9.0.1,<10.0.0)
+Requires-Dist: opencv-python (>=4.8.1.78,<5.0.0.0)
+Requires-Dist: pip (>=23.3.2,<24.0.0)
+Requires-Dist: playsound (==1.2.2)
+Requires-Dist: pygobject (>=3.46.0,<4.0.0) ; platform_system == "Linux"
+Requires-Dist: pyhotkey (>=1.5.0,<2.0.0)
+Requires-Dist: pymsgbox (>=1.0.9,<2.0.0)
+Requires-Dist: pyperclip (>=1.8.2,<2.0.0) ; platform_system != "Linux"
+Requires-Dist: pywinctl (>=0.3,<0.4)
+Requires-Dist: send2trash (>=1.8.2,<2.0.0)
+Requires-Dist: wheel (>=0.41.3,<0.42.0)
+Description-Content-Type: text/markdown
+
+# pysikui
+Fast cross-platform python module for gui automation
+
+For macos:
++ playsound dependencies
++ + macOS/Homebrew: brew install cairo pkg-config
+
+
+For linux:
++ playsound dependencies
++ + Ubuntu/Debian: sudo apt install libgirepository1.0-dev libcairo2-dev
++ + Arch Linux: sudo pacman -S cairo pkgconf
++ + Fedora: sudo dnf install cairo-devel pkg-config python3-devel
++ + penSUSE: sudo zypper install cairo-devel pkg-config python3-devel
+
++ (evdev): sudo apt-get install python3-dev or python3.x, where x is version of your python
+
+it is recommended to install these VS Code addons: `Paste Image`, `Image preview`
