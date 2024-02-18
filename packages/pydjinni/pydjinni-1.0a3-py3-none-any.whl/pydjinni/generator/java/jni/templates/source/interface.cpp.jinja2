@@ -1,0 +1,97 @@
+{#
+Copyright 2023 jothepro
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#}
+{% extends "base.jinja2" %}
+{% from "macros.jinja2" import translator %}
+
+{% block header %}
+#include {{ type_def.jni.header | quote }}
+{% for header in type_def.dependencies | headers('jni') -%}
+#include {{ header }}
+{% endfor %}
+{% endblock %}
+
+
+
+{% block content %}
+{{ type_def.jni.name }}::{{ type_def.jni.name }}() : ::pydjinni::JniInterface<{{ type_def.cpp.typename }}, {{ type_def.jni.name }}>("{{ type_def.jni.class_descriptor }}$CppProxy") {}
+{{ type_def.jni.name }}::~{{ type_def.jni.name }}() = default;
+
+{% if 'java' in type_def.targets %}
+{{ type_def.jni.name }}::JavaProxy::JavaProxy(JniType j) : Handle(::pydjinni::jniGetThreadEnv(), j) {}
+{{ type_def.jni.name }}::JavaProxy::~JavaProxy() = default;
+
+{% for method in type_def.methods %}
+{{ method.cpp.type_spec }} {{ type_def.jni.name }}::JavaProxy::{{ method.cpp.name }}(
+{%- for parameter in method.parameters -%}
+    {{ parameter.cpp.type_spec }} {{ parameter.cpp.name ~ (", " if not loop.last) }}
+{%- endfor -%}
+) {{ "const" if method.const }} {
+    auto jniEnv = ::pydjinni::jniGetThreadEnv();
+    ::pydjinni::JniLocalScope jscope(jniEnv, 10);
+    const auto& data = ::pydjinni::JniClass<{{ type_def.jni.translator }}>::get();
+    {{ "auto jret = " if method.return_type_ref }}jniEnv->{{ method.jni.routine_name }}(Handle::get().get(), data.method_{{ method.java.name }}
+    {%- for parameter in method.parameters -%}
+        , ::pydjinni::get({{ translator(parameter.type_ref) }}::fromCpp(jniEnv, {{ parameter.cpp.name }}))
+    {%- endfor -%}
+    );
+    ::pydjinni::jniExceptionCheck(jniEnv);
+    {% if method.return_type_ref %}
+    return {{ translator(method.return_type_ref) }}::toCpp(jniEnv, jret);
+    {% endif %}
+}
+{% endfor %}
+{% endif %}
+
+{% if 'cpp' in type_def.targets %}
+CJNIEXPORT void JNICALL {{ type_def.jni.jni_prefix }}_nativeDestroy(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef)
+{
+    ::pydjinni::translate_exceptions(jniEnv, [&](){
+        delete reinterpret_cast<::pydjinni::CppProxyHandle<{{ type_def.cpp.typename }}>*>(nativeRef);
+    });
+}
+
+{% for method in type_def.methods %}
+CJNIEXPORT {{ method.jni.return_type_spec }} JNICALL {{ type_def.jni.jni_prefix }}_00024CppProxy_{{ "native_1" if not method.static }}{{ method.jni.name }}(JNIEnv* jniEnv, jobject /*this*/{{ ", jlong nativeRef" if not method.static }}
+    {%- for parameter in method.parameters -%}
+    , {{ parameter.type_ref.type_def.jni.typename.value }} {{ parameter.jni.name }}
+    {%- endfor -%}
+    ) {
+    {{ "return" if method.return_type_ref }} ::pydjinni::translate_exceptions(jniEnv, [&](){
+        {% if method.deprecated and not type_def.deprecated %}
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        {% endif %}
+        {% if method.static %}
+        {{ "auto r = " if method.return_type_ref }}{{ type_def.cpp.typename }}::{{ method.cpp.name }}(
+        {% else %}
+        const auto& ref = ::pydjinni::objectFromHandleAddress<{{ type_def.cpp.typename }}>(nativeRef);
+        {{ "auto r = " if method.return_type_ref }}ref->{{ method.cpp.name }}(
+        {%- endif -%}
+        {%- for parameter in method.parameters -%}
+        {{ translator(parameter.type_ref) }}::toCpp(jniEnv, {{ parameter.jni.name }}){{ ", " if not loop.last }}
+        {%- endfor -%}
+        );
+        {% if method.return_type_ref %}
+        {% if method.deprecated and not type_def.deprecated %}
+        #pragma clang diagnostic pop
+        {% endif %}
+        return ::pydjinni::release({{ translator(method.return_type_ref) }}::fromCpp(jniEnv, r));
+        {% endif %}
+    });
+}
+{% endfor %}
+{% endif %}
+{% endblock %}
