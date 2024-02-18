@@ -1,0 +1,20 @@
+strictness: veryhigh
+
+max-line-length: 110
+
+pydocstyle:
+  disable:
+    - D212 # Multi-line docstring summary should start at the first line (not well readable)
+    - E406 # multiple statements on one line (def) (not compatible with protocol)
+
+mypy:
+  run: true
+
+bandit:
+  run: true
+
+pyroma:
+  run: true
+
+mccabe:
+  run: false
