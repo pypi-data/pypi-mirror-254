@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: poc_dashai_plugins_pypi
+Version: 0.0.1
+Summary: A small example package
+Project-URL: Homepage, https://github.com/DashAISoftware/DashAI
+Project-URL: Issues, https://github.com/DashAISoftware/DashAI/issues
+Author-email: Example Author <author@example.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: ==3.8.10
+Description-Content-Type: text/markdown
+
+# **Paquete de Plugins de ejemplo**
+
+## **Modelos**
+
+Este conjunto de plugins está diseñado específicamente para facilitar la integración de modelos de Machine Learning en aplicaciones con enfoque en clasificación tabular. Los modelos incluidos son:
+
+- **Logistic Regression:** Un modelo efectivo para abordar problemas de clasificación binaria en el contexto tabular, destacando por su simplicidad y rendimiento.
+- **SVC (Support Vector Classifier):** Este clasificador basado en vectores de soporte se adapta bien a conjuntos de datos tabulares complejos, ofreciendo soluciones robustas tanto para clasificación como para regresión.
+- **Bayes:** Un clasificador Bayesiano que se destaca en problemas de clasificación tabular, siendo especialmente útil en situaciones con datos textuales o categorías discretas.
+
+## **Métricas**
+
+Para evaluar el rendimiento de los modelos en el contexto de clasificación tabular, se han incluido métricas clave:
+
+- **Accuracy:** Esta métrica proporciona una medida general de la precisión del modelo en términos de la proporción de predicciones correctas sobre el total de predicciones.
+- **Precision:** La precisión es crucial en clasificación tabular, midiendo la proporción de verdaderos positivos respecto al total de predicciones positivas.
+
+## **Dataloaders**
+
+La versatilidad en la carga de datos es esencial en el ámbito de la clasificación tabular. Este paquete aborda esa necesidad proporcionando Dataloaders para diversos formatos de datos:
+
+- **JSON:** Facilita la carga de datos estructurados en formato JSON, comúnmente utilizado para información tabular.
+- **CSV:** El Dataloader para archivos CSV simplifica la integración de datos tabulares, permitiendo una fácil manipulación y procesamiento.
+- **SQL:** Para situaciones en las que los datos se encuentran en bases de datos SQL, este Dataloader simplifica la conexión y carga de información directa.
+
+Con este paquete de plugins, se busca ofrecer una solución completa y especializada para la integración de herramientas de Machine Learning en aplicaciones con un enfoque específico en la clasificación tabular.
