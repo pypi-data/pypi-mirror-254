@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: prefect-anyscale
+Version: 0.2.2
+Summary: Prefect integrations with Anyscale.
+Home-page: https://github.com/anyscale/prefect-anyscale
+Author: Anyscale, Inc.
+Author-email: support@anyscale.com
+License: Apache License 2.0
+Keywords: prefect
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7
+License-File: LICENSE
