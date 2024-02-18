@@ -1,0 +1,2 @@
+[console_scripts]
+springtime = springtime.main:cli
