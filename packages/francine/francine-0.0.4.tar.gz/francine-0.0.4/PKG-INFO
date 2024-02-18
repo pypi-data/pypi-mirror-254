@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: francine
+Version: 0.0.4
+Summary: A simple terminal to-do list
+License: GNU
+Author: Guilherme Fabrizio
+Author-email: gfabricio@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: platformdirs (>=4.1.0,<5.0.0)
+Requires-Dist: tinydb (>=4.8.0,<5.0.0)
+Description-Content-Type: text/markdown
+
+# Francine - Daily todo list
+
+Francine is a command-line tool designed to help you keep track of your daily tasks,
+always focusing on the first one inserted.
+
+## Usage
+
+![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+## Installing
+
+```bash
+pip install francine
+```
+
