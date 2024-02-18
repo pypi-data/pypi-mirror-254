@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/database_automation/__init__.py
+src/database_automation/mongo_crud.py
+src/mongodbpackage_robins.egg-info/PKG-INFO
+src/mongodbpackage_robins.egg-info/SOURCES.txt
+src/mongodbpackage_robins.egg-info/dependency_links.txt
+src/mongodbpackage_robins.egg-info/requires.txt
+src/mongodbpackage_robins.egg-info/top_level.txt
