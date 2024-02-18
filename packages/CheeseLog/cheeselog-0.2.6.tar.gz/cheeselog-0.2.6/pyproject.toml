@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "CheeseLog"
+version = "0.2.6"
+description = "日志系统。可在控制台输出一定格式的、可选颜色的内容，并支持写入指定的日志文件。"
+readme = "README.md"
+authors = [
+    { name = "Cheese Unknown", email = "cheese@cheese.ren" }
+]
+dependencies = [
+    "CheeseType",
+    "setproctitle"
+]
+
+[project.urls]
+Source = "https://github.com/CheeseUnknown/CheeseLog"
+
+[tool.hatch.build.targets.sdist]
+include = ["/CheeseLog"]
