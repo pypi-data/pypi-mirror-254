@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: raggy
+Version: 0.1.0a1
+Summary: scraping stuff
+Project-URL: Code, https://github.com/zzstoatzz/raggy
+Keywords: scraping,nlp,ai,document-processing
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: marvin
+Requires-Dist: bs4
+Requires-Dist: fake-useragent
+Requires-Dist: pypdf
+Requires-Dist: aiofiles
+Requires-Dist: chardet
+Requires-Dist: xxhash
+Requires-Dist: yake
+Provides-Extra: dev
+Requires-Dist: ipython; extra == "dev"
+Requires-Dist: pre-commit<4.0,>=2.21; extra == "dev"
+Requires-Dist: pydantic[dotenv]; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Provides-Extra: chroma
+Requires-Dist: chromadb; extra == "chroma"
+Provides-Extra: tpuf
+Requires-Dist: turbopuffer; extra == "tpuf"
+
+## rag utils
+
+```python
+pip install raggy
+```
+
+### examples
+- scraping sitemaps
+- putting documents in vectorstores
+
+see this [example](https://github.com/zzstoatzz/raggy/blob/main/examples/refresh_chroma/main.py)
