@@ -1,0 +1,10 @@
+
+[dev]
+setuptools
+wheel
+twine
+black
+mypy
+pytest
+pytest-cov
+tox

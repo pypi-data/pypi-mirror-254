@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/programmers_dice/__init__.py
+src/programmers_dice/__main__.py
+src/programmers_dice/cli.py
+src/programmers_dice/py.typed
+src/programmers_dice.egg-info/PKG-INFO
+src/programmers_dice.egg-info/SOURCES.txt
+src/programmers_dice.egg-info/dependency_links.txt
+src/programmers_dice.egg-info/entry_points.txt
+src/programmers_dice.egg-info/requires.txt
+src/programmers_dice.egg-info/top_level.txt
