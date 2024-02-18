@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pypzbattlesnake
+Version: 0.0.2
+Summary: Multiagent Snake environment based on PettingZoo API and inspired by BattleSnake
+Author: TheShenk
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: pettingzoo
+Requires-Dist: gymnasium
+Requires-Dist: numpy
+Requires-Dist: pygame ; extra == "render"
+Requires-Dist: pytest >=2.7.3 ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Project-URL: Homepage, https://github.com/TheShenk/hai-nonconflict-action-learning
+Project-URL: Issues, https://github.com/TheShenk/hai-nonconflict-action-learning/issues
+Provides-Extra: render
+Provides-Extra: test
+
+# PyPZBattleSnake
+
+Multiagent Snake environment based on PettingZoo API and inspired by [BattleSnake](https://play.battlesnake.com/).
