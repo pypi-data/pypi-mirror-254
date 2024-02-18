@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: piceli
+Version: 0.0.2
+Summary: Infrastructure for python
+Home-page: https://piceli.pynenc.org
+License: MIT
+Author: Jose Diaz
+Requires-Python: >=3.11.6
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Distributed Computing
+Project-URL: Documentation, https://docs.piceli.pynenc.org
+Project-URL: Repository, https://github.com/pynenc/piceli
+Description-Content-Type: text/markdown
+
+# piceli
+
+piceli: infrastructure management with python
+

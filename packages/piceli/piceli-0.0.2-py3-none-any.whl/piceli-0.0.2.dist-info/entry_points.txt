@@ -1,0 +1,3 @@
+[console_scripts]
+pynenc=piceli.__main__:main
+
