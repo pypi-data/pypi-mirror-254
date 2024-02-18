@@ -1,0 +1,20 @@
+#!/usr/bin/env ansible-playbook
+#
+---
+- name: Deploy device configuration
+  hosts: all:!unprovisioned
+  gather_facts: false
+  vars:
+    node_provider: "{{ provider|default(netlab_provider) }}"
+  strategy: "{{ netlab_strategy|default('linear') }}"
+  tasks:
+  - fail: msg="Specify configuration template name with an external variable"
+    when: config is not defined
+    run_once: true
+  - set_fact:
+      netlab_device_type: "{{ netlab_device_type|default(ansible_network_os) }}"
+      custom_config: "{{ config }}"
+  - include_tasks: "tasks/deploy-custom-config.yml"
+    args:
+      apply:
+        tags: [ always ]
