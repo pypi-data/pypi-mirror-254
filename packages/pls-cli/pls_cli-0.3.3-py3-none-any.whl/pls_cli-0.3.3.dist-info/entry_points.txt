@@ -1,0 +1,3 @@
+[console_scripts]
+pls=pls_cli.please:app
+
