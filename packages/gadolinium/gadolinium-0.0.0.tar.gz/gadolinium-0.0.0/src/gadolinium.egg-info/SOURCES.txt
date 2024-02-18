@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/gadolinium/__init__.py
+src/gadolinium/example.py
+src/gadolinium.egg-info/PKG-INFO
+src/gadolinium.egg-info/SOURCES.txt
+src/gadolinium.egg-info/dependency_links.txt
+src/gadolinium.egg-info/top_level.txt
