@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+gif_player/GifPlayer.py
+gif_player/__init__.py
+gif_player/_imports_.py
+gif_player/gif_player.min.js
+gif_player/gif_player.min.js.map
+gif_player/metadata.json
+gif_player/package-info.json
+gif_player.egg-info/PKG-INFO
+gif_player.egg-info/SOURCES.txt
+gif_player.egg-info/dependency_links.txt
+gif_player.egg-info/top_level.txt
