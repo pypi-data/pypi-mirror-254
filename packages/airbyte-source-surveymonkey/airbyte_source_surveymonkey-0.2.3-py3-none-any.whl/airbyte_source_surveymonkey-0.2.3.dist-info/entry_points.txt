@@ -1,0 +1,2 @@
+[console_scripts]
+source-surveymonkey = source_surveymonkey.run:run
