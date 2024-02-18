@@ -1,0 +1,98 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "python-elo-system"
+description = "Yet another Python Implementation of the Elo rating system."
+version = "3.0.0"
+requires-python = ">=3.10"
+authors = [
+    { name = "Kraktoos", email = "kraktoos@gmail.com" },
+    { name = "Samuel Wu", email = "twopizza9621536@gmail.com" },
+]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python",
+]
+dependencies = [
+    "attrs>=23.2.0",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Documentation = "https://github.com/TwoPizza9621536/python-elo-system#readme"
+Issues = "https://github.com/TwoPizza9621536/python-elo-system/issues"
+Source = "https://github.com/TwoPizza9621536/python-elo-system"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "ruff>=0.1.14",
+    "pyright>=1.1.349",
+]
+fmt = [
+    "isort>=5.13.2",
+    "black>=24.1.1",
+]
+test = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "tox-pdm>=0.7.2",
+]
+
+[tool.pdm.scripts.lint]
+composite = [
+    "ruff check .",
+    "pyright",
+]
+
+[tool.pdm.scripts.fmt]
+composite = [
+    "isort .",
+    "black .",
+]
+
+[tool.pdm.scripts.test]
+cmd = [
+    "pytest",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+    "--cov=elo_system",
+    "--cov=test_elo_system",
+]
+
+[tool.pdm.scripts.all]
+composite = [
+    "lint",
+    "fmt",
+    "test",
+]
+
+[tool.ruff]
+line-length = 79
+indent-width = 4
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pyright]
+include = [
+    "elo_system.py",
+]
+pythonVersion = "3.10"
+pythonPlatform = "All"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+atomic = true
+line_length = 79
