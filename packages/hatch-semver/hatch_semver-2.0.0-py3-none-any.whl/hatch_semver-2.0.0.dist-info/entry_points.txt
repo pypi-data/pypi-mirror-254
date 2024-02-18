@@ -1,0 +1,2 @@
+[hatch]
+semver = hatch_semver.plugin.hooks
