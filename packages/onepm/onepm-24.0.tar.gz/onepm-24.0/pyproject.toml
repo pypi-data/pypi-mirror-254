@@ -1,0 +1,119 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "onepm"
+description = "Picks the right package manager for you"
+authors = [
+    { name = "Frost Ming", email = "mianghong@gmail.com" },
+]
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = []
+version = "24.0"
+dependencies = [
+    "packaging>=22.1",
+    "tomlkit>=0.12.3",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/frostming/onepm"
+Repository = "https://github.com/frostming/onepm"
+Changelog = "https://github.com/frostming/onepm/releases"
+
+[project.optional-dependencies]
+shims = [
+    "onepm-shims",
+]
+
+[project.scripts]
+pi = "onepm:pi"
+pu = "onepm:pu"
+pr = "onepm:pr"
+pun = "onepm:pun"
+pa = "onepm:pa"
+onepm = "onepm.cli:main"
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.1.2",
+    "pytest-mock>=3.12.0",
+]
+dev = [
+    "unearth>=0.14.0",
+    "tomlkit>=0.12.3",
+    "packaging>=23.2",
+]
+
+[tool.pdm.scripts]
+test = "pytest -ra tests"
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+extend-select = [
+    "I",
+    "B",
+    "C4",
+    "RUF",
+    "W",
+    "YTT",
+]
+
+[tool.ruff.isort]
+known-first-party = [
+    "onepm",
+]
+
+[tool.mina]
+default-target = "main"
+
+[tool.mina.packages.main]
+includes = [
+    "src/onepm",
+]
+source-includes = [
+    "tests/",
+]
+
+[tool.mina.packages.shims]
+includes = [
+    "src/onepm_shims",
+]
+
+[tool.mina.packages.shims.project]
+name = "onepm-shims"
+dependencies = [
+    "unearth>=0.14.0",
+]
+
+[tool.mina.packages.shims.project.scripts]
+pdm = "onepm_shims.shims:pdm"
+pipenv = "onepm_shims.shims:pipenv"
+poetry = "onepm_shims.shims:poetry"
+
+[tool.onepm]
+package-manager = "pdm>=2.12.0"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.10"
