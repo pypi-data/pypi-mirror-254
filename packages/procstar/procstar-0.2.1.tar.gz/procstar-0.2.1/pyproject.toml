@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "procstar"
+dynamic = ["version"]
+description = "Run my stuff!"
+readme = "README.md"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Alex Samuel", email = "alex@alexsamuel.net"},
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+
+requires-python = ">=3.10"
+dependencies = [
+    "orjson >=3",
+    "websockets >=10",
+]
+optional-dependencies = {dev = ["build", "pytest", "pytest-asyncio", "bump-my-version", "sphinx", "sphinx-rtd-theme"]}
+
+[project.urls]
+Repository = "https://github.com/alexhsamuel/procstar"
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.dynamic]
+version = {attr = "procstar.__version__"}
+
+[tool.pytest.ini_options]
+testpaths = "test/"
+
+[tool.ruff]
+select = ["F", "E999"]
+
+[tool.bumpversion]
+current_version = "0.2.1"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+
+[[tool.bumpversion.files]]
+filename = "python/procstar/__init__.py"
+
+[[tool.bumpversion.files]]
+filename = "Cargo.toml"
+search = "version = \"{current_version}\" # procstar"
+replace = "version = \"{new_version}\" # procstar"
+
+[[tool.bumpversion.files]]
+filename = "tools/centos7/conda-recipe/meta.yaml"
+
