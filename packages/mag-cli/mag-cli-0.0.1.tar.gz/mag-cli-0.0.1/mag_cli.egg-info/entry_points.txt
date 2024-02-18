@@ -1,0 +1,2 @@
+[console_scripts]
+mag = mag.mag:cli
