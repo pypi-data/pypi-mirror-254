@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "onetable-py"
+version = "0.0.12"
+authors = [
+  { name="Matthias Rudolph", email="mrudo@amazon.de" },
+]
+description = "This package wraps the java package onetable into a python cli/library along with it's dependencies. This provides the onetable jar in an easy consumeable format for various CI/CD or workflow management platforms such as Apache Airflow."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer[all] ==0.9.0",
+    "jpype1 ==1.5.0"
+]
+
+[project.optional-dependencies]
+build = [
+    "pytest >=7.4.4",
+    "flit >=3.9.0"
+]
+
+[project.scripts]
+onetable_py = "onetable_py.cli:app"
