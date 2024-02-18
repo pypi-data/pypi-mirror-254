@@ -1,0 +1,17 @@
+CMakeLists.txt
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cydifflib/__init__.py
+src/cydifflib.egg-info/PKG-INFO
+src/cydifflib.egg-info/SOURCES.txt
+src/cydifflib.egg-info/dependency_links.txt
+src/cydifflib.egg-info/top_level.txt
+src/cydifflib.egg-info/zip-safe
+src/cython/CMakeLists.txt
+src/cython/_initialize.cxx
+src/cython/_initialize.pyx
+tests/test_cydifflib.py
+tests/test_cydifflib_expect.html
