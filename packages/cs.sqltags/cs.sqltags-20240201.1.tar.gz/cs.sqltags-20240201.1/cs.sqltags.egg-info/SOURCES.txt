@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.sqltags.egg-info/PKG-INFO
+cs.sqltags.egg-info/SOURCES.txt
+cs.sqltags.egg-info/dependency_links.txt
+cs.sqltags.egg-info/entry_points.txt
+cs.sqltags.egg-info/requires.txt
+cs.sqltags.egg-info/top_level.txt
+lib/python/cs/sqltags.py
