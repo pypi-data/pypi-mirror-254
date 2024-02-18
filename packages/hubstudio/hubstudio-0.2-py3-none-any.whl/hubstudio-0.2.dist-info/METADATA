@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: hubstudio
+Version: 0.2
+Author: Alex
+Author-email: 2831926323@qq.com
+Requires-Dist: aiohttp
+Requires-Dist: psutil
+Requires-Dist: inflection
+
