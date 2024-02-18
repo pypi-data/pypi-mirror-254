@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+mimebytes/__init__.py
+mimebytes/_version.py
+mimebytes/base.py
+mimebytes/image.py
+mimebytes/mime.py
+mimebytes.egg-info/PKG-INFO
+mimebytes.egg-info/SOURCES.txt
+mimebytes.egg-info/dependency_links.txt
+mimebytes.egg-info/requires.txt
+mimebytes.egg-info/top_level.txt
