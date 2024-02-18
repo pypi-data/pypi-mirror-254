@@ -1,0 +1,15 @@
+dpshdl/__init__.py,sha256=zvjm779krK__dR5Oz_mdv6gSUinLqMislx2VAVo6x4I,709
+dpshdl/collate.py,sha256=XeJ6kJozAvgFSxHS83LWblA5PLe0mbTos--GOFaramU,7047
+dpshdl/dataloader.py,sha256=FCm9nRPxen9uLbfLK6E0_LlpmjowWgGoCpvBJUMFhes,6319
+dpshdl/dataset.py,sha256=X7MzyyRbLAMy4hmXYhNIADDJ8hjNYoX2VnYZzL0b_TA,15586
+dpshdl/experiments.py,sha256=a-aCZi13jh-XoJvhw6A5rU1s4e5s0L4koq3MwF7JiXY,10375
+dpshdl/numpy.py,sha256=_jOXVi-d2AtJnRftPkRK5MDMzsU8slgw-Jjv4GRm6ns,1197
+dpshdl/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dpshdl/utils.py,sha256=INKSYLGOuj78AFAPo37JVloTVUXaVDnonRn_4oFdPz8,11586
+dpshdl/impl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dpshdl/impl/mnist.py,sha256=6Sy1UOi8KXFmELb0jo12uaM_xsJE8WTo6jG6t19TGDw,2644
+dpshdl-0.0.1.dist-info/LICENSE,sha256=HCN2bImAzUOXldAZZI7JZ9PYq6OwMlDAP_PpX1HnuN0,1071
+dpshdl-0.0.1.dist-info/METADATA,sha256=t-aIfkG_sb4JA0Q5yFnftm8U9aLjPZ-PmUB3wuNpMyk,1075
+dpshdl-0.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+dpshdl-0.0.1.dist-info/top_level.txt,sha256=Sgd00_P2gig4Y_kSwJTdt3ZoVUJosRIGXCUmi4gPfII,7
+dpshdl-0.0.1.dist-info/RECORD,,
