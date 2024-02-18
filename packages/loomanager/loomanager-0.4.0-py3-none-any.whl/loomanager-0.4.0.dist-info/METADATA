@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: loomanager
+Version: 0.4.0
+Summary: ironloom's verion handler package
+Project-URL: Homepage, https://github.com/ironloom/loomanager
+Project-URL: Issues, https://github.com/ironloom/loomanager/issues
+Author-email: zewenn <zewenn@proton.me>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# loomanager
+The new version manager based on zenyxvm
