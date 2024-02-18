@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: qrkey
+Version: 0.1.0
+Summary: Swarm robotics deployments made easy.
+Project-URL: Documentation, https://github.com/DotBots/qrkey#readme
+Project-URL: Issues, https://github.com/DotBots/qrkey/issues
+Project-URL: Source, https://github.com/DotBots/qrkey
+Author-email: Alexandre Abadie <alexandre.abadie@inria.fr>
+License-Expression: BSD-3-Clause
+License-File: LICENSE.txt
+Keywords: robotics,swarm,ux
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.11
+Requires-Dist: cryptography==41.0.7
+Requires-Dist: fastapi-mqtt==2.1.0
+Requires-Dist: fastapi==0.109.0
+Requires-Dist: httpx==0.26.0
+Requires-Dist: joserfc==0.9.0
+Requires-Dist: pydantic-settings==2.1.0
+Requires-Dist: segno==1.6.0
+Requires-Dist: structlog==24.1.0
+Requires-Dist: uvicorn==0.25.0
+Requires-Dist: websockets==12.0
+Description-Content-Type: text/markdown
+
+# Qrkey
+
+[![PyPI - Version](https://img.shields.io/pypi/v/qrkey.svg)](https://pypi.org/project/qrkey)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qrkey.svg)](https://pypi.org/project/qrkey)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install qrkey
+```
+
+## License
+
+`qrkey` is distributed under the terms of the [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) license.
