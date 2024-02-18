@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: datavis-cli
+Version: 0.1.3
+Summary: Output data loading and visualization boilerplate
+Author: Ben Skubi
+Author-email: bskubi@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: pandas (>=2.2.0,<3.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: seaborn (>=0.13.2,<0.14.0)
+Description-Content-Type: text/markdown
+
+datavis-cli provides functions to generate boilerplate code for loading and visualizing data
+
