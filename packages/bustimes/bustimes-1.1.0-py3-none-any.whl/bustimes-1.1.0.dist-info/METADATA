@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: bustimes
+Version: 1.1.0
+Summary: A simple bus times library
+Project-URL: Homepage, https://github.com/TheOctoGirl/bustimes
+Project-URL: Bug Tracker, https://github.com/TheOctoGirl/bustimes/issues
+Project-URL: Documentation, https://github.com/TheOctoGirl/bustimes/wiki
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests >=2.31.0
+
+# bustimes
+
+bustimes is a Python package for getting next bus times from the [Translink API](https://www.translink.ca/about-us/doing-business-with-translink/app-developer-resources).
