@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/dbautomate.egg-info/PKG-INFO
+src/dbautomate.egg-info/SOURCES.txt
+src/dbautomate.egg-info/dependency_links.txt
+src/dbautomate.egg-info/requires.txt
+src/dbautomate.egg-info/top_level.txt
+src/dbconnector/__init__.py
+src/dbconnector/mongodboperator.py
+src/dbconnector/mysqloperator.py
