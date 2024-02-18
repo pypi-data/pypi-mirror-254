@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0","numpy","pandas","xlsxwriter"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "LimeNDAdecoder"
+version = "1.2.7"
+authors = [
+  { name="Lime AI Celltesting", email="celltesting@lime.ai" },
+]
+description = 'Python Package for working with NDA files, specifically for people at Lime.AI' 
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "pandas",
+    "xlsxwriter",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/limeaicell/LimeNDAdecoder"
+"Bug Tracker" = "https://github.com/limeaicell/LimeNDAdecoder/issues"
