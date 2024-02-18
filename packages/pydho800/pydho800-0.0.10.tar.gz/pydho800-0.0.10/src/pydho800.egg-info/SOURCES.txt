@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.cfg
+src/pydho800/__init__.py
+src/pydho800/pydho800.py
+src/pydho800.egg-info/PKG-INFO
+src/pydho800.egg-info/SOURCES.txt
+src/pydho800.egg-info/dependency_links.txt
+src/pydho800.egg-info/requires.txt
+src/pydho800.egg-info/top_level.txt
