@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: seismutils
+Version: 0.1
+Summary: A private collection of essential functions and models for streamlined machine learning experiments.
+Home-page: https://github.com/gabrielepaoletti/seismutils
+Download-URL: https://github.com/gabrielepaoletti/seismutils
+Author: Gabriele Paoletti
+Author-email: gabriele.paoletti@uniroma1.it
+License: MIT
+Keywords: seismology earthquake geophysics data-analysis
+Requires-Python: >=3.6
+License-File: LICENSE
