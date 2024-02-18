@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: futurevision
+Version: 0.0.1
+Summary: Library that combines Robotics Hardware, iPhone and AI for Everyone
+Home-page: https://github.com/AliEdis/futurevision
+Author: Ali Edis
+Author-email: aliedis34@gmail.com
+License: MIT
+Project-URL: Bug Reports, https://github.com/AliEdis/futurevision/issues
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Source, https://github.com/AliEdis/futurevision
+Keywords: iPhone,Raspberry Pi,Arduino,Computer Vision,Artificial Intelligence,Image Processing,Robotics Hardware,OpenCV,MediaPipe,numpy,pyserial,scipy,dlib,pyautogui,pyaudio,gtts,pygame
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: mediapipe
+Requires-Dist: numpy
+Requires-Dist: pyserial
+Requires-Dist: scipy
+Requires-Dist: dlib
+Requires-Dist: pyautogui
+Requires-Dist: pyaudio
+Requires-Dist: gtts
+Requires-Dist: pygame
+Requires-Dist: flask
+
+# Library that combines Robotics Hardware, iPhone and AI for Everyone
