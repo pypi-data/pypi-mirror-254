@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/cleaner/__init__.py
+src/scrape_data_cleaner.egg-info/PKG-INFO
+src/scrape_data_cleaner.egg-info/SOURCES.txt
+src/scrape_data_cleaner.egg-info/dependency_links.txt
+src/scrape_data_cleaner.egg-info/top_level.txt
