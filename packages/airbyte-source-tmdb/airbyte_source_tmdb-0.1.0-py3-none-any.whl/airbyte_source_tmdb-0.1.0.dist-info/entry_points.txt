@@ -1,0 +1,2 @@
+[console_scripts]
+source-tmdb = source_tmdb.run:run
