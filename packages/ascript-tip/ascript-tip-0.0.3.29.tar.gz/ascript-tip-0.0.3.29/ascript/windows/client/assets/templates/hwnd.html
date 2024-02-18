@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block nav_home %}  {% endblock %}
+{% block nav_jubing %} layui-this {% endblock %}
+{% block nav_nav_colors %}  {% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="/assets/jquery-zTree/css/zTreeStyle.css" type="text/css"
+      xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+
+{% block body %}
+
+<div style="display: none">
+    <li class="hwnd_item" lay-options="{id: 100}">
+        <div class="layui-menu-body-title"><a href="javascript:" class="hwnd_item_title">menu item 1</a></div>
+    </li>
+</div>
+
+<div style="display: flex;flex-direction: row; height: 98%; margin:1%;width: 100%;" >
+
+    <div id="filter_contain" style=" display: flex;flex-direction: column; height: 100%; width: 25vw">
+
+        <form>
+                <div class="form-group">
+                  <select id="sel_model" class="form-control">
+                        <option value="0" selected>窗口检索</option>
+                        <option value="-1">控件检索</option>
+                  </select>
+                </div>
+            </form>
+
+        <div class="card" style="height: 62vh;overflow-y: scroll">
+        <form>
+          <div class="card-header">属性 <span class="layui-badge-rim" id="hwnd_nums" >0</span> </div>
+          <div class="card-body">
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">标题 title</div>
+                            </div>
+                            <input id="sel_title_regx" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_title_regx_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">名称 name</div>
+                            </div>
+                            <input id="sel_name_regx" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_name_regx_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">句柄 hwnd</div>
+                            </div>
+                            <input id="sel_hwnd_regx" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_hwnd_regx_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">范围</div>
+                            </div>
+                            <input id="sel_rect" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_rect_copy" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">激活</div>
+                            </div>
+                            <input id="sel_active" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_active_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">状态</div>
+                            </div>
+                            <input id="sel_status" type="text" placeholder="支持正则" class="form-control">
+                            <div id="sel_status_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">窗口动作</div>
+                            </div>
+                            <select id="sel_window_action" class="form-group form-control" >
+                                    <option value="0" selected>移动至前台</option>
+                                    <option value="-1">最小化</option>
+                                    <option value="-1">最大化</option>
+                                    <option value="-1">恢复正常尺寸</option>
+                                    <option value="-1">关闭</option>
+                            </select>
+                            <div id="sel_window_action_add" class="input-group-append" style="cursor: pointer;">
+                                <i class="btn btn-info bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+          </div>
+
+        </form>
+        </div>
+
+        <div class="card mt-2" style="height: 29vh">
+            <div class="card-body" style="height: 100%">
+
+                <textarea  class="form-control" id="code_pre" rows="3"></textarea>
+
+                <div style="display: flex; flex-direction: row;margin-top: 10px; justify-content: space-between" >
+                     <div class="btn-group">
+                          <button id="sel_reset" type="button" class="btn btn-danger">重置</button>
+                     </div>
+
+                     <div class="btn-group" role="group">
+                        <button id="find_one" type="button" class="btn btn-info">查找一个</button>
+                        <button id="find_all" type="button" class="btn btn-info">查找全部</button>
+                     </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <div id="viewtree_contain" style="height: 100%; overflow: scroll;">
+          <ul id="treeDemo" class="ztree"></ul>
+    </div>
+
+    <div>
+        <img id="win_huwn_show" src="" style="max-width: 400px">
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block fotter %}
+<div style="height: 50px"></div>
+{% endblock %}
+
+
+{% block js %}
+<script src="/assets/jquery-zTree/js/jquery.ztree.all.min.js"></script>
+<script src="/assets/js/hwnd.js"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+from setuptools import setup, find_packages
+from pip._internal.req import req_file
+from setuptools.glob import glob
+
+VERSION = '0.0.3.29'
+DESCRIPTION = 'ascript 相关python包'
+is_tip = True
+include_data = True
+libname = "ascript"
+requirments = req_file.parse_requirements('requirements.txt', session='hack')
+instll_requires = [req.requirement for req in requirments]
+
+print(instll_requires)
+
+
+
+if is_tip:
+    libname = libname+"-tip"
+    instll_requires = []
+
+setup(
+    name=libname,
+    version=VERSION,
+    author="aojoy",
+    author_email="aojoytec@163.com",
+    description=DESCRIPTION,
+    include_package_data=include_data,
+
+    long_description_content_type="text/markdown",
+    long_description=open('README.md', encoding="UTF8").read(),
+    packages=find_packages(),
+    keywords=['python', "ascript"],
+    license="MIT",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    url="https://airscript.cn/",
+    install_requires=instll_requires,
+)
