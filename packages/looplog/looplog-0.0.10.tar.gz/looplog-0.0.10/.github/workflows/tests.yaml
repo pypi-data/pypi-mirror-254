@@ -1,0 +1,45 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+
+  lint:
+    name: Lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint with pre-commit
+        uses: pre-commit/action@v2.0.2
+
+  test:
+    name: Tests py${{ matrix.py }}
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        py:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.py }}
+
+      - name: Install
+        run: pip install -e .
+
+      - name: Run tests
+        run: python -m looplog.tests
