@@ -1,0 +1,4 @@
+paramiko~=3.4
+ptt-article-parser~=0.6.0
+uao~=0.2.0
+wcwidth~=0.2.13
