@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: libwannier90
+Version: 0.2.1
+Summary: Wannier90 library for python wrapper pyWannier90
+Home-page: https://github.com/hungpham2017/libwannier90
+Author: Hung Q. Pham
+Author-email: pqh3.14@gmail.com
+License: GPLv2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pybind11 >=2.6.0
+
+## Intro
+Python Wannier90 library for to be used with the pyWannier90 wrapper.
+
+## Supported electronic structure codes
+- PySCF
+- VASP
