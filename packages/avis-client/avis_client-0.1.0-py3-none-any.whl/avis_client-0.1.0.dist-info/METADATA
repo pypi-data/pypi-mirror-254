@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: avis-client
+Version: 0.1.0
+Summary: avis
+Home-page: 
+Author: VUEngineering
+Author-email: tech@vu.engineering
+Keywords: OpenAPI,OpenAPI-Generator,avis
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3 <2.1.0,>=1.25.3
+Requires-Dist: python-dateutil
+Requires-Dist: pydantic >=2
+Requires-Dist: typing-extensions >=4.7.1
+
+    VUE Autonomous Visual Inspection System (AVIS)
+    
