@@ -1,0 +1,18 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "conflict_in_sharing_config": {
+                "name": "Conflicto con el modo de reparto de energ\u00eda"
+            },
+            "in_sharing_mode": {
+                "name": "Modo de reparto de energ\u00eda"
+            },
+            "is_battery_protected": {
+                "name": "Protegido por bater\u00eda"
+            },
+            "is_static_ip": {
+                "name": "IP est\u00e1tica"
+            }
+        }
+    }
+}
