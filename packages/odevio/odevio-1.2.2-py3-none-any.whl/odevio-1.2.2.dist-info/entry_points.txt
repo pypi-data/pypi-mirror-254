@@ -1,0 +1,2 @@
+[console_scripts]
+odevio = odevio.__main__:odevio
