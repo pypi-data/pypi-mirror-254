@@ -1,0 +1,65 @@
+Source: libevt
+Priority: extra
+Maintainer: Joachim Metz <joachim.metz@gmail.com>
+Build-Depends: debhelper (>= 9), dh-autoreconf, dh-python, pkg-config, python3-dev, python3-setuptools
+Standards-Version: 4.1.4
+Section: libs
+Homepage: https://github.com/libyal/libevt
+Vcs-Git: https://github.com/libyal/libevt.git
+
+Package: libevt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libevt1
+Replaces: libevt1
+Suggests: libevt-dbg
+Description: Library to access the Windows Event Log (EVT) format
+ libevt is a library to access the Windows Event Log (EVT) format.
+
+Package: libevt-dbg
+Architecture: any
+Section: debug
+Depends: libevt (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for libevt
+ Debugging symbols for libevt.
+
+Package: libevt-dev
+Section: libdevel
+Architecture: any
+Depends: libevt (= ${binary:Version}), ${misc:Depends}
+Description: Header files and libraries for developing applications for libevt
+ Header files and libraries for developing applications for libevt.
+
+Package: libevt-tools
+Section: utils
+Architecture: any
+Depends: libevt (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libevt-utils
+Replaces: libevt-utils
+Description: Several tools for reading Windows Event Log (EVT) files
+ Several tools for reading Windows Event Log (EVT) files.
+
+Package: libevt-tools-dbg
+Section: debug
+Architecture: any
+Depends: libevt-tools (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for libevt-tools
+ Debugging symbols for libevt-tools.
+
+Package: libevt-python3
+Section: python
+Architecture: any
+Depends: libevt (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Conflicts: python3-libevt
+Replaces: python3-libevt
+Suggests: libevt-python3-dbg
+Description: Python 3 bindings for libevt
+ Python 3 bindings for libevt.
+
+Package: libevt-python3-dbg
+Section: debug
+Architecture: any
+Depends: libevt-python3 (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for libevt-python3
+ Debugging symbols for libevt-python3.
+
