@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: python-xdoc
+Version: 0.1.0
+Summary: 
+Home-page: https://github.com/morisono/xdoc
+Author: admin
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: aiohttp (==3.8.4)
+Requires-Dist: beautifulsoup4 (==4.12.3)
+Requires-Dist: dnspython (==2.5.0)
+Requires-Dist: gnupg (==2.3.1)
+Requires-Dist: gradio (==4.16.0)
+Requires-Dist: httpx (==0.26.0)
+Requires-Dist: mega (==0.2.11)
+Requires-Dist: novu (==1.11.0)
+Requires-Dist: pandas (==2.0.3)
+Requires-Dist: pillow (==10.2.0)
+Requires-Dist: pycryptodomex (==3.18.0)
+Requires-Dist: pyopenssl (==24.0.0)
+Requires-Dist: pypandoc (==1.12)
+Requires-Dist: pypdf (==4.0.1)
+Requires-Dist: pypdf2 (==3.0.1)
+Requires-Dist: pyppeteer (==1.0.2)
+Requires-Dist: pytest (==7.3.1)
+Requires-Dist: python-bcrypt (==0.3.2)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: pyyaml (==6.0.1)
+Requires-Dist: qrcode (==7.4.2)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: rich (==13.7.0)
+Requires-Dist: setuptools (==45.2.0)
+Requires-Dist: toml (==0.10.2)
+Requires-Dist: tqdm (==4.66.1)
+Requires-Dist: urllib3 (==1.26.15)
+Requires-Dist: uvloop (==0.19.0)
+Requires-Dist: weasyprint (==60.2)
+Description-Content-Type: text/markdown
+
+<div align=center>
+
+# XDoc
+
+</div>
+
+This tool is for converting various document formats to PDF format. Generate PDF documents from files such as Markdown, HTML, and CSS by combining them.
+
+## Key Features
+
+- Generate PDFs by combining Markdown, HTML, and CSS.
+- Add custom headers and footers.
+- User-friendly Gradio web interface. 
+
+## Getting started 
+
+```sh
+# Install
+pip install xdoc
+
+# Getting started:
+
+xdoc -i input_*.md -o output_file.pdf # CLI 
+xdoc --webui # Web UI
+xdoc --help 
+```
+
+## License
+
+This project is provided under the MIT License. See the LICENSE file for details.
+
+## Support
+
+For inquiries regarding support, including questions and bug reports, please use GitHub Issues.
+

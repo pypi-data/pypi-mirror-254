@@ -1,0 +1,79 @@
+<style>
+
+@font-face {
+    font-family:          myserif;
+    font-style:           normal;
+    font-weight:          bold;
+    src:                  url("../fonts/NotoSerif-Regular.ttf");
+}
+
+footer {
+  width: 75%;
+  color: #1f0909;
+  font-size: 6pt;
+  font-family: 'Crimson Text', 'Alegreya', myserif, 'Koku Mincho Regular', "MS Mincho", "Noto Serif";
+  position: absolute;
+}
+
+.footer {
+    /* page-break-after: always;
+    counter-increment: page;
+    column-span: all; */
+}
+
+.url {
+  bottom: 5mm;
+  margin: 0 20mm;
+  left: 0;
+  text-align: start;
+  vertical-align: middle;
+  position: absolute;
+}
+
+.title {
+  bottom: 5mm;
+  left: 50%;
+  float: center;
+  transform: translateX(-50%);
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.pageNumber, .totalPages {
+  bottom: 5mm;
+  margin: 0 20mm;
+  right: 0;
+  float: right;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.illustration {
+  bottom: 5mm;
+  left: 50%;
+  float: center;
+  transform: translateX(-50%);
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.illustration img {
+  height: 100px;
+}
+
+</style>
+
+<footer class="footer">
+    <p class="url">$url$</p>
+    <p class="title">$title$</p>
+    <img class="illustration" src="$illustration$" alt="illustration">
+    <p class="pageNumber">$pageNumber$</p>
+    <!-- <p class="totalPages">$totalPages$</p> -->
+</footer>

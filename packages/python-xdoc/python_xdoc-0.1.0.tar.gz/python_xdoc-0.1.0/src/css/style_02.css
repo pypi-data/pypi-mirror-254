@@ -1,0 +1,1249 @@
+/**
+ * import styles
+ */
+
+@import '';
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Fonts */
+
+@font-face {
+  font-family:          myserif;
+  font-style:           normal;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/NotoSerif-Regular.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           normal;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/NotoSerif-Bold.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           italic;
+  font-weight:          normal;
+  src:                  url("/file=../fonts/NotoSerif-Italic.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           italic;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/NotoSerif-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           normal;
+  font-weight:          500;
+  src:                  url("/file=../fonts/NotoSerif-Medium.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           normal;
+  font-weight:          800;
+  src:                  url("/file=../fonts/NotoSerif-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           italic;
+  font-weight:          500;
+  src:                  url("/file=../fonts/NotoSerif-MediumItalic.ttf");
+}
+
+@font-face {
+  font-family:          myserif;
+  font-style:           italic;
+  font-weight:          800;
+  src:                  url("/file=../fonts/NotoSerif-ExtraBoldItalic.ttf");
+}
+
+@font-face {
+  font-family:          mysans;
+  font-style:           normal;
+  font-weight:          normal;
+  src:                  url("/file=../fonts/NotoSans-Regular.ttf");
+}
+
+@font-face {
+  font-family:          mysans;
+  font-style:           normal;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/NotoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family:          mysans;
+  font-style:           italic;
+  font-weight:          normal;
+  src:                  url("/file=../fonts/NotoSans-Italic.ttf");
+}
+
+@font-face {
+  font-family:          mysans;
+  font-style:           italic;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/NotoSans-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family:          mymono;
+  font-style:           normal;
+  font-weight:          normal;
+  src:                  url("/file=../fonts/SourceCodePro-Medium.ttf");
+}
+
+@font-face {
+  font-family:          mymono;
+  font-style:           normal;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/SourceCodePro-Bold.ttf");
+}
+
+@font-face {
+  font-family:          mymono;
+  font-style:           italic;
+  font-weight:          normal;
+  src:                  url("/file=../fonts/SourceCodePro-MediumItalic.ttf");
+}
+
+@font-face {
+  font-family:          mymono;
+  font-style:           italic;
+  font-weight:          bold;
+  src:                  url("/file=../fonts/SourceCodePro-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: 'ZenKurenaido';
+  src: url('../fonts/ZenKurenaido-Regular.ttf') format('truetype');
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: 'Utsukushi';
+  src: url('/file=../fonts/Utsukushi.otf') format('truetype');
+  font-weight: bolder;
+}
+
+:root {
+  --head: 'Crimson Text', 'myserif', 'Koku Mincho Regular', "MS Mincho", "Noto Serif", serif, monospace;
+  --body: 'Alegreya', 'myserif', 'Koku Mincho Regular', "MS Mincho", "Noto Serif", serif, monospace;
+	--header-background-img: url('../images/h.png');
+	--header-background-img-bottom: url('../images/h-bottom.png');
+  --text-width:         452pt;
+  --font-size-l:        12pt;
+  --font-size:          10pt;
+  --font-size-s:        8pt;
+  --pitch:              16pt;
+  --mono-correction:    111.7%;
+  --small-caps-spacing: 0.083em;
+  --sc-correction:      100%;
+  --line-width:         1pt;
+  --bg-color:           hsl(49, 100%, 97.5%);
+  --text-color:         hsl(270, 100%, 6.5%);
+  --link-color:         hsl(247, 100%, 72%);
+  --hover-row-color:    hsl(49, 100%, 92.5%);
+  --hover-cell-color:   hsl(49, 100%, 82.5%);
+  --select-text-bg-color:   rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+  --active-file-bg-color:   rgba(32, 43, 51, 0.63);
+  --active-file-text-color: white;
+  --control-text-color:     #444;
+  --rawblock-edit-panel-bd: hsl(49, 100%, 92.5%);
+  --monospace:          mymono, "Source Code Pro", monospace;
+  --heading-char-color:     hsl(270, 100%, 52%);
+
+  --offwhite: #fcf5e5;
+  --green: #e0e5c1;
+  --yellow: #c9ad6a;
+  --red: #822000;
+  --purple: #704cd9;
+}
+
+#write * {
+  line-height:          var(--pitch);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+  position: relative;
+}
+
+.header-item-l {
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+  margin-right: auto;
+  position: absolute;
+}
+
+.header-item-c {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+}
+
+.header-item-r {
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
+  position: absolute;
+}
+
+.header-item-l img,
+.header-item-c img,
+.header-item-r img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 80px;
+}
+
+.header-item-l p,
+.header-item-c p,
+.header-item-r p {
+  max-height: 100%;
+  max-width: 100%;
+  width: 80px;
+  height: auto;
+}
+
+
+html, body {
+  background-color: #fffdf2;
+  color: #333;
+  font-family: var(--body);
+  font-variant:         normal;
+  font-style:           normal;
+  font-weight:          normal;
+  text-justify:         inter-word;
+  text-indent:          0;
+  text-decoration-skip: none;
+  word-wrap:            normal;
+  hyphens:              auto;
+  orphans:              2;
+  widows:               2;
+  font-size:            var(--font-size);
+  /* margin: 15.4mm; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  columns: 2;
+  column-rule: 1px dotted #333;
+  gap: 20px;
+  /* column-count: 2; */
+  /* column-gap: 20px; */
+  /* column-fill: auto; */
+  padding-inline: 5mm;
+  /* box-sizing: border-box; */
+  /* overflow: hidden; */
+  /* border: 1px solid #000; */
+  /* box-sizing: border-box; */
+  /* float: left; */
+}
+
+.container h1, .subtitle, .document-id, .timestamp, .from-group, .from-name, .target-group, .target-name, .footnote-area, .footer {
+  column-span: all;
+}
+
+#write {
+  max-width: 60em;
+  /* padding: 10px; */
+}
+
+/**
+ * Block Elements
+ */
+
+pre.md-meta-block {
+
+}
+
+h1, h2, h3, h4, h5, h6, p, li, .cm-s-inner, .footnote-line {
+    font-family: var(--head);
+    margin: 0;
+    text-align: left;
+    align-items: left;
+}
+
+h2, h3, h4, h5, h6 {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 0.5px;
+  text-decoration-skip-ink: auto;
+  /* padding-bottom: 1px; */
+}
+
+h1, .subtitle {
+  text-align: center;
+  /* text-indent: 1em; */
+  /* margin-right: -1em; */
+  /* page-break-inside: avoid; */
+}
+
+h1 {
+  border-bottom: 1pt solid var(--red);
+  margin-top:           var(--pitch);
+  margin-bottom:        0;
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          800;
+  font-size:            calc(1.6 * var(--font-size-l));
+}
+
+.subtitle {
+  font-size:            var(--font-size-l);
+}
+
+h2 {
+  margin-top: var(--pitch);
+  margin-bottom:        0.5 * var(--pitch);
+  margin-left:          0;
+  font-weight:          500;
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          bold;
+  font-size:            calc(1.4 * var(--font-size-l));
+}
+
+h2::before {
+  /* content:              "##"; */
+}
+
+h3 {
+  margin-top:           var(--pitch);
+  margin-bottom:        0.5 * var(--pitch);
+  margin-left:          0;
+  /* margin-left:          calc(2 * var(--pitch)); */
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          500;
+  font-size:            calc(1.2 * var(--font-size-l));
+}
+
+h3::before {
+  /* content:              "###"; */
+}
+
+h4 {
+  margin-top:           var(--pitch);
+  margin-bottom:        0.5 * var(--pitch);
+  margin-left:          0;
+  /* margin-left:          calc(2 * var(--pitch)); */
+  font-weight:          500;
+  font-style:           italic;
+  font-variant:         small-caps;
+  font-size:            var(--font-size-l);
+}
+
+h4::before {
+  /* content:              "###"; */
+}
+
+h5 {
+  margin-top:           var(--pitch);
+  margin-bottom:        0.5 * var(--pitch);
+  margin-left:          0;
+  /* margin-left:          calc(3 * var(--pitch)); */
+  font-variant:         normal;
+  font-weight:          500;
+  font-size:            var(--font-size-l);
+}
+
+h5::before {
+  content:              "§";
+}
+
+h6 {
+  margin-top:           var(--pitch);
+  margin-bottom:        0.5 * var(--pitch);
+  margin-left:          0;
+  /* margin-left:          calc(3 * var(--pitch)); */
+  font-style:           italic;
+  font-variant:         normal;
+  font-weight:          500;
+  font-size:            var(--font-size-l);
+}
+
+h6::before {
+  content:              "¶";
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6,
+#write p, #write pre {
+  width:                100%;
+}
+
+h2, h3, em, .cm-keyword {
+}
+
+/* tables */
+
+figure {
+  margin-top:           var(--pitch);
+  margin-bottom:        var(--pitch);
+}
+
+table {
+  padding:              0;
+  border:               none;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
+  table-layout: fixed;
+  /* border: 2px solid black; */
+  caption-side:         top;
+  font-size: var(--font-size-s);
+}
+
+thead {
+  background-color: #eee;
+}
+
+tr+tr {
+  border-top:           1px solid var(--text-color);
+}
+
+tr:hover {
+  background:           var(--hover-row-color);
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid black;
+  /* border-bottom: 2px double black; */
+}
+
+td {
+  border: 1px solid black;
+  /* border-bottom: none; */
+  border-right: 1px solid black;
+  text-align: center;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+tfoot {
+  border-top:           calc(2 * var(--line-width)) solid var(--text-color);
+}
+
+.md-table-edit {
+
+}
+
+/* lists */
+
+dd, dl, dt, li, ol, ul {
+  font-size:            inherit;
+  font-family:          inherit;
+  font-variant:         inherit;
+  font-style:           inherit;
+  font-weight:          inherit;
+}
+
+ol, ul {
+  list-style-position:  outside;
+  margin-left:         0;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li p {
+  margin:               0;
+}
+
+li {
+  display:              list-item;
+  margin-top:           0;
+  margin-bottom:        0;
+}
+
+ul>li {
+  list-style-type:      square;
+}
+
+ul ul>li {
+  list-style-type:      disc;
+}
+
+ul ul ul>li {
+  list-style-type:      circle;
+}
+
+ul ul ul ul>li {
+  list-style-type:      square;
+}
+
+ul ul ul ul ul>li {
+  list-style-type:      disc;
+}
+
+ul ul ul ul ul ul>li {
+  list-style-type:      circle;
+}
+
+ol>li {
+  list-style-type:      decimal;
+}
+
+ol ol>li {
+  list-style-type:      lower-alpha;
+}
+
+ol ol ol>li {
+  list-style-type:      upper-roman;
+}
+
+ol ol ol ol>li {
+  list-style-type:      lower-greek;
+}
+
+ol ol ol ol ol>li {
+  list-style-type:      decimal-leading-zero;
+}
+
+dl {
+  margin-left:          var(--pitch);
+}
+
+dt {
+  float:                left;
+  clear:                left;
+  text-align:           left;
+}
+
+dt::after {
+  content:              ":\2003";  /* &emsp; */
+}
+
+dd {
+  margin-left:          calc(2 * var(--pitch));
+}
+
+li>p:first-child, dd>p:first-child, li>input+p {
+  text-indent:          0;
+}
+
+blockquote, strong {
+    color: darkblue;
+}
+
+blockquote {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* Mathjax */
+
+.md-inline-math {
+  display:              inline;
+}
+
+hr {
+  /* Common to all hr's */
+  border-top: 2pt solid transparent;
+  border-bottom: 2pt solid transparent;
+  border-left-style: solid;
+  border-left-color: var(--red);
+
+  /* Top-level hr (aka page delineator) */
+  column-span: all;
+  border-left-width: 16cm;
+  margin-top: 18pt;
+  margin-bottom: 36pt;
+}
+
+/* <section> 要素内の1文字目を大きくするスタイル */
+section p::first-letter {
+  font-size: 2em;
+  float: left;
+  margin-right: 10px;
+  line-height: 1;
+}
+p {
+
+}
+/* p::first-letter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: brown;
+} */
+
+.md-diagram-panel {
+
+}
+
+#write .md-focus .md-diagram-panel {
+
+}
+
+.md-def-link {
+
+}
+
+.md-def-footnote {
+
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+  position: relative;
+  bottom: 0;
+}
+
+.footer-item-l {
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+  margin-right: auto;
+  position: absolute;
+}
+
+.footer-item-c {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+}
+
+.footer-item-r {
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
+  position: absolute;
+}
+
+.footer-item-l img,
+.footer-item-c img,
+.footer-item-r img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 80px;
+}
+
+.footer-item-l p,
+.footer-item-c p,
+.footer-item-r p {
+  max-height: 100%;
+  max-width: 100%;
+  width: 80px;
+  height: auto;
+}
+
+/**
+ * Inline Elements
+ */
+
+a, .footnote-line {
+    text-decoration:      none;
+    color:                var(--link-color);
+}
+
+em, strong {
+    font-style: normal;
+}
+
+img {
+
+}
+
+mark {
+
+}
+
+del {
+
+}
+
+sub {
+
+}
+
+sup {
+
+}
+
+/* footnote */
+
+.footnote-area {
+  font-size:            var(--font-size-s);
+  margin-top:           var(--pitch);
+  padding:              0;
+  color:                var(--text-color);
+}
+
+sup.md-footnote {
+  padding:              0;
+  background-color:     var(--bg-color);
+  color:                var(--text-color);
+  cursor:               pointer;
+}
+
+#write sup.md-footnote * {
+  line-height:          0;
+}
+
+.footnote {
+  margin-top:           var(--pitch);
+  margin-bottom:        var(--pitch);
+  opacity:              1;
+  font-size:            var(--font-size-s);
+}
+
+/* toc */
+
+.md-toc {
+  font-family:          myserif, "Noto Serif", serif;
+  font-size:            var(--font-size);
+}
+
+.md-toc-content {
+  margin:               0;
+  padding:              0;
+  text-indent:          0;
+}
+
+.md-toc-item {
+  color:                var(--link-color);
+}
+
+.md-toc-h1 {
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          800;
+  font-size:            var(--sc-correction);
+
+}
+
+.md-toc-h1 .md-toc-inner {
+  margin-left:          var(--pitch);
+}
+
+.md-toc-h2 {
+  font-variant:         normal;
+  font-weight:          bold;
+}
+
+.md-toc-h2 .md-toc-inner {
+  margin-left:          calc(2 * var(--pitch));
+}
+
+.md-toc-h3 {
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          500;
+  font-size:            var(--sc-correction);
+}
+
+.md-toc-h3 .md-toc-inner {
+  margin-left:          calc(3 * var(--pitch));
+}
+
+.md-toc-h4 {
+  font-style:           italic;
+  font-weight:          normal;
+}
+
+.md-toc-h4 .md-toc-inner {
+  margin-left:          calc(4 * var(--pitch));
+}
+
+.md-toc-h5 {
+  font-variant:         small-caps;
+  letter-spacing:       var(--small-caps-spacing);
+  font-weight:          500;
+  font-size:            var(--sc-correction);
+}
+
+.md-toc-h5 .md-toc-inner {
+  margin-left:          calc(5 * var(--pitch));
+}
+
+.md-toc-h5 .md-toc-inner::before {
+  content:              "§";
+}
+
+.md-toc-h6 {
+  font-style:           italic;
+  font-variant:         normal;
+}
+
+.md-toc-h6 .md-toc-inner {
+  margin-left:          calc(6 * var(--pitch));
+}
+
+.md-toc-h6 .md-toc-inner::before {
+  content:              "¶";
+}
+
+/* stuff directly from the Newsprint theme */
+
+.md-meta, .md-before, .md-after {
+  color:#999;
+}
+
+.ty-table-edit {
+  background-color: transparent;
+}
+
+.md-image>.md-meta {
+  color: #9B5146;
+}
+
+.md-image>.md-meta {
+  font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", serif;
+}
+
+#write pre.md-meta-block {
+  min-height: 1.875rem;
+  color: #555;
+  border: 0px;
+  background: transparent;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+#typora-sidebar {
+  background-color: #f3f2ee;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+  background: inherit;
+  box-shadow: none;
+  border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+  border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+    border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size: var(--font-size-l);
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+  background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+  list-style-type: none;
+}
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+  background: #f3f2ee;
+  color: #1f0909;
+}
+
+.megamenu-menu-header {
+  border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+  box-shadow: none;
+  border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+  font-family: myserif, "Noto Serif", serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+  color: #1f0909;
+  border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+  color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+  color: inherit;
+  background-color: #e8e7df;
+}
+
+.long-btn:hover {
+  background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+  background-color: #D2D1D1;
+}
+
+.btn-default {
+  background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+  background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+  margin-top: 8px;
+}
+
+.file-list-item-file-name {
+  font-weight: initial;
+}
+
+.file-list-item-summary {
+  opacity: 1;
+}
+
+.file-list-item {
+  color: #777;
+}
+
+.file-list-item.active {
+  background-color: inherit;
+  color: black;
+}
+
+.ty-side-sort-btn.active {
+  background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+  font-weight: bold;
+}
+
+.file-list-item {
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background {
+  background-color: rgba(32, 43, 51, 0.63);
+  background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content {
+  color: white;
+  color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+  margin-left: -1.7em;
+  margin-top: calc(1rem - 12px);
+}
+
+input {
+  border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover,
+.megamenu-menu-header:focus {
+  color: inherit;
+}
+
+.dropdown-menu .divider {
+  border-color: #e5e5e5;
+}.os-windows-7 strong,
+.os-windows-7 strong  {
+  font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+  background: transparent;
+}
+
+.ty-preferences .window-header {
+  border-bottom: 1px dashed #202B33;
+  box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+  color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+  background: #777;
+  color: white;
+}
+
+/* Codes */
+
+.cm-s-inner {
+    border-left: 2px solid #333;
+    padding-left: 1em;
+    margin: 5px 0;
+}
+
+.cm-s-inner * {
+    color: #333 !important;
+}
+
+code {
+
+}
+
+/* Numbering */
+h1 {
+    counter-reset: h2;
+}
+
+h2 {
+    counter-reset: h3;
+}
+
+#write h2:before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+}
+
+#write h3:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". ";
+}
+
+/**
+ * Diagrams
+ */
+
+/**
+ * Source Code Mode
+ */
+
+/**
+ * Control UI (optional)
+ */
+
+/* Custom Class */
+.bookclip {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.document-id, .timestamp, .from-group, .from-name, .from-mark, .target-group, .target-name, .closing-text, .closing, .signature {
+    font-size: var(--font-size-s);
+    text-align: right;
+}
+
+.memo-mark {
+    text-align: center;
+}
+
+.table-caption {
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+.table-caption p {
+    text-align: center;
+    border-bottom: 2px double black;
+    padding-bottom: 2px;
+    display: inline-block;
+}
+
+.table-caption-desc {
+    text-align: center;
+    width: 100%;
+}
+
+.cap-date {
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.cap-unit {
+  text-align: right;
+  display: inline-block;
+}
+
+/* tr td:first-child {
+  border-right: 1px solid black;
+} */
+
+/* tr td:last-child {
+  border-left: none;
+} */
+
+/* tbody tr:last-child td {
+  border-top: 2px double black;
+} */
+
+body {
+  counter-reset: page;
+}
+
+.footer {
+  page-break-after: always;
+  counter-increment: page;
+}
+
+.page-num {
+  text-align: center;
+}
+
+.page-num:after {
+  content: counter(page);
+  white-space: nowrap;
+}
+
+/* Layout */
+
+@page {
+  /* size: A4; */
+  margin: 20mm;
+  @top-center {
+    content: "Title";
+  }
+  @bottom-center {
+    content: counter(page);
+  }
+}
+
+/*
+@page:verso {
+  @top-left {
+    font-family: "Noto Sans", "sans-serif";
+    content: env(pub-title);
+  }
+  @bottom-left {
+    content: counter(page);
+  }
+}
+
+@page:recto {
+  @top-right {
+    font-family: "Noto Sans", "sans-serif";
+    content: env(doc-title);
+  }
+  @bottom-right {
+    content: counter(page);
+  }
+} */
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media screen and (max-width: 740pt) {
+  #write {
+    width: calc(var(--text-width) + 2*var(--pitch));
+  }
+}
+
+@media screen and (max-width: 484pt) {
+  #write {
+    width: 100%;
+  }
+  .header, .footer {
+    min-height: 100px;
+  }
+  .container {
+    padding-top: 10px;
+    columns: 1;
+  }
+}
+
+@media print {
+
+  .header {
+    /* page-break-before: always; */
+  }
+
+  .container {
+      /* width: 210mm; */
+      /* height: 297mm; */
+  }
+
+  .footer {
+  }
+
+  #write {
+    padding:0;
+    width:  var(--text-width);
+  }
+
+  @page {
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
