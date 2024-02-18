@@ -1,0 +1,14 @@
+jptranstokenizer/__init__.py,sha256=LnpTDBde74AdVJtZYPtoI1Ud2RX3OzDwoz2kwHhfte8,114
+jptranstokenizer/mainword/__init__.py,sha256=vgtbwOv4pdKzxuMdGzfjz9ttXhunZ6G5zU1OdpvLeok,101
+jptranstokenizer/mainword/base.py,sha256=PX6YXkvfgEQopFe2WdOfDZbCugjhDta1Y1PzOZAXiYQ,1805
+jptranstokenizer/mainword/juman.py,sha256=LGySHyuOrP85K9hs2ja02zhz12cyruUbpyPKQiij6UA,3672
+jptranstokenizer/mainword/sudachi.py,sha256=SpRBEBd6aIeKcmLmdrbZgyFh-P8334ByDD2lZwbBy0c,4531
+jptranstokenizer/model_list.py,sha256=mNYY33EbI9np-TmC0FuQuuyCvoFyCMyOC_cgG1nUb-k,3819
+jptranstokenizer/subword/__init__.py,sha256=64y9MJMMFnVwHwIlIwANZxc3fz8yM8u7XpsawLxRbXs,50
+jptranstokenizer/subword/sentencepiece.py,sha256=lEBii86MZkyU3N3bGtzaRP3EIo2uv4aCRJHmI6U4IRc,2989
+jptranstokenizer/tokenization_utils.py,sha256=qddt_0-qdQX4vJyYftxFbGPZr30AQcSjaPf_Km3DUBk,25952
+jptranstokenizer/version.py,sha256=42STGor_9nKYXumfeV5tiyD_M8VdcddX7CEexmibPBk,22
+jptranstokenizer-0.4.0.dist-info/LICENSE,sha256=PNLvrKY57Ohybwz16FNQ9fpAdGd-NRaaelGNK9JbPLU,1067
+jptranstokenizer-0.4.0.dist-info/METADATA,sha256=KcKprfr3ZY88qzelSMXedicu3ZrJHZnbjJqNGWKzZI0,4276
+jptranstokenizer-0.4.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+jptranstokenizer-0.4.0.dist-info/RECORD,,
