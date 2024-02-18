@@ -1,0 +1,15 @@
+francine/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+francine/cli.py,sha256=Rw4ZO1iqUm4Lu0hYKMmUG1p8gaX4GUkGNR2LWH28Gz0,833
+francine/config.py,sha256=8BpMMkCGTASxYDcBGi21gWxBAGwsD1VMynIZtno1ci8,285
+francine/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+francine/models/task.py,sha256=cX5jtzUbDbTsCwofnZOAsYXzD5lalhsDGmSbfOjGgZI,198
+francine/repositories/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+francine/repositories/base.py,sha256=RKdlbq6MlMW2mlyLDt9jpqFpI0TrtJ42uS071B1B6FQ,454
+francine/repositories/tinydb.py,sha256=DGpe35ppbxTGJ8Wr0YazWfnWXJIyc7syaMNcgdQbJIg,1295
+francine/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+francine/services/task.py,sha256=VJgmXCGFaVbsjqxkSRUfdOFAK6qj0m84Vz022jzFJyM,484
+francine-0.0.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+francine-0.0.2.dist-info/METADATA,sha256=_9aPXKuugRQutP0GJ71_nk36kRfuWvdGF9Dbqt6REeI,516
+francine-0.0.2.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+francine-0.0.2.dist-info/entry_points.txt,sha256=F_2oSecIcQcLxQT27-u017_wqUP8gfU6Q_8EkpeZbx0,45
+francine-0.0.2.dist-info/RECORD,,

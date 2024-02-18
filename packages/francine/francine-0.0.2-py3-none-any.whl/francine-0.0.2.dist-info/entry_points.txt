@@ -1,0 +1,3 @@
+[console_scripts]
+francine=francine.cli:cli
+
