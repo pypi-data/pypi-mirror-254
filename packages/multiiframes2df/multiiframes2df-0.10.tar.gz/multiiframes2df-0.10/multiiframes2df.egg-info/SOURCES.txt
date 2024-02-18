@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+multiiframes2df/README.MD
+multiiframes2df/__init__.py
+multiiframes2df/requirements.txt
+multiiframes2df/thirdparty.json
+multiiframes2df.egg-info/PKG-INFO
+multiiframes2df.egg-info/SOURCES.txt
+multiiframes2df.egg-info/dependency_links.txt
+multiiframes2df.egg-info/requires.txt
+multiiframes2df.egg-info/top_level.txt
