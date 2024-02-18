@@ -1,0 +1,124 @@
+#
+# SOME DESCRIPTIVE TITLE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: PyAMS SQL authentication 1.0.0\n"
+"POT-Creation-Date: 2021-04-25 14:21+0200\n"
+"PO-Revision-Date: 2021-04-25 14:21+0200\n"
+"Last-Translator: Thierry Florac <tflorac@ulthar.net>\n"
+"Language-Team: French <FR@li.org>\n"
+"Language: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Lingua 4.14\n"
+
+#: ./src/pyams_auth_sql/interfaces.py:38
+msgid "SQL engine"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:39
+msgid "SQLAlchemy engine used for database connection"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:43
+msgid "Schema name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:44
+msgid "Database schema name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:47
+msgid "Table name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:48
+msgid "Users table name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:52
+msgid "Login field name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:53
+msgid "Field name used to store login information"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:57
+msgid "Password field name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:58
+msgid "Field name used to store encoded password"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:62
+msgid "Title format"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:63
+msgid "Principal's title format string"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:67
+msgid "Search attributes"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:68
+msgid ""
+"Users will be searched against these attributes, which can be provided by "
+"separating them with commas; login attribute is automatically selected"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:75
+msgid "Allow login with email"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:76
+msgid ""
+"If 'yes', users can log in using their email address or their base login"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:81
+msgid "Email field name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/interfaces.py:82
+msgid "Field name used to store email address"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:51
+msgid "Add SQL authentication plugin..."
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:61
+msgid "Add SQL authentication plug-in"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:69
+msgid "SQL authentication plug-in"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:80
+#: ./src/pyams_auth_sql/zmi/__init__.py:93
+msgid "Users search form"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:122
+msgid "Login"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:138
+msgid "Name"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:153
+msgid "Email"
+msgstr ""
+
+#: ./src/pyams_auth_sql/zmi/__init__.py:168
+msgid "Search results"
+msgstr ""

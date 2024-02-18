@@ -1,0 +1,17 @@
+setuptools
+persistent
+pyams_alchemy
+pyams_security>=1.8.1
+pyams_site
+pyams_utils
+pyramid>=2.0.0
+sqlalchemy
+zope.container
+zope.password
+zope.schema
+
+[test]
+pyams_security_views
+pyams_zmi
+pyramid_zcml
+zope.exceptions
