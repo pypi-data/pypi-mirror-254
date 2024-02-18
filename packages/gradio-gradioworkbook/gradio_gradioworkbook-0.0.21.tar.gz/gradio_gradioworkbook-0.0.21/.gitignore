@@ -1,0 +1,9 @@
+.eggs/
+dist/
+logs
+*.log
+__pycache__/
+*.py[cdio]
+*$py.class
+__tmp/*
+node_modules
