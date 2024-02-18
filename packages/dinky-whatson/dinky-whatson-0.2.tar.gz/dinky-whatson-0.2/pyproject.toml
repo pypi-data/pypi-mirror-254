@@ -1,0 +1,23 @@
+[project]
+name = "dinky-whatson"
+version = "0.2"
+description = "What's on in your suburb widget for the dinky dashboard"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Julian Prester"}]
+license = {text = "MIT"}
+dependencies = [
+    "dinky",
+    "pluggy",
+    "Pillow",
+    "requests",
+    "beautifulsoup4",
+    "setuptools"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
