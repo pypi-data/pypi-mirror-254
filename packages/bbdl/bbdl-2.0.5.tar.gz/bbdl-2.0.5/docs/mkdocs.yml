@@ -1,0 +1,5 @@
+site_name: BBDL Docs
+theme: custommill
+nav:
+  - Home: index.md
+  - About: about.md
