@@ -1,0 +1,2 @@
+[console_scripts]
+source-younium = source_younium.run:run
