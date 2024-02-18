@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+hotmart_python/__init__.py
+hotmart_python/hotmart.py
+hotmart_python.egg-info/PKG-INFO
+hotmart_python.egg-info/SOURCES.txt
+hotmart_python.egg-info/dependency_links.txt
+hotmart_python.egg-info/requires.txt
+hotmart_python.egg-info/top_level.txt

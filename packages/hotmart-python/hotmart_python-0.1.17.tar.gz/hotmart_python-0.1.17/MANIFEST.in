@@ -1,0 +1,5 @@
+graft hotmart_python
+include pyproject.toml
+include LICENSE.txt
+include setup.py
+global-exclude *.py[cod] .pypirc requirements.txt
