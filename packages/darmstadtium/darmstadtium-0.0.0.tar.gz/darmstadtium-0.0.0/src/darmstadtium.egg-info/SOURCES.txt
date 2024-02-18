@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/darmstadtium/__init__.py
+src/darmstadtium/example.py
+src/darmstadtium.egg-info/PKG-INFO
+src/darmstadtium.egg-info/SOURCES.txt
+src/darmstadtium.egg-info/dependency_links.txt
+src/darmstadtium.egg-info/top_level.txt
