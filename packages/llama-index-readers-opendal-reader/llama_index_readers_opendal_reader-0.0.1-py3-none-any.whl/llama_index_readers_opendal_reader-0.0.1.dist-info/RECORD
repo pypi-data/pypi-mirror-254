@@ -1,0 +1,11 @@
+llama_index/readers/opendal/__init__.py,sha256=KLi3-b7KPF1Bp35J373s_uLj0WrmZpMOYmG9i7xmf5c,372
+llama_index/readers/opendal/azblob/__init__.py,sha256=2DpcGqE-C0G785KJpkdZBg_em4jPuutiiIXgIVtLDvc,17
+llama_index/readers/opendal/azblob/base.py,sha256=6WCtAFkYC4PXRhCw3B6gEGrDNeDWr-0btR2FOHtwVfY,2234
+llama_index/readers/opendal/base.py,sha256=68xtoLQ0cQFyD5pgdfrRMSoC-LNSG_QpcaAO5huwUdU,2718
+llama_index/readers/opendal/gcs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+llama_index/readers/opendal/gcs/base.py,sha256=eJZBszP2HlVFbe-jnsjNt3x_CMf0V1SsxoKXEJ58aiU,2065
+llama_index/readers/opendal/s3/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+llama_index/readers/opendal/s3/base.py,sha256=jTH0oAj-t_jo2gYHAKe0ruc_BuOadwNhV_bTfm4By2k,2352
+llama_index_readers_opendal_reader-0.0.1.dist-info/METADATA,sha256=Th0x_pz0jlpfPoWSO74jD6noRKftchABSj7X-CRPi4M,5087
+llama_index_readers_opendal_reader-0.0.1.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+llama_index_readers_opendal_reader-0.0.1.dist-info/RECORD,,
