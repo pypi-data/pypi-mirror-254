@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+test/__init__.py
+test/test_multithreading.py
+test/collections/__init__.py
+test/collections/test_safe_dict.py
+wmeijer_utils/__init__.py
+wmeijer_utils/multithreading.py
+wmeijer_utils.egg-info/PKG-INFO
+wmeijer_utils.egg-info/SOURCES.txt
+wmeijer_utils.egg-info/dependency_links.txt
+wmeijer_utils.egg-info/top_level.txt
+wmeijer_utils/collections/__init__.py
+wmeijer_utils/collections/safe_dict.py
