@@ -1,0 +1,43 @@
+[build-system]
+requires = [
+    "setuptools >= 61.0",           # For pyproject.toml support
+    "setuptools-scm[toml] >= 6.2"   # Because setuptools-scm's README says so
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "correl"
+authors = [
+  { name="Matthias Reitner", email="matthias.reitner@tuwien.ac.at" },
+  { name="Emin Moghadas", email="emin.moghadas@tuwien.ac.at" }
+]
+maintainers = [
+  { name="Matthias Reitner", email="matthias.reitner@tuwien.ac.at" },
+  { name="Emin Moghadas", email="emin.moghadas@tuwien.ac.at" }
+]
+description = "Library for w2dynamics (DMFT) postprocessing and for solving correlated electron problems."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "scipy",
+    "h5py"
+]
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+# Optional dependencies required to run the tests or build the documentation. Can be installed by
+# specifying the key in brackets: `mypackage[tests,docs]`.
+tests = ["pytest", "pytest-cov"]
+
+
+# Necessary for setuptools-scm to work
+[tool.setuptools_scm]
