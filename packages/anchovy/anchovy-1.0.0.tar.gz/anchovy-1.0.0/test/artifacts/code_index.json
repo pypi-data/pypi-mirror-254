@@ -1,0 +1,321 @@
+{
+  "info": {
+    "input_dir": "examples\\code_index",
+    "output_dir": "output\\code_index",
+    "working_dir": "working\\code_index",
+    "custody_cache": "output\\code_index.json",
+    "purge_dirs": "True"
+  },
+  "parameters": {
+    "anchovy_version": "0.12.1.dev3+g0b211d8.d20230817"
+  },
+  "graph": {
+    "working_dir": {
+      "input_dir/code.zip": [
+        "working_dir",
+        "working_dir/basic_site.py",
+        "working_dir/gallery.py"
+      ]
+    },
+    "working_dir/basic_site.py": {
+      "input_dir/code.zip": [
+        "working_dir",
+        "working_dir/basic_site.py",
+        "working_dir/gallery.py"
+      ]
+    },
+    "working_dir/gallery.py": {
+      "input_dir/code.zip": [
+        "working_dir",
+        "working_dir/basic_site.py",
+        "working_dir/gallery.py"
+      ]
+    },
+    "working_dir/index.jinja.html": {
+      "input_dir/index.jinja.html": [
+        "working_dir/index.jinja.html"
+      ]
+    },
+    "working_dir/static/core.css": {
+      "input_dir/static/core.anchovy.css": [
+        "working_dir/static/core.css"
+      ]
+    },
+    "working_dir/static/pygments.css": {
+      "input_dir/static/pygments.anchovy.css": [
+        "working_dir/static/pygments.css"
+      ]
+    },
+    "working_dir/static/css_pack.txt": {
+      "input_dir/static/css_pack.txt": [
+        "working_dir/static/css_pack.txt"
+      ]
+    },
+    "working_dir/basic_site.md": {
+      "working_dir/basic_site.py": [
+        "working_dir/basic_site.md"
+      ]
+    },
+    "working_dir/gallery.md": {
+      "working_dir/gallery.py": [
+        "working_dir/gallery.md"
+      ]
+    },
+    "working_dir/index.html": {
+      "working_dir/index.jinja.html": [
+        "working_dir/index.html"
+      ],
+      "working_dir:*.py": [
+        "working_dir/index.html"
+      ],
+      "working_dir/basic_site.py": [
+        "working_dir/index.html"
+      ],
+      "working_dir/gallery.py": [
+        "working_dir/index.html"
+      ]
+    },
+    "working_dir/static/css_pack.css": {
+      "working_dir/static/css_pack.txt": [
+        "working_dir/static/css_pack.css"
+      ],
+      "working_dir/static/core.css": [
+        "working_dir/static/css_pack.css"
+      ],
+      "working_dir/static/pygments.css": [
+        "working_dir/static/css_pack.css"
+      ]
+    },
+    "working_dir/basic_site/index.html": {
+      "working_dir/basic_site.md": [
+        "working_dir/basic_site/index.html"
+      ],
+      "input_dir/base.jinja.html": [
+        "working_dir/basic_site/index.html"
+      ]
+    },
+    "working_dir/gallery/index.html": {
+      "working_dir/gallery.md": [
+        "working_dir/gallery/index.html"
+      ],
+      "input_dir/base.jinja.html": [
+        "working_dir/gallery/index.html"
+      ]
+    },
+    "output_dir/static/css_pack.css": {
+      "working_dir/static/css_pack.css": [
+        "output_dir/static/css_pack.css"
+      ]
+    },
+    "output_dir/index.html": {
+      "working_dir/index.html": [
+        "output_dir/index.html"
+      ]
+    },
+    "output_dir/basic_site/index.html": {
+      "working_dir/basic_site/index.html": [
+        "output_dir/basic_site/index.html"
+      ]
+    },
+    "output_dir/gallery/index.html": {
+      "working_dir/gallery/index.html": [
+        "output_dir/gallery/index.html"
+      ]
+    }
+  },
+  "meta": {
+    "working_dir": [
+      "path",
+      {
+        "sha1": "",
+        "m_time": 1706996735.449964,
+        "size": 4096
+      }
+    ],
+    "working_dir/basic_site.py": [
+      "path",
+      {
+        "sha1": "c4983436e017a238d94796250a749d74cbc76835",
+        "m_time": 1706996735.4489732,
+        "size": 1071
+      }
+    ],
+    "working_dir/gallery.py": [
+      "path",
+      {
+        "sha1": "3cdd5e3cc41664211b63f98b94a0791282f1ea4d",
+        "m_time": 1706996735.449964,
+        "size": 1407
+      }
+    ],
+    "input_dir/code.zip": [
+      "path",
+      {
+        "sha1": "212d13b73c1b6579519c38b019eae828358cc98d",
+        "m_time": 1700432465.1645195,
+        "size": 1233
+      }
+    ],
+    "working_dir/index.jinja.html": [
+      "path",
+      {
+        "sha1": "522ee3defec401e1a661c862b313cb76a8683d9f",
+        "m_time": 1706996735.457506,
+        "size": 305
+      }
+    ],
+    "input_dir/index.jinja.html": [
+      "path",
+      {
+        "sha1": "522ee3defec401e1a661c862b313cb76a8683d9f",
+        "m_time": 1706996649.193668,
+        "size": 305
+      }
+    ],
+    "working_dir/static/core.css": [
+      "path",
+      {
+        "sha1": "23b855543fd50b49b743413cc221e1bee266c6c9",
+        "m_time": 1706996735.4615524,
+        "size": 306
+      }
+    ],
+    "input_dir/static/core.anchovy.css": [
+      "path",
+      {
+        "sha1": "0c537d96df6aa891be2ba27af58975eb8fff9e2b",
+        "m_time": 1700432465.1760292,
+        "size": 369
+      }
+    ],
+    "working_dir/static/pygments.css": [
+      "path",
+      {
+        "sha1": "16d39823b42dfc58eb0b12d04cc54c233575f398",
+        "m_time": 1706996735.470035,
+        "size": 5551
+      }
+    ],
+    "input_dir/static/pygments.anchovy.css": [
+      "path",
+      {
+        "sha1": "e81fa6d29a89ef0f69f06e235b0ce9b9e1f593be",
+        "m_time": 1700432465.1760292,
+        "size": 4606
+      }
+    ],
+    "working_dir/static/css_pack.txt": [
+      "path",
+      {
+        "sha1": "0cc6ab8a6e988e4f3ff88a30dca17f4b8087a37b",
+        "m_time": 1706996735.4745364,
+        "size": 36
+      }
+    ],
+    "input_dir/static/css_pack.txt": [
+      "path",
+      {
+        "sha1": "0cc6ab8a6e988e4f3ff88a30dca17f4b8087a37b",
+        "m_time": 1700432465.1760292,
+        "size": 36
+      }
+    ],
+    "working_dir/basic_site.md": [
+      "path",
+      {
+        "sha1": "bf995c9fb6202933eb3d6b433b38bae484e2f7d1",
+        "m_time": 1706996735.4912386,
+        "size": 1184
+      }
+    ],
+    "working_dir/gallery.md": [
+      "path",
+      {
+        "sha1": "e03d87bee6bd515e50c752acae7a24cc6700aef7",
+        "m_time": 1706996735.494867,
+        "size": 1514
+      }
+    ],
+    "working_dir/index.html": [
+      "path",
+      {
+        "sha1": "0b2f6b68215f5d1135e3deec703b012033fcea97",
+        "m_time": 1706996735.5039737,
+        "size": 417
+      }
+    ],
+    "working_dir:*.py": [
+      "glob_manifest",
+      {
+        "files": [
+          "working_dir/basic_site.py",
+          "working_dir/gallery.py"
+        ]
+      }
+    ],
+    "working_dir/static/css_pack.css": [
+      "path",
+      {
+        "sha1": "5620127ab0d2261762dac0c30d1fe79e86dcac03",
+        "m_time": 1706996735.508551,
+        "size": 5859
+      }
+    ],
+    "working_dir/basic_site/index.html": [
+      "path",
+      {
+        "sha1": "ffe41a786d2d6e21e277aa1db53db621384aa76f",
+        "m_time": 1706996735.6131053,
+        "size": 4852
+      }
+    ],
+    "input_dir/base.jinja.html": [
+      "path",
+      {
+        "sha1": "cd1fad850af896b28d5cd43b64837e1360a9b0a9",
+        "m_time": 1706996724.3570445,
+        "size": 349
+      }
+    ],
+    "working_dir/gallery/index.html": [
+      "path",
+      {
+        "sha1": "607b78c4b55e9b7598d74c7dae26847536932758",
+        "m_time": 1706996735.6226301,
+        "size": 6386
+      }
+    ],
+    "output_dir/static/css_pack.css": [
+      "path",
+      {
+        "sha1": "c363895ad4c4f75aff899690c56eef2e300980be",
+        "m_time": 1706996735.6266575,
+        "size": 2800
+      }
+    ],
+    "output_dir/index.html": [
+      "path",
+      {
+        "sha1": "310b5f2330ee78a24b009ca52df2583bd4e29d9f",
+        "m_time": 1706996735.6696851,
+        "size": 253
+      }
+    ],
+    "output_dir/basic_site/index.html": [
+      "path",
+      {
+        "sha1": "f217f536a707d91b90b6d50ab94fb5e9c310a5f2",
+        "m_time": 1706996735.693998,
+        "size": 4439
+      }
+    ],
+    "output_dir/gallery/index.html": [
+      "path",
+      {
+        "sha1": "ddac506b836ee7fffaed7f1dad18967bd11acf0e",
+        "m_time": 1706996735.7010386,
+        "size": 5887
+      }
+    ]
+  }
+}
