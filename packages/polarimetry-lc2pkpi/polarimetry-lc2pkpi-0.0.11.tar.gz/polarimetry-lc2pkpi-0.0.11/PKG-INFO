@@ -1,0 +1,191 @@
+Metadata-Version: 2.1
+Name: polarimetry-lc2pkpi
+Version: 0.0.11
+Summary: Symbolic expressions that describe an aligned polarimeter vector field
+Author: Mikhail Mikhasenko, Remco de Boer
+License: GPLv3 or later
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: IPython
+Requires-Dist: PyYAML
+Requires-Dist: ampform>=0.14.8
+Requires-Dist: attrs>=20.1.0
+Requires-Dist: cloudpickle
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: sympy>=1.10
+Requires-Dist: tensorwaves[jax]>=0.4.5
+Provides-Extra: dev
+Requires-Dist: polarimetry-lc2pkpi[doc]; extra == "dev"
+Requires-Dist: polarimetry-lc2pkpi[jupyter]; extra == "dev"
+Requires-Dist: polarimetry-lc2pkpi[sty]; extra == "dev"
+Requires-Dist: polarimetry-lc2pkpi[test]; extra == "dev"
+Requires-Dist: sphinx-autobuild; extra == "dev"
+Requires-Dist: tox>=1.9; extra == "dev"
+Provides-Extra: doc
+Requires-Dist: cairosvg; extra == "doc"
+Requires-Dist: ipympl; extra == "doc"
+Requires-Dist: ipywidgets; extra == "doc"
+Requires-Dist: kaleido; extra == "doc"
+Requires-Dist: matplotlib-inline!=0.1.5; extra == "doc"
+Requires-Dist: myst-nb>=0.14; extra == "doc"
+Requires-Dist: pandas; extra == "doc"
+Requires-Dist: plotly; extra == "doc"
+Requires-Dist: psutil; extra == "doc"
+Requires-Dist: scipy; extra == "doc"
+Requires-Dist: sphinx-api-relink; extra == "doc"
+Requires-Dist: sphinx-book-theme; extra == "doc"
+Requires-Dist: sphinx-codeautolink[ipython]; extra == "doc"
+Requires-Dist: sphinx-copybutton; extra == "doc"
+Requires-Dist: sphinx-design; extra == "doc"
+Requires-Dist: sphinx-pybtex-etal-style; extra == "doc"
+Requires-Dist: sphinx-reredirects; extra == "doc"
+Requires-Dist: sphinx-togglebutton; extra == "doc"
+Requires-Dist: sphinxcontrib-bibtex>=2.2; extra == "doc"
+Requires-Dist: sphinxcontrib-svg2pdfconverter; extra == "doc"
+Requires-Dist: svgutils; extra == "doc"
+Requires-Dist: tqdm; extra == "doc"
+Requires-Dist: uproot; extra == "doc"
+Provides-Extra: jupyter
+Requires-Dist: isort; extra == "jupyter"
+Requires-Dist: jupyterlab>=3.0; extra == "jupyter"
+Requires-Dist: jupyterlab; extra == "jupyter"
+Requires-Dist: jupyterlab-code-formatter; extra == "jupyter"
+Requires-Dist: jupyterlab-git; extra == "jupyter"
+Requires-Dist: jupyterlab-lsp; extra == "jupyter"
+Requires-Dist: jupyterlab-myst; extra == "jupyter"
+Requires-Dist: polarimetry-lc2pkpi[doc]; extra == "jupyter"
+Requires-Dist: python-lsp-ruff; extra == "jupyter"
+Requires-Dist: python-lsp-server[rope]; extra == "jupyter"
+Provides-Extra: lint
+Requires-Dist: ruff; extra == "lint"
+Provides-Extra: sty
+Requires-Dist: black; extra == "sty"
+Requires-Dist: polarimetry-lc2pkpi[lint]; extra == "sty"
+Requires-Dist: polarimetry-lc2pkpi[types]; extra == "sty"
+Requires-Dist: pre-commit>=1.4.0; extra == "sty"
+Requires-Dist: ruff; extra == "sty"
+Provides-Extra: test
+Requires-Dist: nbmake; extra == "test"
+Requires-Dist: pytest>=6.0; extra == "test"
+Requires-Dist: pytest-xdist; extra == "test"
+Provides-Extra: types
+Requires-Dist: pytest; extra == "types"
+Requires-Dist: sphinx-api-relink; extra == "types"
+Requires-Dist: types-requests; extra == "types"
+
+# Aligned polarimetry field of the Λc → p π K decay
+
+[![10.1007/JHEP07(2023)228](<https://zenodo.org/badge/doi/10.1007/JHEP07(2023)228.svg>)](<https://doi.org/10.1007/JHEP07(2023)228>)
+[![10.5281/zenodo.7544989](https://zenodo.org/badge/doi/10.5281/zenodo.7544989.svg)](https://doi.org/10.5281/zenodo.7544989)
+[![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
+
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Spelling checked](https://img.shields.io/badge/cspell-checked-brightgreen.svg)](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
+[![PyPI package](https://badge.fury.io/py/polarimetry-lc2pkpi.svg)](https://pypi.org/project/polarimetry-lc2pkpi)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/polarimetry-lc2pkpi)](https://pypi.org/project/polarimetry-lc2pkpi)
+
+This repository a symbolic amplitude model for the decay $\Lambda^+_c \to p \pi^+ K^-$ that is aligned with [Dalitz-plot decomposition](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.101.034033) and computes an align polarimeter vector field $\vec\alpha$. Helicity couplings and other parameter values are taken from a recent study by the LHCb Collaboration[^1] and its [supplementary material](https://cds.cern.ch/record/2824328/files).
+
+<!-- cspell:ignore semileptonic -->
+
+[^1]: Amplitude analysis of the $\Lambda^+_c \to p K^- \pi^+$ decay and $\Lambda^+_c$ baryon polarization measurement in semileptonic beauty hadron decays (2022) [[link]](https://inspirehep.net/literature/2132745)
+
+## Installation
+
+It's recommended to develop this code base with [VSCode](https://code.visualstudio.com) and install the developer environment with Conda:
+
+```shell
+conda env create
+conda activate polarimetry
+```
+
+Style checks are enforced with [Pre-commit](https://pre-commit.com). To activate for each commit, run:
+
+```shell
+pre-commit install
+```
+
+> [!TIP]
+> For more information about the local Python developer environment, see [here](https://compwa.github.io/develop#local-set-up).
+
+This repository also contains Julia source code and Pluto notebooks. Julia can be downloaded [here](https://julialang.org/downloads). You then have to activate and instantiated the Julia environment provided in the [`julia`](./julia) folder. This can be done as follows from the root directory:
+
+```shell
+julia --project=./julia -e 'import Pkg; Pkg.instantiate()'
+```
+
+### Documentation dependencies
+
+To build the documentation, you need to install LaTeX and some additional fonts. In Ubuntu, this can be done with:
+
+```shell
+sudo apt-get install -y cm-super dvipng texlive-latex-extra
+```
+
+In addition, for [building the documentation as a single PDF file](#building-the-documentation), you need to install XeTeX:
+
+```shell
+sudo apt-get install -y inkscape latexmk make texlive-fonts-extra texlive-xetex xindy
+```
+
+<!-- cspell:ignore xetex -->
+
+## Building the documentation
+
+Having [installed the Python environment](#installation), you can build the documentation with:[^2]
+
+```shell
+tox -e docnb
+```
+
+This will run all Jupyter notebooks and convert the output to static webpages (view the output under `docs/_build/html/index.html`). Running all notebooks from scratch (without any available cache) should take **around one hour**.
+
+If you have installed Julia and instantiated the Julia environment, you can embed the [Pluto notebooks](./julia/notebooks) as static pages in the documentation with:
+
+```shell
+EXECUTE_PLUTO=YES tox -e docnb
+```
+
+or, alternatively, by executing _all_ Jupyter and Pluto notebooks (ignoring any existing caches):
+
+```shell
+EXECUTE_PLUTO=YES tox -e docnb-force
+```
+
+The [above commands](#building-the-documentation) result in a static HTML webpage. It's also possible to render the notebook as a single PDF file. This can be done as follows:
+
+```shell
+tox -e pdf
+```
+
+Just as above, cell output can be rendered by setting the `EXECUTE_NB` variable to some value:
+
+```shell
+EXECUTE_NB=YES tox -e pdf
+```
+
+[^2]:
+    It's also possible have a look at the documentation _without_ cell output (just as a check for the links). This can be done with:
+
+    ```shell
+    tox -e doc
+    ```

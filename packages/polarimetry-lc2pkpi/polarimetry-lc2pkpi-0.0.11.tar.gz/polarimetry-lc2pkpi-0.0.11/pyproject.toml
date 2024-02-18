@@ -1,0 +1,359 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=61.2",
+    "setuptools_scm",
+    "wheel",
+]
+
+[project]
+authors = [
+    {name = "Mikhail Mikhasenko"},
+    {name = "Remco de Boer"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+    "IPython",
+    "PyYAML",
+    "ampform >=0.14.8", # @unevaluated decorator
+    "attrs >=20.1.0",
+    "cloudpickle",
+    "matplotlib",
+    "numpy",
+    "sympy >=1.10",
+    "tensorwaves[jax] >=0.4.5",
+]
+description = "Symbolic expressions that describe an aligned polarimeter vector field"
+dynamic = ["version"]
+license = {text = "GPLv3 or later"}
+name = "polarimetry-lc2pkpi"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "polarimetry-lc2pkpi[doc]",
+    "polarimetry-lc2pkpi[jupyter]",
+    "polarimetry-lc2pkpi[sty]",
+    "polarimetry-lc2pkpi[test]",
+    "sphinx-autobuild",
+    "tox >=1.9",
+]
+doc = [
+    "cairosvg",
+    "ipympl",
+    "ipywidgets",
+    "kaleido",
+    "matplotlib-inline !=0.1.5",
+    "myst-nb >=0.14",
+    "pandas",
+    "plotly",
+    "psutil",
+    "scipy",
+    "sphinx-api-relink",
+    "sphinx-book-theme",
+    "sphinx-codeautolink[ipython]",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "sphinx-pybtex-etal-style",
+    "sphinx-reredirects",
+    "sphinx-togglebutton",
+    "sphinxcontrib-bibtex >=2.2",
+    "sphinxcontrib-svg2pdfconverter",
+    "svgutils",
+    "tqdm",
+    "uproot",
+]
+jupyter = [
+    "isort",
+    "jupyterlab >=3.0",
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-git",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "polarimetry-lc2pkpi[doc]",
+    "python-lsp-ruff",
+    "python-lsp-server[rope]",
+]
+lint = ["ruff"]
+sty = [
+    "black",
+    "polarimetry-lc2pkpi[lint]",
+    "polarimetry-lc2pkpi[types]",
+    "pre-commit >=1.4.0",
+    "ruff",
+]
+test = [
+    "nbmake",
+    "pytest >=6.0",
+    "pytest-xdist",
+]
+types = [
+    "pytest",
+    "sphinx-api-relink",
+    "types-requests",
+]
+
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
+[tool.setuptools]
+include-package-data = false
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"polarimetry.lhcb" = [
+    "model-definitions.yaml",
+    "particle-definitions.yaml",
+]
+
+[tool.setuptools.packages.find]
+namespaces = false
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/polarimetry/version.py"
+
+[tool.black]
+exclude = '''
+/(
+    .*\.egg-info
+    | .*build
+    | \.eggs
+    | \.git
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | \.vscode
+    | dist
+)/
+'''
+include = '\.pyi?$'
+preview = true
+target-version = [
+    "py310",
+    "py311",
+    "py312",
+    "py38",
+    "py39",
+]
+
+[tool.pyright]
+include = ["src", "tests"]
+reportGeneralTypeIssues = false
+reportImportCycles = true
+reportMissingParameterType = false
+reportMissingTypeArgument = false
+reportMissingTypeStubs = false
+reportPrivateImportUsage = true
+reportUnknownArgumentType = false
+reportUnknownLambdaType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportUnknownVariableType = false
+reportUnnecessaryContains = true
+reportUnnecessaryIsInstance = false
+reportUntypedBaseClass = false
+reportUntypedFunctionDecorator = false
+reportUnusedClass = true
+reportUnusedFunction = true
+reportUnusedImport = true
+reportUnusedVariable = true
+typeCheckingMode = "strict"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--color=yes",
+    "--doctest-continue-on-failure",
+    "--doctest-modules",
+    "--durations=3",
+    "--ignore=docs/conf.py",
+    "-m not slow",
+]
+filterwarnings = [
+    "error",
+    "ignore:.*argument to NotebookFile is deprecated.*:pytest.PytestRemovedIn8Warning",
+    "ignore:the imp module is deprecated in favour of importlib.*:DeprecationWarning",
+]
+markers = ["slow: marks tests as slow (select with '-m slow')"]
+norecursedirs = [
+    ".ipynb_checkpoints",
+    "_build",
+]
+testpaths = [
+    "src",
+    "tests",
+]
+
+[tool.ruff]
+extend-exclude = ["typings"]
+extend-include = ["*.ipynb"]
+extend-select = [
+    "A",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "D",
+    "EM",
+    "ERA",
+    "FA",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "N",
+    "NPY",
+    "PGH",
+    "PIE",
+    "PL",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "S",
+    "SIM",
+    "T20",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+ignore = [
+    "D101",
+    "D102",
+    "D103",
+    "D105",
+    "D107",
+    "D203",
+    "D213",
+    "D407",
+    "D416",
+    "E501",
+    "ISC003",
+    "PLR0913",
+    "PLR2004",
+    "PLW2901",
+    "RUF001",
+    "SIM108",
+]
+show-fixes = true
+src = [
+    "src",
+    "tests",
+]
+target-version = "py38"
+task-tags = ["cspell"]
+
+[tool.ruff.isort]
+known-third-party = ["sympy"]
+
+[tool.ruff.pep8-naming]
+ignore-names = [
+    "*_I",
+    "*_I_*",
+    "A",
+    "Dx",
+    "I0",
+    "I_*",
+    "L",
+    "P[xyz]",
+    "R",
+    "S",
+    "U_*",
+    "[RH]_*",
+    "abs_Δα",
+    "l_*",
+    "mK",
+    "mKπ",
+    "max_L",
+    "mΣ",
+    "s_A",
+    "Γ*",
+    "λ*",
+]
+
+[tool.ruff.per-file-ignores]
+"**/benchmark.ipynb" = ["F821"]
+"**/model-serialization.ipynb" = ["S310"]
+"*.ipynb" = [
+    "B018",
+    "C408",
+    "C90",
+    "D",
+    "E402",
+    "E703",
+    "E741",
+    "ISC001",
+    "N8",
+    "PGH001",
+    "PLR09",
+    "PLR2004",
+    "PLW0602",
+    "PLW0603",
+    "S101",
+    "S102",
+    "S301",
+    "S307",
+    "T20",
+    "TCH00",
+]
+"docs/*" = [
+    "E402",
+    "INP001",
+    "S101",
+    "S113",
+    "S310",
+    "TCH00",
+]
+"docs/conf.py" = [
+    "A00",
+    "D100",
+    "T201",
+]
+"src/polarimetry/io.py" = ["S301"] # pickle
+"tests/*" = [
+    "C408",
+    "D",
+    "INP001",
+    "PGH001",
+    "PLR2004",
+    "S101",
+    "T20",
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.tomlsort]
+all = false
+ignore_case = true
+in_place = true
+sort_first = [
+    "build-system",
+    "project",
+    "tool.setuptools",
+    "tool.setuptools_scm",
+]
+sort_table_keys = true
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true
