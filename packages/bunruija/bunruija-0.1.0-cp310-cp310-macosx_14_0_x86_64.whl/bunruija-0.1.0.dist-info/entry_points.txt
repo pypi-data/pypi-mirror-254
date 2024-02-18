@@ -1,0 +1,6 @@
+[console_scripts]
+bunruija-evaluate=bunruija.evaluate:cli_main
+bunruija-gen-yaml=bunruija.gen_yaml:cli_main
+bunruija-predict=bunruija.predict:cli_main
+bunruija-train=bunruija.train:cli_main
+
