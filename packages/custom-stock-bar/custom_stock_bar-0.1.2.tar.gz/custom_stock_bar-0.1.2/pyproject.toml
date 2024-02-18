@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "custom-stock-bar"
+version = "0.1.2"
+description = "Tool for convert any price to Custom Bar price"
+authors = ["Beilak <beylak@yandex.ru>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/beilak/custom-stock-bar"
+keywords = ["stock", "bar", "convertor", "price bar", "gold bar"]
+packages = [
+    { include = "custom_bar" },
+]
+
+
+[tool.poetry.dependencies]
+python = ">= 3.11, <=3.13"
+pandas = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "*"
+black = "*"
+isort = "*"
+yfinance = "*"
+matplotlib = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

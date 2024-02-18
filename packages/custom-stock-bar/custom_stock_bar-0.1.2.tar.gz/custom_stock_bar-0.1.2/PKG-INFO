@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: custom-stock-bar
+Version: 0.1.2
+Summary: Tool for convert any price to Custom Bar price
+Home-page: https://github.com/beilak/custom-stock-bar
+License: MIT
+Keywords: stock,bar,convertor,price bar,gold bar
+Author: Beilak
+Author-email: beylak@yandex.ru
+Requires-Python: >=3.11,<=3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pandas
+Project-URL: Repository, https://github.com/beilak/custom-stock-bar
+Description-Content-Type: text/markdown
+
+
+# Custom stock bar
+
+Tool for convert any price to Custom Bar price
+
+
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+
