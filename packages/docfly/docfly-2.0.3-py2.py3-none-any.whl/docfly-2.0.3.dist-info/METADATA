@@ -1,0 +1,128 @@
+Metadata-Version: 2.1
+Name: docfly
+Version: 2.0.3
+Summary: A utility tool to help you build better sphinx documents.
+Home-page: https://github.com/MacHu-GWU/docfly-project
+Download-URL: https://pypi.python.org/pypi/docfly/2.0.3#downloads
+Author: Sanhe Hu
+Author-email: husanhe@me.com
+Maintainer: Sanhe Hu
+Maintainer-email: husanhe@me.com
+License: MIT
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
+Requires-Dist: jinja2
+Requires-Dist: sphinx
+Requires-Dist: pathlib-mate
+Provides-Extra: docs
+Requires-Dist: sphinx ==4.3.0 ; extra == 'docs'
+Requires-Dist: sphinx-inline-tabs ==2021.8.17b10 ; extra == 'docs'
+Requires-Dist: sphinx-jinja ==1.1.1 ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ==0.4.0 ; extra == 'docs'
+Requires-Dist: rstobj ==0.0.7 ; extra == 'docs'
+Requires-Dist: furo ==2021.8.31 ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+.. image:: https://github.com/MacHu-GWU/docfly-project/workflows/CI/badge.svg
+    :target: https://github.com/MacHu-GWU/docfly-project/actions?query=workflow:CI
+
+.. image:: https://codecov.io/gh/MacHu-GWU/docfly-project/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/MacHu-GWU/docfly-project
+
+.. image:: https://readthedocs.org/projects/docfly/badge/?version=latest
+    :target: https://docfly.readthedocs.io/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/pypi/v/docfly.svg
+    :target: https://pypi.python.org/pypi/docfly
+
+.. image:: https://img.shields.io/pypi/l/docfly.svg
+    :target: https://pypi.python.org/pypi/docfly
+
+.. image:: https://img.shields.io/pypi/pyversions/docfly.svg
+    :target: https://pypi.python.org/pypi/docfly
+
+.. image:: https://img.shields.io/badge/STAR_Me_on_GitHub!--None.svg?style=social
+    :target: https://github.com/MacHu-GWU/docfly-project
+
+------
+
+
+.. image:: https://img.shields.io/badge/Link-Document-blue.svg
+      :target: https://docfly.readthedocs.io/index.html
+
+.. image:: https://img.shields.io/badge/Link-API-blue.svg
+      :target: https://docfly.readthedocs.io/py-modindex.html
+
+.. image:: https://img.shields.io/badge/Link-Source_Code-blue.svg
+      :target: https://docfly.readthedocs.io/py-modindex.html
+
+.. image:: https://img.shields.io/badge/Link-Install-blue.svg
+      :target: `install`_
+
+.. image:: https://img.shields.io/badge/Link-GitHub-blue.svg
+      :target: https://github.com/MacHu-GWU/docfly-project
+
+.. image:: https://img.shields.io/badge/Link-Submit_Issue-blue.svg
+      :target: https://github.com/MacHu-GWU/docfly-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Request_Feature-blue.svg
+      :target: https://github.com/MacHu-GWU/docfly-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Download-blue.svg
+      :target: https://pypi.org/pypi/docfly#files
+
+
+Welcome to ``docfly`` Documentation
+==============================================================================
+
+.. contents::
+    :class: this-will-duplicate-information-and-it-is-still-useful-here
+    :depth: 1
+    :local:
+
+
+``docfly`` is a utility tools to minimize your work using `sphinx-doc <http://www.sphinx-doc.org/en/stable/index.html>`_
+
+Full document can be cond `HERE <https://docfly.readthedocs.io/>`_
+
+**Feature**:
+
+- Automatic API Reference Doc Generation.
+- Easy Table of Content directive Generation (``.. toctree::``).
+
+
+.. _install:
+
+Install
+------------------------------------------------------------------------------
+
+``docfly`` is released on PyPI, so all you need is:
+
+.. code-block:: console
+
+    $ pip install docfly
+
+To upgrade to latest version:
+
+.. code-block:: console
+
+    $ pip install --upgrade docfly
