@@ -1,0 +1,14 @@
+a0_baas_sdk/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+a0_baas_sdk/file.py,sha256=YyejpALbR4MqWVIijQzUUjD700FkgvAAy25Y-CEPjxk,2369
+a0_baas_sdk/redis.py,sha256=wFWkNCEn2uNosrumdr3tb2pdJf_ECVA7vQXTD7tDAis,1244
+a0_baas_sdk/remote/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+a0_baas_sdk/remote/auth.py,sha256=y2llRydrdMlaTl2VBtiEYorhZym3gMnXpUKWjxibGTg,1142
+a0_baas_sdk/remote/config.py,sha256=vVAOECLh4E5MJ1Tjy4ECrbHs95FrrNBBZ6ufR-ANL3g,1665
+a0_baas_sdk/remote/const.py,sha256=LRsxyEgB_f2pSwbi6ylpclfXAetglysdxbrNSw1qNi4,97
+a0_baas_sdk/remote/file_api.py,sha256=Pv45UwFIKSIdMdrebgPHwIdoHM2vh95BNsTMTj8shns,3300
+a0_baas_sdk/remote/redis_api.py,sha256=mk489AZdhJP3ee2klmYkz1Df4k2unIE2HG3U9fAuABc,2947
+a0_baas_sdk/remote/utils.py,sha256=iw2_XmqankNi63O6EIvT0Dixu28UvpRaeKyif9ypfcg,1512
+a0_baas_sdk-0.1.0a3.dist-info/METADATA,sha256=_BHoV4jPqKr3Jycg08pO-AlWkFfmeYcUhPRqo0BiBmA,340
+a0_baas_sdk-0.1.0a3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+a0_baas_sdk-0.1.0a3.dist-info/top_level.txt,sha256=dtFAnJtARgsqzeWpRatxHv293hYvaB_TWAwwP8YPiko,12
+a0_baas_sdk-0.1.0a3.dist-info/RECORD,,
