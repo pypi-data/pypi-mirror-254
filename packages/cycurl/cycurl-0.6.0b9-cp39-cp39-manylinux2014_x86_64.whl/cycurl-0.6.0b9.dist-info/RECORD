@@ -1,0 +1,13 @@
+cycurl/__init__.py,sha256=9ktcwApb-aSIfqeM-lUB0ju61a7_9vWh632nN4q4bog,140
+cycurl/__version__.py,sha256=8FeSWxAJyrmPPa_vk2QHe-asxIvulyutRBqNaYp3iHQ,370
+cycurl/_asyncio_selector.pxi,sha256=s6QAaFPb7Ho9S1A1U9-zPFBFt8IUoHl0Ao-Z7mB7458,12702
+cycurl/_curl.c,sha256=cWuo_HXRo06jVNF0MJyjkHokpGvOB6xavlqajjc4ul4,3090773
+cycurl/_curl.cpython-39-x86_64-linux-gnu.so,sha256=cbPe0V8Iev3uAbNfuM8fsnbJiyaJOcj3cV2ixtpeuks,816576
+cycurl/_curl.pyx,sha256=ctoDgr12tTVyZ3xkBz0U0GiDZniPzZLXeXgMqRzlyEo,29774
+cycurl/consts.pxi,sha256=wLalizK8CEFmNjlBxubZ9CRiMhugON93WLxvw04R7SU,32290
+cycurl/curl.pxd,sha256=z5eD-eO4weFxrkEXmEebDuPwkMz7KgN0Z6Nez7rH8FE,19778
+cycurl-0.6.0b9.dist-info/LICENSE,sha256=Xp2Jk4f-hCxHc54ABT_2dZOouOQSY59mB94vDts3NYQ,1095
+cycurl-0.6.0b9.dist-info/METADATA,sha256=pQg8SrfPFNX47K3khuW37O1E63NfZs8bvooTzcQ6Q5A,10196
+cycurl-0.6.0b9.dist-info/WHEEL,sha256=cPiEulY4lHJMdGCxx29HxfDkwhV9C6172sJgZUA9dSs,103
+cycurl-0.6.0b9.dist-info/top_level.txt,sha256=5a00uV44baSD-Q_ZlxHXjyzwNbbmAaahugX0tousmbw,7
+cycurl-0.6.0b9.dist-info/RECORD,,
