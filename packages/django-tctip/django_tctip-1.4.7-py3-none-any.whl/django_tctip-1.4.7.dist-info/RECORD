@@ -1,0 +1,16 @@
+django_tctip/__init__.py,sha256=-jVefQaIXAJSUS2_WfSUyx0-VSogAwnmgfx6PN_ZmNI,58
+django_tctip/admin.py,sha256=Swf0KL3p9CFW8Cz1EidYIWcyP0iQspxcEwn28lQ90nM,1324
+django_tctip/apps.py,sha256=3h2Gvry9loF06DJ2NYR70R1bGkaywecC_2PFv8ylb2A,129
+django_tctip/models.py,sha256=ouvxGYNEJmYIvPxOQXEpPgsZfGcGaw37E3Wwj3VWEdg,14394
+django_tctip/migrations/0001_initial.py,sha256=M2oHrhh29IhbmnDyGQRYB0YqaTWdN7FQwWCV9FAquoI,19531
+django_tctip/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_tctip/static/tctip/css/tctip.min.css,sha256=rM46JVZFqOjqDK2W1cnUHKwTJ_XwFvCFtVUh2AqstwY,2731
+django_tctip/static/tctip/js/tctip.min.js,sha256=Y-yk2rhy0taFTiGFCZNxUVCjUKH-XTRJbBPk4isoOo4,7937
+django_tctip/templates/tctip/tips.html,sha256=KaFESyJptHIABo4bmtlvxL1EjXCFpdvoUJ3YtVOYsOM,6455
+django_tctip/templatetags/__init__.py,sha256=woyV1AbL3C7oMKdN1kvYnvuZUr9pZuu4dwQGLIzqmQQ,79
+django_tctip/templatetags/tctip_tags.py,sha256=ZEDlXuxykIVuRd1IZUJrqBR6f1TMJeceNSXwCvmZG0U,356
+django_tctip-1.4.7.dist-info/LICENSE,sha256=JVTkdFrd30A-CCLNp0wW_bXHxN_P40do3G3WAu-9Ppc,1065
+django_tctip-1.4.7.dist-info/METADATA,sha256=crhgO_EOiuCPYuLiLQk3mxt-HkLt7v4cgikdb0b4H2A,2734
+django_tctip-1.4.7.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+django_tctip-1.4.7.dist-info/top_level.txt,sha256=lPuqiJx29pGDhaWg0trmKa3hLavfua32vIQLGuHsZnc,13
+django_tctip-1.4.7.dist-info/RECORD,,
