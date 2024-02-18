@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/lamo/__init__.py
+src/lamo/llms.py
+src/lamo.egg-info/PKG-INFO
+src/lamo.egg-info/SOURCES.txt
+src/lamo.egg-info/dependency_links.txt
+src/lamo.egg-info/requires.txt
+src/lamo.egg-info/top_level.txt
+tests/test_llms.py
