@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: happy-path
+Version: 0.0.0
+Summary: Code and data flow visualization tool for Python.
+Author-email: Timothée Mazzucotelli <dev@pawamoy.fr>
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# happy-path
+
+Code and data flow visualization tool for Python.
