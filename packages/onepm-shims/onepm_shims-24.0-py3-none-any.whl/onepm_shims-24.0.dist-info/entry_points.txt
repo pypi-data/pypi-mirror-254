@@ -1,0 +1,5 @@
+[console_scripts]
+pdm = onepm_shims.shims:pdm
+pipenv = onepm_shims.shims:pipenv
+poetry = onepm_shims.shims:poetry
+
