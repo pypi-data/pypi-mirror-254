@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: viggopayfac
+Version: 1.0.2
+Summary: ViggoPayFac backend Flask REST service
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+License-File: AUTHORS
+Requires-Dist: viggocore <2.0.0,>=1.0.0
+Requires-Dist: flask-cors
+
+UNKNOWN
+
