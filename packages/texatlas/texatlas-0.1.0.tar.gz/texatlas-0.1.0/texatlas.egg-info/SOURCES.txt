@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+stb_image.h
+stb_rect_pack.h
+stb_truetype.h
+texatlas.cpp
+texatlas-stubs/__init__.pyi
+texatlas.egg-info/PKG-INFO
+texatlas.egg-info/SOURCES.txt
+texatlas.egg-info/dependency_links.txt
+texatlas.egg-info/top_level.txt
