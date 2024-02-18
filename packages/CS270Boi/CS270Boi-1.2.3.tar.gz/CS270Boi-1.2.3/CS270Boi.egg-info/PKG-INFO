@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: CS270Boi
+Version: 1.2.3
+Summary: An awesome package for discussions.
+Home-page: http://pypi.python.org/pypi/CS270Boi/
+Author: Jake Cahoon
+Author-email: jacobbcahoon@gmail.com
+License: LICENSE.txt
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+I'll get around to doing this...
+`python3 setup.py sdist bdist_wheel`
+`twine upload dist/*`
