@@ -1,0 +1,9 @@
+README.md
+setup.py
+mypackage/__init__.py
+mypackage/matrix_dot.py
+mypackage/ols.py
+softwaretoolbc.egg-info/PKG-INFO
+softwaretoolbc.egg-info/SOURCES.txt
+softwaretoolbc.egg-info/dependency_links.txt
+softwaretoolbc.egg-info/top_level.txt
