@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pedestal-inference
+Version: 0.3.0
+Summary: A collection of Python tools for plasma-edge Thomson-scattering analysis
+Author-email: Chris Bowman <chris.bowman.physics@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 Chris Bowman
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: homepage, https://github.com/C-bowman/pedestal-inference
+Project-URL: documentation, https://pedestal-inference.readthedocs.io/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy >=1.20
+Requires-Dist: scipy >=1.6.3
+Requires-Dist: inference-tools >=0.12.0
+Provides-Extra: tests
+Requires-Dist: pytest >=3.3.0 ; extra == 'tests'
+Requires-Dist: pytest-cov >=3.0.0 ; extra == 'tests'
+
+# pedestal-inference
+
+A collection of python tools for Bayesian analysis of plasma-edge Thomson-scattering data.
+
+### Thomson-scattering synthetic diagnostic model
+Pedestal-inference provides a model for polychromator-based Thomson-scattering systems
+which predicts the expected profiles of spectral intensity in each wavelength band given
+a pair of electron temperature and density profiles defined by one of the edge profile
+models.
+
+### Edge profile models
+A collection of [edge profile models](https://pedestal-inference.readthedocs.io/en/latest/models.html)
+is available, including the standard 'mtanh' model.
+
+
+### Documentation
+Package documentation is available at [pedestal-inference.readthedocs.io](https://pedestal-inference.readthedocs.io/en/latest/index.html)
