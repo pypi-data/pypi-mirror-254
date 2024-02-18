@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: biblioteca-planilhas
+Version: 0.2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pandas
