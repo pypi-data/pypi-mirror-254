@@ -1,0 +1,417 @@
+code,label
+00,Harmonised overall
+01,Food and non-alcoholic beverages
+011,Food
+0111,Bread and cereals
+01111,Rice
+01112,Flours and other cereals
+01113,Bread
+01114,Other bakery products
+01115,Pizza and quiche
+01116,Pasta products and couscous
+01117,Breakfast cereals
+01118,Other cereal products
+0112,Meat
+01121,Beef and veal
+01122,Pork
+01123,Lamb and goat
+01124,Poultry
+01125,Other meats
+01126,Edible offal
+01127,"Dried, salted or smoked meat"
+01128,Other meat preparations
+0113,Fish and seafood
+01131,Fresh or chilled fish
+01132,Frozen fish
+01133,Fresh or chilled seafood
+01134,Frozen seafood
+01135,"Dried, smoked or salted fish and seafood"
+01136,Other preserved or processed fish and seafood and fish and seafood preparations
+0114,"Milk, cheese and eggs"
+01141,Whole milk
+01142,Low fat milk
+01143,Preserved milk
+01144,Yoghurt
+01145,Cheese and curd
+01146,Other milk products
+01147,Eggs
+0115,Oils and fats
+01151,Butter
+01152,Margarine and other vegetable fats
+01153,Olive oil
+01154,Other edible oils
+0116,Fruit
+01161,Fresh or chilled fruit
+01162,Frozen fruit
+01163,Dried fruit and nuts
+01164,Preserved fruit and fruit-based products
+0117,Vegetables
+0118,"Sugar, jam, honey, chocolate and confectionery"
+01181,Sugar
+01182,"Jams, marmalades and honey"
+01183,Chocolate
+01184,Confectionery products
+01185,Edible ices and ice cream
+01186,Artificial sugar substitutes
+0119,Food products n.e.c.
+01191,"Sauces, condiments"
+01192,"Salt, spices and culinary herbs"
+01193,Baby food
+01194,Ready-made meals
+01199,Other food products n.e.c.
+012,Non-alcoholic beverages
+0121,"Coffee, tea and cocoa"
+01211,Coffee
+01212,Tea
+01213,Cocoa and powdered chocolate
+0122,"Mineral waters, soft drinks, fruit and vegetable juices"
+01221,Mineral or spring waters
+01222,Soft drinks
+01223,Fruit and vegetables juices
+02,"Alcoholic beverages, tobacco and narcotics"
+021,Alcoholic beverages
+0211,Spirits
+02111,Spirits and liqueurs
+0212,Wine
+02121,Wine from grapes
+02122,Wine from other fruits
+02123,Fortified wines
+02124,Wine-based drinks
+0213,Beer
+02131,Lager beer
+02132,Other alcoholic beer
+022,Tobacco
+0220,Tobacco
+02201,Cigarettes
+02202,Cigars
+02203,Other tobacco products
+03,Clothing and footwear
+031,Clothing
+0311,Clothing materials
+03110,Clothing materials
+0312,Garments
+03121,Garments for men
+03122,Garments for women
+03123,Garments for infants (0 to 2 years) and children (3 to 13 years)
+0313,Other articles of clothing and clothing accessories
+03131,Other articles of clothing
+03132,Clothing accessories
+0314,"Cleaning, repair and hire of clothing"
+03141,Cleaning of clothing
+03142,Repair and hire of clothing
+032,Footwear
+0321,Shoes and other footwear
+03211,Footwear for men
+03212,Footwear for women
+03213,Footwear for infants and children
+0322,Repair and hire of footwear
+03220,Repair and hire of footwear
+04,"Housing, water, electricity, gas and other fuels"
+041,Actual rentals for housing
+0411,Actual rentals paid by tenants
+04110,Actual rentals paid by tenants
+043,Maintenance and repair of the dwelling
+0431,Materials for the maintenance and repair of the dwelling
+04310,Materials for the maintenance and repair of the dwelling
+0432,Services for the maintenance and repair of the dwelling
+04321,Services of plumbers
+04322,Services of electricians
+04323,Maintenance services for heating systems
+04324,Services of painters
+04325,Services of carpenters
+04329,Other services for maintenance and repair of the dwelling
+044,Water supply and miscellaneous services relating to the dwelling
+0441,Water supply
+04410,Water supply
+0442,Refuse collection
+04420,Refuse collection
+0443,Sewerage collection
+04430,Sewerage collection
+0444,Other services relating to the dwelling n.e.c.
+04441,Maintenance charges in multi-occupied buildings
+04449,Other services related to dwelling
+045,"Electricity, gas and other fuels"
+0451,Electricity
+04510,Electricity
+0452,Gas
+04521,Natural gas and town gas
+04522,"Liquefied hydrocarbons (butane, propane, etc.)"
+0453,Liquid fuels
+04530,Liquid fuels
+0454,Solid fuels
+04541,Coal
+04549,Other solid fuels
+0455,Heat energy
+04550,Heat energy
+05,"Furnishings, household equipment and routine household maintenance"
+051,"Furniture and furnishings, carpets and other floor coverings"
+0511,Furniture and furnishings
+05111,Household furniture
+05112,Garden furniture
+05113,Lighting equipment
+05119,Other furniture and furnishings
+0512,Carpets and other floor coverings
+05121,Carpet and rugs
+05122,Other floor coverings
+05123,Services of laying of fitted carpets and floor coverings
+0513,"Repair of furniture, furnishings and floor coverings"
+05130,"Repair of furniture, furnishings and floor coverings"
+052,Household textiles
+0520,Household textiles
+05201,Furnishings fabrics and curtains
+05202,Bed linen
+05203,Table linen and bathroom linen
+05209,Other household textiles
+053,Household appliances
+0531,Major household appliances whether electric or not
+05311,"Refrigerators, freezers and fridge-freezers"
+05312,"Clothes washing machines, clothes drying machines and dish washing machines"
+05313,Cookers
+05314,"Heaters, air conditioners"
+05315,Cleaning equipment
+05319,Other major household appliances
+0532,Small electric household appliances
+05321,Food processing appliances
+05322,"Coffee machines, tea-makers and similar appliances"
+05323,Irons
+05324,Toasters and grills
+05329,Other small electric household appliances
+0533,Repair of household appliances
+05330,Repair of household appliances
+054,"Glassware, tableware and household utensils"
+0540,"Glassware, tableware and household utensils"
+05401,"Glassware, crystal-ware, ceramic ware and chinaware"
+05402,"Cutlery, flatware and silverware"
+05403,Non-electric kitchen utensils and articles
+055,Tools and equipment for house and garden
+0551,Major tools and equipment
+05511,Motorized major tools and equipment
+05512,"Repair, leasing and rental of major tools and equipment"
+0552,Small tools and miscellaneous accessories
+05521,Non-motorised small tools
+05522,Miscellaneous small tool accessories
+056,Goods and services for routine household maintenance
+0561,Non-durable household goods
+05611,Cleaning and maintenance products
+05612,Other non-durable small household articles
+0562,Domestic services and household services
+05621,Domestic services by paid staff
+05622,Cleaning services
+05623,Hire of furniture and furnishings
+06,Health
+061,"Medical products, appliances and equipment"
+0611,Pharmaceutical products
+06110,Pharmaceutical products
+0612,Other medical products
+06121,Pregnancy tests and mechanical contraceptive devices
+06129,Other medical products n.e.c.
+0613,Therapeutic appliances and equipment
+06131,Corrective eye-glasses and contact lenses
+06132,Hearing aids
+062,Out-patient services
+0621,Medical services
+06211,General practice
+06212,Specialist practice
+0622,Dental services
+06220,Dental services
+0623,Paramedical services
+06231,Services of medical analysis laboratories and X-ray centres
+06232,"Thermal-baths, corrective-gymnastic therapy, ambulance and hire of therapeutic equipment"
+06239,Other paramedical services
+063,Hospital services
+0630,Hospital services
+06300,Hospital services
+07,Transport
+071,Purchase of vehicles
+0711,Motor cars
+07111,New motor cars
+07112,Second-hand motor cars
+0712,Motor cycles
+07120,Motor cycles
+0713,Bicycles
+07130,Bicycles
+072,Operation of personal transport equipment
+0721,Spares parts and accessories for personal transport equipment
+07211,Tyres
+07212,Spare parts for personal transport equipment
+07213,Accessories for personal transport equipment
+0722,Fuels and lubricants for personal transport equipment
+07221,Diesel
+07222,Petrol
+07223,Other fuels for personal transport equipment
+07224,Lubricants
+0723,Maintenance and repair of personal transport equipment
+07230,Maintenance and repair of personal transport equipment
+0724,Other services in respect of personal transport equipment
+07241,"Hire of garages, parking spaces and personal transport equipment"
+07242,Toll facilities and parking meters
+07243,"Driving lessons, tests, licences and road worthiness tests"
+073,Transport services
+0731,Passenger transport by railway
+07311,Passenger transport by train
+07312,Passenger transport by underground and tram
+0732,Passenger transport by road
+07321,Passenger transport by bus and coach
+07322,Passenger transport by taxi and hired car with driver
+0733,Passenger transport by air
+07331,Domestic flights
+07332,International flights
+0734,Passenger transport by sea and inland waterway
+07341,Passenger transport by sea
+07342,Passenger transport by inland waterway
+0735,Combined passenger transport
+07350,Combined passenger transport
+0736,Other purchased transport services
+07362,Removal and storage services
+08,Communications
+081,Postal services
+0810,Postal services
+08101,Letter handling services
+08109,Other postal services
+082,Telephone and telefax equipment
+0820,Telephone and telefax equipment
+08201,Fixed telephone equipment
+08202,Mobile telephone equipment
+083,Telephone and telefax services
+0830,Telephone and telefax services
+08301,Wired telephone services
+08302,Wireless telephone services
+08303,Internet access provision services
+08304,Bundled telecommunication services
+09,Recreation and culture
+091,"Audio-visual, photographic and information processing equipment"
+0911,"Equipment for the reception, recording and reproduction of sound and picture"
+09111,"Equipment for the reception, recording and reproduction of sound"
+09112,"Equipment for the reception, recording and reproduction of sound and vision"
+09113,Portable sound and vision devices
+0912,Photographic and cinematographic equipment and optical instruments
+09121,Cameras
+09122,Accessories for photographic and cinematographic equipment
+09123,Optical instruments
+0913,Information processing equipment
+09131,Personal computers
+09132,Accessories for information processing equipment
+09134,Calculators and other information processing equipment
+0914,Recording media
+09141,Pre-recorded recording media
+09142,Unrecorded recording media
+09149,Other recording media
+0915,"Repair of audio-visual, photographic and information processing equipment"
+09150,"Repair of audio-visual, photographic and information processing equipment"
+092,Other major durables for recreation and culture
+0921,Major durables for outdoor recreation
+09211,"Camper vans, caravans and trailers"
+09213,"Boats, outboard motors and fitting out of boats"
+09215,Major items for games and sport
+0922,Musical instruments and major durables for indoor recreation
+09221,Musical instruments
+09222,Major durables for indoor recreation
+0923,Maintenance and repair of other major durables for recreation and culture
+09230,Maintenance and repair of other major durables for recreation and culture
+093,"Other recreational items and equipment, gardens and pets"
+0931,"Games, toys and hobbies"
+09311,Games and hobbies
+09312,Toys and celebration articles
+0932,"Equipment for sport, camping and open-air recreation"
+09321,Equipment for sport
+09322,Equipment for camping and open-air recreation
+09323,"Repair of equipment for sport, camping and open-air recreation"
+0933,"Gardens, plants and flowers"
+09331,Garden products
+09332,Plants and flowers
+0934,Pets and related products
+09341,Purchase of pets
+09342,Products for pets
+0935,Veterinary and other services for pets
+09350,Veterinary and other services for pets
+094,Recreational and cultural services
+0941,Recreational and sporting services
+09411,Recreational and sporting services - Attendance
+09412,Recreational and sporting services - Participation
+0942,Cultural services
+09421,"Cinemas, theatres, concerts"
+09422,"Museums, libraries, zoological gardens"
+09423,"Television and radio licence fees, subscriptions"
+09424,Hire of equipment and accessories for culture
+09425,Photographic services
+09429,Other cultural services
+095,"Newspapers, books and stationery"
+0951,Books
+09511,Fiction books
+09512,Educational text books
+09513,Other non-fiction books
+09514,Binding services and E-book downloads
+0952,Newspapers and periodicals
+09521,Newspapers
+09522,Magazines and periodicals
+0953,Miscellaneous printed matter
+09530,Miscellaneous printed matter
+0954,Stationery and drawing materials
+09541,Paper products
+09549,Other stationery and drawing materials
+096,Package holidays
+0960,Package holidays
+09602,Package international holidays
+10,Education
+101,Pre-primary and primary education
+1010,Pre-primary and primary education
+10102,Pre-primary and primary education
+102,Secondary education
+1020,Secondary education
+10200,Secondary education
+104,Tertiary education
+1040,Tertiary education
+10400,Tertiary education
+11,Restaurants and hotels
+111,Catering services
+1111,"Restaurants, cafés and the like"
+11111,"Restaurants, cafés and dancing establishments"
+11112,Fast food and take away food services
+1112,Canteens
+11120,Canteens
+112,Accommodation services
+1120,Accommodation services
+11201,"Hotels, motels, inns and similar accommodation services"
+11202,"Holiday centres, camping sites, youth hostels and similar accommodation services"
+11203,Accommodation services of other establishments
+12,Miscellaneous goods and services
+121,Personal care
+1211,Hairdressing salons and personal grooming establishments
+12111,Hairdressing for men and children
+12112,Hairdressing for women
+12113,Personal grooming treatments
+1212,Electrical appliances for personal care
+12121,Electrical appliances for personal care
+1213,"Other appliances, articles and products for personal care"
+12131,Non-electrical appliances
+12132,"Articles for personal hygiene and wellness, esoteric products and beauty products"
+123,Personal effects n.e.c.
+1231,"Jewellery, clocks and watches"
+12311,Jewellery
+12312,Clocks and watches
+12313,"Repair of jewellery, clocks and watches"
+1232,Other personal effects
+12321,Travel goods
+12322,Articles for babies
+12329,Other personal effects n.e.c.
+124,Social protection
+1240,Social protection
+12401,Child care services
+12402,Retirement homes for elderly persons and residences for disabled persons
+12403,Services to maintain people in their private homes
+125,Insurance
+1252,Insurance connected with the dwelling
+12520,Insurance connected with the dwelling
+1253,Insurance connected with health
+12532,Private insurance connected with health
+1254,Insurance connected with transport
+12541,Motor vehicle insurance
+126,Financial services n.e.c.
+1262,Other financial services n.e.c.
+12621,Charges by banks and post offices
+127,Other services n.e.c.
+1270,Other services n.e.c.
+12701,Administrative fees
+12702,Legal services and accountancy
+12703,Funeral services
+12704,Other fees and services
