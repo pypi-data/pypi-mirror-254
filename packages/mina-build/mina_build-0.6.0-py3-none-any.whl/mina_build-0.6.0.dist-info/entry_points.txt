@@ -1,0 +1,6 @@
+[pdm]
+mina = mina.plugin:ensure_pdm
+
+[pdm.build.hook]
+mina = mina_backend.hooks
+
