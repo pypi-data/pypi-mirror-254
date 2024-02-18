@@ -1,0 +1,87 @@
+[project]
+name = "simple-git-versioning"
+description = "Thinly scoped and opinionated tool that computes a version number from git tags and trailers"
+license = { text = "MIT" }
+requires-python = ">=3.8.1,<4"
+authors = [
+    { name = "Quentin Bouget", email = "ypsah@devyard.org" },
+]
+keywords = [
+    "versioning",
+    "git",
+    "git-trailers",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+readme = "README.md"
+dependencies = [
+    "sh>=2,<3",
+    "icontract",
+    "typing-extensions ; python_version < '3.11'",
+    "toml ; python_version < '3.11'",
+]
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://gitlab.com/ypsah/simple-git-versioning"
+repository = "https://gitlab.com/ypsah/simple-git-versioning"
+
+[project.scripts]
+pep440 = "versioning.pep440:main"
+semver2 = "versioning.semver2:main"
+
+[project.entry-points."setuptools.finalize_distribution_options"]
+simple-git-versioning = "versioning.setuptools:finalize_distribution_options"
+
+[project.entry-points."poetry.plugin"]
+simple-git-versioning = "versioning.poetry:SimpleGitVersioning"
+
+[build-system]
+requires = ["setuptools>=63", "setuptools-scm", "simple-git-versioning>=0.1.22"]
+build-backend = "setuptools.build_meta"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black",
+    "build",
+    "hypothesis",
+    "isort",
+    "poetry",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "twine",
+]
+
+[tool.simple-git-versioning]
+setuptools = "pep440"
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310', 'py311']
+# enrole in feature-preview
+preview = true
+
+[tool.isort]
+profile = "black"
+src_paths = ["versioning", "tests"]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --cov=versioning --cov-branch --cov-fail-under=90"
+
+[tool.ruff]
+ignore = [
+    "E501",  # line-length: black already covers this
+]

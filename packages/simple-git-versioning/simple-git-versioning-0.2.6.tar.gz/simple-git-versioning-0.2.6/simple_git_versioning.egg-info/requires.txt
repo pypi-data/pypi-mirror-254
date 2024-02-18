@@ -1,0 +1,6 @@
+sh<3,>=2
+icontract
+
+[:python_version < "3.11"]
+typing-extensions
+toml
