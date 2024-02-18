@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AirClick工具</title>
+  <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+  <link rel="stylesheet" href="/assets/bootstrap-4.6.2-dist/css/bootstrap.min.css"  crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/bootstrap-icons-1.11.2/font/bootstrap-icons.css">
+
+  {% block css %} {% endblock %}
+</head>
+<body style="height: 100vh; margin: 0;padding: 0">
+
+
+<div style="height: 100vh; width: 100%; display: flex; flex-direction: column">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AirClick</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+<!--        <li id="nav_li_home" class="nav-item">-->
+<!--          <a class="nav-link" href="{{ url_for('page_home') }}">首页</a>-->
+<!--        </li>-->
+<!--        <li id="nav_li_hwnd" class="nav-item">-->
+<!--          <a class="nav-link" href="{{ url_for('page_hwnd') }}">句柄</a>-->
+<!--        </li>-->
+        <li id="nav_li_colors" class="nav-item">
+          <a class="nav-link" href="{{ url_for('page_colors') }}">图色</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="" style="background: #fafafa; overflow: scroll; height: 96vh;display: flex">
+<!--    <div></div>-->
+    <div style="height: 100%;width: 100%;">
+      {% block body %} {% endblock %}
+    </div>
+    <div style="position: absolute; bottom: 0">
+      {% block fotter %} {% endblock %}
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="/assets/js/jquery-3.7.js"></script>
+<script src="/assets/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/base.js"></script>
+
+
+
+
+{% block js %} {% endblock %}
+
+
+</body>
+</html>
