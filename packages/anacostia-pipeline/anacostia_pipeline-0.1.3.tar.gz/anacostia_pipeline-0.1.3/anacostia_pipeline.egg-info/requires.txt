@@ -1,0 +1,11 @@
+networkx==3.1
+pydantic
+rich
+sqlalchemy
+
+[web]
+fastapi
+uvicorn[standard]
+Jinja2
+requests
+beautifulsoup4
