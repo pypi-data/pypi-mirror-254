@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+canonical_huffman/__init__.py
+canonical_huffman/dictionary.py
+canonical_huffman/huffman_compression.py
+canonical_huffman/node.py
+canonical_huffman/padded_binary.py
+canonical_huffman_compression.egg-info/PKG-INFO
+canonical_huffman_compression.egg-info/SOURCES.txt
+canonical_huffman_compression.egg-info/dependency_links.txt
+canonical_huffman_compression.egg-info/top_level.txt
