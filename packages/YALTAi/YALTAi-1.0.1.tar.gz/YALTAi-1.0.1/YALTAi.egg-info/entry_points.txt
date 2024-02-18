@@ -1,0 +1,4 @@
+[console_scripts]
+kraken-yaltai = yaltai.kraken_yaltai:cli
+yaltai = yaltai.yaltai:cli
+
