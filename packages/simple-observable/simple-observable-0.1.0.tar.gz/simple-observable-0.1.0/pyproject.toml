@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-observable"
+version = "0.1.0"
+authors = [
+  { name="darkhaniop", email="darkhaniop@google.com" },
+]
+description = "A simple observer pattern implementation"
+readme = "README.md"
+requires-python = ">=3.7, <4"
+keywords = ["observer", "observable"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/gw-tools/simple-observable"
+"Bug Tracker" = "https://github.com/gw-tools/simple-observable/issues"

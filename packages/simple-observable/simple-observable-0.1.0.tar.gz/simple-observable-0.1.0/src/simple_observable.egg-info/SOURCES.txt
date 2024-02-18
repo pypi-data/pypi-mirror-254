@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/examples/example1.py
+src/examples/example2.py
+src/simple_observable/__init__.py
+src/simple_observable/observable.py
+src/simple_observable.egg-info/PKG-INFO
+src/simple_observable.egg-info/SOURCES.txt
+src/simple_observable.egg-info/dependency_links.txt
+src/simple_observable.egg-info/top_level.txt
+src/tests/__init__.py
