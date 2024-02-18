@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: PTWordFinder
+Version: 1.1.0
+Summary: A command line tool that help to find specific words from a file  in any selected file.
+Author: DarekRepos
+License: MIT License
+        
+        Copyright (c) 2022 DarekRepos
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Requires-Python: >=3.10.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: click >=8.1.3
+Requires-Dist: attrs >=22.1.0
+Requires-Dist: exceptiongroup >=1.0.4
+Requires-Dist: iniconfig >=1.1.1
+Requires-Dist: packaging >=21.3
+Requires-Dist: pluggy >=1.0.0
+Requires-Dist: pyparsing >=2.4.2
+Requires-Dist: tomli >=2.0.1
+
+PTWordFinder
+============
+
+|Build| |Tests Status| |Coverage Status| |Flake8 Status|
+
+“What specific words would you like to read?” Counting words in “Pan
+Tadeusz” poem
+
+Python version
+--------------
+
+tested with Python >= 3.10.6
+
+Why
+---
+
+It was started as a project to exercise python language. The code helped
+to find specific words in a selected file. It became command line tool
+that help find any word within any file. The files can be selected by
+command line
+
+how to use
+----------
+
+you can installl this cmd tool from pip:
+
+::
+
+       pip install PTWordFinder
+
+Usage: 
+::
+
+       ptwordf calculate-words WORDS_INPUT_FILE SEARCHED_FILE
+
+where:
+
+WORDS_INPUT_FILE - is path to input file (.txt) that contain searched
+words
+
+SEARCHED_FILE - is path to file that program search for a specific word
+
+Try ‘ptwordf –help’ for help
+
+examples:
+
+::
+
+       ptwordf calculate-words words-list.txt test-file.txt
+
+::
+
+       ptwordf calculate-words srcfolder/words-list.csv newfolder/test-file.csv
+
+Features
+--------
+
+-  ☒ lines counter
+-  ☒ a specific word counter
+-  ☒ tracking the script execution time
+-  ☒ support csv files
+
+.. |Build| image:: https://github.com/DarekRepos/PanTadeuszWordFinder/actions/workflows/python-package.yml/badge.svg
+   :target: https://github.com/DarekRepos/PanTadeuszWordFinder/actions/workflows/python-package.yml
+.. |Tests Status| image:: https://raw.githubusercontent.com/DarekRepos/PanTadeuszWordFinder/c57987abc05d76a6f8a1e5898e68821a673ebd95/reports/coverage/coverage-unit-badge.svg
+   :target: https://github.com/DarekRepos/PanTadeuszWordFinder/blob/master/reports/coverage/coverage-unit-badge.svg
+.. |Coverage Status| image:: https://raw.githubusercontent.com/DarekRepos/PanTadeuszWordFinder/7d5956304ffb4278a142bf0452de57059ee315bb/reports/coverage/coverage-badge.svg
+   :target: https://github.com/DarekRepos/PanTadeuszWordFinder/blob/master/reports/coverage/coverage-unit-badge.svg
+.. |Flake8 Status| image:: https://raw.githubusercontent.com/DarekRepos/PanTadeuszWordFinder/c57987abc05d76a6f8a1e5898e68821a673ebd95/reports/flake8/flake8-badge.svg
+   :target: https://github.com/DarekRepos/PanTadeuszWordFinder/blob/master/reports/flake8/flake8-badge.svg
