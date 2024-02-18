@@ -1,0 +1,4 @@
+recursive-include samaker/html *.html
+recursive-include samaker/html *.js
+recursive-include samaker/html *.css
+recursive-include samaker/html *.png
