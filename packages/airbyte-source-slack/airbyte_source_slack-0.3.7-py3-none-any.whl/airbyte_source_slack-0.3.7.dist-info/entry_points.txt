@@ -1,0 +1,2 @@
+[console_scripts]
+source-slack = source_slack.run:run
