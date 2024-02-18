@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pypz-core
+Version: 0.9.0b5
+Summary: Core components of pypz (pipes), which is a lightweight Pipeline as Code (PaC) framework.
+Author-email: Laszlo Anka <laszlo.anka@gmail.com>
+Keywords: pypz,pypz-core
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: colorlog
+Provides-Extra: docs
+Requires-Dist: sphinx-rtd-theme >=2.0.0 ; extra == 'docs'
+Requires-Dist: sphinx ~=7.2.6 ; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints >=1.25.2 ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ~=0.5.2 ; extra == 'docs'
+Requires-Dist: graphviz >=0.20.1 ; extra == 'docs'
+Requires-Dist: pydot >=2.0.0 ; extra == 'docs'
+
+# Description
+
+This package contains all the necessary core components to realize the
+functionalities of *pypz*.
+
+Check the [documentation](https://lazlowa.github.io/pypz-python/index.html) for
+more details.
+
