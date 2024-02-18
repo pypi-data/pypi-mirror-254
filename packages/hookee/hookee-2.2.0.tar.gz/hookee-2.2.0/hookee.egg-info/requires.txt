@@ -1,0 +1,7 @@
+pluginbase
+confuse
+flask<2.0.0,>=1.1.0
+MarkupSafe<2.1.0,>=0.23
+click
+pyngrok>=7.0.0
+defusedxml
