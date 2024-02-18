@@ -1,0 +1,18 @@
+# service_name: elasticache
+# resource_nodes:
+# - resource_node_name: CacheSecurityGroups
+#   operations:
+#     - operation_name: DescribeCacheSecurityGroups
+#       required_parameters: ["CacheSecurityGroupName"]
+#       # jmespath_selector: "[[].CacheClusters[*].SecurityGroups[*].SecurityGroupId[] | {GroupId:@}]"
+#       [].CacheClusters[*].CacheClusterId[]
+#       explicit_relations:
+#       - service_name: elasticache
+#         resource_node_name: CacheClusters
+#         operation_name: DescribeCacheClusters
+#         required_shape_name: CacheSecurityGroupName
+#         target_shape_name: CacheSecurityGroupName
+#         target_shape_type: string
+#         target_path: SecurityGroups[*].GroupId
+
+
