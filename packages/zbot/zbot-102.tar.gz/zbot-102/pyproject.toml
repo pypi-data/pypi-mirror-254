@@ -1,0 +1,41 @@
+[build-system]
+requires = [
+    "setuptools>=43.0.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zbot"
+description = "python3 irc bot"
+version = "102"
+authors = [
+    {name = "Bart Thate",email = "objx@proton.me"},
+]
+readme = "README.rst"
+license = {text="Public Domain"}
+dependencies = [
+    'objx',
+    'botl'
+]
+classifiers = [ 
+    'Development Status :: 3 - Alpha',
+    'License :: Public Domain',
+    'Operating System :: Unix',
+    'Programming Language :: Python',
+    'Topic :: Utilities'
+]
+
+[project.urls]
+"home" = "https://pypi.org/project/zbot"
+"bugs" = "https://github.com/xobjectz/zbot/issues"
+"source" = "https://github.com/xobjectz/zbot"
+
+[tool.setuptools]
+script-files = [
+    'bin/zbot',
+]
+packages = [
+    "zbot",
+]
+zip-safe=true
