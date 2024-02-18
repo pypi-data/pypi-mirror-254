@@ -1,0 +1,24 @@
+    def _show_reactions(self, result: ActionResult):
+        cast_actions = result.data
+        likes = cast_actions["reactions"]["likes"]
+        recasts = cast_actions["reactions"]["recasts"]
+        num_replies = cast_actions["replies"]["count"]
+        html = f"""
+<div class="center">
+  <h2>Get Reactions</h2>
+  <div class="medium">
+  <p>
+   Farcaster data validation and acquisition are currently being accomplished by encapsulating a few APIs from Hub and Neynar.
+  </p>
+  <p>
+    Recast or like to see number changes
+  </p>
+  </div>
+  <ul class="small">
+    <li>#likes: {len(likes)}</li>
+    <li>#recasts: {len(recasts)}</li>
+    <li>#replies: {num_replies}</li>
+  </ul>
+</div>
+"""
+        return html
