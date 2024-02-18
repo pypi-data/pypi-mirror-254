@@ -1,0 +1,11 @@
+translation/__init__.py,sha256=uNXYcbhKDEMj86ONZp6nQWZlCI6D2wZC6YBdFBT14a8,243
+translation/data/deepl_languages.json,sha256=mErF_Vv0wE2UuZHEnQVVN1EFN36vLtxEWH0pjTvig_U,4704
+translation/data/general_languages.json,sha256=CyHEQN0hnlny8bqryDfId3gGngHDX9Ixc4d3_yhrWaQ,15319
+translation/data/google_languages.json,sha256=hLKBvMkUfhN-yevNFZp7NHRb1KKikux7afKdQMP4znY,9284
+translation/engines.py,sha256=DDToHEfPIuXdC3d5-X2L0vIoh0GyHez0Reya7ScGwKY,4617
+translation/engines_private.py,sha256=lOGE8LRBLgEE4zZMoTKje_6zykUugUmuEzyLLGNX6es,1315
+translation/languages.py,sha256=ST5LMEVw99ISpT3q-TcGshVaaLn4p0PT1ctSji0GaKg,3443
+translation/qa.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+harken_translation-0.1.1.4.dist-info/METADATA,sha256=k_W58wqH0bMEcX0FFXA0gIfBBiBKO2wmAOMab9ltMEg,1091
+harken_translation-0.1.1.4.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+harken_translation-0.1.1.4.dist-info/RECORD,,
