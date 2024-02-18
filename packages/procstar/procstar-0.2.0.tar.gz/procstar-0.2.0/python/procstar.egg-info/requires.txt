@@ -1,0 +1,9 @@
+orjson>=3
+websockets>=10
+
+[dev]
+pytest
+pytest-asyncio
+bump-my-version
+sphinx
+sphinx-rtd-theme
