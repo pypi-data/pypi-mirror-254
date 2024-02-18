@@ -1,0 +1,3 @@
+[console_scripts]
+dataframe-vis-nb=dataframe_vis_nb.__main__:cli
+

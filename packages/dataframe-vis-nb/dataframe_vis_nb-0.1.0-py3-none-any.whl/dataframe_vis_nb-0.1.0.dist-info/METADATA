@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: dataframe-vis-nb
+Version: 0.1.0
+Summary: 
+Author: Ben Skubi
+Author-email: bskubi@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: datavis-cli (>=0.1.2,<0.2.0)
+Requires-Dist: nbformat-cli (>=0.1.0,<0.2.0)
+Description-Content-Type: text/markdown
+
+Wrapper for adding data-loading and visualization cells to Jupyter notebook
+
