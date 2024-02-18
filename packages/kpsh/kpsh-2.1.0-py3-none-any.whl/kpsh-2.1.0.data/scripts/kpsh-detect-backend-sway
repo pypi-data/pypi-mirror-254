@@ -1,0 +1,22 @@
+#!/bin/sh
+
+program_exists() {
+    which "$1" > /dev/null 2>&1
+    return $?
+}
+
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    echo "xdotool"
+    exit 0
+fi
+
+s=$(swaymsg -t get_tree | jq '.. | objects | select(.focused == true) | .shell' | tr -d '"')
+if [ "$s" = "xwayland" ]; then
+    echo "xdotool"
+else
+    if program_exists "wtype"; then
+        echo "wtype"
+    else
+        echo "ydotool"
+    fi
+fi
