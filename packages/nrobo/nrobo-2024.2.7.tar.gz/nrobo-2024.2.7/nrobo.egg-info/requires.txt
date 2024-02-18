@@ -1,0 +1,11 @@
+pytest
+cowsay
+setuptools
+
+[dev]
+pytest
+cowsay
+
+[test]
+pytest
+cowsay
