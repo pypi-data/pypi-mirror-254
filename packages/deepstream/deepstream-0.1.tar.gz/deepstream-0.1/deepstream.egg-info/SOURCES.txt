@@ -1,0 +1,11 @@
+README.md
+setup.py
+deepstream/__init__.py
+deepstream/_version.py
+deepstream/deepstream.py
+deepstream/utils.py
+deepstream.egg-info/PKG-INFO
+deepstream.egg-info/SOURCES.txt
+deepstream.egg-info/dependency_links.txt
+deepstream.egg-info/requires.txt
+deepstream.egg-info/top_level.txt
