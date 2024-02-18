@@ -1,0 +1,3 @@
+[console_scripts]
+onetable_py=onetable_py.cli:app
+
