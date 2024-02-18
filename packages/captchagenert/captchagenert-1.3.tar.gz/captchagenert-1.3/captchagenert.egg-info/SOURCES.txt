@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.cfg
+setup.py
+captchagenert.egg-info/PKG-INFO
+captchagenert.egg-info/SOURCES.txt
+captchagenert.egg-info/dependency_links.txt
+captchagenert.egg-info/top_level.txt
+captchatoken/__init__.py
+captchatoken/example/images.gif
+captchatoken/example/lab_database.db
+captchatoken/example/main.py
