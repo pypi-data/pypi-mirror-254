@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: django-approval
+Version: 0.12.0
+Summary: Easily moderate any content in Django before it's visible to the public.
+Author-email: Steve Kossouho <skossouho@dawan.fr>
+Project-URL: Homepage, https://github.com/artscoop/django-approval
+Project-URL: Bug Tracker, https://github.com/artscoop/django-approval/issues
+Project-URL: Documentation, https://artscoop.github.io/django-approval/approval.html
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django>=3.2
+Requires-Dist: django-annoying
+
+# Moderation application for Django
+
+`django-approval` is a tool to facilitate moderation of changes made to any model instance. 
+
+This application supports Django 3.2 and above, and Python 3.10 and above.
+
+<img src="./approval-icon.svg" height="64" alt="Approval logo"/>
+
+This application lets you define a moderation pipeline on almost any model, that generally works as follows:
+
+1. One user on your site makes a change on specific fields of some content
+2. The user validates that his/her changes are suitable to get moderated (from draft)
+3. While the changes are not checked by a moderator, nothing *new* will be visible on the front website
+4. When the moderator accepts the changes, they are applied to the live data visible by the users.
+
+
+## How to install
+
+`django-approval` is best installed using `pip`:
+
+```bash
+pip install django-approval
+```
+
+## Documentation
+
+See the [online documentation here](https://artscoop.github.io/django-approval/approval.html)
