@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pylasr-sdk
+Version: 0.1.5
+Summary: helpers and types for developers
+Home-page: https://github.com/versatus/pylasr-sdk
+Author: asmith
+Author-email: as@versatus.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+UNKNOWN
+
