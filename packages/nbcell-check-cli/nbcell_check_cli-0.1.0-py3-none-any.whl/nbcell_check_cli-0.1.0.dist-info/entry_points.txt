@@ -1,0 +1,3 @@
+[console_scripts]
+nbcell-check-cli=nbcell_check_cli.__main__:cli
+
