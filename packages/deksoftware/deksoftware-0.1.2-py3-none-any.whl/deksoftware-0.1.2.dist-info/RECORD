@@ -1,0 +1,15 @@
+deksoftware-0.1.2.dist-info/METADATA,sha256=OkZs5Qd8Gxlnnjo4av5aHHZGkKVLYFJhq6mCKbh8aHs,208
+deksoftware-0.1.2.dist-info/WHEEL,sha256=N2J68yzZqJh3mI_Wg92rwhw0rtJDFpZj9bwQIMJgaVg,90
+deksoftware-0.1.2.dist-info/entry_points.txt,sha256=MyDVINnyEXU3Vtu7yyr-H_Yde8pybraGiCRh4xc3Cqk,67
+deksoftware/click/__entry__.py,sha256=4SmWa3kYXnN3H-5VcuVk8gRVV5fUxJgVaOYOMqyW6ng,250
+deksoftware/click/__init__.py,sha256=p84Vh1d4rwvBtw0xk6nxNDBSda6yEhKTgjTKCR-zC9s,54
+deksoftware/entries/__init__.py,sha256=xwLe0WveTtF8oah55rf9ndRVyK7Hqp6ukmPCBZXYBq4,85
+deksoftware/entries/base/__init__.py,sha256=OJ2Hh6c1oRfm46x_feuKUamhE-lBhBerULSvNjhPzu0,1099
+deksoftware/entries/helm.py,sha256=1h3iL_FzmH1VT82-bELIzfcotnIbRgmiMBDOtiXSETE,655
+deksoftware/entries/libvirt.py,sha256=QC41quA5CIK9FhGd7WGdjc5e2d6c3oxsc3nyOzrqLZY,244
+deksoftware/entries/nerdctl.py,sha256=dw4BXJZQcPfULxiJqEtZrA3wfsDenN7TustHpnGROQk,1341
+deksoftware/entries/whl.py,sha256=Vot1f14eeRQJ8_l478TKnNVeecJcKJiyEVdK21w-Z8k,438
+deksoftware/resources/libvirt/install.sh,sha256=yLxefu_XB0xOoArEyEkgcwX31H1z-POp9cExxSpYxKg,560
+deksoftware/resources/libvirt/installed.txt,sha256=PzbFEcGx82EkPiocSe8cXFPC4-Qs-f8YSzT1IwfI8iU,2598
+deksoftware/resources/libvirt/uninstall.sh,sha256=YHCaTLOHZhyZ5X7oGVzsowQ34deaicza-5LYXWaE6Dc,220
+deksoftware-0.1.2.dist-info/RECORD,,
