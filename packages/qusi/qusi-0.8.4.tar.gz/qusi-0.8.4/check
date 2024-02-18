@@ -1,0 +1,35 @@
+Running Sphinx v7.2.6
+making output directory... done
+building [mo]: targets for 0 po files that are out of date
+writing output...
+building [html]: targets for 7 source files that are out of date
+updating environment: [new config] 7 added, 0 changed, 0 removed
+[2Kreading sources... [ 14%] index
+[2Kreading sources... [ 29%] reference_index
+[2Kreading sources... [ 43%] tutorials/advanced_crafting_datasets
+[2Kreading sources... [ 57%] tutorials/basic_transit_identification_dataset_construction
+[2Kreading sources... [ 71%] tutorials/basic_transit_identification_with_prebuilt_components
+[2Kreading sources... [ 86%] tutorials/crafting_injected_datasets
+[2Kreading sources... [100%] tutorials/crafting_standard_datasets
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... /home/docs/checkouts/readthedocs.org/user_builds/qusi/checkouts/latest/docs/source/tutorials/advanced_crafting_datasets.rst: WARNING: document isn't included in any toctree
+/home/docs/checkouts/readthedocs.org/user_builds/qusi/checkouts/latest/docs/source/tutorials/crafting_injected_datasets.rst: WARNING: document isn't included in any toctree
+/home/docs/checkouts/readthedocs.org/user_builds/qusi/checkouts/latest/docs/source/tutorials/crafting_standard_datasets.rst: WARNING: document isn't included in any toctree
+done
+preparing documents... done
+copying assets... copying static files... done
+copying extra files... done
+done
+[2Kwriting output... [ 14%] index
+[2Kwriting output... [ 29%] reference_index
+[2Kwriting output... [ 43%] tutorials/advanced_crafting_datasets
+[2Kwriting output... [ 57%] tutorials/basic_transit_identification_dataset_construction
+[2Kwriting output... [ 71%] tutorials/basic_transit_identification_with_prebuilt_components
+[2Kwriting output... [ 86%] tutorials/crafting_injected_datasets
+[2Kwriting output... [100%] tutorials/crafting_standard_datasets
+generating indices... genindex py-modindex done
+writing additional pages... search done
+dumping search index in English (code: en)... done
+dumping object inventory... done
+Updating searchtools for Read the Docs search... build finished with problems, 3 warnings.
