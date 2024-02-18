@@ -1,0 +1,25 @@
+// This file was generated automatically by Qleany's generator, edit at your own risk! 
+// If you do, be careful to not overwrite it when you run the generator again.
+#pragma once
+
+{% for header in headers -%}
+#include {{ header }}
+{% endfor %}
+#include <QObject>
+
+namespace {{ application_cpp_domain_name }}::Domain {
+
+class DomainRegistration : public QObject
+{
+    Q_OBJECT
+  public:
+    explicit DomainRegistration(QObject *parent) : QObject(parent)
+    {
+        {% for entity in entities_list %}
+        qRegisterMetaType<{{ application_cpp_domain_name }}::Domain::{{ entity.name }}>("{{ application_cpp_domain_name }}::Domain::{{ entity.name }}");
+        {%- endfor %}
+
+    }
+};
+
+} // namespace {{ application_cpp_domain_name }}::Domain
