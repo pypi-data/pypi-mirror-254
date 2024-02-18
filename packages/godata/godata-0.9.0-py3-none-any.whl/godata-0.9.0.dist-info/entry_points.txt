@@ -1,0 +1,3 @@
+[console_scripts]
+godata=godata.cli.cli:main
+
