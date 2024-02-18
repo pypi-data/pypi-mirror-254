@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/thulium/__init__.py
+src/thulium/example.py
+src/thulium.egg-info/PKG-INFO
+src/thulium.egg-info/SOURCES.txt
+src/thulium.egg-info/dependency_links.txt
+src/thulium.egg-info/top_level.txt
