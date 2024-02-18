@@ -1,0 +1,2 @@
+[console_scripts]
+poi-tracker = poi_tracker.cli:cli
