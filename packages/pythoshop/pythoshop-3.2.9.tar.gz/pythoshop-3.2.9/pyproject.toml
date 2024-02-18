@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "pythoshop"
+version = "3.2.9"
+description = "A Python version of Photoshop where users can do simple tasks of photo editing, such as croopping an image, rescaling an image, applying filters to an image, and much more."
+authors = ["Salva Umar, Jenny Lee, Ella Hein, Rachel Li"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+matplotlib = ">=3.8.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4.4"
+pytest-cov = ">=4.1.0"
+jupyter = ">=1.0.0"
+myst-nb = {version = ">=1.0.0", python = ">=3.9"}
+sphinx-autoapi = ">=3.0.0"
+sphinx-rtd-theme = ">=2.0.0"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+] # version location
+branch = "main"                             # branch to make releases of
+changelog_file = "CHANGELOG.md"             # changelog file
+build_command = "pip install poetry && poetry build"              # build dists
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
