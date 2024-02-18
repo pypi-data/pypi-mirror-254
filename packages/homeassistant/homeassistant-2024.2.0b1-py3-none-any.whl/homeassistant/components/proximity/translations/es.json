@@ -1,0 +1,15 @@
+{
+    "issues": {
+        "deprecated_proximity_entity": {
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "La entidad de proximidad est\u00e1 obsoleta"
+                    }
+                }
+            },
+            "title": "La entidad de proximidad est\u00e1 obsoleta"
+        }
+    },
+    "title": "Proximidad"
+}
