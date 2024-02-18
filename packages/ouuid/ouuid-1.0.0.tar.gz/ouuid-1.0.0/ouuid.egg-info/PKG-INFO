@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: ouuid
+Version: 1.0.0
+Summary: Random or sortable UUIDs with date/time prefixes.
+Home-page: https://github.com/krmgns/uuid-py
+Author: Kerem Güneş
+License: Apache License 2.0
+Keywords: uuid
+Requires-Python: >=3.9
+License-File: LICENSE
