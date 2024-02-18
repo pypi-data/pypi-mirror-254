@@ -1,0 +1,17 @@
+odoo/addons/sale_report_salesman/README.rst,sha256=cFdnFCI9RI45eCjbUy29_5LUuonCjkZ4-pbLtZ5tyrY,3201
+odoo/addons/sale_report_salesman/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+odoo/addons/sale_report_salesman/__manifest__.py,sha256=UYJg_x8BsBO0txvxg7-kwUsgwsyTEtkDTebMxjell0I,561
+odoo/addons/sale_report_salesman/hooks.py,sha256=w0eisVo_mE0KAlj-CmY1pqGx96hczxuvv3Q7HL-si6g,604
+odoo/addons/sale_report_salesman/i18n/es.po,sha256=g1eK03h5TPAYZND2vprJ4N4puMHnoTWDt19U8KH-Jk8,430
+odoo/addons/sale_report_salesman/i18n/sale_report_salesman.pot,sha256=BIyTShSvBhiJMqh2td4QGlxB8SDDzDZd0Pqu6WZgBR8,341
+odoo/addons/sale_report_salesman/readme/CONTRIBUTORS.rst,sha256=evZZ1-HQEPx_XZXQL5OLV8A62DT3l-kAkHnyPqNmp6M,70
+odoo/addons/sale_report_salesman/readme/DESCRIPTION.rst,sha256=JX5-l0sKdQFytwoAUqgpF4lahLSPLKFv5e8Xlrh52Gs,79
+odoo/addons/sale_report_salesman/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo/addons/sale_report_salesman/static/description/index.html,sha256=MjWsWmvcXRUfqjI2O0S9xpNMLC-PATQBeCIw1GIIr0s,12467
+odoo/addons/sale_report_salesman/tests/__init__.py,sha256=ArgKMAKVCEoLjm7BWC6QD91D00HYp3SxwfBpW1v1AKA,34
+odoo/addons/sale_report_salesman/tests/test_uninstall_hook.py,sha256=Ou9ragO99FhTfPtvcFesolUeh1BCCdPoESUA0KiO8Sc,676
+odoo/addons/sale_report_salesman/views/menu_views.xml,sha256=Yv71F5HMzI9pYvKERSBe3cPwOG4_upzIg0pXAGfsoz8,215
+odoo_addon_sale_report_salesman-15.0.1.0.0.2.dist-info/METADATA,sha256=Q_LzWCTd1pi-MXgxxVe9FvBpMYBd3gOARRWBH3WnzPQ,3738
+odoo_addon_sale_report_salesman-15.0.1.0.0.2.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+odoo_addon_sale_report_salesman-15.0.1.0.0.2.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo_addon_sale_report_salesman-15.0.1.0.0.2.dist-info/RECORD,,
