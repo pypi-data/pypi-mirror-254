@@ -1,0 +1,17 @@
+[project]
+name = "avenger"
+version = "0.0.2"
+readme = "README.md"
+description = "A Visualization Engine and Renderer"
+license = {file = "LICENSE"}
+
+[build-system]
+requires = [ "maturin>=1.1.0,<2",]
+build-backend = "maturin"
+
+[tool.maturin]
+module-name = "avenger._avenger"
+manifest-path = "avenger-python/Cargo.toml"
+
+[project.entry-points."altair.vegalite.v5.renderer"]
+avenger-png = "avenger.altair_utils:avenger_png_renderer"

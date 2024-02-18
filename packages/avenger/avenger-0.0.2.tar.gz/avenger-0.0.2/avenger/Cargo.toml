@@ -1,0 +1,24 @@
+[package]
+name = "avenger"
+version = "0.0.2"
+edition = "2021"
+description = "A visualization engine and renderer"
+license = "BSD-3-Clause"
+
+[dependencies.thiserror]
+workspace = true
+
+[dependencies.serde]
+workspace = true
+
+[dependencies.lyon_path]
+workspace = true
+features = [ "serialization",]
+
+[dependencies.image]
+workspace = true
+features = [ "png",]
+
+[dependencies.pyo3]
+workspace = true
+optional = true
