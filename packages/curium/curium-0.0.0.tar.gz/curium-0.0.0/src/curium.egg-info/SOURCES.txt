@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/curium/__init__.py
+src/curium/example.py
+src/curium.egg-info/PKG-INFO
+src/curium.egg-info/SOURCES.txt
+src/curium.egg-info/dependency_links.txt
+src/curium.egg-info/top_level.txt
