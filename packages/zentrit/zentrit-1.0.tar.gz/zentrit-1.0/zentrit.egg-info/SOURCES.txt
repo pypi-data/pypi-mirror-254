@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+zentrit/__init__.py
+zentrit/main.py
+zentrit.egg-info/PKG-INFO
+zentrit.egg-info/SOURCES.txt
+zentrit.egg-info/dependency_links.txt
+zentrit.egg-info/not-zip-safe
+zentrit.egg-info/top_level.txt
