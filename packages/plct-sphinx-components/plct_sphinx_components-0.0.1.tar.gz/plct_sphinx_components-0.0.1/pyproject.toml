@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "plct-sphinx-components"
+version = "0.0.1"
+description = "Petlja's sphinx extensions for e-learning content."
+authors = ["Petlja <team@petlja.com>"]
+readme = "README.md"
+requires-python = "^3.9"
+
+[tool.poetry.dependencies]
+Sphinx = "7.1.2"
+docutils = "*"
+
+[tool.poetry.package]
+include = ["**"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
