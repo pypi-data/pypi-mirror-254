@@ -1,0 +1,6 @@
+*.sqlite3
+/blog
+/dist
+/myapp
+manage.py
+/.idea

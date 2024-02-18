@@ -1,0 +1,1 @@
+## Trix editor for django framework
