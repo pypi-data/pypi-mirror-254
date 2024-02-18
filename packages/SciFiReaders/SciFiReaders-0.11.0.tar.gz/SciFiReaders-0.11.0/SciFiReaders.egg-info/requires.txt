@@ -1,0 +1,30 @@
+numpy
+toolz
+cytoolz
+dask>=2.20.0
+sidpy>=0.11.2
+ipython>=7.1.0
+pyUSID
+
+[:python_version < "3.11"]
+numba==0.58
+
+[:python_version >= "3.11"]
+numba>=0.59.0rc1
+
+[gwyddion]
+gwyfile
+
+[hyperspy]
+hyperspy
+
+[igor2]
+igor2
+
+[image]
+pillow
+tifffile
+
+[sid]
+pyUSID
+pyNSID
