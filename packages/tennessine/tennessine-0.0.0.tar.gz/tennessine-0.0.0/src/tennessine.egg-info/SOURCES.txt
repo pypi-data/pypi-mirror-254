@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/tennessine/__init__.py
+src/tennessine/example.py
+src/tennessine.egg-info/PKG-INFO
+src/tennessine.egg-info/SOURCES.txt
+src/tennessine.egg-info/dependency_links.txt
+src/tennessine.egg-info/top_level.txt
