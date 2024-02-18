@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: space-datasets
+Version: 0.0.9
+Summary: Unified storage framework for machine learning datasets
+Author-email: Space team <no-reply@google.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/google/space
+Project-URL: Issues, https://github.com/google/space/issues
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: absl-py
+Requires-Dist: array-record
+Requires-Dist: cloudpickle
+Requires-Dist: numpy
+Requires-Dist: protobuf
+Requires-Dist: pyarrow>=14.0.0
+Requires-Dist: pyroaring
+Requires-Dist: tensorflow_datasets
+Requires-Dist: typing_extensions
+Provides-Extra: dev
+Requires-Dist: pandas==2.1.4; extra == "dev"
+Requires-Dist: pyarrow-stubs; extra == "dev"
+Requires-Dist: ray==2.9.1; extra == "dev"
+Requires-Dist: tensorflow; extra == "dev"
+Requires-Dist: types-protobuf; extra == "dev"
+
+# Space: Unified Storage for Machine Learning
+
+Unify data in your entire machine learning lifecycle with **Space**, a comprehensive storage solution that seamlessly handles data from ingestion to training.
+
+**Key Features:**
+- **Ground Truth Database**
+  - Store and manage multimodal data in open source file formats, row or columnar, local or in cloud.
+  - Ingest from various sources, including ML datasets, files, and labeling tools.
+  - Support data manipulation (append, insert, update, delete) and version control.
+- **OLAP Database and Lakehouse**
+  - [Iceberg](https://github.com/apache/iceberg) style [open table format](/docs/design.md#metadata-design).
+  - Optimized for unstructued data via [reference](./docs/design.md#data-files) operations.
+  - Quickly analyze data using SQL engines like [DuckDB](https://github.com/duckdb/duckdb).
+- **Distributed Data Processing Pipelines**
+  - Integrate with processing frameworks like [Ray](https://github.com/ray-project/ray) for efficient data transformation.
+  - Store processed results as Materialized Views (MVs); incrementally update MVs when the source is changed.
+- **Seamless Training Framework Integration**
+  - Access Space datasets and MVs directly via random access interfaces.
+  - Convert to popular ML dataset formats (e.g., [TFDS](https://github.com/tensorflow/datasets), [HuggingFace](https://github.com/huggingface/datasets), [Ray](https://github.com/ray-project/ray)).
