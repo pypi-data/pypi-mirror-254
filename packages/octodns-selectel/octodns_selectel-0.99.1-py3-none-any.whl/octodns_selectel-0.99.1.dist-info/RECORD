@@ -1,0 +1,15 @@
+octodns_selectel/__init__.py,sha256=H6-Me0JRYIPBVP--C0Nx5KSBdo5iNi6eCeC48TX06zA,272
+octodns_selectel/version.py,sha256=jB-4jYfPpdg38Afv_r98Yj2prwXOr2D4lNUaAHLD5Xo,70
+octodns_selectel/v1/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+octodns_selectel/v1/provider.py,sha256=qLJm51TjWu4LJTM1k-XXnJXpY1XEkdYpuxphky3j8oM,11776
+octodns_selectel/v2/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+octodns_selectel/v2/dns_client.py,sha256=LLh0P72Co4Zll-5Jkfs_kHs2hdQejeuNNf7sANyVa30,3177
+octodns_selectel/v2/exceptions.py,sha256=mmOfUK0slsVruFrNG8C4bl94D1IT1u9_6__jn6t4pu8,152
+octodns_selectel/v2/mappings.py,sha256=eNjpPjhLM0v3alJypznlPNhPpK9083YpBLeagPWs2CM,3974
+octodns_selectel/v2/provider.py,sha256=0Zn9M_RXNfNRvpedJ_D26iDob8hHWf8WuijTApqU-ZM,6495
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+octodns_selectel-0.99.1.dist-info/LICENSE,sha256=vWCiWlB3SMjfbIdbGGhJu62IvKEEexHokAa8wFcqJr4,1129
+octodns_selectel-0.99.1.dist-info/METADATA,sha256=2e9oROSajRCQU1svogVv_RcQko3U17jVj9BluLvCEZ0,7113
+octodns_selectel-0.99.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+octodns_selectel-0.99.1.dist-info/top_level.txt,sha256=B9KwCSneGHZgPLww_IaNOXgGhwrgqLA6A5iemoDJXUU,23
+octodns_selectel-0.99.1.dist-info/RECORD,,
