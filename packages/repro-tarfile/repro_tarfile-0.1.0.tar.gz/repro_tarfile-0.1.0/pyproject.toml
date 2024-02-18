@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "repro-tarfile"
+dynamic = ["version"]
+description = "A tiny, zero-dependency replacement for Python's tarfile.TarFile for creating reproducible/deterministic tar archives."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["tarfile", "tar", "reproducible", "deterministic"]
+authors = [{ name = "DrivenData", email = "info@drivendata.org" }]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: System :: Archiving",
+  "Topic :: System :: Archiving :: Compression",
+  "Topic :: System :: Archiving :: Packaging",
+]
+dependencies = []
+
+[project.optional-dependencies]
+cli = ["rptar"]
+tests = ["pytest>=6,<8", "pytest-cases"]
+
+[project.urls]
+Documentation = "https://github.com/drivendataorg/repro-tarfile#readme"
+Issues = "https://github.com/drivendataorg/repro-tarfile/issues"
+Source = "https://github.com/drivendataorg/repro-tarfile"
+
+[tool.hatch.version]
+path = "repro_tarfile.py"
+
+## DEFAULT ENVIRONMENT ##
+
+[tool.hatch.envs.default]
+pre-install-commands = [
+  "pip install -e . -e cli",
+]
+features = ["cli", "tests"]
+dependencies = ["ipython", "mypy>=1.0.0", "ruff>=0.1.14"]
+python = "3.10"
+path = ".venv"
+
+[tool.hatch.envs.default.scripts]
+lint = ["ruff format --check {args:.}", "ruff check {args:.}"]
+typecheck = ["mypy {args:repro_tarfile.py cli} --install-types --non-interactive"]
+
+## TESTS ENVIRONMENT ##
+
+[tool.hatch.envs.tests]
+pre-install-commands = [
+  "pip install -e . -e cli",
+]
+features = ["tests"]
+dependencies = ["coverage>=6.5", "pytest-cov"]
+template = "tests"
+
+[[tool.hatch.envs.tests.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.11.3"]
+
+[tool.hatch.envs.tests.scripts]
+test = "pytest {args:tests} -v --cov=. --cov=./cli --cov-report=term --cov-report=html --cov-report=xml"
+
+## TOOLS ##
+
+[tool.ruff]
+line-length = 99
+src = ["*.py", "cli/*.py", "tests/*.py"]
+
+[tool.ruff.lint]
+select = [
+  "E", # Pyflakes
+  "F", # Pycodestyle
+  "I", # isort
+]
+unfixable = ["F"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["repro_tarfile", "rptar"]
+force-sort-within-sections = true
+
+[tool.coverage.run]
+omit = ["tests/*"]
