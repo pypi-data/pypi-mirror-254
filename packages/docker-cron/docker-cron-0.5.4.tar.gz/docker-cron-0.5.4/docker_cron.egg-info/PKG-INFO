@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: docker-cron
+Version: 0.5.4
+Summary: An automated service importing scheduled jobs from /etc/cron.d in running docker containers.
+Home-page: https://github.com/iamfat/docker-cron
+Author: Jia Huang
+Author-email: iamfat@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: docker>=3
+Requires-Dist: apscheduler>=3
+Requires-Dist: python-crontab>=2
+
+
+# docker-cron
+An automated service importing scheduled jobs from /etc/cron.d in running docker containers.
+
+## INSTALLATION
+```bash
+pip install docker-cron
+```
