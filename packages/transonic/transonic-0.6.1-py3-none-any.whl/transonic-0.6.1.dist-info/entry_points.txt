@@ -1,0 +1,4 @@
+[console_scripts]
+transonic = transonic.run:run
+transonic-get-include = transonic_cl.get_includes:main
+
