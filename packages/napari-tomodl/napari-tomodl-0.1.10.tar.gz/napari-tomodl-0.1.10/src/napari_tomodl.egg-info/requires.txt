@@ -1,0 +1,15 @@
+magicgui
+qtpy
+napari[all]
+pyqt5
+phantominator
+opencv-python
+scikit-image
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5
