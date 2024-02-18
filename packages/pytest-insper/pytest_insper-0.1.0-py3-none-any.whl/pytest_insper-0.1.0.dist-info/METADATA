@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pytest-insper
+Version: 0.1.0
+Summary: Pytest plugin for courses at Insper
+Home-page: https://github.com/insper-education/pytest-insper
+Author: Andrew Kurauchi
+Author-email: andrewTNK@insper.edu.br
+Project-URL: Bug Tracker, https://github.com/insper-education/pytest-insper/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytest
+
+# Pytest Insper
+
+This is a set of utility functions and fixtures that we use at our courses at Insper.
+
+You can install them with:
+
+```
+pip install pytest-insper
+```
