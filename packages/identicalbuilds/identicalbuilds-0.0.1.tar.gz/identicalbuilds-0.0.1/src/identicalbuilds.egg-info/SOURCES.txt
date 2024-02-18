@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/identicalbuilds/__init__.py
+src/identicalbuilds/example.py
+src/identicalbuilds.egg-info/PKG-INFO
+src/identicalbuilds.egg-info/SOURCES.txt
+src/identicalbuilds.egg-info/dependency_links.txt
+src/identicalbuilds.egg-info/top_level.txt
