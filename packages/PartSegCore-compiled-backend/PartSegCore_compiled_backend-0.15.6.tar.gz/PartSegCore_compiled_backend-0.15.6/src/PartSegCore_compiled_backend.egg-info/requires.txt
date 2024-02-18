@@ -1,0 +1,7 @@
+numpy>=1.25.0
+
+[docs]
+sphinx>=5.0.0
+
+[test]
+pytest>=7.0.0
