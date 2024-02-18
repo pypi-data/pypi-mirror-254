@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/molybdenum/__init__.py
+src/molybdenum/example.py
+src/molybdenum.egg-info/PKG-INFO
+src/molybdenum.egg-info/SOURCES.txt
+src/molybdenum.egg-info/dependency_links.txt
+src/molybdenum.egg-info/top_level.txt
