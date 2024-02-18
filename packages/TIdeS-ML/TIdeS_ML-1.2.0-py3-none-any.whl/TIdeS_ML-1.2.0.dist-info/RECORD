@@ -1,0 +1,15 @@
+tides/__init__.py,sha256=nQU70r4FErCEUEQvnRrZoHCaQy1SwOTm5SCXpImx83Y,108
+tides/tides.py,sha256=I8AJIGLCZxgV72wBgsxxBdywVROn7BNg1naTjQ4bUdU,24707
+tides/bin/__init__.py,sha256=nQU70r4FErCEUEQvnRrZoHCaQy1SwOTm5SCXpImx83Y,108
+tides/bin/classify_orfs.py,sha256=A56Tvh_PXhlJvi6ZdmpvpmIuCg-21hL_IguMJUZUNSs,7337
+tides/bin/filt_seqs.py,sha256=tGhEBOjsI3cQBX6bGW6q4xn6A9uRIqDl1HV1TsJdt6A,17129
+tides/bin/orf_call.py,sha256=fBhUF5VFcN-FbdUwD43GPQh5_o7TKnLeFrse9eZpGgQ,20258
+tides/bin/orf_composition.py,sha256=DrWzd8PwtrztnQbGinIVtmKx11vEimwNFgbEbmBiSdw,3556
+tides/bin/orf_prep.py,sha256=1ckCfkAfHnviWSWbzFE3QiVuG-gkxSfzEpGX2yJr1Tg,6554
+tides/bin/save_preds.py,sha256=9UbAn0WDfjNF8ptCTk0H7slbOCCnSJWLiDzBOMYNJdI,1758
+TIdeS_ML-1.2.0.dist-info/LICENSE,sha256=Xwhfp622rGtnjcJjiucHCrH7pwredzgPFyZB41JDrbw,1066
+TIdeS_ML-1.2.0.dist-info/METADATA,sha256=WHr2ipM1WnnoOdDaHIUuQ6h-GxkkP49lZ1DFKmHh3Gg,7431
+TIdeS_ML-1.2.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+TIdeS_ML-1.2.0.dist-info/entry_points.txt,sha256=2Su-QsMgDCN7Tgdj1kGwnFApzztcAbwUjF2Atp_iH10,44
+TIdeS_ML-1.2.0.dist-info/top_level.txt,sha256=gJmabxIcyc1KVucD1_ZHczS97mqBSjn-UXlKjLAauE0,16
+TIdeS_ML-1.2.0.dist-info/RECORD,,
