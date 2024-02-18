@@ -1,0 +1,16 @@
+integration_tests/__init__.py,sha256=4Hw-PX1-VgESLF16cDdvuYCzGJtHntThLF4qIiULWeo,61
+integration_tests/acceptance.py,sha256=8eU9iSDbmHyufPvAouJGhPMgPAFTCP8IKIKHLm7u5TE,435
+integration_tests/configured_catalog.json,sha256=rOwp0_s40yrUuEfecCo_TgnUcMVOKmv7fB3kRrL9nVY,911
+integration_tests/invalid_config.json,sha256=Eb-RyhPf5QMqb8zzF5ITdEoFYXTsVbSokfiz4mB4os0,218
+integration_tests/sample_state.json,sha256=W8WsYzfQMcJqV4AiubbhBbv3CYx-wuuMzEXTfUFLtro,67
+source_strava/__init__.py,sha256=pbxJpzMckkjoFOWuIdQ1dk28xLvVAS48Wc6Zxi_H-GA,124
+source_strava/manifest.yaml,sha256=8tRNcL4qVOsVz8WZG3XLEo3L9lS2hKeCU9rkFYyf7sA,5487
+source_strava/run.py,sha256=4BHiB6QMfv0YZ4NSWPJT38sRTVcp7ltcUMJKOCRb-3o,230
+source_strava/source.py,sha256=7FD9kuwWQ_jl3tdK6EPEuf0aYTtBGhxYnOIHAMj4LVU,475
+source_strava/schemas/activities.json,sha256=GlN4oYtGofIgYP1nifVwdjVKmZzGlKQkcpoE71sKpAM,4055
+source_strava/schemas/athlete_stats.json,sha256=cktRffypJI1HS5asAm4IRUnpatNUUx07DuICMoeqjRw,5465
+airbyte_source_strava-0.2.0.dist-info/METADATA,sha256=2-02MJgu_d8nqnK4tQIIJ6U6ZrsZGAV_SvZzcgQ4KjU,4171
+airbyte_source_strava-0.2.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+airbyte_source_strava-0.2.0.dist-info/entry_points.txt,sha256=XDet3OMMc7KnBYRfbbAVlZFAlRNVOynls3CIkxzuZbI,56
+airbyte_source_strava-0.2.0.dist-info/top_level.txt,sha256=n6-D7fsblS6AnoQWdu9xKVL-Tdwtlixu8JB91q4uM5A,32
+airbyte_source_strava-0.2.0.dist-info/RECORD,,
