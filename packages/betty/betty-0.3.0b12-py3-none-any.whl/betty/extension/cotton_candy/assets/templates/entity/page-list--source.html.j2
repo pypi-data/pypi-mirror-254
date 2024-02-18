@@ -1,0 +1,16 @@
+{% extends 'entity/page-list.html.j2' %}
+{% set sources = sources | default(entities) | select('public') | list %}
+{% set page_title = _('Sources') %}
+{% block page_content %}
+    {% if sources | length > 0 %}
+        <ul class="entities">
+            {% for source in sources | sort(attribute='name') %}
+                <li class="{{ loop.cycle('odd', 'even') }}">
+                    {% include 'entity/label--source.html.j2' %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{% trans %}I'm sorry, dear, but it seems there are no sources.{% endtrans %}</p>
+    {% endif %}
+{% endblock %}
