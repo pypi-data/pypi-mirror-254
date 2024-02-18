@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: easyjailbreak
+Version: 0.1.1
+Summary: Easy Jailbreak toolkit
+Home-page: https://github.com/EasyJailbreak/EasyJailbreak
+Author: ZenithX
+Author-email: waltersumbon@gmail.com
+License: GNU General Public License v3.0
+Keywords: large language model,llm security,llm safety benchmark,natural language processing,adversarial jailbreaking,adversarial attack framework,prompt engineering,discrete optimization
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: transformers >=4.34.0
+Requires-Dist: protobuf
+Requires-Dist: sentencepiece
+Requires-Dist: datasets
+Requires-Dist: torch >=2.0
+Requires-Dist: openai >=1.0.0
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: accelerate
+Requires-Dist: fschat
+Requires-Dist: jsonlines
+Requires-Dist: einops
+Requires-Dist: nltk
+Requires-Dist: transformers-stream-generator
+
