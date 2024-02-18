@@ -1,0 +1,1026 @@
+Metadata-Version: 2.1
+Name: ibeis
+Version: 2.3.2
+Summary: IBEIS - Image Based Ecological Information System
+Home-page: https://github.com/Erotemic/ibeis
+Author: Jon Crall, Jason Parham
+Author-email: erotemic@gmail.com
+License: Apache 2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: IPython (>=7.16.2)
+Requires-Dist: Werkzeug (>=2.2.2)
+Requires-Dist: boto (>=2.49.0)
+Requires-Dist: colorama (>=0.3.2)
+Requires-Dist: delorean (>=1.0.0)
+Requires-Dist: dtool-ibeis (>=1.1.1)
+Requires-Dist: flask (>=2.1.3)
+Requires-Dist: futures-actors (>=0.0.5)
+Requires-Dist: guitool-ibeis (>=2.1.2)
+Requires-Dist: lockfile (>=0.10.2)
+Requires-Dist: parse (>=1.19.0)
+Requires-Dist: plottool-ibeis (>=2.2.1)
+Requires-Dist: pyasn1 (>=0.4.8)
+Requires-Dist: pyflann-ibeis (>=2.3.0)
+Requires-Dist: pygments (>=2.11.2)
+Requires-Dist: pyhesaff (>=2.1.1)
+Requires-Dist: pynmea2 (>=1.5.3)
+Requires-Dist: pyparsing
+Requires-Dist: pyqt5 (>=5.15.5)
+Requires-Dist: pyzmq (>=25.0.0)
+Requires-Dist: requests
+Requires-Dist: safer (>=4.4.1)
+Requires-Dist: setuptools (>=34.1.0)
+Requires-Dist: simplejson (>=3.6.5)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: tornado (>=6.2)
+Requires-Dist: ubelt (>=1.2.3)
+Requires-Dist: utool (>=2.1.7)
+Requires-Dist: vtool-ibeis (>=2.2.0)
+Requires-Dist: vtool-ibeis-ext (>=0.1.1)
+Requires-Dist: Pillow (>=8.0.0) ; python_version < "3.10" and python_version >= "3.6"
+Requires-Dist: cachetools (>=4.2.0) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: matplotlib (>=3.3.3) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: numpy (>=1.19.3) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: pandas (>=1.4.0) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: scikit-image (>=0.18.0) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: scikit-learn (>=1.0.2) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: scipy (>=1.8.0) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: shapely (>=1.7.1) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: statsmodels (>=0.13.1) ; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: Pillow (>=9.1.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: cachetools (>=5.0.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: matplotlib (>=3.5.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: numpy (>=1.21.6) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: pandas (>=1.3.5) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: scikit-image (>=0.19.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: scikit-learn (>=1.1.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: scipy (>=1.8.0) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: shapely (>=1.8.2) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: statsmodels (>=0.13.1) ; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: networkx (>=2.7) ; python_version < "3.11" and python_version >= "3.8"
+Requires-Dist: scipy (>=1.0.0) ; python_version < "3.4" and python_version >= "2.7"
+Requires-Dist: scipy (>=1.0.0) ; python_version < "3.5" and python_version >= "3.4"
+Requires-Dist: scipy (>=1.3.0) ; python_version < "3.6" and python_version >= "3.5"
+Requires-Dist: cachetools (>=4.0.0) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: matplotlib (>=1.5.3) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: numpy (>=1.19.2) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: pandas (>=1.1.4) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: scikit-image (>=0.17.2) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: scikit-learn (>=0.24.1) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: scipy (>=1.5.4) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: shapely (>=1.7.1) ; python_version < "3.7" and python_version >= "3.6"
+Requires-Dist: networkx (<=2.5.1,>=2.2.0) ; python_version < "3.7.0" and python_version >= "3.6.0"
+Requires-Dist: cachetools (>=5.0.0) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: matplotlib (>=2.2.2) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: networkx (>=2.6.2) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: numpy (>=1.19.2) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: pandas (>=1.2.0) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: scikit-image (>=0.17.2) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: scikit-learn (>=0.24.1) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: scipy (>=1.6.0) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: shapely (>=1.7.1) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: statsmodels (>=0.12.2) ; python_version < "3.8" and python_version >= "3.7"
+Requires-Dist: cachetools (>=4.0.0) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: matplotlib (>=3.6.0) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: numpy (>=1.19.2) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: pandas (>=1.4.0) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: scikit-image (>=0.17.2) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: scikit-learn (>=1.0.2) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: scipy (>=1.8.0) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: shapely (>=1.7.1) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: statsmodels (>=0.13.1) ; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: Pillow (>=9.2.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: cachetools (>=5.0.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: matplotlib (>=3.6.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: networkx (>=2.8) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: pandas (>=1.5.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: psutil (>=5.9.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: scikit-image (>=0.20.0) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: scikit-learn (>=1.1.3) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: scipy (>=1.9.2) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: shapely (>=1.8.5) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: statsmodels (>=0.13.3) ; python_version < "4.0" and python_version >= "3.11"
+Requires-Dist: numpy (>=1.23.2) ; python_version >= "3.11"
+Requires-Dist: packaging (>=21.3) ; python_version >= "3.6"
+Provides-Extra: all
+Requires-Dist: IPython (>=7.16.2) ; extra == 'all'
+Requires-Dist: Werkzeug (>=2.2.2) ; extra == 'all'
+Requires-Dist: autopep8 (>=2.0.1) ; extra == 'all'
+Requires-Dist: boto (>=2.49.0) ; extra == 'all'
+Requires-Dist: colorama (>=0.3.2) ; extra == 'all'
+Requires-Dist: delorean (>=1.0.0) ; extra == 'all'
+Requires-Dist: dtool-ibeis (>=1.1.1) ; extra == 'all'
+Requires-Dist: flask-cors (>=3.0.10) ; extra == 'all'
+Requires-Dist: flask (>=2.1.3) ; extra == 'all'
+Requires-Dist: futures-actors (>=0.0.5) ; extra == 'all'
+Requires-Dist: guitool-ibeis (>=2.1.2) ; extra == 'all'
+Requires-Dist: jupyter (>=1.0.0) ; extra == 'all'
+Requires-Dist: kwimage (>=0.9.23) ; extra == 'all'
+Requires-Dist: lockfile (>=0.10.2) ; extra == 'all'
+Requires-Dist: parse (>=1.19.0) ; extra == 'all'
+Requires-Dist: plottool-ibeis (>=2.2.1) ; extra == 'all'
+Requires-Dist: pyasn1 (>=0.4.8) ; extra == 'all'
+Requires-Dist: pydot-ng (>=2.0.0) ; extra == 'all'
+Requires-Dist: pydot (>=1.3.0) ; extra == 'all'
+Requires-Dist: pyfiglet (>=0.7.2) ; extra == 'all'
+Requires-Dist: pyflann-ibeis (>=2.3.0) ; extra == 'all'
+Requires-Dist: pygments (>=2.11.2) ; extra == 'all'
+Requires-Dist: pyhesaff (>=2.1.1) ; extra == 'all'
+Requires-Dist: pynmea2 (>=1.5.3) ; extra == 'all'
+Requires-Dist: pyparsing ; extra == 'all'
+Requires-Dist: pyqt5 (>=5.15.5) ; extra == 'all'
+Requires-Dist: pyzmq (>=25.0.0) ; extra == 'all'
+Requires-Dist: requests ; extra == 'all'
+Requires-Dist: safer (>=4.4.1) ; extra == 'all'
+Requires-Dist: setuptools (>=34.1.0) ; extra == 'all'
+Requires-Dist: simplejson (>=3.6.5) ; extra == 'all'
+Requires-Dist: six (>=1.10.0) ; extra == 'all'
+Requires-Dist: timerit (>=1.0.1) ; extra == 'all'
+Requires-Dist: tornado (>=6.2) ; extra == 'all'
+Requires-Dist: ubelt (>=1.2.3) ; extra == 'all'
+Requires-Dist: utool (>=2.1.7) ; extra == 'all'
+Requires-Dist: vtool-ibeis (>=2.2.0) ; extra == 'all'
+Requires-Dist: vtool-ibeis-ext (>=0.1.1) ; extra == 'all'
+Requires-Dist: xdoctest (>=1.1.3) ; extra == 'all'
+Provides-Extra: all-strict
+Requires-Dist: IPython (==7.16.2) ; extra == 'all-strict'
+Requires-Dist: Werkzeug (==2.2.2) ; extra == 'all-strict'
+Requires-Dist: autopep8 (==2.0.1) ; extra == 'all-strict'
+Requires-Dist: boto (==2.49.0) ; extra == 'all-strict'
+Requires-Dist: colorama (==0.3.2) ; extra == 'all-strict'
+Requires-Dist: delorean (==1.0.0) ; extra == 'all-strict'
+Requires-Dist: dtool-ibeis (==1.1.1) ; extra == 'all-strict'
+Requires-Dist: flask-cors (==3.0.10) ; extra == 'all-strict'
+Requires-Dist: flask (==2.1.3) ; extra == 'all-strict'
+Requires-Dist: futures-actors (==0.0.5) ; extra == 'all-strict'
+Requires-Dist: guitool-ibeis (==2.1.2) ; extra == 'all-strict'
+Requires-Dist: jupyter (==1.0.0) ; extra == 'all-strict'
+Requires-Dist: kwimage (==0.9.23) ; extra == 'all-strict'
+Requires-Dist: lockfile (==0.10.2) ; extra == 'all-strict'
+Requires-Dist: parse (==1.19.0) ; extra == 'all-strict'
+Requires-Dist: plottool-ibeis (==2.2.1) ; extra == 'all-strict'
+Requires-Dist: pyasn1 (==0.4.8) ; extra == 'all-strict'
+Requires-Dist: pydot-ng (==2.0.0) ; extra == 'all-strict'
+Requires-Dist: pydot (==1.3.0) ; extra == 'all-strict'
+Requires-Dist: pyfiglet (==0.7.2) ; extra == 'all-strict'
+Requires-Dist: pyflann-ibeis (==2.3.0) ; extra == 'all-strict'
+Requires-Dist: pygments (==2.11.2) ; extra == 'all-strict'
+Requires-Dist: pyhesaff (==2.1.1) ; extra == 'all-strict'
+Requires-Dist: pynmea2 (==1.5.3) ; extra == 'all-strict'
+Requires-Dist: pyparsing ; extra == 'all-strict'
+Requires-Dist: pyqt5 (==5.15.5) ; extra == 'all-strict'
+Requires-Dist: pyzmq (==25.0.0) ; extra == 'all-strict'
+Requires-Dist: requests ; extra == 'all-strict'
+Requires-Dist: safer (==4.4.1) ; extra == 'all-strict'
+Requires-Dist: setuptools (==34.1.0) ; extra == 'all-strict'
+Requires-Dist: simplejson (==3.6.5) ; extra == 'all-strict'
+Requires-Dist: six (==1.10.0) ; extra == 'all-strict'
+Requires-Dist: timerit (==1.0.1) ; extra == 'all-strict'
+Requires-Dist: tornado (==6.2) ; extra == 'all-strict'
+Requires-Dist: ubelt (==1.2.3) ; extra == 'all-strict'
+Requires-Dist: utool (==2.1.7) ; extra == 'all-strict'
+Requires-Dist: vtool-ibeis (==2.2.0) ; extra == 'all-strict'
+Requires-Dist: vtool-ibeis-ext (==0.1.1) ; extra == 'all-strict'
+Requires-Dist: xdoctest (==1.1.3) ; extra == 'all-strict'
+Requires-Dist: coverage (==4.5) ; (python_version < "2.7" and python_version >= "2.6") and extra == 'all-strict'
+Requires-Dist: pytest-cov (==2.8.1) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'all-strict'
+Requires-Dist: pytest (<=4.6.11,==4.6.0) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'all-strict'
+Requires-Dist: Pillow (==8.0.0) ; (python_version < "3.10" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: cachetools (==4.2.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: matplotlib (==3.3.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: numpy (==1.19.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: pandas (==1.4.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.18.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==1.0.2) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all-strict'
+Requires-Dist: pytest (==4.6.0) ; (python_version < "3.10.0" and python_version >= "3.7.0") and extra == 'all-strict'
+Requires-Dist: Pillow (==9.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.7.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: matplotlib (==3.5.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: numpy (==1.21.6) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: pandas (==1.3.5) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.19.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==1.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: shapely (==1.8.2) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all-strict'
+Requires-Dist: networkx (==2.7) ; (python_version < "3.11" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'all-strict'
+Requires-Dist: scipy (==1.0.0) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'all-strict'
+Requires-Dist: coverage (==4.3.4) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'all-strict'
+Requires-Dist: scipy (==1.0.0) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'all-strict'
+Requires-Dist: pytest-cov (==2.8.1) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'all-strict'
+Requires-Dist: pytest (<=4.6.11,==4.6.0) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'all-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'all-strict'
+Requires-Dist: scipy (==1.3.0) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'all-strict'
+Requires-Dist: pytest-cov (==2.9.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'all-strict'
+Requires-Dist: pytest (<=6.1.2,==4.6.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: cachetools (==4.0.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: matplotlib (==1.5.3) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: pandas (==1.1.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==0.24.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: scipy (==1.5.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: networkx (<=2.5.1,==2.2.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'all-strict'
+Requires-Dist: pytest (==4.6.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: matplotlib (==2.2.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: networkx (==2.6.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: pandas (==1.2.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==0.24.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: scipy (==1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: statsmodels (==0.12.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: cachetools (==4.0.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: matplotlib (==3.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: pandas (==1.4.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==1.0.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all-strict'
+Requires-Dist: Pillow (==9.2.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: ansi2html (==1.7.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: coverage (==7.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: matplotlib (==3.6.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: networkx (==2.8) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: pandas (==1.5.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: scikit-image (==0.20.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: scikit-learn (==1.1.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: scipy (==1.9.2) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: shapely (==1.8.5) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: statsmodels (==0.13.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: pytest (==6.2.5) ; (python_version >= "3.10.0") and extra == 'all-strict'
+Requires-Dist: numpy (==1.23.2) ; (python_version >= "3.11") and extra == 'all-strict'
+Requires-Dist: packaging (==21.3) ; (python_version >= "3.6") and extra == 'all-strict'
+Requires-Dist: pytest-cov (==3.0.0) ; (python_version >= "3.6.0") and extra == 'all-strict'
+Requires-Dist: coverage (>=4.5) ; (python_version < "2.7" and python_version >= "2.6") and extra == 'all'
+Requires-Dist: pytest-cov (>=2.8.1) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'all'
+Requires-Dist: pytest (<=4.6.11,>=4.6.0) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'all'
+Requires-Dist: Pillow (>=8.0.0) ; (python_version < "3.10" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: cachetools (>=4.2.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: matplotlib (>=3.3.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: numpy (>=1.19.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: pandas (>=1.4.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: scikit-image (>=0.18.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: scikit-learn (>=1.0.2) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: scipy (>=1.8.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: shapely (>=1.7.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: statsmodels (>=0.13.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'all'
+Requires-Dist: pytest (>=4.6.0) ; (python_version < "3.10.0" and python_version >= "3.7.0") and extra == 'all'
+Requires-Dist: Pillow (>=9.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: ansi2html (>=1.7.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: cachetools (>=5.0.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: matplotlib (>=3.5.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: numpy (>=1.21.6) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: pandas (>=1.3.5) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: scikit-image (>=0.19.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: scikit-learn (>=1.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: scipy (>=1.8.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: shapely (>=1.8.2) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: statsmodels (>=0.13.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'all'
+Requires-Dist: networkx (>=2.7) ; (python_version < "3.11" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'all'
+Requires-Dist: scipy (>=1.0.0) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'all'
+Requires-Dist: coverage (>=4.3.4) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'all'
+Requires-Dist: scipy (>=1.0.0) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'all'
+Requires-Dist: pytest-cov (>=2.8.1) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'all'
+Requires-Dist: pytest (<=4.6.11,>=4.6.0) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'all'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'all'
+Requires-Dist: scipy (>=1.3.0) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'all'
+Requires-Dist: pytest-cov (>=2.9.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'all'
+Requires-Dist: pytest (<=6.1.2,>=4.6.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'all'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: cachetools (>=4.0.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: matplotlib (>=1.5.3) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: numpy (>=1.19.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: pandas (>=1.1.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: scikit-image (>=0.17.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: scikit-learn (>=0.24.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: scipy (>=1.5.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: shapely (>=1.7.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'all'
+Requires-Dist: networkx (<=2.5.1,>=2.2.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'all'
+Requires-Dist: pytest (>=4.6.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'all'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: cachetools (>=5.0.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: matplotlib (>=2.2.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: networkx (>=2.6.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: numpy (>=1.19.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: pandas (>=1.2.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: scikit-image (>=0.17.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: scikit-learn (>=0.24.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: scipy (>=1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: shapely (>=1.7.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: statsmodels (>=0.12.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'all'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: cachetools (>=4.0.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: matplotlib (>=3.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: numpy (>=1.19.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: pandas (>=1.4.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: scikit-image (>=0.17.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: scikit-learn (>=1.0.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: scipy (>=1.8.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: shapely (>=1.7.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: statsmodels (>=0.13.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'all'
+Requires-Dist: Pillow (>=9.2.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: ansi2html (>=1.7.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: cachetools (>=5.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: coverage (>=7.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: matplotlib (>=3.6.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: networkx (>=2.8) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: pandas (>=1.5.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: psutil (>=5.9.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: scikit-image (>=0.20.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: scikit-learn (>=1.1.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: scipy (>=1.9.2) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: shapely (>=1.8.5) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: statsmodels (>=0.13.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'all'
+Requires-Dist: pytest (>=6.2.5) ; (python_version >= "3.10.0") and extra == 'all'
+Requires-Dist: numpy (>=1.23.2) ; (python_version >= "3.11") and extra == 'all'
+Requires-Dist: packaging (>=21.3) ; (python_version >= "3.6") and extra == 'all'
+Requires-Dist: pytest-cov (>=3.0.0) ; (python_version >= "3.6.0") and extra == 'all'
+Provides-Extra: graphics
+Provides-Extra: graphics-strict
+Requires-Dist: opencv-python (==3.4.15.55) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==4.5.4.58) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.1.0.0) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.1.0.5) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.1.0.2) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.4.13.47) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.4.15.55) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==3.4.15.55) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (==4.5.5.64) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'graphics-strict'
+Requires-Dist: opencv-python (>=3.4.15.55) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'graphics'
+Requires-Dist: opencv-python (>=4.5.4.58) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.1.0.0) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.1.0.5) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.1.0.2) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.4.13.47) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.4.15.55) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'graphics'
+Requires-Dist: opencv-python (>=3.4.15.55) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'graphics'
+Requires-Dist: opencv-python (>=4.5.5.64) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'graphics'
+Provides-Extra: headless
+Provides-Extra: headless-strict
+Requires-Dist: opencv-python-headless (==3.4.15.55) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==4.5.4.58) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.2.16) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.2.16) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.2.16) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.13.47) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.15.55) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==3.4.15.55) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (==4.5.5.64) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'headless-strict'
+Requires-Dist: opencv-python-headless (>=3.4.15.55) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=4.5.4.58) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.2.16) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.2.16) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.2.16) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.13.47) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.15.55) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=3.4.15.55) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'headless'
+Requires-Dist: opencv-python-headless (>=4.5.5.64) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'headless'
+Provides-Extra: optional
+Requires-Dist: autopep8 (>=2.0.1) ; extra == 'optional'
+Requires-Dist: flask-cors (>=3.0.10) ; extra == 'optional'
+Requires-Dist: jupyter (>=1.0.0) ; extra == 'optional'
+Requires-Dist: pydot-ng (>=2.0.0) ; extra == 'optional'
+Requires-Dist: pydot (>=1.3.0) ; extra == 'optional'
+Requires-Dist: pyfiglet (>=0.7.2) ; extra == 'optional'
+Provides-Extra: optional-strict
+Requires-Dist: autopep8 (==2.0.1) ; extra == 'optional-strict'
+Requires-Dist: flask-cors (==3.0.10) ; extra == 'optional-strict'
+Requires-Dist: jupyter (==1.0.0) ; extra == 'optional-strict'
+Requires-Dist: pydot-ng (==2.0.0) ; extra == 'optional-strict'
+Requires-Dist: pydot (==1.3.0) ; extra == 'optional-strict'
+Requires-Dist: pyfiglet (==0.7.2) ; extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.7.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'optional-strict'
+Requires-Dist: ansi2html (==1.7.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'optional-strict'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'optional'
+Requires-Dist: ansi2html (>=1.7.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'optional'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'optional'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'optional'
+Requires-Dist: ansi2html (>=1.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'optional'
+Requires-Dist: ansi2html (>=1.7.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'optional'
+Provides-Extra: runtime-strict
+Requires-Dist: IPython (==7.16.2) ; extra == 'runtime-strict'
+Requires-Dist: Werkzeug (==2.2.2) ; extra == 'runtime-strict'
+Requires-Dist: boto (==2.49.0) ; extra == 'runtime-strict'
+Requires-Dist: colorama (==0.3.2) ; extra == 'runtime-strict'
+Requires-Dist: delorean (==1.0.0) ; extra == 'runtime-strict'
+Requires-Dist: dtool-ibeis (==1.1.1) ; extra == 'runtime-strict'
+Requires-Dist: flask (==2.1.3) ; extra == 'runtime-strict'
+Requires-Dist: futures-actors (==0.0.5) ; extra == 'runtime-strict'
+Requires-Dist: guitool-ibeis (==2.1.2) ; extra == 'runtime-strict'
+Requires-Dist: lockfile (==0.10.2) ; extra == 'runtime-strict'
+Requires-Dist: parse (==1.19.0) ; extra == 'runtime-strict'
+Requires-Dist: plottool-ibeis (==2.2.1) ; extra == 'runtime-strict'
+Requires-Dist: pyasn1 (==0.4.8) ; extra == 'runtime-strict'
+Requires-Dist: pyflann-ibeis (==2.3.0) ; extra == 'runtime-strict'
+Requires-Dist: pygments (==2.11.2) ; extra == 'runtime-strict'
+Requires-Dist: pyhesaff (==2.1.1) ; extra == 'runtime-strict'
+Requires-Dist: pynmea2 (==1.5.3) ; extra == 'runtime-strict'
+Requires-Dist: pyparsing ; extra == 'runtime-strict'
+Requires-Dist: pyqt5 (==5.15.5) ; extra == 'runtime-strict'
+Requires-Dist: pyzmq (==25.0.0) ; extra == 'runtime-strict'
+Requires-Dist: requests ; extra == 'runtime-strict'
+Requires-Dist: safer (==4.4.1) ; extra == 'runtime-strict'
+Requires-Dist: setuptools (==34.1.0) ; extra == 'runtime-strict'
+Requires-Dist: simplejson (==3.6.5) ; extra == 'runtime-strict'
+Requires-Dist: six (==1.10.0) ; extra == 'runtime-strict'
+Requires-Dist: tornado (==6.2) ; extra == 'runtime-strict'
+Requires-Dist: ubelt (==1.2.3) ; extra == 'runtime-strict'
+Requires-Dist: utool (==2.1.7) ; extra == 'runtime-strict'
+Requires-Dist: vtool-ibeis (==2.2.0) ; extra == 'runtime-strict'
+Requires-Dist: vtool-ibeis-ext (==0.1.1) ; extra == 'runtime-strict'
+Requires-Dist: Pillow (==8.0.0) ; (python_version < "3.10" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==4.2.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==3.3.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.19.3) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.4.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.18.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==1.0.2) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'runtime-strict'
+Requires-Dist: Pillow (==9.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==3.5.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.21.6) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.3.5) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.19.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==1.1.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.8.2) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'runtime-strict'
+Requires-Dist: networkx (==2.7) ; (python_version < "3.11" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.0.0) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.0.0) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.3.0) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==4.0.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==1.5.3) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.1.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==0.24.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.5.4) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'runtime-strict'
+Requires-Dist: networkx (<=2.5.1,==2.2.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==2.2.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: networkx (==2.6.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.2.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==0.24.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.6.0) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: statsmodels (==0.12.2) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==4.0.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==3.6.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.19.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.4.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.17.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==1.0.2) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.8.0) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.7.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: statsmodels (==0.13.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'runtime-strict'
+Requires-Dist: Pillow (==9.2.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: cachetools (==5.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: matplotlib (==3.6.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: networkx (==2.8) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: pandas (==1.5.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: psutil (==5.9.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: scikit-image (==0.20.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: scikit-learn (==1.1.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: scipy (==1.9.2) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: shapely (==1.8.5) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: statsmodels (==0.13.3) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: numpy (==1.23.2) ; (python_version >= "3.11") and extra == 'runtime-strict'
+Requires-Dist: packaging (==21.3) ; (python_version >= "3.6") and extra == 'runtime-strict'
+Provides-Extra: tests
+Requires-Dist: kwimage (>=0.9.23) ; extra == 'tests'
+Requires-Dist: timerit (>=1.0.1) ; extra == 'tests'
+Requires-Dist: xdoctest (>=1.1.3) ; extra == 'tests'
+Provides-Extra: tests-strict
+Requires-Dist: kwimage (==0.9.23) ; extra == 'tests-strict'
+Requires-Dist: timerit (==1.0.1) ; extra == 'tests-strict'
+Requires-Dist: xdoctest (==1.1.3) ; extra == 'tests-strict'
+Requires-Dist: coverage (==4.5) ; (python_version < "2.7" and python_version >= "2.6") and extra == 'tests-strict'
+Requires-Dist: pytest-cov (==2.8.1) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'tests-strict'
+Requires-Dist: pytest (<=4.6.11,==4.6.0) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'tests-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'tests-strict'
+Requires-Dist: pytest (==4.6.0) ; (python_version < "3.10.0" and python_version >= "3.7.0") and extra == 'tests-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'tests-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'tests-strict'
+Requires-Dist: coverage (==4.3.4) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'tests-strict'
+Requires-Dist: pytest-cov (==2.8.1) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'tests-strict'
+Requires-Dist: pytest (<=4.6.11,==4.6.0) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'tests-strict'
+Requires-Dist: coverage (==5.3.1) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'tests-strict'
+Requires-Dist: pytest-cov (==2.9.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'tests-strict'
+Requires-Dist: pytest (<=6.1.2,==4.6.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'tests-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'tests-strict'
+Requires-Dist: pytest (==4.6.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'tests-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'tests-strict'
+Requires-Dist: coverage (==6.1.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'tests-strict'
+Requires-Dist: coverage (==7.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'tests-strict'
+Requires-Dist: pytest (==6.2.5) ; (python_version >= "3.10.0") and extra == 'tests-strict'
+Requires-Dist: pytest-cov (==3.0.0) ; (python_version >= "3.6.0") and extra == 'tests-strict'
+Requires-Dist: coverage (>=4.5) ; (python_version < "2.7" and python_version >= "2.6") and extra == 'tests'
+Requires-Dist: pytest-cov (>=2.8.1) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'tests'
+Requires-Dist: pytest (<=4.6.11,>=4.6.0) ; (python_version < "2.8.0" and python_version >= "2.7.0") and extra == 'tests'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.10" and python_version >= "3.9") and extra == 'tests'
+Requires-Dist: pytest (>=4.6.0) ; (python_version < "3.10.0" and python_version >= "3.7.0") and extra == 'tests'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.11" and python_version >= "3.10") and extra == 'tests'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.4" and python_version >= "2.7") and extra == 'tests'
+Requires-Dist: coverage (>=4.3.4) ; (python_version < "3.5" and python_version >= "3.4") and extra == 'tests'
+Requires-Dist: pytest-cov (>=2.8.1) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'tests'
+Requires-Dist: pytest (<=4.6.11,>=4.6.0) ; (python_version < "3.5.0" and python_version >= "3.4.0") and extra == 'tests'
+Requires-Dist: coverage (>=5.3.1) ; (python_version < "3.6" and python_version >= "3.5") and extra == 'tests'
+Requires-Dist: pytest-cov (>=2.9.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'tests'
+Requires-Dist: pytest (<=6.1.2,>=4.6.0) ; (python_version < "3.6.0" and python_version >= "3.5.0") and extra == 'tests'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.7" and python_version >= "3.6") and extra == 'tests'
+Requires-Dist: pytest (>=4.6.0) ; (python_version < "3.7.0" and python_version >= "3.6.0") and extra == 'tests'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.8" and python_version >= "3.7") and extra == 'tests'
+Requires-Dist: coverage (>=6.1.1) ; (python_version < "3.9" and python_version >= "3.8") and extra == 'tests'
+Requires-Dist: coverage (>=7.0.0) ; (python_version < "4.0" and python_version >= "3.11") and extra == 'tests'
+Requires-Dist: pytest (>=6.2.5) ; (python_version >= "3.10.0") and extra == 'tests'
+Requires-Dist: pytest-cov (>=3.0.0) ; (python_version >= "3.6.0") and extra == 'tests'
+
+|ReadTheDocs| |Pypi| |Downloads| |Codecov| |GithubActions| 
+
+
+.. image:: https://i.imgur.com/L0k84xQ.png
+
+This project is a component of the WildMe / WildBook project: See https://github.com/WildbookOrg/
+
+NOTE: This IBEIS software is the result of my (Jon Crall's) [PhD
+work](https://github.com/Erotemic/crall-thesis-2017). After I graduated, the
+image analysis components of IBEIS and the core HotSpotter program have been
+transferred and are now being developed by the WildMe organization. While this
+software is maintained and supported, it can only handle medium scale
+populations and its it GUI interface can be difficult to work with. If you have
+a larger population or the need for simpler and scalable web interfaces  please
+reach out to the WildMe project at services@wildme.org (more info:
+https://www.wildme.org/#/services/ ). 
+
+
+IBEIS - Image Analysis 
+----------------------
+
+I.B.E.I.S. = Image Based Ecological Information System
+------------------------------------------------------
+
+.. image:: http://i.imgur.com/TNCiEBe.png
+    :alt: "(Note: the rhino and wildebeest matches may be dubious. Other species do work well though")
+
+
+Installation Instructions (updated 2020-Nov-01)
+-----------------------------------------------
+
+The IBEIS software is now available on `pypi
+<https://pypi.org/project/ibeis/>`_ for Linux systems. This means if you have
+`Python installed
+<https://xdoctest.readthedocs.io/en/latest/installing_python.html>`_. You can
+simply run:
+
+
+.. code:: bash
+
+    pip install ibeis
+
+to install the software. Then the command to run the GUI is:
+
+
+.. code:: bash
+
+    ibeis
+
+On Windows / OSX I recommend using a Linux virtual machine. However, if you are
+computer savvy it is possible to build all of the requirements on from source.
+The only tricky components are installing the packages with binary
+dependencies: ``pyhesaff`` and ``vtool_ibeis``. If you have these built then
+the rest of the dependencies can be installed from pypi even on OSX / Windows.
+
+NOTE: When using a VM on windows, you may encounter an error:
+
+.. code:: 
+
+    qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in 
+    ... even though it was found. This application failed to start because no
+    Qt platform plugin could be initialized. Reinstalling the application may
+    fix this problem.
+
+    Available platform plugins are: xcb, eglfs, ...
+
+    Core dumped
+
+The reason the issue happens appears to be because the opencv-python package
+includes libraries also packaged with PyQt5 and those are conflicting. 
+
+The workaround is to uninstall opencv-python and then install a variant that
+does not include extra Qt libs:
+
+.. code:: bash
+
+    pip uninstall opencv-python
+    pip install opencv-python-headless
+
+    
+Basic Usage (updated 2020-Nov-01)
+---------------------------------
+
+After installation running the ``ibeis`` command will open the GUI:
+
+
+If you have already made a database, it will automatically open the most recently used database.
+
+.. image:: https://i.imgur.com/xXF7w8P.png
+
+If this is the first time you've run the program it will not have a database opened:
+
+.. image:: https://i.imgur.com/Ey9Urcv.png
+
+Select new database, (which will first ask you to select a work directory where all of your databases will live).
+Then you will be asked to create a database name. Select one and then create the database in your work directory.
+
+
+You can drag and drop images into the GUI to add them to the database.  Double
+clicking an image lets you add "annotations":
+
+
+.. image:: https://i.imgur.com/t0LQZot.png
+
+You can also right click one or more images and click "Add annotations from
+entire images" if your images are already localized to a single individual.
+
+It important than when you add an annotation, you set its species. You can
+right click multiple annotations and click "set annotation species". Change
+this to anything other than "____".
+
+Once you have annotations with species, you can click one and press "q" to
+query for matches in the database of other annotations:
+
+
+.. image:: https://i.imgur.com/B0ilafa.png
+
+Right clicking and marking each match as "True" or "False" (or alternatively
+selecting a row and pressing "T" or "F") will mark images as the same or
+different individuals. Groups marked as the same individual will appear in the
+"Tree of Names".
+
+Note there are also batch identification methods in the "ID Encounters" "ID
+Exemplars" and "Advanced ID Interface" (my personal recommendation). Play
+around with different right-click menus (although note that some of these are
+buggy and will crash the program), but the main simple identification
+procedures are robust and should not crash.
+
+
+Program Description
+-------------------
+
+IBEIS program for the storage and management of images and derived data for
+use in computer vision algorithms. It aims to compute who an animal is, what
+species an animal is, and where an animal is with the ultimate goal being to
+ask important why biological questions.  This This repo Image Analysis image
+analysis module of IBEIS. It is both a python module and standalone program. 
+
+Currently the system is build around and SQLite database, a PyQt5 GUI,
+and matplotlib visualizations. Algorithms employed are: random forest species
+detection and localization, hessian-affine keypoint detection, SIFT keypoint
+description, LNBNN identification using approximate nearest neighbors.
+Algorithms in development are SMK (selective match kernel) for identification
+and deep neural networks for detection and localization. 
+
+The core of IBEIS is the IBEISController class. It provides an API into IBEIS
+data management and algorithms. The IBEIS API Documentation can be found here:
+`http://erotemic.github.io/ibeis`
+
+The IBEIS GUI (graphical user interface) is built on top of the API. 
+We are also experimenting with a new web frontend that bypasses the older GUI code.
+
+Self Installing Executables
+---------------------------
+
+Unfortunately we have not released self-installing-executables for IBEIS yet. 
+We ~plan~ hope to release these soon™.
+
+However there are old [HotSpotter](https://github.com/Erotemic/hotspotter) (the
+predecessor to IBEIS) binaries available. 
+
+.. These can be downloaded from: `http://cs.rpi.edu/hotspotter/`
+
+Dropbox should still be hosting the download links: 
+
+* Win32 Installer: https://www.dropbox.com/s/5j1xyx2hq1wzqz2/hotspotter-win32-setup.exe?dl=0 
+
+* OSX Installer: https://www.dropbox.com/s/q0vzz3xnjbxhsda/hotspotter_installer_mac.dmg?dl=0
+
+IPFS CIDs for the previous installers are QmSnyetkniriHUwTxvzwhkysPKjUj7udBqq5mpK24VJXVM and QmZ3WknrAaxPZhZebdQWZ45EEKwu1Tr6bkFWJzfPRtENs7.
+
+If you are unfamiliar with IPFS use the following gateway links:
+
+https://ipfs.io/ipfs/QmSnyetkniriHUwTxvzwhkysPKjUj7udBqq5mpK24VJXVM 
+
+https://ipfs.io/ipfs/QmZ3WknrAaxPZhZebdQWZ45EEKwu1Tr6bkFWJzfPRtENs7
+
+
+Visual Demo
+-----------
+
+
+.. image:: http://i.imgur.com/QWrzf9O.png
+   :width: 600
+   :alt: Feature Extraction
+
+.. image:: http://i.imgur.com/iMHKEDZ.png
+   :width: 600
+   :alt: Nearest Neighbors
+
+
+Match Scoring 
+-------------
+
+.. image:: http://imgur.com/Hj43Xxy.png
+   :width: 600
+   :alt: Match Inspection
+
+Spatial Verification
+--------------------
+
+.. image:: http://i.imgur.com/VCz0j9C.jpg
+   :width: 600
+   :alt: sver
+
+
+.. code:: bash
+
+    python -m vtool.spatial_verification spatially_verify_kpts --show
+
+Name Scoring
+------------
+
+.. image:: http://i.imgur.com/IDUnxu2.jpg
+   :width: 600
+   :alt: namematch
+
+
+.. code:: bash
+
+    python -m ibeis.algo.hots.chip_match show_single_namematch --qaid 1 --show
+
+Identification Ranking 
+----------------------
+
+.. image:: http://i.imgur.com/BlajchI.jpg
+   :width: 600
+   :alt: rankedmatches
+
+
+.. code:: bash
+
+    python -m ibeis.algo.hots.chip_match show_ranked_matches --show --qaid 86
+
+Inference
+---------
+
+.. image:: http://i.imgur.com/RYeeENl.jpg
+   :width: 600
+   :alt: encgraph
+
+
+.. code:: bash
+
+    # broken
+    # python -m ibeis.algo.preproc.preproc_encounter compute_encounter_groups --show
+
+Internal Modules
+----------------
+
+In the interest of modular code we are actively developing several different modules. 
+
++-----------------------------------------------------------------+--------------------------------+
+| `ibeis <https://github.com/Erotemic/ibeis>`_                    | |ibeisGithubActions|           |
++-----------------------------------------------------------------+--------------------------------+
+| `utool <https://github.com/Erotemic/utool>`_                    | |utoolGithubActions|           |
++-----------------------------------------------------------------+--------------------------------+
+| `plottool_ibeis <https://github.com/Erotemic/plottool_ibeis>`_  | |plottool_ibeisGithubActions|  |
++-----------------------------------------------------------------+--------------------------------+
+| `guitool_ibeis <https://github.com/Erotemic/guitool_ibeis>`_    | |guitool_ibeisGithubActions|   |
++-----------------------------------------------------------------+--------------------------------+
+| `dtool_ibeis <https://github.com/Erotemic/dtool_ibeis>`_        | |dtool_ibeisGithubActions|     |
++-----------------------------------------------------------------+--------------------------------+
+| `pyhesaff <https://github.com/Erotemic/pyhesaff>`_              | |pyhesaffGithubActions|        |
++-----------------------------------------------------------------+--------------------------------+
+| `pyflann_ibeis <https://github.com/Erotemic/pyflann_ibeis>`_    | |pyflann_ibeisGithubActions|   |
++-----------------------------------------------------------------+--------------------------------+
+| `vtool_ibeis <https://github.com/Erotemic/vtool_ibeis>`_        | |vtool_ibeis_extGithubActions| |
++-----------------------------------------------------------------+--------------------------------+
+| `futures_actors <https://github.com/Erotemic/futures_actors>`_  |  ---                           |
++-----------------------------------------------------------------+--------------------------------+
+
+.. |ibeisGithubActions| image:: https://github.com/Erotemic/ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/ibeis/actions?query=branch%3Amain
+.. |utoolGithubActions| image:: https://github.com/Erotemic/utool/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/utool/actions?query=branch%3Amain
+.. |vtool_ibeisGithubActions| image:: https://github.com/Erotemic/vtool_ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/vtool_ibeis/actions?query=branch%3Amain
+.. |dtool_ibeisGithubActions| image:: https://github.com/Erotemic/dtool_ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/dtool_ibeis/actions?query=branch%3Amain
+.. |plottool_ibeisGithubActions| image:: https://github.com/Erotemic/plottool_ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/plottool_ibeis/actions?query=branch%3Amain
+.. |guitool_ibeisGithubActions| image:: https://github.com/Erotemic/guitool_ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/guitool_ibeis/actions?query=branch%3Amain
+.. |pyhesaffGithubActions| image:: https://github.com/Erotemic/pyhesaff/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/pyhesaff/actions?query=branch%3Amain
+.. |pyflann_ibeisGithubActions| image:: https://github.com/Erotemic/pyflann_ibeis/actions/workflows/test_binaries.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/pyflann_ibeis/actions?query=branch%3Amain
+.. |vtool_ibeis_extGithubActions| image:: https://github.com/Erotemic/vtool_ibeis_ext/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/vtool_ibeis_ext/actions?query=branch%3Amain
+
+
+bluemellophone's IBEIS Image Analysis modules
+
+* https://github.com/WildbookOrg/detecttools
+* https://github.com/WildbookOrg/pyrf
+  docs: http://bluemellophone.github.io/pyrf
+
+
+Building from source
+--------------------
+
+To build from source you need to be able to build the following 3 projects with
+binary dependences. These depened on having a development version of OpenCV and
+LZ4.
+
+* https://github.com/Erotemic/vtool_ibeis_ext
+
+* https://github.com/Erotemic/pyflann_ibeis
+
+* https://github.com/Erotemic/pyhesaff
+
+If you are on Linux simply using the wheels for the above projects (
+i.e. ``pip install vtool_ibeis_ext  pyflann_ibeis pyhesaff`` is recommended).
+On OSX and Win32 these need to be build manually (any contributions to help
+these build win32 or osx wheels on their respective project CI would be
+amazing!).
+
+The rest of the dependency repos (``guitool_ibeis``, ``plottool_ibeis``,
+``dtool_ibeis``, ``vtool_ibeis``,)  are pure python and can be installed in
+development mode with the normal clone the repo, and run ``pip install -e .``
+inside the repo process.
+
+Given a Python environment where each of the dependency modules is installed
+this repo can be installed with ``pip install -e .`` as well. 
+
+
+Demo Databases
+--------------
+
+A set of small (400MB) demo databases PZ_MTEST1 and NAUT_TEST can be downloaded
+via.
+
+.. code:: python
+
+   python dev/reset_dbs.py
+
+
+Note that it downloads the data from an IPFS gateway, which may be slow and
+require several attempts before it works.
+
+
+Running Tests
+-------------
+
+The tests depend on an even smaller set of test databases, which can be
+prepared via `ibeis --reset-ci-dbs`. Once you have the test data you can use
+the ``run_doctests.sh`` or ``run_tests.py`` script to execute the system tests.
+
+Known issues
+------------
+
+* We do not add or remove points from kdtrees. They are always rebuilt
+
+* Changing algorithm settings in the preferences window seems bugged and
+  probably requires a fix in utool. The default settings should work and using
+  the Python API with explicit algorithm settings should also be fine.
+
+* The code is a mess! PRs are welcome!
+
+* The UI has lots of unused or broken components. PRs to disable or make these
+  nicer are welcome!
+
+* The only blockers for Windows / OSX pip installs are pyhesaff, pyflann_ibeis, and vtool_ibeis_ext binary wheels. Getting these to build on Github Actions would mean pip installable IBEIS on non-Linux systems.
+
+
+Citations and Related Work
+--------------------------
+
+The best citation for this work would be `my thesis <https://github.com/Erotemic/crall-thesis-2017>`_.
+
+.. code:: bibtex
+
+    @phdthesis{crall_identifying_2017,
+      address = {Troy, NY},
+      author = {Crall, Jonathan P.},
+      school = {Department of Computer Science, Rensselaer Polytechnic Institute},
+      title = {Identifying {Individual} {Animals} using {Ranking}, {Verification}, and {Connectivity}},
+      type = {Ph.{D}. {Thesis}},
+      year = {2017}
+    }
+
+The original HotSpotter paper is:
+
+`Crall, Stewart, Bertger-Wolf, Rubenstein, and Sundaresan. "HotSpotter - Patterned Species Instance Recognition" WACV 2013 <http://cs.rpi.edu/hotspotter/crall-hotspotter-wacv-2013.pdf>`__
+
+Other relevant citations are:
+
+`Parham, Jason. "Animal Detection for Photographic Censusing" RPI PhD Thesis 2021 <https://github.com/bluemellophone/dissertation>`__
+
+`Weideman, Hendrik. "Contour-Based Instance Recognition of Animals" RPI PhD Thesis 2019 <https://hjweide.github.io/research/>`__
+
+.. https://web.archive.org/web/20160706072208/http://cs.rpi.edu/hotspotter/crall-hotspotter-wacv-2013.pdf
+
+`Parham, Crall, Stewart, Berger-Wolf, and Rubenstein, "Animal population censusing at scale with citizen science and photographic identification" AAAI 2017 <https://oar.princeton.edu/jspui/bitstream/88435/pr1s791/1/Animal_Population_Censusing_Scale.pdf>`__
+
+
+
+.. |CircleCI| image:: https://circleci.com/gh/Erotemic/ibeis.svg?style=svg
+    :target: https://circleci.com/gh/Erotemic/ibeis
+.. |Travis| image:: https://img.shields.io/travis/Erotemic/ibeis/master.svg?label=Travis%20CI
+   :target: https://travis-ci.org/Erotemic/ibeis?branch=master
+.. |Appveyor| image:: https://ci.appveyor.com/api/projects/status/github/Erotemic/ibeis?branch=master&svg=True
+   :target: https://ci.appveyor.com/project/Erotemic/ibeis/branch/master
+.. |Codecov| image:: https://codecov.io/github/Erotemic/ibeis/badge.svg?branch=master&service=github
+   :target: https://codecov.io/github/Erotemic/ibeis?branch=master
+.. |Pypi| image:: https://img.shields.io/pypi/v/ibeis.svg
+   :target: https://pypi.python.org/pypi/ibeis
+.. |Downloads| image:: https://img.shields.io/pypi/dm/ibeis.svg
+   :target: https://pypistats.org/packages/ibeis
+.. |ReadTheDocs| image:: https://readthedocs.org/projects/ibeis/badge/?version=latest
+    :target: http://ibeis.readthedocs.io/en/latest/
+.. |GithubActions| image:: https://github.com/Erotemic/ibeis/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/ibeis/actions?query=branch%3Amain
+
+
