@@ -1,0 +1,15 @@
+pyproject.toml
+readme.md
+structures/modules/sphene/__init__.py
+structures/modules/sphene/_clique.py
+structures/modules/sphene.egg-info/PKG-INFO
+structures/modules/sphene.egg-info/SOURCES.txt
+structures/modules/sphene.egg-info/dependency_links.txt
+structures/modules/sphene.egg-info/entry_points.txt
+structures/modules/sphene.egg-info/requires.txt
+structures/modules/sphene.egg-info/top_level.txt
+structures/modules/sphene/_license/licenses/gpl-3.0-standalone.html
+structures/modules/sphene/_status/status.proc.py
+structures/modules/sphene/_status/checks/1/status_1.py
+structures/modules/sphene/basin/__init__.py
+structures/modules/sphene/basin/treasury.py
