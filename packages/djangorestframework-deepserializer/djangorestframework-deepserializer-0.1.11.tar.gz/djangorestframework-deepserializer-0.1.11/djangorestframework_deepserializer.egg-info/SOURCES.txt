@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+deepserializer/__init__.py
+deepserializer/serializers.py
+deepserializer/views.py
+djangorestframework_deepserializer.egg-info/PKG-INFO
+djangorestframework_deepserializer.egg-info/SOURCES.txt
+djangorestframework_deepserializer.egg-info/dependency_links.txt
+djangorestframework_deepserializer.egg-info/requires.txt
+djangorestframework_deepserializer.egg-info/top_level.txt
