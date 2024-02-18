@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+py360convert/__init__.py
+py360convert/c2e.py
+py360convert/e2c.py
+py360convert/e2p.py
+py360convert/utils.py
+py360convert_modified.egg-info/PKG-INFO
+py360convert_modified.egg-info/SOURCES.txt
+py360convert_modified.egg-info/dependency_links.txt
+py360convert_modified.egg-info/entry_points.txt
+py360convert_modified.egg-info/requires.txt
+py360convert_modified.egg-info/top_level.txt
