@@ -1,0 +1,68 @@
+include CMakeLists.txt
+include LICENSE
+include README.md
+include TODO.md
+include config.h.in
+include requirements.dev.txt
+include docs/Makefile
+include docs/gen_config.py
+include docs/make.bat
+include docs/requirements.txt
+include docs/source/conf.py
+include docs/source/config_params.rst
+include docs/source/index.rst
+include docs/source/readme.js.rst
+include docs/source/readme.rst
+include docs/source/soundswallower.rst
+include include/soundswallower/CMakeLists.txt
+recursive-include include *.h
+include js/README.md
+include js/.npmignore
+include js/*.txt
+include js/*.js
+include js/*.ts
+include js/*.html
+include js/*.py
+include js/*.c
+include js/*.json
+recursive-include model *
+include py/CMakeLists.txt
+include py/_soundswallower.pxd
+include py/_soundswallower.pyx
+include py/soundswallower/__init__.py
+include py/soundswallower/cli.py
+include py/test/test_cli.py
+include py/test/test_config.py
+include py/test/test_decoder.py
+include py/test/test_fsg.py
+include pyproject.toml
+include setup.py
+include src/CMakeLists.txt
+recursive-include src *.c
+recursive-include src *.h
+recursive-include src *.y
+recursive-include src *.l
+include tests/CMakeLists.txt
+include tests/*.test
+include tests/*.res
+include tests/*.c
+include tests/*.sh
+include tests/testfuncs.sh.in
+include tests/test_macros.h.in
+include tests/compare_table.pl
+recursive-include tests/data *
+exclude MANIFEST.in
+exclude .readthedocs.yml
+exclude .travis.yml
+exclude .gitignore
+recursive-exclude .github *
+recursive-exclude _skbuild *
+recursive-exclude build *
+recursive-exclude jsbuild *
+recursive-exclude * .gitignore
+recursive-exclude * *.py[co]
+recursive-exclude * *~
+recursive-exclude * *.orig
+recursive-exclude * *.DS_Store
+global-include *.pyi
+global-include *.typed
