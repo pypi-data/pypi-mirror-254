@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+setup.py
+nicellm/__init__.py
+nicellm/get_response.py
+nicellm/google.py
+nicellm/openai.py
+nicellm.egg-info/PKG-INFO
+nicellm.egg-info/SOURCES.txt
+nicellm.egg-info/dependency_links.txt
+nicellm.egg-info/requires.txt
+nicellm.egg-info/top_level.txt
