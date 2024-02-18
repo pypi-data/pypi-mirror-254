@@ -1,0 +1,16 @@
+nidibot/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nidibot/nidibot.py,sha256=E04AbZDPIWbvRKU8-hL9o1gLYRExtdLn1Dvkef606M8,16407
+nidibot/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nidibot/server_provider/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nidibot/server_provider/game_server.py,sha256=PSMpnpZEOhB5dH6aqzd-QukrTSM7DX_4CNpwvASPrN4,1147
+nidibot/server_provider/nitrado_server_provider.py,sha256=YpQOArx8fUQYKF7EDm5FLon3DjeArLwUfahas7DVao4,11960
+nidibot/server_provider/server_provider_interface.py,sha256=ndQ8da61jppbj2lnm1zWCH_b5gfjGKDA6StRtTUHY_E,1171
+nidibot/templates/common/bot_configuration.json,sha256=VDH8kdIsrww1c-hv8vlagwnXiAWlv2nMln3skdlIfMY,368
+nidibot/templates/common/start_bot.py,sha256=sdwOYysJAF-pUGGXtJbcVklVXt9yTND86cN4FzJJwX4,483
+nidibot/templates/linux/nidibot.service,sha256=GkDJ8sL7XfcDQY_BVGQpUyjp1QIE_XxbRpa1UswVCQg,204
+nidibot-1.0.8.dist-info/LICENSE,sha256=1opSly8M7omO5qh4cV7O-CmRGHnUT-9ILxuqcWsjlAk,1499
+nidibot-1.0.8.dist-info/METADATA,sha256=YZd34IEfrI3eqJLAUqIEVnvNfTraFog2y4sSy7XpJj8,3871
+nidibot-1.0.8.dist-info/WHEEL,sha256=-G_t0oGuE7UD0DrSpVZnq1hHMBV9DD2XkS5v7XpmTnk,110
+nidibot-1.0.8.dist-info/top_level.txt,sha256=DKm9C2rjS8r70smbPoQnkV1zqmBp6ZCjK4ueakJm6wk,8
+nidibot-1.0.8.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+nidibot-1.0.8.dist-info/RECORD,,
