@@ -1,0 +1,10 @@
+{
+    "versions": ["0.2"],
+    "name": "VIAF",
+    "view": {
+        "url": "https://viaf.org/viaf/{id}"
+    },
+    "feature_view": {
+        "url": "https://vocab.getty.edu/recon/features/{id}"
+    }
+}

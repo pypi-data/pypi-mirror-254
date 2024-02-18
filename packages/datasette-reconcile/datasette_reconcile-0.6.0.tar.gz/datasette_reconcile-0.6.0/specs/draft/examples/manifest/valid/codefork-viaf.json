@@ -1,0 +1,29 @@
+{
+  "versions": ["0.2"],
+  "name": "VIAF",
+  "view": {
+    "url": "http://viaf.org/viaf/{id}"
+  },
+  "defaultTypes": [
+    {
+      "id": "/people/person",
+      "name": "Person"
+    },
+    {
+      "id": "/organization/organization",
+      "name": "Corporate Name"
+    },
+    {
+      "id": "/location/location",
+      "name": "Geographic Name"
+    },
+    {
+      "id": "/book/book",
+      "name": "Work"
+    },
+    {
+      "id": "/book/book edition",
+      "name": "Expression"
+    }
+  ]
+}

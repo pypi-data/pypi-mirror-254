@@ -1,0 +1,85 @@
+{
+  "versions": ["0.2"],
+  "name": "GND reconciliation for OpenRefine",
+  "defaultTypes": [
+    {
+      "id": "AuthorityResource",
+      "name": "Normdatenressource"
+    },
+    {
+      "id": "CorporateBody",
+      "name": "Körperschaft"
+    },
+    {
+      "id": "ConferenceOrEvent",
+      "name": "Konferenz oder Veranstaltung"
+    },
+    {
+      "id": "SubjectHeading",
+      "name": "Schlagwort"
+    },
+    {
+      "id": "Work",
+      "name": "Werk"
+    },
+    {
+      "id": "PlaceOrGeographicName",
+      "name": "Geografikum"
+    },
+    {
+      "id": "DifferentiatedPerson",
+      "name": "Individualisierte Person",
+      "broader": [
+        {
+          "id": "Person",
+          "name": "Person"
+        }
+      ]
+    },
+    {
+      "id": "Family",
+      "name": "Familie"
+    }
+  ],
+  "view": {
+    "url": "https://lobid.org/gnd/{id}"
+  },
+  "preview": {
+    "height": 100,
+    "width": 320
+  },
+  "extend": {
+    "property_settings": [
+      {
+        "name": "limit",
+        "label": "Limit",
+        "type": "number",
+        "default": 0,
+        "help_text": "Maximum number of values to return per row (0 for no limit)"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "select",
+        "default": "literal",
+        "help_text": "Content type: ID or literal",
+        "choices": [
+          {
+            "value": "id",
+            "name": "ID"
+          },
+          {
+            "value": "literal",
+            "name": "Literal"
+          }
+        ]
+      }
+    ],
+    "propose_properties": true
+  },
+  "suggest": {
+    "property": true,
+    "entity": true,
+    "type": true
+  }
+}

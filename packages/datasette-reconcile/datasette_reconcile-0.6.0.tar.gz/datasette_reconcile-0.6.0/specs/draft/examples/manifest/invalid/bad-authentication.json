@@ -1,0 +1,9 @@
+{
+  "name": "OpenCorporates Reconciliation Service",
+  "view": {
+    "url": "{+id}"
+  },
+  "authentication": {
+     "foo": "bar"
+  }
+}

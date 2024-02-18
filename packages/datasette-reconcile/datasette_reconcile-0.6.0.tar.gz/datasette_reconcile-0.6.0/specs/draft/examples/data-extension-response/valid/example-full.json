@@ -1,0 +1,113 @@
+{
+  "meta": [
+    {
+      "id": "variantName",
+      "name": "Varianter Name"
+    },
+    {
+      "id": "geographicAreaCode",
+      "name": "Ländercode"
+    },
+    {
+      "id": "professionOrOccupation",
+      "name": "Beruf oder Beschäftigung",
+      "type": {
+        "id": "SubjectHeading",
+        "name": "Schlagwort"
+      }
+    },
+    {
+      "id": "wikidataId",
+      "name": "Wikidata ID",
+      "service": "https://www.wikidata.org/api/reconcile"
+    }
+  ],
+  "rows": [
+    {
+      "id": "10662041X",
+      "properties": [
+        {
+          "id": "variantName",
+          "values": [
+            {
+              "str": "Stryi-Leitgeb, Gerda",
+              "lang": "de"
+            },
+            {
+              "str": "Leitgeb, Gerda Stryi-"
+            }
+          ]
+        },
+        {
+          "id": "geographicAreaCode",
+          "values": [
+            {
+              "str": "http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE"
+            }
+          ]
+        },
+        {
+          "id": "professionOrOccupation",
+          "values": [
+            {
+              "id": "4037223-6",
+              "name": "Malerin",
+              "description": "Beruf"
+            },
+            {
+              "id": "4033430-2",
+              "name": "Künstlerin",
+              "lang": "de"
+            }
+          ]
+        },
+        {
+          "id": "wikidataId",
+          "values": [
+            {
+              "id": "Q3874347",
+              "name": "Gerda Stryi-Leitgeb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1064905412",
+      "properties": [
+        {
+          "id": "variantName",
+          "values": [
+            {}
+          ]
+        },
+        {
+          "id": "geographicAreaCode",
+          "values": [
+            {
+              "str": "http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE"
+            }
+          ]
+        },
+        {
+          "id": "professionOrOccupation",
+          "values": [
+            {
+              "id": "4002844-6",
+              "name": "Architekt"
+            }
+          ]
+        },
+        {
+          "id": "wikidataId",
+          "values": [
+            {
+              "id": "Q3874347",
+              "name": "Gerda Stryi-Leitgeb"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

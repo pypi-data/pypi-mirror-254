@@ -1,0 +1,18 @@
+{
+  "versions": ["0.2"],
+  "name": "Pleiades Reconciliation for OpenRefine",
+  "view": {
+    "url": "{+id}"
+  },
+  "suggest": {
+    "entity": false,
+    "property": true,
+    "type": false
+  },
+  "defaultTypes": [
+    {
+      "id": "Place",
+      "name": "Pleiades Place"
+    }
+  ]
+}

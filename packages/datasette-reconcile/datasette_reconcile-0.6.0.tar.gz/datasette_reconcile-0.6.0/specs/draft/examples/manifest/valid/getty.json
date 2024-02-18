@@ -1,0 +1,35 @@
+{
+  "versions": ["0.2"],
+  "defaultTypes": [
+    {
+      "id": "/ulan",
+      "name": "ULAN search"
+    },
+    {
+      "id": "/tgn",
+      "name": "TGN search"
+    },
+    {
+      "id": "/aat",
+      "name": "AAT search"
+    },
+    {
+      "id": "/all",
+      "name": "Search all Vocabs"
+    }
+  ],
+  "name": "Getty Vocabularies Reconciliation Service",
+  "batchSize": 50,
+  "preview": {
+    "height": 200,
+    "width": 350
+  },
+  "suggest": {
+    "entity": false,
+    "property": true,
+    "type": false
+  },
+  "view": {
+    "url": "http://vocab.getty.edu/page/{id}"
+  }
+}
