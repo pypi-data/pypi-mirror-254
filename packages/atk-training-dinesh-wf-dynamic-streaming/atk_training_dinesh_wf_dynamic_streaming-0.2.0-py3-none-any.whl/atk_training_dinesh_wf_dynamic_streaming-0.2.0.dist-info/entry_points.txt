@@ -1,0 +1,4 @@
+[console_scripts]
+atk-dinesh-wf-adapter-process-stream=stream_adapter_functions:app
+atk-dinesh-wf-process-stream=stream_functions:app
+
