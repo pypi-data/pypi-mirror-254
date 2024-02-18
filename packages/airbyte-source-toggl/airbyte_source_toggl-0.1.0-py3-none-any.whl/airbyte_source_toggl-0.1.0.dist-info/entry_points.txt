@@ -1,0 +1,2 @@
+[console_scripts]
+source-toggl = source_toggl.run:run
