@@ -1,0 +1,5 @@
+[console_scripts]
+obs=scripts:ex_obs
+x32=scripts:test_x32
+xair=scripts:test_xair
+
