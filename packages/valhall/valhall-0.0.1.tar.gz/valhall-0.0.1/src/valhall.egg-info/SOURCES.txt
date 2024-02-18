@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/valhall/__init__.py
+src/valhall/example.py
+src/valhall.egg-info/PKG-INFO
+src/valhall.egg-info/SOURCES.txt
+src/valhall.egg-info/dependency_links.txt
+src/valhall.egg-info/top_level.txt
