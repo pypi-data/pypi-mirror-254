@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: onRobot
+Version: 0.1.0
+Summary: A simple gripper library for UR robot with onRobot gripper, no onrobot compute box needed!
+Home-page: https://github.com/RyanPaulMcKenna/onRobot
+Author: Ryan McKenna
+Author-email: ryan.mckenna@york.ac.uk
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
