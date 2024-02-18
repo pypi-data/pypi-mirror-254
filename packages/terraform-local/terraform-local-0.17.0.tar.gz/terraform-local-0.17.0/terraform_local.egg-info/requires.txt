@@ -1,0 +1,7 @@
+localstack-client
+python-hcl2
+
+[test]
+flake8
+localstack
+pytest
