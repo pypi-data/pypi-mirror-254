@@ -1,0 +1,16 @@
+xgpu/libwgpu_native.so,sha256=zwSS542wG8GZs-LI5bOs3Ro8mNtbVqL3IUEzLPAYjTU,11789824
+xgpu/_wgpu_native_cffi.cpython-37m-x86_64-linux-gnu.so,sha256=a8y_0FJa02zl5o25XmIPI4Fv4FeHvD6lQPK8cTxZzLM,1117809
+xgpu/_build_ext.py,sha256=G4G7T2-Gtuw1NJrsgE-0RVa1MrxsJk6MCA0-D1qC-ck,76545
+xgpu/__init__.py,sha256=X9z9ljKSVsUATR8ygIYy3vA0cA18EB2fGdasCQ9XdOU,75
+xgpu/renderdoc.py,sha256=igkbVNPzW-dmMJTvRoO6w2RxHux-xn_r-NIiBZyFYqU,12839
+xgpu/bindings.py,sha256=jk-rZBO7L6IixiHB7j3Cf5Q0o7yyCDMj6OUah-xeAY4,273615
+xgpu/extensions/helpers.py,sha256=QyqqQN1m5E6gbe2clxMnJXsbuVYWG01pCLFTM0oEZ-8,5283
+xgpu/extensions/glfw_window.py,sha256=Ku-56NJ64g8r83_xe7oujnFieIvmcNcwB8ChVvkhfnI,7181
+xgpu/extensions/imgui_renderer.py,sha256=v8JzPzz8sf5aUgnoWi8M4UvZaTsVIoGh7opd4R3_lcs,16180
+xgpu/extensions/wrappers.py,sha256=mdn_fnA7lGo3Z_iCC1E2Evj5u3q8QR46OHGZLpSlRR4,14988
+xgpu/extensions/__init__.py,sha256=Ia-3VWY8Rdzqus4wqOKlt-qISuOB4ObOFR1wOhXs0GA,306
+xgpu-0.7.1.dist-info/WHEEL,sha256=b79Oiwj0qymylbEAL1CtY7GBaMP1ooxouut30pqD4V8,113
+xgpu-0.7.1.dist-info/METADATA,sha256=VH8QwikL3Ef5eH8TLfGq5ml6mBOBhOtjubQrPICLqWw,7375
+xgpu-0.7.1.dist-info/top_level.txt,sha256=8YZR9bJi6aEHDR2Y3RHd8Yqh5cQWD0uBOiHZmrVd-Eg,5
+xgpu-0.7.1.dist-info/LICENSE,sha256=ywcS5hV1O2Laf_jmWbJ8612MW1bBRAExjRvgJvphtx4,1062
+xgpu-0.7.1.dist-info/RECORD,,
