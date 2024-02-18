@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: rides-env
+Version: 0.1.9
+Summary: 
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: gymnasium >= 0.29.1
+Requires-Dist: numpy >= 1.24.0
+Requires-Dist: tram >= 0.1.8
+Requires-Dist: scipy >= 1.10.0
+Requires-Dist: geopandas >= 0.13.0
+Requires-Dist: shapely >= 2.0.0
+
+## README
