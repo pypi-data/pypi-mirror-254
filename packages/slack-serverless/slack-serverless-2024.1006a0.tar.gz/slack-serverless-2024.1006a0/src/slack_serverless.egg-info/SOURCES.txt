@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/slack_deferred_gcp.py
+src/slack_messaging.py
+src/slack_serverless.py
+src/slack_serverless.egg-info/PKG-INFO
+src/slack_serverless.egg-info/SOURCES.txt
+src/slack_serverless.egg-info/dependency_links.txt
+src/slack_serverless.egg-info/requires.txt
+src/slack_serverless.egg-info/top_level.txt

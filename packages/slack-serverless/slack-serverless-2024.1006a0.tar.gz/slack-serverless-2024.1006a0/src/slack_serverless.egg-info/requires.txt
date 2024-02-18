@@ -1,0 +1,12 @@
+requests>=2.31.0
+google-cloud-pubsub>=2.18.1
+
+[dev]
+black
+bumpver
+pre-commit
+isort
+pip-tools
+pytest
+sure
+httpretty
