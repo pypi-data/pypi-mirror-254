@@ -1,0 +1,8 @@
+Input {
+    dock: top;
+    width: 100%;
+}
+
+#output-container {
+    height: 70%
+}
