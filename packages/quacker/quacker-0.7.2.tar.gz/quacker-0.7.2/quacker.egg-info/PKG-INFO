@@ -1,0 +1,373 @@
+Metadata-Version: 2.1
+Name: quacker
+Version: 0.7.2
+Summary: Sync dbt sources and models from cloud warehouses to duckdb
+Author: Amir Jaber
+Description-Content-Type: text/markdown
+
+# **Quacker**
+
+**Quacker** is a streamlined command-line interface (CLI) tool designed to replicate [dbt](https://www.getdbt.com/) [`sources`](https://docs.getdbt.com/docs/build/sources) as tables from a Cloud Data `Warehouse` into a local `DuckDB` `database`. This allows for faster and more cost-effective local development with dbt.
+
+**Quacker** currently support syncing from either
+* Snowflake
+* BigQuery
+
+## Features
+
+- Replicates dbt `sources` to local `DuckDB` files.
+- Simplifies local `dbt` development and testing.
+- Supports flexible `project` and `manifest` directory paths.
+- Supports flexible dbt `targets`.
+- Supports multiple `databases` from the same `warehouse`.
+- (Optional) syncs `table` copies of selected dbt `models` to a DuckDB file as well.
+
+## Quick terminology
+- `warehouse` - A Cloud Data Warehouse e.g. `Snowflake`, `BigQuery`
+- `database` - The highest level of data organisation in a `warehouse`. In BigQuery a `database` is called a `project`.
+- `schema` - A logical grouping of `tables` within a `database`. In BigQuery a `schema` is called a `dataset`.
+
+## Getting Started
+
+### Prerequisites
+
+Before using **Quacker**, you need to have the following set up:
+
+- `Python` installed
+- [**Recommended**] A `venv` virtual environment
+- A valid `dbt` project with a `warehouse` `target` profile
+- A valid `target` for your `warehouse` in your `dbt` `profiles.yml` file
+- The following adapters installed:
+  - `dbt-duckdb`
+  - `dbt-<warehouse>` e.g. `dbt-bigquery`
+- (Optional) `environment variables` loaded if you are using them in your dbt project.
+
+#### DuckDB Profile
+An example `duckdb` `target` profile in a `profiles.yml` is seen below.
+
+In this example, my `dbt` `sources` exist in two `snowflake` `databases`
+* `fivetran_database`
+* `snowflake`
+
+Arbitrarily I have chosen`fivetran_database` as the name of the `database` all `dbt` output will materialize in, but any of the `warehouse` `database` names could have been used here. All others need to be `attached` to the `main` `database` (here: the `database` of the name `snowflake`).
+
+```yaml
+    dev_duckdb:
+      type: duckdb
+      path: data_duckdb/fivetran_database.duckdb
+      attach:
+        - path: data_duckdb/snowflake.duckdb
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+```
+
+> **Note:** The `path` in the `duckdb` `target` profile needs to match the `duckdb_folder_name` in the `quacker_config.yml` file if you are overwriting the default value. See [Optional Configuration](#optional-configuration-quacker_configyml) for more details.
+
+#### Environment Variables
+If your `dbt` project uses `environment variables`, you will need to load them before running `quack sync`. This is because
+* `quack sync` reads your `profile` to find the connection details of your `warehouse`.
+* some `dbt` setups use `environment variables` to store these connection details.
+
+Here is an example of a `target` which uses environment variables to store the connection details to the `warehouse` `database`.
+
+```yaml
+    dev_snowflake:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+      threads: 24
+      type: snowflake
+      user: "{{ env_var('SNOWFLAKE_USERNAME') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+```
+
+#### [Optional] Conditionally persist docs based on context
+If you have the below in your `dbt_project.yml`, you will receive the following error when running against duckdb
+`ERROR: alter_column_comment macro not implemented for adapter duckdb`:
+```yaml
+models:
+  +persist_docs:
+      relation: true
+      columns: true
+```
+
+Therefore, you need to have it set to only persist when running against your non-duckdb `target`. E.g.:
+```yaml
+  +persist_docs:
+    relation: "{{ target.name == 'dev_snowflake' }}"
+    columns: "{{ target.name == 'dev_snowflake' }}"
+```
+
+#### [Optional] Make your dbt models agnostic
+Some sql syntax is not compatible with `duckdb`. For example, offset() is not supported in `duckdb`. Therefore, if you have a `model` that uses `offset()`, you will need to make it agnostic to the `target` `type`. This can be done using `jinja` and `if` statements. For example, the below code will work for both `duckdb` and `bigquery` `targets`:
+
+
+```sql
+{% if target.type == 'bigquery' -%}
+    split(hubspot_contact_email_address, '@')[
+        offset(1)
+    ] as hubspot_contact_email_domain_extracted,
+{%- elif target.type == 'duckdb' -%}
+    split_part(hubspot_contact_email_address, '@', 2) as hubspot_contact_email_domain_extracted
+{%- endif %}
+```
+
+> **Note** If you cannot make your `model` agnostic to the `target` `type`, you can add it to the `models_to_ignore` list in the `quacker_config.yml` file. See [Optional Configuration](#optional-configuration-quacker_configyml) for more details.
+
+### Installation for use
+```bash
+pip3 install quacker
+```
+
+## [Optional] Configuration; `quacker_config.yml`
+
+**Quacker** can be configured using a `quacker_config.yml` file. This file should be placed in the same location as your `dbt_project.yml` file. However, you don't need to create this file if you are happy with the default configuration. Below are the things you can configure in the `quacker_config.yml` file.
+
+### `row_limit`
+The maximum number of rows to query from the `warehouse` `database` for each table to be created during `quack sync`. It is recommended to set this to a small number, but not at the expense of missing important data. The default value is `1,000`.
+
+Example `quacker_config.yml`:
+```yaml quacker_config.yml
+row_limit: 100
+```
+
+### `duckdb_folder_name`
+The name of the folder where the `duckdb` files will be stored. The default value is `data_duckdb`.
+
+If you change this value, you will also need to update the `path` in your `duckdb` `target` profile in your `profiles.yml` file. See [DuckDB Profile](#duckdb-profile) for more details.
+
+Example `quacker_config.yml`:
+```yaml quacker_config.yml
+duckdb_folder_name: my_duckdb_folder
+```
+
+### `models_to_ignore`
+A list of `dbt` models to "ignore". This is useful for `models` that are not compatible with `DuckDB`. For example, `models` that use `UNNEST` (`BigQuery`) or `Python` `dbt` `models`.
+
+While we are "ignoring" these `dbt` models during we still need to be able to run `dbt` against `DuckDB` after the `sync`. To do this, the ignored `dbt` `models` are replicated as `tables` in the main DuckDB file during the `sync`.
+
+Example `quacker_config.yml`:
+```yaml quacker_config.yml
+models_to_ignore:
+  - stg_shopify__customers # dbt model 1
+  - int_core__customers # dbt model 2 
+```
+
+> **Note:** When subsequently running `dbt` against `DuckDB`, you will need to pass the `--exclude` argument during your `dbt runs` to avoid materialising these `models` in your `duckdb` `database` (you need to "ignore" them). For example, to "ignore" the two models during dbt operations: `dbt run --exclude stg_shopify__customers int_core__customers`.
+
+If you are configuring `models_to_ignore`, you will also need this setting in `quacker_config.yml` so **Quacker** knows where to `sync` ignored models to. There are plans to remove this requirement in the future.
+```yaml quacker_config.yml
+main_duckdb_database_name: fivetran_database
+  ```
+
+> **Note:** If you are using `models_to_ignore`, make sure that your `duckdb` `target` has the same `schema` name as the `warehouse` `target`. Otherwise your subsequent `dbt runs` might fail because some of the `tables` that your `models` reference with `ref()` are in a differently named `schema` than expected.
+
+## Usage
+
+To start using **Quacker**, run the `quack sync` command with the appropriate **_optional_** flags:
+
+```bash
+quack sync \
+--project-dir <relative-path-to-your-dbt-project-directory> \
+--profiles-dir <full-path-to-your-profiles-directory> \
+--manifest-dir <relative-path-to-your-manifest-directory> \
+--compile-target <dbt-target-profile-name>
+
+```
+
+### Optional Argument Flags
+- `--project-dir`: **Relative** path to the directory containing your `dbt_project.yml` file. If not specified evaluates to the current working directory.
+- `--profiles-dir`: **Full** path to the directory containing your `profiles.yml` file. If not specified, path is resolved [using dbt's method](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#advanced-customizing-a-profile-directory).
+- `--manifest-dir`: **Relative** path to the directory containing your `manifest.json` file. If not specified, assumed to be in `target/` relative to the `project-dir`.
+- `--compile-target`: The dbt target name to sync the data from. It's also the target **Quacker** uses when running `dbt compile` before extracting identifiers. If not specified, **Quacker** uses the `default` profile.
+
+### Example Usage
+```bash
+quack sync \
+--project-dir . \
+--profiles-dir /Users/username/path/to/profiles \
+--manifest-dir ../poc_duckdb_for_local_dev/target \
+--compile-target dev_snowflake
+```
+
+### `dbt run` after `quack sync`
+In order to run dbt locally against your DuckDB database, ensure you switch to using your `DuckDB` `target` [which should be configured like this](#duckdb-profile). Otherwise your `dbt` `run` will send queries to your `warehouse` instead of your `DuckDB` `database`.
+
+
+### Help
+To see the full list of available commands and arguments, run `quack <subcommand> --help` e.g.
+
+```bash
+quack sync --help
+```
+
+## How It Works
+any `quack` command performs the following steps:
+1. Reads and parses the `quacker_config.yml` file if it exists.
+
+`quack sync` performs the following extra steps:
+
+1. Checks for the existence of a folder named `data_duckdb/` or the value of `duckdb_folder_name` in `quacker_config.yml`. If it does not exist, it creates it. This is where the `duckdb` files will be stored.
+1. Compiles the `dbt` project.
+1. Parses the `manifest.json` file to find identifiers of all dbt `sources` and, optionally, dbt `models` specified `quacker_config.yml`.
+1. Queries the `warehouse` `database` for all `sources` and `models_to_ignore` with a cap of 1,000 rows or the value specified in `row_limit` in `quacker_config.yml`. If any of the `sources` or `models_to_ignore` have more than this number of rows, **Quacker** will randomly sample the data it `syncs`.
+1. Saves the queried data into `DuckDB` `files`. For `sources`, one `duckdb` file is generated with the same name as the `database` in the `warehouse` instance. For`models_to_ignore`, the `main` `DuckDB` file (matching one of the `source` databases) is updated with the `model`'s data. See how the main file is specified in section [DuckDB profile](#duckdb-profile).
+1. After quack sync, the `duckdb` files will be stored in this general folder structure, with one database file per `warehouse` `database`:
+    ```bash
+    data_duckdb/
+    ├── fivetran_database.duckdb
+    ├── snowflake.duckdb
+    └── ...
+    ```
+
+## Limitations
+
+### Concurrent access to DuckDB files
+You should not attempt to query the DuckDB database files while **Quacker** is running a sync operation. Two processes cannot connect to the same duckdb file at the same time.
+
+The error raised will be something like
+```bash
+duckdb.duckdb.IOException: IO Error: Could not set lock on file "/Users/amir/Projects/poc_duckdb_for_local_dev/data_duckdb/fivetran_database.duckdb": Resource temporarily unavailable
+```
+
+## Possible future enhancements
+
+### Unsorted QA feedback to be refined (i.e., not necessarily made into a TODO)
+Rittman delivery team's qa
+* run `dbt deps` before compile
+* add note to README: - you need to have done a full `dbt run` before running quacker sync if you are using the `models_to_ignore` configuration
+* for bigquery `sync`: use `sample` function instead of `random`
+
+Amir's own qa
+* don’t fail when `quacker_config.yml` exists but has no `keys` (e.g. everything is commented out)
+
+### Bugs to fix
+* BigQuery: when a `source` is a `table` connected to a google sheet, this error occurs even if 1. the `service account` has access to the sheet and 2. the same credentials work in the `dbt` project `google.api_core.exceptions.Forbidden: 403 Access Denied: BigQuery BigQuery: Permission denied while getting Drive credentials.`
+
+### Incrementality and full refresh
+If a table already exists in the duckdb database, the query should no be run against the warehouse and data should not be overwritten in the duckdb database. Instead, a message should be displayed to the user to inform them that the table already exists.
+
+If the user wants to overwrite the data in the duckdb database, they should be able to pass a `full-refresh` flag to the `quack sync` command to do so.
+
+### Selective sync
+If the user only wants to overwrite select tables in the duckdb database, they should further be able to pass a `--tables` flag to the `quack sync` command to do so.
+
+### DuckDB profile check and creation
+If no suitable `duckdb` `target` `profile` exists, we could create one. This would involve:
+- finding all `duckdb` `target`s for the `project`'s `profile`
+- checking if any of the existing targets have all the `source` `databases` and use `attach` if sources are split across multiple `databases`
+- if none of the `targets` are suitable, creating a new `duckdb` `target` in the `project`'s `profile`
+- returning a message to the user to inform them of the new `duckdb` `target` `profile`
+
+### Gifs for README
+Add gifs to the README to show how to use **Quacker** and what it does.
+* Emphasise side-by-side comparison of running dbt against warehouse vs duckdb after **Quacker** sync
+
+### Error messages
+Target issues
+* When the `--compile-target` is not of a supported `warehouse` `type`
+
+Profiles.yml issues
+* When the `profiles.yml` file is not found in the expected location
+
+TODO write up more relevant error messages to implement as they are discovered
+
+### Extract the main DuckDB database name from the duckdb dbt profile
+- This would remove the need for the `main_duckdb_database_name` setting in `quacker_config.yml`.
+
+### Dealing with non-compatible dbt models
+- phase 1 solution _**(done Jan 2024)**_
+  - Allow users to specify dbt models to ignore in a config file.
+  - During `quack sync`, replicate the ignored dbt models as tables in the main DuckDB file.
+
+- phase 2 solution
+  - Temporary until phase 4 solution is implemented
+  - add subcommand `quack recommend`, which from the config generates the `--exclude` argument so they can manually use it when running dbt against duckdb
+
+- phase 3 solution
+  - Add to `quack recommend`: suggest models to ignore based on incompatible syntax, such as UNNEST (BigQuery) or Python dbt models.
+
+- phase 4 solution
+  - 3- add a `quack dbt` command with args (for ignore functionality)
+    - Run dbt command passed in argument e.g. `run`, `build`
+      - To make this seamless use positional arguments if possible. E.g., command is `quack dbt run --full-refresh`. In this example, both `run` and `--full-refresh` are positional arguments.
+      - Might need to use some sort of (*args, **kwargs) solution here?
+    - Pass as an `--exclude`(?) on all the models which are ignored in the config
+      - example dbt command generated and executed by **Quacker**: `dbt run --full-refresh --exclude model1,model5`
+    - Stop and inform user if they try to
+      - Pass `--exclude` themselves down to dbt
+      - Run a dbt command which doesn't accept `--exclude` arg
+      - dbt command fails
+
+- phase 5 solution
+  - 0- `quack debug`
+    - TODO should this functionality be added to `quack recommend` or `quack sync` instead of a new command?
+    - Among others, warn if any of the ignored models are not tables in duckdb and suggest re-run of 'quack sync'
+
+- Long-term solution
+  - `quack recommend` could generate DuckDB syntax equivalents wrapped in Jinja based on the target. For syntax not yet translated, it would fall back on the ignore recommendation.
+
+### Debugging tools
+- Develop `quack debug` to warn users of any ignored models that are not tables in DuckDB and suggest re-running `quack sync`.
+
+### Support for other databases
+As needed, we could add support for other databases in addition to the ones we currently support:
+* Snowflake added Dec 2023
+* BigQuery added Jan 2024
+
+## Completed enhancements
+
+### Support for table names with reserved SQL keywords
+Before this enhancement, if a `source` or `model` name contained a reserved SQL keyword, the `quack sync` command would fail:
+* if the database_type was `snowflake`, on querying the `warehouse`
+* if the database_type was `bigquery`, on creating the table in the `duckdb` database
+
+### More `quacker_config.yml` settings (done Jan 2024)
+Ability to customise row limit with `row_limit` setting in `quacker_config.yml`
+
+Ability to customise the name of the folder where duckdb files are stored with `duckdb_folder_name` setting in `quacker_config.yml`
+
+### Retrieve connection details from target profile _**(done Jan 2024)**_
+- Extract the Snowflake credentials directly from the dbt profile, avoiding the need for separate environment variables.
+- Investigate dbt's source code or dbt power users' methods for retrieving these credentials. _**failed**_
+-  Instead, manually code to replicate the order in which dbt searches for the `profiles.yml` file (exact name). [relevant dbt profile documentation](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#advanced-customizing-a-profile-directory):
+1. Specified using the `--profiles-dir` runtime argument
+1. Environment Variable `DBT_PROFILES_DIR`: If you have set the DBT_PROFILES_DIR environment variable, dbt will use the directory specified in this variable to look for the profiles.yml file
+1. **Current Working Directory**: The current working directory is the directory from which you are running the dbt command (where dbt_project.yml is)
+1. Default Directory `~/.dbt/`
+
+### Simplifying sync _**(done Jan 2024)**_
+Specify compile sync target, such as `snowflake-prod` or `dev_snwflk` with `--sync_target` argument. 
+- this would
+
+## Development and Contribution
+
+We welcome contributions and feedback on our tool! Please reach out to me if you have any questions or would like to contribute: amir.jab.93+quacker@gmail.com
+
+### PyPI
+Quacker is published to [PyPI](https://pypi.org/project/quacker/)
+
+### Installation for development
+Clone the **Quacker** repository and install it using `pip` (ideally in a `venv` virtual environment):
+
+```bash
+git clone https://github.com/<your_username>/quacker.git
+cd quacker
+pip3 install -e .
+```
+
+The dot `.` represents the current directory. It can be replaced with a path to the **Quacker** repository if you cloned it elsewhere. No matter where **Quacker** is stored, you can run installed versions of it from anywhere on your machine as long as you are in the same virtual environment that you installed it in.
+
+The `-e` flag is optional and is used to install **Quacker** in editable mode, which is useful during development of **Quacker** itself as it allows changes to be immediately effective without reinstallation. You don't need to use this flag if you are just using **Quacker**.
+
+### Contributors
+* Amir Jaber | [GitHub](https://github.com/Terroface) | [LinkedIn](https://www.linkedin.com/in/amirjaber/)
+
+## Support
+
+If you encounter any issues or have questions, please open an issue in the project's [GitHub repository](https://github.com/Terroface/quacker/issues).
+
+## License
+
+**Quacker** is released under the MIT License.
