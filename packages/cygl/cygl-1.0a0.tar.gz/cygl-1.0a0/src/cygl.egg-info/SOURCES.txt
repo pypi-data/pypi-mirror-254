@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+Makefile
+README.rst
+pyproject.toml
+setup.py
+cython_src/gl_headers.h
+cython_src/legacy.c
+cython_src/legacy.pxd
+cython_src/legacy.pyx
+src/cygl/__init__.py
+src/cygl.egg-info/PKG-INFO
+src/cygl.egg-info/SOURCES.txt
+src/cygl.egg-info/dependency_links.txt
+src/cygl.egg-info/top_level.txt
+test/clear.py
+test/square.py
