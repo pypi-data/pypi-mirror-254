@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: cryocanvas
+Version: 0.0.1
+Summary: A plugin for interactive segmentation of CryoET data using ML embeddings
+Home-page: https://github.com/kephale/cryocanvas
+Author: Kyle Harrington
+Author-email: czii@kyleharrington.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/kephale/cryocanvas/issues
+Project-URL: Documentation, https://github.com/kephale/cryocanvas#README.md
+Project-URL: Source Code, https://github.com/kephale/cryocanvas
+Project-URL: User Support, https://github.com/kephale/cryocanvas/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: napari
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: magicgui
+Requires-Dist: qtpy
+Requires-Dist: scikit-image
+Requires-Dist: toolz
+Requires-Dist: scikit-learn
+Requires-Dist: psygnal
+Requires-Dist: superqt
+Requires-Dist: zarr
+Provides-Extra: testing
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: pytest-qt ; extra == 'testing'
+Requires-Dist: napari ; extra == 'testing'
+Requires-Dist: pyqt5 ; extra == 'testing'
+
+# cryocanvas
+A tool to support interactive machine learning for cryoET data
+
+![cryocanvas screenshot](cover.png)
