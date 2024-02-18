@@ -1,0 +1,2 @@
+[console_scripts]
+source-trustpilot = source_trustpilot.run:run
