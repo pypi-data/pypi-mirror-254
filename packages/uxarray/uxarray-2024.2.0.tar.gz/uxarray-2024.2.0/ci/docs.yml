@@ -1,0 +1,37 @@
+name: uxarray-docs
+channels:
+    - conda-forge
+dependencies:
+    - python
+    - dask
+    - netcdf4
+    - numba
+    - numpy<=1.24
+    - pathlib
+    - pre_commit
+    - pytest
+    - pytest-cov
+    - scipy
+    - xarray
+    - pip
+    - ipykernel
+    - ipython
+    - jupyter_client
+    - scikit-learn
+    - sphinx-book-theme
+    - sphinx-autosummary-accessors
+    - myst-nb
+    - sphinx-design
+    - nbsphinx
+    - matplotlib-base
+    - shapely
+    - hvplot
+    - holoviews
+    - geoviews
+    - cartopy
+    - pandas<2.1.0
+    - geocat-datafiles
+    - spatialpandas
+    - pip:
+      - antimeridian
+      - pyfma
