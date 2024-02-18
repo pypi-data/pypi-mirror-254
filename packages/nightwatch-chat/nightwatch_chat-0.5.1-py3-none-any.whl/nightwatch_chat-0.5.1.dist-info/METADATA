@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: nightwatch-chat
+Version: 0.5.1
+Summary: The chatting application to end all chatting applications.
+Project-URL: Homepage, https://github.com/iiPythonx/nightwatch
+Project-URL: Issues, https://github.com/iiPythonx/nightwatch/issues
+Author-email: iiPython <ben@iipython.dev>
+License-File: LICENSE.txt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: nanoid
+Requires-Dist: orjson
+Requires-Dist: urwid
+Requires-Dist: websockets
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: hatch; extra == 'dev'
+Provides-Extra: serve
+Requires-Dist: fastapi; extra == 'serve'
+Requires-Dist: uvicorn; extra == 'serve'
+Description-Content-Type: text/markdown
+
+# Nightwatch
+
+The chatting application to end all chatting applications.  
+Are you like me, where over the past 5 years you've made several terminal chatting apps? No? Just me?
+
+Regardless,  
+Nightwatch is a modern solution to solve my insatiable need for making chatting apps.
+
+---
+
+Jokes aside, Nightwatch is a terminal based, IRC-like, chatting application for Linux/Windows/Mac OS/Mars Rover.  
+It's based on a modern architecture (FastAPI, Websockets, and a debloated Python client), and is meant to keep it simple.
+
+---
+
+Project status: **starting development**.  
+This README will be filled out as time goes on.
