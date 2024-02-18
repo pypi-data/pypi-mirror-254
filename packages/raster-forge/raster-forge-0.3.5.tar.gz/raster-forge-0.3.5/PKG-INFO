@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: raster-forge
+Version: 0.3.5
+Summary: Raster Forge is an package for the manipulation of raster data. It includes a library and a graphical user interface (GUI) application.
+Author-email: Afonso Oliveira <afe.oliveira@campus.fct.unl.pt>
+License: MIT
+Keywords: raster, gui
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: rasterio
+Requires-Dist: spyndex
+Requires-Dist: opencv-python
+Requires-Dist: tqdm
+Requires-Dist: scipy
+Requires-Dist: PySide6
+Requires-Dist: superqt
+Requires-Dist: matplotlib
+Provides-Extra: devel
+Requires-Dist: black; extra == "devel"
+Requires-Dist: coverage; extra == "devel"
+Requires-Dist: flake8; extra == "devel"
+Requires-Dist: flake8-black; extra == "devel"
+Requires-Dist: flake8-builtins; extra == "devel"
+Requires-Dist: flake8-bugbear; extra == "devel"
+Requires-Dist: flake8-docstrings; extra == "devel"
+Requires-Dist: flake8-isort; extra == "devel"
+Requires-Dist: Flake8-pyproject; extra == "devel"
+Requires-Dist: isort; extra == "devel"
+Requires-Dist: pdoc; extra == "devel"
+Requires-Dist: pre-commit; extra == "devel"
+Requires-Dist: pytest>=7.0.0; extra == "devel"
+Requires-Dist: pytest-cov; extra == "devel"
+
+# rs23-software
