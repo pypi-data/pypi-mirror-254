@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dock-craftsman
+Version: 0.0.8
+Summary: docker
+Home-page: https://dock-craftsman.code4mk.org/
+Author: Mostafa Kamal
+Author-email: hiremostafa@gmail.com
+Project-URL: Source, https://github.com/code4mk/dock-craftsman
+Project-URL: Changelog, https://github.com/code4mk/dock-craftsman
+Keywords: docker
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: docker ==7.0.0
+Requires-Dist: rich ==13.7.0
+
+# dock crafts man
