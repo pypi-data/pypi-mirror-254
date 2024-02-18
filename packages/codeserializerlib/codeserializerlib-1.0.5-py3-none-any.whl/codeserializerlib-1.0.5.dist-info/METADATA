@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: codeserializerlib
+Version: 1.0.5
+Summary: Python library for the code serializer
+Author: Tony Meissner
+Author-email: tonymeissner70@gmail.com
+Description-Content-Type: text/markdown
+Requires-Dist: spacy >=3.7.2
+Provides-Extra: dev
+Requires-Dist: spacy >=3.7.2 ; extra == 'dev'
+Requires-Dist: label-studio-ml ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-runner ; extra == 'dev'
+
+# spaCy powered Label Studio ML backend
+
+spaCy integration for Label Studio.
+this is running besides the azure functions.
+
+[Demo video](https://youtu.be/F19NT-21uT4)
+
+## running the backend
+
+1. prepare environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install --upgrade pip
+```
+
+Compile your library
+```bash
+python setup.py sdist bdist_wheel
+```
+
+Upload to Pypi
+```bash
+twine upload dist/* 
+```
+
+running tests
+```bash
+pytest tests/ -W ignore::DeprecationWarning
+```
+
+2. start label studio
+```bash
+label-studio
+```
+
+3. Start the backend and add the URL to your Label Studio project settings.
+
+```bash
+label-studio-ml start channel_ml_ner
+```
+
+4. As you train new models, they will appear in a `checkpoints` directory. The latest checkpoint will be symlinked to `latest-model`.
+
+
+
+## modifying the config
+
+In the `channel_ml_ner` directory, add your spaCy `config.cfg` file. You can optionally add a `model-best` folder from a pre-trained model, to get started with predictions straight away. 
