@@ -1,0 +1,308 @@
+Metadata-Version: 2.1
+Name: jarvis-ironman
+Version: 4.4.1
+Summary: Voice-Activated Natural Language UI
+Author-email: Vignesh Rao <svignesh1793@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2020 Vignesh Rao
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: API, https://jarvis.vigneshrao.com
+Project-URL: Health, https://jarvis-health.vigneshrao.com
+Project-URL: Homepage, https://github.com/thevickypedia/Jarvis
+Project-URL: Docs, https://jarvis-docs.vigneshrao.com
+Project-URL: Demo, https://vigneshrao.com/Jarvis/Jarvis_Demo.mp4
+Project-URL: Source, https://github.com/thevickypedia/Jarvis
+Project-URL: Bug Tracker, https://github.com/thevickypedia/Jarvis/issues
+Project-URL: Release Notes, https://github.com/thevickypedia/Jarvis/blob/master/release_notes.rst
+Keywords: python,home-automation,natural-language-processing,text-to-speech,speech-recognition,jarvis,hotword-detection,virtual-assistant
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: System :: Hardware :: Universal Serial Bus (USB) :: Wireless Controller
+Classifier: Topic :: Multimedia :: Sound/Audio :: Conversion
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Classifier: Topic :: System :: Hardware :: Symmetric Multi-processing
+Classifier: Topic :: System :: Hardware :: Universal Serial Bus (USB) :: Human Interface Device (HID)
+Classifier: Framework :: FastAPI
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: Sphinx
+Classifier: Framework :: aiohttp
+Classifier: Natural Language :: English
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: axju-jokes ==1.0.3
+Requires-Dist: googlehomepush ==0.1.0
+Requires-Dist: holidays ==0.37
+Requires-Dist: icalendar ==5.0.11
+Requires-Dist: newsapi-python ==0.2.7
+Requires-Dist: packaging ==23.2
+Requires-Dist: PyChromecast ==2.3.0
+Requires-Dist: pyhtcc ==0.1.55
+Requires-Dist: pyicloud ==1.0.0
+Requires-Dist: pyrh ==2.0
+Requires-Dist: pywebostv ==0.8.9
+Requires-Dist: randfacts ==0.21.0
+Requires-Dist: sounddevice ==0.4.6
+Requires-Dist: SpeechRecognition ==3.10.0
+Requires-Dist: speedtest-cli ==2.1.3
+Requires-Dist: timezonefinder ==6.2.0
+Requires-Dist: webcolors ==1.13
+Requires-Dist: webull ==0.6.1
+Requires-Dist: wikipedia ==1.4.0
+Requires-Dist: aiofiles ==23.2.*
+Requires-Dist: aiohttp ==3.8.*
+Requires-Dist: bs4 ==0.0.*
+Requires-Dist: certifi ==2023.7.*
+Requires-Dist: deepdiff ==6.6.*
+Requires-Dist: docker ==6.1.*
+Requires-Dist: fastapi ==0.103.*
+Requires-Dist: geopy ==2.4.*
+Requires-Dist: inflect ==7.0.*
+Requires-Dist: Jinja2 ==3.1.*
+Requires-Dist: lxml ==4.9.*
+Requires-Dist: matplotlib ==3.8.*
+Requires-Dist: numpy ==1.26.*
+Requires-Dist: openai ==0.28.*
+Requires-Dist: Pillow ==10.0.*
+Requires-Dist: psutil ==5.9.*
+Requires-Dist: pydantic ==2.4.*
+Requires-Dist: pydantic-settings ==2.0.*
+Requires-Dist: PyJWT ==2.8.*
+Requires-Dist: pytest ==7.4.*
+Requires-Dist: python-dateutil ==2.8.*
+Requires-Dist: python-multipart ==0.0.*
+Requires-Dist: pytz ==2023.3.*
+Requires-Dist: PyYAML ==6.0.*
+Requires-Dist: requests ==2.31.*
+Requires-Dist: SoundFile ==0.12.*
+Requires-Dist: uvicorn ==0.23.*
+Requires-Dist: wave ==0.0.*
+Requires-Dist: websockets ==11.0.*
+Requires-Dist: gmail-connector
+Requires-Dist: py3-tts
+Requires-Dist: pycontrols
+Requires-Dist: vpn-server
+Provides-Extra: dev
+Requires-Dist: sphinx ==5.1.1 ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: recommonmark ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+<p align="center" style="text-align: center">
+  <img src="https://vigneshrao.com/Jarvis/logo.png" width="371px" height="350px">
+</p>
+<h2 align="center">Voice-Activated Natural Language UI</h2>
+
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-blue?style=for-the-badge&logo=Python)][python]
+
+![Python](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-orange)
+![Pypi-downloads](https://img.shields.io/pypi/dm/jarvis-ironman)
+
+**Platform Supported**
+
+![Platform](https://img.shields.io/badge/Platform-Linux|MacOS|Windows-1f425f.svg)
+
+**Language Stats**
+
+![Language count](https://img.shields.io/github/languages/count/thevickypedia/Jarvis)
+![Code coverage](https://img.shields.io/github/languages/top/thevickypedia/Jarvis)
+
+**[Repo Stats][repo]**
+
+[![GitHub](https://img.shields.io/github/license/thevickypedia/Jarvis)][license]
+
+![GitHub Repo stars](https://img.shields.io/github/stars/thevickypedia/Jarvis)
+![GitHub Repo forks](https://img.shields.io/github/forks/thevickypedia/Jarvis)
+![GitHub Repo watchers](https://img.shields.io/github/watchers/thevickypedia/Jarvis)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/thevickypedia/Jarvis)
+![GitHub code size](https://img.shields.io/github/languages/code-size/thevickypedia/Jarvis)
+
+![GitHub Repo issues](https://img.shields.io/github/issues-closed-raw/thevickypedia/Jarvis)
+![GitHub Repo issues](https://img.shields.io/github/issues-raw/thevickypedia/Jarvis)
+![GitHub Repo pr](https://img.shields.io/github/issues-pr-closed-raw/thevickypedia/Jarvis)
+![GitHub Repo pr](https://img.shields.io/github/issues-pr-raw/thevickypedia/Jarvis)
+
+**Code Stats**
+
+![Modules](https://img.shields.io/github/search/thevickypedia/Jarvis/module)
+![Python](https://img.shields.io/github/search/thevickypedia/Jarvis/.py)
+![Threads](https://img.shields.io/github/search/thevickypedia/Jarvis/thread)
+![Listener](https://img.shields.io/github/search/thevickypedia/Jarvis/listener)
+![Speaker](https://img.shields.io/github/search/thevickypedia/Jarvis/speaker)
+![Bash](https://img.shields.io/github/search/thevickypedia/Jarvis/.sh)
+![AppleScript](https://img.shields.io/github/search/thevickypedia/Jarvis/.scpt)
+![Make](https://img.shields.io/github/search/thevickypedia/Jarvis/Makefile)
+
+**Deployments**
+
+[![pages](https://github.com/thevickypedia/Jarvis/actions/workflows/pages/pages-build-deployment/badge.svg)][gha_pages]
+[![pypi](https://github.com/thevickypedia/Jarvis/actions/workflows/python-publish.yml/badge.svg)][gha_pypi]
+[![markdown](https://github.com/thevickypedia/Jarvis/actions/workflows/markdown-validation.yml/badge.svg)][gha_md_valid]
+
+[![PyPI version shields.io](https://img.shields.io/pypi/v/jarvis-ironman)][pypi]
+[![Pypi-format](https://img.shields.io/pypi/format/jarvis-ironman)](https://pypi.org/project/jarvis-ironman/#files)
+[![Pypi-status](https://img.shields.io/pypi/status/jarvis-ironman)][pypi]
+
+**Activity**
+
+![GitHub Repo created](https://img.shields.io/date/1599432310)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/thevickypedia/Jarvis)
+![GitHub last commit](https://img.shields.io/github/last-commit/thevickypedia/Jarvis)
+![GitHub last release](https://img.shields.io/github/release-date/thevickypedia/Jarvis)
+
+**Development and Maintenance**
+
+![Active Development](https://img.shields.io/badge/Development%20Level-Actively%20Developed-success.svg)
+![Actively Maintained](https://img.shields.io/badge/Maintenance%20Level-Actively%20Maintained-success.svg)
+[![Maintainer](https://img.shields.io/badge/Maintained%20By-Vignesh%20Sivanandha%20Rao-blue.svg)][webpage]
+
+**Reach Out**
+
+[![ askme ](https://img.shields.io/badge/SELECT%20*%20FROM-questions-1abc9c.svg)][webpage_contact]
+
+## Kick off
+
+> :bulb: Using a dedicated [virtual environment][venv] and an IDE like [PyCharm][pycharm] is highly recommended.
+
+**Install**
+```shell
+python -m pip install jarvis-ironman
+```
+
+**Initiate**
+```python
+import jarvis
+
+
+if __name__ == '__main__':
+    jarvis.start()
+```
+
+## Prerequisites
+   - **MacOS** <br> _Tested on **macOS High Sierra, Mojave, Catalina, Big Sur, Monterey and Ventura**_
+     - `System Preferences` → `Security & Privacy` → `Privacy`
+     - Click `+` sign and add the preferred `IDE` and `Terminal` in the following sections in left pane.
+       - `Microphone` - **Required** to listen and respond.
+       - `Accessibility` - **Required** to use key combinations for brightness and volume controls.
+       - `Camera` - **[Optional]** Required only during face recognition/detection.
+       - `Automation` - **Required** to control `System Events` and other apps like Outlook and Calendar.
+       - `Files and Folders` **[OR]** `Full Disk Access` - **Required** for all `FileIO` operations.
+
+   - **Linux** <br> _Tested on **Ubuntu 22.04 LTS**_
+     - Store the host machine's password as the env var: `ROOT_PASSWORD`
+     - Unlike macOS and Windows, `Ubuntu` does not have app specific permissions.
+
+   - **Windows** <br> _Tested on **Windows 10**_
+     - `Settings` → `Privacy`
+       - `Microphone` - **Required** to listen and respond.
+       - `Camera` - **[Optional]** Required only during face recognition/detection.
+       - Unlike `macOS`, `Windows` pops a confirmation window to **Allow** or **Deny** access to files and folders.
+     - Install [Anaconda][conda] or [Miniconda][miniconda], [VisualStudio C++ BuildTools][vcpp], and [Git][git-cli]
+     - Make sure C++ build tools are installed completely and restart
+     - Add anaconda/miniconda scripts location to `PATH` in Environment Variables
+
+## Enchiridion
+Handbook - [GitHub Wiki][wiki]
+
+## Coding Standards
+Docstring format: [`Google`][google-docs] <br>
+Styling conventions: [`PEP 8`][pep8] and [`isort`][isort]
+
+## [Release Notes][release-notes]
+**Requirement**
+```shell
+python -m pip install gitverse
+```
+
+**Usage**
+```shell
+gitverse-release reverse -f release_notes.rst -t 'Release Notes'
+```
+
+## Linting
+`pre-commit` will ensure linting, run pytest, generate runbook & release notes, and validate hyperlinks in ALL
+markdown files (including Wiki pages)
+
+**Requirement**
+```shell
+pip install sphinx==5.1.1 pre-commit recommonmark
+```
+
+**Usage**
+```shell
+pre-commit run --all-files
+```
+
+## Pypi Package
+[![pypi-module](https://img.shields.io/badge/Software%20Repository-pypi-1f425f.svg)][pypi-repo]
+
+[https://pypi.org/project/jarvis-ironman/][pypi]
+
+## Runbook
+[![made-with-sphinx-doc](https://img.shields.io/badge/Code%20Docs-Sphinx-1f425f.svg)][sphinx]
+
+[https://jarvis-docs.vigneshrao.com/][runbook]
+
+## License & copyright
+
+&copy; Vignesh Rao
+
+Licensed under the [MIT License][license]
+
+[python]: https://python.org
+[venv]: https://docs.python.org/3/tutorial/venv.html
+[pycharm]: https://www.jetbrains.com/pycharm/
+[repo]: https://api.github.com/repos/thevickypedia/Jarvis
+[license]: https://github.com/thevickypedia/Jarvis/blob/master/LICENSE
+[pypi]: https://pypi.org/project/jarvis-ironman
+[pypi-repo]: https://packaging.python.org/tutorials/packaging-projects/
+[wiki]: https://github.com/thevickypedia/Jarvis/wiki
+[release-notes]: https://github.com/thevickypedia/Jarvis/blob/master/release_notes.rst
+[gha_pages]: https://github.com/thevickypedia/Jarvis/actions/workflows/pages/pages-build-deployment
+[gha_pypi]: https://github.com/thevickypedia/Jarvis/actions/workflows/python-publish.yml
+[gha_md_valid]: https://github.com/thevickypedia/Jarvis/actions/workflows/markdown-validation.yml
+[webpage]: https://vigneshrao.com/
+[webpage_contact]: https://vigneshrao.com/contact
+[conda]: https://docs.conda.io/projects/conda/en/latest/user-guide/install/
+[miniconda]: https://docs.conda.io/en/latest/miniconda.html#windows-installers
+[vcpp]: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+[git-cli]: https://git-scm.com/download/win/
+[google-docs]: https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings
+[pep8]: https://www.python.org/dev/peps/pep-0008/
+[isort]: https://pycqa.github.io/isort/
+[sphinx]: https://www.sphinx-doc.org/en/master/man/sphinx-autogen.html
+[runbook]: https://jarvis-docs.vigneshrao.com/
