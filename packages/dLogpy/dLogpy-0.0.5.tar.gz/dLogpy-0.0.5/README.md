@@ -1,0 +1,273 @@
+# Logger Class Documentation
+
+## Overview
+The `Logger` class in this module is designed for advanced logging capabilities. It offers various customization options, including formatting, colors, and data representation. The class is highly versatile, allowing users to tailor their logging experience according to specific needs.
+
+## Constructor
+
+### `__init__(self, ...)`
+
+Initializes a new instance of the `Logger` class with various configuration options.
+
+#### Parameters:
+- `name` (str, optional): Name of the logger.
+- `line_length` (int, optional): Maximum length of a log line.
+- `time_format` (str, optional): Format for timestamps in logs.
+- `time_local` (bool, optional): If True, use local time; if False, use UTC.
+- `compact` (bool, optional): If True, metadata is printed compactly; if False, with spaces.
+- `colored` (bool, optional): If True, logs are colored; if False, no colors are used.
+- `style` (dict, optional): Style configuration for the logger.
+- `show_log_number` (bool, optional): If True, displays the log number.
+- `show_log_levels` (bool, optional): If True, displays the log levels.
+- `hide_log_level` (list, optional): List of log levels to hide.
+- `show_time` (bool, optional): If True, displays the timestamp.
+- `show_logger_name` (bool, optional): If True, displays the logger's name.
+- `show_source_name` (bool, optional): If True, displays the source name.
+- `show_file_name` (bool, optional): If True, displays the file name.
+- `show_line_number` (bool, optional): If True, displays the line number.
+- `wrap_log_message` (bool, optional): If True, wraps the log message.
+- `data_max_size` (int, optional): Maximum size of data to be logged.
+- `max_logs_to_store` (int, optional): Maximum number of logs to store in memory.
+
+## Methods
+
+### `log(self, ...)`
+Logs a message with various customization options.
+
+#### Parameters:
+- `message` (str, optional): The message to log.
+- `data` (Any, optional): Additional data to log.
+- `level` (str, optional): The log level.
+- `exc` (Exception, optional): Exception to log.
+- `source_name` (str, optional): Source name of the log.
+- `color` (str, optional): Color of the log message.
+- `display` (bool, optional): If True, displays the log message.
+- `caller_frame` (optional): The frame of the caller.
+- `divider` (str, optional): Divider string for the log.
+- `colorless` (bool, optional): If True, logs without colors.
+- `show_metadata` (bool, optional): If True, shows metadata.
+- `metadata_color_override` (str, optional): Overrides the color of metadata.
+
+### `info(self, ...)`, `debug(self, ...)`, `warning(self, ...)`, `error(self, ...)`, `critical(self, ...)`
+Methods for logging messages at specific log levels (INFO, DEBUG, WARNING, ERROR, CRITICAL). Parameters are similar to `log`.
+
+### `warn(self, ...)`, `crit(self, ...)`
+Aliases for `warning` and `critical` methods, respectively.
+
+### `json(self, data:Any, pretty=False, color:str=None, msg:str="")`
+Logs data in JSON format.
+
+### `format_record(self, record:Record)`
+Formats a log record.
+
+### `print_current_style(self)`
+Prints the current style configuration of the logger.
+
+### `data_to_str(self, data:Any)`
+Converts data to a string representation.
+
+### `colorize_data(self, ...)`
+Colorizes the data string based on specified schema.
+
+## Usage Example
+
+For fast usage:
+```python
+from dlog import *
+l = Logger()
+l("Hello World!", {"a": "b"}, c=GRN)
+```
+
+```python
+
+from my_logging_module import Logger
+
+# Initialize logger with default settings
+logger = Logger()
+
+# Log an informational message
+logger.info("This is an informational message")
+
+# Log a debug message with additional data
+logger.debug("Debug message", data={"key": "value"})
+```
+
+## Note
+For detailed styling options, refer to the `style` parameter in the constructor documentation. The style dictionary provides extensive customization for log appearance, data representation, and coloring schema.
+
+
+---
+
+### Basic Setup
+
+Before diving into complex scenarios, let's start with a basic setup:
+
+```python
+from dlog import Logger
+
+# Basic logger with default settings
+basic_logger = Logger()
+basic_logger.info("This is a basic log message.")
+```
+
+### Customizing Logger Appearance
+
+Now, let's customize the appearance of our logger:
+
+```python
+# Customized logger
+custom_logger = Logger(line_length=120, time_format="local-%H:%M:%S", compact=True)
+custom_logger.info("Customized logger message.")
+```
+
+### Logging with Different Levels
+
+We can log messages at different levels, such as DEBUG, INFO, WARNING, ERROR, and CRITICAL:
+
+```python
+custom_logger.debug("This is a debug message.")
+custom_logger.warning("Warning! Check this out.")
+custom_logger.error("Error occurred in the system.")
+custom_logger.critical("Critical issue encountered!")
+```
+
+### Logging with Data
+
+Log complex data structures, like dictionaries and lists, which is helpful for debugging:
+
+```python
+complex_data = {"key1": "value1", "key2": [1, 2, 3], "key3": {"nested_key": "nested_value"}}
+custom_logger.info("Logging complex data", data=complex_data)
+```
+
+### Exception Handling
+
+Capture and log exceptions, which is crucial for debugging errors in your code:
+
+```python
+try:
+    1 / 0
+except Exception as e:
+    custom_logger.error("An exception occurred", exc=e)
+```
+
+### Logging with Colors and Dividers
+
+Enhance readability with colors and dividers:
+
+```python
+custom_logger.info("Colored log message", color=Logger.GRN, divider=Logger.GRN)
+custom_logger.error("Error with red divider", color=Logger.RED, divider=Logger.RED)
+```
+
+### Compact and Cleaner Modes
+
+Switch between compact and verbose modes for different logging needs:
+
+```python
+# Compact mode
+compact_logger = Logger(compact=True)
+compact_logger.info("Compact mode log.")
+
+# Cleaner mode
+verbose_logger = Logger(compact=False)
+verbose_logger.info("Verbose mode log.")
+```
+
+### Using JSON Format for Data
+
+Log data in JSON format for easier parsing and readability:
+
+```python
+json_data = {"name": "Alice", "age": 30, "city": "Wonderland"}
+custom_logger.json(json_data, msg="User details in JSON:")
+```
+
+### Customizing Metadata Display
+
+You can choose what metadata to display in your logs, such as log number, time, and source file name:
+
+```python
+metadata_logger = Logger(show_log_number=False, show_time=False, show_file_name=False)
+metadata_logger.info("Log with custom metadata.")
+```
+
+### Using Different Styles
+
+Experiment with different styles for various logging scenarios:
+
+```python
+# Logger with a different style
+style_logger = Logger(style=Logger.STYLE_0)
+style_logger.info("Log message with a different style.")
+```
+
+### Logging Large Data Sets
+
+Handle and log large data sets by customizing data representation:
+
+```python
+large_data = [i for i in range(1000)]
+custom_logger.debug("Logging large data set", data=large_data)
+```
+
+Each of these examples showcases the flexibility of the `Logger` class from the `dlog` module. You can mix and match these features to suit your specific logging needs, whether for simple debugging or complex system monitoring.
+
+---
+
+Shortcuts in the `Logger` class provide a quicker and more concise way to log messages at different levels. Let's incorporate these shortcuts into our examples to demonstrate their convenience:
+
+### Using the Logger Shortcut for INFO Level
+
+The `logger()` method is a shortcut for logging at the INFO level:
+
+```python
+from dlog import Logger
+
+# Initialize the logger
+shortcut_logger = Logger()
+
+# Shortcut for logging an INFO message
+shortcut_logger("This is an INFO level message using the logger() shortcut.")
+```
+
+### Shortcut for CRITICAL Level with `crit()`
+
+Similarly, `crit()` is a shortcut for logging at the CRITICAL level:
+
+```python
+# Logging a CRITICAL message using the crit() shortcut
+shortcut_logger.crit("Critical issue logged using crit() shortcut.")
+```
+
+### Other Level Shortcuts
+
+For other log levels, corresponding methods like `debug()`, `warning()`, `error()`, and `critical()` can be used directly:
+
+```python
+# Logging messages at various levels using direct methods
+shortcut_logger.debug("This is a DEBUG level message.")
+shortcut_logger.warning("This is a WARNING level message.")
+shortcut_logger.error("This is an ERROR level message.")
+shortcut_logger.critical("This is a CRITICAL level message using critical().")
+```
+
+
+### Combining Shortcuts with Other Features
+
+These shortcuts can be combined with other features like custom data, colors, and dividers:
+
+```python
+# Using shortcut with custom data and color
+data = {"key": "value", "number": 123}
+shortcut_logger("Logging with data and color", data, color=Logger.YEL)
+
+# Using crit() with a divider
+shortcut_logger.crit("Critical message with a divider", divider=Logger.RED)
+```
+
+In summary, these shortcuts (`logger()`, `crit()`, etc.) provide a quick and effective way to log messages, enhancing the efficiency and readability of your code, especially in complex logging scenarios.
+
+
+
+###### README by GPT-4 based on `logger.py`. May be inaccurate or incomplete.
