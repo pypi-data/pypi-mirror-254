@@ -1,0 +1,116 @@
+site_name: harbor-cli
+
+repo_url: https://github.com/unioslo/harbor-cli
+repo_name: unioslo/harbor-cli
+edit_uri: edit/main/docs/
+
+theme:
+  name: "material"
+  palette:
+    scheme: slate
+    primary: blue
+    accent: orange
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - navigation.indexes
+
+watch:
+  - harbor_cli
+
+plugins:
+  - search
+  - autorefs
+  - mkdocs-simple-hooks:
+      hooks:
+        on_pre_build: docs.scripts.run:main
+  - literate-nav: # enhanced nav section (enables wildcards)
+  - macros:
+      on_error_fail: true
+      include_dir: "docs/data"
+      include_yaml:
+        - commandlist: "docs/data/commandlist.yaml"
+        - formats: "docs/data/formats.yaml"
+        - options: "docs/data/options.yaml"
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3/objects.inv
+          options:
+            docstring_style: numpy
+            members_order: source
+            docstring_section_style: table
+            heading_level: 1
+            show_source: true
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            show_root_heading: true
+            show_category_heading: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - "Home":
+      - index.md
+      - "Configuration":
+          - configuration/introduction.md
+          - configuration/config-file.md
+          - configuration/auth.md
+          - configuration/formats.md
+      - "Usage":
+          - usage/basic-usage.md
+          - usage/options.md
+          - usage/repl.md
+          - usage/tui.md
+          - usage/terminology.md
+          # TODO: formats
+  - "Commands":
+      - "commands/*.md"
+  - "Reference":
+      - "reference/index.md"
+      - "reference/*.md"
+      - "reference/config.md"
+      - "reference/dirs.md"
+      - "reference/exceptions.md"
+      - "reference/format.md"
+      - "reference/logs.md"
+      - "reference/models.md"
+      - "reference/main.md"
+      - "reference/state.md"
+      - "reference/types.md"
+      - "Utils":
+          - "reference/utils/index.md"
+          - "reference/utils/args.md"
+          - "reference/utils/commands.md"
+          - "reference/utils/utils.md"
+      - "Harbor":
+          - "reference/harbor/index.md"
+          - "reference/harbor/artifact.md"
+          - "reference/harbor/common.md"
+      - "Output":
+          - "reference/output/index.md"
+          - "reference/output/console.md"
+          - "reference/output/prompts.md"
+          - "reference/output/render.md"
+          - "Formatting":
+              - "reference/output/formatting/index.md"
+              - "reference/output/formatting/bytes.md"
+              - "reference/output/formatting/path.md"
+          - "Tables":
+              - "reference/output/table/index.md"
+              - "reference/output/table/artifact.md"
+              - "reference/output/table/repository.md"
+              - "reference/output/table/system.md"
+  - contributing.md

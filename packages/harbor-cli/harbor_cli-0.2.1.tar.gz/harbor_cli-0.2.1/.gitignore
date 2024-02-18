@@ -1,0 +1,28 @@
+# File types
+*.py[co]
+*.egg-info
+.*.sw[a-z]
+
+# Tool cache dirs
+.coverage
+.hypothesis
+
+# Directories
+dist
+.dev
+
+# Single files
+TODO
+
+# File types
+*.json
+*.DS_Store
+
+# Auto generated files
+docs/data/**
+docs/commands/**
+# Index of commands is hand-written
+!docs/commands/index.md
+
+# Overrides
+!tests/data/**
