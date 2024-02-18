@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: lamr
+Version: 0.0.1
+Summary: Python course for beginners fully free at your own command line.
+Author: Evgeny Pogrebnyak
+Author-email: e.pogrebnyak@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: typer (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+
