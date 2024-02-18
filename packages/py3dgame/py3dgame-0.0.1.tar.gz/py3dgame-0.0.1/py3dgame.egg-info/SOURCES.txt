@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+lib/ext_rendering.c
+py3dgame/__init__.py
+py3dgame/color.py
+py3dgame/math3d.py
+py3dgame/rendering.py
+py3dgame/scene.py
+py3dgame.egg-info/PKG-INFO
+py3dgame.egg-info/SOURCES.txt
+py3dgame.egg-info/dependency_links.txt
+py3dgame.egg-info/requires.txt
+py3dgame.egg-info/top_level.txt
+tests/__init__.py
+tests/test_math3d.py
