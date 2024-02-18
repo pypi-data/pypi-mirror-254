@@ -1,0 +1,17 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+numpycythonpermutations/README.MD
+numpycythonpermutations/__init__.py
+numpycythonpermutations/requirements.txt
+numpycythonpermutations/thirdparty.json
+numpycythonpermutations/uniqueproductcython.pyx
+numpycythonpermutations/xxhash.c
+numpycythonpermutations/xxhash.h
+numpycythonpermutations.egg-info/PKG-INFO
+numpycythonpermutations.egg-info/SOURCES.txt
+numpycythonpermutations.egg-info/dependency_links.txt
+numpycythonpermutations.egg-info/requires.txt
+numpycythonpermutations.egg-info/top_level.txt

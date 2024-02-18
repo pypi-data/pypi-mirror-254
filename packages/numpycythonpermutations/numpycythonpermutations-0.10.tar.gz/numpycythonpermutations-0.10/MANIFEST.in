@@ -1,0 +1,7 @@
+include numpycythonpermutations/requirements.txt
+include numpycythonpermutations/thirdparty.json
+include numpycythonpermutations/README.MD
+include numpycythonpermutations/xxhash.h
+include numpycythonpermutations/__init__.py
+include numpycythonpermutations/uniqueproductcython.pyx
+include numpycythonpermutations/xxhash.c
