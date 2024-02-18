@@ -1,0 +1,68 @@
+[project]
+name = "comfy-script"
+version = "0.3.2"
+description = "A Python front end and library for ComfyUI"
+readme = "README.md"
+# ComfyUI: >=3.8
+# >=3.6 is required to preserve insertion order of input types
+requires-python = ">=3.9"
+authors = [
+  { name="Chaoses-Ib", email="Chaos-es@outlook.com" },
+]
+keywords = ["comfyui"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  # Client (used by transpiler and runtime)
+  # Already required by ComfyUI
+  "aiohttp",
+
+  # 1.5.9: https://github.com/erdewit/nest_asyncio/issues/87
+  "nest_asyncio ~= 1.0, >= 1.5.9",
+
+
+  # Transpiler
+  "networkx ~= 3.0",
+
+  # If you need the CLI:
+  # click ~= 8.1
+
+
+  # Runtime
+  # Already required by ComfyUI
+  "Pillow",
+
+  # TODO: Optional?
+  # Jupyter
+  "ipywidgets ~= 8.1",
+
+  # Nodes
+  "ComfyUI_Ib_CustomNodes",
+  "comfyui-tooling-nodes",
+]
+
+[project.urls]
+Homepage = "https://github.com/Chaoses-Ib/ComfyScript"
+Issues = "https://github.com/Chaoses-Ib/ComfyScript/issues"
+
+[project.entry-points."comfyui.custom_nodes"]
+# https://github.com/comfyanonymous/ComfyUI/pull/298
+comfy_script = "comfy_script.nodes"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+# TODO: Exclude docs and examples in sdist?
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest"
+]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--import-mode=importlib",
+]
