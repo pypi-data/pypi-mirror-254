@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "scc-whisper-api-client"
+version = "0.2.6"
+description = ""
+authors = ["Tobias K. <kurze@kit.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+loguru = "^0.7.2"
+pydantic = {extras = ["email"], version = "^2.6.0"}
+python-dotenv = "^1.0.1"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-dependency = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
