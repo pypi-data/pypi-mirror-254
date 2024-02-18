@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "env-cleanup-utils"
+version = "0.1.0"
+description = "Tool for cleaning up python virtual environments (venv), __pycache__, node_modules directories and saving requirements.txt for entire directory trees"
+authors = ["Edvinas Adomaitis <t4skmanag3r@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "env_cleanup_utils" }]
+repository = "https://github.com/t4skmanag3r/env_cleanup_utils"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
