@@ -1,0 +1,17 @@
+MRdataset/__init__.py,sha256=Ri_aiKnf3GB4MxmS0tJRCnCZsvh4OPjJQe2bG5bxM88,839
+MRdataset/__mrdataset__.py,sha256=vvxiZgd4BEi48pdIOpfIC8Ld7HSGcJrYpBE2MO-xQ18,331
+MRdataset/_version.py,sha256=0_dB-SwRXzCHowA3kD_9MmecjmUqQiIbDwJmtaXjluI,160
+MRdataset/base.py,sha256=K6R_CRV9_l-f43xWaOLlhoH7h8yTOMlXkjUo83L6kp8,20491
+MRdataset/bids.py,sha256=JMNgO9arNHBJnvlsf_zHi5QEvGqOcCLjsu1Lp9-Yyc4,4903
+MRdataset/cli.py,sha256=snmBBdaNFPhD8siL4P5aNOHcECbPK-9h1JqT_y7MFXg,4572
+MRdataset/common.py,sha256=hDliakLQjhbj_m2MTHNXXIVD2ZsRtyPhFw61qRqotDc,7287
+MRdataset/config.py,sha256=wf-wzm_63JC4PkqbzEVXoUvXqzgaK7aYPHy0GkKoD-Y,3083
+MRdataset/dicom.py,sha256=0Je4KMgBx-lDk_mKLvYeC3PfrXobif4Tz9mdjWQj6So,14710
+MRdataset/dicom_utils.py,sha256=jYrwMyRlVNClJqWiELLvEkSIqY-UamhrKEOduDz-7Qs,5138
+MRdataset/utils.py,sha256=n03wqS__NWDbaZ7sg6SXpNSKLNNclFbz1BtYmWx2wIg,6259
+mrdataset-0.4.1.dist-info/METADATA,sha256=rMklL1HitmGiM_G_EL24oj0MX5UUUrwzu5wdY-jg15E,3164
+mrdataset-0.4.1.dist-info/WHEEL,sha256=Fd6mP6ydyRguakwUJ05oBE7fh2IPxgtDN9IwHJ9OqJQ,87
+mrdataset-0.4.1.dist-info/entry_points.txt,sha256=BZZNmMhjUWwpiiWGKEkZwrGPBNU-u1r-eldHucGdrEo,73
+mrdataset-0.4.1.dist-info/licenses/AUTHORS.rst,sha256=BM9Ni1li8P3I0dPj3o8jaLTBlOI0wxESUoWURSZGxDE,227
+mrdataset-0.4.1.dist-info/licenses/LICENSE,sha256=4u6DuvQJlhBpGwB3xspb6Sz6ucgZDnz7HurVeJJQWc8,587
+mrdataset-0.4.1.dist-info/RECORD,,
