@@ -1,0 +1,142 @@
+
+
+<pre>
+
+
+<h1>onesie</h1>
+
+	<h2>description</h2>
+		This is a module that can reliably
+		ascertain the health status of software.
+		
+		(It's like a testing kit)
+		
+
+	<h2>install</h2>
+		[SH] pip install onesie
+	
+	<h2>documentation</h2>
+		[SH] onesie shares 
+	
+	<h2>onesie of onesie (the internal onesie of the onesie module)</h2>
+		<p>These checks are run with pypi "body_scan"</p>
+		<p>"onesie" is a fork of "body_scan"</p>
+		<p>("body_scan" checks are written with "unittest")</p>
+	
+		[SH] onesie internal-status 
+	
+	<h2>health checks</h2>
+		<p>Checks are started simultaneously, unless "--simultaneous no"</p>
+	
+		<h3>create a status file</h3>
+			
+			# status_1.py
+			
+			def check_1 ():
+				print ("check 1")
+				
+			def check_2 ():
+				print ("check 2")
+				
+			def check_3 ():
+				raise Exception ("not 110%")
+
+			checks = {
+				"check 1": check_1,
+				"check 2": check_2,
+				"check 3": check_3
+			}
+					
+		
+		<h3>start from a directory deeper than the status file "status_1.py"</h3>
+			[SH] onesie status
+
+		<h3>The report then should appear like this:</h3>
+		<code>
+		
+			paths: [
+				{
+					"path": "../status_1.py",
+					"empty": false,
+					"parsed": true,
+					"stats": {
+						"passes": 2,
+						"alarms": 1
+					},
+					"checks": [
+						{
+							"check": "check 1",
+							"passed": true,
+							"elapsed": [
+								4.054199962411076e-05,
+								"seconds"
+							]
+						},
+						{
+							"check": "check 2",
+							"passed": true,
+							"elapsed": [
+								1.72930003827787e-05,
+								"seconds"
+							]
+						},
+						{
+							"check": "check 3",
+							"passed": false,
+							"exception": "Exception('not 110%')",
+							"exception trace": [
+								"Traceback (most recent call last):",
+								"  File \"/home/veganecology/.local/lib/python3.11/site-packages/onesie/processes/scan/process/keg/check.py\", line 68, in start",
+								"    checks [ check ] ()",
+								"  File \"<string>\", line 13, in check_3",
+								"Exception: not 110%"
+							]
+						}
+					]
+				}
+			]
+			alarms: [
+				{
+					"path": "../status_1.py",
+					"checks": [
+						{
+							"check": "check 3",
+							"passed": false,
+							"exception": "Exception('not 110%')",
+							"exception trace": [
+								"Traceback (most recent call last):",
+								"  File \"/home/veganecology/.local/lib/python3.11/site-packages/onesie/processes/scan/process/keg/check.py\", line 68, in start",
+								"    checks [ check ] ()",
+								"  File \"<string>\", line 13, in check_3",
+								"Exception: not 110%"
+							]
+						}
+					]
+				}
+			]
+			stats: {
+				"alarms": 0,
+				"empty": 0,
+				"checks": {
+					"passes": 2,
+					"alarms": 1
+				}
+			}
+		
+		</code>
+	
+	
+	<h2>advanced configurations</h2>
+	<p>
+		It's recommended to run onesie programmatilly.
+		An example of this can be found in the "advanced configurations"
+		section of the documentation.
+	</p>
+
+	<h2>Contacts</h2>
+	<p>status600@proton.me</p>
+	
+</pre>
+		
+		
+	
