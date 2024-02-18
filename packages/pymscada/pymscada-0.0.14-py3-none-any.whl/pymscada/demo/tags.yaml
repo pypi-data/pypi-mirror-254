@@ -1,0 +1,216 @@
+__bus__:
+  desc: Bus Server Info
+  type: str
+__files__:
+  desc: File Server
+  type: dict
+__history__:
+  desc: History
+  type: bytes
+__opnotes__:
+  desc: Operator Notes
+  type: dict
+__alarms__:
+  desc: Alarms
+  type: dict
+IntSet:
+  desc: Integer Setpoint
+  type: int
+  min: -100
+  max: 100
+  init: 1
+IntVal:
+  desc: Integer Value
+  type: int
+  min: -100
+  max: 100
+  init: 1
+FloatSet:
+  desc: Float Setpoint
+  type: float
+  min: -1.e+100
+  max: 1.e+100
+  units: 'm'
+  dp: 1
+  init: 2
+FloatVal:
+  desc: Float Value
+  type: float
+  min: -1.e+100
+  max: 1.e+100
+  units: 'm'
+  dp: 1
+  init: 2
+MultiSet:
+  desc: Multi Setpoint
+  multi:
+   - zero
+   - one
+   - two
+   - three
+  init: 0
+MultiVal:
+  desc: Multi Value
+  multi:
+   - zero
+   - one
+   - two
+   - three
+  init: 0
+StringSet:
+  desc: String Setpoint
+  type: str
+  init: a string
+StringVal:
+  desc: String Value
+  type: str
+  init: a string
+TimeSet:
+  desc: Time Setpoint
+  type: int
+  init: 1234567890
+  format: time
+TimeVal:
+  desc: Time Value
+  type: int
+  init: 1234567890
+  format: time
+DateSet:
+  desc: Date Setpoint
+  type: int
+  init: 1234567890
+  format: date
+DateVal:
+  desc: Date Value
+  type: int
+  init: 1234567890
+  format: date
+DateTimeSet:
+  desc: Date Time Setpoint
+  type: int
+  init: 1234567890
+  format: datetime
+DateTimeVal:
+  desc: Date Time Value
+  type: int
+  init: 1234567890
+  format: datetime
+MultiSelect:
+  desc: Select Dict Multi
+  type: dict
+  init:
+    labels: [A, B, C, D, E, F, G, H]
+    values: [0, 1, 2, 3, 3, 4, 4, 3]
+    locks: [1, 0, 0, 0, 0, 0, 0, 1]
+FloatSelect:
+  desc: Select Dict Float
+  type: dict
+  init:
+    labels: [Floats, For, This, Tag]
+    values: [0.1, 0.1, 0.2, 0.3]
+    locks: [0, 1, 0, 0]
+cpu_temp:
+  desc: CPU Load
+  type: float
+  min: 0
+  max: 100
+  units: '°C'
+  dp: 1
+cpu_load:
+  desc: Float Value
+  type: float
+  min: 0
+  max: 100
+  units: '%'
+  dp: 1
+disk_use:
+  desc: Float Value
+  type: float
+  min: 0
+  max: 100
+  units: '%'
+  dp: 1
+sim_IntSet:  # for the demo PLC sim_ tags not required
+  desc: Simulation tag
+  type: int
+sim_IntVal:
+  desc: Simulation tag
+  type: int
+sim_FloatSet:
+  desc: Simulation tag
+  type: float
+sim_FloatVal:
+  desc: Simulation tag
+  type: float
+sim_MultiSet:
+  desc: Simulation tag
+  type: int
+sim_MultiVal:
+  desc: Simulation tag
+  type: int
+sim_TimeSet:
+  desc: Simulation tag
+  type: int
+sim_TimeVal:
+  desc: Simulation tag
+  type: int
+sim_DateSet:
+  desc: Simulation tag
+  type: int
+sim_DateVal:
+  desc: Simulation tag
+  type: int
+sim_DateTimeSet:
+  desc: Simulation tag
+  type: int
+sim_DateTimeVal:
+  desc: Simulation tag
+  type: int
+Router_eth1_bytes_in:
+  desc: eth1 bytes in
+  type: int
+Router_eth1_bytes_out:
+  desc: eth1 bytes out
+  type: int
+Router_eth2_bytes_in:
+  desc: eth2 bytes in
+  type: int
+Router_eth2_bytes_out:
+  desc: eth2 bytes out
+  type: int
+Router_eth3_bytes_in:
+  desc: eth3 bytes in
+  type: int
+Router_eth3_bytes_out:
+  desc: eth3 bytes out
+  type: int
+Router_eth4_bytes_in:
+  desc: eth4 bytes in
+  type: int
+Router_eth4_bytes_out:
+  desc: eth4 bytes out
+  type: int
+Router_eth5_bytes_in:
+  desc: eth5 bytes in
+  type: int
+Router_eth5_bytes_out:
+  desc: eth5 bytes out
+  type: int
+Router_eth6_bytes_in:
+  desc: eth6 bytes in
+  type: int
+Router_eth6_bytes_out:
+  desc: eth6 bytes out
+  type: int
+Router_eth7_bytes_in:
+  desc: eth7 bytes in
+  type: int
+Router_eth7_bytes_out:
+  desc: eth7 bytes out
+  type: int
+Router_eth8_bytes_in:
+  desc: eth8 bytes in
+  type: int
+Router_eth8_bytes_out:
+  desc: eth8 bytes out
+  type: int
