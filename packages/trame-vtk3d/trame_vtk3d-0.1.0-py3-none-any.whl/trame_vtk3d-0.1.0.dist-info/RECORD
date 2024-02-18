@@ -1,0 +1,17 @@
+trame/__init__.py,sha256=ED6jHcYiuYpr_0vjGz0zx2lrrmJT9sDJCzIljoDfmlM,65
+trame/modules/__init__.py,sha256=ED6jHcYiuYpr_0vjGz0zx2lrrmJT9sDJCzIljoDfmlM,65
+trame/modules/vtk3d.py,sha256=-tA1_sUt_Do52TmTSCf4a2bzJUmXjooSa2uQ4fp1Dx4,33
+trame/widgets/__init__.py,sha256=ED6jHcYiuYpr_0vjGz0zx2lrrmJT9sDJCzIljoDfmlM,65
+trame/widgets/vtk3d.py,sha256=Pws24_4QHKW_kYS8X745PjBj_bIFE-zIdPdbS09JN-o,135
+trame_vtk3d/__init__.py,sha256=Iij5DcWlgV6PpNzP0FbgXQ8X8KkZdUKfiKvoo8CxKKc,93
+trame_vtk3d/module/__init__.py,sha256=XGVyel0MKPOiquUiyZPFolGvKyjo3RbhkbKCE0E_Sy8,225
+trame_vtk3d/module/serve/trame_vtk3d.umd.js,sha256=waAARTovKjjsuVQqWUdhqf1Wjig83MKIKXeFb7rqyag,3533
+trame_vtk3d/module/serve/vtk3d.js,sha256=Gl-i4yCAoyXkoaiXOSxS6gEEETkZIORv5J51ILj5xZU,176710
+trame_vtk3d/module/serve/vtk3d.wasm,sha256=HEypNwwH9RZLgED7Ibwtd_eCvmC952-gvdaPsqSa_GA,8786750
+trame_vtk3d/widgets/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trame_vtk3d/widgets/vtk3d.py,sha256=gB8ZGTL-MIID0LrJSQXdpdHr6ojrtuxjP5eDgYFPgWQ,1841
+trame_vtk3d-0.1.0.dist-info/LICENSE,sha256=7HHgtrfI7AtPEaD2M04oYyY9-h97w0A7b8wkMp0737g,583
+trame_vtk3d-0.1.0.dist-info/METADATA,sha256=7ZdjBK-hc76ZVZEYSh7_kKuWCSiCmghbI4HAVYEUoDY,1304
+trame_vtk3d-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+trame_vtk3d-0.1.0.dist-info/top_level.txt,sha256=hUdoXA9LEVB_cDGpCZoTQs4j5_hpb0d1f8EhoSzcIHI,18
+trame_vtk3d-0.1.0.dist-info/RECORD,,
