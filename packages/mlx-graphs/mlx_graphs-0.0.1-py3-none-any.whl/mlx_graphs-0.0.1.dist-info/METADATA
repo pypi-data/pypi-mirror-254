@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: mlx-graphs
+Version: 0.0.1
+Summary: Graph Neural Network library made for Apple Silicon
+Author: mlx-graphs contributors
+License: MIT License
+        
+        Copyright © 2024 mlx-graphs contributors.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Repository, https://github.com/TristanBilot/mlx-graphs
+Project-URL: Issues, https://github.com/TristanBilot/mlx-graphs/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy ==1.26.3
+Requires-Dist: mlx ==0.0.11.* ; sys_platform == "darwin"
+Provides-Extra: benchmarks
+Requires-Dist: scipy ==1.12.0 ; extra == 'benchmarks'
+Requires-Dist: torch ==2.1.2 ; extra == 'benchmarks'
+Requires-Dist: torch-geometric ==2.4.0 ; extra == 'benchmarks'
+Requires-Dist: torch-scatter ==2.1.2 ; extra == 'benchmarks'
+Requires-Dist: tqdm ==4.66.1 ; extra == 'benchmarks'
+Provides-Extra: dev
+Requires-Dist: pre-commit ==3.6.0 ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ==7.2.6 ; extra == 'docs'
+Requires-Dist: sphinx-book-theme ==1.1.0 ; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints ==1.25.2 ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest ==7.4.4 ; extra == 'test'
+
+# MLX-graphs
+
+[Documentation](https://tristanbilot.github.io/mlx-graphs/)
+
+MLX-graphs is a library for Graph Neural Networks (GNNs) built upon Apple's MLX.
+
+## Work in progress 🚧
+
+We just started the development of this lib, with the aim to integrate it within [ml-explore](https://github.com/ml-explore).
+
+The lib follows the Message Passing Neural Network ([MPNN](https://proceedings.mlr.press/v70/gilmer17a/gilmer17a.pdf)) architecture to build arbitrary GNNs on top of it, similarly as in [PyG](https://github.com/pyg-team/pytorch_geometric).
+
+### Installation (build from source)
+To build and install `mlx-graphs` from source start by cloning the github repo
+```
+git clone git@github.com:TristanBilot/mlx-graphs.git && cd mlx-graphs
+```
+Create a new virtual environment and install the requirements
+```
+pip install -e .
+```
+
+### Usage
+#### Graph data model
+A graph is defined by a set of (optional) attributes
+  1. `edge_index`: an array of size `[2, num_edges]` which specifies the topology of the graph. The i-th column in `edge_index` defines the source and destination nodes of the i-th edge
+  2. `node_features`: an array of size `[num_nodes, num_node_features]` defining the features associated to each node (if any). The i-th row contains the features of the i-th node
+  3. `edge_features`:  an array of size `[num_edges, num_edge_features]` defining the features associated to each edge (if any). The i-th row contains the features of the i-th edge
+  4. `graph_features`: an array of size `[num_graph_features]` defining the features associated to the graph itself
+
+We adopt the above convention across the entire library both in terms of shapes of the attributes and the order in which they're provided to functions.
+
+### Contributing
+#### Installing test, dev, benchmaks, docs dependencies
+Extra dependencies are specified in the `pyproject.toml`.
+To install those required for testing, development and building documentation, you can run any of the following
+```
+pip install -e '.[test]'
+pip install -e '.[dev]'
+pip install -e '.[benchmarks]'
+pip install -e '.[docs]'
+```
+For dev purposes you may want to install the current version of `mlx` via `pip install mlx @ git+https://github.com/ml-explore/mlx.git`
+
+#### Testing
+We encourage to write tests for all components. CI is currently not in place as runners with Apple Silicon are required.
+Please run `pytest` to ensure breaking changes are not introduced.
+
+
+#### Pre-commit hooks (optional)
+To ensure code quality you can run [pre-commit](https://pre-commit.com) hooks. Simply install them by running
+```
+pre-commit install
+```
+and run via `pre-commit run --all-files`.
+
+> Note: CI is in place to verify code quality, so pull requests that don't meet those requirements won't pass CI tests.
+
+
+## Why running GNNs on my Mac?
+
+By leveraging Apple Silicon, running GNNs enjoys accelerated GPU computation ⚡️ and unified memory architecture. This eliminates device data transfers and enables leveraging all available memory to store large graphs directly on your Mac's GPU.
+
+## Why contributing?
+
+We are at an early stage of the development of the lib, which means your contributions can have a large impact!
+Everyone is welcome to contribute, just open an issue 📝 with your idea 💡 and we'll work together on the implementation ✨.
