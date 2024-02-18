@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TkLiteUI"
+version = "0.8"
+authors = [{name = "Adem Ulker", email = "ademulker055@gmail.com"}]
+description = "Kolay bir Tkinter kullanıcı arayüz kütüphanesi"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+keywords = ["tkinter", "GUI", "user interface"]
