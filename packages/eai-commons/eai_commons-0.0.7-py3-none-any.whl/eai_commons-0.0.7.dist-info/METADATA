@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: eai-commons
+Version: 0.0.7
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pydantic
+Requires-Dist: coloredlogs >=15.0.1
+Requires-Dist: concurrent-log-handler >=0.9.24
+Requires-Dist: pytz >=2023.3
+Requires-Dist: pycryptodome >=3.18.0
+Requires-Dist: PyJWT >=2.6.0
+Requires-Dist: tqdm >=4.65.0
+Requires-Dist: cryptography
+Requires-Dist: curl-cffi
+Requires-Dist: httpx >=0.24.1
+Requires-Dist: shortuuid
+
+UNKNOWN
+
