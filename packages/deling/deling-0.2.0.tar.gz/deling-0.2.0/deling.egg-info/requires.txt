@@ -1,0 +1,13 @@
+fs.sshfs>=1.0.2
+fs>=2.4.16
+ssh2-python>=1.0.0
+PyYAML>=6.0.1
+
+[dev]
+black==22.3.0
+docutils==0.18.1
+flake8==4.0.1
+Pygments==2.15.0
+
+[test]
+pytest==6.2.5
