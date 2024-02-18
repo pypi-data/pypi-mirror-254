@@ -1,0 +1,10 @@
+requests
+pandas
+bs4
+tqdm
+
+[examples]
+plotly
+
+[test]
+pytest
