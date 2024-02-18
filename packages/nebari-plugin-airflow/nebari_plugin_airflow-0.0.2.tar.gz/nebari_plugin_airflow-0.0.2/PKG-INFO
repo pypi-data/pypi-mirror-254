@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: nebari-plugin-airflow
+Version: 0.0.2
+Summary: MetroStar Onyx - Airflow plugin for Nebari platform
+Project-URL: Documentation, https://github.com/MetroStar/nebari-airflow#readme
+Project-URL: Issues, https://github.com/MetroStar/nebari-airflow/issues
+Project-URL: Source, https://github.com/MetroStar/nebari-airflow
+Author-email: Scott Blair <sblair@metrostar.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: nebari
+Description-Content-Type: text/markdown
+
+# Nebari Plugin - Airflow
+
+[![PyPI - Version](https://img.shields.io/pypi/v/nebari-plugin-airflow.svg)](https://pypi.org/project/nebari-plugin-airflow)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nebari-plugin-airflow.svg)](https://pypi.org/project/nebari-plugin-airflow)
