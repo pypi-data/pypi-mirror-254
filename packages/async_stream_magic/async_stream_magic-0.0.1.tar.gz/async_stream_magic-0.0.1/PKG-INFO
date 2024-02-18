@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: async_stream_magic
+Version: 0.0.1
+Summary: Async Cambridge Audio StreamMagic
+Project-URL: Homepage, https://github.com/rleusmann/async_stream_magic
+Project-URL: Issues, https://github.com/rleusmann/async_stream_magic/issues
+Author-email: Robert Leusmann <info@leusmann.eu>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# async_stream_magic
