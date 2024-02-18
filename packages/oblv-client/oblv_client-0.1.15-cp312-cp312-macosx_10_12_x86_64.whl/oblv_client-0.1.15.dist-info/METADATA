@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: oblv-client
+Version: 0.1.15
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: urllib3
+Summary: python bindings for using enclaves with oblivious tooling
+Home-Page: https://oblivious.ai
+Author: OBLV Devs <hello@oblivious.ai>
+Author-email: OBLV Devs <hello@oblivious.ai>
+License: Apache-2.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# oblv-client-python
+
+Python bindings for `oblv` client proxy.
+
+## Installation
+
+```
+pip install oblv_client
+```
+
+## Usage
+
+```python
+import oblv_client as oc
+import uuid
+oc.set_log_level("info")
+
+# enclave url
+enc_url = "http://<some-enclave-url>
+enc_port = 8000
+
+# For Pkiauth
+enclave = oc.Enclave(
+        enc_url,
+        enc_port,
+        True,
+        str(uuid.uuid4()),
+        pcr0="",
+        pcr1="",
+        pcr2="",
+        private_key="test_private.der",
+        public_key="test_public.der",
+        auth_type="pkiauth",
+    )
+enc_public_key = enclave.attest()
+
+# for OAuth
+enclave = oc.Enclave(
+        enc_url,
+        enc_port,
+        True,
+        str(uuid.uuid4()),
+        pcr0="",
+        pcr1="",
+        pcr2="",
+        auth_type="oauth",
+        client_id="<client-id>",
+        client_secret="<client-secret>",
+        oauth_audience=oauth_audience,
+        oauth_url=oauth_url
+    )
+
+# To attest
+access_token = enclave.attest()
+
+# Make HTTP Request
+data = e.get(
+    f"http://{enc_url}:{enc_port}/get_report",
+    headers={"Header1": "HeaderValue"},
+    body=bytes("some body contents", "utf-8"),
+    params={"param1": "val1"},
+    )
+status = data.status
+headers = data.headers
+body = data.body
+
+print(status)
+print(headers)
+print(body)
+
+data = e.post(
+    f"http://{enc_url}:{enc_port}/get_report",
+    headers={"Header1": "HeaderValue"},
+    params={"param1": "val1"},
+    json={"key": "val"}
+    )
+status = data.status
+headers = data.headers
+body = data.body
+
+print(status)
+print(headers)
+print(body)
+
+```
+
