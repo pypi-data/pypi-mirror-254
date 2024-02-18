@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: rover
+Version: 1.1.0
+Summary: Robust retrieval of seismic data using FDSN web services
+Project-URL: Homepage, https://earthscope.github.io/rover/
+Project-URL: Issues, https://github.com/EarthScope/rover/issues
+Author-email: EarthScope Data Services <software@earthscope.org>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: data,miniseed,mseed,seismic,seismology,waveform
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: Other
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+Requires-Dist: mseedindex>=3.0.4
+Requires-Dist: requests>=2.26.0
+Description-Content-Type: text/markdown
+
+# rover - Robust retrieval of seismic data using FDSN web services
+
+A command-line tool for the robust retrieval of seismic (and other) data from a data center
+such as [EarthScope](https://www.earthscope.org/data).  The data center must support the
+following [FDSN web services](https://fdsn.org/webservices/):
+* fdsnws-availability
+* fdsnws-dataselect
+
+For installation instructions and quick start see the [User Guide](https://earthscope.github.io/rover/).
