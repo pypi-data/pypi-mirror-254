@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/vaderium/__init__.py
+src/vaderium/example.py
+src/vaderium.egg-info/PKG-INFO
+src/vaderium.egg-info/SOURCES.txt
+src/vaderium.egg-info/dependency_links.txt
+src/vaderium.egg-info/top_level.txt
