@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: databend_sqlalchemy
+Version: 0.4.5
+Summary: Sqlalchemy adapter for Databend
+Home-page: https://github.com/datafuselabs/databend-sqlalchemy
+Author: Databend Cloud
+Author-email: hanshanjie@datafuselabs.com
+License: Apache-2.0
+Project-URL: Bug Tracker, https://github.com/datafuselabs/databend-sqlalchemy
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: databend-driver >=0.12.3
+Requires-Dist: sqlalchemy >1.3.21
+Provides-Extra: dev
+Requires-Dist: devtools ==0.7.0 ; extra == 'dev'
+Requires-Dist: mock ==4.0.3 ; extra == 'dev'
+Requires-Dist: pre-commit ==2.15.0 ; extra == 'dev'
+Requires-Dist: pytest ==6.2.5 ; extra == 'dev'
+Requires-Dist: pytest-cov ==3.0.0 ; extra == 'dev'
+Requires-Dist: sqlalchemy-stubs ==0.4 ; extra == 'dev'
+Provides-Extra: superset
+Requires-Dist: apache-superset >=1.4.1 ; extra == 'superset'
+
+databend-sqlalchemy
+===================
+
+Databend dialect for SQLAlchemy.
+
+Installation
+------------
+
+The package is installable through PIP::
+
+    pip install databend-sqlalchemy
+
+Usage
+-----
+
+The DSN format is similar to that of regular Postgres::
+
+        from sqlalchemy import create_engine, text
+        from sqlalchemy.engine.base import Connection, Engine
+        engine = create_engine(
+            f"databend://{username}:{password}@{host_port_name}/{database_name}?sslmode=disable"
+        )
+        connection = engine.connect()
+        result = connection.execute(text("SELECT 1"))
+        assert len(result.fetchall()) == 1
+
+        import connector
+        cursor = connector.connect('databend://root:@localhost:8000?sslmode=disable').cursor()
+        cursor.execute('SELECT * FROM test')
+        # print(cursor.fetchone())
+        # print(cursor.fetchall())
+        for i in cursor.next():
+            print(i)
+
+
+
+
+Compatibility
+---------------
+
+- If databend version >= v0.9.0 or later, you need to use databend-sqlalchemy version >= v0.1.0.
+- The databend-sqlalchemy use [databend-py](https://github.com/datafuselabs/databend-py) as internal driver when version < v0.4.0, but when version >= v0.4.0 it use [databend driver python binding](https://github.com/datafuselabs/bendsql/blob/main/bindings/python/README.md) as internal driver. The only difference between the two is that the connection parameters provided in the DSN are different. When using the corresponding version, you should refer to the connection parameters provided by the corresponding Driver.
