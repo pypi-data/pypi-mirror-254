@@ -1,0 +1,13 @@
+fb_logging/__init__.py,sha256=y_ZqNgoLtfNssN7NF-AVY9k87EtRwuHIW5XKAuF-kRI,11029
+fb_logging/colored.py,sha256=u-EeIDBQkWrxUpm0r3mvM--KkUl8qPSrZz50j76P1SU,16513
+fb_logging/deb_changelog.py,sha256=qkPdjgG7bhdWwmSEuIIGQHFTeB2FNsiIWzvtCpgqKHU,42932
+fb_logging/deb_version.py,sha256=xnl_Uou9HxZWWl9Lltzs0Ctt-tkQjSFfKWtQyd4ghDE,12290
+fb_logging/local_version.py,sha256=8QEF6qMGXphhJfxdlHhEKfpXuTcImNMMap9qpwFk_bA,468
+fb_logging/syslog_handler.py,sha256=cmMWSyUzJTsZxn6zLJcUlpykOF6IbNqRp4RUkMLKT-Y,4458
+fb_logging/unix_handler.py,sha256=KndSKFY94mu-_ZvG5sWPhXJxcIfi9aw41o6c40dDCRI,9559
+fb_logging-1.0.0.data/scripts/dch2speclog,sha256=1vG7CK1foYA7qF5IM7VR7RTwIfhVWJGp-uWCJFl3JFE,14639
+fb_logging-1.0.0.dist-info/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+fb_logging-1.0.0.dist-info/METADATA,sha256=4kZ-h5mtNcUhXOg5ETFDCYyq0QNmtQ3PYG4GKq0ooxQ,1096
+fb_logging-1.0.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+fb_logging-1.0.0.dist-info/top_level.txt,sha256=VC795SjmHmQD9Hu1jghIINdfCgnivTF7PuvNDdNv-Bs,11
+fb_logging-1.0.0.dist-info/RECORD,,
