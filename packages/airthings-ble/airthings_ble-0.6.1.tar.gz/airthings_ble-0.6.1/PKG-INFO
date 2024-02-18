@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: airthings-ble
+Version: 0.6.1
+Summary: Manage Airthings BLE devices
+Home-page: https://github.com/Airthings/airthings-ble
+License: Apache Software License 2.0
+Author: Vincent Giorgi
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: async-interrupt (>=1.1.1)
+Requires-Dist: async-timeout (>=4.0.1) ; python_version < "3.11"
+Requires-Dist: bleak (>=0.15.1)
+Requires-Dist: bleak-retry-connector (>=1.8.0)
+Project-URL: Bug Tracker, https://github.com/Airthings/airthings-ble/issues
+Project-URL: Documentation, https://airthings-ble.readthedocs.io
+Project-URL: Repository, https://github.com/Airthings/airthings-ble
+Description-Content-Type: text/markdown
+
+# airthings-ble
+
+Library to control Airthings devices through BLE, primarily meant to be used in
+the [Home Assistant integration](https://www.home-assistant.io/integrations/airthings_ble/).
+
+## Getting Started
+
+Prerequisites:
+
+- [Python](https://www.python.org/downloads/) with version 3.11 that is required by Home Assistant ([docs](https://developers.home-assistant.io/docs/development_environment?_highlight=python&_highlight=versi#manual-environment))
+- [Poetry](https://python-poetry.org/docs/#installation)
+
+Install dependencies:
+
+```bash
+poetry install
+```
+
+Run tests:
+
+```bash
+poetry run pytest
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. 
