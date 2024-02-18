@@ -1,0 +1,14 @@
+README.md
+setup.py
+spark_metabase_api/__init__.py
+spark_metabase_api/_helper_methods.py
+spark_metabase_api/_rest_methods.py
+spark_metabase_api/copy_methods.py
+spark_metabase_api/create_methods.py
+spark_metabase_api/main_methods.py
+spark_metabase_api/modify_methods.py
+spark_metabase_api.egg-info/PKG-INFO
+spark_metabase_api.egg-info/SOURCES.txt
+spark_metabase_api.egg-info/dependency_links.txt
+spark_metabase_api.egg-info/requires.txt
+spark_metabase_api.egg-info/top_level.txt
