@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "braspag-sdk"
+version = "0.0.5"
+description = "An unofficial Python SDK for Braspag"
+authors = [
+    "Roman Sirokov <sirokov@dizconto.com>",
+]
+homepage = "https://github.com/romatallinn/braspagSdk-python"
+repository = "https://github.com/romatallinn/braspagSdk-python"
+readme = "README.md"
+keywords = ["braspag", "sdk", "python", "cielo", "api", "ecommerce", "brazil", "payments"]
+packages = [{include = "braspag_sdk"}]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'License :: OSI Approved :: MIT License',
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+future = "^0.18.3"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
