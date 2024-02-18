@@ -1,0 +1,82 @@
+{#
+  Copyright (C) 2020-2023 Graz University of Technology.
+
+  invenio-theme-tugraz is free software; you can redistribute it and/or
+  modify it under the terms of the MIT License; see LICENSE file for more
+  details.
+#}
+
+{%- extends config.INVENIO_THEME_TUGRAZ_BASE_TEMPLATE %}
+
+{%- set active_dashboard_menu_item = "overview" %}
+{%- set title = _("Overview") %}
+
+{%- block page_body %}
+  {%- block user_dashboard_header %}
+    {% include "invenio_app_rdm/users/header.html" %}
+  {%- endblock user_dashboard_header %}
+
+  <div class="ui container rel-mt-2">
+    <h2>Overview</h2>
+
+
+    <div class="ui five column stackable grid overview">
+      <div class="column">
+        <div class="ui segment" style="height: 480px">
+          <h2>{{ _("Research Results") }}</h2>
+          <a class="ui left floated image" href="/me/uploads">
+            <img width="400px" alt="Research Results" src="{{ url_for("static", filename="images/diamond.svg") }}">
+          </a>
+          <div class="ui right floated text">
+            {{ _("Overview: Description for research results") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="height: 480px">
+          <h2>{{ _("Communities") }}</h2>
+          <a class="ui left floated image" href="/me/communities">
+            <img width="400px" alt="Communities" src="{{ url_for("static", filename="images/group-discussion.svg") }}">
+          </a>
+          <div>
+            {{ _("Overview: Description of Communities") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="height: 480px">
+          <h2>{{ _("Requests") }}</h2>
+          <a class="ui left floated image" href="/me/requests">
+            <img width="400px" alt="Requests" src="{{ url_for("static", filename="images/umbrella.svg") }}">
+          </a>
+          <div>
+            {{ _("Overview: Description of Requests") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="height: 480px">
+          <h2>{{ _("Publications") }}</h2>
+          <a class="ui left floated image" href="/publications/uploads">
+            <img width="400px" alt="Publications" src="{{ url_for("static", filename="images/library-book-svgrepo-com.svg") }}">
+          </a>
+          <div>
+            {{ _("Overview: Description for publications") }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="height: 480px">
+          <h2>{{ _("Educational Resources") }}</h2>
+          <a class="ui left floated image" href="/oer/uploads">
+            <img width="400px" alt="Open Educational Resources" src="{{ url_for("static", filename="images/play.svg") }}">
+          </a>
+          <div>
+            {{ _("Overview: Description for open educational resources") }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%- endblock %}
