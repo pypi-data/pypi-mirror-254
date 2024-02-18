@@ -1,0 +1,2 @@
+[console_scripts]
+yt-music = yt_music.__main__:__ytmusic__
