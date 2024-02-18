@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: athenapi
+Version: 0.1.4
+Summary: AI Agent on Raspberry Pi
+Author: Xiaomeng Zhang
+Author-email: zhang123cnn@gmail.com
+Requires-Dist: pyaudio
+Requires-Dist: openai
+Requires-Dist: pygame
+Requires-Dist: RPi.GPIO
+Requires-Dist: nltk
+Requires-Dist: python-dotenv
+Requires-Dist: picamera
+

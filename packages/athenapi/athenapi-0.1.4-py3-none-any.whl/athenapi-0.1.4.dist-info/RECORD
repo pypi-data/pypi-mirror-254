@@ -1,0 +1,17 @@
+athenapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+athenapi/conversation_lite.py,sha256=b1l4mYdWsv-fUJk3rvTnrfgkMVZrFQvWgLUMeA2Lggw,3971
+athenapi/mac_board.py,sha256=e2n8MYScibA90-G5HAs0pmNUPbxq4nZ7SvJuJdiR_AA,1629
+athenapi/microphone.py,sha256=tCs3B8j2DtKowusxRHUh2ztZtuqvPO9A0_2qWYhTUTo,1259
+athenapi/rpi0_iqaudio_board.py,sha256=5SWlkz4x1VUPj1NZK9K-FOjBRjX4llCfoCyhF8ME0Pk,2259
+athenapi/rpi_button.py,sha256=6YQO6q-B9hpICOqvJu2ChgpgqFuoQyKZ4H-eaZOLrt8,1108
+athenapi/rpi_led.py,sha256=ZIslxgN1Rj1mVWD2SZkG9U_Uhx3bp2LlnNnOxjGfsQU,461
+athenapi/rpi_zero_camera.py,sha256=ytmvQfypo_jMRLds0SkKiEsCN3TFjg5fyxuE-oFcOZ4,386
+athenapi/speaker.py,sha256=R6h0_XAmleo64MgrsqAHf6n2xRlxOwzdqR_m0TKddhE,1177
+athenapi/assets/beep-down.wav,sha256=iyHBkG7BNNfP3uVAvetqG2fVWNjZ-PDXZqx2fl4exnY,9702
+athenapi/assets/beep-up.wav,sha256=m1EbQH--K24h4PDGJDIh7yp7ufYfYrW9pdm_OGhE_xE,11968
+athenapi/assets/camera.mp3,sha256=LPt4XrJ1lxyRwl6XdbGm6nKL4WKW_u-CFUHJ3Nmc934,13374
+athenapi-0.1.4.dist-info/METADATA,sha256=YYSLqhcq_d7IA375A0pKg83WR8D8dMm2PdqsQUexT2M,310
+athenapi-0.1.4.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+athenapi-0.1.4.dist-info/entry_points.txt,sha256=Vr5sxVZjkBt9pHPGFqdyVVGGzhh7oEyqrC6TnxEiBz8,112
+athenapi-0.1.4.dist-info/top_level.txt,sha256=UCLhAJzPwTx73MCzz-D3AfEoVcmSExtYmgbB4qHRuLw,9
+athenapi-0.1.4.dist-info/RECORD,,

@@ -1,0 +1,3 @@
+[console_scripts]
+conversation = athenapi.conversation:main
+conversation_lite = athenapi.conversation_lite:main
