@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mmk_updater
+Version: 0.14.3
+Summary: Updater for my Python apps
+Author-email: MelianMiko <melianmiko@yandex.ru>
+License: MIT
+Requires-Python: >=3.9
+License-File: LICENSE
+Provides-Extra: tk
+Requires-Dist: tkinter ; extra == 'tk'
+
