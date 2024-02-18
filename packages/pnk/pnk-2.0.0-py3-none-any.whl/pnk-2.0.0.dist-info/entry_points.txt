@@ -1,0 +1,2 @@
+[console_scripts]
+pnk = pnk.__main__:main
