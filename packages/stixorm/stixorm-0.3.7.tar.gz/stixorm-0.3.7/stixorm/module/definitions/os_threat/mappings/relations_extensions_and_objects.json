@@ -1,0 +1,163 @@
+[
+  {
+    "stix": "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e",
+    "object": "event-extension",
+    "relation": "event-ext",
+    "owner": "event-base",
+    "pointed-to": "event-spec"
+  },
+  {
+    "stix": "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9",
+    "object": "impact-extension",
+    "relation": "impact-ext",
+    "owner": "impact-base",
+    "pointed-to": "impact-spec"
+  },
+  {
+    "stix": "availability",
+    "object": "availability",
+    "relation": "availability-imp",
+    "owner": "impact-base",
+    "pointed-to": "availability-impact"
+  },
+  {
+    "stix": "confidentiality",
+    "object": "confidentiality",
+    "relation": "confidentiality-imp",
+    "owner": "impact-base",
+    "pointed-to": "confidentiality-impact"
+  },
+  {
+    "stix": "external",
+    "object": "external",
+    "relation": "external-imp",
+    "owner": "impact-base",
+    "pointed-to": "external-impact"
+  },
+  {
+    "stix": "integrity",
+    "object": "integrity",
+    "relation": "integrity-imp",
+    "owner": "impact-base",
+    "pointed-to": "integrity-impact"
+  },
+  {
+    "stix": "monetary",
+    "object": "monetary",
+    "relation": "monetary-imp",
+    "owner": "impact-base",
+    "pointed-to": "monetary-impact"
+  },
+  {
+    "stix": "physical",
+    "object": "physical",
+    "relation": "physical-imp",
+    "owner": "impact-base",
+    "pointed-to": "physical-impact"
+  },
+  {
+    "stix": "traceability",
+    "object": "traceability",
+    "relation": "traceability-imp",
+    "owner": "impact-base",
+    "pointed-to": "traceability-impact"
+  },
+  {
+    "stix": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
+    "object": "incident-ext",
+    "relation": "occurence-ext",
+    "owner": "occurence",
+    "pointed-to": "incident-core"
+  },
+  {
+    "stix": "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030",
+    "object": "task-extension",
+    "relation": "task-ext",
+    "owner": "task-base",
+    "pointed-to": "task-spec"
+  },
+  {
+    "stix": "extension-definition--0d76d6d9-16ca-43fd-bd41-4f800ba8fc43",
+    "object": "evidence-extension",
+    "relation": "evidence-ext",
+    "owner": "evidence-base",
+    "pointed-to": "evidence-spec"
+  },
+  {
+    "stix": "sighting-alert",
+    "object": "alert-evidence",
+    "relation": "alert-ext",
+    "owner": "sighting-base",
+    "pointed-to": "alert-extension"
+  },
+  {
+    "stix": "sighting-anecdote",
+    "object": "anecdote-evidence",
+    "relation": "anecdote-ext",
+    "owner": "sighting-base",
+    "pointed-to": "anecdote-extension"
+  },
+  {
+    "stix": "sighting-context",
+    "object": "context-evidence",
+    "relation": "context-ext",
+    "owner": "sighting-base",
+    "pointed-to": "context-extension"
+  },
+  {
+    "stix": "sighting-exclusion",
+    "object": "exclusion-evidence",
+    "relation": "exclusion-ext",
+    "owner": "sighting-base",
+    "pointed-to": "exclusion-extension"
+  },
+  {
+    "stix": "sighting-enrichment",
+    "object": "enrichment-evidence",
+    "relation": "enrichment-ext",
+    "owner": "sighting-base",
+    "pointed-to": "enrichment-extension"
+  },
+  {
+    "stix": "sighting-hunt",
+    "object": "hunt-evidence",
+    "relation": "hunt-ext",
+    "owner": "sighting-base",
+    "pointed-to": "hunt-extension"
+  },
+  {
+    "stix": "sighting-framework",
+    "object": "framework-evidence",
+    "relation": "framework-ext",
+    "owner": "sighting-base",
+    "pointed-to": "framework-extension"
+  },
+  {
+    "stix": "sighting-external",
+    "object": "external-evidence",
+    "relation": "external-ext",
+    "owner": "sighting-base",
+    "pointed-to": "external-extension"
+  },
+  {
+    "stix": "extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498",
+    "object": "identity-contact",
+    "relation": "identity-ext",
+    "owner": "identity-base",
+    "pointed-to": "identity-spec"
+  },
+  {
+    "stix": "extension-definition--23676abf-481e-4fee-ac8c-e3d0947287a4",
+    "object": "anecdote-sco-extension",
+    "relation": "anecdote-sco-ext",
+    "owner": "anecdote-base",
+    "pointed-to": "anecdote-spec"
+  },
+  {
+    "stix": "extension-definition--be0c7c79-1961-43db-afde-637066a87a64",
+    "object": "sequence-extension",
+    "relation": "sequence-ext",
+    "owner": "sequence-base",
+    "pointed-to": "sequence-spec"
+  }
+]
