@@ -1,0 +1,15 @@
+shipyard_snowflake/__init__.py,sha256=DZqEHPxVv8u7qZpO9yl59q1IzLdNFUGkE76kb9kc-mc,140
+shipyard_snowflake/cli/authtest.py,sha256=jbbc-yMnK_DxyebAfOH9_PNUhC1mKo8VBjxfeLx2rVw,607
+shipyard_snowflake/cli/execute_sql.py,sha256=rOf3VYZ-0OSrZ6vBQ39wBuJgXXh_GqhbacMxWH5d0jQ,2213
+shipyard_snowflake/cli/fetch.py,sha256=WFBMKts7PCAmsweElxNeSWSBH696pzh4u3lVwcqmiNM,3550
+shipyard_snowflake/cli/upload.py,sha256=oXIjVXjONjheUX6M079DAjlHS_q6f7esSgYsCEcJrz0,8505
+shipyard_snowflake/snowflake.py,sha256=NL2wZLMvraewPGHFoUAmKIQLsaiqaDuFTUSwHA0nKTo,10134
+shipyard_snowflake/snowpark.py,sha256=UW7uF7IEDEaK2qYNJS111F4OXlPHPCWqM0aW5wcsU3g,4448
+shipyard_snowflake/test/snowflake_test.py,sha256=T7BshFaFdEvVilPr-oA3iOmKFmuCIFZqHwfL67aG-Mg,2109
+shipyard_snowflake/test/snowpark_test.py,sha256=pNmglwC0XkIfJroBKIX9pwqRoNOnWFseTm6zjGmUxA0,2023
+shipyard_snowflake/test/tests.py,sha256=ubhRVdf-8tBFSF7BB2GpXHGhDNdx8iZ306snYpbtNUE,1846
+shipyard_snowflake/utils/exceptions.py,sha256=ZW_KE4Ls02SlTnnhfy9CsnG-vNZVY2PLKZwg-RzkJ1A,1795
+shipyard_snowflake/utils/utils.py,sha256=S15-isJRbzGB7w-Ylma5auT5DwTqN8NSDMbDYxx2g3c,9674
+shipyard_snowflake-0.2.1a0.dist-info/METADATA,sha256=dLhISxs498NophVBPVPdobYTUR9ExLY3Igu7cI4ODnw,4086
+shipyard_snowflake-0.2.1a0.dist-info/WHEEL,sha256=d2fvjOD7sXsVzChCqf0Ty0JbHKBaLYwDbGQDwQTnJ50,88
+shipyard_snowflake-0.2.1a0.dist-info/RECORD,,
