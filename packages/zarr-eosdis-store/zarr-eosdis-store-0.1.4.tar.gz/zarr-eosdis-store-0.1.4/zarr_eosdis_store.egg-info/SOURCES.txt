@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+eosdis_store/__init__.py
+eosdis_store/dmrpp.py
+eosdis_store/stores.py
+eosdis_store/version.py
+tests/test_dmrpp.py
+tests/test_stores.py
+zarr_eosdis_store.egg-info/PKG-INFO
+zarr_eosdis_store.egg-info/SOURCES.txt
+zarr_eosdis_store.egg-info/dependency_links.txt
+zarr_eosdis_store.egg-info/requires.txt
+zarr_eosdis_store.egg-info/top_level.txt
