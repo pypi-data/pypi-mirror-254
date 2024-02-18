@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: EasySeaborn
+Version: 0.0.1
+Summary: Seaborn快速绘制统计图的简洁程序库
+Project-URL: Homepage, https://github.com/LiuAndy-art/EasySeaborn
+Project-URL: Documentation, https://github.com/LiuAndy-art/EasySeaborn
+Project-URL: Repository, https://github.com/LiuAndy-art/EasySeaborn
+Author-email: LiuAndy <andylau_dh@163.com>
+Maintainer-email: LiuAndy <andylau_dh@163.com>
+License: MIT License
+        
+        Copyright (c) 2023 The Python Packaging Authority
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: 函数封装,数据获取,简介代码
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: pyreadstat
+Requires-Dist: seaborn
+Requires-Dist: xlrd
+Requires-Dist: xlsxwriter
+Requires-Dist: xlwt
+Description-Content-Type: text/markdown
+
+# EasySeaborn
+
+EasySeaborn是一个对seaborn库的简洁函数封装，它有着下面的优点:
+
+- 多个功能在一个函数中封装。
+- 中文参数含义说明。
