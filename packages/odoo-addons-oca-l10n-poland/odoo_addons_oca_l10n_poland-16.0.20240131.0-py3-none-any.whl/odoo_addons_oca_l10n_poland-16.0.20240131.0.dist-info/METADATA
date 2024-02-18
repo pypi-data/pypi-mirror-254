@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-l10n-poland
+Version: 16.0.20240131.0
+Summary: Meta package for oca-l10n-poland Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 16.0
+Requires-Dist: odoo-addon-currency-rate-update-nbp <16.1dev,>=16.0dev
+
+UNKNOWN
+
