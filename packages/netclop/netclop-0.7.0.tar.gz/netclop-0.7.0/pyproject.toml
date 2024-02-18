@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "netclop"
+version = "0.7.0"
+description = "Network clustering operations for geophysical fluid transport"
+authors = ["KarstenEconomou <economoukarsten@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+numpy = "^1.26.3"
+networkx = "^3.2.1"
+h3 = "4.0.0b2"
+pandas = "^2.1.4"
+infomap = "^2.7.1"
+plotly = "^5.18.0"
+geopandas = "^0.14.2"
+seaborn = "^0.13.2"
+pyyaml = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+netclop = "netclop.cli:netclop"
