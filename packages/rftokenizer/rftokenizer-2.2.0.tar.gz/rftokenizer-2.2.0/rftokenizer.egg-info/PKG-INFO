@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rftokenizer
+Version: 2.2.0
+Summary: A character-wise tokenizer for morphologically rich languages
+Home-page: https://github.com/amir-zeldes/RFTokenizer
+Download-URL: https://github.com/amir-zeldes/RFTokenizer/releases/tag/v2.2.0
+Author: Amir Zeldes
+Author-email: amir.zeldes@georgetown.edu
+License: Apache License, Version 2.0
+Keywords: NLP,tokenization,segmentation,morphology,morphological,Hebrew,Arabic,Coptic,word,splitting
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE.md

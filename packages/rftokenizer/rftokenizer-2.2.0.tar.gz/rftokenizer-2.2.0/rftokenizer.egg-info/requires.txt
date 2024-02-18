@@ -1,0 +1,6 @@
+scikit-learn
+numpy
+pandas
+xgboost==2.0.3
+hyperopt
+joblib
