@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: vlgi-datasets
+Version: 0.0.4
+Summary: A package with custom kedro datasets for VLGI
+Author-email: Tecnologia Grupo Sozo <tecnologia@gruposozo.com.br>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas >=0.23.4
+Requires-Dist: kedro ~=0.18.2
+Requires-Dist: SQLAlchemy ==1.4.39
+Requires-Dist: Office365-REST-Python-Client ==2.3.16
+
+# vlgi-asset-datasets
+
+## Overview
+
+Repositiory with custom kedro micropackages datasets
+
+## How to use
