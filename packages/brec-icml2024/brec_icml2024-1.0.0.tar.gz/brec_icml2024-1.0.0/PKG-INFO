@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: brec_icml2024
+Version: 1.0.0
+Summary: pypi distribution for BREC
+Author-email: brec_icml2024 <icml2024_brec@protonmail.com>
+Maintainer-email: brec_icml2024 <icml2024_brec@protonmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 Yanbo Wang
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/brec-icml2024/brec-icml2024
+Project-URL: Bug Reports, https://github.com/brec-icml2024/brec-icml2024/issues
+Project-URL: Source, https://github.com/brec-icml2024/brec-icml2024
+Keywords: machine learning,artificial intelligence,graph neural network,dataset,expressiveness
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# An Empirical Study of Realized GNN Expressiveness
+
+## About
+
+This package is official implementation of the following paper: An Empirical Study of Realized GNN Expressiveness. Evalution process can be easily implemented by this package. For more detailed and advanced usage, please refer to [BREC](https://github.com/brec-icml2024/brec-icml2024)
+
+**BREC**  is a new dataset for GNN expressiveness comparison.
+It addresses the limitations of previous datasets, including difficulty, granularity, and scale, by incorporating
+400 pairs of various graphs in four categories (Basic, Regular, Extension, CFI).
+The graphs are organized pair-wise, where each pair is tested individually to return whether a GNN can distinguish them. We propose a new evaluation method, **RPC** (Reliable Paired Comparisons), with a contrastive training framework.
+
+## Usages
+
+### Install
+
+Install [pytorch](https://pytorch.org/) and [pytorch_geometric](https://github.com/pyg-team/pytorch_geometric) with corresponding versions aligning with your device. Then `pip install brec-icml2024`.
+
+### Example
+
+Here is a simple example:
+
+```python
+import torch
+import torch.nn.functional as F
+from torch_geometric.nn import GCNConv
+
+from brec.dataset import BRECDataset
+from brec.evaluator import evaluate
+
+
+class GCN(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = GCNConv(1, 16)
+        self.conv2 = GCNConv(16, 16)
+
+    def forward(self, data):
+        x, edge_index = data.x, data.edge_index
+
+        x = self.conv1(x, edge_index)
+        x = F.relu(x)
+        x = F.dropout(x, training=self.training)
+        x = self.conv2(x, edge_index)
+
+        return x
+
+    def reset_parameters(self):
+        self.conv1.reset_parameters()
+        self.conv2.reset_parameters()
+
+
+model = GCN()
+
+dataset = BRECDataset()
+evaluate(
+    dataset, model, device=torch.device("cpu"), log_path="log.txt", training_config=None
+)
+
+
+```
