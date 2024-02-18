@@ -1,0 +1,9 @@
+vlgi_datasets/__init__.py,sha256=SEqnG_maB58fNdqLfQ02HjOHVOhtC04bz4Qo2SPgZPE,360
+vlgi_datasets/pdf_dataset.py,sha256=PCWdP-9CT53Grf3SPnygD-Tw8b1HLgYgBS_pFUIOevE,2655
+vlgi_datasets/postgres_soft_replace_dataset.py,sha256=sL7_ERU8mdsSQK1Z0gGiOpZYE6HeNZlw9sxaCjJCAKM,1939
+vlgi_datasets/postgres_upsert_table.py,sha256=XxF23HXkq-nPrkVxbtAhM8HSVQ1PQF2ktlnUcxxTGeQ,2406
+vlgi_datasets/sharepoint_excel_dataset.py,sha256=Iou6hZBbRPO8lNrTTiOUDL-2CRsp6x5i21PvQlihv6Y,2406
+vlgi_datasets-0.1.0.dist-info/METADATA,sha256=ZvrM1Bihzr_mZ2LTGjmIDiaHF1cEnukfcnkfxA8Sh-Y,1196
+vlgi_datasets-0.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+vlgi_datasets-0.1.0.dist-info/top_level.txt,sha256=HhHfOJ7_2b-XljvgBlMCOcfM5zRJF4vDkdlzCiwP8gw,14
+vlgi_datasets-0.1.0.dist-info/RECORD,,
