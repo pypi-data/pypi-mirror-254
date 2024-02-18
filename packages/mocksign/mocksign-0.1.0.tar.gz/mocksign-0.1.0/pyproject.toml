@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "mocksign"
+version = "0.1.0"
+description = ""
+authors = ["Stephan Rumswinkel <17520641+srwi@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "mocksign", from = "src"}]
+
+[tool.poetry.scripts]
+mocksign = "mocksign.mocksign:main"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+testpaths = [
+    "test"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+opencv-python = "4.9.0.80"
+Pillow = "9.3.0"
+PyMuPDF = "1.21.0"
+PySimpleGUI = "4.60.4"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.1.9"
+mypy = "1.7.1"
+pytest = "7.4.3"
+poethepoet = "0.24.4"
+types-pillow = "^10.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+mypy = "mypy ."
+format = "ruff format ."
+format-check = "ruff format . --check"
+ruff = "ruff check ."
+ruff-fix = "ruff --fix ."
+test = "pytest test"
+
+[tool.mypy]
+namespace_packages = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+strict_equality = true
+warn_unreachable = true
+ignore_missing_imports = true
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".vscode",
+    ".idea",
+]
+line-length = 120
+indent-width = 4
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["ANN", "E", "F", "I"]
+ignore = [
+    "ANN101",  # self should not be annotated.
+    "ANN102"  # cls should not be annotated.
+]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
