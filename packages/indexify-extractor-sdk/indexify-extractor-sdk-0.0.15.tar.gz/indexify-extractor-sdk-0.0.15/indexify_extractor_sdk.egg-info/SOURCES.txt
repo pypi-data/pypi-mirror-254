@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+extractors_sdk_tests/__init__.py
+extractors_sdk_tests/test_mock_extractor.py
+indexify_extractor_sdk/__init__.py
+indexify_extractor_sdk/base_embedding.py
+indexify_extractor_sdk/base_extractor.py
+indexify_extractor_sdk/mock_extractor.py
+indexify_extractor_sdk/sentence_transformer.py
+indexify_extractor_sdk/version.py
+indexify_extractor_sdk.egg-info/PKG-INFO
+indexify_extractor_sdk.egg-info/SOURCES.txt
+indexify_extractor_sdk.egg-info/dependency_links.txt
+indexify_extractor_sdk.egg-info/requires.txt
+indexify_extractor_sdk.egg-info/top_level.txt
