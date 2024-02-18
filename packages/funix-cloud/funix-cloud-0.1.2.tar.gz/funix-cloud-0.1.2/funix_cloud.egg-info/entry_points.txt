@@ -1,0 +1,3 @@
+[console_scripts]
+funix-cloud = funix_cloud.__init__:start
+lmkc = funix_cloud.key:__main__
