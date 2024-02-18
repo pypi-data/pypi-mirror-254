@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+libname/__init__.py
+libname/discogScraper.py
+libname.egg-info/PKG-INFO
+libname.egg-info/SOURCES.txt
+libname.egg-info/dependency_links.txt
+libname.egg-info/requires.txt
+libname.egg-info/top_level.txt

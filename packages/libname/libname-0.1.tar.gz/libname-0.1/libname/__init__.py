@@ -1,0 +1,1 @@
+from discogScraper import main
