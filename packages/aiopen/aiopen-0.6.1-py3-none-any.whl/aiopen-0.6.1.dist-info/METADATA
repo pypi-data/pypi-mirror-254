@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: aiopen
+Version: 0.6.1
+Summary: Async file io
+Home-page: https://github.com/dynamic-graphics-inc/dgpy-libs/tree/main/libs/aiopen
+License: MIT
+Keywords: anyio,fs,aiopen,async,dgpy
+Author: jesse
+Author-email: jesse@dgi.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Typing :: Typed
+Requires-Dist: funkify (>=0.4.0)
+Requires-Dist: xtyping (>=0.5.0)
+Project-URL: Repository, https://github.com/dynamic-graphics-inc/dgpy-libs
+Description-Content-Type: text/markdown
+
+<a href="https://github.com/dynamic-graphics-inc/dgpy-libs">
+<img align="right" src="https://github.com/dynamic-graphics-inc/dgpy-libs/blob/main/docs/images/dgpy_banner.svg?raw=true" alt="drawing" height="120" width="300"/>
+</a>
+
+# aiopen
+
+[![Wheel](https://img.shields.io/pypi/wheel/aiopen.svg)](https://img.shields.io/pypi/wheel/aiopen.svg)
+[![Version](https://img.shields.io/pypi/v/aiopen.svg)](https://img.shields.io/pypi/v/aiopen.svg)
+[![py_versions](https://img.shields.io/pypi/pyversions/aiopen.svg)](https://img.shields.io/pypi/pyversions/aiopen.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+**Install:** `pip install aiopen`
+
+Async-open
+
+**Why not use aiofiles?**
+
+- Wanted more type annotations
+- aiofiles uses ye ole `@coroutine` decorator -- aiopen uses python3.6+ `async/await`
+- aiopen is a callable module, so you can do:
+  - `import aiopen`
+  - `async with aiopen('afile.txt', 'w') as f: await f.write('some text!')`
+  - `async with aiopen('afile.txt', 'r') as f: content = await f.read()`
+
+(Big shouts out to the aiofiles people, aiopen is entirely based off of aiofiles)
+
+## Usage:
+
+Just import it! The module is also callable!
+
+```python
+import aiopen
+
+async with aiopen('afile.txt', 'w') as f:
+    await f.write('some text!')
+
+async with aiopen('afile.txt', 'r') as f:
+    content = await f.read()
+    print(content)
+```
+
