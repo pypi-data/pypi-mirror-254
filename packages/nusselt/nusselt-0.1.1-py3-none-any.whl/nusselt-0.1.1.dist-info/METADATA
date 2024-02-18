@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: nusselt
+Version: 0.1.1
+Summary: Dependency for recognizing and executing Image Super-Resolution PyTorch architectures
+Home-page: https://github.com/scanlate-wiki/nusselt
+Author: Sekiju
+Requires-Python: >=3.10,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: einops (>=0.7.0,<0.8.0)
+Requires-Dist: numpy (>=1.26.3,<2.0.0)
+Requires-Dist: opencv-python (>=4.9.0.80,<5.0.0.0)
+Requires-Dist: safetensors (>=0.4.2,<0.5.0)
+Requires-Dist: torch (==2.1.2)
+Requires-Dist: torchvision (==0.16.2)
+Description-Content-Type: text/markdown
+
+# nusselt
+
+## Usage
+```python
+from nusselt import ModelLoader, ImageTransformer
+import torch
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+model = ModelLoader(device).load_from_file("4x_sr_model.pth")
+model.eval()
+
+image = ImageTransformer.read_image("input.png", "grayscale" if model.input_channels == 1 else "color")
+output = ImageTransformer.img2tensor(image).to(device)
+
+with torch.no_grad():
+    output = model(output)
+
+output_image = ImageTransformer.tensor2img(output)
+ImageTransformer.write_image(output_image, "output.png")
+```
+
+## Architectures
+* [SPAN](https://github.com/hongyuanyu/span)
+* [DITN](https://github.com/yongliuy/DITN)
+* [OmniSR](https://github.com/Francis0625/Omni-SR)
+
+## Credits
+* Based on [chaiNNer-org/spandrel](https://github.com/chaiNNer-org/spandrel)
+
