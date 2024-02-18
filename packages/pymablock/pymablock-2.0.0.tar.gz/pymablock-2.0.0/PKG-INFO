@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: pymablock
+Version: 2.0.0
+Summary: Numerical and symbolic implementation of quasi-degenerate perturbation theory
+Project-URL: Documentation, https://pymablock.readthedocs.io/en/latest/
+Project-URL: Repository, https://gitlab.kwant-project.org/qt/pymablock
+Project-URL: Bug Tracker, https://gitlab.kwant-project.org/qt/pymablock/-/issues
+Author: Pymablock developers
+License-File: AUTHORS.md
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Requires-Dist: numpy>=1.23
+Requires-Dist: packaging>=22.0
+Requires-Dist: python-mumps<0.1,>=0.0.1
+Requires-Dist: scipy>=1.8
+Requires-Dist: sympy>=1.10
+Description-Content-Type: text/markdown
+
+# Pymablock: quasi-degenerate perturbation theory in Python
+
+`Pymablock` (Python matrix block-diagonalization) is a Python package that constructs
+effective models using quasi-degenerate perturbation theory.
+It handles both numerical and symbolic inputs, and it efficiently
+block-diagonalizes Hamiltonians with multivariate perturbations to arbitrary
+order.
+
+Building an effective model using Pymablock is a three step process:
+
+* Define a Hamiltonian
+* Call `pymablock.block_diagonalize`
+* Request the desired order of the effective Hamiltonian
+
+```python
+from pymablock import block_diagonalize
+
+# Define perturbation theory
+H_tilde, *_ = block_diagonalize([h_0, h_p], subspace_eigenvectors=[vecs_A, vecs_B])
+
+# Request correction to the effective Hamiltonian
+H_AA_4 = H_tilde[0, 0, 4]
+```
+
+Here is why you should use Pymablock:
+
+* Do not reinvent the wheel
+
+  Pymablock provides a tested reference implementation
+
+* Apply to any problem
+
+  Pymablock supports `numpy` arrays, `scipy` sparse arrays, `sympy` matrices and
+  quantum operators
+
+* Speed up your code
+
+  Due to several optimizations, Pymablock can reliably handle both higher orders
+  and large Hamiltonians
+
+For more details see the Pymablock [documentation](https://pymablock.readthedocs.io/en/latest/).
