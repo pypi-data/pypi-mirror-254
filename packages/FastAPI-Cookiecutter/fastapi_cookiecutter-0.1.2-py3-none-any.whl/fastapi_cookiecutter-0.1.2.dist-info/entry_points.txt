@@ -1,0 +1,3 @@
+[console_scripts]
+fastapi_cookiecutter=fastapi_cookiecutter.main:main
+
