@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/app/__init__.py
+src/app/my_util.py
+src/commands/__init__.py
+src/commands/data.json
+src/commands/list_command.py
+src/plx_false_positives/__init__.py
+src/plx_false_positives/find_false_positives.py
+src/plx_false_positives/test.py
+src/py_utils_khabibullin.m.m.egg-info/PKG-INFO
+src/py_utils_khabibullin.m.m.egg-info/SOURCES.txt
+src/py_utils_khabibullin.m.m.egg-info/dependency_links.txt
+src/py_utils_khabibullin.m.m.egg-info/entry_points.txt
+src/py_utils_khabibullin.m.m.egg-info/requires.txt
+src/py_utils_khabibullin.m.m.egg-info/top_level.txt
