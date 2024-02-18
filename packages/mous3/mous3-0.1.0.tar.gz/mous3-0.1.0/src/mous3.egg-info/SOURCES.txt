@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/mous3/__init__.py
+src/mous3/__main__.py
+src/mous3.egg-info/PKG-INFO
+src/mous3.egg-info/SOURCES.txt
+src/mous3.egg-info/dependency_links.txt
+src/mous3.egg-info/entry_points.txt
+src/mous3.egg-info/requires.txt
+src/mous3.egg-info/top_level.txt
