@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "janus-llm"
+version = "1.0.0"
+description = "A transcoding library using LLMs."
+authors = ["Michael Doyle <mdoyle@mitre.org>", "Chris Glasz <cglasz@mitre.org>",
+           "Chris Tohline <ctohline@mitre.org>", "William Macke <wmacke@mitre.org>",
+           "Paul Kirk, <pkirk@mitre.org>", "Lily Wong <lwong@mitre.org>",
+           "Michael Threet <mthreet@mitre.org>", "Colin Diggs <cdiggs@mitre.org>",
+           "Pranay Jain <pranayjain@mitre.org>", "Chris Kempis <ckempis@mitre.org>"]
+license = "Apache 2.0"
+repository = "https://github.com/janus-llm/janus-llm"
+documentation = "https://janus-llm.github.io/janus-llm"
+readme = "README.md"
+packages = [
+    { include = "janus/**/*.py" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich = "^13.3.5"
+openai = "^0.27.6"
+tiktoken = "^0.4.0"
+tree-sitter = "^0.20.1"
+numpy = "^1.24.3"
+gitpython = "^3.1.32"
+langchain = "^0.0.306"
+text-generation = "^0.6.0"
+transformers = "^4.31.0"
+python-dotenv = "^1.0.0"
+chromadb = "^0.4.14"
+gpt4all = "^2.0.2"
+typer = "^0.9.0"
+langchain-community = "^0.0.16"
+
+[tool.poetry.scripts]
+janus = "janus.cli:app"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+pre-commit = "^3.3.1"
+pydocstyle = "^6.3.0"
+bandit = "^1.7.5"
+pytest = "^7.3.1"
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^6.0.2"
+sphinx-autoapi = "^3.0.0"
+sphinx-rtd-theme = "^1.0.0"
+myst-parser = "^1.0.0"
+furo = "^2023.3.27"
+sphinx-autobuild = "^2021.3.14"
+sphinx-copybutton = "^0.5.2"
+sphinxext-opengraph = "^0.9.1"
+
+[tool.poetry.group.coverage.dependencies]
+pytest-cov = "^4.1.0"
+
+[tool.black]
+line-length = 90
+target-version = ['py310']
+exclude = "decompile_script.py"
+
+[tool.pydocstyle]
+convention = "google"
+# match '*.py' files that don't start with 'test_' or '__init'
+match = '(?![test_|__init]).*\.py'
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (select with '-m slow')",
+    "translate: marks tests as translation tests (select with '-m translate')",
+    "ghidra: marks tests as tests that use a Ghidra executable (select with '-m ghidra')",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
