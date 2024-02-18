@@ -1,0 +1,49 @@
+
+
+
+
+
+
+#
+#	how to publish:
+#
+#		python3 structures/modules/Coccinellidae/_status/status.proc.py
+#		(rm -rf dist && python3 -m build --sdist && twine upload dist/*)
+#
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Coccinellidae"
+version = "0.0.1"
+dependencies = []
+
+# license = { text = "license" }
+license = { file = "license.txt" }
+
+description = ""
+readme = "structure.txt"
+
+
+[project.scripts]
+#
+#	https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+#	from Coccinellidae import clique; clique ()
+#
+# 	Coccinellidae = "Coccinellidae:clique"
+#
+
+[tool.setuptools.packages.find]
+where = [ "structures/modules" ]
+
+#
+#	https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+[tool.setuptools.package-data]
+"*" = [ "*.html" ]
+
+
+
+
