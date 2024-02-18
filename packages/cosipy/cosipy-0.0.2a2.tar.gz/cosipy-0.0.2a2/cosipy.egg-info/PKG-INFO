@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cosipy
+Version: 0.0.2a2
+Summary: High-level analysis for the COSI telescope data
+Home-page: https://github.com/cositools/cosipy
+Author: COSI Team
+Author-email: imc@umd.edu
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: histpy
+Requires-Dist: mhealpy
+Requires-Dist: scoords
+Requires-Dist: astromodels
+Requires-Dist: threeml
+Requires-Dist: awscli
+
+# cosipy
+
+The cosipy library is [COSI](https://cosi.ssl.berkeley.edu)'s high-level analysis software.
+
+The main repository is hosted in https://github.com/cositools/cosipy
+
+For the cosipy installation and usage instructions please refer to the main [cosipy documentation](https://cositools.github.io/cosipy/).
+
+
+
