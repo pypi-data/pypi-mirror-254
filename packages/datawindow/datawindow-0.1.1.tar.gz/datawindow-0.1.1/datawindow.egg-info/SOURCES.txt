@@ -1,0 +1,11 @@
+LICENSE.txt
+setup.py
+datawindow/__init__.py
+datawindow/load.py
+datawindow/model.py
+datawindow/preprocess.py
+datawindow.egg-info/PKG-INFO
+datawindow.egg-info/SOURCES.txt
+datawindow.egg-info/dependency_links.txt
+datawindow.egg-info/requires.txt
+datawindow.egg-info/top_level.txt
