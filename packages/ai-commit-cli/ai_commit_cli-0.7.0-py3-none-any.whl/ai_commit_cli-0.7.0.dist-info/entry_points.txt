@@ -1,0 +1,3 @@
+[console_scripts]
+aic=ai_commit_cli.app:app
+
