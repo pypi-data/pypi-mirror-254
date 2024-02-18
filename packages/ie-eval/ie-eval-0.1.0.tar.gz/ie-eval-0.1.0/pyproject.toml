@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ie-eval"
+version = "0.1.0"
+dynamic = ["dependencies", "optional-dependencies"]
+authors = [
+    { name = "Oliver Tüselmann", email = "oliver.tueselmann@tu-dortmund.de" },
+    { name = "David Villanova Aparisi", email = "davilap@inf.upv.es" },
+    { name = "Yoann Schneider", email = "yschneider@teklia.com" },
+    { name = "Solène Tarride", email = "starride@teklia.com" },
+]
+maintainers = [
+    { name = "Yoann Schneider", email = "yschneider@teklia.com" },
+    { name = "Solène Tarride", email = "starride@teklia.com" },
+]
+requires-python = ">=3.10"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+keywords = ["NER", "python"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    # Specify the Python versions you support here.
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    # Topics
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://gitlab.teklia.com/ner/metrics/ie-eval"
+Documentation = "https://ner.pages.teklia.com/metrics/ie-eval"
+Repository = "https://gitlab.teklia.com/ner/metrics/ie-eval"
+"Bug Tracker" = "https://gitlab.teklia.com/ner/metrics/ie-eval/issues"
+
+[project.scripts]
+ie-eval = "ie_eval.cli:main"
+
+[tool.ruff]
+exclude = [".git", "__pycache__"]
+ignore = [
+    "E501",
+    # On top of the Google convention, disable `D417`, which requires
+    # documentation for every function parameter.
+    "D417",
+]
+select = [
+    # pycodestyle
+    "E",
+    "W",
+    # Pyflakes
+    "F",
+    # Flake8 Debugger
+    "T1",
+    # Isort
+    "I",
+    # Pathlib usage
+    "PTH",
+    # Pyupgrade
+    "UP",
+    # Pydocstyle
+    "D",
+    # Pandas-vet
+    "PD",
+    # Flake8-print
+    "T20",
+    # Flake8-comprehension
+    "C4",
+    # Flake8-builtins
+    "A",
+    # flake8-commas
+    "COM",
+    # flake8-import-conventions
+    "ICN",
+    # flake8-pytest-style
+    "PT",
+    # flake8-raise
+    "RSE",
+    # flake8-quotes
+    "Q",
+    # flake8-unused-arguments
+    "ARG",
+    # flake8-simplify
+    "SIM",
+]
+
+[tool.ruff.lint.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
+
+[tool.ruff.per-file-ignores]
+# Ignore pydocstyles for setup.py
+"setup.py" = ["D"]
+"__init__.py" = ["D"]
+"cli.py" = ["D"]
