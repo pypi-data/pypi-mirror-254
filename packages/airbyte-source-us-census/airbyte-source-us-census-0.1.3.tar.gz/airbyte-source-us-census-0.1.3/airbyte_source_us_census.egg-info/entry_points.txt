@@ -1,0 +1,2 @@
+[console_scripts]
+source-us-census = source_us_census.run:run
