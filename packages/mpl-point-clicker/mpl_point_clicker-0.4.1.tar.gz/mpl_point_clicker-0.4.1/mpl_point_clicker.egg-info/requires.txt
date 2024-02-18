@@ -1,0 +1,17 @@
+matplotlib
+numpy
+
+[doc]
+autoapi
+furo
+numpydoc
+sphinx
+sphinx-autobuild
+sphinx-copybutton
+sphinx-gallery>=0.8.2
+
+[test]
+black
+mpl-playback
+pytest
+pytest-mpl
