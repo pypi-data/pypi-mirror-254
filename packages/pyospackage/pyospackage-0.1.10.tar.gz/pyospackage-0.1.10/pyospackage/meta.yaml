@@ -1,0 +1,41 @@
+{% set name = "pyospackage" %}
+{% set version = "0.1.9" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyospackage-{{ version }}.tar.gz
+  sha256: ed7ae751ec0c5b409363b1e4d9f95477a210c010c2cd6d0e3995d629458c3907
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.9
+    - hatchling
+    - pip
+  run:
+    - python >=3.9
+
+test:
+  imports:
+    - pyospackage
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  summary: A package that adds numbers together
+  dev_url: https://github.com/pyopensci/pyospackage
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - lwasser
