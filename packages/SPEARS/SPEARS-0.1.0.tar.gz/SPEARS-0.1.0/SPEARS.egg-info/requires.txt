@@ -1,0 +1,10 @@
+specutils
+numpy
+astropy
+json
+warnings
+scipy
+sparcl.client
+importlib
+pytest
+unidecode
