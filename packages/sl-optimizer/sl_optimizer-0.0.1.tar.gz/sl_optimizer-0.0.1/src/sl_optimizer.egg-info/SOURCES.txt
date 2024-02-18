@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/sl_optimizer/__init__.py
+src/sl_optimizer.egg-info/PKG-INFO
+src/sl_optimizer.egg-info/SOURCES.txt
+src/sl_optimizer.egg-info/dependency_links.txt
+src/sl_optimizer.egg-info/requires.txt
+src/sl_optimizer.egg-info/top_level.txt
