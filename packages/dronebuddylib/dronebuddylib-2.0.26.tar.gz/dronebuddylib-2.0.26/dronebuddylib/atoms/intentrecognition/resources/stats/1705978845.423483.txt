@@ -1,0 +1,8 @@
+Session started at: 2024-01-23 11:00:45.423483
+2024-01-23 11:00:45.442415: token count-257 : role - user : message - hello
+2024-01-23 11:00:46.246339: token count--1 : role - user : message - {
+  "intent": "NONE",
+  "confidence": 1.0,
+  "entities": [],
+  "addressed_to": false
+}

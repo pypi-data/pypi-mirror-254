@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: dronebuddylib
+Version: 2.0.26
+Summary: Everything to control and customize Tello
+Author: NUS
+Author-email: malshadz@nus.edu.sg
+License: MIT
+Requires-Python: >=3.9
+Provides-Extra: FACE_RECOGNITION
+Provides-Extra: INTENT_RECOGNITION_GPT
+Provides-Extra: INTENT_RECOGNITION_SNIPS
+Provides-Extra: OBJECT_DETECTION_MP
+Provides-Extra: OBJECT_DETECTION_YOLO
+Provides-Extra: TEXT_RECOGNITION
+Provides-Extra: SPEECH_RECOGNITION_MULTI
+Provides-Extra: SPEECH_RECOGNITION_VOSK
+Provides-Extra: SPEECH_RECOGNITION_GOOGLE
+Provides-Extra: SPEECH_GENERATION

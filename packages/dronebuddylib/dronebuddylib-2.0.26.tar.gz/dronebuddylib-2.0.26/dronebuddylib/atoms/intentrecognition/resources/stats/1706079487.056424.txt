@@ -1,0 +1,5 @@
+Session started at: 2024-01-24 14:58:07.056424
+2024-01-24 14:58:16.827008: token count-260 : role - user : message - what can you see
+2024-01-24 14:58:18.548331: token count--1 : role - user : message - {"intent": "RECOGNIZE_OBJECTS", "confidence": 0.9, "entities": [], "addressed_to": false}
+2024-01-24 14:58:41.084006: token count-300 : role - user : message - take off
+2024-01-24 14:58:41.789779: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 0.9, "entities": [], "addressed_to": false}

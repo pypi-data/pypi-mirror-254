@@ -1,0 +1,8 @@
+Session started at: 2024-01-22 21:18:44.161497
+2024-01-22 21:18:44.182640: token count-259 : role - user : message - taake off
+2024-01-22 21:18:45.028550: token count--1 : role - user : message - {
+  "intent": "TAKE_OFF",
+  "confidence": 1.0,
+  "entities": [],
+  "addressed_to": false
+}

@@ -1,0 +1,5 @@
+Session started at: 2024-01-24 18:12:23.939961
+2024-01-24 18:12:33.340720: token count-260 : role - user : message - can you take off
+2024-01-24 18:12:33.992014: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 18:13:07.434140: token count-297 : role - user : message - take off
+2024-01-24 18:13:08.163984: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}

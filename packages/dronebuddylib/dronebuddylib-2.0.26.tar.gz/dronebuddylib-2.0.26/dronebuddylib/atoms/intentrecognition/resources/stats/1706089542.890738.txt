@@ -1,0 +1,7 @@
+Session started at: 2024-01-24 17:45:42.890738
+2024-01-24 17:45:51.525084: token count-258 : role - user : message - take off
+2024-01-24 17:45:52.141768: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 17:46:12.266026: token count-297 : role - user : message - move to the left
+2024-01-24 17:46:12.891574: token count--1 : role - user : message - {"intent": "LEFT", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 17:46:28.589691: token count-332 : role - user : message - broke
+2024-01-24 17:46:29.364528: token count--1 : role - user : message - {"intent": "NONE", "confidence": 1.0, "entities": [], "addressed_to": false}

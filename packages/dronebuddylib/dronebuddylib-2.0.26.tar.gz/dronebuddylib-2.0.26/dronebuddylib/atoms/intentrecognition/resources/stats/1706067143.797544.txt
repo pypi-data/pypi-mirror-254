@@ -1,0 +1,9 @@
+Session started at: 2024-01-24 11:32:23.797544
+2024-01-24 11:32:43.615443: token count-269 : role - user : message - keep receiving comments but this is what happened before the thing is the
+2024-01-24 11:32:44.342832: token count--1 : role - user : message - {"intent": "NONE", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 11:32:47.878788: token count-304 : role - user : message - take off
+2024-01-24 11:32:50.045195: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 11:33:19.450025: token count-343 : role - user : message - what can you see
+2024-01-24 11:33:21.901202: token count--1 : role - user : message - {"intent": "RECOGNIZE_OBJECTS", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 11:33:50.827258: token count-383 : role - user : message - go back
+2024-01-24 11:33:51.448097: token count--1 : role - user : message - {"intent": "BACKWARD", "confidence": 1.0, "entities": [], "addressed_to": false}

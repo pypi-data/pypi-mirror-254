@@ -1,0 +1,8 @@
+Session started at: 2024-01-11 14:31:15.639855
+2024-01-11 14:31:15.664661: token count-260 : role - user : message - go to your left
+2024-01-11 14:31:17.545530: token count--1 : role - user : message - {
+  "intent": "LEFT",
+  "confidence": 0.95,
+  "entities": [],
+  "addressed_to": false
+}

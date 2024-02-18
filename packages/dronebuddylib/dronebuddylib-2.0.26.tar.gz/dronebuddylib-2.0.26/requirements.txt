@@ -1,0 +1,9 @@
+requests~=2.28.0
+numpy~=1.23.0
+
+
+cython~=0.29.34
+
+setuptools~=65.5.1
+packaging~=23.0
+pyparsing~=3.0.9

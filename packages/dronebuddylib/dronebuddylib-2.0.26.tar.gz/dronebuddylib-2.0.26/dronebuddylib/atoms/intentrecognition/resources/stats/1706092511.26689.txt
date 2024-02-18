@@ -1,0 +1,9 @@
+Session started at: 2024-01-24 18:35:11.267898
+2024-01-24 18:35:24.165490: token count-258 : role - user : message - take off
+2024-01-24 18:35:26.323404: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 18:35:56.044189: token count-300 : role - user : message - can you go up a little bit
+2024-01-24 18:35:58.288363: token count--1 : role - user : message - {"intent": "UP", "confidence": 0.9, "entities": [], "addressed_to": false}
+2024-01-24 18:36:16.411885: token count-340 : role - user : message - who is the person you can see
+2024-01-24 18:36:19.115491: token count--1 : role - user : message - {"intent": "RECOGNIZE_PEOPLE", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-24 18:36:46.069602: token count-382 : role - user : message - can you please land
+2024-01-24 18:36:46.683241: token count--1 : role - user : message - {"intent": "LAND", "confidence": 1.0, "entities": [], "addressed_to": false}

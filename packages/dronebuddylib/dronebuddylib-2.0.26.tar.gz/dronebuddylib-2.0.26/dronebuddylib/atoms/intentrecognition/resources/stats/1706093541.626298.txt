@@ -1,0 +1,3 @@
+Session started at: 2024-01-24 18:52:21.626298
+2024-01-24 18:52:31.133743: token count-264 : role - user : message - who is the person in front of you
+2024-01-24 18:52:33.572136: token count--1 : role - user : message - {"intent": "RECOGNIZE_PEOPLE", "confidence": 1.0, "entities": [], "addressed_to": false}

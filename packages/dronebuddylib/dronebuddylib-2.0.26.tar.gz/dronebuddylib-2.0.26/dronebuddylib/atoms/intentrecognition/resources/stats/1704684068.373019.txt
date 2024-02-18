@@ -1,0 +1,3 @@
+Session started at: 2024-01-08 11:21:08.373019
+2024-01-08 11:21:08.584913: token count-259 : role - user : message - find the chair
+2024-01-08 11:21:11.617042: token count--1 : role - user : message - {"intent": "RECOGNIZE_OBJECTS", "confidence": 1.0, "entities": [{"entity_type": "object", "value": "chair"}], "addressed_to": false}

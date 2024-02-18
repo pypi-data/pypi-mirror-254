@@ -1,0 +1,11 @@
+Session started at: 2024-01-23 19:35:02.133510
+2024-01-23 19:35:40.069185: token count-258 : role - user : message - tickle
+2024-01-23 19:35:40.752177: token count--1 : role - user : message - {"intent": "NONE", "confidence": 0.9, "entities": [], "addressed_to": false}
+2024-01-23 19:35:52.794803: token count-293 : role - user : message - take off
+2024-01-23 19:35:53.525733: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-23 19:36:22.454664: token count-330 : role - user : message - go up
+2024-01-23 19:36:23.243070: token count--1 : role - user : message - {"intent": "UP", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-23 19:36:39.518072: token count-365 : role - user : message - go up
+2024-01-23 19:36:41.633572: token count--1 : role - user : message - {"intent": "UP", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-23 19:36:58.264094: token count-404 : role - user : message - tell me what you can see
+2024-01-23 19:37:00.606016: token count--1 : role - user : message - {"intent": "RECOGNIZE_OBJECTS", "confidence": 1.0, "entities": [], "addressed_to": false}

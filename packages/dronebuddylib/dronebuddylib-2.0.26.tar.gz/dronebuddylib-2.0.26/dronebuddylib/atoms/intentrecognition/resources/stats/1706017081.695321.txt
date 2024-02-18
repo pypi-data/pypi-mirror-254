@@ -1,0 +1,5 @@
+Session started at: 2024-01-23 21:38:01.695321
+2024-01-23 21:38:27.413882: token count-258 : role - user : message - take off
+2024-01-23 21:38:28.121796: token count--1 : role - user : message - {"intent": "TAKE_OFF", "confidence": 1.0, "entities": [], "addressed_to": false}
+2024-01-23 21:38:48.949418: token count-295 : role - user : message - go up
+2024-01-23 21:38:51.291252: token count--1 : role - user : message - {"intent": "UP", "confidence": 1.0, "entities": [], "addressed_to": false}
