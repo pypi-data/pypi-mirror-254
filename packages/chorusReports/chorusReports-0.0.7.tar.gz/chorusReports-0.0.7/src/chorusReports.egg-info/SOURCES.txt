@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/__init__.py
+src/chorusReports.py
+src/chorusReports.egg-info/PKG-INFO
+src/chorusReports.egg-info/SOURCES.txt
+src/chorusReports.egg-info/dependency_links.txt
+src/chorusReports.egg-info/top_level.txt
