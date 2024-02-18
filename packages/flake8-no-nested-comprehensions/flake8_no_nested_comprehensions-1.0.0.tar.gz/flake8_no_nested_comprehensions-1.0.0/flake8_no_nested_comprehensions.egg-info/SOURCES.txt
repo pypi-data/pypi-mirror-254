@@ -1,0 +1,16 @@
+.gitignore
+.pre-commit-config.yaml
+LICENSE
+README.md
+flake8_no_nested_comprehensions.py
+pyproject.toml
+requirements-dev.txt
+.github/workflows/build.yaml
+.github/workflows/release.yaml
+flake8_no_nested_comprehensions.egg-info/PKG-INFO
+flake8_no_nested_comprehensions.egg-info/SOURCES.txt
+flake8_no_nested_comprehensions.egg-info/dependency_links.txt
+flake8_no_nested_comprehensions.egg-info/entry_points.txt
+flake8_no_nested_comprehensions.egg-info/requires.txt
+flake8_no_nested_comprehensions.egg-info/top_level.txt
+tests/no_nested_comprehensions_test.py
