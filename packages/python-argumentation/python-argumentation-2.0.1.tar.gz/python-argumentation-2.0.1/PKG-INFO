@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: python-argumentation
+Version: 2.0.1
+Summary: A package for computational argumentation algorithms in Python.
+Author-email: Daphne Odekerken <d.odekerken@uu.nl>, AnneMarie Borg <a.borg@uu.nl>, Matti Berthold <berthold@informatik.uni-leipzig.de>
+Project-URL: Homepage, https://github.com/DaphneOdekerken/PyArg
+Project-URL: Bug Tracker, https://github.com/DaphneOdekerken/PyArg/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: parse>=1.19.0
+
+PyArg is a Python-based package for computational argumentation. 
+All documentation is available at https://daphneodekerken.github.io/PyArg/.
