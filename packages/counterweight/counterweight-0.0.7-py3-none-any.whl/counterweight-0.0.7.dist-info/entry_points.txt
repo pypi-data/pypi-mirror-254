@@ -1,0 +1,3 @@
+[console_scripts]
+counterweight=counterweight.cli:cli
+
