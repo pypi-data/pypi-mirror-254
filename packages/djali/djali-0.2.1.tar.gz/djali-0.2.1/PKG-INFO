@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: djali
+Version: 0.2.1
+Summary: Key/Value Database Clients
+License: GPL-2.0-only
+Author: doubleO8
+Author-email: wb008@hdm-stuttgart.de
+Requires-Python: >=3.8,<3.12
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: boto3 (>=1.18.21,<2.0.0)
+Requires-Dist: cloudant (>=2.12.0,<3.0.0)
+Requires-Dist: six (>=1.13.0)
+Description-Content-Type: text/markdown
+
+# djali
+
+Key/Value Database Clients
+
+## (Documentation) Build Status
+
+[![Build Status](https://api.travis-ci.com/doubleO8/djali.svg?branch=master)](https://api.travis-ci.com/doubleO8/djali)
+
