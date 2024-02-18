@@ -1,0 +1,22 @@
+sphinx>=6.0.0
+sphinx-autodoc-typehints
+sphinx-book-theme>=1.0.1
+sphinx-copybutton>=0.5.0
+sphinx-remove-toctrees
+sphinx-design
+Pygments>=2.6.1
+ipykernel
+ipython_genutils
+sphinx==7.2.6
+sphinx-autoapi==3.0.0
+ablog
+numpydoc
+sphinx-togglebutton
+sphinx-favicon
+sphinxext-opengraph
+docutils
+myst-nb>=1.0.0
+
+# The next packages are for notebooks.
+matplotlib
+.

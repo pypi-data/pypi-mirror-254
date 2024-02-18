@@ -1,0 +1,59 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: build
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - .github/workflows/*
+      - .github/*
+      - .gitignore
+      - .git/*
+      - .readthedocs.yml
+      - research/star_ris_comp_noma/resources/tex/*
+      - .gitattributes
+
+jobs:
+  cancel-previous:
+    name: Cancel Previous Runs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous
+        uses: styfle/cancel-workflow-action@0.11.0
+        if: ${{github.ref != 'refs/head/main'}}
+        with:
+          access_token: ${{ github.token }}
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Get week and year
+      id: date_key
+      run: echo "DATE=$(date +%j)" >> $GITHUB_OUTPUT
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Install comyx (local)
+      run: |
+        pip install -e .
+    - name: Test with pytest
+      run: |
+        pytest
