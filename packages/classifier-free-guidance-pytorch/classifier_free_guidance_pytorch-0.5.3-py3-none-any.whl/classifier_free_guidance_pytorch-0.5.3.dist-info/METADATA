@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: classifier-free-guidance-pytorch
+Version: 0.5.3
+Summary: Classifier Free Guidance - Pytorch
+Home-page: https://github.com/lucidrains/classifier-free-guidance-pytorch
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: artificial intelligence,deep learning,classifier free guidance,text conditioning and guidance
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beartype
+Requires-Dist: einops >=0.7
+Requires-Dist: ftfy
+Requires-Dist: open-clip-torch >=2.8.0
+Requires-Dist: torch >=2.0
+Requires-Dist: transformers[torch]
+
