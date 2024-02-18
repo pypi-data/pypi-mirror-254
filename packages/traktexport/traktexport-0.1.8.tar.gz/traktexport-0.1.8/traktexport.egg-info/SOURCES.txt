@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+traktexport/__init__.py
+traktexport/__main__.py
+traktexport/dal.py
+traktexport/export.py
+traktexport/merge.py
+traktexport/py.typed
+traktexport.egg-info/PKG-INFO
+traktexport.egg-info/SOURCES.txt
+traktexport.egg-info/dependency_links.txt
+traktexport.egg-info/entry_points.txt
+traktexport.egg-info/requires.txt
+traktexport.egg-info/top_level.txt
