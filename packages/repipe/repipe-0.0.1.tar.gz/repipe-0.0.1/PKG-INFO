@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: repipe
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/unknown/repipe#readme
+Project-URL: Issues, https://github.com/unknown/repipe/issues
+Project-URL: Source, https://github.com/unknown/repipe
+Author-email: henadzit <henadzi@havenservicing.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# repipe
+
+[![PyPI - Version](https://img.shields.io/pypi/v/repipe.svg)](https://pypi.org/project/repipe)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/repipe.svg)](https://pypi.org/project/repipe)
+
+Yet another one attempt to fix Python package management.
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install repipe
+```
+
+## Usage
+
+`repipe install -r requirements.txt`
+
+will create a lock file `requirements.txt.lock`. The next execution of `repipe install -r requirements.txt` will install dependencies from `requirements.txt.lock`. If you need to update dependencies, remove `requirements.txt.lock`.
+
+## License
+
+`repipe` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
