@@ -1,0 +1,3 @@
+[console_scripts]
+genocide = genocide.__main__:wrapped
+genocided = genocide.__main__:daemoned
