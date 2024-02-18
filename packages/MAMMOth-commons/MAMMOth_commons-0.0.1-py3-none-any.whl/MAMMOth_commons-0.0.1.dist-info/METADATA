@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: MAMMOth-commons
+Version: 0.0.1
+Summary: Component interfaces of the MAMMOth fairness toolkit.
+Home-page: https://github.com/mammoth-eu/mammoth-commons
+Author: Emmanouil (Manios) Krasanakis
+Author-email: maniospas@hotmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: fairbench
+
+# MAMMOth-commons
+
+Component interfaces of the MAMMOth fairness toolkit.
+
+**This package is in the pre-alpha stage.**
+
+A first version will be released with the first 
+version of the toolkit.
