@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: deepstream
+Version: 0.1
+Summary: Python module to prepare data streams from torch training procedure.
+Home-page: https://github.com/w4k2/deepstream
+Download-URL: https://github.com/w4k2/deepstream
+Maintainer: P. Ksieniewicz
+Maintainer-email: pawel.ksieniewicz@pwr.edu.pl
+License: GPL-3.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+
+# Streaming Companion Classifier for training Deep Neural Networks
+
+## Future works
+
+Active learning - application of streaming ensemble output in sample labeling.
