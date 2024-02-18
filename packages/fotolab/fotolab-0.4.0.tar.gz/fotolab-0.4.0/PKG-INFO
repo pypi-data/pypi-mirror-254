@@ -1,0 +1,173 @@
+Metadata-Version: 2.1
+Name: fotolab
+Version: 0.4.0
+Summary: A console program that manipulate images.
+Keywords: photography,photo
+Author-email: Kian-Meng Ang <kianmeng@cpan.org>
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python
+Requires-Dist: pillow
+Project-URL: Changelog, https://github.com/kianmeng/fotolab/blob/master/CHANGELOG.md
+Project-URL: Issues, https://github.com/kianmeng/fotolab/issues
+Project-URL: Source, https://github.com/kianmeng/fotolab
+
+# fotolab
+
+A console program to manipulate photos.
+
+## Installation
+
+Stable version From PyPI using `pipx`:
+
+```console
+pipx install fotolab
+```
+
+Stable version From PyPI using `pip`:
+
+```console
+python -m pip install fotolab
+```
+
+Upgrade to latest stable version:
+
+```console
+python3 -m pip install fotolab --upgrade
+```
+
+Latest development version from GitHub:
+
+```console
+python -m pip install -e git+https://github.com/kianmeng/fotolab.git
+```
+
+## Usage
+
+```console
+fotolab -h
+```
+
+```console
+usage: fotolab [-h] [-o] [-q] [-d] [-V] {border,watermark,env} ...
+
+A console program to manipulate photos.
+
+  website: https://github.com/kianmeng/fotolab
+  changelog: https://github.com/kianmeng/fotolab/blob/master/CHANGELOG.md
+  issues: https://github.com/kianmeng/fotolab/issues
+
+positional arguments:
+  {border,watermark,env}
+                    sub-command help
+    border          add border to image
+    watermark       watermark an image
+    env             print environment information for bug reporting
+
+options:
+  -h, --help        show this help message and exit
+  -o, --overwrite   overwrite existing image
+  -q, --quiet       suppress all logging
+  -d, --debug       show debugging log and stacktrace
+  -V, --version     show program's version number and exit
+```
+
+### fotolab border
+
+```console
+fotolab border -h
+```
+
+```console
+
+usage: fotolab border [-h] [-c COLOR] [-w WIDTH] IMAGE_FILENAME
+
+positional arguments:
+  IMAGE_FILENAME        set the image filename
+
+options:
+  -h, --help            show this help message and exit
+  -c COLOR, --color COLOR
+                        set the color of border (default: 'black')
+  -w WIDTH, --width WIDTH
+                        set the width of border (default: '10')
+```
+
+### fotolab watermark
+
+```console
+fotolab watermark -h
+```
+
+```console
+usage: fotolab watermark [-h] [-t WATERMARK_TEXT]
+                         [-p {top-left,top-right,bottom-left,bottom-right}]
+                         [-fs FONT_SIZE] [-fc FONT_SIZE] [-ow OUTLINE_WIDTH]
+                         [-oc OUTLINE_COLOR]
+                         IMAGE_FILENAME
+
+positional arguments:
+  IMAGE_FILENAME        set the image filename
+
+options:
+  -h, --help            show this help message and exit
+  -t WATERMARK_TEXT, --text WATERMARK_TEXT
+                        set the watermark text (default: 'kianmeng.org')
+  -p {top-left,top-right,bottom-left,bottom-right}, --position {top-left,top-right,bottom-left,bottom-right}
+                        set position of the watermark text (default: 'bottom-
+                        left')
+  -fs FONT_SIZE, --font-size FONT_SIZE
+                        set the font size of watermark text (default: '12')
+  -fc FONT_SIZE, --font-color FONT_SIZE
+                        set the font color of watermark text (default:
+                        'white')
+  -ow OUTLINE_WIDTH, --outline-width OUTLINE_WIDTH
+                        set the outline width of the watermark text (default:
+                        '2')
+  -oc OUTLINE_COLOR, --outline-color OUTLINE_COLOR
+                        set the outline color of the watermark text (default:
+                        'black')
+```
+
+### fotolab env
+
+```console
+fotolab env -h
+```
+
+```console
+usage: fotolab env [-h]
+
+options:
+  -h, --help  show this help message and exit
+```
+
+## Copyright and License
+
+Copyright (C) 2024 Kian-Meng Ang
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>.
+
+The fish logo used in the documentation generated by Sphinx is a public domain
+drawing of male freshwater phase [Sockeye (red) salmon (Oncorhynchus nerka)]
+(https://en.wikipedia.org/w/index.php?oldid=1186575702) from
+<https://commons.wikimedia.org/entity/M2787002>.
+
