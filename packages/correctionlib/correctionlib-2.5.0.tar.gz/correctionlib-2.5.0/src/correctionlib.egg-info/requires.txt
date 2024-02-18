@@ -1,0 +1,46 @@
+numpy>=1.13.3
+pydantic>=2
+rich
+packaging
+
+[:python_version < "3.7"]
+dataclasses
+
+[:python_version < "3.8"]
+typing-extensions
+
+[convert]
+pandas
+uproot>=4.0.4
+requests
+scipy
+
+[dev]
+pytest>=4.6
+pre-commit
+mypy
+uhi
+awkward>=2
+
+[dev:python_version > "3.7"]
+dask-awkward
+
+[docs]
+recommonmark>=0.5.0
+Sphinx>=3.0.0
+sphinx_copybutton
+sphinx_rtd_theme>=0.5.0
+sphinx-jsonschema
+myst-parser
+nbsphinx
+
+[test]
+pytest>=4.6
+scipy
+
+[test:python_version <= "3.7"]
+awkward<2
+
+[test:python_version > "3.7"]
+awkward>=2.2.2
+dask-awkward>=2024.1.1
