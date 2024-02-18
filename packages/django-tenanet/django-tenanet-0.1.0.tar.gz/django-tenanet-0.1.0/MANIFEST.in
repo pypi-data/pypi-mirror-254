@@ -1,0 +1,9 @@
+include LICENSE
+include README.md
+
+recursive-include tenanet/templates *
+recursive-include tenanet/migrations *
+recursive-include tenanet/management *
+
+global-exclude *.pyo
+global-exclude *.pyc
