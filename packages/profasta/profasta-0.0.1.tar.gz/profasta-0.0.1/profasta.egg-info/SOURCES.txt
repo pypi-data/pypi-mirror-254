@@ -1,0 +1,13 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+profasta/__init__.py
+profasta/db.py
+profasta/io.py
+profasta/parser.py
+profasta.egg-info/PKG-INFO
+profasta.egg-info/SOURCES.txt
+profasta.egg-info/dependency_links.txt
+profasta.egg-info/requires.txt
+profasta.egg-info/top_level.txt
