@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/roentgenium/__init__.py
+src/roentgenium/example.py
+src/roentgenium.egg-info/PKG-INFO
+src/roentgenium.egg-info/SOURCES.txt
+src/roentgenium.egg-info/dependency_links.txt
+src/roentgenium.egg-info/top_level.txt
