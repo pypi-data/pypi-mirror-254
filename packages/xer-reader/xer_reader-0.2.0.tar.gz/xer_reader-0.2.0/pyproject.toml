@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "xer-reader"
+version = "0.2.0"
+description = "Read and parse a Primavera P6 xer file."
+authors = ["Jesse Jones <code@seqmanagement.com>"]
+license = "GPL-3.0-only"
+readme = "README.md"
+keywords = ["primavera", "p6", "xer", "schedule", "scheduling", "planning", "project management", "project controls"]
+repository = "https://github.com/jjCode01/xer-reader"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openpyxl = "^3.1.2"
+
+[tool.poetry.group.test.dependencies]
+tqdm = "^4.66.1"
+
+[tool.poetry.scripts]
+test = 'scripts:test'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
