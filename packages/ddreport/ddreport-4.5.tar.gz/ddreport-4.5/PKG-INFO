@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ddreport
+Version: 4.5
+Summary: pytest测试报告
+Home-page: https://blog.csdn.net/weixin_43975720/article/details/130559489
+Author: duanliangcong
+Author-email: 137562703@qq.com
+License: MIT Licence
+Platform: any
+
+1.当请求成功时，编辑信息头将不会再覆盖请求时设置的信息头内容; 2.关键字改为小写（API->api, GVALUE->gval, FC->fc, MYSQL->mysql）; 3.一条用例支持多个参数化; 4.重写动态参数化实现逻辑
+
