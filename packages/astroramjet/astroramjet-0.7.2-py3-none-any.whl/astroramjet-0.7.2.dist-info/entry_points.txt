@@ -1,0 +1,3 @@
+[console_scripts]
+ramjet_light_curve_folding_vizualizer=ramjet.analysis.light_curve_folding_vizualizer.application:main
+
