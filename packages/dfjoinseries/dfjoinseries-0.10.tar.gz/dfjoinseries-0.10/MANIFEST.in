@@ -1,0 +1,3 @@
+include dfjoinseries/requirements.txt
+include dfjoinseries/thirdparty.json
+include dfjoinseries/README.MD

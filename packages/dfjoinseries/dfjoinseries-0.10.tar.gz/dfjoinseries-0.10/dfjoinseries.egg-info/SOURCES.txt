@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+dfjoinseries/README.MD
+dfjoinseries/__init__.py
+dfjoinseries/requirements.txt
+dfjoinseries/thirdparty.json
+dfjoinseries.egg-info/PKG-INFO
+dfjoinseries.egg-info/SOURCES.txt
+dfjoinseries.egg-info/dependency_links.txt
+dfjoinseries.egg-info/requires.txt
+dfjoinseries.egg-info/top_level.txt
