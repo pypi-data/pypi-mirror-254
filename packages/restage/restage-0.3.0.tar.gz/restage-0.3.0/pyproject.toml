@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=60", "setuptools_scm>=8.0", "tox>=4.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "restage"
+dependencies = [
+    'zenlog==1.1,',
+    'platformdirs==3.11',
+    'psutil==5.9.6',
+    "importlib_metadata; python_version<'3.8'",
+    'mccode-antlr[hdf5]==0.6.0',
+]
+readme = "README.md"
+authors = [
+    { name = "Gregory Tucker", email = "gregory.tucker@ess.eu" },
+]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest", "chopcal"]
+
+[project.scripts]
+restage = "restage.run:entrypoint"
+splitrun = "restage.splitrun:entrypoint"
+
+[tool.setuptools_scm]
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    min_version = 4.0
+    env_list =
+        py312
+        py311
+        py310
+        py39
+        type
+
+    [testenv]
+    deps =
+        pytest
+        chopcal
+    commands = pytest test
+
+    [testenv:type]
+    deps = mypy
+    commands = mypy src
+"""

@@ -1,0 +1,11 @@
+zenlog==1.1
+platformdirs==3.11
+psutil==5.9.6
+mccode-antlr[hdf5]==0.6.0
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[test]
+pytest
+chopcal

@@ -1,0 +1,3 @@
+[console_scripts]
+restage = restage.run:entrypoint
+splitrun = restage.splitrun:entrypoint
