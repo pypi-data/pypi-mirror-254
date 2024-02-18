@@ -1,0 +1,8 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cs.context.egg-info/PKG-INFO
+cs.context.egg-info/SOURCES.txt
+cs.context.egg-info/dependency_links.txt
+cs.context.egg-info/top_level.txt
+lib/python/cs/context.py
