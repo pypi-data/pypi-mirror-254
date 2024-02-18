@@ -1,0 +1,2 @@
+[console_scripts]
+cosi-response = cosipy.response.FullDetectorResponse:cosi_response
