@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: b2sim
+Version: 1.2.10
+Summary: A module to simulate the generation of eco and farms in Bloons TD Battles 2
+Author: redlaserbm
+Author-email: redlaserbm@gmail.com
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+
+TODO
