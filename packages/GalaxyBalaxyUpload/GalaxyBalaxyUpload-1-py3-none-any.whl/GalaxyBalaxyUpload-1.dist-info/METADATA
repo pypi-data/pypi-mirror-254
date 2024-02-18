@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: GalaxyBalaxyUpload
+Version: 1
+Requires-Dist: requests
+Requires-Dist: mutagen
+Requires-Dist: pydub
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pyperclip
+
