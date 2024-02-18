@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: pyXGTClient
+Version: 0.0.1
+Summary: A simple XGT Client library for Python
+Home-page: 
+Author: Choi Woo Chang
+Author-email: uchang2@gmail.com
+License: MIT
+Platform: any
+Description-Content-Type: text/markdown
+
+
+# XGT Client (LS Electric PLC)
+This package is for communicating with LS Electric's PLC via PC.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Usage/Examples
+
+```
+from time import sleep
+from pyXGTClient.client import XGTClient
+import struct
+
+#Connect
+testc = XGTClient(host="192.168.1.11", auto_open=True)
+testc.open()
+
+#TestCode For ContinuousData Read Write
+for i in range(0, 256):
+    testc.writeContinuousData("%MB300", [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i])
+    output = testc.readContinuousData("%MB300", 15)
+    print(output)
+    sleep(0.1)
+
+#TestCode For Single Data Read Write
+for i in range(0, 255):
+    data0 = struct.unpack("Q", struct.pack("d", (i+ 0.0)))[0]
+    data1 = struct.unpack("Q", struct.pack("d", (i+ 0.1)))[0]
+    data2 = struct.unpack("Q", struct.pack("d", (i+ 0.2)))[0]
+    data3 = struct.unpack("Q", struct.pack("d", (i+ 0.3)))[0]
+    data4 = struct.unpack("Q", struct.pack("d", (i+ 0.4)))[0]
+    data5 = struct.unpack("Q", struct.pack("d", (i+ 0.5)))[0]
+    data6 = struct.unpack("Q", struct.pack("d", (i+ 0.6)))[0]
+    data7 = struct.unpack("Q", struct.pack("d", (i+ 0.7)))[0]
+    data8 = struct.unpack("Q", struct.pack("d", (i+ 0.8)))[0]
+    data9 = struct.unpack("Q", struct.pack("d", (i+ 0.9)))[0]
+    data10 = struct.unpack("Q", struct.pack("d", (i+ 0.10)))[0]
+    data11 = struct.unpack("Q", struct.pack("d", (i+ 0.11)))[0]
+    data12 = struct.unpack("Q", struct.pack("d", (i+ 0.12)))[0]
+    data13 = struct.unpack("Q", struct.pack("d", (i+ 0.13)))[0]
+    data14 = struct.unpack("Q", struct.pack("d", (i+ 0.14)))[0]
+    data15 = struct.unpack("Q", struct.pack("d", (i+ 0.15)))[0]
+    
+    testc.writeData(["%ML100", "%ML101", "%ML102", "%ML103", "%ML104", "%ML105", "%ML106", "%ML107", "%ML108", "%ML109", "%ML110","%ML111", "%ML112", "%ML113", "%ML114", "%ML115"], [data0, data1, data2, data3, data4, data5, data6, data7, data8, data9,data10,data11,data12,data13,data14,data15])    
+    output = testc.readData(["%ML100", "%ML101", "%ML102", "%ML103", "%ML104", "%ML105", "%ML106", "%ML107", "%ML108", "%ML109", "%ML110","%ML111", "%ML112", "%ML113", "%ML114", "%ML115"])
+    
+    doubleoutput = [struct.unpack("d", struct.pack("Q", out))[0] for out in output]
+    
+    print(doubleoutput)
+    sleep(0.1)
+```
+
