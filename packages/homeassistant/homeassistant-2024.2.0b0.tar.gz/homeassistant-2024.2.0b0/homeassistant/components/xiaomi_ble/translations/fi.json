@@ -1,0 +1,39 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Laite on jo m\u00e4\u00e4ritetty",
+            "already_in_progress": "M\u00e4\u00e4ritysprosessi on jo k\u00e4ynniss\u00e4",
+            "no_devices_found": "Verkosta ei l\u00f6ytynyt laitteita",
+            "reauth_successful": "Uudelleentodennus onnistui"
+        },
+        "flow_title": "{name}",
+        "step": {
+            "bluetooth_confirm": {
+                "description": "Haluatko m\u00e4\u00e4ritt\u00e4\u00e4 {name}?"
+            },
+            "get_encryption_key_4_5": {
+                "data": {
+                    "bindkey": "Bindkey"
+                },
+                "description": "Sensorin l\u00e4hett\u00e4m\u00e4 data on salattu. Sen salauksen purkamiseksi tarvitsemme 32-merkkisen heksadesimaalilukuavaimen."
+            },
+            "get_encryption_key_legacy": {
+                "data": {
+                    "bindkey": "Bindkey"
+                },
+                "description": "Senso l\u00e4hett\u00e4m\u00e4t tiedot salataan. Sen purkamiseen tarvitaan 24-merkkinen heksadesimaalinen sidonta-avain."
+            },
+            "user": {
+                "data": {
+                    "address": "Laite"
+                },
+                "description": "Valitse laite, jonka haluat m\u00e4\u00e4ritt\u00e4\u00e4"
+            }
+        }
+    },
+    "device_automation": {
+        "trigger_type": {
+            "motion_detected": "Liikett\u00e4 havaittu"
+        }
+    }
+}
