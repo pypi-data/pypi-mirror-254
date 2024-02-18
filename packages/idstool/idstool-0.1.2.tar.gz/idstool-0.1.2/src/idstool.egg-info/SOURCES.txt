@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/idstool/__init__.py
+src/idstool/ids_classes.py
+src/idstool/serializer.py
+src/idstool.egg-info/PKG-INFO
+src/idstool.egg-info/SOURCES.txt
+src/idstool.egg-info/dependency_links.txt
+src/idstool.egg-info/top_level.txt
