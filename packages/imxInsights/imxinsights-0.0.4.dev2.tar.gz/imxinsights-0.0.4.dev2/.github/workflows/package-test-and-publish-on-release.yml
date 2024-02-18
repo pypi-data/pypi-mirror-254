@@ -1,0 +1,64 @@
+name: Test and publish on pypi
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flit
+        flit install --deps develop
+
+# todo: if public set codecov token (open source is free)
+    - name: Test with pytest
+#      env:
+#        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        make test
+#        pytest --cov=imxInsights/
+#        codecov
+
+    - name: Build and install it on system host
+      run: |
+        flit build --setup-py
+        flit install --deps none --python $(which python)
+        python test_build.py
+
+    - name: Publish package
+      if: matrix.python-version == '3.12' && success()
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        python-version: '3.12'
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Trigger dispatches ImxInsightsCli build
+      uses: passeidireto/trigger-external-workflow-action@main
+      if: matrix.python-version == '3.12'
+      env:
+        PAYLOAD_AUTHOR: ${{ github.author }}
+        PAYLOAD_REVISION: "3"
+      with:
+        repository: Hazedd/imxInsightsCli
+        event: build_cli_apps
+        github_pat: ${{ secrets.CLI_TOKEN }}    # should be classic token with actions scope

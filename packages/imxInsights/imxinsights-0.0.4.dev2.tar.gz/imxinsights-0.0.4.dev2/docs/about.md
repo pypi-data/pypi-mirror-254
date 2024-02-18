@@ -1,0 +1,2 @@
+--8<-- "README.md"
+--8<-- "LICENSE.md"

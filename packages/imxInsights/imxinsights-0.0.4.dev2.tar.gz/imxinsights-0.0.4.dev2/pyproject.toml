@@ -1,0 +1,113 @@
+[project]
+name = "imxInsights"
+description = "python imx insights module to get information from imx files"
+
+authors = [
+    { name = "Hzd", email = "Hazedd@users.noreply.github.com" },
+]
+readme = "README.md"
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = "~=3.10"
+
+dependencies = [
+    "loguru",
+    "ruamel.yaml",
+    "lxml",
+    "shapely",
+    "shapelyM",
+    "pyproj",
+    "dateparser",
+    "ruamel.yaml",
+    "pandas",
+    "xlsxwriter",
+    "Jinja2",
+    "networkx",
+]
+
+[project.optional-dependencies]
+
+dev = [
+    "black[jupyter]",
+    "bumpversion",
+    "flake8-black",
+    "flake8-docstrings",
+    "flake8",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "markdown-include",
+    "mike",
+    "mkdocs",
+    "mkdocs-jupyter",
+    "mkdocs-material",
+    "mkdocs-mermaid2-plugin",
+    "mkdocstrings[crystal, python]>=0.18",
+    "pymdown-extensions",
+    "python-dotenv",
+    "cryptography",
+]
+
+jupyter = [
+    "jupyterlab",
+    "pygwalker"
+]
+
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
+
+[tool.isort]
+profile = "black"
+skip = []
+
+[tool.black]
+line-length = 150
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --ignore=test_build.py"
+markers = [
+  "slow: Run tests that use sample data from file",
+  "serial"
+]
+testpaths = [
+    "tests"
+]
+
+[tool.flit.module]
+name = "imxInsights"
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

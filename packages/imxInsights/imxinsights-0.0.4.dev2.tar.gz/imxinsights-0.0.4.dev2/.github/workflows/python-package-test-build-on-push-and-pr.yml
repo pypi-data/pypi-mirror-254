@@ -1,0 +1,77 @@
+name: Test and build Python package
+ 
+on:
+  workflow_call:
+  push:
+    branches: [ "master", "refactor*", "feature-*"]
+  pull_request:
+    branches: [ "master", "refactor*", "feature-*"]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+
+    - name: Check Compatibility 3.12
+      if: matrix.python-version == '3.12'
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+      continue-on-error: true
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flit
+        flit install --deps develop
+
+    - name: Check codestyle
+      run: |
+        make format-check
+        make lint
+
+    - name: Typecheck
+      run: |
+        make typecheck
+      continue-on-error: true
+
+# todo: if public set codecov token (open source is free)
+    - name: Test with pytest
+#      env:
+#        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        make test
+#        pytest --cov=imxInsights/
+#        codecov
+
+    - name: Build and install on system host
+      run: |
+        flit build --setup-py
+        flit install --deps none --python $(which python)
+        python test_build.py
+
+# # todo: if public pus docs
+#    - name: Publish documentation (build)
+#      run: |
+#        make docs-publish
+#
+#    - uses: actions/upload-artifact@v3
+#      if: matrix.python-version == '3.11'
+#      with:
+#        name: docs
+#        path: |
+#          ${{ github.workspace }}/site/*
+
