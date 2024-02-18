@@ -1,0 +1,3 @@
+[console_scripts]
+netconf-lnu = netconf_lnu.main:main
+
