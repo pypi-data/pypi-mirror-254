@@ -1,0 +1,1906 @@
+{
+    "queries": [
+        {
+            "id": "227ee1ba-0d4a-4590-bec9-4561a40214a2",
+            "version": 1,
+            "description": null,
+            "name": "Turbine power prediction",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [
+                "power",
+                "turbine"
+            ],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:11:54Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": false,
+                "folder_node_internal_name": "tree/2218726451419676",
+                "folder_node_status": "ACTIVE",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner",
+                "schema": null,
+                "catalog": null
+            },
+            "query_draft": {
+                "query_id": "227ee1ba-0d4a-4590-bec9-4561a40214a2",
+                "apply_auto_limit": false,
+                "user_id": 7644138420879474,
+                "draft_text": "select *, current_timestamp() + interval '1 hour' * h as time from ( select *, hour as h from main__build.dbdemos_iot_turbine.turbine_power_prediction);",
+                "original_query_text": "select *, current_timestamp() + interval '1 hour' * h as time from ( select *, hour as h from dbdemos_lakehouse_iot.turbine_power_prediction);",
+                "parameters": [],
+                "catalog": "",
+                "schema": "",
+                "updated_at": "2024-01-19T19:07:28Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6fe-994f-1d82-8941-4aa0ae985761",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6fe-994f-1d82-8941-4aa0ae985761",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": null,
+                "schema": null,
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:11:50.584Z",
+                "runtime": 0.583,
+                "num_rows": 12,
+                "query_id": "227ee1ba-0d4a-4590-bec9-4561a40214a2",
+                "id": "sqlx:query_execution_session:01eeb6fe-994f-1d82-8941-4aa0ae985761",
+                "query_text": "select *, current_timestamp() + interval '1 hour' * h as time from ( select *, hour as h from main__build.dbdemos_iot_turbine.turbine_power_prediction);"
+            },
+            "visualizations": [
+                {
+                    "id": "09f5fc6d-ec72-4602-9dcd-f158ab82aae4",
+                    "description": "",
+                    "name": "Table",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {},
+                    "query_plan": null
+                },
+                {
+                    "id": "a88c09c1-440d-4996-8d4c-71282d94574d",
+                    "description": "",
+                    "name": "Energy prediction based on the wind forecast",
+                    "type": "CHART",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "coefficient": 1,
+                        "columnMapping": {
+                            "max": "y",
+                            "min": "y",
+                            "prediction": "y",
+                            "time": "x"
+                        },
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "globalSeriesType": "line",
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "missingValuesAsZero": true,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "series": {
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            },
+                            "stacking": null
+                        },
+                        "seriesOptions": {
+                            "max": {
+                                "color": "#356AFF"
+                            },
+                            "min": {
+                                "color": "#356AFF",
+                                "type": "line",
+                                "yAxis": 0
+                            }
+                        },
+                        "showDataLabels": false,
+                        "sizemode": "diameter",
+                        "sortX": true,
+                        "textFormat": "",
+                        "valuesOptions": {},
+                        "xAxis": {
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": null,
+                            "type": "-"
+                        },
+                        "yAxis": [
+                            {
+                                "title": {
+                                    "text": "Mw"
+                                },
+                                "type": "linear"
+                            },
+                            {
+                                "opposite": true,
+                                "type": "linear"
+                            }
+                        ]
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "cebeb5b8-6cb5-4a01-990d-b4c9b33d52b5",
+                    "description": "",
+                    "name": "Table",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {},
+                    "query_plan": null
+                }
+            ],
+            "query": "select *, current_timestamp() + interval '1 hour' * h as time from ( select *, hour as h from main__build.dbdemos_iot_turbine.turbine_power_prediction);",
+            "is_parameter_query": false
+        },
+        {
+            "id": "cad673ef-e72d-4fc8-92f1-e47f0bb5c185",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines faulty",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:07:21Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419674",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": {
+                "query_id": "cad673ef-e72d-4fc8-92f1-e47f0bb5c185",
+                "apply_auto_limit": true,
+                "user_id": 7644138420879474,
+                "draft_text": "select turbine_id, prediction as fault, model, state, lat, long, country from main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18",
+                "original_query_text": "select turbine_id, prediction as fault, model, state, lat, long, country from dbdemos_lakehouse_iot.current_turbine_metrics where prediction != 'ok' limit 18",
+                "parameters": [],
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "updated_at": "2024-01-19T19:07:11Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6fd-f2aa-16e0-8d1d-d4caa856aae5",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6fd-f2aa-16e0-8d1d-d4caa856aae5",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:07:10.998Z",
+                "runtime": 0.352,
+                "num_rows": 0,
+                "query_id": "cad673ef-e72d-4fc8-92f1-e47f0bb5c185",
+                "id": "sqlx:query_execution_session:01eeb6fd-f2aa-16e0-8d1d-d4caa856aae5",
+                "query_text": "select turbine_id, prediction as fault, model, state, lat, long, country from main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18"
+            },
+            "visualizations": [
+                {
+                    "id": "a579e04b-a1de-4b01-a117-4aeb446383aa",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "f2ff734b-d9b4-40e8-9deb-a47a832e59c6",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:47Z",
+                    "updated_at": "2023-02-24T18:36:47Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                }
+            ],
+            "query": "select turbine_id, prediction as fault, model, state, lat, long, country from main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18",
+            "is_parameter_query": false
+        },
+        {
+            "id": "f883e9a0-684c-485e-838a-a8c1fe6734d0",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines faulty parts",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:19:29Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419672",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": {
+                "query_id": "f883e9a0-684c-485e-838a-a8c1fe6734d0",
+                "apply_auto_limit": true,
+                "user_id": 7644138420879474,
+                "draft_text": "select EAN, type, approvisioning_estimated_days, state, count(*) c from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by EAN, type, approvisioning_estimated_days, state\norder by c desc",
+                "original_query_text": "select EAN, type, approvisioning_estimated_days, state, count(*) c from (select turbine_id, state, country, prediction as fault, model, lat, long from dbdemos_lakehouse_iot.current_turbine_metrics where prediction != 'ok' limit 18) as t\nleft join dbdemos_lakehouse_iot.part p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by EAN, type, approvisioning_estimated_days, state\norder by c desc",
+                "parameters": [],
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "updated_at": "2024-01-19T19:12:37Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6ff-a915-130c-8310-35df623bff9b",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6ff-a915-130c-8310-35df623bff9b",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:19:26.553Z",
+                "runtime": 0.544,
+                "num_rows": 0,
+                "query_id": "f883e9a0-684c-485e-838a-a8c1fe6734d0",
+                "id": "sqlx:query_execution_session:01eeb6ff-a915-130c-8310-35df623bff9b",
+                "query_text": "select EAN, type, approvisioning_estimated_days, state, count(*) c from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by EAN, type, approvisioning_estimated_days, state\norder by c desc LIMIT 1000"
+            },
+            "visualizations": [
+                {
+                    "id": "1fce2e47-a56d-4cc8-8a80-b8b656bec71a",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:47Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "d746cb28-a50b-48bf-a2d4-c2cd06a2c544",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:48Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                }
+            ],
+            "query": "select EAN, type, approvisioning_estimated_days, state, count(*) c from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by EAN, type, approvisioning_estimated_days, state\norder by c desc",
+            "is_parameter_query": false
+        },
+        {
+            "id": "944298fd-612b-4a19-bdfa-76aaa7000642",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines stats",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:19:42Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419673",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": {
+                "query_id": "944298fd-612b-4a19-bdfa-76aaa7000642",
+                "apply_auto_limit": true,
+                "user_id": 7644138420879474,
+                "draft_text": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from main__build.dbdemos_iot_turbine.turbine_current_status ",
+                "original_query_text": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from dbdemos_lakehouse_iot.current_turbine_metrics ",
+                "parameters": [],
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "updated_at": "2024-01-19T19:05:16Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6fd-c4ec-1e17-86f7-8560dc6cd759",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6fd-c4ec-1e17-86f7-8560dc6cd759",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:05:54.265Z",
+                "runtime": 0.28,
+                "num_rows": 1,
+                "query_id": "944298fd-612b-4a19-bdfa-76aaa7000642",
+                "id": "sqlx:query_execution_session:01eeb6fd-c4ec-1e17-86f7-8560dc6cd759",
+                "query_text": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from main__build.dbdemos_iot_turbine.turbine_current_status LIMIT 1000 "
+            },
+            "visualizations": [
+                {
+                    "id": "205e501e-71d8-4945-bdcc-c483ba920413",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "556231d4-1db0-494c-aa5e-2b4c8cf7fc34",
+                    "description": "",
+                    "name": "Wind turbine ernergy produced",
+                    "type": "COUNTER",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "counterLabel": "Energy produced",
+                        "counterColName": "energy_produced",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "",
+                        "stringSuffix": " MW",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "b40179d1-52a6-4b28-8bf6-1af6444fded4",
+                    "description": "",
+                    "name": "Estimated revenus",
+                    "type": "COUNTER",
+                    "created_at": "2023-02-24T18:36:50Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "counterLabel": "Revenue / hour",
+                        "counterColName": "revenue_per_hour",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "$ ",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "c6d01404-2b8d-4707-8c59-00aa29d4e6f1",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:51Z",
+                    "updated_at": "2023-02-24T18:36:51Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                }
+            ],
+            "query": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from main__build.dbdemos_iot_turbine.turbine_current_status ",
+            "is_parameter_query": false
+        },
+        {
+            "id": "fe03a551-d897-4b4d-8d9b-3e79b3d7a160",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines faulty parts count",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:19:24Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419677",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": null,
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6ff-a5a8-1680-8338-8bb507772390",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6ff-a5a8-1680-8338-8bb507772390",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:19:20.807Z",
+                "runtime": 0.352,
+                "num_rows": 0,
+                "query_id": "fe03a551-d897-4b4d-8d9b-3e79b3d7a160",
+                "id": "sqlx:query_execution_session:01eeb6ff-a5a8-1680-8338-8bb507772390",
+                "query_text": "select type, count(*) faulty_equipment_count from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status  where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by type\norder by faulty_equipment_count desc LIMIT 1000"
+            },
+            "visualizations": [
+                {
+                    "id": "a40230da-6f54-4b72-b516-e72869ee495b",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "ac957b47-dc16-41af-80f6-cb319bb59092",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "fa5f04f0-8750-4ba6-a7bd-83cf95e867cf",
+                    "description": "",
+                    "name": "Recurrent equipment default over the last year",
+                    "type": "CHART",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-03-15T11:26:25Z",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "pie",
+                        "sortX": true,
+                        "sortY": true,
+                        "legend": {
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": true
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "-"
+                            },
+                            {
+                                "type": "-",
+                                "opposite": true
+                            }
+                        ],
+                        "alignYAxesAtZero": true,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {
+                            "column_d035ff2518054": {
+                                "name": "c",
+                                "yAxis": 0,
+                                "type": "pie"
+                            }
+                        },
+                        "valuesOptions": {
+                            "anemometer": {
+                                "color": "#5C62D6"
+                            },
+                            "Brake": {
+                                "color": "#6B9AC4"
+                            },
+                            "Yaw drive": {
+                                "color": "#F4B942"
+                            },
+                            "blade": {
+                                "color": "#5C62D6"
+                            },
+                            "controller card #1": {
+                                "color": "#97D8C4"
+                            },
+                            "controller card #2": {
+                                "color": "#EFF2F1"
+                            },
+                            "electronic guidance system": {
+                                "color": "#B9E28C"
+                            }
+                        },
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": true,
+                        "swappedAxes": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "showDataLabels": true,
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "type",
+                                "id": "column_d035ff2518053"
+                            },
+                            "y": [
+                                {
+                                    "column": "faulty_equipment_count",
+                                    "transform": "SUM",
+                                    "id": "column_d035ff2518054"
+                                }
+                            ]
+                        },
+                        "condensed": true,
+                        "withRowNumber": true,
+                        "isAggregationOn": true
+                    },
+                    "query_plan": {
+                        "selects": [
+                            {
+                                "column": "type"
+                            },
+                            {
+                                "function": "SUM",
+                                "args": [
+                                    {
+                                        "column": "faulty_equipment_count"
+                                    }
+                                ],
+                                "alias": "column_d035ff2518054"
+                            }
+                        ],
+                        "groups": [
+                            {
+                                "column": "type"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "query": "select type, count(*) faulty_equipment_count from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status  where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by type\norder by faulty_equipment_count desc",
+            "is_parameter_query": false
+        },
+        {
+            "id": "d8eb34ee-3289-4cb7-9506-4b79175fbba0",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines stats faulty",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:19:40Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419671",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": {
+                "query_id": "d8eb34ee-3289-4cb7-9506-4b79175fbba0",
+                "apply_auto_limit": true,
+                "user_id": 7644138420879474,
+                "draft_text": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from main__build.dbdemos_iot_turbine.turbine_current_status ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test)\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy ",
+                "original_query_text": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from dbdemos_lakehouse_iot.current_turbine_metrics ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test)\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy ",
+                "parameters": [],
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "updated_at": "2024-01-19T19:06:08Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6fd-d859-1f9c-aa17-34fcff78ad95",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6fd-d859-1f9c-aa17-34fcff78ad95",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:06:26.848Z",
+                "runtime": 0.702,
+                "num_rows": 1,
+                "query_id": "d8eb34ee-3289-4cb7-9506-4b79175fbba0",
+                "id": "sqlx:query_execution_session:01eeb6fd-d859-1f9c-aa17-34fcff78ad95",
+                "query_text": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from main__build.dbdemos_iot_turbine.turbine_current_status ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test) LIMIT 1000\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy "
+            },
+            "visualizations": [
+                {
+                    "id": "0a7913fd-3626-4820-aea5-a4b95ef27875",
+                    "description": "",
+                    "name": "Faulty wind turbines",
+                    "type": "COUNTER",
+                    "created_at": "2023-02-24T18:36:50Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "counterLabel": "Active faulty train parts",
+                        "counterColName": "count",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "0bc24cf8-3e71-426b-9ad3-cfa30b2223dc",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:48Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "592e3590-7246-48f9-8754-a12345217fbb",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:51Z",
+                    "updated_at": "2023-02-24T18:36:51Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "ee7c35d5-cbb2-4ab4-aaa8-dd61ff714565",
+                    "description": "",
+                    "name": "Energy production impact",
+                    "type": "COUNTER",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "counterLabel": "Faulty train part impact",
+                        "counterColName": "efficiency_loss",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "",
+                        "stringSuffix": " %",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "query_plan": null
+                }
+            ],
+            "query": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from main__build.dbdemos_iot_turbine.turbine_current_status ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test)\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy ",
+            "is_parameter_query": false
+        },
+        {
+            "id": "302f984e-6c1a-45ed-9983-da1cb1cbb587",
+            "version": 1,
+            "description": null,
+            "name": "IOT platform Wind Turbines",
+            "user": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+            "warehouse_id": "9be8079d873b30a6",
+            "run_as_role": "owner",
+            "can_edit": true,
+            "is_archived": false,
+            "is_draft": false,
+            "is_favorite": false,
+            "is_safe": true,
+            "last_modified_by": {
+                "id": 7644138420879474,
+                "name": "Quentin Ambard",
+                "email": "quentin.ambard@databricks.com"
+            },
+            "parent": "folders/2218726451409697",
+            "permission_tier": "CAN_MANAGE",
+            "run_as_service_principal_id": null,
+            "tags": [],
+            "user_id": 7644138420879474,
+            "created_at": "2023-02-13T14:14:48Z",
+            "updated_at": "2024-01-19T19:17:28Z",
+            "options": {
+                "parameters": [],
+                "apply_auto_limit": true,
+                "folder_node_internal_name": "tree/2218726451419675",
+                "folder_node_status": "ACTIVE",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "parent": "folders/2218726451409697",
+                "visualization_control_order": [],
+                "run_as_role": "owner"
+            },
+            "query_draft": {
+                "query_id": "302f984e-6c1a-45ed-9983-da1cb1cbb587",
+                "apply_auto_limit": true,
+                "user_id": 7644138420879474,
+                "draft_text": "select * from main__build.dbdemos_iot_turbine.turbine_current_status;",
+                "original_query_text": "select * from dbdemos_lakehouse_iot.current_turbine_metrics;",
+                "parameters": [],
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "updated_at": "2024-01-19T19:17:23Z",
+                "org_id": 1660015457675682
+            },
+            "latest_query_data_id": "sqlx:query_execution_session:01eeb6ff-5fba-132d-a103-421c7bd5124d",
+            "job_id": null,
+            "latest_execution": {
+                "session_id": "01eeb6ff-5fba-132d-a103-421c7bd5124d",
+                "warehouse_id": "9be8079d873b30a6",
+                "catalog": "hive_metastore",
+                "schema": "dbdemos_lakehouse_iot",
+                "status": 3,
+                "error_message": null,
+                "start_time": "2024-01-19T19:17:23.470Z",
+                "runtime": 0.888,
+                "num_rows": 1000,
+                "query_id": "302f984e-6c1a-45ed-9983-da1cb1cbb587",
+                "id": "sqlx:query_execution_session:01eeb6ff-5fba-132d-a103-421c7bd5124d",
+                "query_text": "select * from main__build.dbdemos_iot_turbine.turbine_current_status LIMIT 1000;"
+            },
+            "visualizations": [
+                {
+                    "id": "141d5bdd-3ba0-4165-a9f1-ef216c6b8326",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "updated_at": "2023-02-24T18:36:48Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "c1876ccc-d534-4de5-b88e-9fc550f156cd",
+                    "description": "",
+                    "name": "Wind turbine map",
+                    "type": "MAP",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "options": {
+                        "latColName": "lat",
+                        "lonColName": "long",
+                        "classify": null,
+                        "groups": {},
+                        "mapTileUrl": "//{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+                        "clusterMarkers": true,
+                        "customizeMarkers": false,
+                        "iconShape": "marker",
+                        "iconFont": "circle",
+                        "foregroundColor": "#ffffff",
+                        "backgroundColor": "#356AFF",
+                        "borderColor": "#356AFF",
+                        "bounds": {
+                            "_southWest": {
+                                "lat": 12.635187605033728,
+                                "lng": -131.12023155394982
+                            },
+                            "_northEast": {
+                                "lat": 55.773604114548405,
+                                "lng": -61.81847374144983
+                            }
+                        },
+                        "tooltip": {
+                            "enabled": false,
+                            "template": ""
+                        },
+                        "popup": {
+                            "enabled": true,
+                            "template": ""
+                        },
+                        "condensed": true,
+                        "withRowNumber": true,
+                        "showPlotlyControls": true
+                    },
+                    "query_plan": null
+                },
+                {
+                    "id": "ed149ff5-0d15-4e6e-bf86-8838b3fcf23c",
+                    "description": "",
+                    "name": "Results",
+                    "type": "TABLE",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "updated_at": "2023-02-24T18:36:49Z",
+                    "options": {
+                        "version": 2
+                    },
+                    "query_plan": null
+                }
+            ],
+            "query": "select * from main__build.dbdemos_iot_turbine.turbine_current_status;",
+            "is_parameter_query": false
+        }
+    ],
+    "id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+    "dashboard": {
+        "id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+        "slug": "iot-platform---wind-turbine-predictive-maintenance",
+        "name": "IOT Platform - Wind Turbine predictive maintenance",
+        "user_id": 7644138420879474,
+        "dashboard_filters_enabled": false,
+        "widgets": [
+            {
+                "id": "0032c2c6-3bc9-4de6-8e4e-15ef9f79cd8b",
+                "width": 1,
+                "options": {
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 6,
+                        "sizeY": 3,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 16
+                    },
+                    "parameterMappings": {}
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "# Maintenance part analysis & recommendation\n\nBased on our Predictive maintenance model and our stock status, we are able to provide recommendation to better organize our stock and potentially adjust spare parts command.  \n\nThe potential use-cases and potential revenue optimizations are huge. As other example we can also run analysis on the faulty equipment history and potentially detect frequent issues to take preventive action on the hardware.\n",
+                "updated_at": "2023-02-24T18:36:54Z",
+                "created_at": "2023-02-24T18:36:54Z"
+            },
+            {
+                "id": "10d1070c-c665-45d0-9bdb-e30cdec5a55e",
+                "width": 1,
+                "options": {
+                    "description": "Based on the weather forecast.",
+                    "isHidden": false,
+                    "overrideColors": false,
+                    "parameterMappings": {},
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 11,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 4,
+                        "row": 5
+                    },
+                    "title": "Energy production forecast"
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "a88c09c1-440d-4996-8d4c-71282d94574d",
+                    "type": "CHART",
+                    "name": "Energy prediction based on the wind forecast",
+                    "description": "",
+                    "options": {
+                        "coefficient": 1,
+                        "columnMapping": {
+                            "max": "y",
+                            "min": "y",
+                            "prediction": "y",
+                            "time": "x"
+                        },
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "globalSeriesType": "line",
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "missingValuesAsZero": true,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "series": {
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            },
+                            "stacking": null
+                        },
+                        "seriesOptions": {
+                            "max": {
+                                "color": "#356AFF"
+                            },
+                            "min": {
+                                "color": "#356AFF",
+                                "type": "line",
+                                "yAxis": 0
+                            }
+                        },
+                        "showDataLabels": false,
+                        "sizemode": "diameter",
+                        "sortX": true,
+                        "textFormat": "",
+                        "valuesOptions": {},
+                        "xAxis": {
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": null,
+                            "type": "-"
+                        },
+                        "yAxis": [
+                            {
+                                "title": {
+                                    "text": "Mw"
+                                },
+                                "type": "linear"
+                            },
+                            {
+                                "opposite": true,
+                                "type": "linear"
+                            }
+                        ]
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "227ee1ba-0d4a-4590-bec9-4561a40214a2",
+                        "name": "Turbine power prediction",
+                        "description": null,
+                        "query": "select *, current_timestamp() + interval '1 hour' * h as time from ( select *, hour as h from main__build.dbdemos_iot_turbine.turbine_power_prediction);",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:11:54Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": false,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419676",
+                            "schema": null,
+                            "catalog": null,
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [
+                            "power",
+                            "turbine"
+                        ],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "54e8b25a-89cc-4331-a48e-195b90483c6a",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Wind Turbines with default",
+                    "description": "The following wind turbines have a potential default and should be inspected",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 11,
+                        "minSizeX": 2,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 2,
+                        "row": 5
+                    }
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "a579e04b-a1de-4b01-a117-4aeb446383aa",
+                    "type": "TABLE",
+                    "name": "Results",
+                    "description": "",
+                    "options": {
+                        "version": 2
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "cad673ef-e72d-4fc8-92f1-e47f0bb5c185",
+                        "name": "IOT platform Wind Turbines faulty",
+                        "description": null,
+                        "query": "select turbine_id, prediction as fault, model, state, lat, long, country from main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:07:21Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419674",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "5dba788c-28d6-4f24-bccb-3ced5dfba8a3",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Parts for faulty Wind Turbine having no stock in the turbine region",
+                    "description": "The following parts are not available close to the faulty wind turbine. Stocks need to be adjusted accordingly.",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 3,
+                        "sizeY": 10,
+                        "minSizeX": 2,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 19
+                    },
+                    "overrideColors": false
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "1fce2e47-a56d-4cc8-8a80-b8b656bec71a",
+                    "type": "TABLE",
+                    "name": "Results",
+                    "description": "",
+                    "options": {
+                        "version": 2
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:47Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "f883e9a0-684c-485e-838a-a8c1fe6734d0",
+                        "name": "IOT platform Wind Turbines faulty parts",
+                        "description": null,
+                        "query": "select EAN, type, approvisioning_estimated_days, state, count(*) c from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by EAN, type, approvisioning_estimated_days, state\norder by c desc",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:29Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419672",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "62f04886-2496-497e-a49e-b67bd6370d06",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Estimated instant revenue",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 5,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 1,
+                        "row": 0
+                    },
+                    "overrideColors": false
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "b40179d1-52a6-4b28-8bf6-1af6444fded4",
+                    "type": "COUNTER",
+                    "name": "Estimated revenus",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Revenue / hour",
+                        "counterColName": "revenue_per_hour",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "$ ",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:50Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "944298fd-612b-4a19-bdfa-76aaa7000642",
+                        "name": "IOT platform Wind Turbines stats",
+                        "description": null,
+                        "query": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from main__build.dbdemos_iot_turbine.turbine_current_status ",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:42Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419673",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "9c77af83-5b80-4ad1-ac83-beb8d80e14db",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Instant Energy produced",
+                    "description": "Realtime energy production",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 1,
+                        "sizeY": 5,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 0
+                    }
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "556231d4-1db0-494c-aa5e-2b4c8cf7fc34",
+                    "type": "COUNTER",
+                    "name": "Wind turbine ernergy produced",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Energy produced",
+                        "counterColName": "energy_produced",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "",
+                        "stringSuffix": " MW",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "944298fd-612b-4a19-bdfa-76aaa7000642",
+                        "name": "IOT platform Wind Turbines stats",
+                        "description": null,
+                        "query": "select sum(avg_energy) as energy_produced, sum(avg_energy) * 110 as revenue_per_hour from main__build.dbdemos_iot_turbine.turbine_current_status ",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:42Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419673",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "a6d4f648-2384-4c43-b251-98b6f45923c2",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Recurrent equipment default over the last year - IOT platform Wind Turbines faulty parts count",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 3,
+                        "sizeY": 10,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 3,
+                        "row": 19
+                    }
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "fa5f04f0-8750-4ba6-a7bd-83cf95e867cf",
+                    "type": "CHART",
+                    "name": "Recurrent equipment default over the last year",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "pie",
+                        "sortX": true,
+                        "sortY": true,
+                        "legend": {
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": true
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "-"
+                            },
+                            {
+                                "type": "-",
+                                "opposite": true
+                            }
+                        ],
+                        "alignYAxesAtZero": true,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {
+                            "column_d035ff2518054": {
+                                "name": "c",
+                                "yAxis": 0,
+                                "type": "pie"
+                            }
+                        },
+                        "valuesOptions": {
+                            "anemometer": {
+                                "color": "#5C62D6"
+                            },
+                            "Brake": {
+                                "color": "#6B9AC4"
+                            },
+                            "Yaw drive": {
+                                "color": "#F4B942"
+                            },
+                            "blade": {
+                                "color": "#5C62D6"
+                            },
+                            "controller card #1": {
+                                "color": "#97D8C4"
+                            },
+                            "controller card #2": {
+                                "color": "#EFF2F1"
+                            },
+                            "electronic guidance system": {
+                                "color": "#B9E28C"
+                            }
+                        },
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": true,
+                        "swappedAxes": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "showDataLabels": true,
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "type",
+                                "id": "column_d035ff2518053"
+                            },
+                            "y": [
+                                {
+                                    "column": "faulty_equipment_count",
+                                    "transform": "SUM",
+                                    "id": "column_d035ff2518054"
+                                }
+                            ]
+                        },
+                        "condensed": true,
+                        "withRowNumber": true,
+                        "isAggregationOn": true
+                    },
+                    "updated_at": "2023-03-15T11:26:25Z",
+                    "created_at": "2023-02-24T18:36:48Z",
+                    "query_plan": {
+                        "selects": [
+                            {
+                                "column": "type"
+                            },
+                            {
+                                "function": "SUM",
+                                "args": [
+                                    {
+                                        "column": "faulty_equipment_count"
+                                    }
+                                ],
+                                "alias": "column_d035ff2518054"
+                            }
+                        ],
+                        "groups": [
+                            {
+                                "column": "type"
+                            }
+                        ]
+                    },
+                    "query": {
+                        "id": "fe03a551-d897-4b4d-8d9b-3e79b3d7a160",
+                        "name": "IOT platform Wind Turbines faulty parts count",
+                        "description": null,
+                        "query": "select type, count(*) faulty_equipment_count from (select turbine_id, state, country, prediction as fault, model, lat, long \nfrom main__build.dbdemos_iot_turbine.turbine_current_status  where prediction != 'ok' limit 18) as t\nleft join main__build.dbdemos_iot_turbine.parts p on t.state=p.stock_location\nwhere stock_available = 0 \ngroup by type\norder by faulty_equipment_count desc",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:24Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419677",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "ba01b1fb-e74c-41e0-9231-20068f282adb",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Number of damaged turbine",
+                    "description": "Leading to energy production loss and potential outages",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 1,
+                        "sizeY": 5,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 3,
+                        "row": 0
+                    },
+                    "overrideColors": false
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "0a7913fd-3626-4820-aea5-a4b95ef27875",
+                    "type": "COUNTER",
+                    "name": "Faulty wind turbines",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Active faulty train parts",
+                        "counterColName": "count",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:50Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "d8eb34ee-3289-4cb7-9506-4b79175fbba0",
+                        "name": "IOT platform Wind Turbines stats faulty",
+                        "description": null,
+                        "query": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from main__build.dbdemos_iot_turbine.turbine_current_status ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test)\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy ",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:40Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419671",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "c75e3161-5c00-4d08-932d-6c227f5f5439",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Wind turbine locations",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 11,
+                        "minSizeX": 2,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 5
+                    }
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "c1876ccc-d534-4de5-b88e-9fc550f156cd",
+                    "type": "MAP",
+                    "name": "Wind turbine map",
+                    "description": "",
+                    "options": {
+                        "latColName": "lat",
+                        "lonColName": "long",
+                        "classify": null,
+                        "groups": {},
+                        "mapTileUrl": "//{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+                        "clusterMarkers": true,
+                        "customizeMarkers": false,
+                        "iconShape": "marker",
+                        "iconFont": "circle",
+                        "foregroundColor": "#ffffff",
+                        "backgroundColor": "#356AFF",
+                        "borderColor": "#356AFF",
+                        "bounds": {
+                            "_southWest": {
+                                "lat": 12.635187605033728,
+                                "lng": -131.12023155394982
+                            },
+                            "_northEast": {
+                                "lat": 55.773604114548405,
+                                "lng": -61.81847374144983
+                            }
+                        },
+                        "tooltip": {
+                            "enabled": false,
+                            "template": ""
+                        },
+                        "popup": {
+                            "enabled": true,
+                            "template": ""
+                        },
+                        "condensed": true,
+                        "withRowNumber": true,
+                        "showPlotlyControls": true
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "302f984e-6c1a-45ed-9983-da1cb1cbb587",
+                        "name": "IOT platform Wind Turbines",
+                        "description": null,
+                        "query": "select * from main__build.dbdemos_iot_turbine.turbine_current_status;",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:17:28Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419675",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            },
+            {
+                "id": "e33eeefb-47f8-4a16-82ac-5bdcbea094a9",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Impact & Loss",
+                    "description": "Estimated production lost due to Turbine Malfunction.",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 5,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 4,
+                        "row": 0
+                    },
+                    "overrideColors": false
+                },
+                "dashboard_id": "90b2c9c7-e5c7-46d8-b7fe-5b98ed84d5d1",
+                "text": "",
+                "updated_at": "2023-02-24T18:36:55Z",
+                "created_at": "2023-02-24T18:36:55Z",
+                "visualization": {
+                    "id": "ee7c35d5-cbb2-4ab4-aaa8-dd61ff714565",
+                    "type": "COUNTER",
+                    "name": "Energy production impact",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Faulty train part impact",
+                        "counterColName": "efficiency_loss",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "stringPrefix": "",
+                        "stringSuffix": " %",
+                        "condensed": true,
+                        "withRowNumber": true
+                    },
+                    "updated_at": "2023-02-24T18:36:55Z",
+                    "created_at": "2023-02-24T18:36:49Z",
+                    "query_plan": null,
+                    "query": {
+                        "id": "d8eb34ee-3289-4cb7-9506-4b79175fbba0",
+                        "name": "IOT platform Wind Turbines stats faulty",
+                        "description": null,
+                        "query": "with test as (select status, sum(avg_energy) as energy_produced, avg(avg_energy) as avg_energy, count(*)/10 as count from \n(select *, case when prediction == 'ok' then 'ok' else 'faulty' end as status from main__build.dbdemos_iot_turbine.turbine_current_status ) \ngroup by status)\n\nselect *, avg_energy/other_status_avg_energy*10 as efficiency_loss from (select *, LAG(avg_energy, -1) OVER (ORDER BY status) as other_status_avg_energy from test)\n\n-- , LAG(avg_energy) OVER (ORDER BY status) as other_status_avg_energy, other_status_avg_energy/avg_energy ",
+                        "is_draft": false,
+                        "updated_at": "2024-01-19T19:19:40Z",
+                        "created_at": "2023-02-13T14:14:48Z",
+                        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+                        "options": {
+                            "parent": "folders/2218726451409697",
+                            "apply_auto_limit": true,
+                            "folder_node_status": "ACTIVE",
+                            "folder_node_internal_name": "tree/2218726451419671",
+                            "catalog": "hive_metastore",
+                            "schema": "dbdemos_lakehouse_iot",
+                            "run_as_role": "owner",
+                            "visualization_control_order": [],
+                            "parameters": []
+                        },
+                        "version": 1,
+                        "tags": [],
+                        "is_safe": true,
+                        "user_id": 7644138420879474,
+                        "run_as_role": "owner",
+                        "run_as_service_principal_id": null
+                    }
+                }
+            }
+        ],
+        "options": {
+            "parent": "folders/2218726451409697",
+            "folder_node_status": "ACTIVE",
+            "folder_node_internal_name": "tree/2218726451419680"
+        },
+        "is_draft": false,
+        "tags": [
+            "field_demos",
+            "field_demos_manufacturing",
+            "wind_turbine"
+        ],
+        "updated_at": "2023-02-24T18:36:52Z",
+        "created_at": "2023-02-13T14:14:53Z",
+        "version": 4,
+        "color_palette": null,
+        "run_as_role": null,
+        "run_as_service_principal_id": null,
+        "data_source_id": "05bcc976-c335-4f6f-90d9-1cc34d179cd8",
+        "warehouse_id": "9be8079d873b30a6",
+        "is_favorite": false,
+        "user": {
+            "id": 7644138420879474,
+            "name": "Quentin Ambard",
+            "email": "quentin.ambard@databricks.com"
+        },
+        "parent": "folders/2218726451409697",
+        "is_archived": false,
+        "can_edit": true,
+        "permission_tier": "CAN_MANAGE"
+    }
+}
