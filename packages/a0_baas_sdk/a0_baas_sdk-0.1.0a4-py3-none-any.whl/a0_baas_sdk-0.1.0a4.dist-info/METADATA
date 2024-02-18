@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: a0_baas_sdk
+Version: 0.1.0a4
+Summary: baas sdk for a0 project
+Author: huangzeyu, zhangyuanfang
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests >=2.31.0
+Requires-Dist: urllib3 >=2.1.0
+
+# a0_baas_sdk
