@@ -1,0 +1,17 @@
+fb_pdnstools/__init__.py,sha256=gxkDUFK3P0kuvMI-l_TjC34u9NY1mABB1EfZu8ohblE,3097
+fb_pdnstools/base_handler.py,sha256=-4IGmKphLBvE0V4knqnsR1LmKuNnTBrq8u5OH2GtNpM,17917
+fb_pdnstools/bulk_rm_app.py,sha256=VhFlHF65RfY9AKoFTOYIK4nIzdTshuFe6zef2WbtK9U,24495
+fb_pdnstools/bulk_rm_cfg.py,sha256=pj4QbsTyvGZi17ufC-KS3DrUMdaklw9aoDjoOLEPoQo,4654
+fb_pdnstools/common.py,sha256=1Ev-6zXl0Gks964B0CqvaAFz1DWDyNaLkXi_uD7A3HI,3209
+fb_pdnstools/errors.py,sha256=dOP-Uqipp-JlKvs-Q7nmCZekZAHODZIjG8ylvpvaGeg,6307
+fb_pdnstools/local_version.py,sha256=U77jpwzfw86AoqsM6zk5H_nRD-Xaur2IyRkDw02rCoY,439
+fb_pdnstools/record.py,sha256=JMn2GFklyaekkSSN_wIs524LNdWdXCgr_z0_MaYbq3E,48900
+fb_pdnstools/server.py,sha256=JjAId2ZSuXPk7AsIRT2U9wtS1865MFIhdWnCKPS30FA,8240
+fb_pdnstools/xlate.py,sha256=tP4UHiPRgSW5gw-00FC7-afnHld4sO9tLOSBVVIxfGg,2977
+fb_pdnstools/zone.py,sha256=1WYqyMeM6PoItTkTj3K-M6wzwc22P3ic1EDG00oREj0,56055
+fb_pdnstools-1.0.0.data/scripts/pdns-bulk-remove,sha256=xGVroKYxKDflrfRgxLThffC_RTuHBiwXDFX-Dcs3pxg,1899
+fb_pdnstools-1.0.0.dist-info/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+fb_pdnstools-1.0.0.dist-info/METADATA,sha256=srdsVJ0oOtImS0EJ-1xshJoTX0bz-MyoVOspp6A-m9g,1244
+fb_pdnstools-1.0.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+fb_pdnstools-1.0.0.dist-info/top_level.txt,sha256=x8u0_5WK9K8B9Mn1liyOCgzJfUdyXqMFsXW00hyI-Cw,13
+fb_pdnstools-1.0.0.dist-info/RECORD,,

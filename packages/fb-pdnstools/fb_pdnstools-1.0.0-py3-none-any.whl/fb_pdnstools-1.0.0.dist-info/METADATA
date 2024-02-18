@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: fb_pdnstools
+Version: 1.0.0
+Summary: Modules for handling the PowerDNS API
+Home-page: https://github.com/fbrehm/fb-pdnstools
+Author: Frank Brehm
+Author-email: frank@brehm-online.com
+License: LGPL3+
+Platform: posix
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: argparse
+Requires: fb_tools
+Requires: six
+Requires: fb_logging
+Requires: requests
+Requires: setuptools
+Requires: wheel
+Requires: Babel
+Requires: requests_mock
+Provides: fb_pdnstools
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: six
+Requires-Dist: Babel
+Requires-Dist: fb-logging
+Requires-Dist: fb-tools
+
+# fb-pdnstools
+Python module to handle with PowerDNS
