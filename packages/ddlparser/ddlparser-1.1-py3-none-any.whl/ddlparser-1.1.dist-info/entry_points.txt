@@ -1,0 +1,2 @@
+[console_scripts]
+sondesh = ddlparser.apps.cli_app:main_app
