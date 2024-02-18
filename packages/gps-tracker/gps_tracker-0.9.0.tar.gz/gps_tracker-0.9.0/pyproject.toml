@@ -1,0 +1,124 @@
+[project]
+name = "gps_tracker"
+dynamic = ["description", "version"]
+authors = [
+    {name = "Ezlo Picori", email = "ezlo@protonmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+readme = "README.rst"
+
+requires-python = ">=3.8"
+
+dependencies = [
+    "aiohttp",
+    "attrs",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "aioresponses",
+    "mypy",
+    "pre-commit",
+    "pylint",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-socket",
+    "requests-mock",
+    "setuptools",
+    "tox",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/ezlo.picori/gps_tracker"
+Documentation = "https://gps_tracker.readthedocs.io/"
+Source = "https://gitlab.com/ezlo.picori/gps_tracker"
+Changelog = "https://gps_tracker.readthedocs.io/en/latest/changelog.html"
+Tracker = "https://gitlab.com/ezlo.picori/gps_tracker/-/issues"
+Download = "https://pypi.org/project/gps_tracker/#files"
+
+[build-system]
+requires = ["flit_core >=3.2,<4", "flit_scm"]
+build-backend = "flit_scm:buildapi"
+
+[tool.setuptools_scm]
+# See configuration details in https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"
+write_to = "src/gps_tracker/_version.py"
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.8
+target-version = "py38"
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+select = ["E4", "E7", "E9", "F", "D"]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.ruff.extend-per-file-ignores]
+"__init__.py" = ["E402"]
