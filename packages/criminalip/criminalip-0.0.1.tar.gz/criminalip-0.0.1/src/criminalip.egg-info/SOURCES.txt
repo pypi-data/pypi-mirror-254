@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/criminalip/__init__.py
+src/criminalip/client.py
+src/criminalip/constants.py
+src/criminalip/util.py
+src/criminalip.egg-info/PKG-INFO
+src/criminalip.egg-info/SOURCES.txt
+src/criminalip.egg-info/dependency_links.txt
+src/criminalip.egg-info/requires.txt
+src/criminalip.egg-info/top_level.txt
+tests/test_client.py
+tests/test_util.py
