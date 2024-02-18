@@ -1,0 +1,11 @@
+cognite/cdffs/__init__.py,sha256=2UvhJ0tnzJVz7DA3Iu1nDA_RViWsaf60SxWRWqAkKkc,205
+cognite/cdffs/az_upload_strategy.py,sha256=YLImHu08ZBkbgFP4bpu-2qKXUS4yKHPP1ywKoXwvHZA,2842
+cognite/cdffs/credentials.py,sha256=zmSO9jZvXr_aHGgBN_ptp02VGohjWm3XCqwcrzq980k,3910
+cognite/cdffs/file_handler.py,sha256=-wSpSGoenwe4S1_mHteMjsm1aX8Jt9f7NUcOgs3yr8Y,3194
+cognite/cdffs/gcp_upload_strategy.py,sha256=Ht86nwdUpbFFtSeEDapB4c7AmywHVi7tFLO7-gaPiDw,2411
+cognite/cdffs/memory_upload_strategy.py,sha256=qshJCZ9-J-Iez0Mk3O_rlXCHTUmPyfe1nj7wszKd9Qs,1081
+cognite/cdffs/spec.py,sha256=mhnR34gNbgFN422y1PJOwXMqeLwDgdeKrmdTqPafr40,32809
+cognite/cdffs/upload_strategy.py,sha256=r8zKbmWLZ_txKwCrNNZmA7dvreiqAYHe8RNY_eL6fTQ,1848
+cognite_cdffs-0.3.3.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+cognite_cdffs-0.3.3.dist-info/METADATA,sha256=zt8e38laMUxSxVjj4n7YNrjip_DQxB_b_N5LzyCi0I0,3239
+cognite_cdffs-0.3.3.dist-info/RECORD,,
