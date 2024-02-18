@@ -1,0 +1,126 @@
+.cm-wrap {
+    height: 350px;
+    border: 1px solid silver
+}
+
+.cm-editor {
+    outline: none !important;
+}
+
+.cm-scroller {
+    overflow: auto;
+    min-height: 350px
+}
+
+.cm-content, .cm-gutter {
+    min-height: 350px !important;
+}
+
+.link-primary {
+    cursor: pointer;
+}
+
+.rows-input {
+    text-align: center;
+    width: 40px;
+}
+
+.overflow-wrapper {
+    overflow: auto; height: 500px;
+}
+
+.data-headers {
+    background: white;
+}
+
+.log-sql {
+    word-wrap: break-word;
+    white-space: normal !important;
+}
+
+.list {
+    -webkit-padding-start: 0px;
+    list-style: none;
+}
+
+.schema-wrapper {
+    overflow: hidden;
+}
+
+.toggle {
+    cursor: pointer;
+}
+
+td.name.indented {
+    padding-left: 30px;
+}
+
+.stats-wrapper {
+    display: none;
+}
+
+.stats-expand {
+    cursor: pointer;
+}
+
+.table>thead>tr>th.preview-header {
+    white-space: nowrap;
+}
+
+div.sort {
+    cursor: pointer;
+}
+
+#schema_frame {
+    width: 100%;
+    border: 0;
+}
+
+.schema-header {
+    cursor: pointer;
+}
+
+.counter {
+    display: none;
+    background-color: #ecf0f1;
+    font-family: monospace;
+}
+
+.sql {
+    width: 33%;
+}
+
+.query_favorite_toggle {
+    cursor: pointer;
+}
+
+.query_favourite_detail {
+    float: right;
+}
+
+.btn-save-only {
+    border-radius: 0 !important;
+}
+
+.vite-not-running-canary {
+    display: none;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--bs-primary-bg-subtle);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    border: 1px solid var(--bs-secondary-bg);
+    background: none;
+}
+
+.navbar .navbar-brand:hover {
+    background: none;
+    color: var(--bs-primary-bg-subtle) !important;
+}

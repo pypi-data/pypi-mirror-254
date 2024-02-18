@@ -1,0 +1,20 @@
+{
+  "explorer/src/js/main.js": {
+    "file": "main-vn_0MguE.js",
+    "isEntry": true,
+    "src": "explorer/src/js/main.js"
+  },
+  "explorer/src/scss/main.scss": {
+    "file": "styles-gFX8Jif1.css",
+    "isEntry": true,
+    "src": "explorer/src/scss/main.scss"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "bootstrap-icons-NpS-Zr3P.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "bootstrap-icons-2eO-ad8Y.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  }
+}
