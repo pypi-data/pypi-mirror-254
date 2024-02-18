@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/livermoriu/__init__.py
+src/livermoriu/example.py
+src/livermoriu.egg-info/PKG-INFO
+src/livermoriu.egg-info/SOURCES.txt
+src/livermoriu.egg-info/dependency_links.txt
+src/livermoriu.egg-info/top_level.txt
