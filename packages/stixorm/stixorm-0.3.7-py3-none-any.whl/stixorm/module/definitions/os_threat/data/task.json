@@ -1,0 +1,16 @@
+{
+  "changed_objects": "",
+  "task_types": "task-types",
+  "step_type": "step-type",
+  "outcome": "outcome",
+  "description": "description",
+  "end_time": "end-time",
+  "end_time_fidelity": "end-time-fidelity",
+  "error": "error",
+  "impacted_entity_counts": "",
+  "name": "name",
+  "priority": "int-priority",
+  "start_time": "start-time",
+  "start_time_fidelity": "start-time-fidelity",
+  "owner": ""
+}
