@@ -1,0 +1,4 @@
+[console_scripts]
+netlink-keepass-fernet-token=netlink.keepass.cli:fernet_token_cli
+netlink-keepass-rest-reader=netlink.keepass.cli:reader_cli
+
