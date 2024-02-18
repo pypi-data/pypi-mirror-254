@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: espuma
+Version: 0.0.13
+Summary: Utilities for OpenFOAM in Python
+Project-URL: Homepage, https://github.com/edsaac/foamy
+Project-URL: Bug Tracker, https://github.com/edsaac/foamy/issues
+Author-email: "Edwin Saavedra C." <esaavedrac@u.northwestern.edu>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: numpy
+Requires-Dist: xarray
+Description-Content-Type: text/markdown
+
+# foamy
+Utilities for OpenFOAM in Python
