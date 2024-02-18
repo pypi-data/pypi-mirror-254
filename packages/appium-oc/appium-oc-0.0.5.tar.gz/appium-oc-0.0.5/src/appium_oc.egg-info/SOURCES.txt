@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/appium_oc/__init__.py
+src/appium_oc/appium_oc.py
+src/appium_oc/decorator.py
+src/appium_oc.egg-info/PKG-INFO
+src/appium_oc.egg-info/SOURCES.txt
+src/appium_oc.egg-info/dependency_links.txt
+src/appium_oc.egg-info/requires.txt
+src/appium_oc.egg-info/top_level.txt
