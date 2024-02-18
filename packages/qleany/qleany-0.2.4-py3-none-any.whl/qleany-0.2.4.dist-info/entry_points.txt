@@ -1,0 +1,3 @@
+[console_scripts]
+qleany=qleany.__main__:main
+
