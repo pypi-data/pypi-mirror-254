@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: notebook-vis-cli
+Version: 0.1.1
+Summary: Generate jupyter notebooks preloaded with visualization boilerplate
+Author: Ben Skubi
+Author-email: bskubi@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: nbformat (>=5.9.2,<6.0.0)
+Requires-Dist: pandas (>=2.2.0,<3.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: seaborn (>=0.13.2,<0.14.0)
+Description-Content-Type: text/markdown
+
+Notebook-vis-cli generates jupyter notebooks with two populated cells:
+Cell 1) loads a pandas dataframe
+Cell 2) code to display it in a specific type of visualization, with defaults explicitly described.
+
+The idea is that data will be generated via an external pipeline, but visualizations need to be tweaked interactively.
+It is a hassle to set up the jupyter notebook and boilerplate for the visualization in question,
+so notebook-vis-cli does it for you.
+
+

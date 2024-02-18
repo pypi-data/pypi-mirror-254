@@ -1,0 +1,3 @@
+[console_scripts]
+notebook-vis-cli=notebook_vis_cli.__main__:cli
+
