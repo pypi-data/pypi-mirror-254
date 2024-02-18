@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data group="1">
+        <record model="ir.message" id="recursion_error">
+            <field name="text">You can not create recursive menuitems.</field>
+        </record>
+        <record model="ir.message" id="invalid_file_name">
+            <field name="text">Invalid file name:\n
+                (1) '..' in file name (OR)\n
+                (2) file name contains '/'</field>
+        </record>
+        <record model="ir.message" id="missing_extension">
+            <field name="text">File extension is missing from file name and it is required
+                to guess file type.</field>
+        </record>
+        <record model="ir.message" id="remove">
+            <field name="text">Remove</field>
+        </record>
+        <record model="ir.message" id="set">
+            <field name="text">Set</field>
+        </record>
+    </data>
+</tryton>

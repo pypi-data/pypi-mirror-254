@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<form>
+    <label name="name" />
+    <field name="name" />
+    <label name="website" />
+    <field name="website" />
+    <separator 
+        colspan="4" 
+        string="Banners" 
+        id="sepr_banners"/>
+    <field name="banners" colspan="4" />
+    <separator 
+        colspan="4" 
+        string="Published Banners" 
+        id="sepr_banners1"/>
+    <field name="published_banners" colspan="4"/>
+</form>
