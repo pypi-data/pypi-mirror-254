@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: ollamagent
+Version: 0.0.4
+Summary: A thin wrapper around `ollama` library
+Author: obahamonde
+Author-email: o.bahamonde@globant.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: jinja2 (>=3.1.3,<4.0.0)
+Requires-Dist: ollama (>=0.1.4,<0.2.0)
+Requires-Dist: pydantic (>=2.5.3,<3.0.0)
+Requires-Dist: rich (>=13.7.0,<14.0.0)
+Requires-Dist: tenacity (>=8.2.3,<9.0.0)
+Description-Content-Type: text/markdown
+
+# OllamAgent
+
+`OllamAgent` is a wrapper aroundn Ollama API. Ollama is a mini framework for consuming, managing and maintaining SOTA (State of the Art) Large Language Models that have been Quantaized and optimized for deployment on edge devices, there is no need for 'OpenAI' or 'HuggingFace' API keys, or even 'API_KEY' for that matter, you can run these models within your own devices ensuring data privacy, security and most importantly accesibility to this cutting edge technology for people with limited resources.
+It implements an Agent | Tools mini-framework that simplifies the ussage of the full set of features of the supported models (Currently only Mistral7B is supported).
+
+## Installation
+
+```bash
+pip install ollamagent
+```
+
+## Usage
+
+```python
+from ollamagent import APIClient, Agent, Tool
+
+# Implementing an integration with a third party API
+class MyAPI(APIClient):
+	base_url = "https://api.myapi.com"
+	headers = {
+		"Authorization": "Bearer MY_API_KEY"
+	}
+ 
+	async def my_api_method(self, data):
+		return await self.post("/my-api-method", data)
+
+# Implementing a tool
+class MyTool(Tool):
+	data: dict
+
+	@property
+	def api(self):
+		return MyAPI()
+	
+	async def run(self):
+		return await self.api.my_api_method(self.data)
+
+# Instantiating the agent
+agent = Agent(tools=[MyTool])
+
+# Interacting with the agent
+async def main():
+	print(await agent.chat(message="Hello! Are you there?"))
+	>>> "Hello! I'm here, how can I help you?"
+	print(await agent.run_tool("MyTool", data={"key": "value"}))
+	>>> {"response": "from", "my": "api"}
+ 
+asyncio.run(main())
+```
