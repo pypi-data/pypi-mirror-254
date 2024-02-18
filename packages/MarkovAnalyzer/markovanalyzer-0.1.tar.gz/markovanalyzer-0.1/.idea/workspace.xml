@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8352dd1a-2c0f-45b7-a87a-22bde5d2e9f4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Examples/How to define a Markov model.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/How to define a Markov model.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examples/Random-time sampling of the state of a Markov system.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/Random-time sampling of the state of a Markov system.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/markovanalyzer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/markovanalyzer/__init__.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2TQ6unohbryER4dP60GGQsiu9Rj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/markus/Documents/Uni/Doktorarbeit/Python Packages/MarkovAnalyzer/Examples/example_data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Examples/example_data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Examples/example_data" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8352dd1a-2c0f-45b7-a87a-22bde5d2e9f4" name="Changes" comment="" />
+      <created>1690963183440</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690963183440</updated>
+      <workItem from="1690963184541" duration="10554000" />
+      <workItem from="1695028441309" duration="70416000" />
+      <workItem from="1697734089702" duration="995000" />
+      <workItem from="1702548012747" duration="13677000" />
+      <workItem from="1706711936885" duration="450000" />
+      <workItem from="1706792195322" duration="7091000" />
+    </task>
+    <task id="LOCAL-00134" summary="something is wrong with the fit">
+      <option name="closed" value="true" />
+      <created>1696587020928</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1696587020928</updated>
+    </task>
+    <task id="LOCAL-00135" summary="something is wrong with the fit">
+      <option name="closed" value="true" />
+      <created>1696587181106</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1696587181106</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Fix green values for bispec...rel. measurement err can be negative and is now absoluted">
+      <option name="closed" value="true" />
+      <created>1696587228364</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1696587228364</updated>
+    </task>
+    <task id="LOCAL-00137" summary="Fix green values for bispec...rel. measurement err can be negative and is now absoluted">
+      <option name="closed" value="true" />
+      <created>1696587337077</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1696587337077</updated>
+    </task>
+    <task id="LOCAL-00138" summary="Fix green values for bispec...rel. measurement err can be negative and is now absoluted">
+      <option name="closed" value="true" />
+      <created>1696587457204</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1696587457204</updated>
+    </task>
+    <task id="LOCAL-00139" summary="specific data can now be passed to the plot method">
+      <option name="closed" value="true" />
+      <created>1696588058347</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1696588058347</updated>
+    </task>
+    <task id="LOCAL-00140" summary="bug in s4">
+      <option name="closed" value="true" />
+      <created>1696588687307</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1696588687307</updated>
+    </task>
+    <task id="LOCAL-00141" summary="bug in s4">
+      <option name="closed" value="true" />
+      <created>1696588981076</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1696588981076</updated>
+    </task>
+    <task id="LOCAL-00142" summary="checking if all s_k might be needed">
+      <option name="closed" value="true" />
+      <created>1696593488933</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1696593488933</updated>
+    </task>
+    <task id="LOCAL-00143" summary="checking if fastmath introduces numerical errors">
+      <option name="closed" value="true" />
+      <created>1696593986529</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1696593986529</updated>
+    </task>
+    <task id="LOCAL-00144" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696594834879</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1696594834879</updated>
+    </task>
+    <task id="LOCAL-00145" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696595291573</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1696595291573</updated>
+    </task>
+    <task id="LOCAL-00146" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696595529620</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1696595529620</updated>
+    </task>
+    <task id="LOCAL-00147" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696595616692</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1696595616692</updated>
+    </task>
+    <task id="LOCAL-00148" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696595862868</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1696595862868</updated>
+    </task>
+    <task id="LOCAL-00149" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696596257352</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1696596257352</updated>
+    </task>
+    <task id="LOCAL-00150" summary="checking if correction terms scale wrong with m_op">
+      <option name="closed" value="true" />
+      <created>1696597602539</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1696597602539</updated>
+    </task>
+    <task id="LOCAL-00151" summary="test with smaller tollerenz on s_k">
+      <option name="closed" value="true" />
+      <created>1696599050300</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1696599050300</updated>
+    </task>
+    <task id="LOCAL-00152" summary="pre-compiling the inner loop of the order 4 calculation">
+      <option name="closed" value="true" />
+      <created>1696937166768</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1696937166768</updated>
+    </task>
+    <task id="LOCAL-00153" summary="pre-compiling the inner loop of the order 4 calculation (GPU)">
+      <option name="closed" value="true" />
+      <created>1696938076310</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1696938076310</updated>
+    </task>
+    <task id="LOCAL-00154" summary="test njit parallel">
+      <option name="closed" value="true" />
+      <created>1696938222799</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1696938222799</updated>
+    </task>
+    <task id="LOCAL-00155" summary="test njit parallel">
+      <option name="closed" value="true" />
+      <created>1696938617203</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1696938617203</updated>
+    </task>
+    <task id="LOCAL-00156" summary="test njit parallel">
+      <option name="closed" value="true" />
+      <created>1696939343591</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939343591</updated>
+    </task>
+    <task id="LOCAL-00157" summary="test njit parallel">
+      <option name="closed" value="true" />
+      <created>1696939386413</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939386413</updated>
+    </task>
+    <task id="LOCAL-00158" summary="parallel does not work">
+      <option name="closed" value="true" />
+      <created>1696939465376</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939465376</updated>
+    </task>
+    <task id="LOCAL-00159" summary="parallel in separate loop">
+      <option name="closed" value="true" />
+      <created>1696939793848</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939793848</updated>
+    </task>
+    <task id="LOCAL-00160" summary="parallel in separate loop">
+      <option name="closed" value="true" />
+      <created>1696939863157</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939863157</updated>
+    </task>
+    <task id="LOCAL-00161" summary="parallel in separate loop">
+      <option name="closed" value="true" />
+      <created>1696939938700</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1696939938700</updated>
+    </task>
+    <task id="LOCAL-00162" summary="parallel in separate loop">
+      <option name="closed" value="true" />
+      <created>1696940032845</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940032845</updated>
+    </task>
+    <task id="LOCAL-00163" summary="parallel in separate loop">
+      <option name="closed" value="true" />
+      <created>1696940206836</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940206836</updated>
+    </task>
+    <task id="LOCAL-00164" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696940387415</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940387415</updated>
+    </task>
+    <task id="LOCAL-00165" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696940682572</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940682572</updated>
+    </task>
+    <task id="LOCAL-00166" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696940860109</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940860109</updated>
+    </task>
+    <task id="LOCAL-00167" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696940903230</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940903230</updated>
+    </task>
+    <task id="LOCAL-00168" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696940922706</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940922706</updated>
+    </task>
+    <task id="LOCAL-00169" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941325804</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941325804</updated>
+    </task>
+    <task id="LOCAL-00170" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941552722</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941552722</updated>
+    </task>
+    <task id="LOCAL-00171" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941675169</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941675169</updated>
+    </task>
+    <task id="LOCAL-00172" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941739115</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941739115</updated>
+    </task>
+    <task id="LOCAL-00173" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941837797</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941837797</updated>
+    </task>
+    <task id="LOCAL-00174" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696941861603</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1696941861603</updated>
+    </task>
+    <task id="LOCAL-00175" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696942178532</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942178532</updated>
+    </task>
+    <task id="LOCAL-00176" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696942315236</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942315236</updated>
+    </task>
+    <task id="LOCAL-00177" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696942401324</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942401324</updated>
+    </task>
+    <task id="LOCAL-00178" summary="adding parallel=True to all functions">
+      <option name="closed" value="true" />
+      <created>1696942452104</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942452104</updated>
+    </task>
+    <task id="LOCAL-00179" summary="parallelizing s4">
+      <option name="closed" value="true" />
+      <created>1696942511013</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942511013</updated>
+    </task>
+    <task id="LOCAL-00180" summary="parallelizing s4">
+      <option name="closed" value="true" />
+      <created>1696942595078</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1696942595078</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Added Examples">
+      <option name="closed" value="true" />
+      <created>1702565796118</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1702565796118</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Improved Example">
+      <option name="closed" value="true" />
+      <created>1706881548946</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1706881548946</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="testing njit first_matrix_step" />
+    <MESSAGE value="test njit inner loop oever three" />
+    <MESSAGE value="have to remove cache from first and second matrix step" />
+    <MESSAGE value="refactoring njit_backend into new python module" />
+    <MESSAGE value="refactoring gpu_backend into new python module" />
+    <MESSAGE value="providing type hints for eager numba compilation" />
+    <MESSAGE value="Now error is set 1 if no errors are provided for the fit" />
+    <MESSAGE value="Analytic 1. order is now also stores as array in self.S[1], not as a number" />
+    <MESSAGE value="something is wrong with the fit" />
+    <MESSAGE value="Fix green values for bispec...rel. measurement err can be negative and is now absoluted" />
+    <MESSAGE value="specific data can now be passed to the plot method" />
+    <MESSAGE value="bug in s4" />
+    <MESSAGE value="checking if all s_k might be needed" />
+    <MESSAGE value="checking if fastmath introduces numerical errors" />
+    <MESSAGE value="checking if correction terms scale wrong with m_op" />
+    <MESSAGE value="test with smaller tollerenz on s_k" />
+    <MESSAGE value="pre-compiling the inner loop of the order 4 calculation" />
+    <MESSAGE value="pre-compiling the inner loop of the order 4 calculation (GPU)" />
+    <MESSAGE value="test njit parallel" />
+    <MESSAGE value="parallel does not work" />
+    <MESSAGE value="parallel in separate loop" />
+    <MESSAGE value="adding parallel=True to all functions" />
+    <MESSAGE value="parallelizing s4" />
+    <MESSAGE value="Added Examples" />
+    <MESSAGE value="Improved Example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved Example" />
+  </component>
+</project>

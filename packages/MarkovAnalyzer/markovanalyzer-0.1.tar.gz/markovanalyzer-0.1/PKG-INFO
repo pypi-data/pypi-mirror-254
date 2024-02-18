@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: MarkovAnalyzer
+Version: 0.1
+Summary: Automate Markov Process Characterization
+Project-URL: Homepage, https://github.com/MarkusSifft/MarkovAnalyzer
+Project-URL: Bug Tracker, https://github.com/MarkusSifft/MarkovAnalyzer/issues
+Author-email: Markus Sifft <markus.sifft@rub.de>
+License-File: LICENSE
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >3.8
+Requires-Dist: arrayfire
+Requires-Dist: cachetools
+Requires-Dist: h5py
+Requires-Dist: ipywidgets
+Requires-Dist: lmfit
+Requires-Dist: matplotlib
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: plotly
+Requires-Dist: psutil
+Requires-Dist: scipy
+Requires-Dist: signalsnap
+Requires-Dist: tqdm
+Description-Content-Type: text/markdown
+
+# MarkovAnalyzer: Analysis of Markov In Python Made Easy 
+by M. Sifft 
+
+We present a fast Python toolbox for analysing Markov Systems using the Foreward algorithm or a polyspectra fit
+
+Here, a few outstanding features of MarkovAnalyzer:
+* 
+
+## Installation
+SignalSnap is available on `pip` and can be installed with 
+```bash
+pip install markovanalyzer
+```

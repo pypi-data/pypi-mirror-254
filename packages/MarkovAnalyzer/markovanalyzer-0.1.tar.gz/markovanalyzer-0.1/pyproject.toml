@@ -1,0 +1,43 @@
+[build-system]
+requires = [
+    "hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "MarkovAnalyzer"
+version = "0.1"
+authors = [
+{ name="Markus Sifft", email="markus.sifft@rub.de" },
+]
+description = "Automate Markov Process Characterization"
+readme = "README.md"
+requires-python = ">3.8"
+classifiers = [
+ "Development Status :: 2 - Pre-Alpha",
+ "Intended Audience :: Science/Research",
+ "License :: OSI Approved :: BSD License",
+ "Programming Language :: Python",
+ "Programming Language :: Python :: 3",
+ "Topic :: Scientific/Engineering",
+ "Operating System :: OS Independent",
+]
+dependencies = [
+ "numpy",
+ "matplotlib",
+ "h5py",
+ "arrayfire",
+ "numba",
+ "scipy",
+ "tqdm",
+ "plotly",
+ "signalsnap",
+ "ipywidgets",
+ "lmfit",
+ "cachetools",
+ "psutil",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MarkusSifft/MarkovAnalyzer"
+"Bug Tracker" = "https://github.com/MarkusSifft/MarkovAnalyzer/issues"
+
