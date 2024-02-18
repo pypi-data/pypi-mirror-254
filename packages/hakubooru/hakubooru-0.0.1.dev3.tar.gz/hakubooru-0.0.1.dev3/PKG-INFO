@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: hakubooru
+Version: 0.0.1.dev3
+Summary: Text-image dataset maker for anime-style images
+Home-page: https://github.com/KohakuBlueleaf/HakuBooru
+Author: Shih-Ying Yeh(KohakuBlueLeaf)
+Author-email: apolloyeh0123@gmail.com
+License: Apache 2.0
+License-File: LICENSE
+Requires-Dist: webdataset
+Requires-Dist: peewee
