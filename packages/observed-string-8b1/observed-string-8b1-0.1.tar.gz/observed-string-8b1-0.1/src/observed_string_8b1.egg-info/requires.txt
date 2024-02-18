@@ -1,0 +1,5 @@
+stix2
+
+[dev]
+pytest
+tox
