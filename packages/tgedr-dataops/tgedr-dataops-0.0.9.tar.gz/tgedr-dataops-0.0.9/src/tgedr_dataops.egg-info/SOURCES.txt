@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/tgedr/__init__.py
+src/tgedr/dataops/__init__.py
+src/tgedr/dataops/chain.py
+src/tgedr/dataops/etl.py
+src/tgedr/dataops/processor.py
+src/tgedr/dataops/sink.py
+src/tgedr/dataops/source.py
+src/tgedr/dataops/utils_reflection.py
+src/tgedr_dataops.egg-info/PKG-INFO
+src/tgedr_dataops.egg-info/SOURCES.txt
+src/tgedr_dataops.egg-info/dependency_links.txt
+src/tgedr_dataops.egg-info/requires.txt
+src/tgedr_dataops.egg-info/top_level.txt
