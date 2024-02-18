@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/visualgo/__init__.py
+src/visualgo/__main__.py
+src/visualgo.egg-info/PKG-INFO
+src/visualgo.egg-info/SOURCES.txt
+src/visualgo.egg-info/dependency_links.txt
+src/visualgo.egg-info/requires.txt
+src/visualgo.egg-info/top_level.txt
