@@ -1,0 +1,196 @@
+import json
+import os
+import sys
+import requests
+
+from arlas.cli.settings import Configuration, Resource
+
+
+class RequestException(Exception):
+    def __init__(self, code, message):
+        self.code = code
+        self.message = message
+
+
+class Service:
+
+    def list_collections(arlas: str) -> list[list[str]]:
+        data = Service.__arlas__(arlas, "explore/_list")
+        table = [["name", "index"]]
+        for collection in data:
+            table.append([
+                collection.get("collection_name"),
+                collection.get("params", {}).get("index_name"),
+            ])
+        return table
+
+    def list_indices(arlas: str) -> list[list[str]]:
+        data = Service.__es__(arlas, "_cat/indices?format=json")
+        table = [["name", "status", "count", "size"]]
+        for index in data:
+            table.append([
+                index.get("index"),
+                index.get("status"),
+                index.get("docs.count"),
+                index.get("store.size")
+            ])
+        return table
+
+    def describe_collection(arlas: str, collection: str) -> list[list[str]]:
+        description = Service.__arlas__(arlas, "/".join(["explore", collection, "_describe"]))
+        table = [["field name", "type"]]
+        table.extend(Service.__get_fields__([], description.get("properties", {})))
+        return table
+    
+    def describe_index(arlas: str, index: str) -> list[list[str]]:
+        description = Service.__es__(arlas, "/".join([index, "_mapping"]))
+        table = [["field name", "type"]]
+        table.extend(Service.__get_fields__([], description.get(index, {}).get("mappings", {}).get("properties", {})))
+        return table
+    
+    def sample_collection(arlas: str, collection: str, pretty: bool, size: int) -> dict:
+        sample = Service.__arlas__(arlas, "/".join(["explore", collection, "_search"]) + "?size={}".format(size))
+        return sample
+
+    def sample_index(arlas: str, collection: str, pretty: bool, size: int) -> dict:
+        sample = Service.__es__(arlas, "/".join([collection, "_search"]) + "?size={}".format(size))
+        return sample
+    
+    def create_collection(arlas: str, collection: str, model_resource: str, index: str, owner: str, orgs: list[str], is_public: bool):
+        model = json.loads(Service.__fetch__(model_resource))
+        if index:
+            model["index_name"] = index
+        if owner:
+            model["organisations"] = {
+                "owner": owner,
+                "shared": orgs,
+                "public": is_public
+            }
+        print(json.dumps(model))
+        Service.__arlas__(arlas, "/".join(["collections", collection]), put=json.dumps(model))
+
+    def create_index(arlas: str, index: str, mapping_resource: str, number_of_shards: int):
+        model = json.loads(Service.__fetch__(mapping_resource))
+        if not model.get("mappings"):
+            print("Error: mapping {} does not contain \"mappings\" at its root.".format(mapping_resource), file=sys.stderr)
+            exit(1)
+        index_doc = {"mappings": model.get("mappings"), "settings": {"number_of_shards": number_of_shards}}
+        Service.__es__(arlas, "/".join([index]), put=json.dumps(index_doc))
+
+    def delete_index(arlas: str, index: str):
+        Service.__es__(arlas, "/".join([index]), delete=True)
+
+    def count_collection(arlas: str, collection: str) -> list[list[str]]:
+        collections = []
+        if collection:
+            collections.append(collection)
+        else:
+            for line in Service.list_collections(arlas)[1:]:
+                collections.append(line[0])
+        table = [["collection name", "count"]]
+        for collection in collections:
+            count = Service.__arlas__(arlas, "/".join(["explore", collection, "_count"]))
+            table.append([collection, count.get("totalnb", "UNKNOWN")])
+        return table
+
+    def load_data(arlas: str, index: str, file_path: str, bulk_size: int = 1000):
+        line_number = 0
+        line_in_bulk = 0
+        bulk = ""
+        with open(file_path) as f:
+            for line in f:
+                line_number = line_number + 1
+                line_in_bulk = line_in_bulk + 1
+                bulk = bulk + ("{ \"index\" : { \"_index\" : \"" + index + "\"} }\n" + line)
+                if line_in_bulk == bulk_size:
+                    bulk = bulk + "\n"
+                    try:
+                        Service.__es__(arlas, "/".join([index, "_bulk"]), post=bulk, exit_on_failure=False, headers={"Content-Type": "application/x-ndjson"})
+                    except RequestException as e:
+                        print("Error on bulk insert between line {} and {} with code {}: {}".format(line_number, line_number - bulk_size, e.code, e.message))
+                    bulk = ""
+                    line_in_bulk = 0
+        if bulk:
+            try:
+                Service.__es__(arlas, "/".join([index, "_bulk"]), post=bulk, exit_on_failure=False, headers={"Content-Type": "application/x-ndjson"})
+            except RequestException as e:
+                print("Error on bulk insert between line {} and {} with code {}: {}".format(line_number, line_number - bulk_size, e.code, e.message))
+
+    def __get_fields__(origin: list[str], properties: dict[str:dict]):
+        fields = []
+        for field, desc in properties.items():
+            type = desc.get("type", "UNKNOWN")
+            if type == "OBJECT" or type == "UNKNOWN":
+                o = origin.copy()
+                o.append(field)
+                fields.extend(Service.__get_fields__(o, desc.get("properties", {})))
+            else:
+                o = origin.copy()
+                o.append(field)
+                fields.append([".".join(o), type])
+        return fields
+    
+    def __arlas__(arlas: str, suffix, post=None, put=None):
+        endpoint = Configuration.settings.arlas.get(arlas)
+        if endpoint is None:
+            print("Error: arlas configuration ({}) not found among [{}].".format(arlas, ", ".join(Configuration.settings.arlas.keys())), file=sys.stderr)
+            exit(1)
+        url = "/".join([endpoint.server.location, suffix])
+        if post:
+            r = requests.post(url, data=post, headers=endpoint.server.headers)
+        else:
+            if put:
+                r = requests.put(url, data=put, headers=endpoint.server.headers)
+            else:
+                r = requests.get(url, headers=endpoint.server.headers)
+        if r.ok:
+            return r.json()
+        else:
+            print("Error: request failed with status {}: {}".format(str(r.status_code), r.content), file=sys.stderr)
+            print("   url: {}".format(url), file=sys.stderr)
+            exit(1)
+
+    def __es__(arlas: str, suffix, post=None, put=None, delete=None, exit_on_failure: bool = True, headers: dict[str, str] = {}):
+        endpoint = Configuration.settings.arlas.get(arlas)
+        if endpoint is None:
+            print("Error: arlas configuration ({}) not found among [{}].".format(arlas, ", ".join(Configuration.settings.arlas.keys())), file=sys.stderr)
+            exit(1)
+        if endpoint.elastic is None:
+            print("Error: arlas configuration ({}) misses an elasticsearch configuration.".format(arlas), file=sys.stderr)
+            exit(1)
+        url = "/".join([endpoint.elastic.location, suffix])
+        __headers = endpoint.elastic.headers
+        __headers.update(headers)
+        if post:
+            r = requests.post(url, data=post, headers=__headers)
+        else:
+            if put:
+                r = requests.put(url, data=put, headers=__headers)
+            else:
+                if delete:
+                    r = requests.delete(url, headers=__headers)
+                else:
+                    r = requests.get(url, headers=__headers)
+        if r.ok:
+            return r.json()
+        else:
+            if exit_on_failure:
+                print("Error: request failed with status {}: {}".format(str(r.status_code), r.content), file=sys.stderr)
+                print("   url: {}".format(url), file=sys.stderr)
+                exit(1)
+            else:
+                raise RequestException(r.status_code, r.content)
+
+    def __fetch__(resource: Resource):
+        if os.path.exists(resource.location):
+            content = None
+            with open(resource.location) as f:
+                content = f.read()
+            return content
+        r = requests.get(resource.location, headers=resource.headers)
+        if r.ok:
+            return r.content
+        else:
+            print("Error: request failed with status {}: {}".format(str(r.status_code), r.content), file=sys.stderr)
+            print("   url: {}".format(resource.location), file=sys.stderr)
+            exit(1)
