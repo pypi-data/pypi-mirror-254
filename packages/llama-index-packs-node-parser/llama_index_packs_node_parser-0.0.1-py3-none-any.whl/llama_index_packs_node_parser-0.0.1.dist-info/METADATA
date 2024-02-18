@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: llama-index-packs-node-parser
+Version: 0.0.1
+Summary: llama-index packs node_parser integration
+License: MIT
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.8.1,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: llama-index-core (>=0.9.32,<0.10.0)
+Description-Content-Type: text/markdown
+
+# Semantic Chunking Llama Pack
+
+This LlamaPack implements the semantic chunking algorithm first proposed by Greg Kamradt in his [Five Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials/blob/main/5_Levels_Of_Text_Splitting.ipynb) tutorial.
+
+How it works:
+
+- Split text into sentences.
+- For each sentence, generate an embedding.
+- Measure cosine distance between each pair of consecutive sentences.
+- Get the 95% percentile cosine distance, set that as the threshold.
+- Create a new chunk if the cosine distance of a sentence compared to prev. exceeds that threshold.
+
+## CLI Usage
+
+You can download llamapacks directly using `llamaindex-cli`, which comes installed with the `llama-index` python package:
+
+```bash
+llamaindex-cli download-llamapack LLMCompilerAgentPack --download-dir ./llm_compiler_agent_pack
+```
+
+You can then inspect the files at `./llm_compiler_agent_pack` and use them as a template for your own project!
+
+## Code Usage
+
+You can download the pack to a directory. **NOTE**: You must specify `skip_load=True` - the pack contains multiple files,
+which makes it hard to load directly.
+
+We will show you how to import the agent from these files!
+
