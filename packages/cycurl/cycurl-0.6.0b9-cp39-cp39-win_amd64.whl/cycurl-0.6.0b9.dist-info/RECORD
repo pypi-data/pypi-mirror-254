@@ -1,0 +1,14 @@
+cycurl/__init__.py,sha256=fKBRoTn8ZE-1xfBQrsNKS8I5l4Pjc2z7WAaBRtzjxcI,143
+cycurl/__version__.py,sha256=OyVXGoBSmU8hUeqVYTgxScbnXx1DkYnFZqA_jHgBlN8,380
+cycurl/_asyncio_selector.pxi,sha256=ze-g1aQQZdLIOWjcSTJ15RelslR_v_yodclMAVfMdDc,13048
+cycurl/_curl.c,sha256=xpdKUDWClZq2nDIU3PsDwvIxwmDE5QVUM62_PzOoUlM,3090720
+cycurl/_curl.cp39-win_amd64.pyd,sha256=z6HG6OpBnwlF2412s7NYwgOXprK87v5FG5UQ4Q-Mspo,520704
+cycurl/_curl.pyx,sha256=61BHb4aiX5w8DVEaZ6msYhuyvdnJ6WlbZ5TT1dUYcWk,30588
+cycurl/consts.pxi,sha256=rGZpaG3umqzlVtjBRN4EtlGI4rPiLfMq1SYK28-I9jk,32825
+cycurl/curl.pxd,sha256=o7_GfmlymOaedYQDKUx4O_RemysfG6-mx0xptGK_VSo,20413
+cycurl/libcurl.dll,sha256=isylrgKY70Wni8AFl46kelHVuApY7I021D7rR6qZxOs,4614144
+cycurl-0.6.0b9.dist-info/LICENSE,sha256=488Z91vo9mjJz6gOm0tAuDpshjiXr_pP5rQveaEse6E,1117
+cycurl-0.6.0b9.dist-info/METADATA,sha256=QeSkxG2x1uTlMi3-eeP66oVHqU3joCTBRt_tWcqsBiY,10484
+cycurl-0.6.0b9.dist-info/WHEEL,sha256=GZFS91_ufm4WrNPBaFVPB9MvOXR6bMZQhPcZRRTN5YM,100
+cycurl-0.6.0b9.dist-info/top_level.txt,sha256=5a00uV44baSD-Q_ZlxHXjyzwNbbmAaahugX0tousmbw,7
+cycurl-0.6.0b9.dist-info/RECORD,,
