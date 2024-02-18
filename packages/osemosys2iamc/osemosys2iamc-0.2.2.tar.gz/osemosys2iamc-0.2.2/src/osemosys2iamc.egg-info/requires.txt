@@ -1,0 +1,12 @@
+matplotlib
+pandas
+pyam-iamc>=1.0
+iso3166
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+setuptools
+pytest
+pytest-cov

@@ -1,0 +1,8 @@
+model: OSeMBE v1.0.0
+scenario: DIAG-C400-lin-ResidualFossil
+region: 'iso2_start' #iso2_x, iso3_x, from_csv, or a name of a country/region [substitute x with start, end, or a positive number]
+inputs:
+- iamc_variable: 'Price|Primary Energy|Biomass'
+  variable_cost: ['(?=^.{2}(BM))^.{6}(X0)']
+  unit: MEUR_2015/PJ
+  osemosys_param: 'VariableCost'

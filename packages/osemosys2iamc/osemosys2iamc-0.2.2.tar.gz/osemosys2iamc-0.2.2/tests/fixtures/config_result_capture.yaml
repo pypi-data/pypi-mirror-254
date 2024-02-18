@@ -1,0 +1,10 @@
+model: OSeMBE v1.0.0
+scenario: DIAG-C400-lin-ResidualFossil
+region: 'iso2_start' # iso2_x, iso3_x, from_csv, or a name of a country/region [substitute x with start, end, or a positive number]
+results:
+- iamc_variable: 'Carbon Capture|Biomass'
+  tech_emi: ['(?=^.{2}(BM))^.{4}(CS)']
+  emissions: [CO2]
+  unit: kt CO2/yr
+  transform: abs
+  osemosys_param: AnnualTechnologyEmissions
