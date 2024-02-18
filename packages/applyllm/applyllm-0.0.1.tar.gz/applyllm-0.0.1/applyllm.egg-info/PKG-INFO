@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: applyllm
+Version: 0.0.1
+Summary: a utility package to apply opensource LLM in local cuda environment
+Author-email: Yingding Wang <yingdingwang@yahoo.de>
+Project-URL: Homepage, https://github.com/yingding/applyllm
+Project-URL: Issues, https://github.com/yingding/applyllm/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+License-File: LICENSE
