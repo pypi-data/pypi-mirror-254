@@ -1,0 +1,3 @@
+[console_scripts]
+dpypi_serve=dpypi.serve:main
+
