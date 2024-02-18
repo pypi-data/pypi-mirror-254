@@ -1,0 +1,2 @@
+pylint<4,>=2
+pytest>=4.6
