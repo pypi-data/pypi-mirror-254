@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: textsynth
+Version: 0.1
+Summary: Easy-to-use Python wrapper for the TextSynth API
+Author-email: Christopher Ptak <christopher@ptak.io>
+Project-URL: Homepage, https://github.com/ptakdotio/textsynth
+Project-URL: Issues, https://github.com/ptakdotio/textsynth/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: The Unlicense (Unlicense)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.28
+Requires-Dist: jsonschema>=4.21
+
+# Textsynth Wrapper
+
+_Easy-to-use Python wrapper for the TextSynth API_
+
+## What is this?
+
+This is a simple Python library that handles interactions with the
+[TextSynth](https://textsynth.com/) API. It handles authentication, wraps
+requests and responses, and validates the data you pass to TextSynth.
+
