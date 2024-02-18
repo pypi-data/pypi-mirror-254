@@ -1,0 +1,9 @@
+factorlogged/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+factorlogged/databases/database_interface.py,sha256=dJuJ1alxeGp7PsZz-6MKtYNWfHGm_NF22obTlRoXHXY,228
+factorlogged/databases/postgres/db.py,sha256=-IBe8y1whZqY8m9l5mjO6MGv-PVhR0uMEAcXQjkP-8Y,3637
+factorlogged/databases/postgres/objects.py,sha256=v1-NweIS-GC91bmM1c5tClrZITmc3qVxCqhFbN7BAlc,987
+factorlogged/middlewares/timestamps.py,sha256=xahKKFlfWhi0dxxbbYRAAIjMCkTLaxVoNHBol3birho,2818
+factorlogged-0.1.0.dist-info/LICENSE,sha256=NfwuE5xfcX-MdOYNkPTqxGJj_i6AMJGfKZTHdwE5g9w,1071
+factorlogged-0.1.0.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+factorlogged-0.1.0.dist-info/METADATA,sha256=9BXTkky_mDdVYy4NVgls3zcwCYztRbu-idMkLwGBueA,597
+factorlogged-0.1.0.dist-info/RECORD,,

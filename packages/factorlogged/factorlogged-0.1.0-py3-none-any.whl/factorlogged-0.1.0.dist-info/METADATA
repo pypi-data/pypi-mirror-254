@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: factorlogged
+Version: 0.1.0
+Summary: Middleware logger for FastAPI
+License: MIT
+Author: Ricardo Ibarra
+Author-email: raib1997@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: SQLAlchemy (>=2.0.25,<3.0.0)
+Requires-Dist: fastapi (>=0.109.0,<0.110.0)
+Requires-Dist: paramiko (>=3.4.0,<4.0.0)
+Requires-Dist: psycopg2 (>=2.9.9,<3.0.0)
+Requires-Dist: sshtunnel (>=0.4.0,<0.5.0)
+Requires-Dist: uvicorn (>=0.27.0,<0.28.0)
