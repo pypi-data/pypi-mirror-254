@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "patrolify"
+version = "0.1.12"
+description = ""
+authors = ["laixintao <laixintaoo@gmail.com>"]
+readme = "README.md"
+include = [
+    "patrolify/admin/frontend_dist/*" ,
+    "patrolify/admin/frontend_dist/*/*" ,
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+rq = "^1.15.1"
+rq-scheduler = "^0.13.1"
+flask = "^3.0.0"
+prometheus-client = "^0.19.0"
+waitress = "^2.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+patrolify = 'patrolify.main:main'
