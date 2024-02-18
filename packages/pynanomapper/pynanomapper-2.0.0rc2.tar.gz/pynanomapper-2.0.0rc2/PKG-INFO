@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pynanomapper
+Version: 2.0.0rc2
+Summary: eNanoMapper API client
+Home-page: https://github.com/ideaconsult/pynanomapper
+License: MIT
+Keywords: ambit,cheminformatics,enanomapper,nanoinformatics
+Author: Nina Jeliazkova
+Author-email: jeliazkova.nina@gmail.com
+Maintainer: Luchesar Iliev
+Maintainer-email: luchesar.iliev@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: jproperties (>=2.1.1,<3.0.0)
+Requires-Dist: measurement (>=3.2.2,<4.0.0)
+Requires-Dist: nexusformat (>=1.0.2,<2.0.0)
+Requires-Dist: pandas (>=2.0.3,<3.0.0)
+Requires-Dist: pydantic (>=1,<2)
+Requires-Dist: pyyaml (>=5.1)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: xlsxwriter (>=3.1.9,<4.0.0)
+Project-URL: Bug Tracker, https://github.com/ideaconsult/pynanomapper/issues
+Project-URL: Documentation, https://github.com/ideaconsult/notebooks-ambit/tree/master/enanomapper
+Project-URL: Repository, https://github.com/ideaconsult/pynanomapper
+Description-Content-Type: text/markdown
+
+# pynanomapper
+A Python client for the eNanoMapper API
+
+## Usage
+See the examples in https://github.com/ideaconsult/notebooks-ambit/tree/master/enanomapper
+
