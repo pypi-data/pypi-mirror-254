@@ -1,0 +1,3 @@
+[console_scripts]
+versus-cli=versus_cli.__main__:versus
+

@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: versus-cli
+Version: 0.2.0
+Summary: Run A vs. B analyses, storing analysis input, command and result in YAMLized dataframe. Part of Wistan infrastructure.
+Author: Ben Skubi
+Author-email: bskubi@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+The versus-cli tool reads a list of strings from stdin, forms A vs. B combinations, and formats and runs commands on them.
+
+Versus-cli is part of the Wistan platform. Like all Wistan infrastructure, it can be used on its own independently of the rest of Wistan.
+
