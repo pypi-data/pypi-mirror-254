@@ -1,0 +1,106 @@
+---
+name: CI-unittests
+# Execute unit tests - flake8 and pytest
+#
+env:
+  SIMTOOLS_DB_SERVER: ${{ secrets.DB_SERVER }}
+  SIMTOOLS_DB_API_USER: ${{ secrets.DB_API_USER }}
+  SIMTOOLS_DB_API_PW: ${{ secrets.DB_API_PW }}
+  SIMTOOLS_DB_API_PORT: ${{ secrets.DB_API_PORT }}
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+
+  unittests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python-version: "3.9"
+            install-method: mamba
+
+          - os: macos-latest
+            python-version: "3.9"
+            install-method: mamba
+
+          - os: ubuntu-latest
+            python-version: "3.11"
+            install-method: mamba
+            extra-args: ["codecov"]
+
+          - os: ubuntu-latest
+            python-version: "3.11"
+            install-method: pip
+
+    defaults:
+      run:
+        shell: bash -leo pipefail {0}
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Prepare mamba installation
+        if: matrix.install-method == 'mamba'
+        env:
+          PYTHON_VERSION: ${{ matrix.python-version }}
+        run: |
+          # setup correct python version
+          sed -i -e "s/- python=.*/- python=$PYTHON_VERSION/g" environment.yml
+
+      - name: Install mamba dependencies
+        if: matrix.install-method == 'mamba'
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-file: environment.yml
+          create-args: python=${{ matrix.python-version }}
+          init-shell: bash
+
+      - name: Python setup
+        if: matrix.install-method == 'pip'
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+
+      - if: ${{ matrix.install-method == 'pip' && runner.os == 'macOS' }}
+        name: Fix Python PATH on macOS
+        # from https://github.com/cta-observatory/ctapipe/blob/cfacbe1eeb2d9a4634980e5f1ef39b944bca6a7a/.github/workflows/ci.yml#L100
+        run: |
+          tee -a ~/.bash_profile <<<'export PATH="$pythonLocation/bin:$PATH"'
+
+      - name: Python dependencies (pip)
+        if: matrix.install-method == 'pip'
+        run: |
+          pip install '.[tests,dev,doc]'
+
+      - name: Python dependencies (mamba)
+        if: matrix.install-method == 'mamba'
+        run: |
+          pip install -e '.[tests,dev,doc]'
+
+      - name: flake8
+        run: |
+          flake8 --max-line-length 100 --per-file-ignores="_version.py:F401 E501" .
+
+      - name: Unit tests
+        shell: bash -l {0}
+        run: |
+          pytest --durations=10 --color=yes
+
+      - name: Upload coverage report to codecov
+        uses: codecov/codecov-action@v3
+        if: contains(matrix.extra-args, 'codecov')
+        with:
+          token: ${{ secrets.CODECOV_SIMTOOLS_TOKEN }}

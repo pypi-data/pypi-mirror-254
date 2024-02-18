@@ -1,0 +1,35 @@
+# A conda environment with all useful package for simtools developers
+name: simtools-dev
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - astropy
+  - boost-histogram
+  - ctapipe
+  - eventio
+  - flake8
+  - jsonschema
+  - matplotlib-base
+  - numpy
+  - numpydoc
+  - pre-commit
+  - pylint
+  - pymongo
+  - pyproj
+  - pytest
+  - pytest-cov
+  - pytest-xdist
+  - python-dotenv
+  - pyyaml
+  - scipy
+  - sphinx
+  - sphinx_rtd_theme
+  - toml
+  - pip:
+      - pytest-random-order
+
+# cheatsheet
+# create: conda env create -f environment.yml
+# activate: conda activate simtools-dev
+# update: conda env update -f environment.yml --prune
