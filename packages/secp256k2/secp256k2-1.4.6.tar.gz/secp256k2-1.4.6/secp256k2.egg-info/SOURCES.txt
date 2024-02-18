@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+secp256k2/Loader.py
+secp256k2/__init__.py
+secp256k2/_secp256k2.dll
+secp256k2/_secp256k2.so
+secp256k2/constants.py
+secp256k2/lib.py
+secp256k2/utils.py
+secp256k2.egg-info/PKG-INFO
+secp256k2.egg-info/SOURCES.txt
+secp256k2.egg-info/dependency_links.txt
+secp256k2.egg-info/top_level.txt
+secp256k2.egg-info/zip-safe
