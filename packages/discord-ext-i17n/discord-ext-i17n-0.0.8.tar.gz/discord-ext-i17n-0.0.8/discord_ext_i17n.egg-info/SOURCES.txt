@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+discord/ext/i17n/__init__.py
+discord/ext/i17n/agent.py
+discord/ext/i17n/cache.py
+discord/ext/i17n/language.py
+discord/ext/i17n/preprocess.py
+discord_ext_i17n.egg-info/PKG-INFO
+discord_ext_i17n.egg-info/SOURCES.txt
+discord_ext_i17n.egg-info/dependency_links.txt
+discord_ext_i17n.egg-info/top_level.txt
+tests/test_agent.py
+tests/test_cache.py
+tests/test_def_trans.py
+tests/test_language.py
+tests/test_preprocess.py
