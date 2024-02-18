@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: NewtApi
+Version: 1.0.0
+Summary: Python library for working with server Api (New Api)
+Home-page: https://www.arver.ir/
+Author: AbolfazlMirzaei
+Author-email: newtapi@gmail.com
+License: MIT
+Keywords: api,API,Api,newtapi,NewtApi,NewtAPI,NEWTAPI
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: requests==2.31.0
+Requires-Dist: urllib3==2.2.0
+
+
+
+## NewtApi
+
+> Newt Api Json Server For Python and app To Myket
+
+<p align="center">
+    <img src="https://s8.uupload.ir/files/img_20240202_130735_894_u6yf.png" alt="ArseinRubika" width="128">
+    <br>
+    <b>NewtApi</b>
+    <br>
+</p>
+
+
+### How to import the Rubik's library
+
+``` bash
+from NewtApi import Client
+```
+
+### How to install the library
+
+``` bash
+pip install NewtApi==1.0.0
+```
+
+### My ID Channel in Rubika
+
+``` bash
+@Newt__Server
+```
+## An example:
+``` python
+from NewtApi import Client
+
+api = Client("username Api"," password Api")
+
+buildApi = api.addApi('test',"data text or json")
+
+print(buildApi)
+```
+
+
+
