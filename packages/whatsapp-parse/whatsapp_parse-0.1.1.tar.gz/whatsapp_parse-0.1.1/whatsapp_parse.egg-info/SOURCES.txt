@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+whatsapp_parse.egg-info/PKG-INFO
+whatsapp_parse.egg-info/SOURCES.txt
+whatsapp_parse.egg-info/dependency_links.txt
+whatsapp_parse.egg-info/not-zip-safe
+whatsapp_parse.egg-info/requires.txt
+whatsapp_parse.egg-info/top_level.txt
+whatsapp_parser/__init__.py
+whatsapp_parser/parser.py
