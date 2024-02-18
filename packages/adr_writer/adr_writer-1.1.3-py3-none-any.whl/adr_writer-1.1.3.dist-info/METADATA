@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: adr_writer
+Version: 1.1.3
+Summary: Create Architecture Decision Records by answering questions to ensure consistency in formatting and thought processes.
+Home-page: https://gitlab.com/fer1035_python/modules/pypi-adr_writer
+License: GPL-2.0-only
+Keywords: adr,writer,architecture,decision,record
+Author: Ahmad Ferdaus Abd Razak
+Author-email: ahmad.ferdaus.abd.razak@ni.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Project-URL: Repository, https://gitlab.com/fer1035_python/modules/pypi-adr_writer
+Description-Content-Type: text/x-rst
+
+==============
+**adr_writer**
+==============
+
+Overview
+--------
+
+Create Architecture Decision Records by answering questions to ensure consistency in formatting and thought processes.
+
+Usage
+-----
+
+Installation:
+
+.. code-block:: BASH
+
+    pip3 install adr_writer
+    # or
+    python3 -m pip install adr_writer
+
+Bash:
+
+.. code-block:: BASH
+
+    python </oath/to>/adr_writer
+
+Python:
+
+.. code-block:: PYTHON
+
+    import adr_writer
+    adr_writer.main()
+
+Examples
+--------
+
+- `Execution <https://github.com/fer1035/pypi-adr_writer/blob/main/examples/execution.txt>`_
+- `Record output <https://github.com/fer1035/pypi-adr_writer/blob/main/examples/0012-adr-writer.md>`_
+
+Workflow
+--------
+
+.. image:: https://raw.githubusercontent.com/fer1035/pypi-adr_writer/main/images/workflow.png
+    :alt: Workflow diagram
+
