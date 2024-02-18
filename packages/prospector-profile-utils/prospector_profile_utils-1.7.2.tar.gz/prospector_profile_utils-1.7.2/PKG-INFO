@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: prospector-profile-utils
+Version: 1.7.2
+Summary: Some utility Prospector profiles.
+Home-page: https://github.com/sbrunner/prospector-profile-utils
+License: BSD-2-Clause
+Author: Stéphane Brunner
+Author-email: stephane.brunner@gmail.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Project-URL: Repository, https://github.com/sbrunner/prospector-profile-utils
+Description-Content-Type: text/markdown
+
+# Prospector profile utils
+
+It contains some utility Prospector profiles.
+
+## Usage
+
+```bash
+pip install prospector-profile-utils
+```
+
+Then, in your `.prospector.yaml` file, you can use the profiles like this:
+
+```yaml
+inherits:
+  - utils:base
+  - utils:fix
+  - utils:no-design-checks
+```
+
+## Contributing
+
+Install the pre-commit hooks:
+
+```bash
+pip install pre-commit
+pre-commit install --allow-missing-config
+```
+

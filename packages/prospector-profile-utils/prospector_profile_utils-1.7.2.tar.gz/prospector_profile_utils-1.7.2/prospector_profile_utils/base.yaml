@@ -1,0 +1,15 @@
+strictness: veryhigh
+
+max-line-length: 110
+
+mypy:
+  run: true
+
+bandit:
+  run: true
+
+pyroma:
+  run: true
+
+mccabe:
+  run: false

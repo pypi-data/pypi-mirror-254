@@ -1,0 +1,7 @@
+pydocstyle:
+  disable:
+    - D212 # Multi-line docstring summary should start at the first line (not well readable)
+
+pycodestyle:
+  disable:
+    - E704 # multiple statements on one line (def) (not compatible with protocol)
