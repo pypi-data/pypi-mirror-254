@@ -1,0 +1,15 @@
+    def _show_render_methods(self, result: ActionResult):
+        html = """
+<div class="center">
+  <h2>Render Methods</h2>
+  <p class="medium">
+    Sufficient library offers flexible image processing options beyond HTML/CSS and static image files.
+  </p>
+  <ul class="small">
+    <li>HTML + CSS</li>
+    <li>Static image file</li>    
+    <li>Image processing utils</li>
+  </ul>
+</div>
+"""
+        return html
