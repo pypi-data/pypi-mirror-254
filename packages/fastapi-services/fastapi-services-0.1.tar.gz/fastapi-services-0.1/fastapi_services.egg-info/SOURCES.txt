@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+fastapi_services/__init__.py
+fastapi_services/exc.py
+fastapi_services/types.py
+fastapi_services.egg-info/PKG-INFO
+fastapi_services.egg-info/SOURCES.txt
+fastapi_services.egg-info/dependency_links.txt
+fastapi_services.egg-info/top_level.txt
