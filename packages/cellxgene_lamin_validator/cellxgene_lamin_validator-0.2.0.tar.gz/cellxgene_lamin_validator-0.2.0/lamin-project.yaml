@@ -1,0 +1,5 @@
+project_name: cellxgene-lamin-validator
+description: Lamin validator for CELLxGENE schema
+project_slug: cellxgene-lamin-validator
+repository_name: cellxgene-lamin-validator
+package_name: cellxgene_lamin_validator
