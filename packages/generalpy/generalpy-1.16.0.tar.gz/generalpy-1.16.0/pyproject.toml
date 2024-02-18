@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "generalpy"
+version = "1.16.0"
+authors = [
+  { name="sayyid5416" },
+]
+description = "Python package for general classes and methods"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pytz"
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/sayyid5416/generalpy"
+"Bug Tracker" = "https://github.com/sayyid5416/generalpy/issues"
