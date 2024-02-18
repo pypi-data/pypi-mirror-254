@@ -1,0 +1,24 @@
+---
+saved_query:
+  name: p0_booking
+  description: Booking-related metrics that are of the highest priority.
+  query_params:
+    metrics:
+      - bookings
+      - instant_bookings
+    group_by:
+      - TimeDimension('metric_time', 'day')
+      - Dimension('listing__capacity_latest')
+    where:
+      - "{{ Dimension('listing__capacity_latest') }} > 3"
+---
+saved_query:
+  name: saved_query_with_cumulative_metric
+  description: |
+    Saved query that includes a cumulative metric. Added as cumulative metrics have a branch in the CLI for
+    adjusting the time constraint.
+  query_params:
+    metrics:
+      - trailing_2_months_revenue
+    group_by:
+      - TimeDimension('metric_time', 'day')
