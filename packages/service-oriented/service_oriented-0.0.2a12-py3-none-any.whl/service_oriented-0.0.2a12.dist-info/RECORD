@@ -1,0 +1,15 @@
+service_oriented/__init__.py,sha256=sjUqUNB_aOhzDzN32MtKQBGtOcQNFPS_R8Is4ZaRGNo,119
+service_oriented/deployment_environment.py,sha256=xLC4NVGUIsg7tv4kOo2ELmPVsDr6C6m5eBzpc-MxbFw,941
+service_oriented/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+service_oriented/application/__init__.py,sha256=krCGNE_y-1R0oUgifFw-bP7JQrTxfaAT1vefxxExn60,293
+service_oriented/application/base_application.py,sha256=AuclpFEvYwRZ5O0p5uoDauf3i6ShYVIZNtoBxfvy_bM,1285
+service_oriented/application/entry_point_spec.py,sha256=ZcKo1Fbl8FBIdSEl1c_VpsPqErjakyBy2AG5Xt-ANyw,1236
+service_oriented/application/generic_main.py,sha256=GARZQf0uCgO9FaObyHSBFiWXHoou17lrljYouA0MLEA,1630
+service_oriented/application/config/__init__.py,sha256=8f0BwapMdXiLpHy1jDPcrE8bY4jTjjQo8B9omb8mT5o,105
+service_oriented/application/config/base_config.py,sha256=NU6dy7oONXgucJL-CtRlNMq2gzseBevgG8yyeej2r60,2552
+service_oriented/application/config/yaml_config_settings_source.py,sha256=mzogg2AoJkXueUMBYBhe_VS8V3jqkCrtHZaLuLaJgk4,2038
+service_oriented-0.0.2a12.dist-info/LICENSE,sha256=NaiGTsTzCgVdgyJn8rC6JIIJHBS9oj6m1-OsT_t6BqI,1071
+service_oriented-0.0.2a12.dist-info/METADATA,sha256=1VYxxVP9kfxXURUlXu7dqFX1rSQpQOVPujx9nUKxZrc,3352
+service_oriented-0.0.2a12.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+service_oriented-0.0.2a12.dist-info/top_level.txt,sha256=1i1SUwtpngxD2kDYDjx8Fuw7bY-I5VsMXZEohg0D3Y8,17
+service_oriented-0.0.2a12.dist-info/RECORD,,
