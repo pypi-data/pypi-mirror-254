@@ -1,0 +1,300 @@
+# perun.proxygui
+
+Pages used by microservices
+in [satosacontrib.perun](https://gitlab.ics.muni.cz/perun/perun-proxyidp/satosacontrib-perun).
+
+## Installation
+
+The recommended way to install is via pip:
+
+```sh
+pip3 install perun.proxygui
+```
+
+Alternatively, you can clone the repository and run:
+
+```sh
+pip3 install .
+```
+
+You also need to install the appropriate sqlalchemy driver. For PostgreSQL, you can include the `postgresql` extra, which will install [psycopg2-binary](https://pypi.org/project/psycopg2-binary/):
+
+```sh
+pip3 install perun.proxygui[postgresql]
+```
+
+## Configuration
+
+### General
+
+Copy `perun.proxygui.yaml` from config_templates to `/etc/` (it needs to reside at `/etc/perun.proxygui.yaml`) and
+adjust to your needs.
+
+The `global_cfg_filepath` option needs to point to the location of the global microservice config from
+the [satosacontrib.perun](https://gitlab.ics.muni.cz/perun/perun-proxyidp/satosacontrib-perun) module. You also need
+to set the attribute map config.
+
+At the very least, you need to copy the config templates:
+
+```sh
+cp config_templates/perun.proxygui.yaml /etc/perun.proxygui.yaml
+cp ../satosacontrib-perun/satosacontrib/perun/config_templates/attribute_typing.yaml /etc/
+cp ../satosacontrib-perun/satosacontrib/perun/config_templates/microservices_global.yaml /etc/
+```
+
+Then change the following line in `/etc/perun.proxygui.yaml`:
+
+```yaml
+global_cfg_filepath: /etc/microservices_global.yaml
+```
+
+And the following line in `/etc/microservices_global.yaml`:
+
+```yaml
+attrs_cfg_path: /etc/attribute_typing.yaml
+```
+
+### Backchannel logout
+
+Analogous to general configuration. Copy `backchannel-logout.yaml` from config_templates to `/etc/` so the resulting
+filepath is `/etc/backchannel-logout.yaml` and adjust to your needs.
+
+This configuration is necessary for using `/backchannel-logout` endpoint. It
+performs [OIDC Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html) using
+the [idpy-oidc](https://github.com/IdentityPython/idpy-oidc) library.
+
+OIDC builds upon OAuth 2.0. Config options `issuer`, `client_id` and `client_secret` are terms explained
+in [OAuth 2.0 [RFC6749]](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2).
+
+The endpoint accepts
+an [OIDC Logout Token](https://openid.net/specs/openid-connect-backchannel-1_0.html#LogoutToken)
+which is a JWT with the necessary information for performing back-channel logout. Therefore, the `key_conf` setting must
+contain paths to the key pair configured between an OP (our endpoint) which decrypts the JWT and an RP (endpoint caller)
+who encrypts the JWT. Options `private_path` and `public_path` represent filepaths to the private/public key.
+Settings `key_defs` specify key types and `read_only` determines whether the keys are read-only. Both come from the
+[idpy-oidc](https://github.com/IdentityPython/idpy-oidc) library.
+
+## Run
+
+### uWSGI
+
+To run this Flask app with uWSGI, use the callable `perun.proxygui.app:get_app`, e.g.
+
+```plain
+module = perun.proxygui.app:get_app
+```
+
+### local development
+
+```sh
+python3 perun/proxygui/app.py
+```
+
+Now the app is available at `http://localhost:5000/` (e.g. `http://localhost:5000/banned-users/`).
+
+## Translations
+
+### Babel
+
+First you need to generate `.pot` file: `pybabel extract -F babel.cfg -o messages.pot .`
+
+Next step is to generate `.po` file: `pybabel init -i messages.pot -d perun/proxygui/gui/translations -D messages -l <language_code>`
+
+- replace `<language code>` with given language code (eg: fr)
+
+Then you need to, manually or using a tool like [Poedit](https://poedit.net/), write your translations in the generated `.po` file and compile it: `pybabel compile -d perun/proxygui/gui/translations -D messages`
+
+- note that if the `.pot` file is already created and you want to add new language ignore the first step
+
+## API
+
+### Consent
+
+This API handles consents - checks if any consent was given by the user and asks him to give a new one if not. API is connected to GUI where user can choose which attributes are to be consented. This API is strongly based on [CMservice](https://github.com/its-dirg/CMservice). Some of the differences:
+
+- GUI
+- usage of MongoDB
+- user_id and requester_name are sent from micro_service and are part of the consent stored in the database
+- we can define attributes which are ignored (in the config)
+
+### Back-channel logout
+
+Performs [OIDC Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html) in the role of RP.
+
+**Endpoint:** `/backchannel-logout`
+
+**Method:** `POST`
+
+**Description**: The logout token **must** include an attribute `sub` containing
+subject id
+(id of the user to be logged out). It **may** also include `sid` containing an id of
+a specific session of user identified by `sub`. In case the request contains `sid`
+and the session with given `sid` exists and belongs to the user with provided `sub`, it
+will be revoked, otherwise nothing happens. If **only** `sub` is provided, **all** the
+sessions of the user with given `sub` will be revoked. If the user doesn't exist,
+nothing happens.
+
+Calling this endpoint revokes user's SSP sessions, Mitre tokens and SATOSA sessions.
+Refresh tokens will stay intact as per [OIDC standard](https://openid.net/specs/openid-connect-backchannel-1_0.html#BCActions).
+
+**Example logout token**:
+
+```json
+{
+  "iss": "https://server.example.com",
+  "sub": "123456@user",
+  "sid": "2d1a...5264be",
+  "aud": "s6BhdRkqt3",
+  "iat": 1471566154,
+  "jti": "bWJq",
+  "events": {
+      "http://schemas.openid.net/event/backchannel-logout": {}
+  }
+}
+```
+
+(sid is optional)
+
+**Input
+arguments:** [OIDC Logout Token](https://openid.net/specs/openid-connect-backchannel-1_0.html#LogoutToken)
+in the request body.
+
+**Result:**
+
+- `HTTP Bad Request [400]` and an error message in the response body if the logout wasn't performed successfully
+- `HTTP No Content [204]` indicating a successful logout
+
+### Ban
+
+Provides management of Perun user bans. A banned user can not log in to the system.
+
+**Endpoint:** `/banned-users`
+
+**Method:** `PUT`
+
+**Description:** This endpoint adds all user bans provided in the request input data to the database. This effectively
+bans the Perun users from logging in to the system. If the user is already banned, their ban is replaced with the latest
+one (the one currently provided in the request).
+
+Calling this endpoint revokes user's SSP sessions, Mitre tokens, SATOSA sessions and
+refresh tokens.
+
+**Example ban:**
+
+```json
+{
+    "description": "Misuse of resources.",
+    "facilityId": "1",
+    "id": 1,
+    "userId": "12345",
+    "validityTo": "1670799600000",
+}
+```
+
+Here, `id` is the ban ID and `validityTo` is the time when the ban expires represented as a UNIX timestamp.
+
+**Input arguments:** List of users bans in JSON format.
+
+**Result:**
+
+- `HTTP No Content [204]` indicating a successful update of bans
+
+**Endpoint:** `/banned-users-generic`
+
+**Method:** `PUT`
+
+**Description:** Generalized endpoint behaving in the same way as the `/banned-users` endpoint. The only difference is
+that the input data is passed in binary form as `.tar` file in the request.
+
+**Input arguments:** List of users to ban in `.tar` format in request data.
+
+**Result:**
+
+- `HTTP Request Entity too large [413]` if the data passed to the request was larger than the upper limit
+- `HTTP Unprocessable Entity [422]` if the banned users data couldn't be parsed correctly or wasn't provided in the
+  request at all
+- `HTTP No Content [204]` indicating successful banning
+
+**Endpoint:** `/ban/<ban_id>`
+
+**Method:** `GET`
+
+**Description:** Used for checking whether a ban with given `ban_id` exists.
+
+**Input arguments:** ID of a potential ban in the URL parameter
+
+**Result:**
+
+- `HTTP OK [200]` indicating a successful operation, the body of the response includes either the ban information as a
+  JSON if it exists or an empty JSON `{}` if a ban with given ID doesn't exist
+
+### Heuristic page
+
+Provides information about user authentication events gathered by the AuthEventLogging microservice, to confirm their identity e.g. during a MFA reset.
+
+**Endpoint:** `/HeuristicGetID`
+
+**Description:** Used to gather ID of searched user
+
+**Result:**
+
+- `HTTP OK [200]` indicating successfull load of search page
+
+**Endpoint:** `/GetHeuristic`
+
+**Method:** `GET`
+
+**Description:** Used for showing gathered information about past athentications of user, and showing statistics based on that data.
+
+**Performed MFA:** Gathered logs are checked if MFA was performed while handeling original logging event. Upstream ACRs values are compared to two hardcoded values: `https://refeds.org/profile/mfa` and `http://schemas.microsoft.com/claims/multipleauthn`
+
+**Input arguments:** ID of searched user
+
+**Result:**
+
+- `HTTP OK [200]` indicating successfull load of show page
+
+## Future development notes
+
+Currently, all blueprints need to be prefixed with `url_prefix="/proxygui"`. To load static files, use
+`url_for(".static", filename="example.js")` command.
+
+## Adding new endpoint to blueprint and OpenAPI specs
+
+Standart way to add new endpoint is to put decorator `@target_blueptrint.route(...)` before target function.
+
+When adding endpoint to OpenAPI that decorator had to be replaced with `@openapi_route(route, blueprint)` imported from `perun.proxygui.openapi.openapi_data`. Next step is to create additional entry in `data` dictionary, also in that file. That entry has a format of nested dictionary. Example:
+
+```json
+"/AuthenticateKerberosTicket":{ # Key is route to the endpoint
+    "desc": "AuthenticateKerberosTicket description", # OPRIONAL, Full description of endpoit
+    "sum": "AuthenticateKerberosTicket summary",      # OPRIONAL, Brief description of endpoint (e.g. name, purpose, ...)
+    "security": [{"NegotiateAuth": []}],              # OPTIONAL, scheme choosed from dictionary
+                                                      #           defined in `openapi.py`
+    "status": HTTPStatus.OK,                          # OPTIONAL
+    "schema": redirect_response                       # OPTIONAL class name of describing scheme, described below
+},
+```
+
+### schema
+
+schema of endpoint response, in runtime response is check against this sheme (if it is defined, if not, response is not checked at all), when not matched typically respond contains only empty dict. If it is defined, it has two variants:
+
+- **JSON / jsoify** - create simple class from marshmallow `Schema` class, with attributes that are
+
+same as returned JSON from endpoint (basically that class wraps those attributes as JSON dictionary)
+Example:
+
+```python
+class delete_consent_schema(marshmallow.Schema):
+    deleted = fields.Boolean()
+    message = fields.String()
+```
+
+- **Response / redirect / abort** - in case of these responses, scheme in response decorator can be custom (it is ignored when creating endpoint response)
+
+- **String** - redo to JSON with already created schema `string_schema` with only atribute `_text`. Then in response handeling add additional `json.loads()` wrapping function
+
+```python
+return jsonify({"_text": "Original String text"})
+```
