@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: openpyxl_autofill
+Version: 0.2.2
+Summary: 针对openpyxl的功能扩展
+Home-page: https://github.com/taohoo/openpyxl_autofill
+Author: HuBo
+Author-email: taohoo@163.com
+License: MIT License
+Platform: all
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openpyxl
+
+# Installation via pip
+```
+pip install openpyxl_autofill
+```
+# Usage
+```
+from openpyxl import load_workbook
+import openpyxl_autofill
+openpyxl_autofill.enable_all()
+wb = load_workbook(...)
+ws = wb.active
+ws.insert_rows(...)
+...
+```
+# Extensions for openpyxl
+## sort
+Sorts the cells within the given range.
+## insert
+Insert rows and insert cols. Auto adjust merged cells, formulas and tables.
+## delete
+Delete rows and delete cols. Auto adjust merged cells, formulas and tables.
+
