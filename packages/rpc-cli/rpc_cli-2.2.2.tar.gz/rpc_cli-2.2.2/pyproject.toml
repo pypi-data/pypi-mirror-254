@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "rpc-cli"
+version = "2.2.2"
+description = "Expose methods of an RPC server through a CLI."
+authors = ["Matthew Burkard <matthewjburkard@gmail.com>"]
+readme = "README.md"
+repository = "https://gitlab.com/mburkard/rpc-cli"
+homepage = "https://gitlab.com/mburkard/rpc-cli"
+license = "Apache-2.0"
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.4.0"
+cleo = "^2.0.1"
+openrpc = "^10.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+ruff = "^0.2.0"
+mypy = "^1.5.1"
+coverage = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
