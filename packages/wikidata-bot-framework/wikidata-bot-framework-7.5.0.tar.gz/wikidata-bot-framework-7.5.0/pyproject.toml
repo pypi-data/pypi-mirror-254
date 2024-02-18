@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wikidata-bot-framework"
+version = "7.5.0"
+description = "A framework for making Wikidata bots."
+readme = "README.md"
+dependencies = [
+    "pywikibot<9",
+    "mwparserfromhell",
+    "python-dotenv",
+    "sentry-sdk",
+    "typing-extensions",
+]
+requires-python = ">=3.9"
+license = { text = "MIT License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+    "Topic :: Documentation :: Sphinx",
+
+]
+
+[project.urls]
+repository = "https://github.com/PythonCoderAS/wikidata-bot-framework"
+
+[project.optional-dependencies]
+docs = ["sphinx", "sphinx_rtd_theme"]
+test = ["pytest"]
+lint = ["ruff"]
+
+[tool.setuptools]
+zip-safe = true
+
+[tool.setuptools.packages.find]
+include = ["wikidata_bot_framework*"]
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.ruff.isort]
+combine-as-imports = true
+order-by-type = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.mypy]
+exclude = ["user-config.py", "user-password.py"]
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["pywikibot", "pywikibot.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-ra --color=yes --cov=wikidata_bot_framework --cov-report=lcov"
