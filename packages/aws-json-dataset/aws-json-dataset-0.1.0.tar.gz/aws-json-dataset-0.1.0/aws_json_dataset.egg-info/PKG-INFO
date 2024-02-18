@@ -1,0 +1,158 @@
+Metadata-Version: 2.1
+Name: aws-json-dataset
+Version: 0.1.0
+Summary: Send JSON datasets to various AWS services.
+Author-email: Gregory Lindsey <gclindsey@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 Gregory Lindsey
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Keywords: aws,json,dataset,s3,kinesis,firehose,sqs,data,streaming,data engineering
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Topic :: File Formats :: JSON
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3>=1.20
+Provides-Extra: dev
+Requires-Dist: black>=21.12; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=6.2; extra == "test"
+Requires-Dist: pytest-cov>=3.0; extra == "test"
+Requires-Dist: coverage>=6.0; extra == "test"
+Requires-Dist: black>=21.12; extra == "test"
+Requires-Dist: boto3>=1.20; extra == "test"
+Requires-Dist: moto[firehose,s3,sns,sqs,sts]>=2.2; extra == "test"
+
+# aws-json-dataset
+[![Build](https://github.com/chrisammon3000/aws-json-dataset/actions/workflows/run_tests.yml/badge.svg?style=for-the-badge)](https://github.com/chrisammon3000/aws-json-dataset/actions/workflows/run_tests.yml) [![codecov](https://codecov.io/github/chrisammon3000/aws-json-dataset/branch/main/graph/badge.svg?token=QSZLP51RWJ)](https://codecov.io/github/chrisammon3000/aws-json-dataset?style=for-the-badge) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+
+<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/release/python-3100/) -->
+
+Lightweight and simple Python package to quickly send batches of JSON data to various AWS services.
+
+## Description
+The idea behind this library is to create an easy, quick way to send JSON data to AWS services.
+- SQS
+- SNS
+- Kinesis Firehose
+- Kinesis Data Streams (coming soon)
+
+JSON is an extremely common format and each AWS service has it's own API with different requirements for how to send data. 
+
+This library includes functionality for:
+- Automatically handling batch API calls to SNS, SQS and Kinesis Firehose
+- Manages available services based on record size
+- Base64 conversion for Kinesis streams
+
+### Roadmap
+- [ ] Support for Kinesis Data Streams
+- [ ] Support for DynamoDB inserts, updates and deletes
+- [ ] Support for S3, including gzip compression and JSON lines format
+- [ ] Support for FIFO SQS queues
+- [ ] Support for SNS topics
+
+## Quickstart
+Set up your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) and environment variables and export them to the environment.
+```bash
+export AWS_PROFILE=<profile>
+export AWS_REGION=<region>
+```
+
+
+Install the library using pip.
+```bash
+pip install -i https://test.pypi.org/simple/ aws-json-dataset
+```
+
+Send JSON data to various AWS services.
+```python
+from awsjsondataset import AwsJsonDataset
+
+# create a list of JSON objects
+data = [ {"id": idx, "data": "<data>"} for idx in range(100) ]
+
+# Wrap using AwsJsonDataset
+dataset = AwsJsonDataset(data=data)
+
+# Send to SQS queue
+dataset.sqs("<sqs_queue_url>").send_messages()
+
+# Send to SNS topic
+dataset.sns("<sns_topic_arn>").publish_messages()
+
+# Send to Kinesis Firehose stream
+dataset.firehose("<delivery_stream_name>").put_records()
+```
+
+## Local Development
+Follow the steps to set up the deployment environment.
+
+### Prerequisites
+* AWS credentials
+* Python 3.10
+
+### Creating a Python Virtual Environment
+When developing locally, create a Python virtual environment to manage dependencies:
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install .[dev,test]
+```
+
+### Environment Variables
+Create a `.env` file in the project root.
+```bash
+AWS_REGION=<region>
+```
+
+***Important:*** *Always use a `.env` file or AWS SSM Parameter Store or Secrets Manager for sensitive variables like credentials and API keys. Never hard-code them, including when developing. AWS will quarantine an account if any credentials get accidentally exposed and this will cause problems.* &rarr; ***Make sure that `.env` is listed in `.gitignore`***
+
+### AWS Credentials
+Valid AWS credentials must be available to AWS CLI and SAM CLI. The easiest way to do this is running `aws configure`, or by adding them to `~/.aws/credentials` and exporting the `AWS_PROFILE` variable to the environment.
+
+For more information visit the documentation page:
+[Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+
+## Unit Tests
+Follow the steps above to create a Python virtual environment. Run tests with the following command.
+```bash
+coverage run -m pytest
+```
+
+## Troubleshooting
+* Check your AWS credentials in `~/.aws/credentials`
+* Check that the environment variables are available to the services that need them
+* Check that the correct environment or interpreter is being used for Python
+
+<!-- ## References & Links -->
+
+## Authors
+**Primary Contact:** Gregory Christopher Lindsey (@chrisammon3000)
+
+## License
+This library is licensed under the MIT-0 License. See the LICENSE file.
