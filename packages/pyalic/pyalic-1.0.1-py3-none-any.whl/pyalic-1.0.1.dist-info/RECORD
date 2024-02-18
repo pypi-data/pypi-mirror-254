@@ -1,0 +1,14 @@
+pyalic/__init__.py,sha256=JSxhlaB003u_Kh9hnpn3dgmTj5CE6LY1wWioTRP9sLs,151
+pyalic/exceptions.py,sha256=JLv1_Hzo_5cqJe5kpZ3l4R4Ph_j2U3dROgMq6tzOGzQ,126
+pyalic/fingerprint.py,sha256=8U5LlXKDpD68I_j2Esi02yGjAHNRD_QDPnwbDqOWbVQ,476
+pyalic/lm.py,sha256=M11m61kAullUMhQTAaGoJ5lQDMCynQ7cS1DbM_DpcSA,4623
+pyalic/response.py,sha256=jZvp7WZfoA8KBXHdZainDLds4TKzRYmTY6pauHEk7jE,3861
+pyalic/wrappers.py,sha256=C6N0EozW9WtOnaIIyJsL-1IvgtxnPLS1feyj0Je82LI,3116
+pyalic/asyncio/__init__.py,sha256=SlXtxoqFyMtPgaRXST9yfq8-rEyGpRLlgbDa627d6ec,114
+pyalic/asyncio/lm.py,sha256=PxVvMd7q2LC-pob_LgrQdQpO8NsEXTxsMIx8dWMiCf0,4785
+pyalic/asyncio/wrappers.py,sha256=O29y89jIp1d_xiXOkSiXCf77E9Yvq7vuVYJXOqe7dTs,3422
+pyalic-1.0.1.dist-info/LICENSE,sha256=IMF9i4xIpgCADf0U-V1cuf9HBmqWQd3qtI3FSuyW4zE,26526
+pyalic-1.0.1.dist-info/METADATA,sha256=woY9cH3GVlcxwW8nTs215wUzM60G1bNux8DvO5dl38s,1176
+pyalic-1.0.1.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+pyalic-1.0.1.dist-info/top_level.txt,sha256=9TqQtA4ZQMJQsocioJ7d-WFyEH0z3JlI1PhidOxmZRI,7
+pyalic-1.0.1.dist-info/RECORD,,
