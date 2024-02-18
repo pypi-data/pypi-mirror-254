@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "flakely"
+version = "2024.1.31"
+description = "Signed snowflake ID's"
+authors = ["Zech Zimmerman <hi@zech.codes>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
