@@ -1,0 +1,23 @@
+[project]
+name = "decorators_dunningrb"
+version = "0.0.9"
+authors = [
+  { name="Rodney Dunning", email="dunningrb@gmail.com" },
+]
+description = "A library of decorators."
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["decorators"]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+license = {text = "MIT License"}
+
+[project.urls]
+Repository = "https://github.com/dunningrb/decorators"
+
+[tool.setuptools]
+packages = ["decorators"]
