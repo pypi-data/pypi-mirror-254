@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+script_house/FileSystemOperation.py
+script_house/__init__.py
+script_house.egg-info/PKG-INFO
+script_house.egg-info/SOURCES.txt
+script_house.egg-info/dependency_links.txt
+script_house.egg-info/top_level.txt
+script_house/utils/ArchiveUtils.py
+script_house/utils/FileSystemUtils.py
+script_house/utils/JsonUtils.py
+script_house/utils/SystemUtils.py
+script_house/utils/__init__.py
