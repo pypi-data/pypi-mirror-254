@@ -1,0 +1,3 @@
+[console_scripts]
+say_hello_mark = say_hello_mark:hello
+
