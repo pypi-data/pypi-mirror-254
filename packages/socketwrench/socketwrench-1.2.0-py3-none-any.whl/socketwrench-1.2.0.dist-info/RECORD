@@ -1,0 +1,16 @@
+socketwrench/__init__.py,sha256=_M3qBUR1L1UXOsJJ_1BRbdZMGE9OlaQAfJ06TGZG9o4,501
+socketwrench/__main__.py,sha256=ukVPfT6LqjG1Das8PBokwhGUTEXap4957wOZ4XBGqE0,1152
+socketwrench/connection.py,sha256=ue3lZv7V9QYcKm7h5XgTneejd2hSl-lailaD42KUEIQ,2989
+socketwrench/handlers.py,sha256=vtLWZNo7Kq5a8ExdixKm-qTf7BcNwZzTNo3DsQ_Emxo,17446
+socketwrench/openapi.py,sha256=yk5Fc8qqbO0yjWt7DRUWsO5rQsgNuqXPp0M3tw_rQ5I,6841
+socketwrench/server.py,sha256=NY8qd7DWDd2rXqvZ52EmZvmI7Q0otKI-EdmzNPeQThI,10267
+socketwrench/tags.py,sha256=gg5Vcj5PlAxRadIzOkncN9buO8ntoNOtj9FYw4nX8Ws,1624
+socketwrench/types.py,sha256=VcV7EYZTQoYNqBT_CvRyxKPZo9N1Lb2IyTFGDGnEvV4,19913
+socketwrench/samples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+socketwrench/samples/file_sample.py,sha256=xbYUMSyU_bmJc5tYe5t8zftNGyPgIcJ4jh9D2Xfnh1M,3049
+socketwrench/samples/sample.py,sha256=Vi5bLjHWpmFm5_loRU3xi8dEQL_mZdbKLa8zVD7Mg9w,3634
+socketwrench-1.2.0.dist-info/LICENSE,sha256=8FENO50SI8Rej90rSScOyHNP_0kcf30blI7nAWLhzv8,1210
+socketwrench-1.2.0.dist-info/METADATA,sha256=k1MS0T9Aib7SufWkZF1muPJOOGmNc2ZqNbNet22Jueg,10517
+socketwrench-1.2.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+socketwrench-1.2.0.dist-info/top_level.txt,sha256=h46pqCx_wAowUJIwYYcbjgvzm_xmPXe-9EuCg-1_CUw,13
+socketwrench-1.2.0.dist-info/RECORD,,
