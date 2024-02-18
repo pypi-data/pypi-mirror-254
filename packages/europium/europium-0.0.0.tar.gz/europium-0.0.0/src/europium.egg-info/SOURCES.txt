@@ -1,0 +1,9 @@
+LICENCE
+README.md
+pyproject.toml
+src/europium/__init__.py
+src/europium/example.py
+src/europium.egg-info/PKG-INFO
+src/europium.egg-info/SOURCES.txt
+src/europium.egg-info/dependency_links.txt
+src/europium.egg-info/top_level.txt
