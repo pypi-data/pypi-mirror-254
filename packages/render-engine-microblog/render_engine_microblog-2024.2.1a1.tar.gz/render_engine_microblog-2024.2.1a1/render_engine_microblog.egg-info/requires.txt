@@ -1,0 +1,9 @@
+render-engine>=2024.1.1a2
+jinja2
+render_engine_markdown
+
+[dev]
+pytest
+pytest-cov
+gazpacho
+ruff
