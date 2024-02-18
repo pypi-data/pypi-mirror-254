@@ -1,0 +1,32 @@
+.. _installation:
+    
+============
+Installation
+============
+
+Odevio is a desktop client. It is easily installed by downloading and executing Odevio's client.
+
+You can find the client for Windows, Linux and Mac |odevio_cient|.
+
+Once installed, you can easily run the client from your desktop.
+
+If it is your first time using Odevio, you are required to create an account. 
+
+.. image:: /img/desktop-signup.jpg
+  :alt: Odevio sign up
+  :align: center
+
+|
+
+Otherwise, you can log in using your existing credentials.
+
+.. image:: /img/desktop-login.jpg
+  :alt: Odevio login
+  :align: center
+
+|
+
+.. |odevio_cient| raw:: html
+
+   <a href="https://odevio.com/#:~:text=Install%20Odevio%20on%20your%20device" target="_blank">here</a>
+   

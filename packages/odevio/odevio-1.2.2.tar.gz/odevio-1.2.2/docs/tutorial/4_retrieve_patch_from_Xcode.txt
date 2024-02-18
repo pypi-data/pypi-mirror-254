@@ -1,0 +1,29 @@
+
+===========================================================
+4. How to retrieve your updates from Odevio-Remote locally
+===========================================================
+
+For this next part, make sure your configuration build is stopped by pressing the **Stop build** button.
+
+You will have the possibility to retrieve the changes you made in Odevio Remote locally.
+
+Retrieve changes with a patch file
+----------------------------------
+
+When your build is stopped, you can create the patch using the **Download Patch (1)** button.
+
+.. image:: /img/desktop-patch.jpg
+  :alt: Desktop patch
+  :align: center
+
+|
+
+By default, the file is called **odevio.patch** and is located in your app folder.
+
+.. image:: /img/odevio-patch.jpg
+  :alt: Odevio patch
+  :align: center
+
+|
+
+To apply the changes, use the **Apply Patch (2)** button.
