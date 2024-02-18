@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/CheetahPy.egg-info/PKG-INFO
+src/CheetahPy.egg-info/SOURCES.txt
+src/CheetahPy.egg-info/dependency_links.txt
+src/CheetahPy.egg-info/requires.txt
+src/CheetahPy.egg-info/top_level.txt
+src/cheetahpy/VERSION
+src/cheetahpy/__init__.py
+src/cheetahpy/cheetahpy.py
+src/cheetahpy/local_opendata.py
+tests/test_opendata.py
+tests/test_urls.py
