@@ -1,0 +1,3 @@
+[console_scripts]
+xdoc=src.app.cli:main
+
