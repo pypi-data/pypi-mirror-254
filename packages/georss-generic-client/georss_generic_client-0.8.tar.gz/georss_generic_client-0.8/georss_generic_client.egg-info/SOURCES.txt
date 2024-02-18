@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+georss_generic_client/__init__.py
+georss_generic_client/__version__.py
+georss_generic_client/feed.py
+georss_generic_client/feed_entry.py
+georss_generic_client/feed_manager.py
+georss_generic_client.egg-info/PKG-INFO
+georss_generic_client.egg-info/SOURCES.txt
+georss_generic_client.egg-info/dependency_links.txt
+georss_generic_client.egg-info/requires.txt
+georss_generic_client.egg-info/top_level.txt
