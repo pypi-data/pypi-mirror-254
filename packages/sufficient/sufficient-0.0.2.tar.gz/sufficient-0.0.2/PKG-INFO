@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: sufficient
+Version: 0.0.2
+Project-URL: Documentation, https://github.com/briceyan/sufficient-py#readme
+Project-URL: Issues, https://github.com/briceyan/sufficient-py/issues
+Project-URL: Source, https://github.com/briceyan/sufficient-py
+Author-email: Brice Yan <briceyan3.0@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: html2image
+Requires-Dist: inflection
+Requires-Dist: pillow
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# sufficient
+
+[![PyPI - Version](https://img.shields.io/pypi/v/sufficient.svg)](https://pypi.org/project/sufficient)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sufficient.svg)](https://pypi.org/project/sufficient)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install sufficient
+```
+
+## License
+
+`sufficient` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
