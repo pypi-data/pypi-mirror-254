@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: speedruncompy
+Version: 0.3.3
+Summary: A wrapper for speedrun.com's obscure new v2 API, as used by their new site
+Project-URL: Homepage, https://github.com/ManicJamie/speedruncompy
+Project-URL: Repository, https://github.com/ManicJamie/speedruncompy.git
+Project-URL: Bug Tracker, https://github.com/ManicJamie/speedruncompy/issues
+Author-email: Jamie <jamie.on.twitch@gmail.com>
+License: LGPLv2.1
+License-File: LICENSE
+Keywords: speedrun
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: aiohttp
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-asyncio; extra == 'test'
+Description-Content-Type: text/markdown
+
+# Speedrun.com v2 API wrapper
+
+A WIP python wrapper for speedrun.com's new backend API.
+
+WIP documentation for the API can be found in [speedruncom-apiv2-docs](https://github.com/ManicJamie/speedruncom-apiv2-docs)
+
+## Usage
+`pip install speedruncompy`, then `import speedruncompy`.
+
+Default namespace contains all endpoints. Login flow in `speedruncompy.auth`. Other notable fields include `enums` and `exceptions`. `data_structures` is currently unused, but may be useful to help construct common data structures.
+
+## Authorisation
+Note that this uses the API in the same way as https://speedrun.com. The v2 API does not currently accept the Bearer token the v1 API can use - but v2 is also not half-broken, and contains most of the new features SRC has added over the years.
+
+As such, authorisation requires your username & password (and 2FA token). ***This means logging in requires a massive leap of trust***, and so I encourage you to [inspect the auth module](src/speedruncompy/auth.py), and if you're very concerned consider either changing your SRC password or manually get an authed PHPSESSID with your own requests, then use `auth.loginSESSID`. 
+
+## Goals
+Future versions will aim to assist further in development;
+- Complete datatype coverage & testing to detect regressions & SRC-side additions
+- Document more enums
+- Convenience properties potentially exploiting cached data?
