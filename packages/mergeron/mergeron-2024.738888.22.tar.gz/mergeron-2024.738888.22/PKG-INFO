@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: mergeron
+Version: 2024.738888.22
+Summary: Analysis of standards defined in Horizontal Merger Guidelines
+License: MIT
+Keywords: merger policy analysis,merger guidelines,merger screening,policy presumptions,concentration standards,upward pricing pressure,GUPPI
+Author: Murthy Kambhampaty
+Author-email: smk@capeconomics.com
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: aenum (>=3.1,<4.0)
+Requires-Dist: attrs (>=23.2,<24.0)
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: certifi (>=2023.11.17,<2024.0.0)
+Requires-Dist: google-re2 (>=1.1,<2.0)
+Requires-Dist: importlib-metadata (>=7.0.1,<8.0.0)
+Requires-Dist: jinja2 (>=3.1,<4.0)
+Requires-Dist: joblib (>=1.3,<2.0)
+Requires-Dist: lxml (>=5.0,<6.0)
+Requires-Dist: matplotlib (>=3.8,<4.0)
+Requires-Dist: mkl (==2023.2)
+Requires-Dist: mpmath (>=1.3,<2.0)
+Requires-Dist: msgpack (>=1.0,<2.0)
+Requires-Dist: msgpack-numpy (>=0.4,<0.5)
+Requires-Dist: numpy (>=1.26,<2.0)
+Requires-Dist: openpyxl (>=3.1.2,<4.0.0)
+Requires-Dist: pyarrow (>=15.0,<16.0)
+Requires-Dist: pymupdf (>=1.23,<2.0)
+Requires-Dist: requests (>=2.31,<3.0)
+Requires-Dist: requests-toolbelt (>=1.0.0,<2.0.0)
+Requires-Dist: scipy (>=1.12,<2.0)
+Requires-Dist: sympy (>=1.12,<2.0)
+Requires-Dist: tables (>=3.8,<4.0)
+Requires-Dist: xlrd (>=2.0,<3.0)
+Requires-Dist: xlsxwriter (>=3.1,<4.0)
+Description-Content-Type: text/markdown
+
+mergeron: Merger Policy Analysis with Python
+============================================
+
+Model the standards specified in (or proposed for) U.S. Horizontal Merger Guidelines in terms of the sets of mergers conforming to a given Guidelines standard. Analyze intrinsic clearance rates and intrinsic enforcement rates under Guidelines standards, i.e., rates derived from applying a theoretically-derived model to generated data for specified distributions of relevant economic factors. Download and analyze merger investigations data published by FTC, covering investigations during the years, 1996 to 2011.
+
+Intrinsic clearance and enforcement rates are distinct from observed clearance and enforcement rates in that the former do not reflect the effects of screening and deterrence.
+
+Programs for replicating results in various of my papers are included in the "examples" sub-package.
+
+This package also exposes functions for generating random numbers with selected continuous distribution over specified parameters, employing multithreading on the CPU. To access these directly:
+
+    import mergeron.core.prng_cpu_multi
+
+Also included are functions for estimating confidence intervals for proportions and contrasts in proportions; the Bonfferoni adjustment is applied for confidence intervals for multiple comparisons. To access these directly:
+
+    import mergeron.core.propn_ci_lib
+
+A recent version of Paul Tol's python module, "tol_colors.py" is included in this package. Other than re-formatting (black and isort), the tol_colors module, licensed under the Standard 3-clause BSD license, is re-distributed here as downloaded from, https://personal.sron.nl/~pault/data/tol_colors.py. To access the tol_colors module directly:
+
+    import mergeron.ext.tol_colors
+
