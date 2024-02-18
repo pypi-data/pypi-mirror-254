@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: arh
+Version: 0.0.3
+Summary: Я здесь за эту улицу стою. Пацаны мне всё, и я всё пацанам. Кто меня знает, тот в курсе.
+Home-page: https://github.com/ObiVanBanan/arh
+Author: Andreu S
+Author-email: Thesonikpk@gmail.com
+License: MIT
+Keywords: sis
+Requires-Dist: fpdf ==1.7.2
+Requires-Dist: img2pdf ==0.5.1
+Requires-Dist: lxml ==4.9.3
+Requires-Dist: openpyxl ==3.1.2
+Requires-Dist: packaging ==23.2
+Requires-Dist: pandas ==2.1.2
+Requires-Dist: pdf2image ==1.16.3
+Requires-Dist: pdfkit ==1.0.0
+Requires-Dist: pikepdf ==8.7.1
+Requires-Dist: Pillow ==10.0.1
+Requires-Dist: pytesseract ==0.3.10
+Requires-Dist: PyPDF2 ==2.12.0
+Requires-Dist: tqdm ==4.66.1
+Requires-Dist: pillow ==10.0.1
+
