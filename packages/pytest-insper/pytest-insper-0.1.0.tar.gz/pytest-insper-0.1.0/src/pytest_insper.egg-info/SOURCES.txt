@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pytest_insper/__init__.py
+src/pytest_insper/fixtures.py
+src/pytest_insper/util.py
+src/pytest_insper.egg-info/PKG-INFO
+src/pytest_insper.egg-info/SOURCES.txt
+src/pytest_insper.egg-info/dependency_links.txt
+src/pytest_insper.egg-info/entry_points.txt
+src/pytest_insper.egg-info/requires.txt
+src/pytest_insper.egg-info/top_level.txt
