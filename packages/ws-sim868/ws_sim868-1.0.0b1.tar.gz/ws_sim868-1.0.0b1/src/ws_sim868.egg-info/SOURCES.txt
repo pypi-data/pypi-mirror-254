@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/ws_sim868/__init__.py
+src/ws_sim868/modemUnit.py
+src/ws_sim868.egg-info/PKG-INFO
+src/ws_sim868.egg-info/SOURCES.txt
+src/ws_sim868.egg-info/dependency_links.txt
+src/ws_sim868.egg-info/top_level.txt
