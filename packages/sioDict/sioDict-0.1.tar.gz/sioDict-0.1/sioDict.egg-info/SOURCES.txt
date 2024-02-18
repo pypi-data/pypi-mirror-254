@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+sioDict/__init__.py
+sioDict/base.py
+sioDict/ext.py
+sioDict.egg-info/PKG-INFO
+sioDict.egg-info/SOURCES.txt
+sioDict.egg-info/dependency_links.txt
+sioDict.egg-info/top_level.txt
+sioDict/variants/__init__.py
+sioDict/variants/json.py
+sioDict/variants/orjson.py
+sioDict/variants/toml.py
