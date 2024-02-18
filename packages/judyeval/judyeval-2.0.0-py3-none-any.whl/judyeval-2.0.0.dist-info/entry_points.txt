@@ -1,0 +1,3 @@
+[console_scripts]
+judy=judy.cli.run:judy_cli
+
