@@ -1,0 +1,316 @@
+{
+  "iri": "http://www.ebi.ac.uk/efo/EFO_0004607",
+  "lang": "en",
+  "description": [
+    "An ulcer in the duodenal wall.",
+    "A peptic ulcer arising in the small intestine."
+  ],
+  "synonyms": [
+    "duodenal ulcer",
+    "duodenal ulcer (disease)",
+    "curling's ulcers",
+    "stress Ulcer",
+    "curling Ulcer"
+  ],
+  "annotation": {
+    "IAO_0000589": [
+      "duodenal ulcer (disease)"
+    ],
+    "database_cross_reference": [
+      "NCIT:C26755",
+      "MedDRA:10013855",
+      "MedDRA:10055785",
+      "MedDRA:10013859",
+      "NCIt:C26755",
+      "DOID:1724",
+      "ICD10CM:K26",
+      "MedDRA:10013858",
+      "MESH:D004381",
+      "MeSH:D004381",
+      "MedDRA:10013836",
+      "MONDO:0005412",
+      "SCTID:39755000",
+      "MedDRA:10055243",
+      "HP:0002588",
+      "MedDRA:10013856",
+      "ICD10:K26",
+      "MedDRA:10013857",
+      "MedDRA:10013854",
+      "ICD9:532"
+    ],
+    "definition_citation": [
+      "D004381"
+    ],
+    "exactMatch": [
+      "http://purl.obolibrary.org/obo/DOID_1724",
+      "http://purl.obolibrary.org/obo/NCIT_C26755",
+      "http://identifiers.org/snomedct/39755000",
+      "http://purl.bioontology.org/ontology/ICD10CM/K26",
+      "http://identifiers.org/mesh/D004381"
+    ],
+    "gwas_trait": [
+      "true"
+    ],
+    "id": [
+      "EFO:0004607"
+    ],
+    "term editor": [
+      "Helen Parkinson"
+    ]
+  },
+  "label": "duodenal ulcer",
+  "ontology_name": "efo",
+  "ontology_prefix": "EFO",
+  "ontology_iri": "http://www.ebi.ac.uk/efo/efo.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": false,
+  "is_root": false,
+  "short_form": "EFO_0004607",
+  "obo_id": "EFO:0004607",
+  "in_subset": null,
+  "obo_definition_citation": [
+    {
+      "definition": "An ulcer in the duodenal wall.",
+      "oboXrefs": [
+        {
+          "database": "NCIT",
+          "id": "P378",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": [
+    {
+      "database": "MedDRA",
+      "id": "10013855",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "HP",
+      "id": "0002588",
+      "description": "MONDO:otherHierarchy",
+      "url": null
+    },
+    {
+      "database": "MESH",
+      "id": "D004381",
+      "description": "MONDO:equivalentTo",
+      "url": null
+    },
+    {
+      "database": "ICD9",
+      "id": "532",
+      "description": "EFO:0004607",
+      "url": null
+    },
+    {
+      "database": "MeSH",
+      "id": "D004381",
+      "description": null,
+      "url": "http://id.nlm.nih.gov/mesh/D004381"
+    },
+    {
+      "database": "ICD10CM",
+      "id": "K26",
+      "description": "MONDO:equivalentTo",
+      "url": null
+    },
+    {
+      "database": "SCTID",
+      "id": "39755000",
+      "description": "MONDO:equivalentTo",
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013836",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013856",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013858",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MONDO",
+      "id": "0005412",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10055243",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013857",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10055785",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "NCIt",
+      "id": "C26755",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013854",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "DOID",
+      "id": "1724",
+      "description": "MONDO:equivalentTo",
+      "url": null
+    },
+    {
+      "database": "NCIT",
+      "id": "C26755",
+      "description": "MONDO:equivalentTo",
+      "url": null
+    },
+    {
+      "database": "MedDRA",
+      "id": "10013859",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "ICD10",
+      "id": "K26",
+      "description": null,
+      "url": null
+    }
+  ],
+  "obo_synonym": [
+    {
+      "name": "duodenal ulcer",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+        {
+          "database": "MONDO",
+          "id": "ambiguous",
+          "description": null,
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "stress Ulcer",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+        {
+          "database": "NCIT",
+          "id": "C35263",
+          "description": null,
+          "url": null
+        },
+        {
+          "database": "DOID",
+          "id": "1724",
+          "description": null,
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "duodenal ulcer (disease)",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+        {
+          "database": null,
+          "id": "https://orcid.org/0000-0002-6601-2165",
+          "description": null,
+          "url": "https://orcid.org/0000-0002-6601-2165"
+        }
+      ]
+    },
+    {
+      "name": "curling Ulcer",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+        {
+          "database": "DOID",
+          "id": "1724",
+          "description": null,
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "duodenal ulcer",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "curling's ulcers",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+        {
+          "database": "DOID",
+          "id": "1724",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/jstree"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/graph"
+    },
+    "has_disease_location": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0004607/http%253A%252F%252Fwww.ebi.ac.uk%252Fefo%252FEFO_0000784"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

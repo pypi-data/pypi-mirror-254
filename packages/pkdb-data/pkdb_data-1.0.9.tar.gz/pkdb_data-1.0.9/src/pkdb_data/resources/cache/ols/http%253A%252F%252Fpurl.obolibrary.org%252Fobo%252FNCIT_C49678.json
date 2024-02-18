@@ -1,0 +1,164 @@
+{
+  "iri": "http://purl.obolibrary.org/obo/NCIT_C49678",
+  "lang": "en",
+  "description": [
+    "The rate of breathing (inhalation and exhalation) measured within in a unit time, usually expressed as breaths per minute."
+  ],
+  "synonyms": [
+    "RESPRATE",
+    "Respiratory Rate",
+    "RESP",
+    "Vital Signs \u2013 Respiratory Rate",
+    "respiration_rate",
+    "respiration rate"
+  ],
+  "annotation": {
+    "ALT_DEFINITION": [
+      "A measurement that describes the rate of breathing (inhalation and exhalation) measured within a unit time.",
+      "The rate of breathing (inhalation and exhalation) measured within in a unit time, usually expressed as breaths per minute. (NCI)"
+    ],
+    "Contributing_Source": [
+      "PCDC",
+      "ICDC",
+      "NICHD",
+      "ACC/AHA",
+      "CDISC",
+      "NCPDP"
+    ],
+    "Legacy Concept Name": [
+      "Respiratory_Rate"
+    ],
+    "Preferred_Name": [
+      "Respiratory Rate"
+    ],
+    "Semantic_Type": [
+      "Quantitative Concept"
+    ],
+    "UMLS_CUI": [
+      "C0231832"
+    ],
+    "code": [
+      "C49678"
+    ]
+  },
+  "label": "Respiratory Rate",
+  "ontology_name": "ncit",
+  "ontology_prefix": "NCIT",
+  "ontology_iri": "http://purl.obolibrary.org/obo/ncit.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": true,
+  "is_root": false,
+  "short_form": "NCIT_C49678",
+  "obo_id": "NCIT:C49678",
+  "in_subset": [
+    "NCIT_C99147",
+    "NCIT_C166373",
+    "NCIT_C165451",
+    "NCIT_C77526",
+    "NCIT_C120535",
+    "NCIT_C120534",
+    "NCIT_C167409",
+    "NCIT_C67153",
+    "NCIT_C90259",
+    "NCIT_C89415",
+    "NCIT_C66741",
+    "NCIT_C179532",
+    "NCIT_C66830",
+    "NCIT_C61410",
+    "NCIT_C179478",
+    "NCIT_C89506",
+    "NCIT_C91101"
+  ],
+  "obo_definition_citation": [
+    {
+      "definition": "The rate of breathing (inhalation and exhalation) measured within in a unit time, usually expressed as breaths per minute.",
+      "oboXrefs": [
+        {
+          "database": null,
+          "id": "NCI",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": null,
+  "obo_synonym": [
+    {
+      "name": "Respiratory Rate",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "Vital Signs \u2013 Respiratory Rate",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "respiration_rate",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "RESP",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "respiration rate",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "RESPRATE",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/jstree"
+    },
+    "children": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/children"
+    },
+    "descendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/descendants"
+    },
+    "hierarchicalChildren": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/hierarchicalChildren"
+    },
+    "hierarchicalDescendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/hierarchicalDescendants"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C49678/graph"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

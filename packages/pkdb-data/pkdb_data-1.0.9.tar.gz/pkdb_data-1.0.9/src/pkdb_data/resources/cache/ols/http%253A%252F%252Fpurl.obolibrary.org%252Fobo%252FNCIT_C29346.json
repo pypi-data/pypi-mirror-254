@@ -1,0 +1,118 @@
+{
+  "iri": "http://purl.obolibrary.org/obo/NCIT_C29346",
+  "lang": "en",
+  "description": [
+    "A substituted benzimidazole and proton pump inhibitor with antacid activity. Pantoprazole is a lipophilic weak base that crosses the parietal cell membrane and enters the acidic parietal cell canaliculus where it becomes protonated, producing the active metabolite sulphenamide, which forms an irreversible covalent bond with two sites of the H+/K+-ATPase enzyme located on the gastric parietal cell, thereby inhibiting both basal and stimulated gastric acid production."
+  ],
+  "synonyms": [
+    "Pantoprazole",
+    "PANTOPRAZOLE"
+  ],
+  "annotation": {
+    "CAS_Registry": [
+      "102625-70-7"
+    ],
+    "CHEBI_ID": [
+      "CHEBI:7915"
+    ],
+    "Chemical_Formula": [
+      "C16H15F2N3O4S"
+    ],
+    "Contributing_Source": [
+      "FDA"
+    ],
+    "FDA_UNII_Code": [
+      "D8TST4O562"
+    ],
+    "Has_Salt_Form": [
+      "http://purl.obolibrary.org/obo/NCIT_C61877"
+    ],
+    "Legacy Concept Name": [
+      "Pantoprazole"
+    ],
+    "Preferred_Name": [
+      "Pantoprazole"
+    ],
+    "Semantic_Type": [
+      "Organic Chemical",
+      "Pharmacologic Substance"
+    ],
+    "UMLS_CUI": [
+      "C0081876"
+    ],
+    "code": [
+      "C29346"
+    ]
+  },
+  "label": "Pantoprazole",
+  "ontology_name": "ncit",
+  "ontology_prefix": "NCIT",
+  "ontology_iri": "http://purl.obolibrary.org/obo/ncit.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": false,
+  "is_root": false,
+  "short_form": "NCIT_C29346",
+  "obo_id": "NCIT:C29346",
+  "in_subset": [
+    "NCIT_C63923"
+  ],
+  "obo_definition_citation": [
+    {
+      "definition": "A substituted benzimidazole and proton pump inhibitor with antacid activity. Pantoprazole is a lipophilic weak base that crosses the parietal cell membrane and enters the acidic parietal cell canaliculus where it becomes protonated, producing the active metabolite sulphenamide, which forms an irreversible covalent bond with two sites of the H+/K+-ATPase enzyme located on the gastric parietal cell, thereby inhibiting both basal and stimulated gastric acid production.",
+      "oboXrefs": [
+        {
+          "database": null,
+          "id": "NCI",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": null,
+  "obo_synonym": [
+    {
+      "name": "PANTOPRAZOLE",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "Pantoprazole",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/jstree"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/graph"
+    },
+    "Chemical_Or_Drug_Is_Metabolized_By_Enzyme": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C29346/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_R122"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

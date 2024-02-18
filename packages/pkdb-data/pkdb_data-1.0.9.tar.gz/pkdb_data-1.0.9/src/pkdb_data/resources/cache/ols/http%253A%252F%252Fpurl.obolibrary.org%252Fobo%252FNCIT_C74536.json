@@ -1,0 +1,113 @@
+{
+  "iri": "http://purl.obolibrary.org/obo/NCIT_C74536",
+  "lang": "en",
+  "description": [
+    "Any agent that dissolves mucus, making it less thick and sticky. This makes it easier for the mucus to drain from the upper respiratory system, be removed through coughing, or be transported through the gastrointestinal (GI) tract."
+  ],
+  "synonyms": [
+    "Mucolytic Agent",
+    "Mucolytic",
+    "Mucolytics"
+  ],
+  "annotation": {
+    "Legacy Concept Name": [
+      "Mucolytic_Agent"
+    ],
+    "Preferred_Name": [
+      "Mucolytic Agent"
+    ],
+    "Semantic_Type": [
+      "Chemical Viewed Functionally"
+    ],
+    "UMLS_CUI": [
+      "C0026698"
+    ],
+    "code": [
+      "C74536"
+    ]
+  },
+  "label": "Mucolytic Agent",
+  "ontology_name": "ncit",
+  "ontology_prefix": "NCIT",
+  "ontology_iri": "http://purl.obolibrary.org/obo/ncit.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": true,
+  "is_root": false,
+  "short_form": "NCIT_C74536",
+  "obo_id": "NCIT:C74536",
+  "in_subset": null,
+  "obo_definition_citation": [
+    {
+      "definition": "Any agent that dissolves mucus, making it less thick and sticky. This makes it easier for the mucus to drain from the upper respiratory system, be removed through coughing, or be transported through the gastrointestinal (GI) tract.",
+      "oboXrefs": [
+        {
+          "database": null,
+          "id": "NCI",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": null,
+  "obo_synonym": [
+    {
+      "name": "Mucolytics",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "Mucolytic Agent",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "Mucolytic",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/jstree"
+    },
+    "children": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/children"
+    },
+    "descendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/descendants"
+    },
+    "hierarchicalChildren": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/hierarchicalChildren"
+    },
+    "hierarchicalDescendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/hierarchicalDescendants"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C74536/graph"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,311 @@
+{
+  "iri": "http://purl.obolibrary.org/obo/UBERON_0002106",
+  "lang": "en",
+  "description": [],
+  "synonyms": [],
+  "annotation": {
+    "database_cross_reference": [
+      "BTO:0001281",
+      "GAID:1289",
+      "OpenCyc:Mx4rvVjgw5wpEbGdrcN5Y29ycA",
+      "MA:0000141",
+      "XAO:0000328",
+      "MAT:0000085",
+      "VHOG:0000120",
+      "EMAPA:18767",
+      "MESH:D013154",
+      "TAO:0000436",
+      "ZFA:0000436",
+      "UMLS:C0037993",
+      "NCIT:C12432",
+      "http://www.snomedbrowser.com/Codes/Details/181279003",
+      "http://en.wikipedia.org/wiki/Spleen",
+      "EFO:0000869",
+      "http://linkedlifedata.com/resource/umls/id/C0037993",
+      "AAO:0010395",
+      "CALOHA:TS-0956",
+      "EV:0100055",
+      "FMA:7196",
+      "galen:Spleen",
+      "MIAA:0000085"
+    ],
+    "definition": [
+      "The organ that functions to filter blood and to store red corpuscles and platelets."
+    ],
+    "depicted by": [
+      "https://upload.wikimedia.org/wikipedia/commons/d/d6/Illu_spleen.jpg"
+    ],
+    "external_definition": [
+      "An organ involved in red blood cell filtration and immune response.[AAO]"
+    ],
+    "function_notes": [
+      "It synthesizes antibodies in its white pulp and removes, from blood and lymph node circulation, antibody-coated bacteria along with antibody-coated blood cells"
+    ],
+    "has_obo_namespace": [
+      "uberon"
+    ],
+    "has_related_synonym": [
+      "lien"
+    ],
+    "has_relational_adjective": [
+      "lienal",
+      "splenic"
+    ],
+    "homology_notes": [
+      "With the advent of clonal selection, the accumulation and segregation of T and B cells in specialized organs for antigen presentation became necessary, and indeed the spleen is found in all jawed vertebrates, but not in agnathans or invertebrates.[well established][VHOG]"
+    ],
+    "id": [
+      "UBERON:0002106"
+    ],
+    "present in taxon": [
+      "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+    ],
+    "taxon_notes": [
+      "In humans, it is located in the left upper quadrant of the abdomen. It removes old red blood cells and holds a reserve in case of hemorrhagic shock, especially in animals like horses (not in humans), while recycling iron",
+      "Neither hagfish nor lampreys possess what might be considered a discrete and condensed spleen. Hagfish possess dispersed lymphoid tissue within the submucosa of the intestine (96) associated with the portal vein (97), whereas lymphoid tissue is associated with the typhlosole portion of the intestine in lampreys (96)"
+    ]
+  },
+  "label": "spleen",
+  "ontology_name": "uberon",
+  "ontology_prefix": "UBERON",
+  "ontology_iri": "http://purl.obolibrary.org/obo/uberon.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": true,
+  "is_root": false,
+  "short_form": "UBERON_0002106",
+  "obo_id": "UBERON:0002106",
+  "in_subset": [
+    "uberon_slim",
+    "efo_slim",
+    "pheno_slim",
+    "vertebrate_core",
+    "organ_slim",
+    "human_reference_atlas"
+  ],
+  "obo_definition_citation": [
+    {
+      "definition": "The organ that functions to filter blood and to store red corpuscles and platelets.",
+      "oboXrefs": [
+        {
+          "database": "ISBN",
+          "id": "0-683-40008-8",
+          "description": null,
+          "url": "https://www.worldcat.org/search?q=bn%3A0-683-40008-8"
+        },
+        {
+          "database": "MP",
+          "id": "0000689",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": [
+    {
+      "database": "MIAA",
+      "id": "0000085",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "AAO",
+      "id": "0010395",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": null,
+      "id": "http://linkedlifedata.com/resource/umls/id/C0037993",
+      "description": null,
+      "url": "http://linkedlifedata.com/resource/umls/id/C0037993"
+    },
+    {
+      "database": "CALOHA",
+      "id": "TS-0956",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": null,
+      "id": "http://www.snomedbrowser.com/Codes/Details/181279003",
+      "description": null,
+      "url": "http://www.snomedbrowser.com/Codes/Details/181279003"
+    },
+    {
+      "database": "EFO",
+      "id": "0000869",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "GAID",
+      "id": "1289",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "galen",
+      "id": "Spleen",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "BTO",
+      "id": "0001281",
+      "description": null,
+      "url": "http://purl.obolibrary.org/obo/BTO_0001281"
+    },
+    {
+      "database": "TAO",
+      "id": "0000436",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "NCIT",
+      "id": "C12432",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "EV",
+      "id": "0100055",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "FMA",
+      "id": "7196",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": null,
+      "id": "http://en.wikipedia.org/wiki/Spleen",
+      "description": null,
+      "url": "http://en.wikipedia.org/wiki/Spleen"
+    },
+    {
+      "database": "ZFA",
+      "id": "0000436",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MAT",
+      "id": "0000085",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MESH",
+      "id": "D013154",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "OpenCyc",
+      "id": "Mx4rvVjgw5wpEbGdrcN5Y29ycA",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "MA",
+      "id": "0000141",
+      "description": null,
+      "url": "http://www.informatics.jax.org/searches/AMA.cgi?id=MA:0000141"
+    },
+    {
+      "database": "XAO",
+      "id": "0000328",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "UMLS",
+      "id": "C0037993",
+      "description": "ncithesaurus:Spleen",
+      "url": null
+    },
+    {
+      "database": "VHOG",
+      "id": "0000120",
+      "description": null,
+      "url": null
+    },
+    {
+      "database": "EMAPA",
+      "id": "18767",
+      "description": null,
+      "url": "http://www.informatics.jax.org/vocab/gxd/anatomy/EMAPA:18767"
+    }
+  ],
+  "obo_synonym": [
+    {
+      "name": "lien",
+      "scope": "hasRelatedSynonym",
+      "type": "latin term",
+      "xrefs": [
+        {
+          "database": null,
+          "id": "http://en.wikipedia.org/wiki/Spleen",
+          "description": null,
+          "url": "http://en.wikipedia.org/wiki/Spleen"
+        }
+      ]
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/jstree"
+    },
+    "children": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/children"
+    },
+    "descendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/descendants"
+    },
+    "hierarchicalChildren": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/hierarchicalChildren"
+    },
+    "hierarchicalDescendants": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/hierarchicalDescendants"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/graph"
+    },
+    "part_of": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000050"
+    },
+    "only_in_taxon": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FRO_0002160"
+    },
+    "develops_from": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FRO_0002202"
+    },
+    "located_in": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_0002106/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FRO_0001025"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

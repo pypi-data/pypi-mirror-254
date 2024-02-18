@@ -1,0 +1,119 @@
+{
+  "iri": "http://purl.obolibrary.org/obo/NCIT_C119248",
+  "lang": "en",
+  "description": [
+    "The resistance to blood flow offered by all systemic vasculature, excluding pulmonary vasculature. The major determinant of SVR is arteriolar tone, but blood viscosity and vascular capacitance are also contributing factors."
+  ],
+  "synonyms": [
+    "Systemic Vascular Resistance",
+    "TPR",
+    "Total Peripheral Resistance",
+    "SVR"
+  ],
+  "annotation": {
+    "ALT_DEFINITION": [
+      "The resistance to blood flow through the systemic vasculature."
+    ],
+    "Contributing_Source": [
+      "CDISC"
+    ],
+    "Preferred_Name": [
+      "Systemic Vascular Resistance"
+    ],
+    "Semantic_Type": [
+      "Finding"
+    ],
+    "UMLS_CUI": [
+      "C1258192"
+    ],
+    "code": [
+      "C119248"
+    ]
+  },
+  "label": "Systemic Vascular Resistance",
+  "ontology_name": "ncit",
+  "ontology_prefix": "NCIT",
+  "ontology_iri": "http://purl.obolibrary.org/obo/ncit.owl",
+  "is_obsolete": false,
+  "term_replaced_by": null,
+  "is_defining_ontology": true,
+  "has_children": false,
+  "is_root": false,
+  "short_form": "NCIT_C119248",
+  "obo_id": "NCIT:C119248",
+  "in_subset": [
+    "NCIT_C66830",
+    "NCIT_C61410",
+    "NCIT_C101846",
+    "NCIT_C77526",
+    "NCIT_C101847",
+    "NCIT_C120533",
+    "NCIT_C120532"
+  ],
+  "obo_definition_citation": [
+    {
+      "definition": "The resistance to blood flow offered by all systemic vasculature, excluding pulmonary vasculature. The major determinant of SVR is arteriolar tone, but blood viscosity and vascular capacitance are also contributing factors.",
+      "oboXrefs": [
+        {
+          "database": null,
+          "id": "NCI",
+          "description": null,
+          "url": null
+        }
+      ]
+    }
+  ],
+  "obo_xref": null,
+  "obo_synonym": [
+    {
+      "name": "Systemic Vascular Resistance",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "Total Peripheral Resistance",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "SVR",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    },
+    {
+      "name": "TPR",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": []
+    }
+  ],
+  "is_preferred_root": false,
+  "_links": {
+    "self": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248?lang=en"
+    },
+    "parents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/parents"
+    },
+    "ancestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/ancestors"
+    },
+    "hierarchicalParents": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/hierarchicalParents"
+    },
+    "hierarchicalAncestors": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/hierarchicalAncestors"
+    },
+    "jstree": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/jstree"
+    },
+    "graph": {
+      "href": "https://www.ebi.ac.uk/ols/api/ontologies/ncit/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FNCIT_C119248/graph"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
