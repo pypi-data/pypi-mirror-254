@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: simple-observable
+Version: 0.1.0
+Summary: A simple observer pattern implementation
+Author-email: darkhaniop <darkhaniop@google.com>
+Project-URL: Homepage, https://github.com/gw-tools/simple-observable
+Project-URL: Bug Tracker, https://github.com/gw-tools/simple-observable/issues
+Keywords: observer,observable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: <4,>=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# simple-observable
+
+A simple observer pattern implementation.
+
+### Usage example
+
+```python
+from simple_observable import Observable
+
+
+observable = Observable()
+
+
+def my_callback(event):
+    print(f"Called with {event}")
+
+
+observable.add_listener("mytopic", my_callback)
+
+observable.notify("mytopic", {"event_details": "hello"})
+
+```
+
+### Topic lifecycle events
+
+The special topic `Observable.LIFECYCLE_EVENTS` can be used to perform an actions when new topics are added and existing ones are removed. 
+
+```python
+from simple_observable import Observable
+
+
+observable = Observable()
+
+
+def on_lifecycle_event(event):
+    if event["event_type"] == observable.TOPIC_ADDED_EVENT:
+        topic = event["topic"]
+        print(f"topic lifecycle: added '{topic}'")
+    if event["event_type"] == observable.TOPIC_REMOVED_EVENT:
+        topic = event["topic"]
+        print(f"topic lifecycle: removed '{topic}'")
+
+
+observable.add_listener(observable.LIFECYCLE_EVENTS, on_lifecycle_event)
+
+
+def my_callback(event):
+    print(f"Called with {event}")
+
+
+# the next line triggers a lifecycle event {"event_type": observable.TOPIC_ADDED_EVENT, "topic": "mytopic"}
+listener_id = observable.add_listener("mytopic", my_callback)
+
+observable.notify("mytopic", {"key": "value"})
+
+# and the last line triggers a lifecycle event {"event_type": observable.TOPIC_REMOVED_EVENT, "topic": "mytopic"}
+observable.remove_listener(listener_id)
+
+
+```
