@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: nrsdk
+Version: 1.1.4.3
+Summary: Api for use quanlan device, since v1.1.3.3
+Author: eegion
+Author-email: hehuajun@eegion.com
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+
