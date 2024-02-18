@@ -1,0 +1,3 @@
+# `pickleplot` - store and open matplotlib figures as `pickle`d files
+
+...

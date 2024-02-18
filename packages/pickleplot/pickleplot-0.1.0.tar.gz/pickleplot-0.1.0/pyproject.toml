@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pickleplot"
+version = "0.1.0"
+description = "Save and open matplotlib plots as compressed pickle files"
+authors = ["Yann Büchau <nobodyinperson@posteo.de>"]
+readme = "README.md"
+classifiers = [ 
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+matplotlib = ">3"
+zstandard = "^0.22.0"
+rich = "^13.7.0"
+braceexpand = "^0.1.7"
+dill = "^0.3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pickleplot = 'pickleplot.__main__:cli'
+plotopen = 'pickleplot.__main__:cli'
+openplot = 'pickleplot.__main__:cli'
