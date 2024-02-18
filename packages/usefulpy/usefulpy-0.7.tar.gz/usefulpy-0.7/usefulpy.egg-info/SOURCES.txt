@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+usefulpy/__init__.py
+usefulpy/math.py
+usefulpy/sentry_config.py
+usefulpy.egg-info/PKG-INFO
+usefulpy.egg-info/SOURCES.txt
+usefulpy.egg-info/dependency_links.txt
+usefulpy.egg-info/top_level.txt
