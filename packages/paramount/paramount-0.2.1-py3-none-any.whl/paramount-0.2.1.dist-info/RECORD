@@ -1,0 +1,17 @@
+paramount/Evaluate.py,sha256=saZpNiHVvkPhkLm4RwL-SWF2PLT555tOpK45PDo6DqI,6120
+paramount/__init__.py,sha256=uXqeGOfM4Bm5NF-5MuRf84yUtyHO5qKCjAjR4J8IFNo,26
+paramount/cli.py,sha256=5jHUbQs9y_G8lLDpTVq4m-jRBk2IMWTPF_-da7cRjsc,559
+paramount/library_functions.py,sha256=jILLfWcsi0ezGAVPC8vgZTXGpalYf3Gr11ad4uw_WBo,4017
+paramount/record.py,sha256=IkxKlSPa1IrhZmt5xEcgesEf1oR7_k2Gnq5xi4fjW6U,6230
+paramount/thousand_random_words.txt,sha256=XW2BXh8YwnhQmnyxNO_SZiAVtx0RkVmn8o2UTDfyMtI,10544
+paramount/db_connector/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+paramount/db_connector/csv.py,sha256=O2Hq59NfTBryeFQdYy8nK6M7jWveqpwEWkTGp-HilXA,830
+paramount/db_connector/db.py,sha256=WKYxUwr9nmiBRHk8-aw43TJFTUOOOLtBV42lkXG1En4,1290
+paramount/db_connector/postgres.py,sha256=n9MI0Zc1JMEsRUFx7qYE2vnh7SWE80IfWp4r6nTuvUM,6475
+paramount/pages/Optimize.py,sha256=woVS69VT77wVc34gAGfjmjWvvV1hfhDXUtYC7TopXaY,8850
+paramount/pages/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+paramount-0.2.1.dist-info/METADATA,sha256=Q8U1hsibhdV5MEGCzOFF1Nl5j5rabFUuCmY7Zj7-pxE,555
+paramount-0.2.1.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+paramount-0.2.1.dist-info/entry_points.txt,sha256=UnlNRZOGd1r8OEpqi8UwuKqBOobRLPzJQ6ILZUCsGg0,49
+paramount-0.2.1.dist-info/top_level.txt,sha256=JcInCX8cWbtuj9hyPzIwnzGzzY1ptF9l6UmBgdL7thM,10
+paramount-0.2.1.dist-info/RECORD,,

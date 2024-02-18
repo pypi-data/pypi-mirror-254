@@ -1,0 +1,2 @@
+[console_scripts]
+paramount = paramount.cli:main
