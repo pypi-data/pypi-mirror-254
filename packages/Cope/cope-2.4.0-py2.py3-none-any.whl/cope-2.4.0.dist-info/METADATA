@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Cope
+Version: 2.4.0
+Summary: A bunch of generic functions and classes useful in multiple projects
+License-File: LICENSE
+Requires-Dist: rich
+Requires-Dist: varname
+Provides-Extra: linalg
+Requires-Dist: sympy; extra == 'linalg'
