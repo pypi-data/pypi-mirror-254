@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ptetools
+Version: 0.1.2
+Summary: Python package with various tools. 
+Maintainer-email: Pieter Eendebak <pieter.eendebak@gmail.com>
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+License-File: LICENSE.md
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: rich
+Requires-Dist: qtpy
+Requires-Dist: PyQt5
