@@ -1,0 +1,10 @@
+    def _show_token_infos(self, result: ActionResult):
+        html = """
+<div class="center">
+  <h2>Get Tokens</h2>
+  <p class="medium">
+   Integration with other APIs can enable on-chain information queries, to be implemented
+  </p>
+</div>
+"""
+        return html

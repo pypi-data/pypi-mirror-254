@@ -1,0 +1,16 @@
+def _show_concepts(self, result: ActionResult):
+        html = """
+<div class="center">
+  <h2>Declarative</h2>
+  <p></>
+  <ul class="small">
+    <li>app = (name, description, logo, uri, pages)</li>
+    <li>page = (view, btn_1, btn_2, ...)</li>
+    <li>view = static file | html | udf </li>
+    <li>btn_i = (handler, next_page_name)</li>
+  </ul>
+  <p></>
+  <p>Click buttons to learn</>
+</div>
+"""
+        return html
