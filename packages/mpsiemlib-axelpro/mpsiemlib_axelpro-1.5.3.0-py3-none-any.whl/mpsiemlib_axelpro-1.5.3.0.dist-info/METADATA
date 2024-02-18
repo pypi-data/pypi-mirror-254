@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: mpsiemlib-axelpro
+Version: 1.5.3.0
+Summary: MaxPatrol SIEM API SDK
+Home-page: https://github.com/axel-pro/mpsiemlib
+Author: nikolaiav
+Author-email: 
+License: GPLv3
+Platform: UNKNOWN
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: PyYAML
+Requires-Dist: elasticsearch >=7.10.0
+Requires-Dist: pytz
+Requires-Dist: requests
+
+UNKNOWN
+
