@@ -1,0 +1,14 @@
+rooms_shared_services/__init__.py,sha256=ZunQDtbF28nQISzQ1ceEJPzLHEhIkExCLeA8lSdAjYA,36
+rooms_shared_services/src/__init__.py,sha256=k-jGkl2svyAcNESqn2rhGBA5m5rgd9K91YTpOh9DrwA,19
+rooms_shared_services/src/fakers/fake.py,sha256=CZk3b5-6zXIpmhxPXOBZu5k3NfqDYFhgGVykvTxL_R8,1635
+rooms_shared_services/src/logging/http_logger.py,sha256=cebALFYqC58KOQx7mHq63YNZ4a5v2_VYRzpYU7UqujA,1281
+rooms_shared_services/src/logging/settings.py,sha256=6aGfPmVbRrH0ZNLCQGX_VGWqnw_9_OJxPqJdOflLFU0,370
+rooms_shared_services/src/main.py,sha256=76gBJ9Ac_zXx93ecdfXj8LjMK5fib5yHnqcQg-0qpRc,584
+rooms_shared_services/src/receivers/abstract.py,sha256=HokUIQArYl58OvuLYYly1Bw2Y9hE4KVnZCMs_MW74_A,63
+rooms_shared_services/src/storage/__init__.py,sha256=ZEUYaCfEWtVDcx9rqxHDgRbbBitY1hLMAQJJ1anSAN0,23
+rooms_shared_services/src/storage/abstract.py,sha256=PK7wwmvnnrf-9x-PY99E8g8vhxkTYALgtM4yA3Tqaxg,998
+rooms_shared_services/src/storage/dynamodb.py,sha256=Schp0soc4V00czjdG9EbGzHcMbABIwhn8lVU_b1tGPE,3430
+rooms_shared_services-0.1.13.dist-info/LICENSE,sha256=7EI8xVBu6h_7_JlVw-yPhhOZlpY9hP8wal7kHtqKT_E,1074
+rooms_shared_services-0.1.13.dist-info/METADATA,sha256=udBYF1Dyte7Uu_nO953qRcsi8K01Alddje0YHa1u9Ns,475
+rooms_shared_services-0.1.13.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+rooms_shared_services-0.1.13.dist-info/RECORD,,
