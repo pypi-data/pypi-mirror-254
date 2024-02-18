@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 100
+
+[project]
+name = "qtpygc"
+version = "0.1.0"
+description = "Prevent PyQt/PySide crashes due to cross-thread garbage collection"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Eduard Christian Dumitrescu", email = "eduard.c.dumitrescu@gmail.com" },
+]
+dependencies = ["heapdict", "QtPy"]

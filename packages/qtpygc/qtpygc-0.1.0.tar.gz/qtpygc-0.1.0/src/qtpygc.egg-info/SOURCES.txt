@@ -1,0 +1,16 @@
+CHANGELOG.md
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/qtpygc/__init__.py
+src/qtpygc.egg-info/PKG-INFO
+src/qtpygc.egg-info/SOURCES.txt
+src/qtpygc.egg-info/dependency_links.txt
+src/qtpygc.egg-info/requires.txt
+src/qtpygc.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_crash.py
+tests/test_interval.py

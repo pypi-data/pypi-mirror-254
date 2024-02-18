@@ -1,0 +1,62 @@
+# qtpygc
+
+Are you experiencing strange segfaults in your large multithreaded Qt program at seemingly random times? Maybe even data corruption?
+
+It might be because both PyQt and PySide have a longstanding bug that may never be fixed. This bug is the result of three things:
+
+1. Manipulating Qt objects is generally **not** thread-safe. The only thread that can safely access a Qt object is the one that [owns](https://doc.qt.io/qt-6/threads-qobject.html) that objects. Deleting an object is _especially_ not safe. Almost all Qt objects are GUI objects and are owned by the GUI thread.
+2. Qt objects are generally arranged in a tree and are deleted manually, at least when coding in C++. In Python however, Qt objects _can_ get garbage-collected when they are no longer referenced. It is easy to create reference cycles, and Python will _eventually_ collect such objects when the garbage collector runs.
+3. In CPython, garbage collection may run at any time _and from any thread_. Typically this happens in threads that allocate and free a lot of objects, which is usually background threads (not the main GUI thread).
+
+This means that the garbage collector may run in a background thread and accidentally deallocate a GUI object that is owned by the GUI thread. QObject destruction is not thread-safe, so this results in anything from weird corruption to crashes.
+
+This module implements the [workaround](https://riverbankcomputing.com/pipermail/pyqt/2011-August/030378.html) suggested by Kovid Goyal on the PyQt mailing list: disable automatic garbage collection and periodically run garbage collection manually in the main (Qt GUI) thread.
+
+This is **not** a complete workaround: if you create QObjects in threads other than the GUI thread, you can still get a crash when the GUI thread runs the GC and destroys such objects. You must ensure that objects created in other threads are manually destroyed (for example using [deleteLater](https://doc.qt.io/qt-6/qobject.html#deleteLater)).
+
+## Dependencies
+
+We try to keep dependencies light:
+
+- [QtPy](https://pypi.org/project/QtPy/) abstraction layer for PyQt/PySide
+- [HeapDict](https://pypi.org/project/HeapDict/) excellent heap-based priority queue module (88 LoC)
+
+To run the tests, you'll need `pytest`. In particular, `tests/test_crash.py` checks that Qt crashes if the workaround in this module isn't active.
+
+## Examples
+
+Typical usage would be something like:
+
+```python
+from qtpy.QtWidgets import QApplication
+
+from qtpygc import GarbageCollector
+
+# you should only ever create one instance of this
+gaco = GarbageCollector()
+
+app = QtWidgets.QApplication(sys.argv)
+
+# start a timer inside the main Qt thread that collects garbage
+with gaco.qt_loop():
+    # run event loop (use app.quit() to exit)
+    app.exec_()
+```
+
+If you are running a tight Python loop that creates a lot of cyclic garbage, you can manually trigger a garbage collection if needed:
+
+```python
+while some_condition:
+    do_stuff_that_generates_garbage()
+
+    # check if the garbage collector should run and signal the GUI thread to run it if necessary
+    gaco.maybe_collect_threadsafe()
+```
+
+Alternatively, you can temporarily decrease the GC timer interval:
+
+```python
+# while inside the "with" block, check if the GC needs to be run every hundredth of a second
+with gaco.gc_interval_threadsafe(0.01):
+    do_stuff_that_generates_a_lot_of_garbage()
+```
