@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: stac-fastapi.opensearch
+Version: 0.1.0
+Summary: Opensearch stac-fastapi backend.
+Home-page: https://github.com/stac-utils/stac-fastapi-elasticsearch
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi
+Requires-Dist: attrs
+Requires-Dist: pydantic[dotenv] <2
+Requires-Dist: stac-pydantic ==2.0.*
+Requires-Dist: stac-fastapi.types ==2.4.9
+Requires-Dist: stac-fastapi.api ==2.4.9
+Requires-Dist: stac-fastapi.extensions ==2.4.9
+Requires-Dist: opensearch-py ==2.4.2
+Requires-Dist: opensearch-py[async] ==2.4.2
+Requires-Dist: pystac[validation]
+Requires-Dist: uvicorn
+Requires-Dist: orjson
+Requires-Dist: overrides
+Requires-Dist: starlette
+Requires-Dist: geojson-pydantic
+Requires-Dist: pygeofilter ==0.2.1
+
+# stac-fastapi-opensearch 
