@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: datapak
+Version: 0.0.1
+Summary: DATAPAK
+License: BSD-3
+Author: Michele Dallachiesa
+Author-email: michele.dallachiesa@sigforge.com
+Requires-Python: >=3.10.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+
