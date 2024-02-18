@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+    apiflask-api:
+      image: gitea.bearcatlog.com/bryant/apiflask-api:latest
+      build:
+          context: .
+          dockerfile: ./Dockerfile

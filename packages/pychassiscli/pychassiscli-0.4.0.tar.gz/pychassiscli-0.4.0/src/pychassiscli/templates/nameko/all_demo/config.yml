@@ -1,0 +1,35 @@
+AMQP_URI: pyamqp://${RABBIT_USER:admin}:${RABBIT_PASSWORD:admin}@${RABBIT_HOST:localhost}:${RABBIT_PORT:5672}/
+# WEB_SERVER_ADDRESS: '0.0.0.0:8000'
+RPC_EXCHANGE: 'nameko-rpc'
+
+max_workers: 20
+PREFETCH_COUNT: 20
+parent_calls_tracked: 20
+
+LOGGING:
+    version: 1
+    formatters:
+        tracer:
+            (): nameko_tracer.formatters.PrettyJSONFormatter
+    handlers:
+        tracer:
+            class: logging.StreamHandler
+            formatter: tracer
+    loggers:
+        nameko_tracer:
+            level: INFO
+            handlers: [tracer]
+
+SENTRY:
+    DSN: ${SENTRY_DSN}
+    CLIENT_CONFIG:
+        site: ${SENTRY_SITE}
+
+STATSD_HOST: ${STATSD_HOST}
+STATSD_PORT: ${STATSD_PORT}
+STATSD_PREFIX: ${STATSD_PREFIX}
+
+DEBUG: ${DEBUG}
+
+MONGODB_URI: mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/?authMechanism=DEFAULT
+MONGODB_DB: ${MONGODB_DB}
