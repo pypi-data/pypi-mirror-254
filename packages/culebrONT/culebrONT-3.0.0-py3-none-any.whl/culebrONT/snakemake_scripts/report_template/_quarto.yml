@@ -1,0 +1,129 @@
+project:
+  type: book
+  output-dir: OUTPUT_DIR
+  title: "CulebrONT Report"
+
+book:
+  title: "CulebrONT Report"
+  author:
+    - name: Julie Orjuela
+      affiliations:
+        - id: ird
+          name: French National Research Institute for Sustainable Development (IRD)
+          city: Montpellier
+          state: France
+    - name: Aurore Comte
+      affiliations:
+        - id: ird
+          name: French National Research Institute for Sustainable Development (IRD)
+          city: Montpellier
+          state: France
+    - name: Sébastien Ravel
+      affiliations:
+        - id: cirad
+          name: French Agricultural Research Centre for International Development (CIRAD)
+          city: Montpellier
+          state: France
+    - name: Florian Charriat
+      affiliations:
+        - id: cirad
+          name: French Agricultural Research Centre for International Development (CIRAD)
+          city: Montpellier
+          state: France
+    - name: Tram Vi
+      affiliations:
+        - id: ird
+          name: French National Research Institute for Sustainable Development (IRD)
+          city: Montpellier
+          state: France
+    - name: François Sabot
+      affiliations:
+        - id: ird
+          name: French National Research Institute for Sustainable Development (IRD)
+          city: Montpellier
+          state: France
+    - name: Sébastien Cunnac
+      affiliations:
+        - id: ird
+          name: French National Research Institute for Sustainable Development (IRD)
+          city: Montpellier
+          state: France
+
+  date: now
+  date-format: "YYYY-MM-DD HH:mm "
+  cover-image: culebront_logo.png
+  search:
+    location: sidebar
+    type: textbox
+  favicon: culebront_logo.png
+  image: culebront_logo.png
+  twitter-card: true
+  site-url: https://example.com
+  repo-url: https://forge.ird.fr/diade/culebront_pipeline
+  downloads: [pdf, epub]
+  #sharing: [twitter, facebook]
+ 
+  sidebar:          # left menu
+    style: docked
+    background: dark
+    text: "report"
+  
+  navbar:          # top menu
+    title: CulebrONT report
+    logo: culebront_logo.png
+  
+  ######################
+  chapters:
+    - index.qmd
+    - about_workflow.qmd
+    - part: "Samples"
+      chapters:
+        SAMPLE
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    number-depth: 0
+    theme:
+      light: Minty
+      dark: darkly
+    page-layout: full
+    grid:
+      sidebar-width: 250px
+      body-width: 1400px
+      margin-width: 200px
+      gutter-width: 1.5rem
+  pdf:
+    number-depth: 0
+    documentclass: book # article, report or book or scrartcl, scrreprt, and scrbook
+    fontfamily: libertinus
+    margin-left: 10mm
+    margin-right: 10mm
+    toc: true
+    toc-title: "Contents"
+    lot: false  # list of tables
+    lof: false  # list of figures
+    number-sections: false
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    code-line-numbers: true
+    keep-tex: false
+    hyperrefoptions:
+    - linktoc=all
+    - pdfwindowui
+    - pdfpagemode=FullScreen
+  epub:
+    cover-image: culebront_logo.png
+latex-auto-mk: true
+latex-auto-install: true
+
+execute: 
+  echo: false
+  warning: false
+  message: false
+  error: false
+  cache: false
+#editor: visual
+

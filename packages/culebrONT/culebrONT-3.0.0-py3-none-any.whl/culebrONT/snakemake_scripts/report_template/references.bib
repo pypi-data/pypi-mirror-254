@@ -1,0 +1,529 @@
+@article{culebront,
+     author = {Orjuela, Julie and Comte, Aurore and Ravel, S\'ebastien and Charriat, Florian and Vi, Tram and Sabot, Fran\c{c}ois  and Cunnac, S\'ebastien },
+     title = {CulebrONT: a streamlined long reads multi-assembler pipeline for prokaryotic and eukaryotic genomes},
+     journal = {Peer Community Journal},
+     eid = {e46},
+     publisher = {Peer Community In},
+     volume = {2},
+     year = {2022},
+     doi = {10.24072/pcjournal.153},
+     url = {https://peercommunityjournal.org/articles/10.24072/pcjournal.153/}
+}
+
+@misc{katuali,
+  title={\url{https://nanoporetech.github.io/katuali/}},
+  url={https://nanoporetech.github.io/katuali/index.html},
+  journal={Katuali Documentation},
+  year={2018}
+}
+
+@article{snakemake,
+    author = {Köster, Johannes and Rahmann, Sven},
+    title = "{Snakemake—a scalable bioinformatics workflow engine}",
+    journal = {Bioinformatics},
+    volume = {28},
+    number = {19},
+    pages = {2520-2522},
+    year = {2012},
+    month = {08},
+    abstract = "{Summary: Snakemake is a workflow engine that provides a readable Python-based workflow definition language and a powerful execution environment that scales from single-core workstations to compute clusters without modifying the workflow. It is the first system to support the use of automatically inferred multiple named wildcards (or variables) in input and output filenames.Availability:http://snakemake.googlecode.com.Contact:johannes.koester@uni-due.de}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/bts480},
+    url = {https://doi.org/10.1093/bioinformatics/bts480},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/28/19/2520/819790/bts480.pdf},
+}
+
+@article{canu,
+author = {Koren, Sergey and Walenz, Brian P. and Berlin, Konstantin and Miller, Jason R. and Bergman, Nicholas H. and Phillippy, Adam M.},
+title = {Canu: scalable and accurate long-read assembly via adaptive k-mer weighting and repeat separation},
+volume = {27},
+number = {5},
+pages = {722-736},
+year = {2017},
+doi = {10.1101/gr.215087.116},
+abstract ={Long-read single-molecule sequencing has revolutionized de novo genome assembly and enabled the automated reconstruction of reference-quality genomes. However, given the relatively high error rates of such technologies, efficient and accurate assembly of large repeats and closely related haplotypes remains challenging. We address these issues with Canu, a successor of Celera Assembler that is specifically designed for noisy single-molecule sequences. Canu introduces support for nanopore sequencing, halves depth-of-coverage requirements, and improves assembly continuity while simultaneously reducing runtime by an order of magnitude on large genomes versus Celera Assembler 8.2. These advances result from new overlapping and assembly algorithms, including an adaptive overlapping strategy based on tf-idf weighted MinHash and a sparse assembly graph construction that avoids collapsing diverged repeats and haplotypes. We demonstrate that Canu can reliably assemble complete microbial genomes and near-complete eukaryotic chromosomes using either Pacific Biosciences (PacBio) or Oxford Nanopore technologies and achieves a contig NG50 of >21 Mbp on both human and Drosophila melanogaster PacBio data sets. For assembly structures that cannot be linearly represented, Canu provides graph-based assembly outputs in graphical fragment assembly (GFA) format for analysis or integration with complementary phasing and scaffolding techniques. The combination of such highly resolved assembly graphs with long-range scaffolding information promises the complete and automated assembly of complex genomes.},
+URL = {http://genome.cshlp.org/content/27/5/722.abstract},
+eprint = {http://genome.cshlp.org/content/27/5/722.full.pdf+html},
+journal = {Genome Research}
+}
+
+@article{flye,
+author={Kolmogorov, Mikhail
+and Yuan, Jeffrey
+and Lin, Yu
+and Pevzner, Pavel A.},
+title={Assembly of long, error-prone reads using repeat graphs},
+journal={Nature Biotechnology},
+year={2019},
+month={May},
+day={01},
+volume={37},
+number={5},
+pages={540-546},
+abstract={Accurate genome assembly is hampered by repetitive regions. Although long single molecule sequencing reads are better able to resolve genomic repeats than short-read data, most long-read assembly algorithms do not provide the repeat characterization necessary for producing optimal assemblies. Here, we present Flye, a long-read assembly algorithm that generates arbitrary paths in an unknown repeat graph, called disjointigs, and constructs an accurate repeat graph from these error-riddled disjointigs. We benchmark Flye against five state-of-the-art assemblers and show that it generates better or comparable assemblies, while being an order of magnitude faster. Flye nearly doubled the contiguity of the human genome assembly (as measured by the NGA50 assembly quality metric) compared with existing assemblers.},
+issn={1546-1696},
+doi={10.1038/s41587-019-0072-8},
+url={https://doi.org/10.1038/s41587-019-0072-8}
+}
+
+@article {raven,
+	author = {Vaser, Robert and {\v S}iki{\'c}, Mile},
+	title = {Raven: a de novo genome assembler for long reads},
+	elocation-id = {2020.08.07.242461},
+	year = {2020},
+	doi = {10.1101/2020.08.07.242461},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {We present new methods for the improvement of long-read de novo genome assembly incorporated into a straightforward tool called Raven (https://github.com/lbcb-sci/raven). Compared with
+ other assemblers, Raven is one of two fastest, it reconstructs the sequenced genome in the least amount of fragments, has better or comparable accuracy, and maintains similar performance for various geno
+mes. Raven takes 500 CPU hours to assemble a 44x human genome dataset in only 259 fragments.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2020/08/10/2020.08.07.242461},
+	eprint = {https://www.biorxiv.org/content/early/2020/08/10/2020.08.07.242461.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article{miniasm,
+    author = {Li, Heng},
+    title = "{Minimap and miniasm: fast mapping and de novo assembly for noisy long sequences}",
+    journal = {Bioinformatics},
+    volume = {32},
+    number = {14},
+    pages = {2103-2110},
+    year = {2016},
+    month = {03},
+    abstract = "{Motivation: Single Molecule Real-Time (SMRT) sequencing technology and Oxford Nanopore technologies (ONT) produce reads over 10 kb in length, which have enabled high-quality genome assembly at an affordable cost. However, at present, long reads have an error rate as high as 10–15\\. Complex and computationally intensive pipelines are required to assemble such reads.Results: We present a new mapper, minimap and a de novo assembler, miniasm, for efficiently mapping and assembling SMRT and ONT reads without an error correction stage. They can often assemble a sequencing run of bacterial data into a single contig in a few minutes, and assemble 45-fold Caenorhabditis elegans data in 9 min, orders of magnitude faster than the existing pipelines, though the consensus sequence error rate is as high as raw reads. We also introduce a pairwise read mapping format and a graphical fragment assembly format, and demonstrate the interoperability between ours and current tools.Availability and implementation:https://github.com/lh3/minimap and https://github.com/lh3/miniasmContact:hengli@broadinstitute.orgSupplementary information:Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btw152},
+    url = {https://doi.org/10.1093/bioinformatics/btw152},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/32/14/2103/19567911/btw152.pdf},
+}
+
+@article{shasta,
+author={Shafin, Kishwar
+and Pesout, Trevor
+and Lorig-Roach, Ryan
+and Haukness, Marina
+and Olsen, Hugh E.
+and Bosworth, Colleen
+and Armstrong, Joel
+and Tigyi, Kristof
+and Maurer, Nicholas
+and Koren, Sergey
+and Sedlazeck, Fritz J.
+and Marschall, Tobias
+and Mayes, Simon
+and Costa, Vania
+and Zook, Justin M.
+and Liu, Kelvin J.
+and Kilburn, Duncan
+and Sorensen, Melanie
+and Munson, Katy M.
+and Vollger, Mitchell R.
+and Monlong, Jean
+and Garrison, Erik
+and Eichler, Evan E.
+and Salama, Sofie
+and Haussler, David
+and Green, Richard E.
+and Akeson, Mark
+and Phillippy, Adam
+and Miga, Karen H.
+and Carnevali, Paolo
+and Jain, Miten
+and Paten, Benedict},
+title={Nanopore sequencing and the Shasta toolkit enable efficient de novo assembly of eleven human genomes},
+journal={Nature Biotechnology},
+year={2020},
+month={Sep},
+day={01},
+volume={38},
+number={9},
+pages={1044-1053},
+abstract={De novo assembly of a human genome using nanopore long-read sequences has been reported, but it used more than 150,000{\thinspace}CPU hours and weeks of wall-clock time. To enable rapid human genome assembly, we present Shasta, a de novo long-read assembler, and polishing algorithms named MarginPolish and HELEN. Using a single PromethION nanopore sequencer and our toolkit, we assembled 11 highly contiguous human genomes de novo in 9{\thinspace}d. We achieved roughly 63{\texttimes} coverage, 42-kb read N50 values and 6.5{\texttimes} coverage in reads >100{\thinspace}kb using three flow cells per sample. Shasta produced a complete haploid human genome assembly in under 6{\thinspace}h on a single commercial compute node. MarginPolish and HELEN polished haploid assemblies to more than 99.9{\%} identity (Phred quality score QV{\thinspace}={\thinspace}30) with nanopore reads alone. Addition of proximity-ligation sequencing enabled near chromosome-level scaffolds for all 11 genomes. We compare our assembly performance to existing methods for diploid, haploid and trio-binned human samples and report superior accuracy and speed.},
+issn={1546-1696},
+doi={10.1038/s41587-020-0503-6},
+url={https://doi.org/10.1038/s41587-020-0503-6}
+}
+
+@article {smartdenovo,
+        author = {Liu, H. and Wu, S. and Li, A. and Ruan, J},
+        title = {SMARTdenovo: A de novo Assembler Using Long Noisy Reads},
+        elocation-id = {2020.09.02.07},
+        year = {2020},
+        doi = {10.20944/preprints202009.0207.v1},
+        publisher = {},
+        abstract = {Long-read single-molecule sequencing has revolutionized de novo genome assembly and enabled the automated reconstruction of reference-quality genomes. It also has been widely used to study structural variants, phase haplotypes and more. Here, we introduce the assembler— SMARTdenovo, which is an SMS assembler that follows the overlap-layout-consensus (OLC) paradigm. SMARTdenovo (RRID: SCR_017622) was designed to be a fast assembler that did not require highly accurate raw reads for error correction, unlike other, contemporaneous SMS assemblers. It has performed well for evaluating congeneric assemblers and has been successful for a variety of assembly projects. It is compatible with Canu for assembling high-quality genomes, and several of the assembly strategies in this program have been incorporated into subsequent popular assemblers. The assembler has been in use since 2015, and here we provide information on the development of SMARTdenovo and how to implement its algorithms into current projects.},
+        URL = {https://www.preprints.org/manuscript/202009.0207/v1},
+        eprint = {https://www.preprints.org/manuscript/202009.0207/v1},
+        journal = {https://www.preprints.org/}
+}
+
+@article{racon,
+author={Vaser, Robert
+and Sovi{\'{c}}, Ivan
+and Nagarajan, Niranjan
+and {\v{S}}iki{\'{c}}, Mile},
+title={Fast and accurate de novo genome assembly from long uncorrected reads},
+journal={Genome research},
+year={2017},
+month={May},
+edition={2017/01/18},
+publisher={Cold Spring Harbor Laboratory Press},
+volume={27},
+number={5},
+pages={737-746},
+keywords={*Algorithms; Contig Mapping/*methods/standards; Genomics/*methods/standards; Sequence Alignment/*methods/standards; Sequence Analysis, DNA/*methods/standards},
+abstract={The assembly of long reads from Pacific Biosciences and Oxford Nanopore Technologies typically requires resource-intensive error-correction and consensus-generation steps to obtain high-quality assemblies. We show that the error-correction step can be omitted and that high-quality consensus sequences can be generated efficiently with a SIMD-accelerated, partial-order alignment-based, stand-alone consensus module called Racon. Based on tests with PacBio and Oxford Nanopore data sets, we show that Racon coupled with miniasm enables consensus genomes with similar or better quality than state-of-the-art methods while being an order of magnitude faster.},
+note={28100585[pmid]},
+issn={1549-5469},
+doi={10.1101/gr.214270.116},
+url={https://pubmed.ncbi.nlm.nih.gov/28100585},
+language={eng}
+}
+
+@misc{medaka,
+  title={\url{https://github.com/nanoporetech/medaka}},
+  url={https://github.com/nanoporetech/medaka},
+  journal={Medaka Documentation},
+  year={2018}
+}
+
+@article{nanopolish,
+author={Loman, Nicholas J.
+and Quick, Joshua
+and Simpson, Jared T.},
+title={A complete bacterial genome assembled de novo using only nanopore sequencing data},
+journal={Nature Methods},
+year={2015},
+month={Aug},
+day={01},
+volume={12},
+number={8},
+pages={733-735},
+abstract={By error-correcting long nanopore reads and calling a consensus sequence using nanopore signal data, an entire bacterial genome is assembled de novo.},
+issn={1548-7105},
+doi={10.1038/nmeth.3444},
+url={https://doi.org/10.1038/nmeth.3444}
+}
+
+@article{pilon,
+  doi = {10.1371/journal.pone.0112963},
+  url = {https://doi.org/10.1371/journal.pone.0112963},
+  year = {2014},
+  month = nov,
+  publisher = {Public Library of Science ({PLoS})},
+  volume = {9},
+  number = {11},
+  pages = {e112963},
+  author = {Bruce J. Walker and Thomas Abeel and Terrance Shea and Margaret Priest and Amr Abouelliel and Sharadha Sakthikumar and Christina A. Cuomo and Qiandong Zeng and Jennifer Wortman and Sarah K. Young and Ashlee M. Earl},
+  editor = {Junwen Wang},
+  title = {Pilon: An Integrated Tool for Comprehensive Microbial Variant Detection and Genome Assembly Improvement},
+  journal = {{PLoS} {ONE}}
+}
+
+@article{busco,
+    author = {Simão, Felipe A. and Waterhouse, Robert M. and Ioannidis, Panagiotis and Kriventseva, Evgenia V. and Zdobnov, Evgeny M.},
+    title = "{BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs}",
+    journal = {Bioinformatics},
+    volume = {31},
+    number = {19},
+    pages = {3210-3212},
+    year = {2015},
+    month = {06},
+    abstract = "{Motivation: Genomics has revolutionized biological research, but quality assessment of the resulting assembled sequences is complicated and remains mostly limited to technical measures li
+ke N50.Results: We propose a measure for quantitative assessment of genome assembly and annotation completeness based on evolutionarily informed expectations of gene content. We implemented the assessment
+ procedure in open-source software, with sets of Benchmarking Universal Single-Copy Orthologs, named BUSCO.Availability and implementation: Software implemented in Python and datasets available for downlo
+ad from http://busco.ezlab.org.Contact:evgeny.zdobnov@unige.chSupplementary information:Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btv351},
+    url = {https://doi.org/10.1093/bioinformatics/btv351},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/31/19/3210/17086320/btv351.pdf},
+}
+.
+@article{quast,
+  doi = {10.1093/bioinformatics/btt086},
+  url = {https://doi.org/10.1093/bioinformatics/btt086},
+  year = {2013},
+  month = feb,
+  publisher = {Oxford University Press ({OUP})},
+  volume = {29},
+  number = {8},
+  pages = {1072--1075},
+  author = {Alexey Gurevich and Vladislav Saveliev and Nikolay Vyahhi and Glenn Tesler},
+  title = {{QUAST}: quality assessment tool for genome assemblies},
+  journal = {Bioinformatics}
+}
+
+@article{blobtools,
+AUTHOR = { Laetsch, DR and Blaxter, ML},
+TITLE = {BlobTools: Interrogation of genome assemblies [version 1; peer review: 2 approved with reservations]
+},
+JOURNAL = {F1000Research},
+VOLUME = {6},
+YEAR = {2017},
+NUMBER = {1287},
+DOI = {10.12688/f1000research.12232.1}
+}
+
+@article{kat,
+  title    = "{KAT}: a K-mer analysis toolkit to quality control {NGS} datasets
+              and genome assemblies",
+  author   = "Mapleson, Daniel and Garcia Accinelli, Gonzalo and Kettleborough,
+              George and Wright, Jonathan and Clavijo, Bernardo J",
+  abstract = "MOTIVATION: De novo assembly of whole genome shotgun (WGS)
+              next-generation sequencing (NGS) data benefits from high-quality
+              input with high coverage. However, in practice, determining the
+              quality and quantity of useful reads quickly and in a
+              reference-free manner is not trivial. Gaining a better
+              understanding of the WGS data, and how that data is utilized by
+              assemblers, provides useful insights that can inform the assembly
+              process and result in better assemblies. RESULTS: We present the
+              K-mer Analysis Toolkit (KAT): a multi-purpose software toolkit
+              for reference-free quality control (QC) of WGS reads and de novo
+              genome assemblies, primarily via their k-mer frequencies and GC
+              composition. KAT enables users to assess levels of errors, bias
+              and contamination at various stages of the assembly process. In
+              this paper we highlight KAT's ability to provide valuable
+              insights into assembly composition and quality of genome
+              assemblies through pairwise comparison of k-mers present in both
+              input reads and the assemblies. AVAILABILITY AND IMPLEMENTATION:
+              KAT is available under the GPLv3 license at:
+              https://github.com/TGAC/KAT . CONTACT:
+              bernardo.clavijo@earlham.ac.uk. SUPPLEMENTARY INFORMATION:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  33,
+  number   =  4,
+  pages    = "574--576",
+  month    =  feb,
+  year     =  2017,
+  language = "en"
+}
+
+@article{assemblytics,
+  doi = {10.1093/bioinformatics/btw369},
+  url = {https://doi.org/10.1093/bioinformatics/btw369},
+  year = {2016},
+  month = jun,
+  publisher = {Oxford University Press ({OUP})},
+  volume = {32},
+  number = {19},
+  pages = {3021--3023},
+  author = {Maria Nattestad and Michael C. Schatz},
+  title = {Assemblytics: a web analytics tool for the detection of variants from an assembly},
+  journal = {Bioinformatics}
+}
+
+@article{samtools,
+  doi = {10.1093/bioinformatics/btp352},
+  url = {https://doi.org/10.1093/bioinformatics/btp352},
+  year = {2009},
+  month = jun,
+  publisher = {Oxford University Press ({OUP})},
+  volume = {25},
+  number = {16},
+  pages = {2078--2079},
+  author = {H. Li and B. Handsaker and A. Wysoker and T. Fennell and J. Ruan and N. Homer and G. Marth and G. Abecasis and R. Durbin and},
+  title = {The Sequence Alignment/Map format and {SAMtools}},
+  journal = {Bioinformatics}
+}
+
+
+@article{mauve,
+author={Darling, Aaron C. E.
+and Mau, Bob
+and Blattner, Frederick R.
+and Perna, Nicole T.},
+title={Mauve: multiple alignment of conserved genomic sequence with rearrangements},
+journal={Genome research},
+year={2004},
+month={Jul},
+publisher={Cold Spring Harbor Laboratory Press},
+volume={14},
+number={7},
+pages={1394-1403},
+keywords={Chromosomes, Bacterial/genetics; Computer Simulation; Conserved Sequence/*genetics; DNA, Bacterial/genetics; Enterobacteriaceae/*genetics; Escherichia coli/genetics; Escherichia coli O157/geneti
+cs; *Genome, Bacterial; Recombination, Genetic/*genetics; Salmonella typhi/genetics; Salmonella typhimurium/genetics; Sequence Alignment/*methods/statistics {\&} numerical data; Shigella flexneri/genetics
+; *Software; Software Design; Software Validation; Species Specificity},
+abstract={As genomes evolve, they undergo large-scale evolutionary processes that present a challenge to sequence comparison not posed by short sequences. Recombination causes frequent genome rearrangemen
+ts, horizontal transfer introduces new sequences into bacterial chromosomes, and deletions remove segments of the genome. Consequently, each genome is a mosaic of unique lineage-specific segments, regions
+ shared with a subset of other genomes and segments conserved among all the genomes under consideration. Furthermore, the linear order of these segments may be shuffled among genomes. We present methods f
+or identification and alignment of conserved genomic DNA in the presence of rearrangements and horizontal transfer. Our methods have been implemented in a software package called Mauve. Mauve has been app
+lied to align nine enterobacterial genomes and to determine global rearrangement structure in three mammalian genomes. We have evaluated the quality of Mauve alignments and drawn comparison to other metho
+ds through extensive simulations of genome evolution.},
+note={15231754[pmid]},
+issn={1088-9051},
+doi={10.1101/gr.2289704},
+url={https://pubmed.ncbi.nlm.nih.gov/15231754},
+language={eng}
+}
+
+@article{circlator,
+author={Hunt, Martin
+and Silva, Nishadi De
+and Otto, Thomas D.
+and Parkhill, Julian
+and Keane, Jacqueline A.
+and Harris, Simon R.},
+title={Circlator: automated circularization of genome assemblies using long sequencing reads},
+journal={Genome Biology},
+year={2015},
+month={Dec},
+day={29},
+volume={16},
+number={1},
+pages={294},
+abstract={The assembly of DNA sequence data is undergoing a renaissance thanks to emerging technologies capable of producing reads tens of kilobases long. Assembling complete bacterial and small eukaryotic genomes is now possible, but the final step of circularizing sequences remains unsolved. Here we present Circlator, the first tool to automate assembly circularization and produce accurate linear representations of circular sequences. Using Pacific Biosciences and Oxford Nanopore data, Circlator correctly circularized 26 of 27 circularizable sequences, comprising 11 chromosomes and 12 plasmids from bacteria, the apicoplast and mitochondrion of Plasmodium falciparum and a human mitochondrion. Circlator is available at http://sanger-pathogens.github.io/circlator/.},
+issn={1474-760X},
+doi={10.1186/s13059-015-0849-0},
+url={https://doi.org/10.1186/s13059-015-0849-0}
+}
+
+
+@article{singularity,
+    author = {Kurtzer, Gregory M. AND Sochat, Vanessa AND Bauer, Michael W.},
+    journal = {PLOS ONE},
+    publisher = {Public Library of Science},
+    title = {Singularity: Scientific containers for mobility of compute},
+    year = {2017},
+    month = {05},
+    volume = {12},
+    url = {https://doi.org/10.1371/journal.pone.0177459},
+    pages = {1-20},
+    abstract = {Here we present Singularity, software developed to bring containers and reproducibility to scientific computing. Using Singularity containers, developers can work in reproducible environments of their choosing and design, and these complete environments can easily be copied and executed on other platforms. Singularity is an open source initiative that harnesses the expertise of system and software engineers and researchers alike, and integrates seamlessly into common workflows for both of these groups. As its primary use case, Singularity brings mobility of computing to both users and HPC centers, providing a secure means to capture and distribute software and compute environments. This ability to create and deploy reproducible environments across these centers, a previously unmet need, makes Singularity a game changing development for computational science.},
+    number = {5},
+    doi = {10.1371/journal.pone.0177459}
+}
+
+@article{minipolish,
+author={Wick, Ryan R. and Holt, Kathryn E.},
+TITLE = {Benchmarking of long-read assemblers for prokaryote whole genome sequencing [version 4; peer review: 4 approved]},
+JOURNAL = {F1000Research},
+VOLUME = {8},
+YEAR = {2021},
+NUMBER = {2138},
+DOI = {10.12688/f1000research.21782.4}
+}
+
+﻿@article{merqury,
+author={Rhie, Arang
+and Walenz, Brian P.
+and Koren, Sergey
+and Phillippy, Adam M.},
+title={Merqury: reference-free quality, completeness, and phasing assessment for genome assemblies},
+journal={Genome Biology},
+year={2020},
+month={Sep},
+day={14},
+volume={21},
+number={1},
+pages={245},
+abstract={Recent long-read assemblies often exceed the quality and completeness of available reference genomes, making validation challenging. Here we present Merqury, a novel tool for reference-free assembly evaluation based on efficient k-mer set operations. By comparing k-mers in a de novo assembly to those found in unassembled high-accuracy reads, Merqury estimates base-level accuracy and completeness. For trios, Merqury can also evaluate haplotype-specific accuracy, completeness, phase block continuity, and switch errors. Multiple visualizations, such as k-mer spectrum plots, can be generated for evaluation. We demonstrate on both human and plant genomes that Merqury is a fast and robust method for assembly validation.},
+issn={1474-760X},
+doi={10.1186/s13059-020-02134-9},
+url={https://doi.org/10.1186/s13059-020-02134-9}
+}
+
+@article{diamond,
+author={Buchfink, Benjamin
+and Reuter, Klaus
+and Drost, Hajk-Georg},
+title={Sensitive protein alignments at tree-of-life scale using DIAMOND},
+journal={Nature Methods},
+year={2021},
+month={Apr},
+day={01},
+volume={18},
+number={4},
+pages={366-368},
+abstract={We are at the beginning of a genomic revolution in which all known species are planned to be sequenced. Accessing such data for comparative analyses is crucial in this new age of data-driven biology. Here, we introduce an improved version of DIAMOND that greatly exceeds previous search performances and harnesses supercomputing to perform tree-of-life scale protein alignments in hours, while matching the sensitivity of the gold standard BLASTP.},
+issn={1548-7105},
+doi={10.1038/s41592-021-01101-x},
+url={https://doi.org/10.1038/s41592-021-01101-x}
+}
+
+@article{minimap2,
+    author = {Li, Heng},
+    title = "{Minimap2: pairwise alignment for nucleotide sequences}",
+    journal = {Bioinformatics},
+    volume = {34},
+    number = {18},
+    pages = {3094-3100},
+    year = {2018},
+    month = {05},
+    abstract = "{Recent advances in sequencing technologies promise ultra-long reads of ∼100 kb in average, full-length mRNA or cDNA reads in high throughput and genomic contigs over 100 Mb in length. Existing alignment programs are unable or inefficient to process such data at scale, which presses for the development of new alignment algorithms.Minimap2 is a general-purpose alignment program to map DNA or long mRNA sequences against a large reference database. It works with accurate short reads of ≥100 bp in length, ≥1 kb genomic reads at error rate ∼15\\%, full-length noisy Direct RNA or cDNA reads and assembly contigs or closely related full chromosomes of hundreds of megabases in length. Minimap2 does split-read alignment, employs concave gap cost for long insertions and deletions and introduces new heuristics to reduce spurious alignments. It is 3–4 times as fast as mainstream short-read mappers at comparable accuracy, and is ≥30 times faster than long-read genomic or cDNA mappers at higher accuracy, surpassing most aligners specialized in one type of alignment.https://github.com/lh3/minimap2Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/bty191},
+    url = {https://doi.org/10.1093/bioinformatics/bty191},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/34/18/3094/48919122/bioinformatics\_34\_18\_3094.pdf},
+}
+
+@article{augustus,
+    author = {Stanke, Mario and Keller, Oliver and Gunduz, Irfan and Hayes, Alec and Waack, Stephan and Morgenstern, Burkhard},
+    title = "{ AUGUSTUS: ab initio prediction of alternative transcripts }",
+    journal = {Nucleic Acids Research},
+    volume = {34},
+    number = {suppl_2},
+    pages = {W435-W439},
+    year = {2006},
+    month = {07},
+    abstract = "{ AUGUSTUS is a software tool for gene prediction in eukaryotes based on a Generalized Hidden Markov Model, a probabilistic model of a sequence and its gene structure. Like most existing gene finders, the first version of AUGUSTUS returned one transcript per predicted gene and ignored the phenomenon of alternative splicing. Herein, we present a WWW server for an extended version of AUGUSTUS that is able to predict multiple splice variants. To our knowledge, this is the first ab initio gene finder that can predict multiple transcripts. In addition, we offer a motif searching facility, where user-defined regular expressions can be searched against putative proteins encoded by the predicted genes. The AUGUSTUS web interface and the downloadable open-source stand-alone program are freely available from http://augustus.gobics.de . }",
+    issn = {0305-1048},
+    doi = {10.1093/nar/gkl200},
+    url = {https://doi.org/10.1093/nar/gkl200},
+    eprint = {https://academic.oup.com/nar/article-pdf/34/suppl\_2/W435/7623070/gkl200.pdf},
+}
+
+@article{bwa,
+  title     = "Fast and accurate short read alignment with {Burrows-Wheeler}
+               transform",
+  author    = "Li, Heng and Durbin, Richard",
+  abstract  = "MOTIVATION: The enormous amount of short reads generated by the
+               new DNA sequencing technologies call for the development of fast
+               and accurate read alignment programs. A first generation of hash
+               table-based methods has been developed, including MAQ, which is
+               accurate, feature rich and fast enough to align short reads from
+               a single individual. However, MAQ does not support gapped
+               alignment for single-end reads, which makes it unsuitable for
+               alignment of longer reads where indels may occur frequently. The
+               speed of MAQ is also a concern when the alignment is scaled up
+               to the resequencing of hundreds of individuals. RESULTS: We
+               implemented Burrows-Wheeler Alignment tool (BWA), a new read
+               alignment package that is based on backward search with
+               Burrows-Wheeler Transform (BWT), to efficiently align short
+               sequencing reads against a large reference sequence such as the
+               human genome, allowing mismatches and gaps. BWA supports both
+               base space reads, e.g. from Illumina sequencing machines, and
+               color space reads from AB SOLiD machines. Evaluations on both
+               simulated and real data suggest that BWA is approximately 10-20x
+               faster than MAQ, while achieving similar accuracy. In addition,
+               BWA outputs alignment in the new standard SAM (Sequence
+               Alignment/Map) format. Variant calling and other downstream
+               analyses after the alignment can be achieved with the open
+               source SAMtools software package. AVAILABILITY:
+               http://maq.sourceforge.net.",
+  journal   = "Bioinformatics",
+  publisher = "Oxford University Press (OUP)",
+  volume    =  25,
+  number    =  14,
+  pages     = "1754--1760",
+  month     =  jul,
+  year      =  2009,
+  copyright = "http://creativecommons.org/licenses/by-nc/2.0/uk/",
+  language  = "en"
+}
+
+@article{mummer,
+    doi = {10.1371/journal.pcbi.1005944},
+    author = {Marçais, Guillaume AND Delcher, Arthur L. AND Phillippy, Adam M. AND Coston, Rachel AND Salzberg, Steven L. AND Zimin, Aleksey},
+    journal = {PLOS Computational Biology},
+    publisher = {Public Library of Science},
+    title = {MUMmer4: A fast and versatile genome alignment system},
+    year = {2018},
+    month = {01},
+    volume = {14},
+    url = {https://doi.org/10.1371/journal.pcbi.1005944},
+    pages = {1-14},
+    abstract = {The MUMmer system and the genome sequence aligner nucmer included within it are among the most widely used alignment packages in genomics. Since the last major release of MUMmer version 3 in 2004, it has been applied to many types of problems including aligning whole genome sequences, aligning reads to a reference genome, and comparing different assemblies of the same genome. Despite its broad utility, MUMmer3 has limitations that can make it difficult to use for large genomes and for the very large sequence data sets that are common today. In this paper we describe MUMmer4, a substantially improved version of MUMmer that addresses genome size constraints by changing the 32-bit suffix tree data structure at the core of MUMmer to a 48-bit suffix array, and that offers improved speed through parallel processing of input query sequences. With a theoretical limit on the input size of 141Tbp, MUMmer4 can now work with input sequences of any biologically realistic length. We show that as a result of these enhancements, the nucmer program in MUMmer4 is easily able to handle alignments of large genomes; we illustrate this with an alignment of the human and chimpanzee genomes, which allows us to compute that the two species are 98% identical across 96% of their length. With the enhancements described here, MUMmer4 can also be used to efficiently align reads to reference genomes, although it is less sensitive and accurate than the dedicated read aligners. The nucmer aligner in MUMmer4 can now be called from scripting languages such as Perl, Python and Ruby. These improvements make MUMer4 one the most versatile genome alignment packages available.},
+    number = {1},
+
+}

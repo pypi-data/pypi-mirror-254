@@ -1,0 +1,595 @@
+
+def fasta_to_quality(wildcards):
+    #ASSEMBLY
+    if wildcards.quality_step == 'ASSEMBLY':
+        if 'MINIASM' == wildcards.assemblers:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/MINIASM/POLISHING/RACON/racon_{nb_racon_rounds}/assembly.racon{nb_racon_rounds}{TMP}.fasta"
+        else:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/ASSEMBLER/assembly{add_circular_name}.fasta"
+    elif wildcards.quality_step == 'ASMsFIX':
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/FIXSTART/assembly{add_circular_name}-STARTFIXED.fasta"
+    #POLISHING
+    elif wildcards.quality_step == 'RACON':
+        if 'MINIASM' == wildcards.assemblers:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{nb_racon_rounds}/assembly.racon{nb_racon_rounds}{TCM}.fasta"
+        else:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{nb_racon_rounds}/assembly.racon{nb_racon_rounds}.fasta"
+    elif wildcards.quality_step == 'RACONsFIX':
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/FIXSTART/RACON-{nb_racon_rounds}-STARTFIXED.fasta"
+    #CORRECTION
+    elif wildcards.quality_step == 'MEDAKA':
+        return rules.run_medaka_consensus.output.fasta
+    elif wildcards.quality_step == 'MEDAKAsFIX':
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/FIXSTART/MEDAKA-STARTFIXED.fasta"
+    elif wildcards.quality_step == 'PILON':
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{nb_pilon_rounds}/assembly.pilon{nb_pilon_rounds}.fasta"
+    elif wildcards.quality_step == 'PILONsFIX':
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/FIXSTART/PILON-{nb_pilon_rounds}-STARTFIXED.fasta"
+    else:
+        raise ValueError(f"""problem with fasta to quality rule.
+        assemblers {wildcards.assemblers}
+        quality_step {wildcards.quality_step}
+        fastq {wildcards.fastq}
+        wildcards {wildcards}
+        """)
+
+
+################################ PREPARING QUALITY ####################################
+
+rule preparing_fasta_to_quality:
+    """
+    preparing fasta to quality
+    """
+    threads: get_threads('preparing_fasta_to_quality', 8)
+    input:
+        fasta = fasta_to_quality
+    output:
+        renamed =  f"{output_dir}{{fastq}}/AGGREGATED_QC/DATA/{{fastq}}-{{assemblers}}-{{quality_step}}{f'-{add_circular_name}' if add_circular_name else ''}.fasta"
+    params:
+        index_mmi = f"{output_dir}{{fastq}}/AGGREGATED_QC/DATA/{{fastq}}-{{assemblers}}-{{quality_step}}{f'-{add_circular_name}' if add_circular_name else ''}.fasta.mmi"
+    log:
+        output =  f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}-{{assemblers}}-{{quality_step}}-preparing_DATA.o",
+        error = f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}-{{assemblers}}-{{quality_step}}-preparing_DATA.e",
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.fasta},
+        output:
+            renamed: {output.renamed}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MINIMAP2"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (ln -sf {input.fasta} {output.renamed};
+        samtools faidx {output.renamed};
+        minimap2 -t {threads} -d {params.index_mmi} {output.renamed}) 1>{log.output} 2>{log.error}
+        """
+
+################################ QUALITY CHECK ####################################
+
+rule run_quast:
+    """
+    preparing fasta to quast and launch quast
+    """
+    threads: get_threads('run_quast', 4)
+    input:
+        liste = expand(rules.preparing_fasta_to_quality.output.renamed, fastq='{fastq}', assemblers=culebront.assembly_tools_activated, quality_step=culebront.quality_step),
+    output:
+        report = f"{output_dir}{{fastq}}/AGGREGATED_QC/QUAST_RESULTS/report.html",
+    params:
+        genome_size = f"{config['params']['QUAST']['GENOME_SIZE_PB']}",
+        directory = f"{output_dir}{{fastq}}/AGGREGATED_QC/QUAST_RESULTS/",
+        reference_file = f"{reference_file}" if f"{reference_file}" == '' else f" -r {reference_file}",
+        gff = f"{config['params']['QUAST']['GFF']}" if f"{config['params']['QUAST']['GFF']}"=='' else f" -g {config['params']['QUAST']['GFF']}",
+        options = f"{config['params']['QUAST']['OPTIONS']}",
+    log:
+        output = f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}_QUAST.o",
+        error = f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}_QUAST.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/AGGREGATED_QC/QUAST_{{fastq}}-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            liste : {input.liste},
+        output:
+            report : {output.report}
+        params:
+            genome_size: {params.genome_size}
+            reference_file : {params.reference_file},
+            gff: {params.gff}
+            options: {params.options}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["QUAST"]
+    shell:
+        """
+        (quast.py -t {threads} -o {params.directory} {params.gff} {params.reference_file} {params.options} {input.liste}) 1>{log.output} 2>{log.error}
+        """
+
+rule run_busco:
+    """
+    BUSCO v4 assessing genome assembly and annotation completeness with Benchmarking Universal Single-Copy Orthologs v10
+    """
+    threads: get_threads('run_busco', 4)
+    input:
+        fasta = rules.preparing_fasta_to_quality.output.renamed
+    output:
+        summary = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BUSCO/{{assemblers}}-{{quality_step}}-BUSCO.txt",
+    params:
+        out_path = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/",
+        busco_name = f"BUSCO",
+        database = config['params']['BUSCO']['DATABASE'],
+        augustus_config = temp(f"{output_dir}augustus_config"),
+        busco_downloads = temp(f"{output_dir}busco_downloads"),
+        model = config['params']['BUSCO']['MODEL'],
+        sp = f" --augustus_species {config['params']['BUSCO']['SP']}" if f"{config['params']['BUSCO']['SP']}"!="" else f"{config['params']['BUSCO']['SP']}",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BUSCO/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_BUSCO.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BUSCO/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_BUSCO.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/BUSCO/{{fastq}}_{{assemblers}}_{{quality_step}}_BUSCO-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule}
+        threads: {threads}
+        input:
+            fasta: {input.fasta}
+        output:
+            summary: {output.summary}
+        params:
+            out_path: {params.out_path}
+            busco_name: {params.busco_name}
+            database: {params.database}
+            model: {params.model}
+            sp: {params.sp}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["BUSCO"]
+    shell:
+        """
+        (mkdir -p {params.augustus_config};
+        augustus_bin=`which augustus`;
+        config_path=${{augustus_bin%/*/*}}/config
+        cp -u -r $config_path {params.augustus_config};
+        export AUGUSTUS_CONFIG_PATH={params.augustus_config}/config;
+        busco -c {threads} -f -i {input.fasta} -o {params.busco_name} --out_path {params.out_path} -l {params.database} -m {params.model} {params.sp};
+        mv {params.out_path}BUSCO/short_summary*BUSCO.txt {output.summary} ;) 1>{log.output} 2>{log.error}
+        """
+
+rule run_diamond:
+    """
+    running diamond to blobtools
+    """
+    threads: get_threads('run_diamond', 8)
+    input:
+        fasta = rules.preparing_fasta_to_quality.output.renamed,
+    output:
+        csv = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/DIAMOND/diamond.csv",
+    params:
+        db = f"{config['params']['DIAMOND']['DATABASE']}",
+        dir = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/DIAMOND/",
+        mode = "blastx",
+        format = '6 qseqid staxids bitscore qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore',
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_DIAMOND.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_DIAMOND.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/DIAMOND/{{fastq}}_{{assemblers}}_{{quality_step}}_DIAMOND-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.fasta}
+        output:
+            csv: {output.csv}
+        params:
+            database: {params.db}
+            mode: {params.mode}
+            format: {params.format}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["DIAMOND"]
+    shell:
+        """
+        (mkdir -p {params.dir};
+        diamond {params.mode} --query {input.fasta} --db {params.db} --outfmt {params.format} --threads {threads} --sensitive --max-target-seqs 1 --evalue 1e-25 --out {output.csv}) 1>{log.output} 2>{log.error}
+        """
+
+rule run_minimap2:
+    """
+    running minimap2 in mode mapping ONT
+    """
+    threads: get_threads('run_minimap2', 8)
+    input:
+        fasta = rules.preparing_fasta_to_quality.output.renamed,
+        fastq = get_fastq,
+    output:
+        bam = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MINIMAP2/minimap2mapping.bam"
+    params:
+        preset = f"{config['params']['MINIMAP2']['PRESET_OPTION']}" if {config['params']['MINIMAP2']['PRESET_OPTION']}!='' else 'map-pb',
+        out_dir = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MINIMAP2/"
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MINIMAP2.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MINIMAP2.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/MINIMAP2/{{fastq}}_{{assemblers}}_{{quality_step}}_MINIMAP2-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.fasta}
+            fastq: {input.fastq}
+        output:
+            bam: {output.bam}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MINIMAP2"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell: #TODO: gerer la sortie standard de minimap2 dans les logs
+        """
+        (minimap2 -x {params.preset} -t {threads} {input.fasta} {input.fastq} -a | samtools sort -@ {threads} -o {output.bam};
+        samtools index -@ {threads} {output.bam})  1>{log.output} 2>{log.error}
+        """
+
+rule run_blobtools:
+    """
+    blobtools v1
+    """
+    threads: get_threads('run_blobtools', 1)
+    input:
+        fasta = rules.preparing_fasta_to_quality.output.renamed,
+        sorted_bam = rules.run_minimap2.output.bam,
+        diamond = rules.run_diamond.output.csv,
+    output:
+        table = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/{{fastq}}_{{assemblers}}_{{quality_step}}.txt",
+        read_cov = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/read_cov.png",
+        blob = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/blob.png"
+    params:
+        dir = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/",
+        tmp_table = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/output.quality.blobDB.table.txt",
+        names = config['params']['BLOBTOOLS']['NAMES'],
+        nodes = config['params']['BLOBTOOLS']['NODES'],
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_BLOBTOOLS.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BLOBTOOLS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_BLOBTOOLS.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/BLOBTOOLS/{{fastq}}_{{assemblers}}_{{quality_step}}_BLOBTOOLS-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.fasta}
+            sorted_bam: {input.sorted_bam}
+            diamond: {input.diamond}
+        output:
+            table: {output.table}
+        params:
+            names: {params.names}
+            nodes: {params.nodes}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["BLOBTOOLS"]
+    shell:
+        """
+        (cd {params.dir} ;
+        blobtools create -i {input.fasta} -b {input.sorted_bam} -t {input.diamond} -o quality --names {params.names} --nodes {params.nodes} --db nodesDB.txt;
+        blobtools view -i quality.blobDB.json --cov -o output;
+        blobtools plot -i quality.blobDB.json;
+        mv quality.blobDB.*.blobplot.read_cov.bam0.png {output.read_cov};
+        mv quality.blobDB.*.blobplot.bam0.png {output.blob}) 1>{log.output} 2>{log.error}
+        mv {params.tmp_table} {output.table}
+        """
+
+rule run_mummer:
+    """
+    This rule run nucmer for assemblytics
+    """
+    threads: get_threads('run_mummer', 1)
+    input:
+        fasta = rules.preparing_fasta_to_quality.output.renamed,
+        reference_file = reference_file
+    output:
+        delta = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MUMMER/mummer.delta.gz",
+    params:
+        minmatch = config['params']['MUMMER']['MINMATCH'], #option -l  20
+        mincluster = config['params']['MUMMER']['MINCLUSTER'], #option -c 65
+        prefix = "mummer",
+        dir = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MUMMER/",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MUMMER.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MUMMER.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/MUMMER/{{fastq}}_{{assemblers}}_{{quality_step}}_MUMMER-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.fasta}
+            reference_file: {input.reference_file}
+        output:
+            delta: {output.delta}
+        params:
+            minmatch = {params.minmatch}
+            mincluster = {params.mincluster}
+            prefix: {params.prefix}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MUMMER"]
+    shell:
+        """
+       (mkdir -p {params.dir} && cd {params.dir};
+        nucmer -p {params.prefix} --maxmatch  -l {params.minmatch} -c {params.mincluster} {input.reference_file} {input.fasta};
+        gzip mummer.delta) 1>{log.output} 2>{log.error}
+        """
+
+rule run_assemblytics:
+    """
+    Assemblytics analyze your assembly by comparing it to a reference genome https://github.com/MariaNattestad/assemblytics
+    """
+    threads: get_threads('run_assemblytics', 1)
+    input:
+        delta = rules.run_mummer.output.delta,
+    output:
+        summary = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/{{fastq}}__{{assemblers}}__{{quality_step}}.Assemblytics_structural_variants.summary",
+        png_dotplot = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/{{fastq}}__{{assemblers}}__{{quality_step}}.Assemblytics.Dotplot_filtered.png",
+        png_Nchart = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/{{fastq}}__{{assemblers}}__{{quality_step}}.Assemblytics.Nchart.png",
+        png_log_all_sizes = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/{{fastq}}__{{assemblers}}__{{quality_step}}.Assemblytics.size_distributions.all_variants.log_all_sizes.png"
+    params:
+        dir = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/",
+        unique_anchor_length = config['params']['ASSEMBLYTICS']['UNIQUE_ANCHOR_LEN'],
+        min_variant_size = config['params']['ASSEMBLYTICS']['MIN_VARIANT_SIZE'],
+        max_variant_size = config['params']['ASSEMBLYTICS']['MAX_VARIANT_SIZE'],
+        prefix = "{fastq}__{assemblers}__{quality_step}",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_ASSEMBLYTICS.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/ASSEMBLYTICS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_ASSEMBLYTICS.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/ASSEMBLYTICS/{{fastq}}_{{assemblers}}_{{quality_step}}_ASSEMBLYTICS-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            delta: {input.delta}
+        output:
+            summary: {output.summary}
+        params:
+            unique_anchor_length = {params.unique_anchor_length}
+            min_variant_size = {params.min_variant_size}
+            max_variant_size = {params.max_variant_size}
+            prefix: {params.prefix}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["ASSEMBLYTICS"]
+    shell:
+        """
+        (cd {params.dir};
+        Assemblytics {input.delta} {params.prefix} {params.unique_anchor_length} {params.min_variant_size} {params.max_variant_size}) 1>{log.output} 2>{log.error}
+        """
+
+
+rule run_mauve:
+    threads:
+        get_threads('run_mauve', 1)
+    input:
+        liste = lambda wc: expand(rules.preparing_fasta_to_quality.output.renamed, fastq=wc.fastq, assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list),
+    params:
+        dir = f"{output_dir}",
+        out_dir = f"{output_dir}{{fastq}}/AGGREGATED_QC/MAUVE_ALIGN/",
+        dir_aggregated = f"{output_dir}{{fastq}}/AGGREGATED_QC/DATA/"
+    output:
+        xmfa = f"{output_dir}{{fastq}}/AGGREGATED_QC/MAUVE_ALIGN/candidate_assemblies.xmfa",
+    log:
+        output = f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}-MAUVE.o",
+        error = f"{output_dir}{{fastq}}/AGGREGATED_QC/LOGS/{{fastq}}-MAUVE.e",
+    message:
+        """
+        Launching {rule}
+        Generating Mauve multiple alignment of sequences in all final assembly fasta files
+        threads: {threads}
+        input:
+            liste: {input.liste}
+        output:
+            xmfa: {output.xmfa}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MAUVE"]
+    script:
+         f'{culebront.snakemake_scripts}/run_mauve.py'
+
+
+rule run_bwa_mem2:
+    """
+    calculate stats from mapping: use to quality report
+    """
+    threads: get_threads('run_bwa_mem2', 4)
+    input:
+        draft = rules.preparing_fasta_to_quality.output.renamed,
+    params:
+        illumina = get_illumina,
+    output:
+        bam = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/BWA_MEM/illuminamapping.bam",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}BWA_MEM.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}BWA_MEM.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/BWA_MEM/{{fastq}}_{{assemblers}}_{{quality_step}}BWA_MEM-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.draft}
+        params:
+            illumina: {params.illumina}
+        output:
+            bam: {output.bam}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["BWA"],
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (bwa index {input.draft}
+        bwa mem -t {threads} {input.draft} {params.illumina} | samtools view -@ {threads} -Shb | samtools sort -@ {threads} -o {output.bam}
+        samtools index -@ {threads} {output.bam}) 1>{log.output} 2>{log.error}
+        """
+
+rule run_flagstat:
+    """
+    calculate stats from mapping: use to quality report
+    """
+    threads: get_threads('run_flagstat', 4)
+    input:
+        bam = rules.run_bwa_mem2.output.bam,
+    output:
+        txt = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/FLAGSTATS/{{assemblers}}-{{quality_step}}-flagstat.txt"
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/FLAGSTATS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_FLAGSTATS.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/FLAGSTATS/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_FLAGSTATS.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/FLAGSTATS/{{fastq}}_{{assemblers}}_{{quality_step}}FLAGSTATS-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            bam: {input.bam}
+        output:
+            txt: {output.txt}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["SAMTOOLS"]
+    shell:
+        """
+        (samtools flagstat {input.bam} --threads {threads} > {output.txt}) 1> {log.output} 2>{log.error}
+        """
+
+def build_meryl_for_merqury(wildcards):
+    """
+    build command line for merqury in available illumina
+    """
+    R1,R2 = '',''
+    for element1 in culebront.R1 :
+        if wildcards.fastq in element1 :
+            R1 = element1
+    for element2 in culebront.R2 :
+        if wildcards.fastq in element2 :
+            R2 = element2
+    cmd = f'meryl k=$k count output {wildcards.fastq}_R1.meryl {R1}\n'
+    if R2:
+        cmd = cmd + f'meryl k=$k count output {wildcards.fastq}_R2.meryl {R2}\n'
+    cmd = cmd + f'meryl union-sum output {wildcards.fastq}.meryl {wildcards.fastq}_R*.meryl'
+    return cmd
+
+
+rule run_merqury:
+    """
+    calculate stats with merqury which use illumina reads : use to quality report
+    """
+    threads: get_threads('run_bwa_mem2', 4)
+    input:
+        draft = rules.preparing_fasta_to_quality.output.renamed
+    params:
+        cmd_meryl = build_meryl_for_merqury,
+        genome_size = f"{config['params']['MERQURY']['GENOME_SIZE_PB']}",
+        directory= directory(f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MERQURY/"),
+        prefix = f"{{fastq}}",
+        to_report = f"{output_dir}FINAL_REPORT/MERQURY/{{fastq}}/",
+    output:
+        qv_global = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MERQURY/{{fastq}}.qv",
+        comp_stats =  f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MERQURY/{{fastq}}.completeness.stats",
+    log:
+        output = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MERQURY/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MERQURY.o",
+        error = f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/QUALITY/{{quality_step}}/MERQURY/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_MERQURY.e",
+    benchmark:
+        f"{output_dir}{{fastq}}/LOGS/QUALITY/MERQURY/{{fastq}}_{{assemblers}}_{{quality_step}}MERQURY-BENCHMARK.txt"
+    message:
+        """
+        Launching {rule} ...
+        threads: {threads}
+        input:
+            fasta: {input.draft}
+        params:
+            cmd_meryl: {params.cmd_meryl}
+            genome_size : {params.genome_size}
+            prefix: {params.prefix}
+        output:
+            qv_global: {output.qv_global}
+        log:
+            output: {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["MERQURY"],
+    shell:
+        """
+        (k=`sh $MERQURY/best_k.sh {params.genome_size} | tail -n 1`
+        cd {params.directory}
+        {params.cmd_meryl}
+        $MERQURY/eval/spectra-cn.sh {wildcards.fastq}.meryl {input.draft} {params.prefix}) 1>> {log.output} 2>>{log.error}
+        """

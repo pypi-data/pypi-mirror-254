@@ -1,0 +1,478 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+from pathlib import Path
+import click
+from snakemake.logging import logger
+import logging
+from pprint import pprint as pp
+# load own functions
+from culebrONT import CulebrONT, dico_tool, logo
+
+# GLOBAL VARIABLES
+culebront = CulebrONT(dico_tool, workflow=workflow, config=config)
+tools_config = culebront.tools_config
+cluster_config = culebront.cluster_config
+
+#print(culebront.string_to_dag)
+# pp(culebront.export_use_yaml)
+
+# print for debug:
+# logger.debug(pp(culebront))
+# exit()
+
+# Getting paths on usefully variables
+output_dir = config['DATA']['OUTPUT']
+fastq_dir = config['DATA']['FASTQ']
+reference_file = config['DATA']['REF']
+
+# check tools version
+if not Path(f"{output_dir}versions.csv").exists():
+    click.secho("Check if tools are available and their version before run wokflow")
+    culebront.tools_version_to_df(csv_file=f"{culebront.snakemake_scripts}/report_template/versions.csv",
+                                  active_tools_list=culebront.assembly_tools_activated+culebront.quality_tools_activated+culebront.correction_tools_activated+culebront.polishing_tools_activated,
+                                  output_file=f"{output_dir}versions.csv")
+
+
+################ WILDCARDS  ################
+FASTQ, = glob_wildcards(f"{config['DATA']['FASTQ']}{{fastq}}{culebront.fastq_files_ext}")
+nb_racon_rounds = culebront.nb_racon_rounds
+nb_pilon_rounds = culebront.nb_pilon_rounds
+
+# load some variables from culebront class
+add_circular_name = culebront.add_circular_name
+
+#output of Minipolish, -> (input de Tag Circular Minipolish)
+TMP = culebront.TMP
+#output of Tag Circular Minipolish , -> (input de fixstart)
+TCM = culebront.TCM
+#output of raven, shasta, flye, circlator , -> (input de tag_circular)
+TAG = culebront.TAG
+
+#######################################
+# Change workdir to output path
+workdir:config["DATA"]["OUTPUT"]
+#######################################
+
+def get_threads(rule, default):
+    """
+    retrieve threads value from cluster_config file avail for SLURM
+    If local get the --core value
+    if fail return default value define on each rules
+
+    Examples:
+        rule rule_graph:
+            threads: get_threads('rule_graph', 1)
+    """
+    # if cluster mode
+    if cluster_config:
+        if rule in cluster_config:
+            if 'cpus-per-task' in cluster_config[rule]:
+                return int(cluster_config[rule]['cpus-per-task'])
+        elif '__default__' in cluster_config:
+            if 'cpus-per-task' in cluster_config['__default__']:
+                return int(cluster_config['__default__']['cpus-per-task'])
+    # if local
+    elif workflow.global_resources["_cores"]:
+        if default == 1:            # for rule not able threading
+            return default
+        else:
+            return workflow.global_resources["_cores"]
+    # if cluster not rule and not default or local not _cores return value from call
+    return default
+
+
+def get_fastq(wildcards):
+    return f"{fastq_dir}{wildcards.fastq}{culebront.fastq_files_ext}"
+
+
+def draft_to_circlator(wildcards):
+    if 'CANU' in wildcards.assemblers:
+        return rules.run_canu.output.fasta
+    if 'SMARTDENOVO' in wildcards.assemblers:
+        return rules.run_smartdenovo.output.fasta
+    else:
+        return 'None'
+
+def draft_to_racon(wildcards):
+    n = int(wildcards.nb)
+    if n == 1:
+        if config['CIRCULAR']:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/ROTATE/rotate_{n}/assembly.racon{n}.fasta"
+        else:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/ASSEMBLER/assembly{add_circular_name}.fasta"
+    elif n > 1:
+        if config['CIRCULAR']:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/ROTATE/rotate_{n}/assembly.racon{n}.fasta"
+        else:
+            return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{n-1}/assembly.racon{n-1}.fasta"
+    else:
+        raise ValueError(f"loop numbers must be 1 or greater: received {n}")
+
+def draft_to_rotate(wildcards):
+    n = int(wildcards.nb)
+    if n == 1:
+        return  f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/ASSEMBLER/assemblyCIRCULARISED_circTag.fasta"
+    elif n > 1:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{n-1}/assembly.racon{n-1}.fasta"
+    else:
+        raise ValueError(f"loop numbers must be 1 or greater: received {n}")
+
+def draft_to_correction(wildcards):
+    if 'MINIASM' == wildcards.assemblers:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{nb_racon_rounds}/assembly.racon{nb_racon_rounds}{TCM}.fasta"
+    elif config['POLISHING']['RACON']:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/POLISHING/RACON/racon_{nb_racon_rounds}/assembly.racon{nb_racon_rounds}.fasta"
+    else:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/ASSEMBLER/assembly{add_circular_name}.fasta"
+
+
+def draft_to_pilon(wildcards):
+    n = int(wildcards.nbp)
+    if n == 1:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_1/assembly.pilon1.fasta"
+    elif n > 1:
+        return f"{output_dir}{{fastq}}/ASSEMBLERS/{{assemblers}}/CORRECTION/PILON/pilon_{n-1}/assembly.pilon{n-1}.fasta"
+    else:
+        raise ValueError(f"loop numbers for pilon must be 1 or greater: received {n}")
+
+def get_illumina(wildcards):
+    r1 = ""
+    r2 = ""
+    for element1 in culebront.R1 :
+        if wildcards.fastq in element1:
+            r1=element1
+    for element2 in culebront.R2 :
+        if wildcards.fastq in element2:
+            r2=element2
+    return f"{r1} {r2}"
+
+################################ FINAL ####################################
+rule final:
+    input:
+        # f"{output_dir}FINAL_REPORT/CulebrONT_report.html",
+        f"{output_dir}REPORT/Book/index.html"
+        # f"{output_dir}REPORT/QMD/about_workflow.qmd"
+
+
+################################ ASSEMBLY ####################################
+include: f"{culebront.install_path}/snakefiles/assemblers.snake"
+
+############################### CIRCULARISATION ##############################
+include: f"{culebront.install_path}/snakefiles/circular.snake"
+
+################################ POLISHING ####################################
+include: f"{culebront.install_path}/snakefiles/polishers.snake"
+
+################################ CORRECTION ####################################
+include: f"{culebront.install_path}/snakefiles/correction.snake"
+
+################################ QUALITY ####################################
+include: f"{culebront.install_path}/snakefiles/quality.snake"
+
+################################ RAPPORT ####################################
+include: f"{culebront.install_path}/snakefiles/reported.snake"
+
+
+rule copy_final_assemblies:
+    """ build stats on assembly"""
+    threads: get_threads('copy_final_assemblies', 1)
+    input:
+        fasta_list = rules.preparing_fasta_to_quality.output.renamed
+    output:
+        fasta_final = f"{output_dir}ASSEMBLIES/{{fastq}}-{{assemblers}}-{{quality_step}}{f'-{add_circular_name}' if add_circular_name else ''}.fasta"
+    params:
+        sample = '{fastq}'
+    log:
+        output = f"{output_dir}ASSEMBLIES/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_CP-FINAL-ASSEMBLIES.o",
+        error = f"{output_dir}ASSEMBLIES/LOGS/{{fastq}}_{{assemblers}}_{{quality_step}}_CP-FINAL-ASSEMBLIES.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             fasta_list : {input.fasta_list}
+        output:
+             fasta_final : {output.fasta_final}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    shell:
+        """
+        cp {input.fasta_list} {output.fasta_final}
+        """
+
+
+def input_report_by_sample(wildcards):
+    dico_final = {
+        "bench_list": expand(rules.run_benchmark_time.output.stat_time,fastq="{fastq}"),
+        "stats_assembly": expand(rules.stats_assembly.output.csv,fastq="{fastq}"),
+    }
+    if config['QUALITY']['QUAST']:
+        dico_final.update({
+            "quast_file": expand(rules.run_quast.output.report, fastq="{fastq}"),
+         })
+    if config['QUALITY']['BUSCO']:
+         dico_final.update({
+         "busco_stats": expand(rules.run_busco_stats.output.stat, fastq = "{fastq}"),
+         })
+    if config['QUALITY']['BLOBTOOLS']:
+        dico_final.update({
+            "blob_files": expand(rules.run_blobtools.output.table, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list)
+        })
+    if config['QUALITY']['ASSEMBLYTICS']:
+        dico_final.update({
+             "assemblytics_files": expand(rules.run_assemblytics.output.summary, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list),
+             "assemblytics_dotplot": expand(rules.run_assemblytics.output.png_dotplot, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list),
+             "assemblytics_Nchart": expand(rules.run_assemblytics.output.png_Nchart, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list),
+             "assemblytics_log_all_sizes": expand(rules.run_assemblytics.output.png_log_all_sizes, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list)
+        })
+    if config['QUALITY']['MERQURY']:
+        dico_final.update({
+            "merqury_files":  expand(rules.run_merqury.output.qv_global, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list),
+            "merqury_stats":  expand(rules.run_merqury.output.comp_stats, fastq="{fastq}", assemblers=culebront.assembly_tools_activated, quality_step=culebront.last_steps_list)
+        })
+    if config['QUALITY']['FLAGSTATS']:
+         dico_final.update({
+         "flagstats_stats": expand(rules.run_flagstats_stats.output.stat, fastq = "{fastq}")
+         })
+    if config['MSA']['MAUVE']:
+        dico_final.update({
+            "mauve_files": expand(rules.run_mauve.output.xmfa, fastq="{fastq}")
+        })
+    return dico_final
+
+
+rule report_by_sample :
+    """ create a quarto report by sample/fastq"""
+    threads: get_threads('report_by_fastq',1)
+    input:
+        unpack(input_report_by_sample)
+    output:
+        qmd_by_sample = f"{output_dir}REPORT/QMD/{{fastq}}/{{fastq}}.ipynb"
+    params:
+        sample_name = '{fastq}'
+    log:
+        output=f"{output_dir}REPORT/LOGS/{{fastq}}_QMD.o",
+        error=f"{output_dir}REPORT/LOGS/{{fastq}}_QMD.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             input_report_by_sample : {input}
+        output:
+             qmd_by_sample : {output.qmd_by_sample}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/generate_samples.py"
+
+
+rule report_about_workflow:
+    """build qmd for tools version dag and config"""
+    threads: get_threads('report_about_workflow',1)
+    input:
+        dag = rules.rule_graph.output.dag,
+        report_snakemake = rules.run_report_snakemake.output.report_snakemake
+    output:
+        about_ipynb = f"{output_dir}REPORT/QMD/about_workflow.ipynb"
+    params:
+        config_yaml = culebront.export_use_yaml,
+        versions = f"{output_dir}versions.csv",
+    log:
+        output=f"{output_dir}REPORT/LOGS/report_about_workflow_QMD.o",
+        error=f"{output_dir}REPORT/LOGS/report_about_workflow_QMD.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             dag : {input.dag}
+             versions : {params.versions}
+        output:
+             about_ipynb : {output.about_ipynb}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/generate_tools.py"
+
+rule ipynb_convert_samples_qmd:
+    """build qmd for tools version dag and config"""
+    threads: get_threads('ipynb_convert_samples_qmd',1)
+    input:
+        ipynb = rules.report_by_sample.output.qmd_by_sample,
+    output:
+        sample_qmd = f"{output_dir}REPORT/QMD/{{fastq}}/{{fastq}}.qmd"
+    log:
+        output=f"{output_dir}REPORT/LOGS/ipynb_convert_{{fastq}}_qmd.o",
+        error=f"{output_dir}REPORT/LOGS/ipynb_convert_{{fastq}}_qmd.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             ipynb : {input.ipynb}
+        output:
+             sample_qmd : {output.sample_qmd}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["QUARTO"]
+    shell:
+        "quarto convert {input.ipynb} 1>{log.output} 2>{log.error}"
+
+
+rule ipynb_convert_qmd:
+    """build qmd for tools version dag and config"""
+    threads: get_threads('ipynb_convert_qmd',1)
+    input:
+        ipynb = rules.report_about_workflow.output.about_ipynb,
+    output:
+        about_qmd = f"{output_dir}REPORT/QMD/about_workflow.qmd"
+    log:
+        output=f"{output_dir}REPORT/LOGS/ipynb_convert_qmd.o",
+        error=f"{output_dir}REPORT/LOGS/ipynb_convert_qmd.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             ipynb : {input.ipynb}
+        output:
+             about_qmd : {output.about_qmd}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["QUARTO"]
+    shell:
+        "quarto convert {input.ipynb} 1>{log.output} 2>{log.error}"
+
+rule edit_quarto:
+    """edit quarto config file to add page of samples"""
+    threads: get_threads('edit_quarto',1)
+    input:
+        list_sample_qmd = expand(rules.ipynb_convert_samples_qmd.output.sample_qmd, fastq=FASTQ),
+        quarto = f"{culebront.snakemake_scripts}/report_template/_quarto.yml",
+    output:
+        quarto_conf = f"{output_dir}REPORT/QMD/_quarto.yml"
+    params:
+        out_dir = directory(f"{output_dir}REPORT/Book/")
+    log:
+        output=f"{output_dir}REPORT/LOGS/edit_quarto.o",
+        error=f"{output_dir}REPORT/LOGS/edit_quarto.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             list_sample_qmd : {input.list_sample_qmd}
+             quarto_conf : {input.quarto}
+        output:
+             quarto_conf : {output.quarto_conf}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    script:
+        f"{culebront.snakemake_scripts}/edit_quarto.py"
+
+
+rule build_book:
+    """copy template files to build report"""
+    threads: get_threads('build_book',1)
+    input:
+        qmd = rules.ipynb_convert_qmd.output.about_qmd,
+        quarto_conf = rules.edit_quarto.output.quarto_conf,
+        index_qmd = f"{culebront.snakemake_scripts}/report_template/index.qmd",
+        list_sample_qmd= expand(rules.ipynb_convert_samples_qmd.output.sample_qmd,fastq=FASTQ),
+        ref_bib = f"{culebront.snakemake_scripts}/report_template/references.bib",
+        ref_qmd = f"{culebront.snakemake_scripts}/report_template/references.qmd",
+        csl = f"{culebront.snakemake_scripts}/report_template/cellalina.csl",
+        logo = f"{culebront.install_path}/culebront_logo.png",
+        all_assemblies = expand(rules.copy_final_assemblies.output.fasta_final, fastq=FASTQ, assemblers=culebront.assembly_tools_activated, quality_step=culebront.quality_step),
+    output:
+        html = f"{output_dir}REPORT/Book/index.html"
+    params:
+        book_dir_qmd = directory(f"{output_dir}REPORT/QMD/"),
+        input_dir = f"{culebront.snakemake_scripts}/",
+        link_html = f"{output_dir}report.html"
+    log:
+        output=f"{output_dir}REPORT/LOGS/build_book.o",
+        error=f"{output_dir}REPORT/LOGS/build_book.e"
+    message:
+        """
+        Launching {rule}
+        threads : {threads}
+        input:
+             qmd : {input.qmd}
+        output:
+             about_qmd : {output.html}
+        log:
+            output : {log.output}
+            error: {log.error}
+        """
+    singularity:
+        tools_config['SINGULARITY']['TOOLS']
+    envmodules:
+        tools_config["ENVMODULE"]["QUARTO"]
+    shell:
+        """
+            (mkdir -p {params.book_dir_qmd};
+            cp {input.index_qmd} {params.book_dir_qmd};
+            cp {input.ref_bib} {params.book_dir_qmd};
+            cp {input.csl} {params.book_dir_qmd};
+            cp {input.logo} {params.book_dir_qmd};
+            cp {input.ref_qmd} {params.book_dir_qmd};
+            cd {params.book_dir_qmd};
+            quarto add --no-prompt --profile quarto quarto-ext/lightbox;
+            quarto render --to html
+            ln -s -f {output.html} {params.link_html}
+            ) 1>{log.output} 2>{log.error}
+        """
+def output_final(wildcards):
+    dico_final = {
+        "all_assemblies": expand(rules.copy_final_assemblies.output.fasta_final,fastq=FASTQ,assemblers=culebront.assembly_tools_activated,quality_step=culebront.quality_step),
+        }
+    return dico_final
+
+# rule run_report:
+#     """
+#     printing  CulebrONT report
+#     """
+#     threads: get_threads('run_report', 1)
+#     input:
+#         unpack(output_final)
+#     params:
+#         samples_list = FASTQ,
+#         txt_config = culebront.export_use_yaml,
+#         out_dir_report = directory(f"{output_dir}FINAL_REPORT"),
+#         quality_tools_list = culebront.quality_tools_activated,
+#         logo = logo
+#     output:
+#         report = f"{output_dir}FINAL_REPORT/CulebrONT_report.html"
+#     log:
+#         output = f"{output_dir}FINAL_REPORT/LOGS/REPORT.o",
+#         error = f"{output_dir}FINAL_REPORT/LOGS/REPORT.e"
+#     message:
+#         """
+#         print final CulebrONT_report ...
+#         """
+#     singularity:
+#         tools_config['SINGULARITY']['REPORT']
+#     envmodules:
+#         tools_config['ENVMODULE']['R']
+#     script:
+#         f"{culebront.snakemake_scripts}/Report.Rmd"
