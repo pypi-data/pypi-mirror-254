@@ -1,0 +1,10 @@
+matplotlib
+numpy
+scipy
+scikit-image
+
+[diff]
+numdiff>=0.0.1
+
+[full]
+klove[diff]

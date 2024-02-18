@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: klove
+Version: 0.1.0
+Summary: Waves on elastic plates
+Home-page: https://gitlab.com/benvial/klove
+Author: Benjamin Vial
+License: GPL-3.0-or-later
+Project-URL: Code, https://gitlab.com/benvial/klove
+Project-URL: Documentation, https://benvial.gitlab.io/klove
+Project-URL: Issues, https://gitlab.com/benvial/klove/issues
+Keywords: elastic plates,auto-differentiation,linear algebra
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Provides-Extra: diff
+Requires-Dist: numdiff>=0.0.1; extra == "diff"
+Provides-Extra: full
+Requires-Dist: klove[diff]; extra == "full"
+
+
+<a class="reference external image-reference" href="https://gitlab.com/benvial/klove/-/releases" target="_blank"><img alt="Release" src="https://img.shields.io/endpoint?url=https://gitlab.com/benvial/klove/-/jobs/artifacts/main/raw/logobadge.json?job=badge&labelColor=c9c9c9"></a> 
+<a class="reference external image-reference" href="https://gitlab.com/benvial/klove/commits/main" target="_blank"><img alt="Release" src="https://img.shields.io/gitlab/pipeline/benvial/klove/main?logo=gitlab&labelColor=dedede&style=for-the-badge"></a> 
+<a class="reference external image-reference" href="https://benvial.gitlab.io/klove" target="_blank"><img alt="License" src="https://img.shields.io/badge/documentation-website-dedede.svg?logo=readthedocs&logoColor=e9d672&style=for-the-badge"></a>
+<a class="reference external image-reference" href="https://gitlab.com/benvial/klove/commits/main" target="_blank"><img alt="Release" src="https://img.shields.io/gitlab/coverage/benvial/klove/main?logo=python&logoColor=e9d672&style=for-the-badge"></a>
+<a class="reference external image-reference" href="https://black.readthedocs.io/en/stable/" target="_blank"><img alt="Release" src="https://img.shields.io/badge/code%20style-black-dedede.svg?logo=python&logoColor=e9d672&style=for-the-badge"></a>
+<a class="reference external image-reference" href="https://gitlab.com/benvial/klove/-/blob/main/LICENSE.txt" target="_blank"><img alt="License" src="https://img.shields.io/badge/license-GPLv3-blue?color=aec2ff&logo=open-access&logoColor=aec2ff&style=for-the-badge"></a>
+
+
+# KLOVE
+
+**Numerical modelling of waves on thin elastic plates**
+
+`klove` is a Python package designed to study wave propagation on thin elastic plates based on the 
+Kirchhoff–Love theory. The plate can be loaded with elements that will affect the propagation of elastic waves: the aim 
+is to find the solution to this problem numerically. Key features of the code are:
+
+
+<!-- start elevator-pitch -->
+
+- **Easy to use interface** --- simply define the plate and scatterers (pins, masses, mass-spring or beam resonators).
+- **Multiple scattering simulations** --- with plane wave and point load excitation.
+- **Far field quantities** --- with plane wave excitation.
+- **Diffraction by gratings** --- with calculation of efficiencies.
+- **Quasi-normal mode analysis and expansion** --- by solving a nonlinear eigenvalue problem.
+- **Calculation of phononic band diagrams** --- with utilities to define the path along the edges of the Brillouin zone.
+- **Auto-differentiable** --- allowing for gradient-based optimization of elastic wave propagation.
+
+
+<!-- end elevator-pitch -->
+
+
+
+## Documentation
+
+See the website with API reference and some examples at [benvial.gitlab.io/klove](https://benvial.gitlab.io/klove).
+
+
+
+<!-- start installation -->
+
+## Installation
+
+
+### From Pypi
+
+Simply run
+
+```bash 
+pip install klove
+```
+If you want more numerical backends (pytorch, autograd and jax), including 
+auto-differentiation and GPU acceleration, install the full version:
+
+```bash 
+pip install klove[full]
+```
+
+
+### From conda/mamba
+
+For the full installation including GPU/autodiff support
+
+```bash 
+mamba install -c pytorch -c nvidia pytorch pytorch-cuda=12.1 jaxlib=*=*cuda* jax 
+pip install klove[full]
+```
+
+<!-- cuda-nvcc ?  -->
+
+### From source
+
+Clone the repository
+
+```bash 
+git clone https://gitlab.com/benvial/klove.git
+cd klove
+```
+
+Install the package locally
+
+```bash 
+pip install -e .
+```
+
+For the full version:
+
+```bash 
+pip install -e .[full]
+```
+
+### From gitlab
+
+Basic:
+
+```bash 
+pip install -e git+https://gitlab.com/benvial/klove.git#egg=klove
+```
+
+
+Full:
+
+```bash 
+pip install -e git+https://gitlab.com/benvial/klove.git#egg=klove[full]
+```
+
+
+
+
+<!-- end installation -->
