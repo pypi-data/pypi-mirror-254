@@ -1,0 +1,3 @@
+class HtmlWriter:
+    def __init__(self):
+        ...
