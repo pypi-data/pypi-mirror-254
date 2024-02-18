@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+src/klor/__init__.py
+src/klor/main.py
+src/klor.egg-info/PKG-INFO
+src/klor.egg-info/SOURCES.txt
+src/klor.egg-info/dependency_links.txt
+src/klor.egg-info/top_level.txt
