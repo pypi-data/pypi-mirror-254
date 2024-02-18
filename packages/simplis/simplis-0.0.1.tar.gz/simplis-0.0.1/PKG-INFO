@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: simplis
+Version: 0.0.1
+Project-URL: Homepage, https://www.simplis.com
+Author-email: "SIMPLIS Technologies, Inc." <support@simplis.com>
+License-File: LICENSE.txt
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# simplis
+
+[![PyPI - Version](https://img.shields.io/pypi/v/simplis.svg)](https://pypi.org/project/simplis)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simplis.svg)](https://pypi.org/project/simplis)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install simetrix
+```
+
+## License
+
+`simplis` is distributed under the terms of the [SIMetrix and SIMetrix/SIMPLIS End User License Agreement](https://simplis.com/sales/simetrix_simplis_eula).
+

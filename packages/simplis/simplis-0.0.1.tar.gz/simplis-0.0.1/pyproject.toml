@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simplis"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = []
+authors = [
+  { name="SIMPLIS Technologies, Inc.", email="support@simplis.com" },
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Development Status :: 1 - Planning",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://www.simplis.com"
+
+[tool.hatch.version]
+path = "src/simplis/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+  "pytest",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.11"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/simplis tests}"
+
+[tool.coverage.run]
+source_pkgs = ["simplis", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/simplis/__about__.py",
+]
+
+[tool.coverage.paths]
+simplis = ["src/simplis", "*/simplis/src/simplis"]
+tests = ["tests", "*/simplis/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
