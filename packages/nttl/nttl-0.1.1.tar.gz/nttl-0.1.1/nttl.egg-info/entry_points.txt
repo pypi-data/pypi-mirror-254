@@ -1,0 +1,2 @@
+[console_scripts]
+nttl = nttl.main:run
