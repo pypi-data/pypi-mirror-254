@@ -1,0 +1,2 @@
+[console_scripts]
+ditts-cli = ditts.cli:tts_cli
