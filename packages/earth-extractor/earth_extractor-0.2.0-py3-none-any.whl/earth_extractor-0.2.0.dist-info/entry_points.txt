@@ -1,0 +1,3 @@
+[console_scripts]
+earth-extractor=earth_extractor.app:main
+
