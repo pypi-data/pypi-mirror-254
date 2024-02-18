@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Playground to sign Nanopublications in your browser" />
+    <title>Nanopublication signing playground</title>
+    <link rel="icon" href="https://github.com/Nanopublication/nanopub-website/blob/main/static/img/icon.png?raw=true" type="image/x-icon">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ORCID login widget -->
+    <script src="assets/orcid-widget.js"></script>
+    <script src="https://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
+  </head>
+
+  <body class="bg-slate-700 text-white">
+
+    <div class="flex flex-col items-center p-4 space-y-4">
+      <h1 class="text-xl font-semibold">✍️ Nanopublication signing playground 🕹️</h1>
+      <p class="text-sm text-center">
+        Sign
+        <a href="https://nanopub.net" target="_blank" rel="noopener noreferrer">
+          Nanopublications
+        </a>
+        in TriG or JSON-LD format.
+        Everything is running in your browser, using the package
+        <a href="https://vemonet.github.io/nanopub-rs/use_javascript.html" target="_blank" rel="noopener noreferrer">
+          <b><code>@nanopub/sign</code></b>
+        </a>
+      </p>
+
+      <button id="switch-trig-jsonld" class="p-2 text-sm rounded-md bg-slate-600 hover:bg-slate-800 text-slate-400">Switch to JSON-LD</button>
+
+      <!-- Input editor -->
+      <div id="rdf-input" style="min-height: 34em;"></div>
+
+      <!-- Private key input -->
+      <p class="text-sm text-center">
+        You will need to provide a
+        <a href="https://raw.github.com/vemonet/nanopub-rs/main/lib/tests/resources/id_rsa" target="_blank" rel="noopener noreferrer">
+          RSA private key file
+        </a>
+        that will be used to sign the Nanopub. Save it in your password manager to reuse it easily 💡
+      </p>
+      <input type="password" id="private-key" placeholder="Enter Private Key" class="text-black text-center rounded-md"></input>
+
+      <!-- Card with btn to login with ORCID, and btn to generate and register private keys -->
+      <div class="flex flex-col items-center text-sm bg-slate-600 rounded-md p-3 space-y-2">
+        <p>
+          If you don't have a private key yet, you can generate one that will be linked to your ORCID by a Nanopublication published to the network.
+        </p>
+        <div class="flex justify-center space-x-2">
+          <div id="orcidWidget" class="inline-flex p-2 space-x-2 rounded-md text-slate-400 bg-slate-700 hover:bg-slate-900 cursor-pointer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" width="20" height="20" alt="ORCID" />
+          </div>
+          <button id="publish-intro-btn" class="hidden p-2 rounded-md text-slate-400 bg-slate-700 hover:bg-slate-900">
+            <i class="fas fa-key mr-2"></i> Generate key and publish introduction
+          </button>
+        </div>
+
+        <!-- Display generated private key -->
+        <div id="privkey-card" class="hidden flex flex-col items-center space-y-2">
+          <p>
+            The Nanopublication Introduction has been published successfully 🎉
+          </p>
+          <p>
+            You can now <b>copy the private key below</b>, store it somewhere (e.g. your password manager),
+            and reuse-it later to sign Nanopublications:
+          </p>
+          <p id="display-privkey" class="break-all rounded-md bg-green-500 p-2"></p>
+        </div>
+      </div>
+
+      <!-- Btn to submit the nanopub -->
+      <div class="flex space-x-4">
+        <button id="sign-btn" class="p-2 rounded-md text-slate-400 bg-slate-800 hover:bg-slate-600">
+          <i class="fas fa-pen-nib mr-2"></i> Sign Nanopublication
+        </button>
+        <button id="publish-btn" class="p-2 rounded-md text-slate-400 bg-slate-800 hover:bg-slate-600">
+          <i class="fas fa-upload mr-2"></i> Publish Nanopublication
+        </button>
+      </div>
+
+      <!-- Output editor -->
+      <div id="rdf-output" class="hidden rounded-md" style="min-height: 54em; flex-grow: 0; overflow: hidden"></div>
+      <br/><br/>
+    </div>
+
+    <script type="module">
+      import init, { Nanopub, NpProfile, KeyPair, getNpServer } from "https://unpkg.com/@nanopub/sign";
+      import monacoLoader from 'https://cdn.jsdelivr.net/npm/@monaco-editor/loader@1.4.0/+esm';
+
+      // TODO: get ORCID based on the public key registered in the nanopub network
+      let orcidToken = null;
+      let orcid = "";
+      let privKey = null;
+
+      async function main() {
+        // WebAssembly needs to be initialized
+        await init();
+        const monaco = await monacoLoader.init();
+
+        const rdfInput = document.getElementById('rdf-input');
+        const rdfOutput = document.getElementById('rdf-output');
+
+        // Theme from https://github.com/brijeshb42/monaco-themes/tree/master/themes
+        const theme = await (await fetch('assets/Solarized-dark.json')).json()
+        // Directly try a theme from its URL:
+        // const theme = await (await fetch('https://raw.githubusercontent.com/brijeshb42/monaco-themes/master/themes/Solarized-light.json')).json()
+        monaco.editor.defineTheme('solarized-dark', theme);
+
+        const npJsonSchema = await (await fetch('assets/nanopub-json-schema.json')).json()
+        const exampleTrig = await (await fetch('assets/nanopub-example.trig')).text()
+        const exampleJsonld = await (await fetch('assets/nanopub-example.json')).text()
+
+        // Setup the 2 Monaco editors
+        const editorsConfig = {
+            theme: 'solarized-dark',
+            automaticLayout: true,
+            scrollBeyondLastLine: false,
+            lineNumbers: 'on',
+            tabSize: 2,
+            insertSpaces: true,
+            minimap: {
+                enabled: false
+            },
+            scrollbar: {
+                alwaysConsumeMouseWheel: false
+            },
+        };
+        const ieditor = monaco.editor.create(rdfInput, {
+            ...editorsConfig,
+            language: 'sparql',
+            value: exampleTrig,
+        });
+        const oeditor = monaco.editor.create(rdfOutput, {
+            ...editorsConfig,
+            language: 'sparql',
+            readOnly: true,
+        });
+
+        // Add JSON Schema validation for JSON-LD
+        monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+          validate: true,
+          schemas: [
+            {
+              uri: "https://vemonet.github.io/nanopub-rs/assets/nanopub-schema.json",
+              fileMatch: ["*"],
+              schema: npJsonSchema
+            },
+          ]
+        });
+
+        // Sign and publish the content of the input editor
+        async function sign(publish = false) {
+          monaco.editor.setModelMarkers(ieditor.getModel(), 'errors', []);
+          const rdfStr = ieditor.getValue();
+          const privKey = document.getElementById('private-key').value
+          const serverUrl = (publish) ? getNpServer() : "" // Empty is test server
+          if (serverUrl && publish) {
+            console.log(`Publishing to ${serverUrl}`)
+          }
+          const profile = new NpProfile(orcid, "Your Name", privKey, "");
+          try {
+            // const checked = new Nanopub(rdfStr).check();
+            // console.log("CHECKED", checked.info());
+            // const np = new Nanopub(rdfStr).sign(profile)
+
+            const np = await new Nanopub(rdfStr).publish(profile, serverUrl);
+            oeditor.setValue(np.get_rdf());
+            console.log("Published Nanopub:", np.info());
+          } catch (err) {
+            // oeditor.setValue(error.toString());
+            displayError(err);
+            console.error("Error:", err);
+          }
+          rdfOutput.classList.remove("hidden");
+        }
+
+        // Sign or publish nanopub
+        document.getElementById('sign-btn').addEventListener('click', async (event) => {
+          event.preventDefault();
+          sign(false)
+        });
+        document.getElementById('publish-btn').addEventListener('click', async (event) => {
+          event.preventDefault();
+          sign(true)
+        });
+
+        // Toggle JSON-LD / TriG
+        document.getElementById('switch-trig-jsonld').addEventListener('click', async (event) => {
+          const currentLang = ieditor.getModel().getLanguageId();
+          let newLang, buttonText;
+          if (currentLang === 'json') {
+            newLang = 'sparql';
+            buttonText = 'Switch to JSON-LD';
+            ieditor.setValue(exampleTrig);
+          } else {
+            newLang = 'json';
+            buttonText = 'Switch to TriG';
+            ieditor.setValue(exampleJsonld);
+          }
+          monaco.editor.setModelLanguage(ieditor.getModel(), newLang);
+          document.getElementById('switch-trig-jsonld').textContent = buttonText;
+        });
+
+        // Generate key pair and publish Nanopub intro
+        const introBtn = document.getElementById('publish-intro-btn')
+        introBtn.addEventListener('click', async (event) => {
+          let keypair = new KeyPair();
+          keypair = keypair.toJs();
+          const profile = new NpProfile(orcidToken.orcid, orcidToken.fullName, keypair.private, "");
+          // Publish nanopub link to public key
+          const intro = Nanopub.publish_intro(profile, getNpServer(false))
+            .then(np => {
+              oeditor.setValue(np.get_rdf());
+              console.log("Published Introduction Nanopub:", np.info());
+              // Display private key
+              document.getElementById("privkey-card").classList.remove("hidden");
+              document.getElementById("display-privkey").textContent = keypair.private
+            })
+            .catch(err => {
+              oeditor.setValue(err.toString());
+              console.error("Error publishing the Nanopub Introduction:", err);
+            });
+          rdfOutput.classList.remove("hidden");
+        });
+
+        function displayError(err) {
+          oeditor.setValue(err);
+          // Handle error msg with line and position returned by nt/ttl/trig parsers
+          const match = err.match(/(.*?) on line (\d+) at position (\d+)/);
+          const [msg, lineNumber, position] = (match)
+              ? [match[1], parseInt(match[2], 10), parseInt(match[3], 10)]
+              : [err, 1, 1];
+          monaco.editor.setModelMarkers(ieditor.getModel(), 'errors', [{
+              startLineNumber: lineNumber,
+              startColumn: position,
+              endLineNumber: lineNumber,
+              endColumn: position + 3,
+              message: msg,
+              severity: monaco.MarkerSeverity.Error
+          }]);
+        }
+
+        // Setup ORCID login https://github.com/ORCID/orcid-openid-examples/blob/master/js-widget/readme.md
+        // If you want to redeploy this, you will need to get an ORCID client ID, and add your website URL to the redirect URIs
+        // https://orcid.org/developer-tools
+        function onLogin(idToken) {
+          idToken.orcid = idToken.iss + '/' + idToken.sub
+          idToken.fullName = idToken.given_name + " " + idToken.family_name
+          orcid = idToken.orcid;
+          orcidToken = idToken
+          introBtn.classList.remove("hidden");
+          console.log("Logged in", idToken);
+        }
+        function onError() {
+          console.error("Error when login.")
+        }
+        var config = {
+          // "mode": "sandbox",
+          // "returnUrl": "http://localhost:3000/demo.html",
+          "mode": "live",
+          "clientId": "APP-TEANCMSUOPYZOGJ3",
+          "returnUrl": "https://vemonet.github.io/nanopub-rs/demo.html",
+          "onSuccess": onLogin,
+          "onFail": onError,
+          "buttonText": "Authenticate with ORCID",
+          "auto": true
+        };
+        ORCID.init(config);
+      }
+
+      main()
+      // For dev:
+      // document.addEventListener("DOMContentLoaded", function(e) {
+      //   const testPrivate = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAPdEfIdHtZYoFh6/DWorzoHpFXMjugqW+CGpe9uk4BfUq54MToi2u7fgdGGtXLg4wsJFBYETdVeS0p1uA7EPe8LhwjHPktf5c6AZbO/lYpKM59e7/Ih4mvOy4iTIe/Dv+1OgasTSK0nXAbKUm/5iJ6LOYa82JQeE/QnT5gUw2e97AgMBAAECgYBbNQnyJINYpeSy5qoeFZaQ2Ncup2kCavmQASJMvJ5ka+/51nRJfY30n3iOZxIiad19J1SGbhUEfoXtyBzYfOubF2i2GJtdF5VyjdSoU6w/gOo2/vnbH+GCHnMclrWshohOADGQU/Y8pYhIvlQqcb6xEOts9m9C9g4uwvPXqjmhoQJBAPkmSFIZwF3i2UvJlHyeXi599L0jkGTUJy/Y4IjieUx5suwvAtG47ejhgIPKK06VtW49oGPHWjWc3cJAmnV+vTMCQQD+EPTvNtLpX9QiDEJD7b8woDwmVrvH/RUosP/cXpMQd7BUVgPlpffAlFJGDlOzwwjZjy+8kc6MYevh1kWqobSZAkEAyCs+nV99ErEHnYEFoB1oU3f0oeSpxKhCF4np03AIvi1kV6bpX+9wjNJnevp5UriqvDgc3S0zx7EQ5Vkb/1vkywJBAMMw59y4tAVT+DhITsi9aTvEfzG9RPt6trzSb2Aw0K/AJJpGkyvl/JfZ2/Oyoh/jYXM0DKrFIni76mtRIajcH1ECQQCJi6aXOaRkRPmf7FYY9cRaJdR1BtZkKZbDg6ZMD1bY97cGiM9STTMeldYcCtQBtyhVCTEObI/V6/0FAvY9Zi7w"
+      //   document.getElementById("privkey-card").classList.remove("hidden");
+      //   document.getElementById("display-privkey").textContent = testPrivate
+      //   introBtn.classList.remove("hidden");
+      // });
+    </script>
+  </body>
+
+  <style>
+    a {
+      color: #3b82f6;
+    }
+    a:hover {
+      color: #2563EB;
+    }
+    #orcidWidget a {
+      color: rgb(148, 163, 184);
+    }
+    /* Enable resize of editors
+    not possible for input because oveflow: hidden breaks the error popups */
+    #rdf-input, #rdf-output {
+      flex-shrink: 0;
+      flex-basis: 1;
+      resize: vertical;
+      width: 100%;
+    }
+  </style>
+</html>
