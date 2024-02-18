@@ -1,0 +1,271 @@
+# ERRANT v3.0.0
+
+This repository contains the grammatical ERRor ANnotation Toolkit (ERRANT) described in:
+
+> Christopher Bryant, Mariano Felice, and Ted Briscoe. 2017. [**Automatic annotation and evaluation of error types for grammatical error correction**](https://www.aclweb.org/anthology/P17-1074/). In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Vancouver, Canada.
+
+> Mariano Felice, Christopher Bryant, and Ted Briscoe. 2016. [**Automatic extraction of learner errors in ESL sentences using linguistically enhanced alignments**](https://www.aclweb.org/anthology/C16-1079/). In Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers. Osaka, Japan.
+
+If you make use of this code, please cite the above papers. More information about ERRANT can be found [here](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-938.html). In particular, see Chapter 5 for definitions of error types.
+
+---
+
+# Overview
+
+The main aim of ERRANT is to automatically annotate parallel English sentences with error type information. Specifically, given an original and corrected sentence pair, ERRANT will extract the edits that transform the former to the latter and classify them according to a rule-based error type framework. This can be used to standardise parallel datasets or facilitate detailed error type evaluation. Annotated output files are in M2 format and an evaluation script is provided.
+
+### Example:  
+
+**Original**: This are gramamtical sentence .  
+**Corrected**: This is a grammatical sentence .  
+**Output M2**: 
+
+```text
+S This are gramamtical sentence .  
+A 1 2|||R:VERB:SVA|||is|||REQUIRED|||-NONE-|||0  
+A 2 2|||M:DET|||a|||REQUIRED|||-NONE-|||0  
+A 2 3|||R:SPELL|||grammatical|||REQUIRED|||-NONE-|||0  
+A -1 -1|||noop|||-NONE-|||REQUIRED|||-NONE-|||1
+```
+
+
+In M2 format, a line preceded by S denotes an original sentence while a line preceded by A indicates an edit annotation. Each edit line consists of the start and end token offset of the edit, the error type, and the tokenized correction string. The next two fields are included for historical reasons (see the CoNLL-2014 shared task) while the last field is the annotator id.
+
+A "noop" edit is a special kind of edit that explicitly indicates an annotator/system made no changes to the original sentence. If there is only one annotator, noop edits are optional, otherwise a noop edit should be included whenever at least 1 out of n annotators considered the original sentence to be correct. This is something to be aware of when combining individual M2 files, as missing noops can affect evaluation. 
+
+---
+# Installation
+
+## Pip Install
+
+The easiest way to install ERRANT and its dependencies is using `pip`. We also recommend installing it in a clean virtual environment (e.g. with `venv`). The latest version of ERRANT only supports Python >= 3.9.
+
+Establish a virtual environment using Conda.
+```bash
+$ conda create -n errant python=3.9
+$ conda activate errant
+```
+
+You have two options for installing ERRANT version 3.0.0:
+
+- Option 1: Install ERRANT using pip with the following commands:
+```bash
+$ pip install -U pip setuptools wheel
+$ pip install errant-prep
+```
+- Option 2: Alternatively, if you want to install ERRANT from the source, you can follow these steps:
+
+```bash
+$ git clone https://gitlab.testsprep.online/nlp/research/errant
+$ cd errant
+$ pip install -U pip setuptools wheel
+$ pip install -e .
+```
+
+
+Please obtain a Spacy model by using the following command:
+```bash
+$ python -m spacy download en_core_web_sm
+```
+You can verify the available models at [this](https://spacy.io/models/en) location.
+
+**Important Note:** ERRANT version 3.0.0 is specifically designed for the English language model. Additionally, ERRANT was initially crafted to function with spaCy version 3.6.1.
+
+---
+# Usage
+
+## CLI
+
+Three main commands are provided with ERRANT: `errant_parallel`, `errant_m2` and `errant_compare`. You can run them from anywhere on the command line without having to invoke a specific python script.  
+
+1. `errant_parallel`  
+
+     This is the main annotation command that takes an original text file and at least one parallel corrected text file as input, and outputs an annotated M2 file. By default, it is assumed that the original and corrected text files are word tokenised with one sentence per line.
+	 Example:
+	 ```
+	 errant_parallel -orig <orig_file> -cor <cor_file1> [<cor_file2> ...] -out <out_m2>
+	 ```
+
+2. `errant_m2`  
+
+     This is a variant of `errant_parallel` that operates on an M2 file instead of parallel text files. This makes it easier to reprocess existing M2 files. You must also specify whether you want to use gold or auto edits; i.e. `-gold` will only classify the existing edits, while `-auto` will extract and classify automatic edits. In both settings, uncorrected edits and noops are preserved.  
+     Example:
+	 ```
+	 errant_m2 {-auto|-gold} m2_file -out <out_m2>
+	 ```
+
+3. `errant_compare`  
+
+     This is the evaluation command that compares a hypothesis M2 file against a reference M2 file. The default behaviour evaluates the hypothesis overall in terms of span-based correction. The `-cat {1,2,3}` flag can be used to evaluate error types at increasing levels of granularity, while the `-ds` or `-dt` flag can be used to evaluate in terms of span-based or token-based detection (i.e. ignoring the correction). All scores are presented in terms of Precision, Recall and F-score (default: F0.5), and counts for True Positives (TP), False Positives (FP) and False Negatives (FN) are also shown.  
+	 Examples:
+	 ```
+     errant_compare -hyp <hyp_m2> -ref <ref_m2> 
+     errant_compare -hyp <hyp_m2> -ref <ref_m2> -cat {1,2,3}
+     errant_compare -hyp <hyp_m2> -ref <ref_m2> -ds
+     errant_compare -hyp <hyp_m2> -ref <ref_m2> -ds -cat {1,2,3}
+	 ```	
+
+All these scripts also have additional advanced command line options which can be displayed using the `-h` flag. 
+
+## API
+
+As of v3.0.0, ERRANT now also comes with an API.
+
+### Quick Start
+
+```python
+import errant
+
+annotator = errant.load('en')
+
+orig = 'My    name    is   the     John'
+cor = 'My name is John'
+edits = annotator.annotate_raw_text(orig, cor)
+
+for e in edits:
+    print(e.o_start, e.o_end, e.o_str, e.c_start, e.c_end, e.c_str, e.type)
+    print(e.o_toks.start_char, e.o_toks.end_char)
+```
+
+### Loading
+
+`errant.load(lang, model_name, nlp=None)`
+
+Instantiate an ERRANT Annotator object. Presently, the lang parameter exclusively accepts 'en' for English, though we aspire to broaden its language support in future iterations. The model_name corresponds to the name of the SpaCy model being utilized. Optionally, you can provide the nlp parameter if you've previously loaded SpaCy and wish to prevent ERRANT from loading it redundantly.
+
+### Annotator Objects
+
+An Annotator object is the main interface for ERRANT.
+
+#### Methods
+
+<details>
+<summary>annotator.parse</summary>
+
+`annotator.parse(string, tokenise=False)`
+
+Lemmatise, POS tag, and parse a text string with spacy. Set `tokenise` to True to also word tokenise with spacy. Returns a spacy Doc object.
+
+</details>
+
+<details>
+<summary>annotator.align</summary>
+
+`annotator.align(orig, cor, lev=False)`
+
+Align spacy-parsed original and corrected text. The default uses a linguistically-enhanced Damerau-Levenshtein alignment, but the `lev` flag can be used for a standard Levenshtein alignment. Returns an Alignment object.
+
+</details>
+
+<details>
+<summary>annotator.merge</summary>
+
+`annotator.merge(alignment, merging='rules')`
+
+Extract edits from the optimum alignment in an Alignment object. Four different merging strategies are available:
+1. rules: Use a rule-based merging strategy (default)
+2. all-split: Merge nothing: MSSDI -> M, S, S, D, I
+3. all-merge: Merge adjacent non-matches: MSSDI -> M, SSDI
+4. all-equal: Merge adjacent same-type non-matches: MSSDI -> M, SS, D, I
+
+Returns a list of Edit objects.
+</details>
+
+<details>
+<summary>annotator.classify</summary>
+
+`annotatorclassify(edit)`
+
+Classify an edit. Sets the `edit.type` attribute in an Edit object and returns the same Edit object. 
+
+</details>
+
+
+
+<details>
+<summary>annotator.annotate</summary>
+
+`annotator.annotate(orig, cor, lev=False, merging='rules')`
+
+Run the full annotation pipeline to align two sequences and extract and classify the edits. Equivalent to running `annotator.align`, `annotator.merge` and `annotator.classify` in sequence. Returns a list of Edit objects.
+
+```python
+import errant
+
+annotator = errant.load(lang="en", model_name="en_core_web_sm")
+orig = annotator.parse('This are gramamtical sentence .')
+cor = annotator.parse('This is a grammatical sentence .')
+alignment = annotator.align(orig, cor)
+edits = annotator.merge(alignment)
+for e in edits:
+    e = annotator.classify(e)
+```
+
+</details>
+
+<details>
+<summary>annotator.import_edit</summary>
+
+`annotator.import_edit(orig, cor, edit, min=True, old_cat=False)`
+
+Load an Edit object from a list. `orig` and `cor` must be spacy-parsed Doc objects and the edit must be of the form: `[o_start, o_end, c_start, c_end(, type)]`. The values must be integers that correspond to the token start and end offsets in the original and corrected Doc objects. The `type` value is an optional string that denotes the error type of the edit (if known). Set `min` to True to minimise the edit (e.g. [a b -> a c] = [b -> c]) and `old_cat` to True to preserve the old error type category (i.e. turn off the classifier).
+
+```python
+import errant
+
+annotator = errant.load('en')
+orig = annotator.parse('This are gramamtical sentence .')
+cor = annotator.parse('This is a grammatical sentence .')
+edit = [1, 2, 1, 2, 'SVA'] # are -> is
+edit = annotator.import_edit(orig, cor, edit)
+print(edit.to_m2())
+```
+
+</details>
+
+### Alignment Objects
+
+An Alignment object is created from two spacy-parsed text sequences.
+
+#### Attributes
+
+`alignment`.**orig**  
+`alignment`.**cor**  
+The spacy-parsed original and corrected text sequences.
+
+`alignment`.**cost_matrix**   
+`alignment`.**op_matrix**  
+The cost matrix and operation matrix produced by the alignment.
+
+`alignment`.**align_seq**  
+The first cheapest alignment between the two sequences.
+
+### Edit Objects
+
+An Edit object represents a transformation between two text sequences.
+
+#### Attributes
+
+`edit`.**o_start**  
+`edit`.**o_end**  
+`edit`.**o_toks**  
+`edit`.**o_str**  
+The start and end offsets, the spacy tokens, and the string for the edit in the *original* text.
+
+`edit`.**c_start**  
+`edit`.**c_end**  
+`edit`.**c_toks**  
+`edit`.**c_str**  
+The start and end offsets, the spacy tokens, and the string for the edit in the *corrected* text.
+
+`edit`.**type**  
+The error type string.
+
+#### Methods
+
+`edit`.**to_m2**(id=0)  
+Format the edit for an output M2 file. `id` is the annotator id.	
+
+## Development for Other Languages
+
+If you want to develop ERRANT for other languages, you should mimic the `errant/en` directory structure. For example, ERRANT for French should import a merger from `errant.fr.merger` and a classifier from `errant.fr.classifier` that respectively have equivalent `get_rule_edits` and `classify` methods. You will also need to add `'fr'` to the list of supported languages in `errant/__init__.py`.
