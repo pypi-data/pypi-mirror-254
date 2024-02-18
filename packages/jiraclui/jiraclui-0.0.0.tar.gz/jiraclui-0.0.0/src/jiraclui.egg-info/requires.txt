@@ -1,0 +1,14 @@
+PyYAML>=6.0.1
+importlib_metadata>=4.6.4
+jira>=3.6.0
+pytest>=8.0.0
+questionary>=2.0.1
+rich>=13.7.0
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+pytest
+pytest-cov
+setuptools
