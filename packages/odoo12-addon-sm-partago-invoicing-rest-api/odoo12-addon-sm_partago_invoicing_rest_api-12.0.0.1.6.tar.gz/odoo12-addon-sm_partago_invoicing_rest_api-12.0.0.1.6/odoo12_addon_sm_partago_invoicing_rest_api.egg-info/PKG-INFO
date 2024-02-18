@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: odoo12-addon-sm-partago-invoicing-rest-api
+Version: 12.0.0.1.6
+Summary: Expose CS Invoice with REST API
+Home-page: https://git.coopdevs.org/coopdevs/odoo/odoo-addons/enhancements/enhancements-account-invoicing
+Author: Coopdevs Treball
+License: UNKNOWN
+Description: 
+                Expose CS Invoice with REST API
+            
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 12.0
+Requires-Python: >=3.5
