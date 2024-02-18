@@ -1,0 +1,2 @@
+[console_scripts]
+source-timely = source_timely.run:run
