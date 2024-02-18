@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "python-orb-slam3"
+version = "0.1.1"
+description = "A Python wrapper of ORB-SLAM3 algorithm"
+authors = ["Mix <32300164+mnixry@users.noreply.github.com>"]
+license = "GPL-3.0"
+readme = "README.md"
+packages = [{ include = "python_orb_slam3" }]
+include = [
+    { path = "src", format = "sdist" },
+    { path = "CMakeLists.txt", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.20.0"
+opencv-python = "^4"
+
+[tool.poetry.group.dev.dependencies]
+matplotlib = "^3.6.2"
+pybind11-stubgen = "^0.11.0"
+black = "^22.10.0"
+flake8 = "^5.0.4"
+
+[tool.poetry.group.build.dependencies]
+pybind11 = "^2.10.0"
+cmake = "^3.18.0"
+ninja = "^1.10.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-sugar = "^0.9.6"
+pytest-benchmark = "^4.0.0"
+
+[tool.poetry.build]
+generate-setup-file = true
+script = "build.py"
+
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+    "setuptools",
+    "cmake>=3.18",
+    "wheel",
+    "pybind11",
+    "numpy",
+    "ninja",
+]
+build-backend = "poetry.core.masonry.api"
