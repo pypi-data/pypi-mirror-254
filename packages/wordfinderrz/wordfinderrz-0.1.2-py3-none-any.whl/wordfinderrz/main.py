@@ -1,0 +1,322 @@
+"""Make a word search."""
+
+import functools
+import random
+import string
+import operator
+from collections.abc import Callable, Iterable, Iterator
+from contextlib import suppress
+from typing import Annotated, Literal, Final, ParamSpec, TypeVar, cast, overload
+
+Direction = Literal[
+    "up", "down", "left", "right", "down-left", "down-right", "up-left", "up-right"
+]
+GridIndex = tuple[Annotated[int, "row"], Annotated[int, "col"]]
+StartingPositionGenerator = Callable[[int, int, int], Iterator[GridIndex]]
+Operator = Callable[[int, int], int]
+ALPHABET = tuple(string.ascii_uppercase)
+STEP_OPERATORS: Final[dict[Direction, tuple[Operator | None, Operator | None]]] = {
+    "up": (operator.sub, None),
+    "down": (operator.add, None),
+    "left": (None, operator.sub),
+    "right": (None, operator.add),
+    "down-left": (operator.add, operator.sub),
+    "down-right": (operator.add, operator.add),
+    "up-left": (operator.sub, operator.sub),
+    "up-right": (operator.sub, operator.add),
+}
+DIRECTION_OPPOSITES: Final[dict[Direction, Direction]] = {
+    "up": "down",
+    "down": "up",
+    "left": "right",
+    "right": "left",
+    "down-left": "up-right",
+    "down-right": "up-left",
+    "up-left": "down-right",
+    "up-right": "down-left",
+}
+STARTING_POSITION_GENERATORS: Final[dict[Direction, StartingPositionGenerator]] = {
+    "right": lambda w, h, len: ((r, c) for r in range(h) for c in range(w - len + 1)),
+    "left": lambda w, h, len: ((r, c) for r in range(h) for c in range(len - 1, w)),
+    "down": lambda w, h, len: ((r, c) for r in range(h - len + 1) for c in range(w)),
+    "up": lambda w, h, len: ((r, c) for r in range(len - 1, h) for c in range(w)),
+    "up-right": lambda w, h, len: (
+        (r, c) for r in range(len - 1, h) for c in range(w - len + 1)
+    ),
+    "up-left": lambda w, h, len: (
+        (r, c) for r in range(len - 1, h) for c in range(len - 1, w)
+    ),
+    "down-right": lambda w, h, len: (
+        (r, c) for r in range(h - len + 1) for c in range(w - len + 1)
+    ),
+    "down-left": lambda w, h, len: (
+        (r, c) for r in range(h - len + 1) for c in range(len - 1, w)
+    ),
+}
+
+P = ParamSpec("P")
+R = TypeVar("R")
+
+
+def cache(func: Callable[P, R]) -> Callable[P, R]:
+    """Typed @functools.cache wrapper."""
+
+    @functools.wraps(func)
+    @functools.cache
+    def _wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+        return func(*args, **kwargs)
+
+    return cast(Callable[P, R], _wrapper)
+
+
+class PlacementError(Exception):
+    """Raised when a word cannot be placed on the grid."""
+
+
+class WordSearch:
+    """
+    A word search, like the one that that sub for Mrs. Morris's class yelled at me for
+    striking through the words instead of circling them in fourth grade.
+    """
+
+    def __init__(
+        self,
+        bank: Iterable[str],
+        width: int,
+        height: int,
+        max_attempts: int = 20,
+        connection_coefficient: float = 0.3,  # chance of trying to intersect
+        autoexpand: bool = True,
+        _fill_empty: bool = True,
+    ) -> None:
+        """Create a word search of a specified size from a bank of terms."""
+        self.bank = [word.upper() for word in bank]
+        self.grid = self._make_grid(width, height)
+        self.width = width
+        self.height = height
+        self.connection_coefficient = connection_coefficient
+        self.placed_letters: dict[str, dict[GridIndex, set[Direction]]] = {}
+        if not autoexpand:
+            self.populate_grid(max_attempts)
+        else:
+            max_len = max(len(word) for word in self.bank)
+            if max_len > self.width:
+                self.width = max_len
+            if max_len > self.height:
+                self.height = max_len
+            success = False
+            while not success:
+                try:
+                    self.populate_grid(1)
+                    success = True
+                except (PlacementError, ValueError, IndexError):
+                    self.width += 2
+                    self.height += 2
+                    self.grid = self._make_grid(self.width, self.height)
+        if _fill_empty:
+            self._fill_empty_with_random()
+
+    def __repr__(self) -> str:
+        """Represent WordSearch as a string."""
+        result = ""
+        for row in self.grid:
+            for char in row:
+                result += f" {char}" if char is not None else " -"
+            result += " \n"
+        return result
+
+    @overload
+    def __getitem__(self, idx: int) -> list[str | None]: ...
+
+    @overload
+    def __getitem__(self, idx: GridIndex) -> str | None: ...
+
+    def __getitem__(self, idx: int | GridIndex) -> list[str | None] | str | None:
+        """Fetch a row or cell."""
+        return self.grid[idx[0]][idx[1]] if isinstance(idx, tuple) else self.grid[idx]
+
+    @overload
+    def __setitem__(self, idx: int, val: list[str | None]) -> None: ...
+
+    @overload
+    def __setitem__(self, idx: GridIndex, val: str | None) -> None: ...
+
+    def __setitem__(
+        self, idx: int | GridIndex, val: list[str | None] | str | None
+    ) -> None:
+        """Set a row or cell."""
+        if isinstance(idx, tuple) and not isinstance(val, list):
+            self.grid[idx[0]][idx[1]] = val
+        elif isinstance(idx, int) and isinstance(val, list):
+            self.grid[idx] = val
+        else:
+            raise ValueError(
+                "must set `int` index to `list[str | None]` or `GridIndex` "
+                "to `str | None`"
+            )
+
+    @staticmethod
+    def _make_grid(width: int, height: int) -> list[list[str | None]]:
+        """Make an empty grid (a list of lists of chars)."""
+        return [[None for _ in range(width)] for _ in range(height)]
+
+    def _fill_empty_with_random(self) -> None:
+        """Fill all grid values set to None to a random letter."""
+        for i_r, row in enumerate(self.grid):
+            for i_c, cell in enumerate(row):
+                if cell is None:
+                    self.grid[i_r][i_c] = random.choice(ALPHABET)
+
+    def _place_word(
+        self,
+        word: str,
+        starting_position: GridIndex,
+        direction: Direction,
+        *,
+        force: bool = False,
+    ) -> None:
+        """Place a word on the grid."""
+        indexes = tuple(self._iter_idxs(starting_position, direction))
+        if len(indexes) < len(word):
+            raise PlacementError("word does not fit in grid")
+        for idx, char in zip(indexes, word, strict=False):
+            if force or self[idx] in (None, char):
+                self[idx] = char
+                if self.placed_letters.get(char) is None:
+                    self.placed_letters[char] = {idx: {direction}}
+                elif self.placed_letters[char].get(idx) is None:
+                    self.placed_letters[char][idx] = {direction}
+                else:
+                    self.placed_letters[char][idx].add(direction)
+            else:
+                raise PlacementError("failed to place word")
+
+    def _can_place_word(
+        self, word: str, starting_position: GridIndex, direction: Direction
+    ) -> bool:
+        """Whether a word can be placed at a certain position."""
+        indexes = tuple(self._iter_idxs(starting_position, direction))
+        if len(indexes) < len(word):
+            return False
+        for idx, char in zip(indexes, word, strict=False):
+            if self._grid_index_is_in_bounds(idx) and self[idx] not in (None, char):
+                return False
+        return True
+
+    def _iter_idxs(
+        self, starting_position: GridIndex, direction: Direction
+    ) -> Iterator[GridIndex]:
+        operators = STEP_OPERATORS[direction]
+        if not self._grid_index_is_in_bounds(starting_position):
+            raise ValueError(f"starting_position {starting_position} is out of bounds")
+        cursor = starting_position
+        while self._grid_index_is_in_bounds(cursor):
+            yield cursor
+            if (op := operators[0]) is not None:
+                cursor = op(cursor[0], 1), cursor[1]
+            if (op := operators[1]) is not None:
+                cursor = cursor[0], op(cursor[1], 1)
+
+    @cache
+    def _step(
+        self, starting_position: GridIndex, steps: int, direction: Direction
+    ) -> GridIndex:
+        if steps == 0:
+            return starting_position
+        width_op, height_op = STEP_OPERATORS[direction]
+        result = (
+            starting_position[0]
+            if width_op is None
+            else width_op(starting_position[0], steps),
+            starting_position[1]
+            if height_op is None
+            else height_op(starting_position[1], steps),
+        )
+        if WordSearch.__grid_index_is_in_bounds(self.width, self.height, result):
+            return result
+        raise ValueError("GridIndex is out of bounds")
+
+    def _grid_index_is_in_bounds(self, index: GridIndex) -> bool:
+        return self.__grid_index_is_in_bounds(self.width, self.height, index)
+
+    @staticmethod
+    def __grid_index_is_in_bounds(width: int, height: int, index: GridIndex) -> bool:
+        return 0 <= index[0] < height and 0 <= index[1] < width
+
+    @cache
+    @staticmethod
+    def _starting_positions(
+        width: int, height: int, length: int
+    ) -> list[tuple[GridIndex, Direction]]:
+        """Get starting positions on an empty grid for a word of a certain length."""
+        result: list[tuple[GridIndex, Direction]] = []
+        for direction, generator in STARTING_POSITION_GENERATORS.items():
+            result.extend((idx, direction) for idx in generator(width, height, length))
+        return result
+
+    def populate_grid(self, max_attempts: int) -> None:
+        """Populate the grid with the words in the bank."""
+        if len(self.bank) == 0:
+            return None
+        if max(len(word) for word in self.bank) > min((self.height, self.width)):
+            raise ValueError("max word length cannot exceed height or width")
+        for _ in range(max_attempts):
+            failed = False
+            for word in self.bank:
+                place_random = True
+                if random.random() < self.connection_coefficient:
+                    with suppress(PlacementError):
+                        self.intersect_with_existing_word(word)
+                        place_random = False
+                        continue
+                if place_random:
+                    starting_positions = WordSearch._starting_positions(
+                        self.width, self.height, len(word)
+                    )
+                    random.shuffle(starting_positions)
+                    successfully_placed_word = False
+                    for position in starting_positions:
+                        if self._can_place_word(word, *position):
+                            successfully_placed_word = True
+                            self._place_word(word, *position, force=True)
+                            break
+                if not successfully_placed_word:
+                    failed = True
+                    break
+            if not failed:
+                break
+        if failed:
+            raise PlacementError(
+                f"failed to create word search in {max_attempts} attempts"
+            )
+
+    def intersect_with_existing_word(self, word: str) -> None:
+        """Place a word in intersection with an existing word if possible."""
+        common_letters = list(set(word) & self.placed_letters.keys())
+        directions = list(DIRECTION_OPPOSITES)
+        random.shuffle(common_letters)
+        for letter in common_letters:
+            random.shuffle(directions)
+            placed_letter_idxs = list(self.placed_letters[letter].items())
+            random.shuffle(placed_letter_idxs)
+            char_idxs_in_word = [i for i, char in enumerate(word) if char == letter]
+            for direction in directions:
+                for grid_index, original_directions in placed_letter_idxs:
+                    if direction in [
+                        DIRECTION_OPPOSITES[o_d] for o_d in original_directions
+                    ] + list(original_directions):
+                        continue
+                    for char_idx in char_idxs_in_word:
+                        try:
+                            starting_position = self._step(
+                                grid_index, char_idx, DIRECTION_OPPOSITES[direction]
+                            )
+                        except ValueError:
+                            pass
+                        else:
+                            if self._can_place_word(word, starting_position, direction):
+                                self._place_word(
+                                    word, starting_position, direction, force=True
+                                )
+                                return None
+        raise PlacementError("could not place word in intersection with existing word")
