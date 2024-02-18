@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/db_crud/__init__.py
+src/db_crud/mongo_crud.py
+src/db_crud.egg-info/PKG-INFO
+src/db_crud.egg-info/SOURCES.txt
+src/db_crud.egg-info/dependency_links.txt
+src/db_crud.egg-info/requires.txt
+src/db_crud.egg-info/top_level.txt
