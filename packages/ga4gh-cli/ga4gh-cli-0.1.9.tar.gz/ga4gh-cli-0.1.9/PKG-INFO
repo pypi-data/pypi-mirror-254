@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ga4gh-cli
+Version: 0.1.9
+Summary: Console interface for GA4GH-compliant environments
+Author: Pavel Nikonorov
+Author-email: info@genxt.network
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Utilities
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+License-File: LICENSE

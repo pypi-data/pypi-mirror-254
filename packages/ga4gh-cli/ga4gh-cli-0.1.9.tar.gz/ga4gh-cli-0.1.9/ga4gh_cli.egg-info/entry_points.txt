@@ -1,0 +1,2 @@
+[console_scripts]
+ga4gh-cli = main:cli
