@@ -1,0 +1,11 @@
+pkg_pyknnclassifier/__init__.py,sha256=iID5UVUY9ZficfOTVJHYVfE8hywgpv04gDZ9Y4fynY0,121
+pkg_pyknnclassifier/calculate_distance.py,sha256=qOhI9OmjuweYc_WA9--HKCL1H9LbylA0w0nhdiiBOHk,1724
+pkg_pyknnclassifier/data_loading.py,sha256=ia3oZnPGcCLkGGt1QKGlZpP9rMLMCC4dtFRIDH6VMkg,1593
+pkg_pyknnclassifier/evaluate.py,sha256=-HjsBkrIDZtScpX0z3f9pp_TGYWJGPIOn7Fy5HUvHzc,2891
+pkg_pyknnclassifier/find_neighbors.py,sha256=ZLRxYlVB0v8ljG1Wa7h6TBGqOdatlX1HR7jBKp5lPFo,2718
+pkg_pyknnclassifier/predict.py,sha256=61bdOE5TTgTULgWUWJX8M87ocCqcgoxAYPa5QR6Mojg,2444
+pkg_pyknnclassifier/scaling.py,sha256=VzKO1QPPUgXYzu4Zp3fnEKFROFdafSnrHFJt-nk_CEQ,1784
+pkg_pyknnclassifier-0.0.3.dist-info/LICENSE,sha256=N9xtJUuOsohGwihpxeWY6J94ADRlqiCoVt9azbw5Jas,1110
+pkg_pyknnclassifier-0.0.3.dist-info/METADATA,sha256=7Et1kgsv0Afzct7bI0EcN8WVeElPTmY_fDbVsR2378I,5569
+pkg_pyknnclassifier-0.0.3.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+pkg_pyknnclassifier-0.0.3.dist-info/RECORD,,
