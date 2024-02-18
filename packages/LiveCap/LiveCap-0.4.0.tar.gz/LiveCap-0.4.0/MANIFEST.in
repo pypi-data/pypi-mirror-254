@@ -1,0 +1,3 @@
+recursive-include LiveCap/Capture/WGC *.dll
+recursive-include LiveCap/Capture/DXGI *.dll
+recursive-include LiveCap/Capture/GDI *.dll
