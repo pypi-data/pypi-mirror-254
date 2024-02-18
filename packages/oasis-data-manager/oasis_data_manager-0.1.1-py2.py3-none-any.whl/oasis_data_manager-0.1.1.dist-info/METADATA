@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: oasis-data-manager
+Version: 0.1.1
+Summary: UNKNOWN
+Home-page: https://github.com/OasisLMF/OasisDataManager
+Author: Oasis LMF
+Author-email: support@oasislmf.org
+License: BSD 3-Clause
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastparquet
+Requires-Dist: fsspec
+Requires-Dist: pandas
+Requires-Dist: typing
+Requires-Dist: typing-extensions
+Provides-Extra: extra
+Requires-Dist: adlfs ; extra == 'extra'
+Requires-Dist: boto3 ; extra == 'extra'
+Requires-Dist: dask ; extra == 'extra'
+Requires-Dist: dask-geopandas ; extra == 'extra'
+Requires-Dist: dask-sql ; extra == 'extra'
+Requires-Dist: distributed ; extra == 'extra'
+Requires-Dist: geopandas ; extra == 'extra'
+Requires-Dist: pyogrio ; extra == 'extra'
+Requires-Dist: s3fs >=2023.9.0 ; extra == 'extra'
+
+UNKNOWN
+
