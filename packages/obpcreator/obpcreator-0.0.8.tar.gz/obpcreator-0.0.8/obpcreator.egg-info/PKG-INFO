@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: obpcreator
+Version: 0.0.8
+Summary: Generation of open beam path files based on different strategies
+Author-email: Anton Wiberg <wiberg.anton@gmail.com>
+License: Copyright (c) 2018 The Python Packaging Authority
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: svgpathtools
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: obplib
+Requires-Dist: pyvista
+Requires-Dist: shapely
+Requires-Dist: pydantic
+Requires-Dist: pytest
+Requires-Dist: opencv-python
+Requires-Dist: scipy
+Requires-Dist: logbook
+
+# Installation
+Install it by cloning the git reprository or from PyPi using:
+```bash
+pip install obpcreator
+```
+
+
+# Example from pyvista cube
+```bash
+from obpcreator.simple_input import SimpleBuild
+import pyvista as pv
+
+cube1 = pv.Cube(center=(15,-15,5),x_length=10,y_length=10,z_length=10)
+cube2 = pv.Cube(center=(15,0,5),x_length=10,y_length=10,z_length=10)
+cube3 = pv.Cube(center=(15,15,5),x_length=10,y_length=10,z_length=10)
+cube4 = pv.Cube(center=(0,-15,5),x_length=10,y_length=10,z_length=10)
+cube5 = pv.Cube(center=(0,0,5),x_length=10,y_length=10,z_length=10)
+cube6 = pv.Cube(center=(0,15,5),x_length=10,y_length=10,z_length=10)
+cube7 = pv.Cube(center=(-15,-15,5),x_length=10,y_length=10,z_length=10)
+cube8 = pv.Cube(center=(-15,0,5),x_length=10,y_length=10,z_length=10)
+cube9 = pv.Cube(center=(-15,15,5),x_length=10,y_length=10,z_length=10)
+
+build = SimpleBuild(
+    meshes = [cube1, cube2, cube3, cube4, cube5, cube6, cube7],
+    spot_size = [1],
+    beam_power = [660],
+    scan_speed = [2031000],
+    dwell_time = [515000],
+    infill_strategy = ["line_concentric", "line_concentric", "line_spiral", "line_spiral", "line_snake", "point_random", "point_ordered"],
+    infill_settings = [{'direction': 'inward'}, {'direction': 'outward'},{'direction': 'inward'}, {'direction': 'outward'}, {},{},{'x_jump':2, 'y_jump':2}],
+    infill_point_distance = [0.1],
+    layer_height = 0.1,
+    rotation_angle = [0],
+    )
+build.prepare_build(r"C:\Users\antwi87\Downloads\slicerTest2")
+```
+
+
+
+
+# To package
+- Delete old builds in the \dist folder 
+- Update the version in the setup.cfg file
+- run "python -m build"
+- upload to pip with "twine upload dist/*"
