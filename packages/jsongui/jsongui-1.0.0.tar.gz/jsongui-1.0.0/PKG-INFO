@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: jsongui
+Version: 1.0.0
+Summary: libreria simple para trabajar con json, en un archibo llamado: datos.json
+Home-page: https://github.com/BAA4TS/jsongui
+Author: BAA4TS
+Author-email: baa4ts@gmail.com
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+# Gestor de Datos - DocumentaciÃ³n
+
+Este mÃ³dulo proporciona un simple gestor de datos que permite agregar, eliminar, actualizar y mostrar elementos en un archivo JSON.
+
+## Funcionalidades
+
+- Cargar datos desde un archivo JSON.
+- Guardar datos en un archivo JSON.
+- Agregar un nuevo elemento.
+- Eliminar un elemento existente por su Ã­ndice.
+- Actualizar un elemento existente por su Ã­ndice.
+- Mostrar todos los elementos presentes en los datos.
+
+## Uso
+
+```python
+import jsongui
+
+# Ejemplo de uso:
+jsongui.agregar_elemento('Ejemplo', 'imagen.jpg', 'https://ejemplo.com')
