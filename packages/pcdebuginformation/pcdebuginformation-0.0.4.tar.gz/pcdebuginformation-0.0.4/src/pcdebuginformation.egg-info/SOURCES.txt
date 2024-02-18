@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/pcdebuginformation/__init__.py
+src/pcdebuginformation/information.py
+src/pcdebuginformation.egg-info/PKG-INFO
+src/pcdebuginformation.egg-info/SOURCES.txt
+src/pcdebuginformation.egg-info/dependency_links.txt
+src/pcdebuginformation.egg-info/top_level.txt
+tests/testing.py

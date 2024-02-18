@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcdebuginformation"
+version = "0.0.4"
+authors = [
+  { name="Ravi Nain", email="ravinain100@gmail.com" },
+]
+description = "This package will extract all the important details from linux system and create a report."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/qaravinain/hybridtoolkit"
+"Bug Tracker" = "https://github.com/qaravinain/hybridtoolkit/issues"
+"Linked In" = "https://www.linkedin.com/in/ravi-nain-2029691a0/"
