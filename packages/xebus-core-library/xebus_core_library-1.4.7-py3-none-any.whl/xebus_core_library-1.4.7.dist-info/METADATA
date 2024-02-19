@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: xebus-core-library
+Version: 1.4.7
+Summary: Xebus Core Python Library
+Home-page: https://github.com/xebus/xebus-core-python-library
+License: SEE LICENSE IN <LICENSE.md>
+Keywords: core,library,xeberus,restful,api
+Author: Daniel CAUNE
+Author-email: daniel.caune@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: mercurius-core-library (>=1.0,<2.0)
+Requires-Dist: perseus-core-library (>=1.19,<2.0)
+Project-URL: Repository, https://github.com/xebus/xebus-core-python-library
+Description-Content-Type: text/markdown
+
+# Xebus Core Python Library
+
+Xebus Core Python Library is a repository of reusable Python components to be shared by Python projects using the Xebus RESTful API.
+
+These components have minimal dependencies on other libraries, so that they can be deployed easily.  In addition, these components will keep their interfaces as stable as possible, so that other Python projects can integrate these components without having to worry about changes in the future.
+
