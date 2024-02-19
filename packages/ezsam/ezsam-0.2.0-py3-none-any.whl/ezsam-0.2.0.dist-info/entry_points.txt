@@ -1,0 +1,3 @@
+[console_scripts]
+ezsam = ezsam.app:main
+

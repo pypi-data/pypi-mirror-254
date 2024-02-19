@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ezsam
+Version: 0.2.0
+Summary: Extract foreground from images or video via text prompt
+Keywords: GroundingDINO Segment-Anything SAM SAM-HQ Grounded-Segment-Anything subject object foreground background filter extract select remove prompt subtract
+Author-Email: ae9is <aegis.opensource@gmail.com>
+Maintainer-Email: ae9is <aegis.opensource@gmail.com>
+License: AGPL-3.0-only
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Project-URL: Homepage, https://www.ezsam.org
+Project-URL: Bug reports, https://github.com/ae9is/ezsam/issues
+Project-URL: Source, https://github.com/ae9is/ezsam
+Requires-Python: <3.12,>=3.9
+Requires-Dist: opencv-python>=4.9.0.80
+Requires-Dist: numpy>=1.26.3
+Requires-Dist: supervision>=0.17.1
+Requires-Dist: filetype>=1.2.0
+Requires-Dist: segment-anything-hq>=0.3
+Requires-Dist: torch>=2.1.2
+Requires-Dist: torchvision>=0.16.2
+Requires-Dist: tqdm>=4.66.1
+Requires-Dist: rf-groundingdino>=0.1.2
+Description-Content-Type: text/markdown
+
+# ezsam/cli
+
+A command line tool to extract foreground from images or video via text prompts.
+
+Check out the docs at: [ezsam.org](https://www.ezsam.org)
