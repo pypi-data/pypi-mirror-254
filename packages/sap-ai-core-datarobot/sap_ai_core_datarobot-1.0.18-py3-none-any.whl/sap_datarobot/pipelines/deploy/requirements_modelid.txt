@@ -1,0 +1,5 @@
+datarobot>=3.3.1
+datarobot-predict>=1.1.0
+flask>=2.2.2
+gunicorn>=20.0.4
+Werkzeug==2.2.2

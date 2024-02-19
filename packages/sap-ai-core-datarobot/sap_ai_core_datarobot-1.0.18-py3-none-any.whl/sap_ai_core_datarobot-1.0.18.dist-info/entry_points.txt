@@ -1,0 +1,3 @@
+[distutils.commands]
+whitesource_update = plugin.WssPythonPlugin:SetupToolsCommand
+

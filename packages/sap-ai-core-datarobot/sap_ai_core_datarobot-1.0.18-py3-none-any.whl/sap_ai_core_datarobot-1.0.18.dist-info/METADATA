@@ -1,0 +1,977 @@
+Metadata-Version: 2.1
+Name: sap-ai-core-datarobot
+Version: 1.0.18
+Summary: content package for DataRobot integration for SAP AI Core
+Home-page: https://www.sap.com/
+Author: SAP SE
+License: SAP DEVELOPER LICENSE AGREEMENT
+Download-URL: https://pypi.python.org/pypi/sap-ai-core-datarobot
+Keywords: SAP AI Core,DataRobot
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+## content package for DataRobot integration for SAP AI Core
+
+## Objective
+
+sap-ai-core-datarobot is a content package to deploy DataRobot workflows in AI Core. This package provides support for two distinct deployment workflows, provided that a trained model is already present in DataRobot.
+-  Export the model from DataRobot to an Object Store and then integrate the Object Store with AI Core for model deployment.
+-  Directly integrate AI Core with the model in DataRobot utilizing the DataRobot API.
+
+### User Guide
+
+#### 1. Workflow 1: Exporting Models from DataRobot to Object Store and Integrating with AI Core
+
+*Pre-requisites*
+
+1. Complete [AI Core Onboarding](https://help.sap.com/viewer/2d6c5984063c40a59eda62f4a9135bee/LATEST/en-US/8ce24833036d481cb3113a95e3a39a07.html)
+    - [Initial setup](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/initial-setup)
+    - Create a [Resource Group](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-resource-group)
+2. Access to the [Git repository](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-git-repository-and-secrets), [Docker repository](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-docker-registry-secret) and [Object Store](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-object-store-secret) onboarded to AI Core
+3. You have a registered DataRobot account, trained a model, downloaded the model from DataRobot and stored the model in Object Store configured with AI Core.
+
+The interface for sap-ai-core-datarobot content package is part of the `ai-core-sdk`.ai-core-sdk provides a command-line utility as well as a python library to use AICore content packages. 
+
+Please note that this sap-ai-core-datarobot package documentation provides the instructions for using this specific content package. For a more comprehensive understanding of how to use a content package, refer to the [ai-core-sdk package documentation](https://pypi.org/project/ai-core-sdk/).
+
+##### 1.1 CLI
+
+*Steps*
+
+1. Install AI Core SDK
+
+    ```
+    pip install "ai-core-sdk[aicore_content]"
+    ```
+2. Install this content package
+
+    ```
+    pip install sap-ai-core-datarobot
+    ```
+3. Explore the content package
+
+    List all content packages installed in the environment.
+    ```
+    aicore-content list
+    ```
+    List all available pipelines in the sap-ai-core-datarobot content package.
+    ```
+    aicore-content list sap_datarobot
+    ```
+    View the parameters available in the selected pipeline.
+    ```
+    aicore-content show sap_datarobot model-jar-serving
+    ```
+    Check all available commands by using the `--help` flag.
+    ```
+    aicore-content --help
+    ```
+4. Create a config file with the name model_serving_config.yaml with the following content.
+
+    ```
+    .contentPackage: sap_datarobot
+    .dockerType: default
+    .workflow: model-jar-serving
+    annotations:
+    executables.ai.sap.com/description: <YOUR EXECUTABLE DESCRIPTION>
+    executables.ai.sap.com/name: <YOUR EXECUTABLE NAME>
+    scenarios.ai.sap.com/description: <YOUR SCENARIO DESCRIPTION>
+    scenarios.ai.sap.com/name: <YOUR SCENARIO NAME>
+    image: <YOUR DOCKER IMAGE TAG>
+    imagePullSecret: <YOUR DOCKER REGISTRY SECRET NAME IN AI CORE>
+    labels:
+    ai.sap.com/version: <YOUR SCENARIO VERSION>
+    scenarios.ai.sap.com/id: <YOUR SCENARIO ID>
+    name: <YOUR SERVING TEMPLATE NAME>
+    ```
+5. Fill in the desired values in the config file. An example config file is shown below.
+
+    ```
+    .contentPackage: sap_datarobot
+    .dockerType: default
+    .workflow: model-jar-serving
+    annotations:
+    executables.ai.sap.com/description: datarobot model serving
+    executables.ai.sap.com/name: datarobot-model-serving
+    scenarios.ai.sap.com/description: my datarobot scenario
+    scenarios.ai.sap.com/name: my-datarobot-scenario
+    image: docker.io/<YOUR_DOCKER_USERNAME>/model-serve:1.0
+    imagePullSecret: my-docker-secret
+    labels:
+    ai.sap.com/version: 0.0.1
+    scenarios.ai.sap.com/id: 00db4197-1538-4640-9ea9-44731041ed88
+    name: datarobot-model-serving
+    ```
+6. Generate a docker image.
+
+    This step involves building a docker image with the tag specified in the model_serving_config.yaml file. The command to perform this operation is as follows:
+    ```
+    aicore-content create-image -p sap_datarobot -w model-jar-serving model_serving_config.yaml
+    ```
+7. Push the docker image to your docker repository
+
+    The image tag should correspond to the one provided in the 'model_serving_config.yaml' file.
+    ```
+    docker push <YOUR DOCKER IMAGE TAG>
+    ```
+8. Generate a serving template
+
+    Clone the git repository that was registered with your SAP AI Core tenant during Onboarding.
+    ```
+    aicore-content create-template -p sap_datarobot -w model-jar-serving model_serving_config.yaml -o '<TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml'
+    ```
+    You can configure SAP AI Core to use different infrastructure resources for different tasks, based on demand. Within SAP AI Core, the resource plan is selected via the `ai.sap.com/resourcePlan` label in the serving template. By default, sap-ai-core-datarobot workflows use `starter` resource plan which entails the use of 1 CPU core and 3 Memeory GBs. For more information on how to select a different resource plan, you can refer to the documentation [choosing a resource plan](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/choose-resource-plan-c58d4e584a5b40a2992265beb9b6be3c?q=resource%20plan).
+9. Push the serving template to your git repository
+
+    ```
+    cd <PATH TO YOUR CLONED GIT REPO>
+    git add <TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml
+    git commit -m 'updated template model-serving-template.yaml'
+    git push
+    ```
+10. Obtain a client credentials token to AI Core
+
+    ```
+    curl --location '<YOUR AI CORE AUTH ENDPOINT URL>/oauth/token' --header 'Authorization: Basic <YOUR AI CORE CREDENTIALS>'
+    ```
+11. Create an artifact to connect the DataRobot model, to make it available for use in SAP AI Core. Save the model artifact id from the response.
+
+    ```
+    curl --location --request POST "<YOUR AI CORE URL>/v2/lm/artifacts" \
+    --header "Authorization: Bearer <CLIENT CREDENTAILS TOKEN>" \
+    --header "Content-Type: application/json" \
+    --header "AI-Resource-Group: <YOUR RESOURCE GROUP NAME>" \
+    --data-raw '{
+    "name": "my-datarobot-model",
+    "kind": "model",
+    "url": "ai://<YOUR OBJECTSTORE NAME>/<YOUR MODEL PATH>",
+    "description": "my datarobot model jar",
+    "scenarioId": "<YOUR SCENARIO ID>"
+    }'
+    ```
+12. Create a configuration and save the configuration id from the response.
+
+    ```
+    curl --request POST "<YOUR AI CORE URL>/v2/lm/configurations" \
+    --header "Authorization: Bearer <CLIENT CREDENTAILS TOKEN>" \
+    --header "AI-Resource-Group: <YOUR RESOURCE GROUP NAME>" \
+    --header "Content-Type: application/json" \
+    --data '{
+        "name": "<CONFIGURATION NAME>",
+        "executableId": "<YOUR EXECUTABLE ID>",
+        "scenarioId": "<YOUR SCENARIO ID>",
+        "parameterBindings": [
+            {
+                "key": "modelName",
+                "value": "<YOUR MODEL JAR FILE NAME>"
+            }
+        ],
+        "inputArtifactBindings": [
+            {
+                "key": "modeljar",
+                "artifactId": "<YOUR MODEL ARTIFACT ID>"
+            }
+        ]
+    }'
+    ```
+13. Create a deployment and note down the deployment id from the response
+
+    ```
+    curl --location --globoff --request POST '<YOUR AI CORE URL>/v2/lm/configurations/<YOUR CONFIGURATION ID>/deployments' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>'
+    ```
+14. Check the status of the deployment. Note down the deployment URL after the status changes to RUNNING.
+
+    ```
+    curl --location --globoff '<YOUR AI CORE URL>/v2/lm/deployments/<YOUR DEPLOYMENT ID>' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>'
+    ```
+15. Use your deployment. 
+
+    ```
+    curl --location '<YOUR DEPLOYMENT URL>/v1/models/,<YOUR MODEL JAR FILE NAME>:predict' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>' \
+    --data '[
+        {
+            "<FEATURE_NAME>": <VALUE>,
+            ...
+        }
+    ]'
+    ```
+
+##### 1.2 Python
+
+*Steps*
+
+1. Install AI Core SDK
+
+    ```
+    !python -m pip install "ai_core_sdk[aicore-content]"
+    ```
+2. Install this content package
+
+    ```
+    !python -m pip install sap-ai-core-datarobot
+    ```
+3. Explore the content package
+
+    List all content packages installed in the environment.
+    ```
+    from ai_core_sdk.content import get_content_packages
+    pkgs = get_content_packages()
+    for pkg in pkgs.values():
+        print(pkg)
+    ```
+    List all available pipelines in the sap-ai-core-datarobot content package.
+    ```
+    content_pkg = pkgs['sap_datarobot']
+    for workflow in content_pkg.workflows.values():
+        print(workflow) 
+    ```
+4. Create a config file with the name model_serving_config.yaml with the following content.
+
+    ```
+    !python -m pip install pyyaml
+    ```
+    ```
+    serving_workflow = content_pkg.workflows["model-jar-serving"]
+
+    serving_config = {
+        '.contentPackage': 'sap_datarobot',
+        '.workflow': 'model-jar-serving',
+        '.dockerType': 'default',
+        'name': '<YOUR SERVING TEMPLATE NAME>',
+        'labels': {
+            'scenarios.ai.sap.com/id': "<YOUR SCENARIO ID>",
+            'ai.sap.com/version': "<YOUR SCENARIO VERSION>"
+        },
+        "annotations": {
+            "scenarios.ai.sap.com/name": "<YOUR SCENARIO NAME>",
+            "scenarios.ai.sap.com/description": "<YOUR SCENARIO DESCRIPTION>",
+            "executables.ai.sap.com/name": "<YOUR EXECUTABLE NAME>",
+            "executables.ai.sap.com/description": "<YOUR EXECUTABLE DESCRIPTION>"
+        },
+        'image': '<YOUR DOCKER IMAGE TAG>',
+        "imagePullSecret": "<YOUR DOCKER REGISTRY SECRET NAME IN AI CORE>"
+    }
+
+    import yaml
+    serving_config_yaml_file = "model_serving_config.yaml"
+    ff = open(serving_config_yaml_file, 'w+')
+    yaml.dump(serving_config, ff , allow_unicode=True)
+    ```
+5. Fill in the desired values in the config file. An example config file is shown below.
+
+    ```
+    serving_config = {
+        '.contentPackage': 'sap_datarobot',
+        '.workflow': 'model-jar-serving',
+        '.dockerType': 'default',
+        'name': 'datarobot-model-serving',
+        'labels': {
+            'scenarios.ai.sap.com/id': "00db4197-1538-4640-9ea9-44731041ed88",
+            'ai.sap.com/version': "0.0.1"
+        },
+        "annotations": {
+            "scenarios.ai.sap.com/name": "my-datarobot-scenario",
+            "executables.ai.sap.com/name": "datarobot-model-serving",
+            "executables.ai.sap.com/description": "datarobot model serving",
+            "scenarios.ai.sap.com/description": "my datarobot scenario"
+        },
+        'image': 'docker.io/<YOUR_DOCKER_USERNAME>/model-serve:1.0',
+        "imagePullSecret": "my-docker-secret"
+    }
+
+    import yaml
+    serving_config_yaml_file = "model_serving_config.yaml"
+    ff = open(serving_config_yaml_file, 'w+')
+    yaml.dump(serving_config, ff , allow_unicode=True)
+    ```
+6. Generate a docker image
+
+    This step involves building a docker image with the tag specified in the model_serving_config.yaml file.
+    ```
+    # keep the docker up and running before executing this cell
+    # docker login
+    import os
+    docker_user = "[USER NAME]"
+    docker_pwd = "[PASSWORD]"
+    os.system(f'docker login <YOUR_DOCKER_REGISTRY_URL> -u {docker_user} -p {docker_pwd}')
+
+    with open(serving_config_yaml_file) as stream:
+        workflow_config = yaml.load(stream)
+    serving_workflow.create_image(workflow_config) # actually build the docker container
+
+    #When an error occurs, perform a dry run to debug any error occured while running the create_image() function.
+    docker_build_cmd = serving_workflow.create_image(workflow_config, return_cmd = True)
+    print(' '.join(docker_build_cmd))
+    ```
+7. Push the docker image to your docker repository
+
+    ```
+    os.system(f'docker push {workflow_config["image"]}') # push the container
+    ```
+8. Generate a serving template
+
+    Clone the git repository that was registered with your SAP AI Core tenant during Onboarding.
+    ```
+    import pathlib
+    output_file = '<TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml'
+    serving_workflow.create_template(serving_config_yaml_file, output_file)
+    ```
+    You can configure SAP AI Core to use different infrastructure resources for different tasks, based on demand. Within SAP AI Core, the resource plan is selected via the `ai.sap.com/resourcePlan` label in the serving template. By default, sap-ai-core-datarobot workflows use `starter` resource plan which entails the use of 1 CPU core and 3 Memeory GBs. For more information on how to select a different resource plan, you can refer to the documentation [choosing a resource plan](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/choose-resource-plan-c58d4e584a5b40a2992265beb9b6be3c?q=resource%20plan).
+9. Push the serving template to your git repository
+
+    ```
+    import os
+    import subprocess
+    repo_path = "<PATH TO YOUR CLONED GIT REPO>" 
+    current_dir = os.getcwd()
+    os.chdir(repo_path)
+
+    # add the file to the git repository
+    subprocess.run(["git", "add", f"{output_file}"])
+
+    # commit the changes
+    subprocess.run(["git", "commit", "-m", f'updated template {workflow_config["image"]}'])
+
+    # push the changes
+    subprocess.run(["git", "push"])
+
+    os.chdir(current_dir)
+    ```
+10. Obtain a client credentials token to AI Core
+
+    ```
+    import json
+    from ai_api_client_sdk.ai_api_v2_client import AIAPIV2Client
+    from ai_api_client_sdk.models.artifact import Artifact
+    from ai_api_client_sdk.models.parameter_binding import ParameterBinding
+    from ai_api_client_sdk.models.input_artifact_binding import InputArtifactBinding
+    from ai_api_client_sdk.models.status import Status
+    from ai_api_client_sdk.models.target_status import TargetStatus
+    import time
+    from IPython.display import clear_output
+    import requests
+    import pprint
+
+    # Load AICore and Object Store credentials
+    credCF, credS3 = {}, {}
+    with open('aicore-creds.json') as cf:
+        credCF = json.load(cf)
+    with open('s3-creds.json') as s3:
+        credS3 = json.load(s3)
+
+    #Authentication
+    RESOURCE_GROUP="<YOUR RESOURCE GROUP NAME>"
+    ai_api_v2_client = AIAPIV2Client(
+        base_url=credCF["serviceurls"]["ML_API_URL"] + "/v2/lm",
+        auth_url=credCF["url"] + "/oauth/token",
+        client_id=credCF['clientid'],
+        client_secret=credCF['clientsecret'],
+        resource_group=RESOURCE_GROUP
+    )
+    ```
+11. Create an artifact to connect the DataRobot model, to make it available for use in SAP AI Core. Save the model artifact id from the response.
+
+    ```
+    # GET scenario
+    response = ai_api_v2_client.scenario.query(RESOURCE_GROUP)
+    ai_scenario = next(scenario_obj for scenario_obj in response.resources if scenario_obj.id == workflow_config["labels"]["scenarios.ai.sap.com/id"] )
+    print("Scenario id: ", ai_scenario.id)
+    print("Scenario name: ", ai_scenario.name)
+
+    # GET List of scenario executables
+    response = ai_api_v2_client.executable.query(scenario_id=ai_scenario.id)
+    for executable in response.resources:
+        print(executable)
+
+    #Register the model from Object Store as an artifact
+    artifact = {
+            "name": "my-datarobot-model",
+            "kind": Artifact.Kind.MODEL,
+            "url": "ai://<YOUR OBJECTSTORE NAME>/<YOUR MODEL PATH>",
+            "description": "my datarobot model jar",
+            "scenario_id": ai_scenario.id
+        }
+    artifact_resp = ai_api_v2_client.artifact.create(**artifact)
+    assert artifact_resp.message == 'Artifact acknowledged'
+    print(artifact_resp.url)
+    ```
+12. Create a configuration and save the configuration id from the response.
+
+    ```
+    #define deployment confgiuration
+    artifact_binding = {
+        "key": "modeljar",
+        "artifact_id": artifact_resp.id
+    }
+
+    parameter_binding = {
+        "key": "modelName",
+        "value": "<YOUR MODEL JAR FILE NAME>" #model file name in Object Store
+    }
+
+    deployment_configuration = {
+        "name": "<CONFIGURATION NAME>",
+        "scenario_id": workflow_config["labels"]["scenarios.ai.sap.com/id"],
+        "executable_id": workflow_config["name"],
+        "parameter_bindings": [ParameterBinding(**parameter_binding)],
+        "input_artifact_bindings": [ InputArtifactBinding(**artifact_binding) ]
+    }
+
+    deployment_config_resp = ai_api_v2_client.configuration.create(**deployment_configuration)
+    assert deployment_config_resp.message == 'Configuration created'
+    ```
+13. Create a deployment and note down the deployment id from the response
+
+    ```
+    deployment_resp = ai_api_v2_client.deployment.create(deployment_config_resp.id)
+    ```
+14. Check the status of the deployment. Note down the deployment URL after the status changes to RUNNING.
+
+    ```
+    # poll deployment status
+    status = None
+    while status != Status.RUNNING and status != Status.DEAD:
+        time.sleep(5)
+        clear_output(wait=True)
+        deployment = ai_api_v2_client.deployment.get(deployment_resp.id)
+        status = deployment.status
+        print('...... deployment status ......', flush=True)
+        print(deployment.status)
+        print(deployment.status_details)
+
+    time.sleep(10)  # time for deployment url getting ready
+    print('endpoint: ', deployment.deployment_url)
+    ```
+15. Use your deployment.
+
+    ```
+    with open('sample_payload.json') as cf:
+        sample_input = json.load(cf)
+
+    # inference
+    endpoint = "{deploy_url}/v1/models/{model_name}:predict".format(deploy_url=deployment.deployment_url, model_name = parameter_binding["value"])
+    headers = {"Authorization": ai_api_v2_client.rest_client.get_token(), 'ai-resource-group': RESOURCE_GROUP}
+
+    response = requests.post(endpoint, headers=headers, json=test_input)
+    pprint.pprint(['inference result:', response.json()])
+    time.sleep(10)   
+    ```
+
+#### 2. Direct Integration of AI Core with DataRobot Models via DataRobot API
+
+*Pre-requisites*
+
+1. Complete [AI Core Onboarding](https://help.sap.com/viewer/2d6c5984063c40a59eda62f4a9135bee/LATEST/en-US/8ce24833036d481cb3113a95e3a39a07.html)
+    - [Initial setup](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/initial-setup)
+    - Create a [Resource Group](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-resource-group)
+2. Access to the [Git repository](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-git-repository-and-secrets), [Docker repository](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-docker-registry-secret) and [Object Store](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/register-your-object-store-secret) onboarded to AI Core
+3. You have a registered DataRobot account, trained a model in DataRobot.
+
+The interface for sap-ai-core-datarobot content package is part of the `ai-core-sdk`.ai-core-sdk provides a command-line utility as well as a python library to use AICore content packages. 
+
+Please note that this sap-ai-core-datarobot package documentation provides the instructions for using this specific content package. For a more comprehensive understanding of how to use a content package, refer to the ai-core-sdk package documentation [here](https://pypi.org/project/ai-core-sdk/).
+
+##### 2.1 CLI
+
+*Steps*
+
+1. Install AI Core SDK
+
+    ```
+    pip install ai-core-sdk[aicore_content]
+    ```
+2. Install this content package
+
+    ```
+    pip install sap-ai-core-datarobot
+    ```
+3. Explore the content package
+
+    List all content packages installed in the environment.
+    ```
+    aicore-content list
+    ```
+    List all available pipelines in the sap-ai-core-datarobot content package.
+    ```
+    aicore-content list sap_datarobot
+    ```
+    View the parameters available in the selected pipeline.
+    ```
+    aicore-content show sap_datarobot model-id-serving
+    ```
+    Check all available commands by using the `--help` flag.
+    ```
+    aicore-content --help
+    ```
+4. Create a config file with the name model_serving_config.yaml with the following content.
+
+    ```
+    .contentPackage: sap_datarobot
+    .dockerType: default
+    .workflow: model-id-serving
+    annotations:
+    executables.ai.sap.com/description: <YOUR EXECUTABLE DESCRIPTION>
+    executables.ai.sap.com/name: <YOUR EXECUTABLE NAME>
+    scenarios.ai.sap.com/description: <YOUR SCENARIO DESCRIPTION>
+    scenarios.ai.sap.com/name: <YOUR SCENARIO NAME>
+    image: <YOUR DOCKER IMAGE TAG>
+    imagePullSecret: <YOUR DOCKER REGISTRY SECRET NAME IN AI CORE>
+    datarobotToken: <DATAROBOT-API-TOKEN SECRET NAME IN AI CORE>
+    labels:
+    ai.sap.com/version: <YOUR SCENARIO VERSION>
+    scenarios.ai.sap.com/id: <YOUR SCENARIO ID>
+    name: <YOUR SERVING TEMPLATE NAME>
+    ```
+5. Fill in the desired values in the config file. An example config file is shown below.
+
+    ```
+    .contentPackage: sap_datarobot
+    .dockerType: default
+    .workflow: model-id-serving
+    annotations:
+    executables.ai.sap.com/description: datarobot model serving
+    executables.ai.sap.com/name: datarobot-model-serving
+    scenarios.ai.sap.com/description: my datarobot scenario
+    scenarios.ai.sap.com/name: my-datarobot-scenario
+    image: docker.io/<YOUR_DOCKER_USERNAME>/model-serve:1.0
+    imagePullSecret: my-docker-secret
+    datarobotToken: my-datarobot-secret
+    labels:
+    ai.sap.com/version: 0.0.1
+    scenarios.ai.sap.com/id: 00db4197-1538-4640-9ea9-44731041ed88
+    name: datarobot-model-serving
+    ```
+6. Generate a docker image
+
+    This step involves building a docker image with the tag specified in the model_serving_config.yaml file. The command to perform this operation is as follows:
+    ```
+    aicore-content create-image -p sap_datarobot -w model-id-serving model_serving_config.yaml
+    ```
+7. Push the docker image to your docker repository
+
+    The image tag should correspond to the one provided in the 'model_serving_config.yaml' file.
+    ```
+    docker push <YOUR DOCKER IMAGE TAG>
+    ```
+8. Generate a serving template
+
+    Clone the git repository that was registered with your SAP AI Core tenant during Onboarding.
+    ```
+    aicore-content create-template -p sap_datarobot -w model-id-serving model_serving_config.yaml -o '<TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml'
+    ```
+    You can configure SAP AI Core to use different infrastructure resources for different tasks, based on demand. Within SAP AI Core, the resource plan is selected via the `ai.sap.com/resourcePlan` label in the serving template. By default, sap-ai-core-datarobot workflows use `starter` resource plan which entails the use of 1 CPU core and 3 Memeory GBs. For more information on how to select a different resource plan, you can refer to the documentation [choosing a resource plan](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/choose-resource-plan-c58d4e584a5b40a2992265beb9b6be3c?q=resource%20plan).
+9. Fill in the datarobot secrets name in serving template
+
+    In the model-serving-template.yaml serving template file, substitute `<DATAROBOT-ENDPOINT-TOKEN>` with the name of your datarobot secrets.
+10. Push the serving template to your git repository
+
+    ```
+    cd <PATH TO YOUR CLONED GIT REPO>
+    git add <TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml
+    git commit -m 'updated template model-serving-template.yaml'
+    git push
+    ```
+11. Obtain a client credentials token to AI Core
+
+    ```
+    curl --location '<YOUR AI CORE AUTH ENDPOINT URL>/oauth/token' --header 'Authorization: Basic <YOUR AI CORE CREDENTIALS>'
+    ```
+12. Create Generic Secrets in ResourceGroup
+
+    To authenticate with DataRobot's API, your code needs to have access to an endpoint and token. In AI Core, create a generic secret for the Endpoint and the token; these secrets are used to access the model from DataRobot. Refer AI Core documentation to [create a generic secret](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-generic-secret?q=generic%20secrets).
+
+    Note that the AI Core AI API expects sensitive data to be Base64-encoded. You can easily encode your data in Base64 format using the following command on Linux or MacOS: 
+    ```
+    echo -n 'my-sensitive-data' | base64
+    ```
+    ```
+    curl --location --request POST "<YOUR AI CORE URL>/v2/admin/secrets" \
+    --header "Authorization: Bearer <CLIENT CREDENTAILS TOKEN>" \
+    --header 'Content-Type: application/json' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --data-raw '{
+        "name": "<DATAROBOT-API-TOKEN SECRET NAME IN AI CORE>",
+        "data": {
+            "endpoint": "<BASE64-ENCODED DATAROBOT API ENDPOINT>",
+            "token": "<BASE64-ENCODED DATAROBOT API TOKEN>"
+        }
+    }'				
+    ```
+13. Create a configuration and save the configuration id from the response.
+
+    ```
+    curl --request POST "<YOUR AI CORE URL>/v2/lm/configurations" \
+    --header "Authorization: Bearer <CLIENT CREDENTAILS TOKEN>" \
+    --header "AI-Resource-Group: <YOUR RESOURCE GROUP NAME>" \
+    --header "Content-Type: application/json" \
+    --data '{
+        "name": "<CONFIGURATION NAME>",
+        "executableId": "<YOUR EXECUTABLE ID>",
+        "scenarioId": "<YOUR SCENARIO ID>",
+        "parameterBindings": [
+            {
+                "key": "projectID",
+                "value": "<PROJECT ID OF YOUR MODEL IN DATAROBOT>"
+            },
+            {
+                "key": "modelID",
+                "value": "<YOUR MODEL ID FROM DATAROBOT>"
+            }
+        ]
+    }'
+    ```
+14. Create a deployment and note down the deployment id from the response
+
+    ```
+    curl --location --globoff --request POST '<YOUR AI CORE URL>/v2/lm/configurations/<YOUR CONFIGURATION ID>/deployments' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>'
+    ```
+15. Check the status of the deployment. Note down the deployment URL after the status changes to RUNNING.
+
+    ```
+    curl --location --globoff '<YOUR AI CORE URL>/v2/lm/deployments/<YOUR DEPLOYMENT ID>' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>'
+    ```
+16. Use your deployment.
+
+    ```
+    curl --location '<YOUR DEPLOYMENT URL>/v1/models/model:predict' \
+    --header 'AI-Resource-Group: <YOUR RESOURCE GROUP NAME>' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer <CLIENT CREDENTAILS TOKEN>' \
+    --data '[
+        {
+            "<FEATURE_NAME>": <FEATURE_VALUE>,
+            ...
+        }
+    ]'
+    ```
+
+##### 2.2 Python
+
+*Steps*
+
+1. Install AI Core SDK
+
+    ```
+    !python -m pip install "ai_core_sdk[aicore-content]"
+    ```
+2. Install this content package
+
+    ```
+    !python -m pip install sap-ai-core-datarobot
+    ```
+3. Explore the content package
+
+    List all content packages installed in the environment.
+    ```
+    from ai_core_sdk.content import get_content_packages
+    pkgs = get_content_packages()
+    for pkg in pkgs.values():
+        print(pkg)
+    ```
+    List all available pipelines in the sap-ai-core-datarobot content package.
+    ```
+    content_pkg = pkgs['sap_datarobot']
+    for workflow in content_pkg.workflows.values():
+        print(workflow) 
+    ```
+4. Create a config file with the name model_serving_config.yaml with the following content.
+
+    ```
+    !python -m pip install pyyaml
+    ```
+    ```
+    serving_workflow = content_pkg.workflows["model-id-serving"]
+
+    serving_config = {
+        '.contentPackage': 'sap_datarobot',
+        '.workflow': 'model-id-serving',
+        '.dockerType': 'default',
+        'name': '<YOUR SERVING TEMPLATE NAME>',
+        'labels': {
+            'scenarios.ai.sap.com/id': "<YOUR SCENARIO ID>",
+            'ai.sap.com/version': "<YOUR SCENARIO VERSION>"
+        },
+        "annotations": {
+            "scenarios.ai.sap.com/name": "<YOUR SCENARIO NAME>",
+            "scenarios.ai.sap.com/description": "<YOUR SCENARIO DESCRIPTION>",
+            "executables.ai.sap.com/name": "<YOUR EXECUTABLE NAME>",
+            "executables.ai.sap.com/description": "<YOUR EXECUTABLE DESCRIPTION>"
+        },
+        'image': '<YOUR DOCKER IMAGE TAG>',
+        "imagePullSecret": "<YOUR DOCKER REGISTRY SECRET NAME IN AI CORE>",
+        "datarobotToken": "<DATAROBOT-API-TOKEN SECRET NAME IN AI CORE>"
+    }
+
+    import yaml
+    serving_config_yaml_file = "model_serving_config.yaml"
+    ff = open(serving_config_yaml_file, 'w+')
+    yaml.dump(serving_config, ff , allow_unicode=True)
+    ```
+5. Fill in the desired values in the config file. An example config file is shown below.
+
+    ```
+    serving_config = {
+        '.contentPackage': 'sap_datarobot',
+        '.workflow': 'model-id-serving',
+        '.dockerType': 'default',
+        'name': 'datarobot-model-serving',
+        'labels': {
+            'scenarios.ai.sap.com/id': "00db4197-1538-4640-9ea9-44731041ed88",
+            'ai.sap.com/version': "0.0.1"
+        },
+        "annotations": {
+            "scenarios.ai.sap.com/name": "my-datarobot-scenario",
+            "executables.ai.sap.com/name": "datarobot-model-serving",
+            "executables.ai.sap.com/description": "datarobot model serving",
+            "scenarios.ai.sap.com/description": "my datarobot scenario"
+        },
+        'image': 'docker.io/<YOUR_DOCKER_USERNAME>/model-serve:1.0',
+        "imagePullSecret": "my-docker-secret",
+        "datarobotToken": "my-datarobot-secret"
+    }
+
+    import yaml
+    serving_config_yaml_file = "model_serving_config.yaml"
+    ff = open(serving_config_yaml_file, 'w+')
+    yaml.dump(serving_config, ff , allow_unicode=True)
+    ```
+6. Generate a docker image
+
+    This step involves building a docker image with the tag specified in the model_serving_config.yaml file. 
+    ```
+    # keep the docker up and running before executing this cell
+    # docker login
+    import os
+    docker_user = "[USER NAME]"
+    docker_pwd = "[PASSWORD]"
+    os.system(f'docker login <YOUR_DOCKER_REGISTRY_URL> -u {docker_user} -p {docker_pwd}')
+
+    with open(serving_config_yaml_file) as stream:
+        workflow_config = yaml.load(stream)
+    serving_workflow.create_image(workflow_config) # actually build the docker container
+
+    #When an error occurs, perform a dry run to debug any error occured while running the create_image() function.
+    docker_build_cmd = serving_workflow.create_image(workflow_config, return_cmd = True)
+    print(' '.join(docker_build_cmd))
+    ```
+7. Push the docker image to your docker repository
+
+    ```
+    os.system(f'docker push {workflow_config["image"]}') # push the container
+    ```
+8. Generate a serving template
+
+    Clone the git repository that was registered with your SAP AI Core tenant during Onboarding.
+    ```
+    import pathlib
+    output_file = '<TEMPLATES FOLDER PATH IN YOUR CLONED GIT REPO>/model-serving-template.yaml'
+    serving_workflow.create_template(serving_config_yaml_file, output_file)
+    ```
+    You can configure SAP AI Core to use different infrastructure resources for different tasks, based on demand. Within SAP AI Core, the resource plan is selected via the `ai.sap.com/resourcePlan` label in the serving template. By default, sap-ai-core-datarobot workflows use `starter` resource plan which entails the use of 1 CPU core and 3 Memeory GBs. For more information on how to select a different resource plan, you can refer to the documentation [choosing a resource plan](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/choose-resource-plan-c58d4e584a5b40a2992265beb9b6be3c?q=resource%20plan).
+9. Fill in the datarobot secrets name in serving template
+
+    In the model-serving-template.yaml serving template file, substitute `<DATAROBOT-ENDPOINT-TOKEN>` with the name of your datarobot secrets.
+    ```
+    def modify_serving_template(workflow_config, template_file_path):
+        import yaml
+        import sys
+        from yaml.resolver import BaseResolver
+        with open(template_file_path, 'r') as f_read:
+            content = yaml.load(f_read, yaml.FullLoader)   
+        predictor_spec = content["spec"]["template"]["spec"]
+        predictor_spec = predictor_spec.replace('<DATAROBOT-ENDPOINT-TOKEN>', serving_config['datarobotToken'] )
+        content["spec"]["template"]["spec"] = predictor_spec
+        yaml.SafeDumper.org_represent_str = yaml.SafeDumper.represent_str
+        def repr_str(dumper, data):
+            if '\n' in data:
+                return dumper.represent_scalar(u'tag:yaml.org,2002:str', data, style='|')
+            return dumper.org_represent_str(data)
+        yaml.add_representer(str, repr_str, Dumper=yaml.SafeDumper)
+        with open(template_file_path, 'w') as f_write:
+            f_write.write(yaml.safe_dump(content))
+
+
+    modify_serving_template(workflow_config, output_file)
+    ```
+10. Push the serving template to your git repository
+
+    ```
+    import os
+    import subprocess
+    repo_path = "<PATH TO YOUR CLONED GIT REPO>" 
+    current_dir = os.getcwd()
+    os.chdir(repo_path)
+
+    # add the file to the git repository
+    subprocess.run(["git", "add", f"{output_file}"])
+
+    # commit the changes
+    subprocess.run(["git", "commit", "-m", f'updated template {workflow_config["image"]}'])
+
+    # push the changes
+    subprocess.run(["git", "push"])
+
+    os.chdir(current_dir)
+    ```
+11. Obtain a client credentials token to AI Core
+
+    ```
+    import json
+    from ai_api_client_sdk.ai_api_v2_client import AIAPIV2Client
+    from ai_api_client_sdk.models.artifact import Artifact
+    from ai_api_client_sdk.models.parameter_binding import ParameterBinding
+    from ai_api_client_sdk.models.input_artifact_binding import InputArtifactBinding
+    from ai_api_client_sdk.models.status import Status
+    from ai_api_client_sdk.models.target_status import TargetStatus
+    import time
+    from IPython.display import clear_output
+    import requests
+    import pprint
+
+    # Load AICore and Object Store credentials
+    credCF, credS3 = {}, {}
+    with open('aicore-creds.json') as cf:
+        credCF = json.load(cf)
+    with open('s3-creds.json') as s3:
+        credS3 = json.load(s3)
+
+    #Authentication
+    RESOURCE_GROUP="<YOUR RESOURCE GROUP NAME>"
+    ai_api_v2_client = AIAPIV2Client(
+        base_url=credCF["serviceurls"]["ML_API_URL"] + "/v2/lm",
+        auth_url=credCF["url"] + "/oauth/token",
+        client_id=credCF['clientid'],
+        client_secret=credCF['clientsecret'],
+        resource_group=RESOURCE_GROUP
+    )
+    ```
+12. Create Generic Secrets in ResourceGroup
+
+    To authenticate with DataRobot's API, your code needs to have access to an endpoint and token. In AI Core, create a generic secret for the Endpoint and the token; these secrets are used to access the model from DataRobot. Refer AI Core documentation to [create a generic secret](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-generic-secret?q=generic%20secrets).
+
+    Note that the AI Core AI API expects sensitive data to be Base64-encoded. You can easily encode your data in Base64 format using the following command on Linux or MacOS: 
+    ```
+    echo -n 'my-sensitive-data' | base64
+    ```
+    ```
+    import requests
+
+    ai_api_url = credCF["serviceurls"]["ML_API_URL"] + "/v2/admin/secrets"
+    token = ai_api_v2_client.rest_client.get_token()
+
+    headers = {
+        "Authorization": token,
+        "Content-Type": "application/json",
+        "AI-Resource-Group": RESOURCE_GROUP
+    }
+
+    data = {
+        "name": "<DATAROBOT-API-TOKEN SECRET NAME IN AI CORE>",
+        "data": {
+            "endpoint": "<BASE64-ENCODED DATAROBOT API ENDPOINT>",
+            "token": "<BASE64-ENCODED DATAROBOT API TOKEN>"
+        }
+    }
+
+    response = requests.post(ai_api_url, headers=headers, json=data)
+
+    if response.status_code == 201:
+        print("Secret created successfully!")
+    else:
+        print("Request failed with status code:", response.status_code)
+        print("Response text:", response.text)
+
+    ```
+13. Create a configuration and save the configuration id from the response.
+
+    ```
+    #define deployment confgiuration
+    project_id = {
+        "key": "projectID",
+        "value": "<PROJECT ID OF YOUR MODEL IN DATAROBOT>" 
+    }
+    model_id = {
+        "key": "modelID",
+        "value": "<YOUR MODEL ID FROM DATAROBOT>" 
+    }
+
+    deployment_configuration = {
+        "name": "<CONFIGURATION NAME>",
+        "scenario_id": workflow_config["labels"]["scenarios.ai.sap.com/id"],
+        "executable_id": workflow_config["name"],
+        "parameter_bindings": [ParameterBinding(**project_id), ParameterBinding(**model_id)]
+    }
+
+    deployment_config_resp = ai_api_v2_client.configuration.create(**deployment_configuration)
+    assert deployment_config_resp.message == 'Configuration created'
+    ```
+14. Create a deployment and note down the deployment id from the response
+
+    ```
+    deployment_resp = ai_api_v2_client.deployment.create(deployment_config_resp.id)
+    ```
+15. Check the status of the deployment. Note down the deployment URL after the status changes to RUNNING.
+
+    ```
+    # poll deployment status
+    status = None
+    while status != Status.RUNNING and status != Status.DEAD:
+        time.sleep(5)
+        clear_output(wait=True)
+        deployment = ai_api_v2_client.deployment.get(deployment_resp.id)
+        status = deployment.status
+        print('...... deployment status ......', flush=True)
+        print(deployment.status)
+        print(deployment.status_details)
+
+    time.sleep(10)  # time for deployment url getting ready
+    print('endpoint: ', deployment.deployment_url)
+    ```
+16. Use your deployment.
+
+    ```
+    with open('sample_payload.json') as cf:
+        sample_input = json.load(cf)
+
+    # inference
+    endpoint = "{deploy_url}/v1/models/model:predict".format(deploy_url=deployment.deployment_url)
+    headers = {"Authorization": ai_api_v2_client.rest_client.get_token(), 'ai-resource-group': RESOURCE_GROUP}
+
+    response = requests.post(endpoint, headers=headers, json=test_input)
+    pprint.pprint(['inference result:', response.json()])
+    time.sleep(10)   
+    ```
+
+### Security Guide
+
+See [Security in SAP AI Core](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/security?locale=en-US) for general information about how SAP AI Core handles security.
+
