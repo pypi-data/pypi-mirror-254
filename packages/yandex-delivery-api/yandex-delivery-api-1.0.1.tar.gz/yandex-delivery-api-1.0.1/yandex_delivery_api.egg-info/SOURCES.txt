@@ -1,0 +1,15 @@
+LICENSE
+setup.cfg
+setup.py
+tests/test_yandex_delivery.py
+yandex_delivery/__init__.py
+yandex_delivery/base_methods.py
+yandex_delivery/delivery_api.py
+yandex_delivery/exceptions.py
+yandex_delivery/rest_adapter.py
+yandex_delivery/rest_result.py
+yandex_delivery_api.egg-info/PKG-INFO
+yandex_delivery_api.egg-info/SOURCES.txt
+yandex_delivery_api.egg-info/dependency_links.txt
+yandex_delivery_api.egg-info/not-zip-safe
+yandex_delivery_api.egg-info/top_level.txt
