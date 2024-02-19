@@ -1,0 +1,2 @@
+[console_scripts]
+files-2-db = src.main:main
