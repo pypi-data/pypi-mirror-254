@@ -1,0 +1,15 @@
+LICENSE.md
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+tests/test_all.py
+vqt/__init__.py
+vqt/helpers.py
+vqt/vqt.py
+vqt.egg-info/PKG-INFO
+vqt.egg-info/SOURCES.txt
+vqt.egg-info/dependency_links.txt
+vqt.egg-info/requires.txt
+vqt.egg-info/top_level.txt
