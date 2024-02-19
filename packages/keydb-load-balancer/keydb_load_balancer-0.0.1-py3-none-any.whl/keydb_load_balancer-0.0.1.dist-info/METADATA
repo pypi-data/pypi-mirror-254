@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: keydb-load-balancer
+Version: 0.0.1
+Summary: Physcis project. Load balancer
+Home-page: UNKNOWN
+Author: Ainhoa Azqueta-Alzúaz
+Author-email: aazqueta@fi.upm.es
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: keydb
+Requires-Dist: kubernetes
+Requires-Dist: prometheus-api-client
+
+UNKNOWN
+
+
