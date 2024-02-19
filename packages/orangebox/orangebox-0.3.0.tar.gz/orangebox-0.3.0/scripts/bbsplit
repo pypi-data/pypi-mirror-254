@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+# Orangebox - Cleanflight/Betaflight blackbox data parser.
+# Copyright (C) 2019  Yurii Soldak & Plasmatree PID Analyser developers
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+import logging
+import os
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
+from typing import Optional
+
+from orangebox.reader import Reader
+
+
+def main(path: str, output_path: Optional[str], dry_run: bool):
+    reader = Reader(path, 1)
+    if not reader.headers:
+        raise RuntimeError("Invalid blackbox log file")
+
+    if dry_run:
+        logging.info("Dry run")
+
+    logging.debug("Found {:d} logs".format(reader.log_count))
+
+    output_path = output_path or os.path.abspath(os.path.dirname(path))
+    if not dry_run:
+        os.makedirs(output_path, exist_ok=True)
+
+    name, ext = os.path.splitext(os.path.basename(path))
+    with open(path, "rb") as orig_file:
+        for i, ptr in enumerate(reader.log_pointers):
+            log_starts_at = reader.log_pointers[i]
+            logging.debug("Log #{0:d} starts at {1:d} (0x{1:X})".format(i + 1, log_starts_at))
+            new_filename = "{}.{:d}{}".format(name, i + 1, ext)
+            new_path = os.path.join(output_path, new_filename)
+            size = reader.log_pointers[i + 1] - log_starts_at if i < reader.log_count - 1 else None
+            orig_file.seek(log_starts_at)
+            new_data = orig_file.read(size) if size is not None else orig_file.read()
+            if not dry_run:
+                with open(new_path, 'wb') as new_file:
+                    new_file.write(new_data)
+                logging.info("Written: {:s} (size: {:d})".format(new_path, len(new_data)))
+            else:
+                logging.info("Would write: {:s} (size: {:d})".format(new_path, len(new_data)))
+
+
+if __name__ == "__main__":
+    # noinspection PyTypeChecker
+    argparser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
+    argparser.add_argument("path", help="Path to a blackbox log file")
+    argparser.add_argument("-o", "--output", metavar="DIR", default=None,
+                           help="Optional path to output directory, defaults to parent directory of the original log file")
+    argparser.add_argument("-v", dest="verbosity", action="count", default=0,
+                           help="Control verbosity (can be used multiple times)")
+    argparser.add_argument("-n", "--dry-run", action="store_true", help="Do not write anything")
+
+    args = argparser.parse_args()
+
+    levels = [logging.ERROR, logging.WARNING, logging.INFO, logging.DEBUG]
+    if args.verbosity >= len(levels):
+        raise IndexError("Verbosity must be 0 <= n < 4")
+    logging.basicConfig(level=levels[args.verbosity],
+                        format='%(asctime)s %(name)s %(levelname)s %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S')
+
+    main(args.path, args.output, args.dry_run)
