@@ -1,0 +1,3 @@
+[console_scripts]
+dbt_cloud_jobs=dbt_cloud_jobs.main:main
+
