@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: comma-cli
+Version: 2.0.3
+Summary: Multi-Tool
+Project-URL: Documentation, https://github.com/FlavioAmurrioCS/comma-cli#readme
+Project-URL: Issues, https://github.com/FlavioAmurrioCS/comma-cli/issues
+Project-URL: Source, https://github.com/FlavioAmurrioCS/comma-cli
+Author-email: Flavio Amurrio <25621374+FlavioAmurrioCS@users.noreply.github.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: persistent-cache-decorator==0.1.2
+Requires-Dist: pyfunctional
+Requires-Dist: requests
+Requires-Dist: rich
+Requires-Dist: runtool==1.0.3
+Requires-Dist: typedfzf==1.0.3
+Requires-Dist: typer
+Requires-Dist: typing-extensions
+Provides-Extra: personal
+Requires-Dist: fastapi; extra == 'personal'
+Requires-Dist: polyfactory; extra == 'personal'
+Requires-Dist: pydantic; extra == 'personal'
+Requires-Dist: selenium; extra == 'personal'
+Requires-Dist: twilio; extra == 'personal'
+Requires-Dist: uvicorn[standard]; extra == 'personal'
+Description-Content-Type: text/markdown
+
+# comma-cli
+
+[![PyPI - Version](https://img.shields.io/pypi/v/comma-cli.svg)](https://pypi.org/project/comma-cli)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/comma-cli.svg)](https://pypi.org/project/comma-cli)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FlavioAmurrioCS/comma-cli/main.svg)](https://results.pre-commit.ci/latest/github/FlavioAmurrioCS/comma-cli/main)
+
+
+-----
+
+**Table of Contents**
+
+- [comma-cli](#comma-cli)
+  - [Installation](#installation)
+  - [License](#license)
+
+## Installation
+
+```console
+pip install comma-cli
+```
+
+## License
+
+`comma-cli` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
