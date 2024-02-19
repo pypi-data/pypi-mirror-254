@@ -1,0 +1,2 @@
+[console_scripts]
+skyctl = ctl.terminal:cli
