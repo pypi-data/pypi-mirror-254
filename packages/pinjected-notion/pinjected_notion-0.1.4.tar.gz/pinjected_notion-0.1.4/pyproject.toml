@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pinjected-notion"
+version = "0.1.4"
+description = ""
+authors = ["proboscis <nameissoap@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pinjected_notion"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pillow = "^10.2.0"
+boto3 = "^1.34.27"
+notion-client = "^2.2.1"
+numpy = "^1.26.3"
+pandas = "^2.2.0"
+jupyter = "^1.0.0"
+notion-database = "^1.1.0"
+tqdm = "^4.66.1"
+pinjected = "^0.1.166"
+proboscis-image-util = "^0.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
