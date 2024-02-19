@@ -1,0 +1,1 @@
+import django_sql_profiler.sql_profiler
