@@ -1,0 +1,1 @@
+from .agent import supply_chain_analyst_opinion

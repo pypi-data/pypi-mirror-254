@@ -1,0 +1,1 @@
+from .agent import energy_analyst_opinion

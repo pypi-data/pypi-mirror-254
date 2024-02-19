@@ -1,0 +1,1 @@
+from .agent import  geopolitical_analyst_opinion
