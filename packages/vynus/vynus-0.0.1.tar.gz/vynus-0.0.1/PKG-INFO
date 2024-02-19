@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: vynus
+Version: 0.0.1
+Summary: A helper tool for scientific studies based on Jupyter notebooks
+Author-email: Sean Tseng <seantyh@gmail.com>
+Description-Content-Type: text/markdown
+Requires-Dist: nbformat
+
+## Vynus
