@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: esdk-obs-python-makus
+Version: 3.23.12
+Summary: OBS Python SDK
+Home-page: 
+License: Apache-2.0
+Keywords: obs,python
+Platform: Independant
+Requires-Dist: pycryptodome >=3.10.1
+
+OBS Python SDK
