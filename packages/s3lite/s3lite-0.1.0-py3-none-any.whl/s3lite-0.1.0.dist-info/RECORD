@@ -1,0 +1,11 @@
+s3lite/__init__.py,sha256=Bvg1O5d_kM84wqlqMMM1eRtKCzJOZUqh2jEFIjXXgEo,117
+s3lite/auth.py,sha256=eE5Tc6ksbF5D36-iYKPUYPcrk20dykOpyDVlaSLxGk8,5739
+s3lite/bucket.py,sha256=J9dDSXdLgMTgKbOGXCc5iOsdGmmQ0rs4VtR3PijuqHs,497
+s3lite/client.py,sha256=4BoYX1Ga3WFUXNek5tBW-Ob2O62jNcd4MTDUIBDYzCU,5803
+s3lite/exceptions.py,sha256=gpZp90HHdU4s0c89Zr_bnKXPvONTfTXzuBpaVq4f8zI,182
+s3lite/object.py,sha256=YHO4OjpMwleg_JX9U2QEha8jIh9gWWWrpe89ia9Nvb0,1176
+s3lite/utils.py,sha256=3Oo5NofmPSuQQ3XaWWkR4alTyvWq-hQM26Xxpm_9EuI,886
+s3lite-0.1.0.dist-info/LICENSE,sha256=s0fvkDDUlyC82Nd9R2zqexEZRh-AfOCcc6WIMFVpFL0,1064
+s3lite-0.1.0.dist-info/METADATA,sha256=XZlH817BSJVqdfCqyPcfmVit_2N8NcIjcdm9kkOXO9Y,2353
+s3lite-0.1.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+s3lite-0.1.0.dist-info/RECORD,,
