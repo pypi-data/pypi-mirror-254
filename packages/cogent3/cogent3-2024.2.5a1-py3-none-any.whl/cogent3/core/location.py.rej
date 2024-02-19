@@ -1,0 +1,10 @@
+--- location.py
++++ location.py
+@@ -1543,7 +1540,6 @@
+         return zeroed
+ 
+     def without_gaps(self):
+-        # todo is this really required
+         return self.__class__(
+             spans=[s for s in self.spans if not s.lost],
+             parent_length=self.parent_length,

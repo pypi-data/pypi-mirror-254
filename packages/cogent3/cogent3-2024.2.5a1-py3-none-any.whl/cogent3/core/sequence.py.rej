@@ -1,0 +1,11 @@
+--- sequence.py
++++ sequence.py
+@@ -1221,7 +1221,7 @@
+             drops annotation_db when True
+         """
+         annotation_offset = self.annotation_offset if sliced else self._seq.offset
+-        data = self._seq.value if sliced else self._seq[:]
++        data = self._seq.copy(sliced=sliced)
+         new = self.__class__(
+             data,
+             name=self.name,

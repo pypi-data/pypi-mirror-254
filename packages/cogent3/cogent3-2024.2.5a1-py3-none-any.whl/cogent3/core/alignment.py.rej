@@ -1,0 +1,17 @@
+--- alignment.py
++++ alignment.py
+@@ -5338,12 +5347,13 @@
+                 raise RuntimeError(f"{on_alignment=} {feature=}")
+             if seq_map is None:
+                 seq_map = self.seqs[0].map
++                *_, strand = self.seqs[0].data.parent_coordinates()
+ 
+             spans = numpy.array(feature["spans"])
+             spans = seq_map.relative_position(spans)
+             feature["spans"] = spans.tolist()
+             # and if i've been reversed...?
+-            feature["reversed"] = seq_map.reverse
++            feature["reversed"] = strand == -1
+             yield self.make_feature(feature=feature, on_alignment=on_al)
+ 
+ 
