@@ -1,0 +1,17 @@
+name: Test build
+on: [pull_request]
+jobs:
+  Application-Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/prepare-build
+    - run: |
+        flit build
+        flit install
+        flake8 simplecpreprocessor
+        py.test -v --cov=simplecpreprocessor --cov-config .coveragerc --cov-report=xml
+    - uses: codecov/codecov-action@v1
+      with:
+        files: ./coverage.xml
+        fail_ci_if_error: true
