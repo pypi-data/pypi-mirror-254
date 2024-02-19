@@ -1,0 +1,8 @@
+hjson
+jx-python==4.537.24036
+mo-sql==4.531.24035
+mo-sqlite==1.537.24036
+requests
+
+[tests]
+mo-testing>=7.523.24033
