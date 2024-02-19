@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+src/pyCocos.egg-info/PKG-INFO
+src/pyCocos.egg-info/SOURCES.txt
+src/pyCocos.egg-info/dependency_links.txt
+src/pyCocos.egg-info/requires.txt
+src/pyCocos.egg-info/top_level.txt
+src/pycocos/__init__.py
+src/pycocos/main.py
+src/pycocos/components/__init__.py
+src/pycocos/components/client.py
+src/pycocos/components/enums.py
+src/pycocos/components/exceptions.py
+src/pycocos/components/urls.py
