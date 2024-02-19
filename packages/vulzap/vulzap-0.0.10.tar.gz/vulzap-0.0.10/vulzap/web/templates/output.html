@@ -1,0 +1,151 @@
+<link rel="stylesheet" type="text/css" href="/static/substyle.css">
+<div id="outputBox" style="margin-top: 20px; display: none;">
+    <div id="vulnerabilitySelect" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div>
+            <input type="checkbox" id="xss" name="vulnerability" value="xss">
+            <label for="xss">XSS</label>
+        </div>
+        <div>
+            <input type="checkbox" id="sqli" name="vulnerability" value="sqli">
+            <label for="sqli">SQL Injection</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ssrf" name="vulnerability" value="ssrf">
+            <label for="ssrf">SSRF</label>
+        </div>
+    </div>
+
+    <div id="cveDetails">
+        <h2 style="text-align: center;">CVE Details</h2>
+    </div>
+
+    <div id="statistics">
+        <h2 style="text-align: center;">Vulnerability Statistics</h2>
+        <div style="width: 375px; height: 280px; margin: 0 auto;">
+            <canvas id="vulnerabilityChart"></canvas>
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/substyle.css">
+<div id="outputBox" style="margin-top: 20px; display: none;">
+    <div id="vulnerabilitySelect" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <!-- 나머지 코드... -->
+    </div>
+
+    <div id="cveDetails">
+        <h2 style="text-align: center;">CVE Details</h2>
+    </div>
+
+    <div id="statistics">
+        <h2 style="text-align: center;">Vulnerability Statistics</h2>
+        <div style="width: 375px; height: 280px; margin: 0 auto;">
+            <canvas id="vulnerabilityChart"></canvas>
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script> 
+$(document).ready(function() { 
+    var table = $("<table>").appendTo("#cveDetails");
+    table.append("<tr><th>Index</th><th>CVE</th><th>Payload</th><th>Match</th></tr>");
+
+    var globalIndex = 1;
+
+    $('input[type="checkbox"]').click(function() { 
+        var table_name = $(this).attr("id");
+        if ($(this).is(":checked")) { 
+            get_table_data(table_name, true); 
+        } else { 
+            get_table_data(table_name, false); 
+        }
+    }); 
+
+    function get_table_data(table_name, isChecked) { 
+        $.ajax({ 
+            url: "/get_table_data", 
+            type: "GET", 
+            data: { table: table_name }, 
+            success: function(result) { 
+                var table = $("#cveDetails").find("table");
+                let index = ['xss', 'sqli', 'ssrf'].indexOf(table_name);
+
+                if (isChecked) {
+                    var data = result.data.filter(item => item.match === 1);
+                    $.each(data, function(index, row) {  
+                        var tr_id = table_name + "_" + globalIndex;
+                        var tr = $("<tr>").attr("id", tr_id); 
+                        tr.append($("<td>").text(globalIndex++));
+                        tr.append($("<td>").text(row.cve)); 
+                        tr.append($("<td>").text(row.payload)); 
+                        tr.append($("<td>").text(row.match)); 
+                        table.append(tr); 
+                    });
+                    chartData[index] = data.length;
+                    chartColors[index] = getRandomColor();
+                } else { 
+                    $("tr[id^='" + table_name + "_']").remove();
+                    // 인덱스 재계산
+                    globalIndex = 1;
+                    table.find('tr:not(:first)').each(function() {
+                        $(this).children('td:first').text(globalIndex++);
+                    });
+                    chartData[index] = 0;
+                    chartColors[index] = 'rgb(211, 211, 211)';
+                }
+                updateChart();
+            } 
+        }); 
+    }
+    
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    let vulnerabilityChart;
+    let chartData = [0, 0, 0];
+    let chartColors = ['rgb(211, 211, 211)', 'rgb(211, 211, 211)', 'rgb(211, 211, 211)'];
+    function updateChart() {
+        let labels = ['XSS', 'SQL Injection', 'SSRF'];
+        let data = chartData;
+        let colors = chartColors;
+
+        let chartDataSet = {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors,
+            }]
+        };
+
+        let ctx = document.getElementById('vulnerabilityChart').getContext('2d');
+        if (vulnerabilityChart) {
+            vulnerabilityChart.destroy();
+        }
+        vulnerabilityChart = new Chart(ctx, {
+            type: 'pie',
+            data: chartDataSet,
+            options: {
+                title: {
+                    display: true,
+                    text: 'VulnerabilityChart'
+                }
+            }
+        });
+    }
+}); 
+</script>
+

@@ -1,0 +1,75 @@
+#outputBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#statistics, #cveDetails {
+    width: 45%;
+    min-width: 300px;
+}
+
+#statistics {
+    float: right;
+}
+
+#cveDetails {
+    float: left;
+}
+
+@media screen and (max-width: 700px) {
+    #statistics, #cveDetails {
+        width: 45%;
+        min-width: 300px;
+        float: none;
+        margin: auto;
+    }
+    #statistics {
+        margin-top: 50px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+}
+
+#vulnerabilitySelect {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+#vulnerabilitySelect div {
+    padding: 10px;
+    background: #a29bfe;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+#statistics h2, #cveDetails h2 {
+    color: #6c5ce7;
+}
+
+#cveDetails table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cveDetails table, #cveDetails th, #cveDetails td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#cveDetails th {
+    background-color: #6c5ce7;
+    color: white;
+}
