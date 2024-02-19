@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: ninjalinker
+Version: 0.0.1
+Summary: NinjaLinker : A secure Python-based VPN tool developed on top of WireGuard
+Home-page: https://pypi.org/project/ninjaconnect/
+Author: Prasaanth
+Author-email: prasaanth2k@gmail.com
+Maintainer: Prasaanth
+Description-Content-Type: text/markdown
+Requires-Dist: keyring ==23.5.0
+Requires-Dist: readchar ==4.0.5
+Requires-Dist: Requests ==2.31.0
+Requires-Dist: rich ==13.6.0
+Requires-Dist: setuptools ==68.2.2
+
+### NinjaLinker VPN Setup for Windows
+
+# Windows
+#### Step 1:
+
+Download the NinjaLinker Windows executable (exe) file [here](https://github.com/mrintroverrt/NinjaLinkerexe/blob/main/NinjaLinker.exe). Run the downloaded file as an administrator to perform basic configurations. Once completed, it will prompt you, as shown in the image below. Respond with 'yes' to confirm that everything is okay. This is a one-time process.
+
+
+`
+While you run the exe, just ignore the warnings and run it.
+`
+
+<!-- ![](https://i.imgur.com/04YZqfr.png) -->
+#### Step 2:
+
+Ensure that Python is installed on your device. If not, install Python and proceed to the next step.
+
+#### Step 3:
+
+Open Command Prompt (cmd) or terminal and install the NinjaLinker package using the following command:
+
+```bat
+pip install NinjaLinker
+```
+After the package is installed, you can use the VPN from the command line.
+
+
+`Note: Always run the cmd or terminal in administrator mode when using the VPN.`
+
+#### Step 4:
+
+After the initial configuration, login with your Labs  following command:
+
+```bat
+python ninja login
+```
+<!-- ![](https://i.imgur.com/nxmFUXi.png) -->
+you will get the authentication message in browser like below image
+<!-- ![](https://i.imgur.com/RbSHZ26.png) -->
+#### Step 5:
+
+Once logged in, add your device by executing the command:
+
+```bat
+python ninja add_device
+```
+<!-- ![](https://i.imgur.com/J2fgfHl.png) -->
+#### Step 6:
+
+After successfully adding the device, you can connect to the VPN with the command:
+
+```
+python ninja connect
+```
+<!-- ![](https://i.imgur.com/wk3Lc77.png) -->
+#### Step 7:
+
+To disconnect from the VPN, use the command:
+
+```
+python ninja disconnect
+```
+<!-- ![](https://i.imgur.com/Ex73NqI.png) -->
+# Linux
+
+On Linux, by default, you have Python, so you can simply install the tool with this command. In some cases, it will ask for permissions:
+
+```
+pip install NinjaLinker
+```
+
+After the installation to give permission the file use below command
+
+chmod +x /home/<yourusername>/.local/bin/ninja
+
+After this permission, you can use the tool.
+#### Step 1:
+Run the following command to configure the VPN for the first time:
+
+```bash
+python ninja configure
+```
+
+#### Step 2:
+
+After the initial configuration, log in with your Labs  following command:
+
+```bash
+python ninja login
+```
+#### Step 3:
+
+Once logged in, add your device by executing the command:
+
+```bash
+python ninja add_device
+```
+#### Step 4:
+
+After successfully adding the device, you can connect to the VPN with the command:
+
+```bash
+python ninja connect
+```
+
+#### Step 5:
+
+To disconnect from the VPN, use the command:
+
+```bash
+python ninja disconnect
+```
