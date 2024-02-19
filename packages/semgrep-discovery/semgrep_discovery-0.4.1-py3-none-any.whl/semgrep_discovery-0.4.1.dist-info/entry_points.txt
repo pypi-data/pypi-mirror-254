@@ -1,0 +1,3 @@
+[console_scripts]
+semgrep-discovery=semgrep_discovery.main:main
+
