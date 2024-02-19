@@ -1,0 +1,85 @@
+{% extends 'stela_control/index.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load hosts %}
+{% load stelatags %}
+{% load humanize %}
+{% block section %}
+  {% block title %}
+              
+  {% endblock  %}
+  {% block side_title %}
+              
+  {% endblock  %}
+  <div class="overflow-hidden min-view-stela">
+      <div class="container">
+          <div class="wow fadeIn" data-wow-duration=".5s" data-wow-delay="0.5s">  
+              <div class="row justify-content-end my-3">
+                  {% block topButtons %}
+                      
+                  {% endblock  %}
+              </div>   
+              <div class="row justify-content-center">
+                  <div id="print">
+                      <div class="col-lg-12 rounded bg-stela-table p-4 main-table wow fadeInLeft" data-wow-duration=".5s" data-wow-delay="0.5s">
+                          {% block listTitle %}
+                              
+                          {% endblock  %}
+                          <table id="{% block table_id %}stela-base{% endblock  %}" class="mt-2 compact table table-borderless table-hover billing-table  fade-in">
+                              <thead>
+                                  <tr class="text-center">
+                                      {% block thead %}
+                                      
+                                      {% endblock  %} 
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% block tbody %}
+                                      
+                                  {% endblock  %} 
+                              </tbody>
+                                  <tfoot>
+                                      
+                              </tfoot>
+                          </table>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+          {% block extratable %}
+
+          {% endblock  %}
+          {% block errors %}
+          {% endblock  %}
+          {% block modals %}
+                
+          {% endblock  %}
+      </div>
+  </div>
+  <script>
+      var id = []
+      var confirmTitle = '{{user.first_name}} {% trans "Confirm?" %}';
+      const preloaderQuery = '<div class="preload-cage-prostela vh-50"><h1 class="text-preload-prostela fs-6">{% trans "Proccess data, please wait" %}...</h1></div>';
+  </script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#stela-base').DataTable({
+              "pageLength": 5,
+              "lengthChange": false,
+              paging: true,
+              info: true,
+              searching: true,
+              language: {
+                "emptyTable": '{% trans "No data" %}',
+                "loadingRecords": '{% trans "Loading" %}',
+                "processing": '{% trans "Processing" %}',
+            }
+          });
+        });
+  </script>
+  {% block addScript %}
+  {% endblock  %}
+{% endblock %}
