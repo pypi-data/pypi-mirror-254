@@ -1,0 +1,12 @@
+{% for key, value in fields.items %}
+    <strong>{{ key }}</strong>
+    <span title="{{ value }}">{{ value|truncatechars:16 }}</span>
+    <br>
+{% endfor %}
+{% for key, value in store.items %}
+    <small>
+        <strong>{{ key }}</strong>
+        <span title="{{ value }}">{{ value|truncatechars:16 }}</span>
+    </small>
+    <br>
+{% endfor %}
