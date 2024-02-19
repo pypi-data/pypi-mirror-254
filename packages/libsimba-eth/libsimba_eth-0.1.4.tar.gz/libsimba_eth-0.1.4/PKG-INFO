@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: libsimba-eth
+Version: 0.1.4
+Summary: libsimba Eth Utilities
+Author: SIMBA Chain Inc.
+Requires-Python: >=3.9,<3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: hdwallet (==2.2.1)
+Requires-Dist: libsimba (==1.3.4)
+Requires-Dist: pycryptodome (==3.20.0)
+Requires-Dist: web3 (==6.15.0)
