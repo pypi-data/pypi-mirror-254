@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+examples/app.py
+flask_tabler_icons/__init__.py
+flask_tabler_icons.egg-info/PKG-INFO
+flask_tabler_icons.egg-info/SOURCES.txt
+flask_tabler_icons.egg-info/dependency_links.txt
+flask_tabler_icons.egg-info/requires.txt
+flask_tabler_icons.egg-info/top_level.txt
+flask_tabler_icons/static/tabler-sprite.svg
+flask_tabler_icons/templates/tabler_icons.html

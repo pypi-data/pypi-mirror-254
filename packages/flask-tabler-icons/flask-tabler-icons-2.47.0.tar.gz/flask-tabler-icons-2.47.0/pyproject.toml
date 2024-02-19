@@ -1,0 +1,32 @@
+[project]
+name = "flask-tabler-icons"
+authors = [{ name = "Lix Xu", email = "xuzenglin@gmail.com" }]
+description = "a collection of macros for tabler icons"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
+keywords = ["tabler-icons"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["flask"]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = { attr = "flask_tabler_icons.__version__" }
+
+[project.urls]
+"Homepage" = "https://github.com/lixxu/flask-tabler-icons"
+"Bug Tracker" = "https://github.com/lixxu/flask-tabler-icons/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]

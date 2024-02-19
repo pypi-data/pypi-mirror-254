@@ -1,0 +1,31 @@
+{% macro fill_css(value="", prefix="", yes_value="", postfix="") %}
+  {% if value %}
+    {% if yes_value %} {{ yes_value }}
+    {% else %} {{ prefix }}{{ value }}{{ postfix }}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_icon(icon, color="", bold=false, class="", style="", animation="", css_color="", size=0) %}
+  {% if css_color %}
+    {% set css_color = "color: %s;"|format(css_color) %}
+  {% endif %}
+  {% set bold = " font-weight: bold;" if bold else "" %}
+  {% set animation_css = fill_css(animation, ' icon-') %}
+  {% if color or class %}
+    {% set class = "%s %s"|format(class, ("text-" + color) if color else "") %}
+  {% endif %}
+  <span
+    {% if class %}class="{{ class }}"{% endif %}
+    {% if css_color or bold or style %}
+      style="{{ css_color }} {{ bold }} {{ style }}"
+    {% endif %}
+    >
+    <svg
+      class="icon-tabler{{ animation_css }}"
+      width="{{ size or config.TABLER_ICON_SIZE}}" height="{{ size or config.TABLER_ICON_SIZE}}"
+      >
+      <use href="{{ url_for('tabler_icons.static', filename='tabler-sprite.svg') }}#tabler-{{ icon }}" />
+    </svg>
+  </span>
+{% endmacro %}
