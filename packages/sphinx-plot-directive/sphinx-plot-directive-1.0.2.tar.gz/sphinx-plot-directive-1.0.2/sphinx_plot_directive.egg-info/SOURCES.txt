@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+sphinx_plot_directive/__init__.py
+sphinx_plot_directive.egg-info/PKG-INFO
+sphinx_plot_directive.egg-info/SOURCES.txt
+sphinx_plot_directive.egg-info/dependency_links.txt
+sphinx_plot_directive.egg-info/requires.txt
+sphinx_plot_directive.egg-info/top_level.txt
