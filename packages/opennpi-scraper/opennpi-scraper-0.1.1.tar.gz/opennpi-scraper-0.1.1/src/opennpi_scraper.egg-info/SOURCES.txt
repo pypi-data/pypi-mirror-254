@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+src/opennpi/__init__.py
+src/opennpi/openNPI.py
+src/opennpi_scraper.egg-info/PKG-INFO
+src/opennpi_scraper.egg-info/SOURCES.txt
+src/opennpi_scraper.egg-info/dependency_links.txt
+src/opennpi_scraper.egg-info/requires.txt
+src/opennpi_scraper.egg-info/top_level.txt
