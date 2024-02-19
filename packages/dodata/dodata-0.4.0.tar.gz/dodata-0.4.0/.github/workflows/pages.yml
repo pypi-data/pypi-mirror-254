@@ -1,0 +1,53 @@
+name: docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: global-job-lock
+  cancel-in-progress: false
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: Sphinx docs to gh-pages
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: "pip"
+          cache-dependency-path: pyproject.toml
+      - name: Installing the library
+        shell: bash -l {0}
+        run: |
+          make dev
+      - name: make docs
+        env:
+          DODATA_URL: ${{ secrets.DODATA_URL }}
+          DODATA_USER: ${{ secrets.DODATA_USER }}
+          DODATA_PASSWORD: ${{ secrets.DODATA_PASSWORD }}
+          DODATA_DB: ${{ secrets.DODATA_DB }}
+          DODATA_DB_USER: ${{ secrets.DODATA_DB_USER }}
+          DODATA_DB_PASSWORD: ${{ secrets.DODATA_DB_PASSWORD }}
+        run: |
+          make docs
+      - name: deploy docs
+        if: ${{ github.ref == 'refs/heads/main' }}
+        shell: bash -l {0}
+        run: |
+          surfer config --server ${{ secrets.DOCS_URL }} --token ${{ secrets.DOCS_TOKEN }}
+          surfer put docs/_build/html/* /dodata
+          surfer put docs/_build/html/* /docs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./docs/_build/html/"

@@ -1,0 +1,42 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+  - chapters:
+      - file: spirals
+        sections:
+          - file: notebooks/dodata_tutorials/spirals/1_generate_layout
+          - file: notebooks/dodata_tutorials/spirals/2_generate_measurement_data
+          - file: notebooks/dodata_tutorials/spirals/3_upload_measurements
+          - file: notebooks/dodata_tutorials/spirals/4_download_data
+          - file: notebooks/dodata_tutorials/spirals/5_delete
+  - chapters:
+      - file: rings
+        sections:
+          - file: notebooks/dodata_tutorials/rings/1_generate_layout
+          - file: notebooks/dodata_tutorials/rings/2_generate_measurement_data
+          - file: notebooks/dodata_tutorials/rings/3_upload_measurements
+          - file: notebooks/dodata_tutorials/rings/4_download_data
+          - file: notebooks/dodata_tutorials/rings/5_delete
+  - chapters:
+      - file: resistance
+        sections:
+          - file: notebooks/dodata_tutorials/resistance/1_generate_layout
+          - file: notebooks/dodata_tutorials/resistance/2_generate_measurement_data
+          - file: notebooks/dodata_tutorials/resistance/3_upload_measurements
+          - file: notebooks/dodata_tutorials/resistance/4_download_data
+          - file: notebooks/dodata_tutorials/resistance/5_delete
+  - chapters:
+      - file: component_cutback
+        sections:
+          - file: notebooks/dodata_tutorials/cutback/1_generate_layout
+          - file: notebooks/dodata_tutorials/cutback/2_generate_measurement_data
+          - file: notebooks/dodata_tutorials/cutback/3_upload_measurements
+          - file: notebooks/dodata_tutorials/cutback/4_download_data
+          - file: notebooks/dodata_tutorials/cutback/5_delete
+  - caption: Reference
+    chapters:
+      - file: api
+      - file: changelog

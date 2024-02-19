@@ -1,0 +1,4 @@
+# Spirals
+
+```{tableofcontents}
+```

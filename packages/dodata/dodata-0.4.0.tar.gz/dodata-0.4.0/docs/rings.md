@@ -1,0 +1,4 @@
+# Rings
+
+```{tableofcontents}
+```
