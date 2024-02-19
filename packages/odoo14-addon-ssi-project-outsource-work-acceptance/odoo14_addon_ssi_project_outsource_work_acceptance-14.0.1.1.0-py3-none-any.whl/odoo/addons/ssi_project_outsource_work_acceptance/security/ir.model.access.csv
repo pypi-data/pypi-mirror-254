@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_outsource_work_acceptance_all,project.assignment - all,model_project_outsource_work_acceptance,,1,0,0,0
+access_project_outsource_work_acceptance_viewer,project.assignment - viewer,model_project_outsource_work_acceptance,project_outsource_work_acceptance_viewer_group,1,0,0,0
+access_project_outsource_work_acceptance_user,service.contract - user,model_project_outsource_work_acceptance,project_outsource_work_acceptance_user_group,1,1,1,1
