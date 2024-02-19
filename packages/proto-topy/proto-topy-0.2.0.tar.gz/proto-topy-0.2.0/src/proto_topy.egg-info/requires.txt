@@ -1,0 +1,11 @@
+click
+protobuf>=3.20.3
+
+[dev]
+flake8
+protobuf
+pytest
+pytest-recording
+requests
+urllib3<2
+bumpver
