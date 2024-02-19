@@ -1,0 +1,3 @@
+[console_scripts]
+petminion=petminion.__main__:main
+
