@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: radariq
+Version: 1.0.7
+Summary: Python SDK for the RadarIQ sensor
+Author-email: RadarIQ Ltd <support@radariq.io>
+License-File: LICENCE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+
+# Python SDK
+
+
+## Overview
+
+This module provides an easy to use Python wrapper for the RadarIQ-M1_ sensor which works
+for both Python 2 & 3. This SDK has been tested with Windows, OSX, Raspberry Pi and Linux.
+
+The RadarIQ-M1 sensor is an easy-to-use radar sensor for detecting objects and measuring distance and speed.
+All the difficult parts of working with radar are done by the sensor and a simple API and SDK provide an easy
+path to integration.
+
+
+The RadarIQ Python SDK is released under the MIT software license, see LICENSE for more details.
+
+
+Installation
+============
+
+Install the RadarIQ SDK using pip
+
+```
+    pip install radariq
+```
+The SDK can be used from Python scripts
+
+```
+    from radariq import RadarIQ
+ ```
+   
+
+Usage
+======
+``` 
+ from radariq import RadarIQ, MODE_POINT_CLOUD
+
+ riq = RadarIQ()
+ riq.set_mode(MODE_POINT_CLOUD)
+ riq.set_units('m', 'm/s')
+ riq.set_frame_rate(5)
+ riq.set_distance_filter(0, 10)
+ riq.set_angle_filter(-45, 45)
+ riq.start()
+
+ for row in riq.get_data():
+     print(row)
+```
+
+Examples
+========
+Examples are in the examples directory.
