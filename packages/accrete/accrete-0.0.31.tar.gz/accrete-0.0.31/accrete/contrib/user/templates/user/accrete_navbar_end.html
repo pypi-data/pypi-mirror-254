@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<a class="navbar-item" href="{% url 'user:detail' %}">{% translate 'Preferences' %}</a>
+{% if request.user.is_staff %}
+    <hr class="navbar-divider">
+    <a class="navbar-item" href="/admin/">Admin</a>
+{% endif %}
+<hr class="navbar-divider">
+<form id="logout-form" method="post" action="{% url 'user:logout' %}">
+  {% csrf_token %}
+  <a class="navbar-item" href="#" onclick="document.getElementById('logout-form').submit()">{% translate "Log out" %}</a>
+</form>
+
