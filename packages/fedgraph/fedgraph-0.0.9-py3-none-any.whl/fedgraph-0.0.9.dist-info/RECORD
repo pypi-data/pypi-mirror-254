@@ -1,0 +1,13 @@
+fedgraph/__init__.py,sha256=oOIWx7ew6LL54doNtXygvJ-Qds4Xy77cp8hRWvsGzPc,120
+fedgraph/data_process.py,sha256=sEQrw53dvdVEewVk_BR63oSOE-iSMWCdTgK-V6S7pcA,7068
+fedgraph/gnn_models.py,sha256=0oAvFxg63tuywHe7wL0qL1aQRWGsnY__bHYqXUwCCSc,10302
+fedgraph/server_class.py,sha256=Nq8RUO2tJpzxlwDQ8JIz-3KqRjYK3W3n-VoKh-5I_48,4622
+fedgraph/train_func.py,sha256=F6DUPv5AdkqPaHEWfqrsXhZxNCe0oX-f2wP346kFs2M,3197
+fedgraph/trainer_class.py,sha256=VT-fYmSgACSxmgsrj9huiMjUzZTSYwhLexsjawIYEQw,9250
+fedgraph/utils.py,sha256=rCl5sd-MwRn0xOmqDqZDHaTr-bR6XDrBVZDBPbdxJdo,12939
+fedgraph/version.py,sha256=46Yjk3fz9o8aTN8E95McnzpJcjGzVJmHmQqUZ5mXzfc,22
+fedgraph-0.0.9.dist-info/LICENSE,sha256=CateA9li3iLH4wM1up1kIzR3xOC6H0wXvh11sLL7W_g,1323
+fedgraph-0.0.9.dist-info/METADATA,sha256=u7KHDvwZtncx6XW0Q4l3ri8vm1Olu5_gt59giSmK1No,4085
+fedgraph-0.0.9.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+fedgraph-0.0.9.dist-info/top_level.txt,sha256=wtBjq86hEH4yD7uFJcbEfqX5uoDt1FsHfYvwtzsVvFA,9
+fedgraph-0.0.9.dist-info/RECORD,,
