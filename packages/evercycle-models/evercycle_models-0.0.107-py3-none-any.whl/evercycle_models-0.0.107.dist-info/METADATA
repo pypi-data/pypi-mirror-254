@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: evercycle-models
+Version: 0.0.107
+Summary: Application to be used in any Evercycle Microservice
+Home-page: UNKNOWN
+Author: Evercycle
+Author-email: admin@evercycle.io
+License: MIT
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: Django >=3.0
+
+UNKNOWN
+
