@@ -1,0 +1,11 @@
+README.md
+setup.py
+dispatcher_web3.egg-info/PKG-INFO
+dispatcher_web3.egg-info/SOURCES.txt
+dispatcher_web3.egg-info/dependency_links.txt
+dispatcher_web3.egg-info/requires.txt
+dispatcher_web3.egg-info/top_level.txt
+tests/__init__.py
+tests/transactions_test.py
+web3/__init__.py
+web3/transactions.py
