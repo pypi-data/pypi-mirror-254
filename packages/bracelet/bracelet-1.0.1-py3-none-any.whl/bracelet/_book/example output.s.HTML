@@ -1,0 +1,60 @@
+
+<pre>
+
+<h2>EXAMPLE OUTPUT</h2>
+<code json>
+{
+    "paths": [
+        {
+            "path": "path_1_HEALTH.py",
+            "stats": {
+                "passes": 2,
+                "alarms": 1
+            },
+            "checks": [
+                {
+                    "check": "check 1",
+                    "passed": true,
+                    "elapsed": [
+                        5.320599666447379e-05,
+                        "SECONDS"
+                    ]
+                },
+                {
+                    "check": "check 2",
+                    "passed": true,
+                    "elapsed": [
+                        1.0949999705189839e-05,
+                        "SECONDS"
+                    ]
+                },
+                {
+                    "check": "check 3",
+                    "passed": false,
+                    "exception": "Exception('NOT 100%')",
+                    "exception trace": [
+                        "Traceback (most recent call last):",
+                        "  File \"/REPTILIAN_CLIMATES/MODULES/body_scan/src/SCAN_PROC/keg/SCAN.py\", line 69, in SCAN",
+                        "    checks [ check ] ()",
+                        "  File \"<string>\", line 24, in check_3",
+                        "Exception: NOT 100%"
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "path_2_HEALTH.py",
+            "empty": true
+        }
+    ],
+    "stats": {
+        "empty": 1,
+        "checks": {
+            "passes": 2,
+            "alarms": 1
+        }
+    }
+}
+</code>
+
+</pre>
