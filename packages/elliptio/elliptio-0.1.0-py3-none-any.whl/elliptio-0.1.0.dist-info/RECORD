@@ -1,0 +1,15 @@
+elliptio-0.1.0.dist-info/METADATA,sha256=Q31Stzyv0zc0rWtjwZZz05UzLD2Mi5-aMXvnUYATfJ0,5283
+elliptio-0.1.0.dist-info/WHEEL,sha256=N2J68yzZqJh3mI_Wg92rwhw0rtJDFpZj9bwQIMJgaVg,90
+elliptio-0.1.0.dist-info/licenses/LICENSE,sha256=SQqOPjh9BwlxWPR-Ry1zZa9TMQmdtUVqW9rdX_EjyBI,33813
+elliptio/__init__.py,sha256=IG74IG-eg0hC39VACJQNOTui3J1zXJqLBpBt-TwuXjY,170
+elliptio/adapters/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+elliptio/adapters/db.py,sha256=Va0UdxabLhxp6HWgPu4bnKuzmD1LNsOx8kw7sNicNc4,4952
+elliptio/adapters/db.sqlite,sha256=q5_HedkDSndUUad7RrXKBg8PFtv3SAVYbe1W78z6fqo,12288
+elliptio/adapters/fs.py,sha256=5qsMCNzy4WRslfMR-dJDs7k-ZNuvdZY5PuKClEHuRk8,2090
+elliptio/adapters/id_creator.py,sha256=a2kuv18-6Hj-rmeZ804QZMbXsONxVM6Mg2PItvzsiK0,277
+elliptio/adapters/tmp1.ipynb,sha256=c-yBzyiubI-xl44BPKLtPnpgGxmf9cpqc2gRD6dXCqU,18844
+elliptio/adapters/tracker.py,sha256=EHxnvtDjeNZ2JE57hsiA9dDYTA-C1alHkqJtThQe1Ao,1084
+elliptio/composite.py,sha256=d9z0Xm1ZG3in-ZSKKWOH57VfCrqK4jpZf5I_Li7mUy4,1388
+elliptio/handler.py,sha256=1EFQm8JoiYNoLAiPyW4a9D2OjSOb1zhJx6uq5nIMZ5Q,2620
+elliptio/interfaces.py,sha256=0Ia2dCAE8J5saA5gO95nX0k_c949vjOJuty3yuHcEJk,3769
+elliptio-0.1.0.dist-info/RECORD,,
