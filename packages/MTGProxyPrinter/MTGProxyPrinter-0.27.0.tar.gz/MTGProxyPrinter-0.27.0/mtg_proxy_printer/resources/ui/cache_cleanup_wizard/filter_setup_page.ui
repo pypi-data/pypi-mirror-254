@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilterSetupPage</class>
+ <widget class="QWizardPage" name="FilterSetupPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>417</width>
+    <height>186</height>
+   </rect>
+  </property>
+  <property name="title">
+   <string>Cleanup locally stored card images</string>
+  </property>
+  <property name="subTitle">
+   <string>This wizard can be used to remove unwanted card images currently stored on your computer. You can enable automatic cleanup conditions below, to preselect images for removal.</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QCheckBox" name="delete_everything_checkbox">
+     <property name="text">
+      <string>Delete everything</string>
+     </property>
+     <property name="icon">
+      <iconset theme="edit-delete"/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="individual_filter_group">
+     <property name="toolTip">
+      <string>Select images for removal based on any matching criterion.</string>
+     </property>
+     <property name="title">
+      <string>Select images for deletion, that are …</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="count_filter_enabled_checkbox">
+        <property name="text">
+         <string>Used in prints and PDFs less often than:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="time_filter_enabled_checkbox">
+        <property name="text">
+         <string>Not used in prints for:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="time_filter_value_spinbox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="suffix">
+         <string> days</string>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>90</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="count_filter_value_spinbox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="suffix">
+         <string> times</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QCheckBox" name="remove_unknown_cards_checkbox">
+        <property name="toolTip">
+         <string>Card images may become unknown, if printings are removed by Scryfall.
+This filter also applies to cards and printings hidden by a card filter in the settings.
+For example, if you downloaded images of silver-bordered cards and then configured the program to hide those,
+all these images become hidden and will be removed.</string>
+        </property>
+        <property name="text">
+         <string>Unknown or belong to hidden printings</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>delete_everything_checkbox</tabstop>
+  <tabstop>time_filter_enabled_checkbox</tabstop>
+  <tabstop>time_filter_value_spinbox</tabstop>
+  <tabstop>count_filter_enabled_checkbox</tabstop>
+  <tabstop>count_filter_value_spinbox</tabstop>
+  <tabstop>remove_unknown_cards_checkbox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>time_filter_enabled_checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>time_filter_value_spinbox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>514</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>count_filter_enabled_checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>count_filter_value_spinbox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>384</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delete_everything_checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>individual_filter_group</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

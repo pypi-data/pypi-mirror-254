@@ -1,0 +1,22 @@
+platformdirs>=2.6.0
+PyQt5
+delegateto==1.5
+PyHamcrest>=1.8.1
+
+[:platform_system != "windows"]
+pint
+
+[:platform_system == "windows"]
+pint<0.22
+
+[:python_version < "3.10"]
+certifi
+
+[:python_version < "3.11"]
+ijson>=3.1.0
+
+[:python_version >= "3.10"]
+truststore
+
+[:python_version >= "3.11"]
+ijson>=3.2.0
