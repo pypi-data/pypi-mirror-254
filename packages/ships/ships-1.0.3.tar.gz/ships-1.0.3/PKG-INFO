@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: ships
+Version: 1.0.3
+Summary: Various calculator tools
+License: GPL 3.0
+Description-Content-Type: text/markdown
+Requires-Dist: homeostasis
+Requires-Dist: psutil
+Requires-Dist: pyinotify
+
+
+
+
+******
+
+Bravo!  You have received a Medical Diploma in Ships from   
+the Orbital Convergence University International Air and Water Embassy of the Tangerine Planet.  
+
+You are now officially certified to include "ships" in your practice.
+
+******
+
+
+# ships
+
+---
+
+## description
+This is a kit of python3 modules.
+		
+---		
+		
+## install
+`[ZSH] pip install ships`
