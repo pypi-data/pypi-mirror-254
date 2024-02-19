@@ -1,0 +1,10 @@
+setup.py
+cmr05_distributions/Binomialdistribution.py
+cmr05_distributions/Gaussiandistribution.py
+cmr05_distributions/Generaldistribution.py
+cmr05_distributions/__init__.py
+cmr05_distributions.egg-info/PKG-INFO
+cmr05_distributions.egg-info/SOURCES.txt
+cmr05_distributions.egg-info/dependency_links.txt
+cmr05_distributions.egg-info/not-zip-safe
+cmr05_distributions.egg-info/top_level.txt
