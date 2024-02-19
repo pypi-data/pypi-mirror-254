@@ -1,0 +1,2 @@
+[console_scripts]
+prevent-sleep = prevent_sleep.__main__:cli
