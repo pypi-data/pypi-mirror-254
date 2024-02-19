@@ -1,0 +1,8 @@
+name: build-project
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - openpyxl # for working with excel files
