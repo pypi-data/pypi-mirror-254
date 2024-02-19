@@ -1,0 +1,4 @@
+#!python
+from canisius_cyb600_example.main import say_hello_class
+
+say_hello_class()
