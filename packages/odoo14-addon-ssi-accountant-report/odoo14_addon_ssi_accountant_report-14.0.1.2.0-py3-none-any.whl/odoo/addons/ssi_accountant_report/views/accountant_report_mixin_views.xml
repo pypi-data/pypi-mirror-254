@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record id="accountant_report_mixin_view_search" model="ir.ui.view">
+    <field name="name">accountant.report_mixin - search</field>
+    <field name="model">accountant.report_mixin</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="accountant_report_mixin_view_tree" model="ir.ui.view">
+    <field name="name">accountant.report_mixin -tree</field>
+    <field name="model">accountant.report_mixin</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="partner_id" />
+                <field name="date" />
+                <field name="service_id" />
+                <field name="signing_accountant_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="accountant_report_mixin_view_form" model="ir.ui.view">
+    <field name="name">accountant.report_mixin - form</field>
+    <field name="model">accountant.report_mixin</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="service_id" />
+                <field name="date" />
+                <field
+                        name="allowed_partner_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                <field name="partner_id" domain="[('id','in',allowed_partner_ids)]" />
+                <field name="primary_sector_id" />
+                <field
+                        name="allowed_creditor_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                <field
+                        name="primary_creditor_id"
+                        domain="[('id','in',allowed_creditor_ids)]"
+                    />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="firm_subsequent_num" />
+                <field
+                        name="allowed_accountant_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                <field
+                        name="signing_accountant_id"
+                        domain="[('id','in',allowed_accountant_ids)]"
+                    />
+                <field name="accountant_subsequent_num" />
+                <field name="restatement" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page
+                        name="restatement"
+                        string="Restatement"
+                        attrs="{'invisible':[('restatement','=',False)]}"
+                    >
+                    <group name="restatement" colspan="4" col="2">
+                        <field
+                                name="restatement_option"
+                                attrs="{'required':[('restatement','=',True)]}"
+                            />
+                        <field
+                                name="restatement_number"
+                                attrs="{'invisible':[('restatement_option','!=','manual')],'required':[('restatement_option','=','manual')]}"
+                            />
+                        <field
+                                name="restatement_id"
+                                attrs="{'invisible':[('restatement_option','!=','odoo')],'required':[('restatement_option','=','odoo')]}"
+                            />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</odoo>
