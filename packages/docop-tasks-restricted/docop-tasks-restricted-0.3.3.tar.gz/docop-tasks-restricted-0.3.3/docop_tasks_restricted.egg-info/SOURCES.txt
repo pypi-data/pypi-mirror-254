@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+docop_tasks_restricted/__init__.py
+docop_tasks_restricted.egg-info/PKG-INFO
+docop_tasks_restricted.egg-info/SOURCES.txt
+docop_tasks_restricted.egg-info/dependency_links.txt
+docop_tasks_restricted.egg-info/entry_points.txt
+docop_tasks_restricted.egg-info/requires.txt
+docop_tasks_restricted.egg-info/top_level.txt
+docop_tasks_restricted/webhtml/__init__.py
+docop_tasks_restricted/webhtml/html2text.py
