@@ -1,0 +1,56 @@
+{% extends 'ui/layout.html' %}
+{% load static %}
+{% load i18n %}
+{% load accrete_ui %}
+
+{% block content %}
+    <table class="table hax-box is-fullwidth is-hoverable" hx-indicator=".htmx-indicator">
+        <thead style="position: sticky; top: 0; background: white; z-index: 10">
+            {% block table_header_row %}
+                <tr>
+                    {% block table_header %}
+                        <th>{{ object_label }}</th>
+                        {% for field in fields %}
+                            <th style="text-align: {% firstof field.header_alignment.value field.alignment.value %}">{{ field.label }}{% if field.header_info %}({{ field.header_info }}){% endif %}</th>
+                        {% endfor %}
+                        {% if unselect_button %}
+                            <th></th>
+                        {% endif %}
+                    {% endblock %}
+                </tr>
+            {% endblock %}
+        </thead>
+        <tbody style="z-index: 9">
+            {% for obj in page %}
+                {% block table_data_row %}
+                    <tr {% if forloop.last and page.has_next %}
+                            hx-get="{{ url_params }}&page={{ page.next_page_number }}"
+                            hx-trigger="intersect once"
+                            hx-select="tbody > tr"
+                            hx-select-oob="#list-pagination-end-index,#list-pagination-next-button"
+                            hx-swap="afterend"
+                        {% endif %}>
+                        {% block table_data %}
+                            <td><a class="is-underlined" hx-get="{{ obj.get_absolute_url }}{{ url_params }}&page={{ page.number }}"
+                                   hx-target="body" hx-push-url="true"
+                            >{{ obj }}</a></td>
+                            {% for field in fields %}
+                                {% if field.template %}
+                                    {% include field.template %}
+                                {% else %}
+                                    {% include 'ui/partials/table_field'|add:field.field_type.value|add:'.html' %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if unselect_button %}
+                                <td><button class="button is-small has-icon p-0 is-pulled-right" onclick="unselectSingleObject({{ obj.pk }})"><i class="icon-delete-filter"></i></button></td>
+                            {% endif %}
+                        {% endblock %}
+                    </tr>
+                {% endblock %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if endless_scroll %}
+        <progress class="htmx-indicator progress is-small is-primary" max="100">15%</progress>
+    {% endif %}
+{% endblock %}
