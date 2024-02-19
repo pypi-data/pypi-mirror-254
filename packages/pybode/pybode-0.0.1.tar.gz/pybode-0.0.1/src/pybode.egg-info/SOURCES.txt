@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/pybode/__init__.py
+src/pybode/pybode.py
+src/pybode.egg-info/PKG-INFO
+src/pybode.egg-info/SOURCES.txt
+src/pybode.egg-info/dependency_links.txt
+src/pybode.egg-info/requires.txt
+src/pybode.egg-info/top_level.txt
