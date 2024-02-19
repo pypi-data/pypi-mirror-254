@@ -1,0 +1,3 @@
+[console_scripts]
+simple-migrations=simple_migrations.cli:main
+
