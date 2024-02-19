@@ -1,0 +1,15 @@
+pydantic
+openai
+tiktoken
+diskcache
+cohere
+google.auth
+typer
+pyyaml
+
+[transformers]
+transformers[torch]>=4.26
+
+[web]
+fastapi
+uvicorn
