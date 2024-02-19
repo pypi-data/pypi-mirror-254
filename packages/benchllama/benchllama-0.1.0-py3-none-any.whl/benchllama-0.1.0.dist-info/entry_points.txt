@@ -1,0 +1,3 @@
+[console_scripts]
+benchllama=benchllama.main:app
+

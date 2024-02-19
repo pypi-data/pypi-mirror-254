@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: benchllama
+Version: 0.1.0
+Summary: 
+Author: Srikanth Srungarapu
+Author-email: srikanth235@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# `benchllama`
+
+Awesome Portal Gun
+
+**Usage**:
+
+```console
+$ benchllama [OPTIONS] COMMAND [ARGS]...
+```
+
+**Options**:
+
+* `--install-completion`: Install completion for the current shell.
+* `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
+* `--help`: Show this message and exit.
+
+**Commands**:
+
+* `load`: Load the portal gun
+* `shoot`: Shoot the portal gun
+
+## `benchllama load`
+
+Load the portal gun
+
+**Usage**:
+
+```console
+$ benchllama load [OPTIONS]
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+## `benchllama shoot`
+
+Shoot the portal gun
+
+**Usage**:
+
+```console
+$ benchllama shoot [OPTIONS]
+```
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
