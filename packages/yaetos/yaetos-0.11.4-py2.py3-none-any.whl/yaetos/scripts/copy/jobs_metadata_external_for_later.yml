@@ -1,0 +1,12 @@
+
+  # ----- Dashboards--------
+  dashboards/wikipedia_demo_dashboard.ipynb:
+    description: "Showcase a Dashboard using 'panel', based on dummy wikipedia data (experimental)."
+    inputs:
+      ex1_sql: {'path':'{base_path}/frontroom/wiki_ex1_pandas_sql/{latest}/dataset.csv', 'type':'csv', 'df_type':'pandas'}
+      ex1_pandas: {'path':'{base_path}/frontroom/wiki_ex1_pandas_api/{latest}/dataset.csv', 'type':'csv', 'df_type':'pandas', 'read_kwargs':{'sep':'|'}}
+    dependencies:
+      - examples/ex1_sql_job.sql
+      - examples/ex1_pandas_api_job.py
+
+
