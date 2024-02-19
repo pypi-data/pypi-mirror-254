@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: waffle_dough
+Version: 0.0.1a0
+Summary: Waffle Dough
+Home-page: https://github.com/snuailab/waffle_dough
+Author: SNUAILAB
+Author-email: huijae.lee@snuailab.ai
+License: GPL-3.0
+Project-URL: Bug Reports, https://github.com/snuailab/waffle_dough/issues
+Project-URL: Source, https://github.com/snuailab/waffle_dough
+Keywords: machine-learning,deep-learning,vision,ML,DL,AI,YOLO,Ultralytics,SNUAILAB
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: shapely >=2.0.1
+Requires-Dist: opencv-python >=4.7.0
+Requires-Dist: numpy >=1.23.0
+Requires-Dist: pycocotools >=2.0.6
+Requires-Dist: tqdm >=4.60.0
+Requires-Dist: python-dotenv ==1.0.0
+Requires-Dist: pydantic >=2.4.1
+Requires-Dist: sqlalchemy ==2.0.22
+Requires-Dist: waffle-utils ==1.1.0a3
+Requires-Dist: sentry-sdk
+
+<div align="center">
+  <p>
+    <a href="http://snuailab.ai/">
+        <img width="75%" src="https://raw.githubusercontent.com/snuailab/assets/main/waffle/icons/waffle_banner.png">
+    </a>
+  </p>
+</div>
+
+# Waffle Dough

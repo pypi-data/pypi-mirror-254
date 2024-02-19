@@ -1,0 +1,4 @@
+[console_scripts]
+waffle_dataset = waffle_dough.dataset.cli:main
+waffle_dough = waffle_dough.dataset.cli:main
+wd = waffle_dough.dataset.cli:main
