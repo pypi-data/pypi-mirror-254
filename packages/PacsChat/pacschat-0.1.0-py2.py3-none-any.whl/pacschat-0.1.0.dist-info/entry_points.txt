@@ -1,0 +1,4 @@
+[console_scripts]
+pacs-chat-client=client.__main__:main
+pacs-chat-server=server.__main__:main
+
