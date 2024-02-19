@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: AssayingAnomalies
+Version: 1.3.2
+Summary: This library is a Python implementation of the MATLAB Toolkit that accompanies Novy-Marx and Velikov (2023) and is to be used for empirical academic asset pricing research, particularly focused on studying anomalies in the cross-section of stock returns.
+Home-page: UNKNOWN
+Author: Joshua Lawson
+Author-email: jlaws13@simon.rochester.edu
+License: UNKNOWN
+Platform: UNKNOWN
+
+Package installed successfully. Please run 'setup_library' to configure your settings and begin using the toolkit
+
