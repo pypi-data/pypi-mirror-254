@@ -1,0 +1,4 @@
+[console_scripts]
+pne=promptulate.client.pne:main
+pne-chat=promptulate.client.chat:main
+
