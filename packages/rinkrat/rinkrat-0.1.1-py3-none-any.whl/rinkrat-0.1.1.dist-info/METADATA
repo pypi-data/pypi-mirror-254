@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: rinkrat
+Version: 0.1.1
+Summary: A command line tool to query NHL stats.
+Author: Alex Reynolds
+Project-URL: Homepage, https://github.com/reyncode/rinkrat.git
+Project-URL: Issues, https://github.com/reyncode/rinkrat/issues
+Keywords: NHL,hockey,stats
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests >=2.31.0
+Requires-Dist: requests-cache >=1.1.1
+Requires-Dist: tomli ; python_version < "3.11"
+Provides-Extra: build
+Requires-Dist: build ; extra == 'build'
+Requires-Dist: twine ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+
+# rinkrat
+Rinkrat is a command line tool to query the NHL's public API for statistics.
+
+## Install
+You can install rinkrat from PyPi
+
+    python -m pip install rinkrat
+
+It is supported by python 3.8 and above.
+
+## Usage
+
+    rinkrat [ command ] [ sub-command ] { parameters }
+
+Rinkrat uses the command line interface to get statistics from the public NHL api. With the current version you can access team standings data and rank it based on several criteria:
+
+### Commands
+Commands give you access to different data. Sub-commands determine how that data is organized and presented. For command snippits and descriptions, please see the [commands](docs/commands) directory.
