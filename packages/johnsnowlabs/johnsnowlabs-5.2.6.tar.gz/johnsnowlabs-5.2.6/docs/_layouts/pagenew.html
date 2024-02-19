@@ -1,0 +1,104 @@
+---
+layout: base
+---
+{%- assign _page_mode = page.mode | default: layout.mode | default: site.data.variables.default.page.mode -%}
+{%- assign _page_type = page.type | default: layout.type | default: site.data.variables.default.page.type -%}
+{%- assign _article_header_type = page.article_header.type | default: layout.article_header.type -%}
+
+{%- include snippets/assign.html
+  target=layout.header source0=page.header -%}
+{%- assign _header = __return -%}
+
+{%- include snippets/assign.html
+  target = site.data.variables.default.page.demomenu
+  source0=layout.demomenu source1=page.demomenu -%}
+{%- assign _demomenu = __return -%}
+
+{%- include snippets/assign.html
+  target=layout.footer source0=page.footer -%}
+{%- assign _footer = __return -%}
+
+{%- include snippets/assign.html
+  target=layout.lightbox source0=page.lightbox -%}
+{%- assign _lightbox = __return -%}
+
+{%- include snippets/assign.html
+  target = site.data.variables.default.page.full_width
+  source0=layout.full_width source1=page.full_width -%}
+{%- assign _full_width = __return -%}
+
+{%- include snippets/assign.html
+  target = site.data.variables.default.page.comment
+  source0=layout.comment source1=page.comment -%}
+{%- assign _comment = __return -%}
+
+
+{%- assign _article_header_excerpt_truncate = include.excerpt_truncate | default: 200 -%}
+
+
+<div class="layout--page js-page-root  {%- if page.aside -%}&nbsp; layout--page--aside{%- endif -%}">
+
+
+    {%- assign _page_main_class = 'page__main js-page-main' -%}
+    {%- if _page_mode == 'immersive' -%}
+      {%- assign _page_main_class = _page_main_class | append: ' page__main--immersive' -%}
+    {%- endif -%}
+    {%- if _page_mode == 'immersivebg' -%}
+      {%- assign _page_main_class = _page_main_class | append: ' page__main--immersive_bg' -%}
+    {%- endif -%}
+    {%- unless page.sidebar -%}
+      {%- assign _page_main_class = _page_main_class | append: ' page__viewport' -%}
+    {%- endunless -%}
+    {%- if _footer == false -%}
+      {%- assign _page_main_class = _page_main_class | append: ' hide-footer' -%}
+    {%- endif -%}
+    {%- if page.aside -%}
+      {%- assign _page_main_class = _page_main_class | append: ' has-aside' -%}
+    {%- elsif _full_width -%}
+      {%- assign _page_main_class = _page_main_class | append: ' full-width' -%}
+    {%- endif -%}
+    <div class="{{ _page_main_class }} cell cell--auto">
+
+      <div class="page__main-inner">
+        <div class="page__header d-print-none">
+          {%- include header.html -%}
+        </div>
+
+        <div class="page__content {% if _demomenu != false %} demopage_content{% endif %}"> 
+          <div class ="main">
+            <div class="grid grid--reverse"> 
+              <div class="col-main cell cell--auto">
+                <article itemscope itemtype="https://schema.org/WebPage">
+                  {%- include article-header.html article=page -%}
+                    <div class="js-article-content">
+                      {%- if _demomenu != false -%}
+                        <div class="demomenu">
+                          <div class="subtitle">Demos Categories</div>  
+                          {%- include demos/demomenu.html -%}
+                        </div>
+                      {%- endif -%}
+                      {{ content }}
+                    </div>
+                </article>
+                {%- include main/bottom/custom.html -%}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page__footer">{%- include footer.html -%}</div>
+      </div>
+    </div>
+
+<script>{%- include scripts/lib/modal.js -%}</script>
+</div>
+
+
+<script>
+  {%- include scripts/lib/scroll-to.js -%}
+  {%- include scripts/lib/affix.js -%}
+  {%- include scripts/lib/toc.js -%}
+  {%- include scripts/page.js -%}
+</script>
+
+{%- include markdown-enhancements.html -%}
+{%- include pageview.html -%}

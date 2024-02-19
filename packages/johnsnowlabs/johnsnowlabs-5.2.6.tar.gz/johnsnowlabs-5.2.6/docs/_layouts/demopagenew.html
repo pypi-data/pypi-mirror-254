@@ -1,0 +1,28 @@
+---
+layout: pagenew
+header: true
+demomenu: true
+full_width: true
+---
+<!-- Do not use auto intent in this file. -->
+<div class="layout--landing">  
+  <div class="demopage">    
+    {%- include snippets/get-nav-url.html path=_section.background_image.src -%}
+    {%- assign _url = __return -%}
+    <section class="hero section-row" id="hero-{{ forloop.index }}">
+
+      {{ content }}
+
+    {%- for _section in page.data.sections -%}
+      {%- if _section.secheader -%}
+        {%- for child in _section.secheader -%}
+        <h2 class="subtitle">{{ child.subtitle }}</h2>           
+        {%- endfor-%}               
+      {%- endif -%}
+    {%- endfor -%}        
+
+    {%- include demos/demoitem.html -%}
+
+      </section>
+  </div>
+</div>
