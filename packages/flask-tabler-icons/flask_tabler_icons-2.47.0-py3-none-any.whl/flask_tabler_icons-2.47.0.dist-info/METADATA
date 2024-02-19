@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: flask-tabler-icons
+Version: 2.47.0
+Summary: a collection of macros for tabler icons
+Author-email: Lix Xu <xuzenglin@gmail.com>
+Project-URL: Homepage, https://github.com/lixxu/flask-tabler-icons
+Project-URL: Bug Tracker, https://github.com/lixxu/flask-tabler-icons/issues
+Keywords: tabler-icons
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: flask
+
+# flask-tabler-icons
+
+flask-tabler-icons is a collection of Jinja macros for [tabler-icons](https://tabler-icons.io/) and Flask.
+
+## Installation
+
+```bash
+pip install -U flask-tabler-icons
+```
+
+## Example (check examples folder for details)
+
+Register the extension:
+
+```python
+from flask import Flask
+from flask_tabler_icons import TablerIcons
+
+app = Flask(__name__)
+tabler_icons = TablerIcons(app)
+```
+
+```html
+
+{% from "tabler_icons.html" import render_icon %}
+
+<html>
+  <head>
+    <!-- css area -->
+    <style>
+        .custom-css {
+          color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <h2>tabler icon</h2>
+    {{ render_icon("helicopter", class="custom-css") }}
+    {{ render_icon("helicopter", animation="pulse", color="blue") }}
+    {{ render_icon("helicopter", animation="tada", color="blue") }}
+    {{ render_icon("helicopter", animation="rotate", color="blue") }}
+  </body>
+</html>
+```
