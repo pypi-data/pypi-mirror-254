@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+./digcnv/data/CNVision_format_merge_ukbb.pl
+./digcnv/data/Region_centromere_hg19.dat
+./digcnv/data/SegDup_filtres_Ok_Oct.map
+digcnv/digcnv.egg-info/PKG-INFO
+digcnv/digcnv.egg-info/SOURCES.txt
+digcnv/digcnv.egg-info/dependency_links.txt
+digcnv/digcnv.egg-info/entry_points.txt
+digcnv/digcnv.egg-info/requires.txt
+digcnv/digcnv.egg-info/top_level.txt
+tests/test_dataPreparation.py
+tests/test_dataVerif.py
