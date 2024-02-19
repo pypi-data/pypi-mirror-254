@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+poetry.lock
+pyproject.toml
+setup.py
+bruhbook/__init__.py
+bruhbook/bruhbook.py
+bruhbook/bruhbookerrors.py
+bruhbook.egg-info/PKG-INFO
+bruhbook.egg-info/SOURCES.txt
+bruhbook.egg-info/dependency_links.txt
+bruhbook.egg-info/requires.txt
+bruhbook.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py

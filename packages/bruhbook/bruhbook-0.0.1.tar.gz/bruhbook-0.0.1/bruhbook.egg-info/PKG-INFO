@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: bruhbook
+Version: 0.0.1
+Summary: GPT Book Creator
+Home-page: https://github.com/ethanlchristensen/bruhbook
+Author: Ethan Christensen
+Author-email: ethanlchristensen@outlook.com
+Keywords: python,ai,gpt,generate
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: bruhcolor
+Requires-Dist: docx
+Requires-Dist: python-dotenv
+Requires-Dist: docx2pdf
+
+
+# GPTBookMaker
+
+A notebook to create stories using ChatGPT
+
+I used poetry to package management
+
+### Usage
+
+In `main.ipynb`, update the `story_type` and `target_audience` with what you what and run all cells.
+
+### Notes
+
+Is rough at recognizing the previous storyline - will be fixed, thanks!
+
+Need Word installed on computer to work to get PDF. Otherwise this will fail and we will just have docx, no problem!
