@@ -1,0 +1,129 @@
+Metadata-Version: 2.1
+Name: basen-encoder
+Version: 1.0.0
+Summary: Custom encoder that encodes any binary data to given alphabet.
+Home-page: https://github.com/vd2org/basen
+Author: Vd
+Author-email: vd@vd2.org
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Database
+Classifier: Topic :: Internet
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# BaseN
+
+Custom encoder that encodes any binary data to given alphabet.
+
+### Requirements
+
+Python 3.7 and above. No additional dependencies.
+
+### Installation
+
+`pip install basen-encoder`
+
+## Usage
+
+### Numbers
+
+Encode a number to the string and back
+
+```python
+import string
+
+import basen
+
+ALPHABET = string.ascii_letters + string.digits
+
+for i in range(1000, 2000, 9):
+    encoded = basen.int2base(i, ALPHABET)
+    decoded = basen.base2int(encoded, ALPHABET)
+
+    print(i, encoded, decoded)
+```
+#### Output:
+
+```text
+1000 qi 1000
+1009 qr 1009
+1018 qA 1018
+1027 qJ 1027
+...
+```
+
+### Huge numbers
+
+Even huge numbers can be encoded as well.
+
+```python
+import string
+
+import basen
+
+ALPHABET = string.ascii_letters + string.digits
+
+NUM = 10**100
+
+encoded = basen.int2base(i, ALPHABET)
+decoded = basen.base2int(encoded, ALPHABET)
+
+print(NUM)
+print(encoded)
+print(decoded)
+```
+
+#### Output:
+
+```text
+10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Am851IcwtXApqVErDmkjfH9ikry1v4YsyaP4zUrrmM8H8j83wfxbV02K
+10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+```
+
+### Encode a binary
+
+Encode a binary data to printable text like base64 but with an arbitrary alphabet.
+
+```python
+import string
+
+import basen
+
+ALPHABET = string.ascii_letters
+DATA = "Some binary data..."
+
+encoder = basen.BaseN(string.ascii_letters, 3)
+encoded = encoder.encode(DATA)
+decoded = encoder.decode(encoded)
+
+print(DATA)
+print(encoded)
+print(decoded)
+```
+
+#### Output:
+
+```text
+Some binary data...
+aMUkfaVgYAaXhpLbbsxuaUOUCaTprkavVgx==
+bytearray(b'Some binary data...')
+```
