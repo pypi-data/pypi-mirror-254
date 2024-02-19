@@ -1,0 +1,2 @@
+[console_scripts]
+bafcode = cli.main:main
