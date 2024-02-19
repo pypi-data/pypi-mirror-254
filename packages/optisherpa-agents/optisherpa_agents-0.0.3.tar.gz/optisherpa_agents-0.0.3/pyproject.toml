@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "optisherpa-agents"
+version = "0.0.3"
+description = "This is a python package for optisherpa, its a small collection of autonomous agents"
+authors = ["Sharabh Shukla <sharabh2019@gmail.com>"]
+license = "Apache"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+crewai = "^0.5.0"
+duckduckgo-search = "^4.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
