@@ -1,0 +1,2 @@
+[console_scripts]
+aisi_gemini = ai_stream_interact.models.google.gemini.gemini:main
