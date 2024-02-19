@@ -1,0 +1,2 @@
+[console_scripts]
+files-2-db = files2db.main:main
