@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psga"
+version = "0.0.7"
+authors = [
+  { name="F M", email="psga@mikmak.fun" },
+]
+description = "Smarter event handling for PySimpleGUI"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: PySimpleGUI",
+    "Framework :: PySimpleGUI :: 4"
+]
+dependencies = [
+    "PySimpleGUI",
+    "typing_extensions",
+]
+
+[project.optional-dependencies]
+test = [
+    "isort",
+    "black",
+    "pylint",
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "build",
+    "twine",
+]
+demo = [
+    "fastapi==0.109.1",
+    "pydantic==2.6.0",
+    "uvicorn==0.27.0.post1"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[project.urls]
+"Homepage" = "https://github.com/aptly-io/psga"
+"Bug Tracker" = "https://github.com/aptly-io/psga/issues"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--log-cli-level=10 --cov src --cov-report=lcov:lcov.info --cov-report=term --cov-report xml:coverage.xml --cov-fail-under 0"
+pythonpath = "src" 
+
+[tool.black]
+target-version = ['py311']
+line-length = 100
+fast = true
+
+[tool.isort]
+py_version=311
+line_length = 100
+profile = "black"
+
+[tool.pylint.main]
+# Specify a score threshold under which the program will exit with error.
+fail-under = 9.0
+
+[tool.pylint.format]
+# Maximum number of characters on a single line.
+max-line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.pylint.'MISCELLANEOUS']
+notes = [ "FIXME" ]
+
+[tool.coverage.report]
+fail_under = 100

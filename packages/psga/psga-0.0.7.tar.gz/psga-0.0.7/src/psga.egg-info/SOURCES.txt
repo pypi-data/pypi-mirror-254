@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/psga.py
+src/psga.egg-info/PKG-INFO
+src/psga.egg-info/SOURCES.txt
+src/psga.egg-info/dependency_links.txt
+src/psga.egg-info/requires.txt
+src/psga.egg-info/top_level.txt
+tests/test_psga.py
