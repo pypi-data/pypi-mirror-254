@@ -1,0 +1,19 @@
+{
+    "config": {
+        "abort": {
+            "cannot_connect": "No se pudo conectar"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "custom_integrations": {
+                "name": "{custom_integration_domain} (personalizado)"
+            }
+        }
+    },
+    "options": {
+        "abort": {
+            "cannot_connect": "No se pudo conectar"
+        }
+    }
+}
