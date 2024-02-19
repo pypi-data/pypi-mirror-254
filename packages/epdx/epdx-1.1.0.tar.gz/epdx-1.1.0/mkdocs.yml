@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: EPDx
+site_author: Christian Kongsgaard
+site_description: EPDx is a library for parsing EPD files into a common exchange format.
+site_url: "https://epdx.kongsgaard.eu"
+theme:
+  name: material
+  custom_dir: 'docs/overrides'
+  palette:
+    - scheme: chrkong
+  font:
+    text: Roboto
+markdown_extensions:
+  - mdx_include:
+      base_path: docs
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+repo_url: https://github.com/ocni-dtu/epdx
+nav:
+  - EPDx: index.md
+  - Usage:
+    - Basic Usage: usage/usage.md
+    - Custom Parser: usage/custom_parser_python.md
+  - Schemas: schemas.md
+  - Changes: CHANGELOG.md
+extra:
+  generator: false
+  social:
+    - icon: octicons/globe-24
+      link: https://kongsgaard.eu
+      name: Christian Kongsgaard ApS
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/christian-kongsgaard/
+  analytics:
+    provider: custom
+extra_css:
+  - stylesheets/extra.css
+copyright: Christian Kongsgaard ApS

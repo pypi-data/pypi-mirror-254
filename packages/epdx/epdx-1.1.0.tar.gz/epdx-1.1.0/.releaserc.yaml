@@ -1,0 +1,25 @@
+branches:
+  - "main"
+
+preset: "conventionalcommits"
+
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/changelog"
+  - - "semantic-release-cargo"
+    - allFeatures: false
+      check: true
+      publishArg: [ "--no-verify" ]
+  - - "@semantic-release/github"
+    - assets:
+        - { path: 'artifacts/epdx.schema.json', label: 'EPDx JSON Schema' }
+        - { path: 'packages/python/src/epdx/pydantic.py', label: 'LCAx Python Classes' }
+        - { path: 'artifacts/epdx.d.ts', label: 'EPDx TypeScript Declarations' }
+  - - "@semantic-release/git"
+    - assets:
+        - "CHANGELOG.md"
+        - "Cargo.toml"
+        - "Cargo.lock"
+        - "packages/python/src/epdx/pydantic.py"
+        - "packages/javascript/src/*"

@@ -1,0 +1,22 @@
+/target
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+docs/schemas
+!docs/schemas/.gitkeep
+
+# IDE
+.vs
+.vscode
+.idea
+/site/
+
+# Python
+.venv
+
+# JS
+node_modules
+package.json
+package-lock.json
