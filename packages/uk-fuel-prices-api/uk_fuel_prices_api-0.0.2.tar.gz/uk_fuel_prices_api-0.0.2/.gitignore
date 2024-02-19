@@ -1,0 +1,7 @@
+/.venv
+/__pycache__
+/src/uk_fuel_price_api/__pycache__
+/dist
+./vscode
+pypi token.txt
+NOTES.md
