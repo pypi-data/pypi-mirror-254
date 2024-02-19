@@ -1,0 +1,3 @@
+[console_scripts]
+realm=realm.cli.application:cli
+
