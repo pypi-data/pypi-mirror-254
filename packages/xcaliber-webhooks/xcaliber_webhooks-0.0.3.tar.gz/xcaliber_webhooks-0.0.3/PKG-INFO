@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: xcaliber_webhooks
+Version: 0.0.3
+Summary: Xcaliber Webhooks
+Keywords: xcaliber,webhooks
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Introduction
+Verify webhook events from xcaliber
+
+# Usage:
+Install package using following command - pip install xcaliber_webhooks
+Use the below example to verify webhook -
+from xcaliber_webhooks import Webhook
+
+secret="" //secret key for webhook
+webhook = Webhook(secret)
+headers = {
+"svix-id": "",
+"svix-timestamp": "",
+"svix-signature": "",
+}
+payload = '{}' //sample payload
+webhook.verify(payload, headers)
