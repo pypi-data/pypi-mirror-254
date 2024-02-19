@@ -1,0 +1,14 @@
+scipy
+
+[dev]
+matplotlib
+sphinx
+sphinx-rtd-theme
+sphinx-mdinclude
+pytest
+pytest-cov
+pytest-mock
+twine
+pre-commit
+coverage-badge
+urllib3==1.26.6
