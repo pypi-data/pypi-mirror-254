@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block localheader_title %}Get started!{% endblock %}
+
+{% block content %}
+<div>
+  {% if sso_required %}
+  <p>
+  You are required to login through the following Single Sign On (SSO) provider:
+  </p>
+  <a href="{{sso_required.url}}">{{sso_required.printable_name}}</a>
+  {% else %}
+  <form method="post" action=".{% if next %}/?next={{next}}{% endif %}">
+        {% csrf_token %}
+        {% with form.username as bound_field %}
+        <label>{{ bound_field.label|safe }}</label>
+        <input name="{{bound_field.name}}"
+          {% if bound_field.value %}
+          value="{{bound_field.value}}"
+          {% endif %}
+          {% if bound_field.field.widget.attrs.placeholder %}
+          placeholder="{{bound_field.field.widget.attrs.placeholder}}"
+          {% endif %}
+          type="{{bound_field.field.widget.input_type}}"
+        />
+        {% endwith %}
+        {% if form.password %}
+        {% with form.password as bound_field %}
+        <label>{{ bound_field.label|safe }}</label>
+        <input name="{{bound_field.name}}"
+          {% if bound_field.value %}
+          value="{{bound_field.value}}"
+          {% endif %}
+          {% if bound_field.field.widget.attrs.placeholder %}
+          placeholder="{{bound_field.field.widget.attrs.placeholder}}"
+          {% endif %}
+          type="{{bound_field.field.widget.input_type}}"
+        />
+        {% endwith %}
+        {% endif %}
+        <button type="submit" name="submit">Submit</button>
+  </form>
+  {% if email_verification_link %}
+  <form method="post" action="{{urls.user.password_reset}}{% if next %}/?next={{next}}{% endif %}">
+    {% csrf_token %}
+    <button id="email-verification-link">Email me a one-time link</button>
+  </form>
+  {% endif %}
+  {% if register_link %}
+  <a id="register-link" href="{{register_link}}{% if next %}?next={{next}}{% endif %}">Sign Up</a>
+  {% endif %}
+  {% endif %}
+</div>
+{% endblock %}
