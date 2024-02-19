@@ -1,0 +1,17 @@
+LICENSE
+README.rst
+setup.py
+sphinx_readme/__init__.py
+sphinx_readme/config.py
+sphinx_readme/parser.py
+sphinx_readme.egg-info/PKG-INFO
+sphinx_readme.egg-info/SOURCES.txt
+sphinx_readme.egg-info/dependency_links.txt
+sphinx_readme.egg-info/requires.txt
+sphinx_readme.egg-info/top_level.txt
+sphinx_readme/utils/__init__.py
+sphinx_readme/utils/docutils.py
+sphinx_readme/utils/git.py
+sphinx_readme/utils/linkcode.py
+sphinx_readme/utils/rst.py
+sphinx_readme/utils/sphinx.py
