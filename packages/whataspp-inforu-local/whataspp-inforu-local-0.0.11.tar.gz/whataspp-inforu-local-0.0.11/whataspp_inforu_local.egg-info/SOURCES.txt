@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+whataspp_inforu_local.egg-info/PKG-INFO
+whataspp_inforu_local.egg-info/SOURCES.txt
+whataspp_inforu_local.egg-info/dependency_links.txt
+whataspp_inforu_local.egg-info/requires.txt
+whataspp_inforu_local.egg-info/top_level.txt
+whataspp_inforu_local/src/WhatsAppLocalConstants.py
+whataspp_inforu_local/src/WhatsAppMessageInforuLocal.py
+whataspp_inforu_local/src/__init__.py
