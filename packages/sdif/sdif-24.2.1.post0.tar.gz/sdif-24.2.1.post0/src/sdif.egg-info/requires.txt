@@ -1,0 +1,10 @@
+attrs
+typing-extensions
+typing-inspect
+
+[dev]
+black
+isort
+pip-tools
+pyright
+pytest

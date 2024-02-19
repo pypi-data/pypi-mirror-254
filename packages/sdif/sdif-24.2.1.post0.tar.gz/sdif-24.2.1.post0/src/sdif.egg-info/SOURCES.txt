@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/sdif/__init__.py
+src/sdif/fields.py
+src/sdif/model_meta.py
+src/sdif/models.py
+src/sdif/py.typed
+src/sdif/records.py
+src/sdif/time.py
+src/sdif.egg-info/PKG-INFO
+src/sdif.egg-info/SOURCES.txt
+src/sdif.egg-info/dependency_links.txt
+src/sdif.egg-info/requires.txt
+src/sdif.egg-info/top_level.txt
+tests/test_models.py
+tests/test_records.py
