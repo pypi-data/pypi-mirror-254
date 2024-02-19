@@ -1,0 +1,31 @@
+[tool.poetry]
+authors = ["Daniel CAUNE <daniel.caune@gmail.com>"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries",
+]
+description = "Xebus Core Python Library"
+include = [
+    "CHANGELOG.md"
+]
+keywords = ["core", "library", "xeberus", "restful", "api"]
+license = "SEE LICENSE IN <LICENSE.md>"
+name = "xebus-core-library"
+packages = [{ include = "majormode", from = "src" }]
+readme = "README.md"
+repository = "https://github.com/xebus/xebus-core-python-library"
+version = "1.4.7"
+
+[tool.poetry.dependencies]
+perseus-core-library = "^1.19"
+python = "^3.9"
+mercurius-core-library = "^1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
