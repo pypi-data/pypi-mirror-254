@@ -1,0 +1,2 @@
+[topobank.plugins]
+topobank_publication = topobank_publication.apps.PublicationPluginConfig
