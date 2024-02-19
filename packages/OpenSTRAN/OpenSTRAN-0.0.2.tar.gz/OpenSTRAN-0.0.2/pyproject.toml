@@ -1,0 +1,17 @@
+[project]
+name = "OpenSTRAN"
+version = "0.0.2"
+authors = [
+  { name="Xavier Montoya", email="openstruct@os.mozmail.com" },
+]
+description = "Open Source Structural Analysis with Python"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Github = "https://github.com/3l-Sabio/OpenSTRAN"
