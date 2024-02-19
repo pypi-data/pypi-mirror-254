@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: autoresevaluator
+Version: 0.1.0
+Summary: 
+Author: toma tanaka
+Author-email: ulti4929@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: optuna (>=3.5.0,<4.0.0)
+Description-Content-Type: text/markdown
+
+# auto-evaluate

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "autoresevaluator"
+version = "0.1.0"
+description = ""
+authors = ["toma tanaka <ulti4929@gmail.com>"]
+readme = "README.md"
+packages = [{include = "src/autoresevaluator"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+optuna = "^3.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.0"
+ruff = "^0.1.14"
+lightgbm = "^4.2.0"
+scikit-learn = "^1.4.0"
+seaborn = "^0.13.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
