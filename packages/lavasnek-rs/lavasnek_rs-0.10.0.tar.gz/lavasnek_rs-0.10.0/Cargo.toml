@@ -1,0 +1,123 @@
+[package]
+name = "lavalink-rs"
+version = "0.10.0"
+edition = "2021"
+authors = ["vicky5124 <vickyf5124@gmail.com>"]
+license = "MPL-2.0"
+description = "Lavalink API wrapper for discord audio playing"
+readme = "README.md"
+homepage = "https://gitlab.com/vicky5124/lavalink-rs/"
+repository =  "https://gitlab.com/vicky5124/lavalink-rs/"
+keywords = ["lavalink", "discord", "serenity", "songbird", "tokio"]
+categories = ["multimedia"]
+documentation = "https://docs.rs/lavalink-rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "lavalink_rs"
+crate-type = ["cdylib", "rlib"]
+
+[workspace]
+exclude = ["examples/poise_example"]
+
+[features]
+default = ["rustls", "user-data"]
+
+user-data = ["typemap_rev", "parking_lot"]
+
+songbird = ["songbird-dep"]
+twilight = ["twilight-model"]
+
+serenity = ["serenity-dep"]
+serenity-rustls = ["serenity", "serenity-dep/rustls_backend"]
+serenity-native = ["serenity", "serenity-dep/native_tls_backend"]
+
+rustls = ["reqwest/rustls-tls", "async-tungstenite/tokio-rustls-webpki-roots"]
+native-tls = ["reqwest/native-tls", "async-tungstenite/tokio-native-tls"]
+
+python = ["pyo3", "pyo3-asyncio", "pyo3-log", "log", "paste", "macro_rules_attribute"]
+
+[package.metadata.docs.rs]
+features = ["rustls", "user-data", "twilight", "serenity-rustls", "songbird"]
+
+[dependencies]
+arc-swap = "1"
+serde_json = "1"
+dashmap = "5"
+http = "1"
+tracing = "0.1"
+futures = "0.3"
+url = "2"
+oneshot = "0.1"
+serde_qs = "0.12"
+
+[dependencies.async-tungstenite]
+version = "0.24"
+
+[dependencies.tokio]
+version = "1"
+features = ["sync"]
+
+[dependencies.serde]
+version = "1"
+features = ["derive"]
+
+[dependencies.reqwest]
+version = "0.11"
+default-features = false
+features = ["json"]
+
+[dependencies.songbird-dep]
+package = "songbird"
+version = "0.4"
+default-features = false
+optional = true
+
+[dependencies.serenity-dep]
+package = "serenity"
+version = "0.12"
+default-features = false
+features = ["model"]
+optional = true
+
+[dependencies.twilight-model]
+version = "0.15"
+optional = true
+
+[dependencies.typemap_rev]
+version = "0.3"
+optional = true
+
+[dependencies.parking_lot]
+version = "0.12"
+optional = true
+
+[dependencies.pyo3]
+version = "0.20"
+features = ["extension-module"]
+optional = true
+
+[dependencies.pyo3-asyncio]
+version = "0.20"
+features = ["attributes", "tokio-runtime"]
+optional = true
+
+[dependencies.pyo3-log]
+version = "0.9"
+optional = true
+
+[dependencies.log]
+version = "0.4"
+optional = true
+
+[dependencies.paste]
+version = "1"
+optional = true
+
+[dependencies.macro_rules_attribute]
+version = "0.2"
+optional = true
+
+[build-dependencies]
+version_check = "0.9"
