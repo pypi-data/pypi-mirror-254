@@ -1,0 +1,2 @@
+[console_scripts]
+ragcore = ragcore.cli:entrypoint

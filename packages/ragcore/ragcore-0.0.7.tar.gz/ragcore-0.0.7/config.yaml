@@ -1,0 +1,27 @@
+# Configuration of app parameters
+
+database:
+  provider: "chroma"
+  number_search_results: 5
+  # For local databases
+  base_dir: "data/database"
+
+splitter:
+  chunk_overlap: 256
+  chunk_size: 1024
+
+embedding:
+  provider: "openai"
+  model: "text-embedding-ada-002"
+
+# OpenAI
+llm:
+  provider: "openai"
+  model: "gpt-3.5-turbo"
+
+# AzureOpenAI
+# llm:
+#   provider: "azure"
+#   model: "gpt-3.5-turbo"
+#   endpoint: ""
+#   api_version: ""
