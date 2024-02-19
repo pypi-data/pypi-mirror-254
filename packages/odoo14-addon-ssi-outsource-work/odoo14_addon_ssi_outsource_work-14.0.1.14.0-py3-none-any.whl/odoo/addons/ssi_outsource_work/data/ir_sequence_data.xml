@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data noupdate="1">
+<record id="sequence_outsource_work" model="ir.sequence">
+    <field name="name">Outsource Work</field>
+    <field name="code">outsource_work</field>
+    <field name="prefix">OW/%(range_y)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+
+<record id="sequence_outsource_work_outstanding" model="ir.sequence">
+    <field name="name">Outsource Work Outstanding</field>
+    <field name="code">outsource_work_outstanding</field>
+    <field name="prefix">OWO/%(range_y)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+
+<record id="sequence_outsource_work_outstanding_batch" model="ir.sequence">
+    <field name="name">Outsource Work Outstanding Batch</field>
+    <field name="code">outsource_work_outstanding_batch</field>
+    <field name="prefix">OWB/%(range_y)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+
+</data>
+</odoo>

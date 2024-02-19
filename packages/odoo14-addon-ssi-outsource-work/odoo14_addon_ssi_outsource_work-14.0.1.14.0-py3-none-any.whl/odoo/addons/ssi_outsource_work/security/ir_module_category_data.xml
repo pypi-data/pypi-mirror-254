@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="outsourcing_module_category" model="ir.module.category">
+        <field name="name">Outsource Work</field>
+    </record>
+
+    <record id="outsourcing_workflow_module_category" model="ir.module.category">
+        <field name="name">Outsource Work - Workflow</field>
+        <field name="parent_id" ref="outsourcing_module_category" />
+    </record>
+
+    <record id="outsourcing_data_ownership_module_category" model="ir.module.category">
+        <field name="name">Outsource Work - Data Ownership</field>
+        <field name="parent_id" ref="outsourcing_module_category" />
+    </record>
+
+
+    <record id="outsourcing_configurator_module_category" model="ir.module.category">
+        <field name="name">Outsource Work - Configurator</field>
+        <field name="parent_id" ref="outsourcing_module_category" />
+    </record>
+
+    <record id="outsourcing_wizard_module_category" model="ir.module.category">
+        <field name="name">Outsource Work - Wizard</field>
+        <field name="parent_id" ref="outsourcing_module_category" />
+    </record>
+
+    <record id="outsourcing_report_module_category" model="ir.module.category">
+        <field name="name">Outsource Work - Report</field>
+        <field name="parent_id" ref="outsourcing_module_category" />
+    </record>
+
+<!-- Outsource -->
+<record id="outsource_work_workflow_module_category" model="ir.module.category">
+    <field name="name">Outsource Work</field>
+    <field name="parent_id" ref="outsourcing_workflow_module_category" />
+</record>
+
+<record id="outsource_work_data_ownership_module_category" model="ir.module.category">
+    <field name="name">Outsource Work</field>
+    <field name="parent_id" ref="outsourcing_data_ownership_module_category" />
+</record>
+
+<!-- Outsource Outstanding -->
+<record
+        id="outsource_work_outstanding_workflow_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">Outsource Work Outstanding</field>
+    <field name="parent_id" ref="outsourcing_workflow_module_category" />
+</record>
+
+<record
+        id="outsource_work_outstanding_data_ownership_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">Outsource Work Outstanding</field>
+    <field name="parent_id" ref="outsourcing_data_ownership_module_category" />
+</record>
+
+<!-- Outsource Outstanding Batch -->
+<record
+        id="outsource_work_outstanding_batch_workflow_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">Outsource Work Outstanding Batch</field>
+    <field name="parent_id" ref="outsourcing_workflow_module_category" />
+</record>
+
+<record
+        id="outsource_work_outstanding_batch_data_ownership_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">Outsource Work Outstanding Batch</field>
+    <field name="parent_id" ref="outsourcing_data_ownership_module_category" />
+</record>
+
+</odoo>

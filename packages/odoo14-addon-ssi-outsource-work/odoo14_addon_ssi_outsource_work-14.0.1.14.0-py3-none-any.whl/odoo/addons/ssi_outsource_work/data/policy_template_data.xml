@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data noupdate="1">
+
+<!-- overtime -->
+<record id="policy_template_outsource_work" model="policy.template">
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field
+                name="state_field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','state')]"
+            />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<!-- overtime confirm_ok -->
+<record id="policy_template_outsource_work_confirm" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','confirm_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('outsource_work_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime approve_ok -->
+<record id="policy_template_outsource_work_approve" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','approve_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- overtime  reject_ok -->
+<record id="policy_template_outsource_work_reject" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','reject_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- overtime  restart_approval_ok -->
+<record
+            id="policy_template_outsource_work_restart_approval"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','restart_approval_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','in',['confirm'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('outsource_work_validator_group')])]" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if not document.approval_template_id:
+    result = True</field>
+</record>
+
+<!-- overtime cancel_ok -->
+<record id="policy_template_outsource_work_cancel" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','cancel_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','in',['draft','confirm','done'])]"
+            />
+      <field name="restrict_user" eval="1" />
+      <field name="computation_method">use_group</field>
+      <field name="group_ids" eval="[(6,0,[ref('outsource_work_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime  restart_ok -->
+<record id="policy_template_outsource_work_restart" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','restart_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','in',['cancel','reject'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('outsource_work_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime  manual_number_ok -->
+<record
+            id="policy_template_outsource_work_manual_number"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work'),('name','=','manual_number_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('outsource_work_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime -->
+<record id="policy_template_outsource_work_outstanding" model="policy.template">
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field
+                name="state_field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','state')]"
+            />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<!-- overtime confirm_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_confirm"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','confirm_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_user_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime approve_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_approve"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','approve_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- overtime  reject_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_reject"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','reject_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- overtime  restart_approval_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_restart_approval"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','restart_approval_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','in',['confirm'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if not document.approval_template_id:
+    result = True</field>
+</record>
+
+<!-- overtime cancel_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_cancel"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','cancel_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','in',['draft','confirm','done'])]"
+            />
+      <field name="restrict_user" eval="1" />
+      <field name="computation_method">use_group</field>
+      <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime  restart_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_restart"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','restart_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','in',['cancel','reject'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- overtime  manual_number_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_manual_number"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding'),('name','=','manual_number_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Outsource Work Outstanding Batch -->
+<record id="policy_template_outsource_work_outstanding_batch" model="policy.template">
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_outsource_work_outstanding_batch" />
+    <field
+                name="state_field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','state')]"
+            />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<!-- Outsource Work Outstanding Batch: confirm_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_confirm"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','confirm_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_batch_user_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Outsource Work Outstanding Batch: approve_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_approve"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','approve_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- Outsource Work Outstanding Batch  reject_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_reject"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','reject_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- Outsource Work Outstanding Batch  restart_approval_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_restart_approval"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','restart_approval_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','in',['confirm'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_batch_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if not document.approval_template_id:
+    result = True</field>
+</record>
+
+<!-- Outsource Work Outstanding Batch cancel_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_cancel"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','cancel_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','in',['draft','confirm','done'])]"
+            />
+      <field name="restrict_user" eval="1" />
+      <field name="computation_method">use_group</field>
+      <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_batch_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Outsource Work Outstanding Batch  restart_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_restart"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','restart_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','in',['cancel','reject'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_batch_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Outsource Work Outstanding Batch  manual_number_ok -->
+<record
+            id="policy_template_outsource_work_outstanding_batch_manual_number"
+            model="policy.template_detail"
+        >
+    <field name="template_id" ref="policy_template_outsource_work_outstanding_batch" />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','outsource_work_outstanding_batch'),('name','=','manual_number_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','outsource_work_outstanding_batch'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('outsource_work_outstanding_batch_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+</data>
+</odoo>

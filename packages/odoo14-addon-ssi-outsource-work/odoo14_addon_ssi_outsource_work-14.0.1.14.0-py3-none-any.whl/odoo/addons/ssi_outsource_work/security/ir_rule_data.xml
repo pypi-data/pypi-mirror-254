@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- Portal -->
+<record id="outsource_work_portal_rule" model="ir.rule">
+    <field name="name">Outsource Work - Portal</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field name="groups" eval="[(4, ref('base.group_portal'))]" />
+    <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+<record id="outsource_work_outstanding_portal_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding - Portal</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field name="groups" eval="[(4, ref('base.group_portal'))]" />
+    <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+<!-- Outsource Work -->
+<record id="outsource_work_internal_user_rule" model="ir.rule">
+    <field name="name">Outsource Work - Internal Users</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      ('user_id', '=', user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_company_rule" model="ir.rule">
+    <field name="name">Outsource Work - Responsible to company data</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field name="groups" eval="[(4, ref('outsource_work_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_company_child_rule" model="ir.rule">
+    <field name="name">Outsource Work - Company and All Child Companies</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field name="groups" eval="[(4, ref('outsource_work_company_child_group'))]" />
+    <field name="domain_force">[('company_id','child_of',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_all_rule" model="ir.rule">
+    <field name="name">Outsource Work - All</field>
+    <field name="model_id" ref="model_outsource_work" />
+    <field name="groups" eval="[(4, ref('outsource_work_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<!-- Outsource Work Outstanding-->
+<record id="outsource_work_outstanding_internal_user_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding - Internal Users</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      ('user_id', '=', user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_company_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding - Responsible to company data</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field
+            name="groups"
+            eval="[(4, ref('outsource_work_outstanding_company_group'))]"
+        />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >Outsource Work Outstanding - Company and All Child Companies</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field
+            name="groups"
+            eval="[(4, ref('outsource_work_outstanding_company_child_group'))]"
+        />
+    <field name="domain_force">[('company_id','child_of',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_all_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding - All</field>
+    <field name="model_id" ref="model_outsource_work_outstanding" />
+    <field name="groups" eval="[(4, ref('outsource_work_outstanding_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<!-- Outsource Work Outstanding Batch-->
+<record id="outsource_work_outstanding_batch_internal_user_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding Batch - Internal Users</field>
+    <field name="model_id" ref="model_outsource_work_outstanding_batch" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      ('user_id', '=', user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_batch_company_rule" model="ir.rule">
+    <field
+            name="name"
+        >Outsource Work Outstanding Batch - Responsible to company data</field>
+    <field name="model_id" ref="model_outsource_work_outstanding_batch" />
+    <field
+            name="groups"
+            eval="[(4, ref('outsource_work_outstanding_batch_company_group'))]"
+        />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_batch_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >Outsource Work Outstanding Batch - Company and All Child Companies</field>
+    <field name="model_id" ref="model_outsource_work_outstanding_batch" />
+    <field
+            name="groups"
+            eval="[(4, ref('outsource_work_outstanding_batch_company_child_group'))]"
+        />
+    <field name="domain_force">[('company_id','child_of',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="outsource_work_outstanding_batch_all_rule" model="ir.rule">
+    <field name="name">Outsource Work Outstanding Batch - All</field>
+    <field name="model_id" ref="model_outsource_work_outstanding_batch" />
+    <field
+            name="groups"
+            eval="[(4, ref('outsource_work_outstanding_batch_all_group'))]"
+        />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+</odoo>

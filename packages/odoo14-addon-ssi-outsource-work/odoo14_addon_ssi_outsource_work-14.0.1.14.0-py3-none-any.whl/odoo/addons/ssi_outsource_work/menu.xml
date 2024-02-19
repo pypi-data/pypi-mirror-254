@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<menuitem
+        id="menu_root_outsource_work"
+        name="Outsource Work"
+        web_icon="ssi_outsource_work,static/description/icon.png"
+    />
+
+<menuitem
+        id="menu_outsource_work_configuration"
+        name="Configuration"
+        parent="menu_root_outsource_work"
+        sequence="99"
+    />
+
+
+
+</odoo>

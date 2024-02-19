@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+<record id="ir_model_form" model="ir.ui.view">
+    <field name="name">ir.model.work.log.form</field>
+    <field name="model">ir.model</field>
+    <field name="inherit_id" ref="base.view_model_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page name="page_outsource_work" string="Outsource Work">
+                    <group name="outsource_work" colspan="4">
+                        <field
+                                name="outsource_work_aa_selection_method"
+                                string="Selection Method"
+                            />
+                        <field
+                                name="outsource_work_aa_ids"
+                                attrs="{'invisible': [('outsource_work_aa_selection_method','=','python')]}"
+                                string="Allowed Analytic Accounts"
+                            />
+                        <field
+                                name="outsource_work_python_code"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                                attrs="{'invisible': [('outsource_work_aa_selection_method', '=', 'fixed')]}"
+                                string="Python Code"
+                            />
+                    </group>
+                    <group
+                            name="outsource_work_pricelist"
+                            colspan="4"
+                            col="2"
+                            string="Pricelist"
+                        >
+                        <field
+                                name="outsource_work_pricelist_selection_method"
+                                string="Selection Method"
+                            />
+                        <field
+                                name="outsource_work_pricelist_ids"
+                                string="Allowed Pricelists"
+                                attrs="{'invisible': [('outsource_work_pricelist_selection_method','=','python')]}"
+                            />
+                        <field
+                                name="outsource_work_pricelist_python_code"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                                string="Python Code"
+                                attrs="{'invisible': [('outsource_work_pricelist_selection_method', '=', 'fixed')]}"
+                            />
+                    </group>
+                    <group
+                            name="outsource_work_usage"
+                            colspan="4"
+                            col="2"
+                            string="Usage"
+                        >
+                        <field
+                                name="outsource_work_usage_selection_method"
+                                string="Selection Method"
+                            />
+                        <field
+                                name="outsource_work_usage_ids"
+                                string="Allowed Usages"
+                                attrs="{'invisible': [('outsource_work_usage_selection_method','=','python')]}"
+                            />
+                        <field
+                                name="outsource_work_usage_python_code"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                                string="Python Code"
+                                attrs="{'invisible': [('outsource_work_usage_selection_method', '=', 'fixed')]}"
+                            />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</odoo>

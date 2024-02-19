@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_layout_outsource_work_outstanding"
+        name="Portal layout: outsource work outstanding menu entry"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="40"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'outsource_work_outstanding' or outsource_work_outstanding"
+                class="col-lg-2"
+                t-attf-class="breadcrumb-item #{'active' if not outsource_work_outstanding else ''}"
+            >
+                <a
+                    t-if="outsource_work_outstanding"
+                    t-attf-href="/my/outsource-work-outstandings?{{ keep_query() }}"
+                >Outsource Work Outstandings</a>
+                <t t-else="">Outsource Work Outstandings</t>
+            </li>
+            <li
+                t-if="outsource_work_outstanding"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10"
+            >
+                <t t-esc="outsource_work_outstanding.name" />
+            </li>
+        </xpath>
+    </template>
+
+    <template
+        id="portal_my_home_outsource_work_outstanding"
+        name="Show Outsource Work Outstandings"
+        customize_show="True"
+        inherit_id="portal.portal_my_home"
+        priority="40"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Outsource Work Outstandings</t>
+                <t t-set="url" t-value="'/my/outsource-work-outstandings'" />
+                <t
+                    t-set="placeholder_count"
+                    t-value="'outsource_work_outstanding_count'"
+                />
+            </t>
+        </xpath>
+    </template>
+
+    <template
+        id="portal_my_outsource_work_outstandings"
+        name="My Outsource Work Outstandings"
+    >
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Outsource Work Outstandings</t>
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Outsource Work Outstandings</t>
+            </t>
+            <t t-if="not outsource_work_outstandings">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no Outsource Work Outstandings.
+                </div>
+            </t>
+            <t t-if="outsource_work_outstandings" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th># Document</th>
+                        <th>Date</th>
+                        <th>Date Due</th>
+                        <th>Date Start</th>
+                        <th>Date End</th>
+                        <th>Untaxed</th>
+                        <th>Tax</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        t-foreach="outsource_work_outstandings"
+                        t-as="outsource_work_outstanding"
+                    >
+                        <td>
+                            <a
+                                t-attf-href="/my/outsource-work-outstanding/#{outsource_work_outstanding.id}?{{ keep_query() }}"
+                            ><span t-field="outsource_work_outstanding.name" /></a>
+                        </td>
+                        <td><span t-field="outsource_work_outstanding.date" /></td>
+                        <td><span t-field="outsource_work_outstanding.date_due" /></td>
+                        <td><span
+                                t-field="outsource_work_outstanding.date_start"
+                            /></td>
+                        <td><span t-field="outsource_work_outstanding.date_end" /></td>
+                        <td><span
+                                t-field="outsource_work_outstanding.amount_untaxed"
+                            /></td>
+                        <td><span
+                                t-field="outsource_work_outstanding.amount_tax"
+                            /></td>
+                        <td><span
+                                t-field="outsource_work_outstanding.amount_total"
+                            /></td>
+                        <td class="tx_status">
+                            <t t-if="outsource_work_outstanding.state == 'draft'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Draft"
+                                        title="Draft"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Draft</span></span>
+                            </t>
+                            <t t-if="outsource_work_outstanding.state == 'confirm'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Waiting for Approval"
+                                        title="Waiting for Approval"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Waiting for Approval</span></span>
+                            </t>
+                            <t t-if="outsource_work_outstanding.state == 'done'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Done"
+                                        title="Done"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Done</span></span>
+                            </t>
+                            <t t-if="outsource_work_outstanding.state == 'cancel'">
+                                <span class="badge badge-pill badge-info"><i
+                                        class="fa fa-fw fa-clock-o"
+                                        aria-label="Cancelled"
+                                        title="Cancelled"
+                                        role="img"
+                                    /><span
+                                        class="d-none d-md-inline"
+                                    >Cancelled</span></span>
+                            </t>
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template
+        id="portal_my_outsource_work_outstanding"
+        name="My Outsource Work Outstanding"
+    >
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Outsource Work Outstanding</t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span
+                                    t-field="outsource_work_outstanding.name"
+                                    class="col-9 text-truncate"
+                                />
+                                <small class="text-muted d-none d-md-inline"> (#<span
+                                        t-field="outsource_work_outstanding.id"
+                                    />)</small>
+                                <div class="col-3 col-md-2 text-right">
+                                    <small class="text-right">Status:</small>
+                                    <t
+                                        t-if="outsource_work_outstanding.state == 'draft'"
+                                    >
+                                        <span
+                                            class=" badge badge-pill badge-info"
+                                            title="Current stage of this assignment request"
+                                        >Draft</span>
+                                    </t>
+                                    <t
+                                        t-if="outsource_work_outstanding.state == 'confirm'"
+                                    >
+                                        <span
+                                            class=" badge badge-pill badge-info"
+                                            title="Current stage of this assignment request"
+                                        >Waiting for Apporval</span>
+                                    </t>
+                                    <t
+                                        t-if="outsource_work_outstanding.state == 'done'"
+                                    >
+                                        <span
+                                            class=" badge badge-pill badge-info"
+                                            title="Current stage of this assignment request"
+                                        >Done</span>
+                                    </t>
+                                    <t
+                                        t-if="outsource_work_outstanding.state == 'cancel'"
+                                    >
+                                        <span
+                                            class=" badge badge-pill badge-info"
+                                            title="Current stage of this assignment request"
+                                        >Cancelled</span>
+                                    </t>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="mb-1">
+                        <strong># Document:</strong> <span
+                            t-field="outsource_work_outstanding.name"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Date:</strong> <span
+                            t-field="outsource_work_outstanding.date"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Date Due:</strong> <span
+                            t-field="outsource_work_outstanding.date_due"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Date Start:</strong> <span
+                            t-field="outsource_work_outstanding.date_start"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Date End:</strong> <span
+                            t-field="outsource_work_outstanding.date_end"
+                        />
+                    </div>
+                    <table width="100%" class="table-bordered">
+                        <thead>
+                            <tr>
+                                <th># Document</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Document Type</th>
+                                <th>Document Reference</th>
+                                <th>Analytic Account</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-foreach="outsource_work_outstanding.work_ids"
+                                t-as="work_id"
+                            >
+                                <tr>
+                                    <td>
+                                        <span t-field="work_id.display_name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="work_id.type_id" />
+                                    </td>
+                                    <td>
+                                        <span t-field="work_id.date" />
+                                    </td>
+                                    <td>
+                                        <span t-field="work_id.model_id" />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-field="work_id.work_object_reference.name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span t-field="work_id.analytic_account_id" />
+                                    </td>
+                                    <td>
+                                        <span t-field="work_id.price_total" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="mb-1">
+                        <strong>Untaxed:</strong> <span
+                            t-field="outsource_work_outstanding.amount_untaxed"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Tax:</strong> <span
+                            t-field="outsource_work_outstanding.amount_tax"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Total:</strong> <span
+                            t-field="outsource_work_outstanding.amount_total"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Paid:</strong> <span
+                            t-field="outsource_work_outstanding.amount_realized"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <strong>Residual:</strong> <span
+                            t-field="outsource_work_outstanding.amount_residual"
+                        />
+                    </div>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4><strong>Message and communication history</strong></h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="outsource_work_outstanding" />
+                    <t t-set="token" t-value="access_token" />
+                    <t t-set="pid" t-value="pid" />
+                    <t t-set="hash" t-value="hash" />
+                </t>
+            </div>
+        </t>
+
+    </template>
+</odoo>

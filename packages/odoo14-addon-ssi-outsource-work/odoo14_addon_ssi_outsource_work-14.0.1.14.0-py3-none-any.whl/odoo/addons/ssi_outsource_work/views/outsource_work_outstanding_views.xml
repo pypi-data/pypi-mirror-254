@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="outsource_work_outstanding_view_tree" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding tree</field>
+    <field name="model">outsource_work_outstanding</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="batch_id" />
+                <field name="partner_id" widget="many2one_avatar" />
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="amount_untaxed" sum="Total Untaxed" />
+                <field name="amount_tax" sum="Total Tax" />
+                <field name="amount_total" sum="Total" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_view_search" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding search</field>
+    <field name="model">outsource_work_outstanding</field>
+    <field name="mode">primary</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="batch_id" />
+                <field name="partner_id" />
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter
+                        name="grp_partner"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+                <filter
+                        name="grp_type"
+                        string="Type"
+                        context="{'group_by':'type_id'}"
+                    />
+                <filter
+                        name="grp_batch"
+                        string=" #Batch"
+                        context="{'group_by':'batch_id'}"
+                    />
+                <filter
+                        name="grp_analytic_account"
+                        string="Analytic Account"
+                        context="{'group_by':'analytic_account_id'}"
+                    />
+                <filter name="grp_date" string="Date" context="{'group_by':'date'}" />
+                <filter
+                        name="grp_date_due"
+                        string="Date Due"
+                        context="{'group_by':'date_due'}"
+                    />
+                <filter
+                        name="grp_date_start"
+                        string="Date Start"
+                        context="{'group_by':'date_start'}"
+                    />
+                <filter
+                        name="grp_date_end"
+                        string="Date End"
+                        context="{'group_by':'date_end'}"
+                    />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_view_form" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding form</field>
+    <field name="model">outsource_work_outstanding</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="partner_id" widget="many2one_avatar" />
+                <field name="batch_id" />
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="currency_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="work" string="Works">
+                    <button
+                            name="action_populate"
+                            string="Populate"
+                            type="object"
+                            states="draft"
+                            class="oe_highlight"
+                            icon="fa-cogs"
+                            style="margin-right:4px"
+                        />
+                    <button
+                            name="action_clear_work"
+                            string="Clear"
+                            type="object"
+                            states="draft"
+                            class="oe_highlight"
+                            icon="fa-eraser"
+                            style="margin-right:4px"
+                        />
+                    <button
+                            name="action_compute_tax"
+                            string="Recompute Tax"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-calculator"
+                            states="draft"
+                        />
+                    <field name="work_ids" widget="many2many" />
+                    <group name="service2" colspan="4" col="2">
+                        <field name="amount_untaxed" />
+                        <field name="amount_tax" />
+                        <field name="amount_total" />
+                        <field name="amount_realized" />
+                        <field name="amount_residual" />
+                    </group>
+                </page>
+                <page name="accounting" string="Accounting">
+                    <group name="accounting_1" colspan="4" col="2">
+                        <field name="payable_journal_id" />
+                        <field name="payable_account_id" />
+                    </group>
+                    <group name="accounting_2" colspan="4" col="2">
+                        <field name="move_id" />
+                        <field name="payable_move_line_id" />
+                        <field name="reconciled" />
+                    </group>
+                    <field name="tax_ids">
+                        <tree editable="top">
+                            <field name="tax_id" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="account_id" />
+                            <field name="analytic_account_id" />
+                            <field name="manual" />
+                            <field name="base_amount" />
+                            <field name="tax_amount" />
+                        </tree>
+                        <form>
+                            <group name="tax" colspan="4" col="2">
+                                <field name="tax_id" />
+                                <field name="currency_id" invisible="1" />
+                                <field name="account_id" />
+                                <field name="analytic_account_id" />
+                                <field name="manual" />
+                                <field name="base_amount" />
+                                <field name="tax_amount" />
+                                <field name="account_move_line_id" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_action" model="ir.actions.act_window">
+    <field name="name">Outstandings</field>
+    <field name="res_model">outsource_work_outstanding</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="menu_outsource_work_outstanding"
+        name="Outstandings"
+        parent="menu_root_outsource_work"
+        groups="outsource_work_outstanding_viewer_group"
+        action="outsource_work_outstanding_action"
+        sequence="20"
+    />
+
+</odoo>

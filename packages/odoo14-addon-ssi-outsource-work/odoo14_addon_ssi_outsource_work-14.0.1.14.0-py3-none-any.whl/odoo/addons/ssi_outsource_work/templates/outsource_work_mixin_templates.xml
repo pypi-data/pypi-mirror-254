@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<template id="outsource_work_template">
+    <page name="outsource_work" string="Outsource Work">
+        <field
+                name="outsource_work_ids"
+                nolabel="1"
+                context="{'outsource_work_model': active_model}"
+            />
+        <group name="outsource_work" colspan="2">
+        </group>
+    </page>
+</template>
+</odoo>

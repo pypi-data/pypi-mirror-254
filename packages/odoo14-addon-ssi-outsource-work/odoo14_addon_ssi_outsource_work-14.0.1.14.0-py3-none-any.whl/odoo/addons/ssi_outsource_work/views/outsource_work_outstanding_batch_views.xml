@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="outsource_work_outstanding_batch_view_tree" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding_batch tree</field>
+    <field name="model">outsource_work_outstanding_batch</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="amount_untaxed" sum="Total Untaxed" />
+                <field name="amount_tax" sum="Total Tax" />
+                <field name="amount_total" sum="Total" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_batch_view_search" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding_batch search</field>
+    <field name="model">outsource_work_outstanding_batch</field>
+    <field name="mode">primary</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter
+                        name="grp_type"
+                        string="Type"
+                        context="{'group_by':'type_id'}"
+                    />
+                <filter
+                        name="grp_analytic_account"
+                        string="Analytic Account"
+                        context="{'group_by':'analytic_account_id'}"
+                    />
+                <filter name="grp_date" string="Date" context="{'group_by':'date'}" />
+                <filter
+                        name="grp_date_due"
+                        string="Date Due"
+                        context="{'group_by':'date_due'}"
+                    />
+                <filter
+                        name="grp_date_start"
+                        string="Date Start"
+                        context="{'group_by':'date_start'}"
+                    />
+                <filter
+                        name="grp_date_end"
+                        string="Date End"
+                        context="{'group_by':'date_end'}"
+                    />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_batch_view_form" model="ir.ui.view">
+    <field name="name">outsource_work_outstanding_batch form</field>
+    <field name="model">outsource_work_outstanding_batch</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="type_id" />
+                <field name="analytic_account_id" />
+                <field name="currency_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date" />
+                <field name="date_due" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="outstanding" string="Outstandings">
+                    <button
+                            name="action_populate"
+                            string="Populate"
+                            type="object"
+                            states="draft"
+                            class="oe_highlight"
+                            icon="fa-cogs"
+                            style="margin-right:4px"
+                        />
+                    <button
+                            name="action_clear"
+                            string="Clear"
+                            type="object"
+                            states="draft"
+                            class="oe_highlight"
+                            icon="fa-eraser"
+                            style="margin-right:4px"
+                        />
+                    <field name="detail_ids">
+                        <tree>
+                            <field name="partner_id" />
+                            <field name="outstanding_id" />
+                        </tree>
+                    </field>
+                    <group name="service2" colspan="4" col="2">
+                        <field name="amount_untaxed" />
+                        <field name="amount_tax" />
+                        <field name="amount_total" />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="outsource_work_outstanding_batch_action" model="ir.actions.act_window">
+    <field name="name">Outstanding Batches</field>
+    <field name="res_model">outsource_work_outstanding_batch</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="menu_outsource_work_outstanding_batch"
+        name="Outstanding Batches"
+        parent="menu_root_outsource_work"
+        groups="outsource_work_outstanding_batch_viewer_group"
+        action="outsource_work_outstanding_batch_action"
+        sequence="30"
+    />
+
+</odoo>
