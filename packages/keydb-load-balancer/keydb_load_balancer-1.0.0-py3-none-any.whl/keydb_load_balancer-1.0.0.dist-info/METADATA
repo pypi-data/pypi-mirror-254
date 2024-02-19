@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: keydb-load-balancer
+Version: 1.0.0
+Summary: Physcis project. Load balancer
+Download-URL: https://github.com/physics-faas/keydb-load-balancer/archive/refs/tags/v.1.0.0.tar.gz
+Author: Ainhoa Azqueta-Alzúaz
+Author-email: aazqueta@fi.upm.es
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: prometheus-api-client
+Requires-Dist: keydb
+Requires-Dist: prometheus-client
+
+# keydb-load-balancer
