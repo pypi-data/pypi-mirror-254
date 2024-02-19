@@ -1,0 +1,3 @@
+[console_scripts]
+hyperfunc=hyperfunc.cli:main
+
