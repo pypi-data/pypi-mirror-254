@@ -1,0 +1,75 @@
+{
+  "_favorites-uR6u-Mvb.js": {
+    "file": "favorites-uR6u-Mvb.js"
+  },
+  "_index-vmgGEAuH.js": {
+    "file": "index-vmgGEAuH.js"
+  },
+  "explorer/src/js/explorer.js": {
+    "dynamicImports": [
+      "explorer/src/js/pivot-setup.js"
+    ],
+    "file": "explorer-XTpDKgGc.js",
+    "imports": [
+      "explorer/src/js/main.js",
+      "_index-vmgGEAuH.js",
+      "_favorites-uR6u-Mvb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/explorer.js"
+  },
+  "explorer/src/js/main.js": {
+    "dynamicImports": [
+      "explorer/src/js/query-list.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/schema.js"
+    ],
+    "file": "main-WK6miO0p.js",
+    "isEntry": true,
+    "src": "explorer/src/js/main.js"
+  },
+  "explorer/src/js/pivot-setup.js": {
+    "file": "pivot-setup-EZJtAnhT.js",
+    "imports": [
+      "explorer/src/js/explorer.js",
+      "explorer/src/js/main.js",
+      "_index-vmgGEAuH.js",
+      "_favorites-uR6u-Mvb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/pivot-setup.js"
+  },
+  "explorer/src/js/query-list.js": {
+    "file": "query-list-3Xw82BtJ.js",
+    "imports": [
+      "_index-vmgGEAuH.js",
+      "_favorites-uR6u-Mvb.js",
+      "explorer/src/js/main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/query-list.js"
+  },
+  "explorer/src/js/schema.js": {
+    "file": "schema-CX1A8J9J.js",
+    "imports": [
+      "_index-vmgGEAuH.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "explorer/src/js/schema.js"
+  },
+  "explorer/src/scss/main.scss": {
+    "file": "styles-JpxrO4b_.css",
+    "isEntry": true,
+    "src": "explorer/src/scss/main.scss"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "bootstrap-icons-NpS-Zr3P.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "bootstrap-icons-2eO-ad8Y.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  }
+}
