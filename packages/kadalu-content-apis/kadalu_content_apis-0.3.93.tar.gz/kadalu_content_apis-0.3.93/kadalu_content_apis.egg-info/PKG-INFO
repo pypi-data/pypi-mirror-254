@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: kadalu_content_apis
+Version: 0.3.93
+Home-page: https://github.com/kadalu-tech/content-apis-sdk
+Author: Kadalu Technologies Private Limited
+Author-email: packages@kadalu.tech
+License: Apache-2.0
+Keywords: kadalu content apis
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: requests
+
+
+    Python bindings for Kadalu Content APIs
+    
