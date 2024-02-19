@@ -1,0 +1,5 @@
+biplist>=1.0.3
+pycryptodome>=3.20.0
+
+[fastpbkdf2]
+fastpbkdf2>=0.2
