@@ -1,0 +1,21 @@
+[project]
+name = "izok"
+version = "0.0.0.dev0"
+authors = [
+  { name="Andrey Sergeevich Storozhenko", email="sto-a@yandex.ru" },
+]
+description = "Izok is an open source Python-based software package that allows you to formulate an optimization problem in an easy-to-learn and efficient modeling language similar to other modeling languages AMPL, AIMMS and GAMS, and then automatically implement it in open source software package Pyomo."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://gitflic.ru/project/enom/izok"
+
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
