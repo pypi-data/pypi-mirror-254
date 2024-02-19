@@ -1,0 +1,34 @@
+3.0.0 (2024-02-04)
+------------------
+
+- Rename "master" git branch to "main"
+
+- Fix a bug that would appear on macOS whereby if we accept() a socket that is
+  already gone, setting socket options would fail and take down the server. See
+  https://github.com/Pylons/waitress/pull/399
+
+- Fixed testing of vendored asyncore code to not rely on particular naming for
+  errno's. See https://github.com/Pylons/waitress/pull/397
+
+- HTTP Request methods and versions are now validated to meet the HTTP
+  standards thereby dropping invalid requests on the floor. See
+  https://github.com/Pylons/waitress/pull/423
+
+- No longer close the connection when sending a HEAD request response. See
+  https://github.com/Pylons/waitress/pull/428
+
+- Always attempt to send the Connection: close response header when we are
+  going to close the connection to let the remote know in more instances.
+  https://github.com/Pylons/waitress/pull/429
+
+- Python 3.7 is no longer supported. Add support for Python 3.11, 3.12 and
+  PyPy 3.9, 3.10. See https://github.com/Pylons/waitress/pull/412
+
+- Document that trusted_proxy may be set to a wildcard value to trust all
+  proxies. See https://github.com/Pylons/waitress/pull/431
+
+Updated Defaults
+~~~~~~~~~~~~~~~~
+
+- clear_untrusted_proxy_headers is set to True by default. See
+  https://github.com/Pylons/waitress/pull/370
