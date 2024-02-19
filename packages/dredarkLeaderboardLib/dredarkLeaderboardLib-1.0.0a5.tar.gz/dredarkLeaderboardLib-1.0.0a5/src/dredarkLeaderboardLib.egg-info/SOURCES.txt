@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/dredarkLeaderboardLib/__init__.py
+src/dredarkLeaderboardLib/base.py
+src/dredarkLeaderboardLib.egg-info/PKG-INFO
+src/dredarkLeaderboardLib.egg-info/SOURCES.txt
+src/dredarkLeaderboardLib.egg-info/dependency_links.txt
+src/dredarkLeaderboardLib.egg-info/top_level.txt
