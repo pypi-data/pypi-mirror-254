@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: RoboCivix
+Version: 0.0.0
+Summary: RoboCivix Python Client
+Author-email: Nanw1103 <nanw1103@gmail.com>
+Project-URL: Homepage, https://github.com/nanw1103/RoboCivix
+Project-URL: Bug Tracker, https://github.com/nanw1103/robocivix-py/issues
+Project-URL: documentation, https://readthedocs.org
+Project-URL: repository, https://github.com/nanw1103/robocivix-py
+Project-URL: changelog, https://github.com/nanw1103/robocivix-py/blob/main/CHANGELOG.md
+Keywords: RoboCivix
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# robocivix-py
+
+Python client for [RoboCivix](https://github.com/nanw1103/RoboCivix).
