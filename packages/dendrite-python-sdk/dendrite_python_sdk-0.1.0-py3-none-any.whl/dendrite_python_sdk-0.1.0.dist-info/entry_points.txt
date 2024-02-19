@@ -1,0 +1,4 @@
+[console_scripts]
+example_agent=dendrite_python_sdk.examples.agent:run_agent
+test=tests.test_routes:main
+
