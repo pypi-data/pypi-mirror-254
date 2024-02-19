@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: docop
+Version: 0.7.3
+Summary: Simple doc processor
+Author-email: Petri Savolainen <petri@koodaamo.fi>
+License: GPLv3+
+Project-URL: Homepage, https://github.com/koodaamo/docop
+Project-URL: Repository, https://github.com/koodaamo/docop
+Project-URL: Documentation, https://docop.readthedocs.io/en/latest/
+Project-URL: Issues, https://github.com/koodaamo/docop/issues
+Project-URL: Changelog, https://github.com/koodaamo/docop/blob/main/CHANGES.md
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: yamlstore >=0.7.3
+Requires-Dist: click >=8.1.7
+Requires-Dist: rich >=13.7.0
+
+# Docop
+
+Simple document processing pipelines for importing, processing and exporting textual content.
+
+Documentation: https://docop.readthedocs.io/en/latest/
+Package: https://pypi.org/project/docop
