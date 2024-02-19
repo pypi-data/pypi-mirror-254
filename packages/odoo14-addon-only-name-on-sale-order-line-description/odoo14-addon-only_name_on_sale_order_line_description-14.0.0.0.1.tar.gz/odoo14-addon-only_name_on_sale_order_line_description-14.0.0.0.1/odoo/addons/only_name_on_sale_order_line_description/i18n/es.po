@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * only_name_on_sale_order_line_description
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: sale-workflow (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-23 08:14+0000\n"
+"PO-Revision-Date: 2024-01-27 14:35+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-sale-workflow-8-0/"
+"language/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_res_config_settings__group_use_product_description_per_so_line
+msgid "Allows you to use only the product name in the sales order line description"
+msgstr ""
+"Permitir usar solo el nombre del producto como descripción en las líneas de la orden de venta"
+
+#. module: only_name_on_sale_order_line_description
+#: model_terms:ir.ui.view,arch_db:only_name_on_sale_order_line_description.view_sales_config
+msgid "Allows you to use only product name on the sales order line description"
+msgstr ""
+"Le permite usar solo el nombre del producto como descripción en la línea de "
+"la orden de venta"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model.fields,help:only_name_on_sale_order_line_description.field_res_config_settings__group_use_product_description_per_so_line
+msgid ""
+"Allows you to use only product name on the sales order line description."
+msgstr ""
+"Le permite usar solo el nombre del producto como descripción en la línea de "
+"la orden de venta"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model,name:only_name_on_sale_order_line_description.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes Config"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_res_config_settings__id
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:only_name_on_sale_order_line_description.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: only_name_on_sale_order_line_description
+#: model_terms:ir.ui.view,arch_db:only_name_on_sale_order_line_description.view_sales_config
+msgid "Product sale description"
+msgstr "Descripción de la venta del producto"
+
+#. module: only_name_on_sale_order_line_description
+#: model:ir.model,name:only_name_on_sale_order_line_description.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: only_name_on_sale_order_line_description
+#: model:res.groups,name:only_name_on_sale_order_line_description.group_use_product_description_per_so_line
+msgid "Use only product name on order lines description"
+msgstr ""
+"Utilice solo el nombre del producto en la descripción de las líneas de pedido"
