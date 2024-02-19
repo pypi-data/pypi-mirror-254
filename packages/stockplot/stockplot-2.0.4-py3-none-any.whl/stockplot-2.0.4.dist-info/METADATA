@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: stockplot
+Version: 2.0.4
+Home-page: https://github.com/Thomas-mcinally/stockplot
+Author: Thomas McInally
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs ==1.4.4
+Requires-Dist: mplfinance ==0.12.10b0
+Requires-Dist: multitasking ==0.0.11
+Requires-Dist: peewee ==3.17.0
+Requires-Dist: pytz ==2024.1
+Requires-Dist: webencodings ==0.5.1
+Requires-Dist: yfinance ==0.2.36
+Requires-Dist: beautifulsoup4 ==4.12.3 ; python_full_version >= "3.6.0"
+Requires-Dist: pyparsing ==3.1.1 ; python_full_version >= "3.6.8"
+Requires-Dist: charset-normalizer ==3.3.2 ; python_full_version >= "3.7.0"
+Requires-Dist: tzdata ==2023.4 ; python_version >= "2"
+Requires-Dist: python-dateutil ==2.8.2 ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2"
+Requires-Dist: six ==1.16.0 ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2"
+Requires-Dist: html5lib ==1.1 ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: idna ==3.6 ; python_version >= "3.5"
+Requires-Dist: certifi ==2024.2.2 ; python_version >= "3.6"
+Requires-Dist: frozendict ==2.4.0 ; python_version >= "3.6"
+Requires-Dist: lxml ==5.1.0 ; python_version >= "3.6"
+Requires-Dist: kiwisolver ==1.4.5 ; python_version >= "3.7"
+Requires-Dist: packaging ==23.2 ; python_version >= "3.7"
+Requires-Dist: requests ==2.31.0 ; python_version >= "3.7"
+Requires-Dist: cycler ==0.12.1 ; python_version >= "3.8"
+Requires-Dist: fonttools ==4.47.2 ; python_version >= "3.8"
+Requires-Dist: pillow ==10.2.0 ; python_version >= "3.8"
+Requires-Dist: soupsieve ==2.5 ; python_version >= "3.8"
+Requires-Dist: urllib3 ==2.2.0 ; python_version >= "3.8"
+Requires-Dist: contourpy ==1.2.0 ; python_version >= "3.9"
+Requires-Dist: matplotlib ==3.8.2 ; python_version >= "3.9"
+Requires-Dist: numpy ==1.26.3 ; python_version >= "3.9"
+Requires-Dist: pandas ==2.2.0 ; python_version >= "3.9"
+
