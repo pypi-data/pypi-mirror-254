@@ -1,0 +1,12 @@
+README.md
+setup.py
+wsctools/__init__.py
+wsctools/wsheaders.py
+wsctools/wslogging.py
+wsctools/wstranslator.py
+wsctools/wsurls.py
+wsctools.egg-info/PKG-INFO
+wsctools.egg-info/SOURCES.txt
+wsctools.egg-info/dependency_links.txt
+wsctools.egg-info/requires.txt
+wsctools.egg-info/top_level.txt
