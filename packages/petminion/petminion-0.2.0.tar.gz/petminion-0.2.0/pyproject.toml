@@ -1,0 +1,73 @@
+# This file is used to control packaging for distribution via pypi
+
+[tool.poetry]
+name = "petminion"
+version = "0.2.0"
+authors = [
+  "Kevin Hester <kevinh@geeksville.com>"
+  ]
+description = "An application/framework for automated training of animals"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/petminion/petminion"
+homepage = "https://petminion.org"
+readme = "README.md"
+
+[tool.poetry.scripts]
+petminion = "petminion.__main__:main"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/geeksville/petminion/issues"
+
+# recommended per https://docs.pytest.org/en/7.4.x/explanation/goodpractices.html#goodpractices
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = "tests"
+addopts = [
+    "--import-mode=importlib",
+]
+markers = [
+    # "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integtest: integration test",
+]
+filterwarnings = [
+    "error",
+    "ignore::FutureWarning",
+    "ignore::UserWarning",    
+]
+log_cli = "True"
+log_cli_level = "DEBUG"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+platformdirs = "4.0.0"
+pillow = "^10.1.0"
+opencv-python = "^4.8.1.78"
+imageai = "^3.0.3"
+paho-mqtt = "^1.6.1"
+praw = "^7.7.1"
+jsonpickle = "^3.0.2"
+numpy = "^1.26.2"
+torch = "^2.1.2"
+torchvision = "^0.16.2"
+fpdf = "^1.7.2"
+mastodon-py = "^1.8.1"
+imutils = "^0.5.4"
+scipy = "^1.12.0"
+av = "^11.0.0"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.2.6"
+sphinx-rtd-theme = "^2.0.0"
+sphinxcontrib-napoleon = "^0.7"
+flake8 = "^6.1.0"
+pytest = "^7.4.3"
+freezegun = "^1.4.0"
+
+[tool.poetry.extras]
+docs = ["Sphinx", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
