@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "kaiba"
+version = "3.0.1"
+description = "Configurable and documentable Json transformation and mapping"
+authors = ["Thomas Borgen <thomas.borgen@greenbird.com>"]
+
+license = "MIT"
+readme = "docs/index.md"
+repository = "https://github.com/kaiba-tech/kaiba"
+documentation = "https://kaiba-tech.github.io/kaiba/"
+
+keywords = [
+  "Json mapping",
+  "data transformation",
+  "json to json",
+  "dict to dict",
+  "configurable"
+]
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+pycountry = ">=20.7.3,<23.0.0"
+returns = "^0.22.0"
+pydantic = "^2.4.2"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "1.5"
+wemake-python-styleguide = "^0.18.0"
+pre-commit = "^2.16.0"
+simplejson = "^3.17.6"
+
+safety = "^2.3.5"
+
+pytest = "^7.4.2"
+pytest-cov = ">=3,<5"
+mkdocs-material = "^9.4.6"
+importlib-metadata = ">=4.8.2,<8.0.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+known_first_party = "kaiba"
+profile = "wemake"
