@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/congress_transaction_scraper.egg-info/PKG-INFO
+src/congress_transaction_scraper.egg-info/SOURCES.txt
+src/congress_transaction_scraper.egg-info/dependency_links.txt
+src/congress_transaction_scraper.egg-info/requires.txt
+src/congress_transaction_scraper.egg-info/top_level.txt
+src/scrapers/__init__.py
+src/scrapers/base.py
+src/scrapers/senate.py
+src/utils/__init__.py
+src/utils/data.py
+src/utils/session.py

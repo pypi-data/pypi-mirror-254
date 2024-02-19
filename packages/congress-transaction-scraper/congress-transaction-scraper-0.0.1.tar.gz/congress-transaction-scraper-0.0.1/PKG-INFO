@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: congress-transaction-scraper
+Version: 0.0.1
+Summary: Congressional transaction scraper
+Author-email: Example Author <author@example.com>
+Project-URL: Homepage, https://github.com/antidipyramid/congressional-transaction-scraper
+Project-URL: Issues, https://github.com/antidipyramid/congressional-transaction-scraper/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beautifulsoup4==4.12.0
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: lxml
+
+# congressional-transaction-scraper
+Financial disclosure scraper for U.S. Congress and Senate
