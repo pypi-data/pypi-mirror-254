@@ -1,0 +1,3 @@
+[console_scripts]
+redbean=redbeanpython.cli.cli:main
+
