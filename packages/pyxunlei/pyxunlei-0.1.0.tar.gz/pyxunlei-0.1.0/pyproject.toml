@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pyxunlei"
+version = "0.1.0"
+description = ""
+authors = ["huihuidehui <kanhuihui@163.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+loguru = "^0.7.2"
+requests = "^2.31.0"
+pydantic = "^2.6.0"
+torrentool = "^1.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

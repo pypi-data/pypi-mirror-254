@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyxunlei
+Version: 0.1.0
+Summary: 
+Author: huihuidehui
+Author-email: kanhuihui@163.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: pydantic (>=2.6.0,<3.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: torrentool (>=1.2.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# pyxunlei
+基于Docker版本的[Xunlei API Client](https://github.com/cnk3x/xunlei)
+
+## 使用方法
+```
+from pyxunlei import XunleiClient
+```
+
+
