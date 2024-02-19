@@ -1,0 +1,11 @@
+Pillow
+TTS
+backoff
+google-generativeai>=0.3.2
+opencv_contrib_python
+pydub
+pygrabber
+pynput
+python-dotenv
+ratelimit
+rich

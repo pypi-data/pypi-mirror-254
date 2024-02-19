@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: ai-stream-interact
+Version: 0.0.4
+Summary: An model agnostic extensible package that allows for AI & LLM interactions on a video stream
+Author: Omar Aref
+Author-email: oa_dev_acc_92@hotmail.com
+Keywords: python,ai,llm,artificial intelligence,large language models,nlp,natural language processing,video,video stream
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Description-Content-Type: text/markdown
+License-File: COPYING
