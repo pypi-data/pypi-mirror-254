@@ -1,0 +1,17 @@
+docopt<1,>=0.6.2
+pandas<3,>=2.1.2
+pydantic<3,>=2.4.2
+verboselogs<2,>=1.7
+
+[build]
+build
+
+[deploy]
+twine
+
+[test]
+pytest
+pytest-cov
+
+[toml]
+tomli_w<2,>=1.0.0
