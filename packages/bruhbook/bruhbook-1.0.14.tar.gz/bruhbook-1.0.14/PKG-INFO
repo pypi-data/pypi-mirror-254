@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: bruhbook
+Version: 1.0.14
+Summary: 
+Author: ethanlchristensen
+Author-email: ethanlchristensen@outlook.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bruhcolor (>=0.0.64,<0.0.65)
+Requires-Dist: docx2pdf (>=0.1.8,<0.2.0)
+Requires-Dist: flask (>=3.0.1,<4.0.0)
+Requires-Dist: openai (>=1.10.0,<2.0.0)
+Requires-Dist: python-docx (>=1.1.0,<2.0.0)
+Requires-Dist: python-dotenv (>=1.0.1,<2.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: spire-doc (>=12.1.0,<13.0.0)
+Description-Content-Type: text/markdown
+
+# BruhBook
+
+`bruhbook` is a Python package designed to interface with OpenAI, allowing users to create captivating short stories complete with custom cover art. This tool is perfect for writers, creators, and anyone interested in generating unique narratives with visually appealing covers.
+
+## Features
+
+- Generate short stories based on specific themes and target audiences.
+- Automatically create cover art for the stories.
+- Customizable story generation to suit different genres and styles.
+
+## Installation
+
+To install `bruhbook`, simply run:
+
+```bash
+pip install bruhbook
+```
+
+## Usage
+
+Here is a basic example of how to use `bruhbook` to generate a short story with a cover image:
+
+```py
+from bruhbook.bruhbook import BruhBook
+
+bb = BruhBook(
+    create_cover_image=True,
+    wipe_files=False
+)
+
+story_type = "A cyberpunk knight fighting his way through hell. Flames, lava, dark, alien like plasma monsters"
+target_audience = "Mature Adults"
+
+bb.generate_story_outline(
+        story_type=story_type,
+        target_audience=target_audience
+)
+
+bb.story_generator(
+    story_type=story_type,
+    target_audience=target_audience
+)
+```
+
+## Requirements
+
+- Python 3.11 or later
+
+## Documentation
+
+🚧 Under Construciton 🚧
+
+## Contributing
+
+🚧 Under Construction 🚧
+
+## License
+
+`bruhbook` is licensed under the Apache License. See the [LICENSE](LICENSE) file for more details.
+
