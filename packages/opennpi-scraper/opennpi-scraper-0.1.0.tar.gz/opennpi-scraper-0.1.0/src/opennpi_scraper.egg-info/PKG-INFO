@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: opennpi-scraper
+Version: 0.1.0
+Summary: The `opennpi-scraper` is designed for seamless interaction with the opennpi.com page
+Home-page: https://github.com/Diego-Arrechea/opennpi-scraper
+Author: Diego Arrechea
+Author-email: diego.arrechea.job@gmail.com
+License: MIT
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+
+# openNPI Scraper
+
+## Introduction
+
+The `opennpi-scraper` Python package enables efficient access to the OpenNPI database, facilitating detailed queries on healthcare providers and offering a streamlined interface for extracting National Provider Identifier (NPI) records. This tool is invaluable for healthcare research and data analysis, offering advanced search capabilities and detailed information retrieval.
+
+## Features
+
+- **Advanced Search Functionality:** Perform detailed searches using a variety of filters such as name, specialty, and location.
+- **Detailed Information Retrieval:** Access comprehensive details about individual healthcare providers and doctors.
+- **User-Friendly Interface:** Simplifies the extraction process with an easy-to-use API, designed for developers and researchers alike.
+
+## Installation
+
+To install `opennpi-scraper`, run the following command in your terminal:
+
+```bash
+pip install opennpi-scraper
+```
+
+## Usage
+
+### Importing the Module
+
+Start by importing the `openNPI` class from the `opennpi` package:
+
+```python
+from opennpi import openNPI
+```
+
+### Creating an Instance
+
+Create an instance of the `openNPI` class:
+
+```python
+scraper = openNPI.Scraper()
+```
+
+### Fetching Details
+
+Retrieve detailed information about healthcare providers and doctors by their NPI numbers.
+
+#### Providers
+```python
+provider_info = scraper.get_provider_detail(NPI="1629848031")
+print(provider_info)
+```
+
+#### Doctors
+```python
+doctor_info = scraper.get_doctor_detail(NPI="8224486550")
+print(doctor_info)
+```
+
+**Returns:**
+- A dictionary with the provider's or doctor's name and additional details extracted from their respective pages.
+
+### Search
+
+Conduct searches for healthcare providers or doctors based on specific criteria.
+
+#### Providers Search Parameters
+
+| Parameter   | Type  | Description                               |
+|-------------|-------|-------------------------------------------|
+| query       | str   | General search term.                      |
+| taxonomy    | str   | Filter by the provider's specialty.       |
+| state       | str   | State abbreviation.                       |
+| city        | str   | City name.                                |
+| zip         | str   | Postal code.                              |
+| page        | int   | Page number of results to query.          |
+
+**Returns:**
+- A dictionary with `doctors` key containing a list of matching providers and `nextPage` indicating if more results are available.
+
+```python
+advanced_results = scraper.search_providers(query="John Doe", state="CA", specialty="Pediatrics")
+print(search_results)
+```
+
+#### Doctors Search Parameters
+
+| Parameter   | Type  | Description                                       |
+|-------------|-------|---------------------------------------------------|
+| query       | str   | General search term.                              |
+| specialty   | str   | Medical specialty of the doctor.                  |
+| school      | str   | Medical school or university of the doctor.       |
+| organization| str   | Organization or medical practice the doctor belongs to. |
+| state       | str   | State abbreviation.                               |
+| city        | str   | City name.                                        |
+| zip         | str   | Postal code.                                      |
+| page        | int   | Page number of results to query.                  |
+
+**Returns:**
+- A dictionary with `doctors` key containing a list of matching doctors and `nextPage` indicating if more results are available.
+
+```python
+advanced_results = scraper.search_doctors(school="Harvard Medical School", organization="Healthcare Org")
+print(advanced_results)
+```
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE.md` file for details.
