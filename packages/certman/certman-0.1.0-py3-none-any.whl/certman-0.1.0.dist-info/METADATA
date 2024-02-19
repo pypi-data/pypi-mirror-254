@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: certman
+Version: 0.1.0
+Summary: 
+Author: Sernin van de Krol
+Author-email: serninpc@paneidos.net
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: cryptography (>=41.0.7,<42.0.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# Certificate Manager
+
+Manage your certificate in the standardized p12 format.
+This format can hold both your private key and your certificate,
+making it ideal for storing your those together. You can then
+use the export commands to extract the parts you need to supply
+to your web server or other service.
+
+## Create
+
+```
+certman create my-cert.p12 [--key-type rsa|ecdsa]
+```
+
+## Sign
+
+```
+certman sign my-cert.p12 [sign-with.p12] [--attributes cn:mydomain.com]
+```
+
+## Export
+
+Your key and certificate are usually required in PEM format.
+
+```
+certman export key my-cert.p12
+certman export certificate my-cert.p12
+```
