@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: carp-rpc
+Version: 0.0.4
+Summary: Async RPC toolkit
+Home-page: https://github.com/bgribble/carp
+Download-URL: https://github.com/bgribble/carp/archive/refs/tags/v0.0.4.tar.gz
+Author: Bill Gribble
+Author-email: grib@billgribble.com
+License: MIT
+Keywords: rpc,protobuf,json
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE.txt
