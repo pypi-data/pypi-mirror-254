@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: view.py
+Version: 1.0.0a9
+Summary: The Batteries-Detachable Web Framework.
+Author-email: ZeroIntensity <zintensitydev@gmail.com>
+License: MIT
+Project-URL: Documentation, https://view.zintensity.dev
+Project-URL: Issues, https://github.com/ZeroIntensity/view.py/issues
+Project-URL: Source, https://github.com/ZeroIntensity/view.py
+Project-URL: Funding, https://github.com/sponsors/ZeroIntensity
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich
+Requires-Dist: click
+Requires-Dist: typing-extensions
+Requires-Dist: ujson
+Requires-Dist: configzen
+Requires-Dist: uvicorn
+Requires-Dist: aiofiles
+Provides-Extra: databases
+Requires-Dist: psycopg2-binary ; extra == 'databases'
+Requires-Dist: mysql-connector-python ; extra == 'databases'
+Requires-Dist: pymongo ; extra == 'databases'
+Requires-Dist: aiosqlite ; extra == 'databases'
+Provides-Extra: dev
+Requires-Dist: ruff ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Provides-Extra: fancy
+Requires-Dist: psutil ; extra == 'fancy'
+Requires-Dist: plotext ; extra == 'fancy'
+Provides-Extra: full
+Requires-Dist: psutil ; extra == 'full'
+Requires-Dist: plotext ; extra == 'full'
+Requires-Dist: beautifulsoup4 ; extra == 'full'
+Requires-Dist: jinja2 ; extra == 'full'
+Requires-Dist: mako ; extra == 'full'
+Requires-Dist: django ; extra == 'full'
+Requires-Dist: chameleon ; extra == 'full'
+Requires-Dist: attrs ; extra == 'full'
+Requires-Dist: psycopg2-binary ; extra == 'full'
+Requires-Dist: mysql-connector-python ; extra == 'full'
+Requires-Dist: pymongo ; extra == 'full'
+Requires-Dist: aiosqlite ; extra == 'full'
+Requires-Dist: markdown ; extra == 'full'
+Provides-Extra: templates
+Requires-Dist: beautifulsoup4 ; extra == 'templates'
+Requires-Dist: jinja2 ; extra == 'templates'
+Requires-Dist: mako ; extra == 'templates'
+Requires-Dist: django ; extra == 'templates'
+Requires-Dist: chameleon ; extra == 'templates'
+Requires-Dist: markdown ; extra == 'templates'
+
+<div align="center"><img src="https://raw.githubusercontent.com/ZeroIntensity/view.py/master/html/logo.png" alt="view.py logo" width=250 height=auto /></div>
+
+<div align="center"><h2>The Batteries-Detachable Web Framework</h2></div>
+
+> [!Warning]
+> view.py is in very early stages and not yet considered to be ready for production.
+> If you would like to follow development progress, join [the discord](https://discord.gg/tZAfuWAbm2).
+> For contributing to view.py, please see our [CONTRIBUTING.md](https://github.com/ZeroIntensity/view.py/blob/master/CONTRIBUTING.md)
+
+<div align="center">
+    <a href="https://clientarea.space-hosting.net/aff.php?aff=303"><img width=250 height=auto src="https://cdn-dennd.nitrocdn.com/fygsTSpFNuiCdXWNTtgOTVMRlPWNnIZx/assets/images/optimized/rev-758b0f8/www.space-hosting.net/wp-content/uploads/2023/02/cropped-Icon.png"></a>
+    <h3>view.py is affiliated with <a href="https://clientarea.space-hosting.net/aff.php?aff=303">Space Hosting</a></h3>
+</div>
+
+- [Docs](https://view.zintensity.dev)
+- [Source](https://github.com/ZeroIntensity/view.py)
+- [PyPI](https://pypi.org/project/view.py)
+- [Discord](https://discord.gg/tZAfuWAbm2)
+
+## Example
+
+```py
+from view import new_app, h1
+
+app = new_app()
+
+@app.get("/")
+async def index():
+    return h1("Hello, view.py!")
+
+app.run()
+```
+
+## Installation
+
+**Python 3.8+ is required.**
+
+### Development 
+
+```
+$ pip install git+https://github.com/ZeroIntensity/view.py
+```
+
+### Linux/macOS
+
+```
+$ python3 -m pip install -U view.py
+```
+
+### Windows
+
+```
+> py -3 -m pip install -U view.py
+```
