@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: django-sql-profiler
+Version: 0.0.2
+Summary: Simple SQL Profiler for Django
+Author: David (thinhit@yahoo.com)
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pymongo
+
+## Django SQL Profiler
+
+This package inspred by Sentry SDK, its will capture all SQL statements and save to MongoDB
+Require: PyMongo
+
+#### How to use
+```python
+import sql_profiler
+sql_profiler.install_sql_hook(
+    {
+        'slow_queries_threshold': 0.2,
+        'app_namespace': ['apps.'],
+        'mongodb': {
+            'uri': MONGODB,
+            'db': MONGODB_DB,
+            'collection': 'sql_slow_queries'
+        }
+    }
+)
+```
