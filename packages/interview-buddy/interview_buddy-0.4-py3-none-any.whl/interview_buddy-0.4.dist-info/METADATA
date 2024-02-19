@@ -1,0 +1,111 @@
+Metadata-Version: 2.1
+Name: interview-buddy
+Version: 0.4
+Summary: This package is made for beginners who are appearing for interview preparation and to crack coding interviews
+Author: R Jeyaraman
+Author-email: jeyaramanjr7@gmail.com
+Description-Content-Type: text/markdown
+Requires-Dist: transformers
+Requires-Dist: ctransformers
+
+# Interview Buddy
+Interview Buddy is designed for beginners who are new to coding which has two ai-models in it **code-llama-7b** for code generation and **python-code-explainer** which makes it useful for generating code and understanding code for both beginner and intermediate programmers
+
+## Installation
+
+Install interview-buddy with cmd
+
+```bash
+  pip install interview-buddy==0.4
+```
+
+# Initialization for Basic Methods
+```bash
+from interview.interview import Interview
+interview = Interview(data=10)
+```
+
+# Initialization for Generating Code 
+```bash
+from interview.interview import Interview
+interview = Code_Generator("Generate")
+```
+
+# Initialize the Interview object with necessary data
+## Methods
+**a.** **factorial()**
+This method calculates the factorial of a given number.
+
+**Parameters:**
+* **data:** Integer, the number for which factorial is to be calculated.
+**Example:**
+```bash
+result = interview.factorial()
+print("Factorial:", result)
+```
+
+**Parameters:**
+* **User_input:** String, Enter the query which want to be generated.
+**Example:**
+```bash
+result = interview.generate_code("Write me a code for Binary Tree")
+print("Factorial:", result)
+```
+
+# Supported Methods
+List all the supported methods along with a brief description of what each method does.
+
+**fibonacci_series():** Generates a Fibonacci series.\
+**palindrom():** Checks if a string is a palindrome.\
+**bubble_sort():** Sorts a list using the bubble sort algorithm.\
+**insertion_sort():** Sorts a list using the insertion sort algorithm.\
+**anagram():** Checks if two strings are anagrams.\
+**binary_search():** Performs binary search on a sorted list.\
+**min_():** Finds the minimum value in a list.\
+**max_():** Finds the maximum value in a list.\
+**reverse():** Reverses a list.
+**generate_code():** Which is used to generate code 
+
+## Installation
+
+Install interview-buddy with cmd
+
+```bash
+  pip install interview-buddy
+```
+    
+
+
+## Authors
+
+- [@RoboJunior](https://github.com/RoboJunior) 👨‍💻
+
+
+
+
+## Dependencies
+
+* Transformers
+* Ctransformers
+
+Transformers - Installation
+```bash
+  pip install transformers
+```
+
+Ctranformers - Installation
+```bash
+#Base ctransformers with no GPU acceleration
+pip install ctransformers>=0.2.24
+
+#Or with CUDA GPU acceleration
+pip install ctransformers[cuda]>=0.2.24
+
+#Or with ROCm GPU acceleration
+CT_HIPBLAS=1 pip install ctransformers>=0.2.24 --no-binary ctransformers
+
+#Or with Metal GPU acceleration for macOS systems
+CT_METAL=1 pip install ctransformers>=0.2.24 --no-binary ctransformers
+
+```
+
