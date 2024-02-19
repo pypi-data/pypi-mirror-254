@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Molecular types &#8212; cogent3 2023.12.15 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cookbook/moltypes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Alphabets" href="alphabet.html" />
+    <link rel="prev" title="Annotation Databases" href="annotation_db.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">cogent3</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../app/index.html">
+                        apps
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Cookbook
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cogent3/cogent3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../app/index.html">
+                        apps
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Cookbook
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cogent3/cogent3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="manipulating_biological_data.html">Manipulating biological data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="loading_sequences.html">Loading a sequence from a file</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="DNA_and_RNA_sequences.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_sequences.html">Protein sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alignments.html">Sequence Collections and Alignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation_db.html">Annotation Databases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Molecular types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alphabet.html">Alphabets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what_codes.html">Available genetic codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetic_code.html">Using genetic codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_trees.html">Trees</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">Tabular data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_alignments.html">Building alignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calc_genetic_distance.html">Genetic distance calculation</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="building_phylogenies.html">Building phylogenies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evo_modelling.html">Evolutionary Analysis Using Likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful_utilities.html">Useful Utilities</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Cookbook</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="manipulating_biological_data.html" class="nav-link">Manipulating biological data</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Molecular types</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="jupyter_cell docutils container">
+<div class="cell_output docutils container">
+</div>
+</div>
+<section id="molecular-types">
+<h1>Molecular types<a class="headerlink" href="#molecular-types" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">MolType</span></code> object provides services for resolving ambiguities, or providing the correct ambiguity for recoding. It also maintains the mappings between different kinds of alphabets, sequences and alignments.</p>
+<p>If your analysis involves handling ambiguous states, or translation via a genetic code, it’s critical to specify the appropriate moltype.</p>
+<section id="available-molecular-types">
+<h2>Available molecular types<a class="headerlink" href="#available-molecular-types" title="Permalink to this heading">#</a></h2>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cogent3</span> <span class="kn">import</span> <span class="n">available_moltypes</span>
+
+<span class="n">available_moltypes</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div class="c3table">
+
+<style>
+.c3table table {margin: 10px 0;}
+.c3table tr:last-child {border-bottom: 1px solid #000;} 
+.c3table tr > th {text-align: left; padding: 0 5px;}
+.c3table tr > td {text-align: left; padding: 5px;}
+.c3table tr:nth-child(even) {background: #f7f7f7 !important;}
+.c3table .ellipsis {background: rgba(0, 0, 0, .01);}
+.c3table .index {background: rgba(161, 195, 209, 0.25); margin: 10px; font-weight: 600;}
+.c3table .head_cell {background: rgba(161, 195, 209, 0.75); font-weight: bold; text-align: center;}
+.c3table caption {color: rgb(250, 250, 250); background: rgba(30, 140, 200, 1); padding: 3px; white-space: nowrap; caption-side: top;}
+.c3table .cell_title {font-weight: bold;}
+.c3col_left { text-align: left !important; display: block;}
+.c3col_right { text-align: right !important; display: block;}
+.c3col_center { text-align: center !important; display: block;}
+</style>
+
+<table>
+
+<caption>
+<span class="cell_title">Specify a moltype by the Abbreviation (case insensitive).</span>
+</caption>
+<thead class="head_cell">
+<th>Abbreviation</th><th>Number of states</th><th>Moltype</th>
+</thead>
+<tbody>
+<tr><td class="index"><span class="c3col_left">'ab'</span></td><td><span class="c3col_right">2</span></td><td><span class="c3col_left">MolType(('a', 'b'))</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'dna'</span></td><td><span class="c3col_right">4</span></td><td><span class="c3col_left">MolType(('T', 'C', 'A', 'G'))</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'rna'</span></td><td><span class="c3col_right">4</span></td><td><span class="c3col_left">MolType(('U', 'C', 'A', 'G'))</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'protein'</span></td><td><span class="c3col_right">21</span></td><td><span class="c3col_left">MolType(('A', 'C', 'D', 'E', 'F', 'G', ...</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'protein_with_stop'</span></td><td><span class="c3col_right">22</span></td><td><span class="c3col_left">MolType(('A', 'C', 'D', 'E', 'F', 'G', ...</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'text'</span></td><td><span class="c3col_right">52</span></td><td><span class="c3col_left">MolType(('a', 'b', 'c', 'd', 'e', 'f', ...</span></td></tr>
+<tr><td class="index"><span class="c3col_left">'bytes'</span></td><td><span class="c3col_right">256</span></td><td><span class="c3col_left">MolType(('\x00', '\x01', '\x02', '\x03'...</span></td></tr>
+</tbody>
+</table>
+<p>
+7 rows x 3 columns</p>
+</div></div></div>
+</div>
+<p>For statements that have a <code class="docutils literal notranslate"><span class="pre">moltype</span></code> argument, use the entry under the “Abbreviation” column. For example:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cogent3</span> <span class="kn">import</span> <span class="n">load_aligned_seqs</span>
+
+<span class="n">seqs</span> <span class="o">=</span> <span class="n">load_aligned_seqs</span><span class="p">(</span><span class="s2">&quot;data/brca1-bats.fasta&quot;</span><span class="p">,</span> <span class="n">moltype</span><span class="o">=</span><span class="s2">&quot;dna&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+<section id="getting-a-moltype">
+<h2>Getting a <code class="docutils literal notranslate"><span class="pre">MolType</span></code><a class="headerlink" href="#getting-a-moltype" title="Permalink to this heading">#</a></h2>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cogent3</span> <span class="kn">import</span> <span class="n">get_moltype</span>
+
+<span class="n">dna</span> <span class="o">=</span> <span class="n">get_moltype</span><span class="p">(</span><span class="s2">&quot;dna&quot;</span><span class="p">)</span>
+<span class="n">dna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>MolType((&#39;T&#39;, &#39;C&#39;, &#39;A&#39;, &#39;G&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-a-moltype-to-get-ambiguity-codes">
+<h2>Using a <code class="docutils literal notranslate"><span class="pre">MolType</span></code> to get ambiguity codes<a class="headerlink" href="#using-a-moltype-to-get-ambiguity-codes" title="Permalink to this heading">#</a></h2>
+<p>Just using <code class="docutils literal notranslate"><span class="pre">dna</span></code> from above.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dna</span><span class="o">.</span><span class="n">ambiguities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;?&#39;: (&#39;T&#39;, &#39;C&#39;, &#39;A&#39;, &#39;G&#39;, &#39;-&#39;),
+ &#39;-&#39;: (&#39;-&#39;,),
+ &#39;N&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;R&#39;: (&#39;A&#39;, &#39;G&#39;),
+ &#39;Y&#39;: (&#39;C&#39;, &#39;T&#39;),
+ &#39;W&#39;: (&#39;A&#39;, &#39;T&#39;),
+ &#39;S&#39;: (&#39;C&#39;, &#39;G&#39;),
+ &#39;K&#39;: (&#39;T&#39;, &#39;G&#39;),
+ &#39;M&#39;: (&#39;C&#39;, &#39;A&#39;),
+ &#39;B&#39;: (&#39;C&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;D&#39;: (&#39;A&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;H&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;T&#39;),
+ &#39;V&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;G&#39;),
+ &#39;T&#39;: (&#39;T&#39;,),
+ &#39;C&#39;: (&#39;C&#39;,),
+ &#39;A&#39;: (&#39;A&#39;,),
+ &#39;G&#39;: (&#39;G&#39;,)}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="moltype-definition-of-degenerate-codes">
+<h2><code class="docutils literal notranslate"><span class="pre">MolType</span></code> definition of degenerate codes<a class="headerlink" href="#moltype-definition-of-degenerate-codes" title="Permalink to this heading">#</a></h2>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dna</span><span class="o">.</span><span class="n">degenerates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;N&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;R&#39;: (&#39;A&#39;, &#39;G&#39;),
+ &#39;Y&#39;: (&#39;C&#39;, &#39;T&#39;),
+ &#39;W&#39;: (&#39;A&#39;, &#39;T&#39;),
+ &#39;S&#39;: (&#39;C&#39;, &#39;G&#39;),
+ &#39;K&#39;: (&#39;T&#39;, &#39;G&#39;),
+ &#39;M&#39;: (&#39;C&#39;, &#39;A&#39;),
+ &#39;B&#39;: (&#39;C&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;D&#39;: (&#39;A&#39;, &#39;T&#39;, &#39;G&#39;),
+ &#39;H&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;T&#39;),
+ &#39;V&#39;: (&#39;A&#39;, &#39;C&#39;, &#39;G&#39;),
+ &#39;?&#39;: &#39;TCAG-&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nucleic-acid-moltype-and-complementing">
+<h2>Nucleic acid <code class="docutils literal notranslate"><span class="pre">MolType</span></code> and complementing<a class="headerlink" href="#nucleic-acid-moltype-and-complementing" title="Permalink to this heading">#</a></h2>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dna</span><span class="o">.</span><span class="n">complement</span><span class="p">(</span><span class="s2">&quot;AGG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;TCC&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-sequences">
+<h2>Making sequences<a class="headerlink" href="#making-sequences" title="Permalink to this heading">#</a></h2>
+<p>Use the either the top level <code class="docutils literal notranslate"><span class="pre">cogent3.make_seq</span></code> function, or the method on the <code class="docutils literal notranslate"><span class="pre">MolType</span></code> instance.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq</span> <span class="o">=</span> <span class="n">dna</span><span class="o">.</span><span class="n">make_seq</span><span class="p">(</span><span class="s2">&quot;AGGCTT&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;seq1&quot;</span><span class="p">)</span>
+<span class="n">seq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.c3seq table {margin: 10px 0;}
+.c3seq td { border: none !important; text-align: left !important; }
+.c3seq tr:not(.num_row) td span {margin: 0 2px;}
+.c3seq tr:nth-child(even) {background: #f7f7f7;}
+.c3seq .num_row {background-color:rgba(161, 195, 209, 0.5) !important; border-top: solid 1px black; }
+.c3seq .label { font-size: 12pt ; text-align: right !important; color: black !important; padding: 0 4px; }
+.c3seq .T_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: blue; }
+.c3seq .C_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .A_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: #FF0102; }
+.c3seq .G_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: green; }
+.c3seq .terminal_ambig_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: gray; }
+.c3seq .ambig_dna{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: gray; }
+</style>
+<div class="c3seq">
+<table>
+<tr class="num_row"><td></td><td><b>0</b></td></tr>
+<tr><td class="label">seq1</td><td><span class="A_dna">A</span><span class="G_dna">G</span><span class="G_dna">G</span><span class="C_dna">C</span><span class="T_dna">T</span><span class="T_dna">T</span></td></tr>
+</table>
+<p><i>DnaSequence, length=6</i></p>
+</div></div></div>
+</div>
+</section>
+<section id="verify-sequences">
+<h2>Verify sequences<a class="headerlink" href="#verify-sequences" title="Permalink to this heading">#</a></h2>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rna</span> <span class="o">=</span> <span class="n">get_moltype</span><span class="p">(</span><span class="s2">&quot;rna&quot;</span><span class="p">)</span>
+<span class="n">rna</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="s2">&quot;ACGUACGUACGUACGU&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-a-custom-moltype">
+<h2>Making a custom <code class="docutils literal notranslate"><span class="pre">MolType</span></code><a class="headerlink" href="#making-a-custom-moltype" title="Permalink to this heading">#</a></h2>
+<p>We demonstrate this by customising DNA so it allows <code class="docutils literal notranslate"><span class="pre">.</span></code> as gaps</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cogent3.core</span> <span class="kn">import</span> <span class="n">moltype</span> <span class="k">as</span> <span class="n">mt</span>
+
+<span class="n">DNAgapped</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">MolType</span><span class="p">(</span>
+    <span class="n">seq_constructor</span><span class="o">=</span><span class="n">mt</span><span class="o">.</span><span class="n">DnaSequence</span><span class="p">,</span>
+    <span class="n">motifset</span><span class="o">=</span><span class="n">mt</span><span class="o">.</span><span class="n">IUPAC_DNA_chars</span><span class="p">,</span>
+    <span class="n">ambiguities</span><span class="o">=</span><span class="n">mt</span><span class="o">.</span><span class="n">IUPAC_DNA_ambiguities</span><span class="p">,</span>
+    <span class="n">complements</span><span class="o">=</span><span class="n">mt</span><span class="o">.</span><span class="n">IUPAC_DNA_ambiguities_complements</span><span class="p">,</span>
+    <span class="n">pairs</span><span class="o">=</span><span class="n">mt</span><span class="o">.</span><span class="n">DnaStandardPairs</span><span class="p">,</span>
+    <span class="n">gaps</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="n">DNAgapped</span><span class="o">.</span><span class="n">make_seq</span><span class="p">(</span><span class="s2">&quot;ACG.&quot;</span><span class="p">)</span>
+<span class="n">seq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.c3seq table {margin: 10px 0;}
+.c3seq td { border: none !important; text-align: left !important; }
+.c3seq tr:not(.num_row) td span {margin: 0 2px;}
+.c3seq tr:nth-child(even) {background: #f7f7f7;}
+.c3seq .num_row {background-color:rgba(161, 195, 209, 0.5) !important; border-top: solid 1px black; }
+.c3seq .label { font-size: 12pt ; text-align: right !important; color: black !important; padding: 0 4px; }
+.c3seq .T_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .C_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .A_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .G_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .terminal_ambig_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+.c3seq .ambig_{font-family: "Lucida Console",monospace !important; font-size: 12pt !important; color: black; }
+</style>
+<div class="c3seq">
+<table>
+<tr class="num_row"><td></td><td><b>0</b></td></tr>
+<tr><td class="label">None</td><td><span class="A_">A</span><span class="C_">C</span><span class="G_">G</span><span class="terminal_ambig_None">.</span></td></tr>
+</table>
+<p><i>DnaSequence, length=4</i></p>
+</div></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At present, constructing a custom <code class="docutils literal notranslate"><span class="pre">MolType</span></code> that overrides a builtin one affects the original (in this instance, the <code class="docutils literal notranslate"><span class="pre">DnaSequence</span></code> class). All subsequent calls to the original class in the running process that made the change are affected. The below code is resetting this attribute now to allow the rest of the documentation to be executed.</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cogent3</span> <span class="kn">import</span> <span class="n">DNA</span>
+<span class="kn">from</span> <span class="nn">cogent3.core.sequence</span> <span class="kn">import</span> <span class="n">DnaSequence</span>
+
+<span class="n">DnaSequence</span><span class="o">.</span><span class="n">moltype</span> <span class="o">=</span> <span class="n">DNA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="annotation_db.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Annotation Databases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="alphabet.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Alphabets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-molecular-types">Available molecular types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-a-moltype">Getting a <code class="docutils literal notranslate"><span class="pre">MolType</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-moltype-to-get-ambiguity-codes">Using a <code class="docutils literal notranslate"><span class="pre">MolType</span></code> to get ambiguity codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moltype-definition-of-degenerate-codes"><code class="docutils literal notranslate"><span class="pre">MolType</span></code> definition of degenerate codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nucleic-acid-moltype-and-complementing">Nucleic acid <code class="docutils literal notranslate"><span class="pre">MolType</span></code> and complementing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-sequences">Making sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-sequences">Verify sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-custom-moltype">Making a custom <code class="docutils literal notranslate"><span class="pre">MolType</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/cookbook/moltypes.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2020-2023, cogent3 Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

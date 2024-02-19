@@ -1,0 +1,864 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>DataStoreSqlite &#8212; cogent3 2023.12.15 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/app/sqlite_data_store/classes/cogent3.app.sqlite_data_store.DataStoreSqlite';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="deserialise_object" href="../../../util/deserialise/deserialise_object.html" />
+    <link rel="prev" title="ReadOnlyDataStoreZipped" href="../../data_store/classes/cogent3.app.data_store.ReadOnlyDataStoreZipped.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">cogent3</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../app/index.html">
+                        apps
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../cookbook/index.html">
+                        Cookbook
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../../index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cogent3/cogent3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../app/index.html">
+                        apps
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../cookbook/index.html">
+                        Cookbook
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../../examples/index.html">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../../index.html">
+                        API
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cogent3/cogent3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_seq.html">load_seq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_aligned_seqs.html">load_aligned_seqs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_unaligned_seqs.html">load_unaligned_seqs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_delimited.html">load_delimited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_table.html">load_table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_tree.html">load_tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.load_annotations.html">load_annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.open_data_store.html">open_data_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.open_.html">open</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.make_seq.html">make_seq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.make_aligned_seqs.html">make_aligned_seqs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.make_unaligned_seqs.html">make_unaligned_seqs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.make_table.html">make_table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.make_tree.html">make_tree</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.get_code.html">get_code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.get_moltype.html">get_moltype</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.get_model.html">get_model</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.available_codes.html">available_codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.available_moltypes.html">available_moltypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.available_models.html">available_models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../__init__/cogent3.__init__.available_apps.html">available_apps</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../alignment/alignment.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">alignment</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../alignment/classes/cogent3.core.alignment.SequenceCollection.html">cogent3.core.alignment.SequenceCollection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../alignment/classes/cogent3.core.alignment.Alignment.html">cogent3.core.alignment.Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../alignment/classes/cogent3.core.alignment.ArrayAlignment.html">cogent3.core.alignment.ArrayAlignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../annotation/annotation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotation/classes/cogent3.core.annotation.Feature.html">cogent3.core.annotation.Feature</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../annotation_db/annotation_db.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">annotation_db</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotation_db/classes/cogent3.core.annotation_db.BasicAnnotationDb.html">cogent3.core.annotation_db.BasicAnnotationDb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotation_db/classes/cogent3.core.annotation_db.GffAnnotationDb.html">cogent3.core.annotation_db.GffAnnotationDb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../annotation_db/classes/cogent3.core.annotation_db.GenbankAnnotationDb.html">cogent3.core.annotation_db.GenbankAnnotationDb</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../sequence/sequence.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sequence</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sequence/classes/cogent3.core.sequence.DnaSequence.html">cogent3.core.sequence.DnaSequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sequence/classes/cogent3.core.sequence.RnaSequence.html">cogent3.core.sequence.RnaSequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sequence/classes/cogent3.core.sequence.ProteinSequence.html">cogent3.core.sequence.ProteinSequence</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../genetic_code/genetic_code.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">genetic_code</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../genetic_code/classes/cogent3.core.genetic_code.GeneticCode.html">cogent3.core.genetic_code.GeneticCode</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../moltype/moltype.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">moltype</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../moltype/classes/cogent3.core.moltype.MolType.html">cogent3.core.moltype.MolType</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../alphabet/alphabet.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">alphabet</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../alphabet/classes/cogent3.core.alphabet.Alphabet.html">cogent3.core.alphabet.Alphabet</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../table/table.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">table</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../table/classes/cogent3.util.table.Table.html">cogent3.util.table.Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../table/classes/cogent3.util.table.Columns.html">cogent3.util.table.Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../table/classes/cogent3.parse.table.FilteringParser.html">cogent3.parse.table.FilteringParser</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tree/tree.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tree</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tree/classes/cogent3.core.tree.PhyloNode.html">cogent3.core.tree.PhyloNode</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../composable/define_app.html">define_app</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../io/classes/cogent3.app.io.register_datastore_reader.html">register_datastore_reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_store/classes/cogent3.app.data_store.DataMember.html">DataMember</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_store/classes/cogent3.app.data_store.DataStoreDirectory.html">DataStoreDirectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_store/classes/cogent3.app.data_store.ReadOnlyDataStoreZipped.html">ReadOnlyDataStoreZipped</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DataStoreSqlite</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../util/deserialise/deserialise_object.html">deserialise_object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/deserialise/classes/cogent3.util.deserialise.register_deserialiser.html">register_deserialiser</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">DataStoreSqlite</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="datastoresqlite">
+<h1>DataStoreSqlite<a class="headerlink" href="#datastoresqlite" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataStoreSqlite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>completed</strong></dt><dd></dd>
+<dt><strong>db</strong></dt><dd></dd>
+<dt><strong>describe</strong></dt><dd></dd>
+<dt><strong>limit</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.locked" title="cogent3.app.sqlite_data_store.DataStoreSqlite.locked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">locked</span></code></a></dt><dd><p>returns if lock_pid is NULL or doesn’t exist.</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.logs" title="cogent3.app.sqlite_data_store.DataStoreSqlite.logs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logs</span></code></a></dt><dd><p>returns all log records</p>
+</dd>
+<dt><strong>members</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.mode" title="cogent3.app.sqlite_data_store.DataStoreSqlite.mode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mode</span></code></a></dt><dd><p>string that references datastore mode, override in override in subclass constructor</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.not_completed" title="cogent3.app.sqlite_data_store.DataStoreSqlite.not_completed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">not_completed</span></code></a></dt><dd><p>returns database records of type NotCompleted</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.record_type" title="cogent3.app.sqlite_data_store.DataStoreSqlite.record_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">record_type</span></code></a></dt><dd><p>class name of completed results</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.source" title="cogent3.app.sqlite_data_store.DataStoreSqlite.source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code></a></dt><dd><p>string that references connecting to data store, override in subclass constructor</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_logs" title="cogent3.app.sqlite_data_store.DataStoreSqlite.summary_logs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary_logs</span></code></a></dt><dd><p>returns a table summarising log files</p>
+</dd>
+<dt><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_not_completed" title="cogent3.app.sqlite_data_store.DataStoreSqlite.summary_not_completed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary_not_completed</span></code></a></dt><dd><p>returns a table summarising not completed results</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.lock" title="cogent3.app.sqlite_data_store.DataStoreSqlite.lock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lock</span></code></a>()</p></td>
+<td><p>if writable, and not locked, locks the database to this pid</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.md5" title="cogent3.app.sqlite_data_store.DataStoreSqlite.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a>(unique_id)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.read" title="cogent3.app.sqlite_data_store.DataStoreSqlite.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(identifier)</p></td>
+<td><p>identifier string formed from Path(table_name) / identifier</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.unlock" title="cogent3.app.sqlite_data_store.DataStoreSqlite.unlock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unlock</span></code></a>([force])</p></td>
+<td><p>remove a lock if pid matches.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write" title="cogent3.app.sqlite_data_store.DataStoreSqlite.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(*, unique_id, data)</p></td>
+<td><p>writes a completed record ending with .suffix</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write_not_completed" title="cogent3.app.sqlite_data_store.DataStoreSqlite.write_not_completed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_not_completed</span></code></a>(*, unique_id, data)</p></td>
+<td><p>writes a not completed record as json</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>close</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>drop_not_completed</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>validate</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>write_log</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.close" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.completed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">completed</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.completed" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.db">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">db</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.db" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.describe">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">describe</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.describe" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.drop_not_completed">
+<span class="sig-name descname"><span class="pre">drop_not_completed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.drop_not_completed" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.limit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">limit</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.limit" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.lock" title="Permalink to this definition">#</a></dt>
+<dd><p>if writable, and not locked, locks the database to this pid</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.locked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">locked</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.locked" title="Permalink to this definition">#</a></dt>
+<dd><p>returns if lock_pid is NULL or doesn’t exist.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.logs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">logs</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.logs" title="Permalink to this definition">#</a></dt>
+<dd><p>returns all log records</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.md5">
+<span class="sig-name descname"><span class="pre">md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.md5" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>unique_id</strong></dt><dd><p>name of data store member</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>md5 checksum for the member, if available, None otherwise</strong></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.members">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">members</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">cogent3.app.data_store.DataMemberABC</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.members" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mode</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.mode" title="Permalink to this definition">#</a></dt>
+<dd><p>string that references datastore mode, override in override in subclass constructor</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.not_completed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">not_completed</span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.not_completed" title="Permalink to this definition">#</a></dt>
+<dd><p>returns database records of type NotCompleted</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.read" title="Permalink to this definition">#</a></dt>
+<dd><p>identifier string formed from Path(table_name) / identifier</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.record_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">record_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.record_type" title="Permalink to this definition">#</a></dt>
+<dd><p>class name of completed results</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.source">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.source" title="Permalink to this definition">#</a></dt>
+<dd><p>string that references connecting to data store, override in subclass constructor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.store_suffix">
+<span class="sig-name descname"><span class="pre">store_suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sqlitedb'</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.store_suffix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.summary_logs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">summary_logs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TabularType</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_logs" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a table summarising log files</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.summary_not_completed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">summary_not_completed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TabularType</span></em><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_not_completed" title="Permalink to this definition">#</a></dt>
+<dd><p>returns a table summarising not completed results</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.unlock">
+<span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.unlock" title="Permalink to this definition">#</a></dt>
+<dd><p>remove a lock if pid matches. If force, ignores pid. ignored if mode is READONLY</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TabularType</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.validate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataMemberABC</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write" title="Permalink to this definition">#</a></dt>
+<dd><p>writes a completed record ending with .suffix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>unique_id</strong></dt><dd><p>unique identifier</p>
+</dd>
+<dt><strong>data</strong></dt><dd><p>text data to be written</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>a member for this record</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Drops any not-completed member corresponding to this identifier</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.write_log">
+<span class="sig-name descname"><span class="pre">write_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write_log" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogent3.app.sqlite_data_store.DataStoreSqlite.write_not_completed">
+<span class="sig-name descname"><span class="pre">write_not_completed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataMemberABC</span></span></span><a class="headerlink" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write_not_completed" title="Permalink to this definition">#</a></dt>
+<dd><p>writes a not completed record as json</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>unique_id</strong></dt><dd><p>unique identifier</p>
+</dd>
+<dt><strong>data</strong></dt><dd><p>text data to be written</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>a member for this record</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../data_store/classes/cogent3.app.data_store.ReadOnlyDataStoreZipped.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ReadOnlyDataStoreZipped</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../util/deserialise/deserialise_object.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">deserialise_object</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.close"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.close()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.completed"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.completed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.db"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.db</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.describe"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.describe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.drop_not_completed"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.drop_not_completed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.limit"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.limit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.lock"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.lock()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.locked"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.locked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.logs"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.logs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.md5"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.md5()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.members"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.members</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.mode"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.mode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.not_completed"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.not_completed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.read"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.read()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.record_type"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.record_type</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.source"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.source</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.store_suffix"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.store_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_logs"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.summary_logs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.summary_not_completed"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.summary_not_completed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.unlock"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.unlock()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.validate"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.validate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.write()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write_log"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.write_log()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cogent3.app.sqlite_data_store.DataStoreSqlite.write_not_completed"><code class="docutils literal notranslate"><span class="pre">DataStoreSqlite.write_not_completed()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/api/app/sqlite_data_store/classes/cogent3.app.sqlite_data_store.DataStoreSqlite.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2020-2023, cogent3 Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
