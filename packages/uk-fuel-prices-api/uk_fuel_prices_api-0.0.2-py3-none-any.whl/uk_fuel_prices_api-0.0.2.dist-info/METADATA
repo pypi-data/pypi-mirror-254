@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: uk_fuel_prices_api
+Version: 0.0.2
+Summary: Python API to access latest fuel prices in the UK
+Project-URL: Homepage, https://github.com/gaco79/uk_fuel_prices_api
+Project-URL: Issues, https://github.com/gaco79/uk_fuel_prices_api/issues
+Author-email: Gareth Cooper <gareth@garethcooper.com>
+License-File: LICENCE
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: aiohttp>=3.9.0
+Requires-Dist: asyncio>=3.4.0
+Requires-Dist: pandas>=2.1.0
+Description-Content-Type: text/markdown
+
+# UK Fuel Prices
+
+Pull UK Fuel Price data from sources listed [here](https://www.gov.uk/guidance/access-fuel-price-data). Please note the data is not complete, and does not include pricing for every fuel station in the UK. More information is available at the link.
+
+## Installation
+The package is available to install with `pip`
+
+```python
+pip install uk-fuel-prices-api
+```
+
+## Example
+
+### Initialise
+Import the package, and retrieve price information. `get_prices()` should be called whenever you want to update the pricing data. Please bear in mind that at this time, most companies are only updating their data feeds every 24 hours.
+```python
+from uk_fuel_prices_api import UKFuelPricesApi
+api = UKFuelPricesApi();
+
+await api.get_prices()
+```
+
+### Search
+Search for all stations matching value
+```python
+await api.search("searchstring")
+
+# Only return first 5 results
+await api.search("searchstring", 5)
+```
+
+### Site ID
+Get single Station by known site_id
+```python
+await api.get_site_id("siteid")
+```
