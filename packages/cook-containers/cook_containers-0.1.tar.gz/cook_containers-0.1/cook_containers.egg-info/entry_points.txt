@@ -1,0 +1,2 @@
+[console_scripts]
+cook-containers = cook_containers.main:main

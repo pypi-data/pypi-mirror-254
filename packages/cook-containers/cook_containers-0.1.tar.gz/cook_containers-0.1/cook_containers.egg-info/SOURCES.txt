@@ -1,0 +1,14 @@
+README.md
+setup.py
+cook_containers/__init__.py
+cook_containers/main.py
+cook_containers.egg-info/PKG-INFO
+cook_containers.egg-info/SOURCES.txt
+cook_containers.egg-info/dependency_links.txt
+cook_containers.egg-info/entry_points.txt
+cook_containers.egg-info/requires.txt
+cook_containers.egg-info/top_level.txt
+cook_containers/src/__init__.py
+cook_containers/src/create_container_template.py
+cook_containers/src/manage_containers.py
+cook_containers/src/read_configurations.py
