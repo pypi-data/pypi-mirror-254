@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record id="loan_out_view_search" model="ir.ui.view">
+    <field name="name">loan.out - search</field>
+    <field name="model">loan.out</field>
+    <field name="inherit_id" ref="ssi_loan.loan_mixin_view_search" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="loan_out_view_tree" model="ir.ui.view">
+    <field name="name">loan.out -tree</field>
+    <field name="model">loan.out</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_loan.loan_mixin_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="loan_out_view_form" model="ir.ui.view">
+    <field name="name">loan.out - form</field>
+    <field name="model">loan.out</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_loan.loan_mixin_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="loan_out_action" model="ir.actions.act_window">
+    <field name="name">Loans Out</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">loan.out</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="loan_out_menu"
+        name="Loans Out"
+        parent="ssi_loan.menu_root_loan"
+        action="loan_out_action"
+        groups="loan_out_viewer_group"
+        sequence="1"
+    />
+
+</odoo>

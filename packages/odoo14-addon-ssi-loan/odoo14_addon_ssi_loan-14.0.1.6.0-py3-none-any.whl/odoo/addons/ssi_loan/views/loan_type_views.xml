@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="loan_type_view_search" model="ir.ui.view">
+    <field name="name">loan.type - search</field>
+    <field name="model">loan.type</field>
+    <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="loan_type_view_tree" model="ir.ui.view">
+    <field name="name">loan.type -tree</field>
+    <field name="model">loan.type</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="direction" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="loan_type_view_form" model="ir.ui.view">
+    <field name="name">loan.type - form</field>
+    <field name="model">loan.type</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="direction" />
+                <field name="currency_id" />
+            </xpath>
+            <xpath expr="//notebook/page[@name='note']" position="before">
+                <page name="loan" string="Loan Configuration">
+                    <group name="loan_1" colspan="4" col="2">
+                        <field name="interest_method" />
+                        <field
+                                name="maximum_loan_amount"
+                                widget="monetary"
+                                options="{'currency_field':'currency_id'}"
+                            />
+                        <field name="interest_amount" />
+                        <field name="maximum_installment_period" />
+                    </group>
+                </page>
+                <page name="accounting" string="Accounting">
+                    <group name="accounting_1" colspan="4" col="2">
+                        <group
+                                name="accounting_1_1"
+                                colspan="1"
+                                col="2"
+                                string="Priciple Realization"
+                            >
+                            <field name="realization_journal_id" />
+                            <field name="account_realization_id" />
+                            <field name="short_account_principle_id" />
+                            <field name="long_account_principle_id" />
+                            <field name="account_rounding_id" />
+                        </group>
+                        <group
+                                name="accounting_1_2"
+                                colspan="1"
+                                col="2"
+                                string="Interest Realization"
+                            >
+                            <field name="interest_journal_id" />
+                            <field name="account_interest_id" />
+                            <field name="account_interest_income_id" />
+                        </group>
+                    </group>
+                </page>
+                <page name="additonal_item" string="Additional Item">
+                    <group name="additonal_item_1" colspan="4" col="2">
+                        <field
+                                name="allowed_additional_item_ids"
+                                widget="many2many_tags"
+                                invisible="1"
+                            />
+                        <field
+                                name="additional_item_ids"
+                                domain="[('id','in',allowed_additional_item_ids)]"
+                                nolabel="1"
+                                colspan="2"
+                            />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="loan_type_action" model="ir.actions.act_window">
+    <field name="name">Loan Types</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">loan.type</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="loan_type_menu"
+        name="Loan Types"
+        parent="menu_loan_configuration"
+        action="loan_type_action"
+        groups="loan_type_group"
+        sequence="10"
+    />
+
+</odoo>

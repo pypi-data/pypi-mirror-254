@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="demo_account0" model="account.account">
+    <field name="name">Rounding - (test)</field>
+    <field name="code">XLO00</field>
+    <field name="user_type_id" ref="account.data_account_type_expenses" />
+    <field name="internal_type">other</field>
+    <field name="reconcile" eval="0" />
+</record>
+
+<!-- Loan Out -->
+<record id="demo_account1" model="account.account">
+    <field name="name">Loan Out Cross Account - (test)</field>
+    <field name="code">XLO01</field>
+    <field name="user_type_id" ref="account.data_account_type_current_assets" />
+    <field name="internal_type">other</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account2" model="account.account">
+    <field name="name">Loan Out Short Term Principle Receivable - (test)</field>
+    <field name="code">XLO02</field>
+    <field name="user_type_id" ref="account.data_account_type_receivable" />
+    <field name="internal_type">receivable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account3" model="account.account">
+    <field name="name">Loan Out Long Term Principle Receivable - (test)</field>
+    <field name="code">XLO03</field>
+    <field name="user_type_id" ref="account.data_account_type_receivable" />
+    <field name="internal_type">receivable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account4" model="account.account">
+    <field name="name">Loan Out Interest Receivable - (test)</field>
+    <field name="code">XLO04</field>
+    <field name="user_type_id" ref="account.data_account_type_receivable" />
+    <field name="internal_type">receivable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account5" model="account.account">
+    <field name="name">Loan Out Interest Income - (test)</field>
+    <field name="code">XLO05</field>
+    <field name="user_type_id" ref="account.data_account_type_revenue" />
+    <field name="internal_type">other</field>
+</record>
+
+<!-- Loan In -->
+<record id="demo_account6" model="account.account">
+    <field name="name">Loan In Cross Account - (test)</field>
+    <field name="code">XLI01</field>
+    <field name="user_type_id" ref="account.data_account_type_current_liabilities" />
+    <field name="internal_type">other</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account7" model="account.account">
+    <field name="name">Loan In Short Term Principle Payable - (test)</field>
+    <field name="code">XLI02</field>
+    <field name="user_type_id" ref="account.data_account_type_payable" />
+    <field name="internal_type">payable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account8" model="account.account">
+    <field name="name">Loan In Long Term Principle Payable - (test)</field>
+    <field name="code">XLI03</field>
+    <field name="user_type_id" ref="account.data_account_type_payable" />
+    <field name="internal_type">payable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account9" model="account.account">
+    <field name="name">Loan In Interest Payable - (test)</field>
+    <field name="code">XLI04</field>
+    <field name="user_type_id" ref="account.data_account_type_payable" />
+    <field name="internal_type">payable</field>
+    <field name="reconcile" eval="1" />
+</record>
+
+<record id="demo_account10" model="account.account">
+    <field name="name">Loan In Interest Expense - (test)</field>
+    <field name="code">XLI05</field>
+    <field name="user_type_id" ref="account.data_account_type_expenses" />
+    <field name="internal_type">other</field>
+</record>
+
+</odoo>

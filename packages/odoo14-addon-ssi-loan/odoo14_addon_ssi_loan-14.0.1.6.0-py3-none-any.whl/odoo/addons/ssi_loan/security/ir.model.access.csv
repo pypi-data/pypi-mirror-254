@@ -1,0 +1,31 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_loan_type_configurator,loan.type - configurator,model_loan_type,loan_type_group,1,1,1,1
+access_loan_all,loan.type - all user,model_loan_type,,1,0,0,0
+access_loan_collateral_type_configurator,loan_collateraltype - configurator,model_loan_collateral_type,loan_collateral_type_group,1,1,1,1
+access_loan_collateral_all,loan_collateraltype - all user,model_loan_collateral_type,,1,0,0,0
+access_loan_additional_item_configurator,loan.additional_item - configurator,model_loan_additional_item,loan_additional_item_group,1,1,1,1
+access_loan_additional_item_all,loan.additional_item - all,model_loan_additional_item,,1,0,0,0
+access_loan_out_all,loan.out - all,model_loan_out,,1,0,0,0
+access_loan_out_viewer,loan.out - viewer,model_loan_out,loan_out_viewer_group,1,0,0,0
+access_loan_out_user,loan.out - user,model_loan_out,loan_out_user_group,1,1,1,1
+access_loan_in_all,loan.in - all,model_loan_out,,1,0,0,0
+access_loan_in_viewer,loan.in - viewer,model_loan_in,loan_in_viewer_group,1,0,0,0
+access_loan_in_user,loan.in - user,model_loan_in,loan_in_user_group,1,1,1,1
+access_loan_payment_schedule_out_all,loan.payment_schedule_out - all,model_loan_payment_schedule_out,,1,0,0,0
+access_loan_payment_schedule_out_viewer,loan.payment_schedule_out - viewer,model_loan_payment_schedule_out,loan_out_viewer_group,1,0,0,0
+access_loan_payment_schedule_out_user,loan.payment_schedule_out - user,model_loan_payment_schedule_out,loan_out_user_group,1,1,1,1
+access_loan_payment_schedule_in_all,loan.payment_schedule_in - all,model_loan_payment_schedule_in,,1,0,0,0
+access_loan_payment_schedule_in_viewer,loan.payment_schedule_in - viewer,model_loan_payment_schedule_in,loan_in_viewer_group,1,0,0,0
+access_loan_payment_schedule_in_user,loan.payment_schedule_in - user,model_loan_payment_schedule_in,loan_in_user_group,1,1,1,1
+access_loan_payment_schedule_out_additional_item_all,loan.payment_schedule_out_additional_item - all,model_loan_payment_schedule_out_additional_item,,1,0,0,0
+access_loan_payment_schedule_out_additional_item_viewer,loan.payment_schedule_out_additional_item - viewer,model_loan_payment_schedule_out_additional_item,loan_out_viewer_group,1,0,0,0
+access_loan_payment_schedule_out_additional_item_user,loan.payment_schedule_out_additional_item - user,model_loan_payment_schedule_out_additional_item,loan_out_user_group,1,1,1,1
+access_loan_payment_schedule_in_additional_item_all,loan.payment_schedule_in_additional_item - all,model_loan_payment_schedule_in_additional_item,,1,0,0,0
+access_loan_payment_schedule_in_additional_item_viewer,loan.payment_schedule_in_additional_item - viewer,model_loan_payment_schedule_in_additional_item,loan_in_viewer_group,1,0,0,0
+access_loan_payment_schedule_in_additional_item_user,loan.payment_schedule_in_additional_item - user,model_loan_payment_schedule_in_additional_item,loan_in_user_group,1,1,1,1
+access_loan_out_collateral_all,loan_out.collateral - all,model_loan_out_collateral,,1,0,0,0
+access_loan_out_collateral_viewer,loan_out.collateral - viewer,model_loan_out_collateral,loan_out_viewer_group,1,0,0,0
+access_loan_out_collateral_user,loan_out.collateral - user,model_loan_out_collateral,loan_out_user_group,1,1,1,1
+access_loan_in_collateral_all,loan_in.collateral - all,model_loan_in_collateral,,1,0,0,0
+access_loan_in_collateral_viewer,loan_in.collateral - viewer,model_loan_in_collateral,loan_in_viewer_group,1,0,0,0
+access_loan_in_collateral_user,loan_in.collateral - user,model_loan_in_collateral,loan_in_user_group,1,1,1,1

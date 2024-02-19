@@ -1,0 +1,62 @@
+<odoo>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<data>
+<record id="loan_out_ready_2_open" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_out_action_open" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('realized','=',False)]</field>
+    <field name="filter_domain">[('realized','=',True)]</field>
+</record>
+
+<record id="loan_out_open_2_ready" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_out_action_ready" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('realized','=',True)]</field>
+    <field name="filter_domain">[('realized','=',False)]</field>
+</record>
+
+<record id="loan_out_done_2_open" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_out_action_open" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('paid','=',True)]</field>
+    <field name="filter_domain">[('paid','=',False)]</field>
+</record>
+
+<record id="loan_in_ready_2_open" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_in_action_open" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('realized','=',False)]</field>
+    <field name="filter_domain">[('realized','=',True)]</field>
+</record>
+
+<record id="loan_in_done_2_open" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_in_action_open" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('paid','=',True)]</field>
+    <field name="filter_domain">[('paid','=',False)]</field>
+</record>
+
+<record id="loan_in_open_2_ready" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_in_action_ready" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('realized','=',True)]</field>
+    <field name="filter_domain">[('realized','=',False)]</field>
+</record>
+
+<record id="loan_out_open_2_done" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_out_action_done" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('paid','=',False)]</field>
+    <field name="filter_domain">[('paid','=',True)]</field>
+</record>
+
+<record id="loan_in_open_2_done" model="base.automation">
+    <field name="action_server_id" ref="ssi_loan.loan_in_action_done" />
+    <field name="trigger">on_write</field>
+    <field name="filter_pre_domain">[('paid','=',False)]</field>
+    <field name="filter_domain">[('paid','=',True)]</field>
+</record>
+</data>
+</odoo>

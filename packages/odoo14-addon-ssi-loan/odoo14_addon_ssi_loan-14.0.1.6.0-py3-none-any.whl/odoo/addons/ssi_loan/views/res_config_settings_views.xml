@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">res.config.settings form - Loan</field>
+    <field name="model">res.config.settings</field>
+    <field name="priority" eval="1" />
+    <field name="inherit_id" ref="base.res_config_settings_view_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+            <div
+                    class="app_settings_block"
+                    data-string="Loan"
+                    string="Loan"
+                    data-key="ssi_loan"
+                >
+                <h2>Feature</h2>
+                <div class="row mt16 o_settings_container" id="psychology_feature">
+                </div>
+                <h2>Integration</h2>
+                <div class="row mt16 o_settings_container" id="psychology_feature">
+                </div>
+            </div>
+        </xpath>
+    </field>
+</record>
+
+<record id="res_config_settings_action" model="ir.actions.act_window">
+    <field name="name">Settings</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.config.settings</field>
+    <field name="view_mode">form</field>
+    <field name="target">inline</field>
+    <field name="context">{'module' : 'ssi_loan', 'bin_size': False}</field>
+</record>
+
+<menuitem
+        id="res_config_settings_menu"
+        name="Settings"
+        parent="menu_loan_configuration"
+        sequence="0"
+        action="res_config_settings_action"
+        groups="base.group_system"
+    />
+</odoo>
