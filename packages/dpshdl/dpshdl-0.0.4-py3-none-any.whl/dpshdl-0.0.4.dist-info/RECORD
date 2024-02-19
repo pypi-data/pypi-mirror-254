@@ -1,0 +1,16 @@
+dpshdl/__init__.py,sha256=GFG035ugb-X2Yk1qFtQrX3mhC_DrTfXzLCuqFMaaSDo,65
+dpshdl/collate.py,sha256=XeJ6kJozAvgFSxHS83LWblA5PLe0mbTos--GOFaramU,7047
+dpshdl/dataloader.py,sha256=na9pXxbe4ShcZ_y9hCTSILlZ5hxvyvWNWkrM5P1D4bI,8526
+dpshdl/dataset.py,sha256=hc_ElUP7ecItQnnPCHM4_0Pl9HjufMUOSjxPIwNiytU,18013
+dpshdl/experiments.py,sha256=LmkXr6daHHCsk2v6lmvT3EXKjiFoDro4cRxMoOvNI5c,10345
+dpshdl/numpy.py,sha256=_jOXVi-d2AtJnRftPkRK5MDMzsU8slgw-Jjv4GRm6ns,1197
+dpshdl/prefetcher.py,sha256=8a28NG-iXzBFXKInSP3nL3MUDBGMReIVaVw5nEyWXJ4,1472
+dpshdl/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dpshdl/utils.py,sha256=INKSYLGOuj78AFAPo37JVloTVUXaVDnonRn_4oFdPz8,11586
+dpshdl/impl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dpshdl/impl/mnist.py,sha256=_YO4emjv4VNiV3vYfw6RfCTY0Spl3HBmeY251KWqspE,2199
+dpshdl-0.0.4.dist-info/LICENSE,sha256=HCN2bImAzUOXldAZZI7JZ9PYq6OwMlDAP_PpX1HnuN0,1071
+dpshdl-0.0.4.dist-info/METADATA,sha256=-3Vaj7IZjlN_4ExXTv2HfcMw2BhwwlKF8JX3Nj_IPbc,1188
+dpshdl-0.0.4.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+dpshdl-0.0.4.dist-info/top_level.txt,sha256=Sgd00_P2gig4Y_kSwJTdt3ZoVUJosRIGXCUmi4gPfII,7
+dpshdl-0.0.4.dist-info/RECORD,,
