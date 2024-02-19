@@ -1,0 +1,13 @@
+[console_scripts]
+glad = glad.__main__:main
+
+[glad.generator]
+c = glad.generator.c.__init__:CGenerator
+rust = glad.generator.rust.__init__:RustGenerator
+
+[glad.specification]
+egl = glad.specification:EGL
+gl = glad.specification:GL
+glx = glad.specification:GLX
+vk = glad.specification:VK
+wgl = glad.specification:WGL
