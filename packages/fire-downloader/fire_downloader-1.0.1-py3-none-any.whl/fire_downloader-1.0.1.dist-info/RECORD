@@ -1,0 +1,14 @@
+downloader/__init__.py,sha256=OfQU2BDTk_hZsi6gO2JSUKkwbYIqpmGpiV4J098yJvY,52
+downloader/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+downloader/cli/__init__.py,sha256=AMke__QWU_uky97TPilah0ZkQ8jSWZFW9bVVYg4YJm4,37
+downloader/cli/entry_point.py,sha256=6VWfDUtk3cDtUr95UgU2ZLjLT3G5KDRUcxawrRaWzWo,532
+downloader/main/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+downloader/main/downloader.py,sha256=vJriI4KGuzOGwuUD4SPrgsrU4-bs1AAWzzkC7GPVjhs,4841
+downloader/main/main.py,sha256=ZWMoRwZcUTbzYPbp1H2Uo0cjSFm9taPyvBElhj-2ShM,1069
+downloader/main/progress.py,sha256=Gj-icSbWAZ__9Bkm_AOp41OGXxf-dda3u_qu_HcJLWY,1918
+fire_downloader-1.0.1.dist-info/LICENSE,sha256=ENpNaBSvIV7ifD7iNz_-lBhImbiYowqPzBc5V5R8IhM,1070
+fire_downloader-1.0.1.dist-info/METADATA,sha256=j3nXzkd2w4bfGvn2tOdCvYUp393GXDXwgRR2bLPVVn4,1913
+fire_downloader-1.0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+fire_downloader-1.0.1.dist-info/entry_points.txt,sha256=eSWHOPOL7CSIfdstoUhbzoy25NVw3SD676iGVtOctr4,56
+fire_downloader-1.0.1.dist-info/top_level.txt,sha256=eiO76pMvW3MAorBIyCDH81BKgKLsEC6FEvWUt4ZcI8M,11
+fire_downloader-1.0.1.dist-info/RECORD,,
