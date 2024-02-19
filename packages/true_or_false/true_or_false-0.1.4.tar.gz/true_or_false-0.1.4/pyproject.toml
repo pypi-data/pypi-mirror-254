@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "true_or_false"
+version = "0.1.4"
+description = "A simple python module to determine whether an input is True or False."
+authors = ["Albert Pang <alpaalpa@mac.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/alpaalpa/true_or_false"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
