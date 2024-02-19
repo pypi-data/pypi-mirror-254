@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+picklefy/__init__.py
+picklefy/pickle_service.py
+picklefy.egg-info/PKG-INFO
+picklefy.egg-info/SOURCES.txt
+picklefy.egg-info/dependency_links.txt
+picklefy.egg-info/top_level.txt
+picklefy/pickle_files/__init__.py
