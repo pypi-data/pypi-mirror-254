@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+py_steam_web_api/__init__.py
+py_steam_web_api/api.py
+py_steam_web_api/common.py
+py_steam_web_api/model.py
+py_steam_web_api/request.py
+py_steam_web_api/tools.py
+py_steam_web_api.egg-info/PKG-INFO
+py_steam_web_api.egg-info/SOURCES.txt
+py_steam_web_api.egg-info/dependency_links.txt
+py_steam_web_api.egg-info/requires.txt
+py_steam_web_api.egg-info/top_level.txt
