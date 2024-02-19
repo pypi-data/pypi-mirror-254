@@ -1,0 +1,3 @@
+[console_scripts]
+csv-eval = comma.csv.applications.csv_eval:main
+
