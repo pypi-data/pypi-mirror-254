@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dredarkLeaderboardLib
+Version: 1.0.0a1
+Summary: A Library to fetch from the Deep Space Airships leaderboards.
+Author: JaWarrior12
+Project-URL: Homepage, https://github.com/JaWarrior12/dredarkLeaderboardLib
+Project-URL: Issues, https://github.com/JaWarrior12/dredarkLeaderboardLib/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12.1
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# dredarkLeaderboardLib
+Dredark Leaderboard Library for Python!
+The library contains functions to fetch data from the Deep Space Airships (drednot.io) leaderboard pages.
