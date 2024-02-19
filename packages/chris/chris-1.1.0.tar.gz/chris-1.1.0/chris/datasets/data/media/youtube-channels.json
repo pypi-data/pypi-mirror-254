@@ -1,0 +1,241 @@
+[
+  {
+    "name": "Veritasium",
+    "category": "stem",
+    "scores": {
+      "production": 9,
+      "personality": 7,
+      "information": 10,
+      "consistency": 10
+    },
+    "rank": 1,
+    "link": "https://www.youtube.com/@veritasium"
+  },
+  {
+    "name": "Numberphile",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 9,
+      "information": 10,
+      "consistency": 8
+    },
+    "rank": 2,
+    "link": "https://www.youtube.com/@numberphile"
+  },
+  {
+    "name": "3Blue1Brown",
+    "category": "stem",
+    "scores": {
+      "production": 10,
+      "personality": 6,
+      "information": 10,
+      "consistency": 10
+    },
+    "rank": 3,
+    "link": "https://www.youtube.com/@3blue1brown"
+  },
+  {
+    "name": "Steve Mould",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 7,
+      "information": 10,
+      "consistency": 9
+    },
+    "rank": 4
+  },
+  {
+    "name": "minutephysics",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 3,
+      "information": 9,
+      "consistency": 7
+    },
+    "rank": 5,
+    "link": "https://www.youtube.com/@minutephysics"
+  },
+  {
+    "name": "SmarterEveryDay",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 9,
+      "information": 8,
+      "consistency": 7
+    },
+    "rank": 6,
+    "link": "https://www.youtube.com/@smartereveryday"
+  },
+  {
+    "name": "Yannic Kilcher",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 6,
+      "information": 9,
+      "consistency": 8
+    },
+    "rank": 7,
+    "link": "https://www.youtube.com/@yannickilcher"
+  },
+  {
+    "name": "My Self Reliance",
+    "category": "craft",
+    "scores": {
+      "production": 10,
+      "personality": 8,
+      "information": 7,
+      "consistency": 6
+    },
+    "rank": 8,
+    "link": "https://www.youtube.com/@myselfreliance"
+  },
+  {
+    "name": "Sampson Boat Co",
+    "category": "craft",
+    "scores": {
+      "production": 7,
+      "personality": 7,
+      "information": 8,
+      "consistency": 6
+    },
+    "rank": 9,
+    "link": "https://www.youtube.com/@sampsonboatco"
+  },
+  {
+    "name": "The Royal Institution",
+    "category": "stem",
+    "scores": {
+      "production": 10,
+      "personality": 1,
+      "information": 9,
+      "consistency": 5
+    },
+    "rank": 10,
+    "link": "https://www.youtube.com/@theroyalinstitution"
+  },
+  {
+    "name": "Sixty Symbols",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 3,
+      "information": 8,
+      "consistency": 5
+    },
+    "rank": 11,
+    "link": "https://www.youtube.com/@sixtysymbols"
+  },
+  {
+    "name": "Practical Engineering",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 5,
+      "information": 7,
+      "consistency": 8
+    },
+    "rank": 12,
+    "link": "https://www.youtube.com/@practicalengineeringchannel"
+  },
+  {
+    "name": "Two Minute Papers",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 5,
+      "information": 6,
+      "consistency": 5
+    },
+    "rank": 13,
+    "link": "https://www.youtube.com/@twominutepapers"
+  },
+  {
+    "name": "Computerphile",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 4,
+      "information": 5,
+      "consistency": 4
+    },
+    "rank": 14,
+    "link": "https://www.youtube.com/@computerphile"
+  },
+  {
+    "name": "Chris Salomone",
+    "category": "craft",
+    "scores": {
+      "production": 9,
+      "personality": 7,
+      "information": 5,
+      "consistency": 6
+    },
+    "rank": 15,
+    "link": "https://www.youtube.com/@foureyes.furniture"
+  },
+  {
+    "name": "Josh Turner Guitar",
+    "category": "music",
+    "scores": {
+      "production": 6,
+      "personality": 7,
+      "information": 1,
+      "consistency": 8
+    },
+    "rank": 16,
+    "link": "https://www.youtube.com/@joshturnerguitar"
+  },
+  {
+    "name": "Sean Angus Watson",
+    "category": "music",
+    "scores": {
+      "production": 5,
+      "personality": 7,
+      "information": 1,
+      "consistency": 7
+    },
+    "rank": 17,
+    "link": "https://www.youtube.com/@seananguswatson"
+  },
+  {
+    "name": "Food Wishes",
+    "category": "cooking",
+    "scores": {
+      "production": 7,
+      "personality": 10,
+      "information": 8,
+      "consistency": 7
+    },
+    "rank": 18,
+    "link": "https://www.youtube.com/@foodwishes"
+  },
+  {
+    "name": "Simone Giertz",
+    "category": "craft",
+    "scores": {
+      "production": 7,
+      "personality": 10,
+      "information": 7,
+      "consistency": 9
+    },
+    "rank": 19,
+    "link": "https://www.youtube.com/@simonegiertz"
+  },
+  {
+    "name": "NileRed",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 6,
+      "information": 9,
+      "consistency": 7
+    },
+    "rank": 20,
+    "link": "https://www.youtube.com/@nilered"
+  }
+]

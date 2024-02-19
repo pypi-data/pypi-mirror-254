@@ -1,0 +1,266 @@
+[
+  {
+    "name": "Into the Wild",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 1,
+    "link": "https://www.imdb.com/title/tt0758758"
+  },
+  {
+    "name": "Jobs",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 2,
+    "link": "https://www.imdb.com/title/tt2357129"
+  },
+  {
+    "name": "The Social Network",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 8,
+      "dialog": 8
+    },
+    "rank": 3,
+    "link": "https://www.imdb.com/title/tt1285016"
+  },
+  {
+    "name": "The Theory of Everything",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 8,
+      "characters": 9,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 4,
+    "link": "https://www.imdb.com/title/tt2980516"
+  },
+  {
+    "name": "21",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 6,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 5,
+    "link": "https://www.imdb.com/title/tt0478087"
+  },
+  {
+    "name": "The Imitation Game",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 6,
+      "production": 8,
+      "dialog": 7
+    },
+    "rank": 6,
+    "link": "https://www.imdb.com/title/tt2084970"
+  },
+  {
+    "name": "October Sky",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 4,
+      "dialog": 6
+    },
+    "rank": 7,
+    "link": "https://www.imdb.com/title/tt0132477"
+  },
+  {
+    "name": "Good Will Hunting",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 10,
+      "production": 6,
+      "dialog": 10
+    },
+    "rank": 8,
+    "link": "https://www.imdb.com/title/tt0119217"
+  },
+  {
+    "name": "Gladiator",
+    "genre": "action",
+    "scores": {
+      "plot": 8,
+      "characters": 10,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 9,
+    "link": "https://www.imdb.com/title/tt0172495"
+  },
+  {
+    "name": "A Beautiful Mind",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 5,
+      "dialog": 5
+    },
+    "rank": 10,
+    "link": "https://www.imdb.com/title/tt0268978"
+  },
+  {
+    "name": "The Prestige",
+    "genre": "drama",
+    "scores": {
+      "plot": 10,
+      "characters": 5,
+      "production": 8,
+      "dialog": 6
+    },
+    "rank": 11,
+    "link": "https://www.imdb.com/title/tt0482571"
+  },
+  {
+    "name": "Hidden Figures",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 9,
+      "characters": 8,
+      "production": 7,
+      "dialog": 7
+    },
+    "rank": 12,
+    "link": "https://www.imdb.com/title/tt4846340"
+  },
+  {
+    "name": "Dead Poet's Society",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 10,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 13,
+    "link": "https://www.imdb.com/title/tt0097165"
+  },
+  {
+    "name": "Anna Karenina",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 9,
+      "production": 10,
+      "dialog": 6
+    },
+    "rank": 14,
+    "link": "https://www.imdb.com/title/tt1781769"
+  },
+  {
+    "name": "Interstellar",
+    "genre": "scifi",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 7,
+      "dialog": 6
+    },
+    "rank": 15,
+    "link": "https://www.imdb.com/title/tt0816692"
+  },
+  {
+    "name": "Silence",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 16,
+    "link": "https://www.imdb.com/title/tt0490215"
+  },
+  {
+    "name": "The Notebook",
+    "genre": "romance",
+    "scores": {
+      "plot": 6,
+      "characters": 8,
+      "production": 6,
+      "dialog": 5
+    },
+    "rank": 17,
+    "link": "https://www.imdb.com/title/tt0332280"
+  },
+  {
+    "name": "Without Limits",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 5,
+      "dialog": 6
+    },
+    "rank": 18,
+    "link": "https://www.imdb.com/title/tt0119934"
+  },
+  {
+    "name": "Forrest Gump",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 9,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 19,
+    "link": "https://www.imdb.com/title/tt0109830"
+  },
+  {
+    "name": "The Pursuit of Happyness",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 9,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 20,
+    "link": "https://www.imdb.com/title/tt0454921"
+  },
+  {
+    "name": "Like Crazy",
+    "genre": "romance",
+    "scores": {
+      "plot": 4,
+      "characters": 8,
+      "production": 6,
+      "dialog": 6
+    },
+    "rank": 21,
+    "link": "https://www.imdb.com/title/tt1758692"
+  },
+  {
+    "name": "Minimalism",
+    "genre": "documentary",
+    "scores": {
+      "plot": 7,
+      "characters": 4,
+      "production": 7,
+      "dialog": 6
+    },
+    "rank": 22,
+    "link": "https://www.imdb.com/title/tt3810760"
+  }
+]

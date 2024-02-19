@@ -1,0 +1,274 @@
+[
+  {
+    "isbn": "978-0399184413",
+    "title": "Seven Brief Lessons on Physics",
+    "subtitle": null,
+    "author": "Carlo Rovelli",
+    "year_published": 2014,
+    "pages": 81,
+    "year_read": 2019,
+    "recommendability": 10,
+    "tags": ["short", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/25734172-seven-brief-lessons-on-physics",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/seven-brief-lessons-on-physics.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/seven-brief-lessons-on-physics.jpg"
+    }
+  },
+  {
+    "isbn": "978-1451683400",
+    "title": "Free Will",
+    "subtitle": null,
+    "author": "Sam Harris",
+    "year_published": 2012,
+    "pages": 96,
+    "year_read": 2013,
+    "recommendability": 5,
+    "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/13259270-free-will",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/free-will.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/free-will.jpg"
+    }
+  },
+  {
+    "isbn": "978-1940051000",
+    "title": "Lying",
+    "subtitle": null,
+    "author": "Sam Harris",
+    "year_published": 2011,
+    "pages": 83,
+    "year_read": 2014,
+    "recommendability": 6,
+    "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/18869177-lying",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/lying.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/lying.jpg"
+    }
+  },
+  {
+    "isbn": "978-0061949135",
+    "title": "The Abolition of Man",
+    "subtitle": null,
+    "author": "C. S. Lewis",
+    "year_published": 1943,
+    "pages": 113,
+    "year_read": 2015,
+    "recommendability": 3,
+    "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/25825420-the-abolition-of-man",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-abolition-of-man.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-abolition-of-man.jpg"
+    }
+  },
+  {
+    "isbn": "978-1476731711",
+    "title": "Finite and Infinite Games",
+    "subtitle": "A Vision of Life as Play and Possibility",
+    "author": "James Carse",
+    "year_published": 1986,
+    "pages": 180,
+    "year_read": 2019,
+    "recommendability": 9,
+    "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/189989.Finite_and_Infinite_Games",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/finite-and-infinite-games.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/finite-and-infinite-games.jpg"
+    }
+  },
+  {
+    "isbn": "978-0190871338",
+    "title": "A World Beyond Physics",
+    "subtitle": "The Emergence and Evolution of Life",
+    "author": "Stuart A. Kauffman",
+    "year_published": 2019,
+    "pages": 168,
+    "year_read": 2021,
+    "recommendability": 8,
+    "tags": ["short", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/41542080-a-world-beyond-physics",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/a-world-beyond-physics.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/a-world-beyond-physics.jpg"
+    }
+  },
+  {
+    "isbn": "978-1947864146",
+    "title": "Worlds Hidden in Plain Sight",
+    "subtitle": "The Evolving Idea of Complexity at the Santa Fe Institute",
+    "author": "David C. Krakauer",
+    "year_published": 2019,
+    "pages": 396,
+    "year_read": 2019,
+    "recommendability": 8,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/45700960-worlds-hidden-in-plain-sight",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/worlds-hidden-in-plain-sight.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/worlds-hidden-in-plain-sight.jpg"
+    }
+  },
+  {
+    "isbn": "978-0735216112",
+    "title": "The Order of Time",
+    "subtitle": null,
+    "author": "Carlo Rovelli",
+    "year_published": 2017,
+    "pages": 224,
+    "year_read": 2019,
+    "recommendability": 8,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/36442813-the-order-of-time",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-order-of-time.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-order-of-time.jpg"
+    }
+  },
+  {
+    "isbn": "978-0393254693",
+    "title": "The Case Against Reality",
+    "subtitle": "Why Evolution Hid the Truth from Our Eyes",
+    "author": "Donald Hoffman",
+    "year_published": 2019,
+    "pages": 272,
+    "year_read": 2020,
+    "recommendability": 7,
+    "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/41817484-the-case-against-reality",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-case-against-reality.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-case-against-reality.jpg"
+    }
+  },
+  {
+    "isbn": "978-0393355505",
+    "title": "From Bacteria to Bach and Back",
+    "subtitle": "The Evolution of Minds",
+    "author": "Daniel C. Dennett",
+    "year_published": 2017,
+    "pages": 477,
+    "year_read": 2018,
+    "recommendability": 7,
+    "tags": ["philosophy", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/35167699-from-bacteria-to-bach-and-back",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/from-bacteria-to-bach-and-back.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/from-bacteria-to-bach-and-back.jpg"
+    }
+  },
+  {
+    "isbn": "978-0465026562",
+    "title": "Gödel, Escher, Bach",
+    "subtitle": "An Eternal Golden Braid",
+    "author": "Douglas R. Hofstadter",
+    "year_published": 1979,
+    "pages": 756,
+    "year_read": 2020,
+    "recommendability": 6,
+    "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/godel-escher-bach.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/godel-escher-bach.jpg"
+    }
+  },
+  {
+    "isbn": "978-0465085736",
+    "title": "Linked",
+    "subtitle": "How Everything Is Connected to Everything Else and What It Means for Business, Science, and Everyday Life",
+    "author": "Albert-László Barabási",
+    "year_published": 2002,
+    "pages": 304,
+    "year_read": 2014,
+    "recommendability": 9,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/154293.Linked",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/linked.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/linked.jpg"
+    }
+  },
+  {
+    "isbn": "978-0226470993",
+    "title": "Metaphors We Live By",
+    "subtitle": null,
+    "author": "George Lakoff",
+    "year_published": 2003,
+    "pages": 276,
+    "year_read": 2022,
+    "recommendability": 7,
+    "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/34459.Metaphors_We_Live_By",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/metaphors-we-live-by.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/metaphors-we-live-by.jpg"
+    }
+  },
+  {
+    "isbn": "978-0142003848",
+    "title": "Freedom Evolves",
+    "subtitle": null,
+    "author": "Daniel C. Dennett",
+    "year_published": 2003,
+    "pages": 368,
+    "year_read": 2015,
+    "recommendability": 6,
+    "tags": ["philosophy", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/2071.Freedom_Evolves",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/freedom-evolves.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/freedom-evolves.jpg"
+    }
+  },
+  {
+    "isbn": "978-1101970317",
+    "title": "Life 3.0",
+    "subtitle": "Being Human in the Age of Artificial Intelligence",
+    "author": "Max Tegmark",
+    "year_published": 2017,
+    "pages": 384,
+    "year_read": 2018,
+    "recommendability": 8,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/34272565-life-3-0",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/life-3.0.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/life-3.0.jpg"
+    }
+  },
+  {
+    "isbn": "978-0387947914",
+    "title": "How Nature Works",
+    "subtitle": "The Science of Self-Organized Criticality",
+    "author": "Per Bak",
+    "year_published": 1996,
+    "pages": 225,
+    "year_read": 2022,
+    "recommendability": 7,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/869836.How_Nature_Works",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/how-nature-works.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/how-nature-works.jpg"
+    }
+  },
+  {
+    "isbn": "978-0198788607",
+    "title": "The Selfish Gene",
+    "subtitle": null,
+    "author": "Richard Dawkins",
+    "year_published": 1976,
+    "pages": 360,
+    "year_read": 2022,
+    "recommendability": 6,
+    "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/61535.The_Selfish_Gene",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-selfish-gene.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-selfish-gene.jpg"
+    }
+  }
+]

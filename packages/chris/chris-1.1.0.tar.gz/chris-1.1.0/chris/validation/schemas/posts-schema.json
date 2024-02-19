@@ -1,0 +1,142 @@
+{
+  "type": "array",
+  "elem": "#post",
+  "cons": {
+    "unique": ["@all.post_id", "@all.slug", "@all.title", "@all.link"]
+  },
+  "defs": {
+    "#post": {
+      "type": "object",
+      "attr": {
+        "post_id": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+          }
+        },
+        "title": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^.{8,60}$" }
+          }
+        },
+        "slug": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[a-z0-9-]{5,32}$" }
+          }
+        },
+        "content_type": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[a-z]{2,15}$" },
+            "in": ["article", "audio", "paper", "video"]
+          }
+        },
+        "source": ["string", "null"],
+        "areas": {
+          "type": "array",
+          "elem": {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^[a-z]{2,25}$" },
+              "in": [
+                "art",
+                "biology",
+                "business",
+                "comedy",
+                "complexity",
+                "computers",
+                "economics",
+                "education",
+                "justice",
+                "law",
+                "lifestyle",
+                "logic",
+                "mathematics",
+                "medicine",
+                "music",
+                "neuroscience",
+                "philosophy",
+                "physics",
+                "politics",
+                "psychology",
+                "religion",
+                "technology"
+              ]
+            }
+          },
+          "cons": {
+            "unique": "@all",
+            "min_size": 1,
+            "max_size": 5
+          }
+        },
+        "series": ["string", "null"],
+        "speaker": ["string", "null"],
+        "episode_number": ["number", "null"],
+        "length": ["#time", "null"],
+        "date_created": ["#date", "null"],
+        "date_posted": "#date",
+        "link": "#link",
+        "tags": {
+          "type": "array",
+          "elem": "#tag",
+          "cons": {
+            "unique": "@all",
+            "min_size": 5,
+            "max_size": 14
+          }
+        },
+        "hook": [
+          {
+            "type": "string",
+            "cons": {
+              "min_length": 50,
+              "max_length": 100
+            }
+          },
+          "null"
+        ],
+        "summary": [
+          {
+            "type": "string",
+            "cons": {
+              "min_length": 100,
+              "max_length": 2100
+            }
+          },
+          "null"
+        ],
+        "paid": "boolean",
+        "archived": "boolean"
+      }
+    },
+    "#date": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "#time": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9]{2}:[0-5][0-9]:[0-5][0-9]$" }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    },
+    "#tag": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9a-z-\\s]{2,25}$" }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+[tool.poetry]
+authors = ["Chris Gregory <christopher.b.gregory@gmail.com>"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Topic :: Software Development",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+description = "Personal website SDK"
+keywords = ["personal", "website", "sdk", "python", "tools"]
+license = "Apache Software License"
+name = "chris"
+readme = "README.md"
+repository = "https://github.com/gregorybchris/personal-website"
+version = "1.1.0"
+
+[[tool.poetry.packages]]
+include = "chris"
+
+[tool.poetry.dependencies]
+click = "^8.1.7"
+fastapi = "^0.109.2"
+httpx = "^0.26.0"
+jsonvl = "^0.5.0"
+pandas = "^2.2.0"
+pydantic = "^2.6.0"
+python = ">=3.11"
+uvicorn = { version = "^0.27.0", extras = ["standard"] }
+
+[tool.poetry.scripts]
+cgme = "chris.cli.main:cli"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+covcheck = { version = "^0.4.3", extras = ["toml"] }
+mypy = "^1.8.0"
+pylint = "^3.0.3"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+semver = "^3.0.2"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.covcheck]
+branch = 70.0
+line = 70.0
+
+[tool.black]
+line-length = 120
+
+[tool.flake8]
+max-line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+src_paths = "*"
+
+[tool.mypy]
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pylint.basic]
+good-names = ["f", "i"]
+notes = ["FIXME"]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.messages_control]
+disable = [
+  "logging-fstring-interpolation",
+  "missing-function-docstring",
+  "missing-module-docstring",
+  "missing-class-docstring",
+  "wrong-import-order",
+  "too-few-public-methods",
+]
+
+[tool.pylint.reports]
+output-format = "colorized"
