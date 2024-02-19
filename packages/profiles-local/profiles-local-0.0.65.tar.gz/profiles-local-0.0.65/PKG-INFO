@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: profiles-local
+Version: 0.0.65
+Summary: This is a package for sharing common crud operation to profile schema in the db
+Home-page: https://github.com/circles-zone/profiles-local-python-package
+Author: Circles
+Author-email: info@circles.life
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: database-mysql-local>=0.0.199
+Requires-Dist: logger-local>=0.0.67
+Requires-Dist: location-profile-local>=0.0.49
+Requires-Dist: operational-hours-local>=0.0.19
+Requires-Dist: person-local>=0.0.20
+Requires-Dist: gender-local>=0.0.6
+Requires-Dist: location-local>=0.0.81
+Requires-Dist: reaction-local>=0.0.8
+Requires-Dist: profile-reaction-local>=0.0.16
+Requires-Dist: profile-profile-local>=0.0.9
+Requires-Dist: language-local>=0.0.6
+Requires-Dist: user-context-remote>=0.0.33
+Requires-Dist: storage-local>=0.1.27
+Requires-Dist: email-address-local>=0.0.16
+Requires-Dist: group-profile-remote>=0.0.14
+
+This is a package for sharing common profile functions used in different repositories
