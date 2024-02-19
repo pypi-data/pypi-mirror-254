@@ -1,0 +1,50 @@
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+pythonpath = ["src/"]
+testpaths = "tests"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning"
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+exclude = ["tests"]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+namespace_packages = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+
+[build-system]
+requires = ["setuptools >= 40.9.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytariff"
+version = "0.0.1"
+description = "For representing generic electrical tariffs"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Ecaloota/pytariff"
+Issues = "https://github.com/Ecaloota/pytariff/issues"
+
+[project.optional-dependencies]
+dev = ["flake8", "mypy", "black"]
+docs = ["sphinx", "sphinx-click", "sphinx-markdown-builder"]
+test = ["pytest"]

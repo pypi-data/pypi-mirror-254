@@ -1,0 +1,13 @@
+
+[dev]
+flake8
+mypy
+black
+
+[docs]
+sphinx
+sphinx-click
+sphinx-markdown-builder
+
+[test]
+pytest
