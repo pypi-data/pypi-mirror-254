@@ -1,0 +1,4 @@
+include cythoncolortools/requirements.txt
+include cythoncolortools/thirdparty.json
+include cythoncolortools/README.MD
+include cythoncolortools/pictcycomp.pyx

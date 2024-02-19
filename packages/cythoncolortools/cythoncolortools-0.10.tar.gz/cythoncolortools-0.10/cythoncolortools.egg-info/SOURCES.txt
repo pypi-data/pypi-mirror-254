@@ -1,0 +1,15 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cythoncolortools/README.MD
+cythoncolortools/__init__.py
+cythoncolortools/pictcycomp.pyx
+cythoncolortools/requirements.txt
+cythoncolortools/thirdparty.json
+cythoncolortools.egg-info/PKG-INFO
+cythoncolortools.egg-info/SOURCES.txt
+cythoncolortools.egg-info/dependency_links.txt
+cythoncolortools.egg-info/requires.txt
+cythoncolortools.egg-info/top_level.txt
