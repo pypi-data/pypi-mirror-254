@@ -1,0 +1,16 @@
+argklass/__init__.py,sha256=K-cf4KnhIhUAEDD9vpw91ijby8C4p0tX5-2uFHutCPI,425
+argklass/argformat.py,sha256=KJB9oZghPqZ3EAii2ZygiaFfmXWlUcKwh1iX08Q8zbQ,7523
+argklass/arguments.py,sha256=a3T_fMCH6pfPXFbCkPLuHQVCujnyniB0V5dBluOdNTg,15197
+argklass/cache.py,sha256=C2QggYl5qrvLCVmaJc0mlUaTynAiG60s9ZMIDsnZ7AM,4114
+argklass/cli.py,sha256=UHzR6XTPfhnJGxLup7Cpd0qEISBV_wBVSIQYPnTnh80,2748
+argklass/command.py,sha256=XWJzxOo92oWVUd9FAbboQyVFzymaodKXKHPJVyAa_8k,5130
+argklass/config.py,sha256=ZrACtkucXIsJUPpcbCde48Xyzhfx2R5HbkBRJD7eq_A,5071
+argklass/docstring.py,sha256=FYoThmsohDgVEnpYm98JrH0P62fV3S8CmHsWBB5wlrw,2875
+argklass/groupargs.py,sha256=dyo6gz9ECfnuT-NGYXW0WJ-kGk2uCnC6o50btmPJnG8,4776
+argklass/parallel.py,sha256=2WQZBVZkrRDnruDJxx-T3NPCE1eOkHN9DFWtRNYohAM,314
+argklass/plugin.py,sha256=3nzjAMfRC3l4Y2verf6YMEsDiQcwnL2r_D8i6WXMvYs,6980
+argklass-1.4.3.dist-info/LICENSE,sha256=LvE_L-WWO38i_TQfJpzw2CoZ-CmNjrjTgWzDe3OwclM,1558
+argklass-1.4.3.dist-info/METADATA,sha256=olULNQuUrAOrVsKEgDJ5QkMZReZBe2sMbH4ACvAL_sg,8255
+argklass-1.4.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+argklass-1.4.3.dist-info/top_level.txt,sha256=KkeLFCQIbRLpqz1gkXGOz37xttXlJuA2VIdtB3prtEY,9
+argklass-1.4.3.dist-info/RECORD,,
