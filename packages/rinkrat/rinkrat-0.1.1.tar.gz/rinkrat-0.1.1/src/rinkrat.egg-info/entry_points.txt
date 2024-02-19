@@ -1,0 +1,2 @@
+[console_scripts]
+rinkrat = rinkrat.__main__:run
