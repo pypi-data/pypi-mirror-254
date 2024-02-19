@@ -1,0 +1,14 @@
+odoo/addons/stock_picking_invoicing_incoterm/README.rst,sha256=Ckcf-DhjXZAyGpGxhzuu_PiAk-Y5Wv9NP8xwO4ENAcw,1610
+odoo/addons/stock_picking_invoicing_incoterm/__init__.py,sha256=O2xauruZTXFjs82y_F4GEYBUsl7n9FLmHHjRhvqVSdw,135
+odoo/addons/stock_picking_invoicing_incoterm/__manifest__.py,sha256=1ng3j2T23IbL6QL5KucjhtugwVRRg2YBPvr3dMktqy0,522
+odoo/addons/stock_picking_invoicing_incoterm/i18n/es.po,sha256=kdyFuFmj_DqydHDYr4YdZNUQ-De8xTR2QwfJ3ow60o0,1875
+odoo/addons/stock_picking_invoicing_incoterm/i18n/it.po,sha256=kTn1i33aG8Wv50RH1YX6ZjQFmuWOZMuIEoow8UyD53k,1926
+odoo/addons/stock_picking_invoicing_incoterm/i18n/stock_picking_invoicing_incoterm.pot,sha256=l7eIXiAnqUvBnPoSybPluMmvJidi-fSCSh0xJIVi53M,1521
+odoo/addons/stock_picking_invoicing_incoterm/models/__init__.py,sha256=UajX5cX4fgU_ZeWsbIYAXoL3CixhUosLP9FiPbIlyNc,134
+odoo/addons/stock_picking_invoicing_incoterm/models/stock.py,sha256=-rHlBGiYvjGZaPYE7yS4S6VVE3i0xwwn__es14TsW10,334
+odoo/addons/stock_picking_invoicing_incoterm/static/description/icon.png,sha256=_5v3dkaQxg_uqBO_vJ6Zq9kU__qFhUNXx4cDwmeesIE,11229
+odoo/addons/stock_picking_invoicing_incoterm/views/stock_picking_views.xml,sha256=F1ZW3qOJk94C-iinIomIxi8IoxpZ_Z7BHY7o3prN4ms,498
+odoo14_addon_stock_picking_invoicing_incoterm-14.0.1.0.1.dev5.dist-info/METADATA,sha256=ALt8JceUsZ2xdWlEjxgk3kq660ObZa-ANpNw2dpGm5Q,2191
+odoo14_addon_stock_picking_invoicing_incoterm-14.0.1.0.1.dev5.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+odoo14_addon_stock_picking_invoicing_incoterm-14.0.1.0.1.dev5.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo14_addon_stock_picking_invoicing_incoterm-14.0.1.0.1.dev5.dist-info/RECORD,,
