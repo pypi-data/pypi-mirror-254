@@ -1,0 +1,11 @@
+odoo/addons/ssi_mail/README.rst,sha256=OPt5oJ5vg6aIxJIORfVbIUKqwbHVzxdy5gDT9IZQ9Eo,1153
+odoo/addons/ssi_mail/__init__.py,sha256=v6ZVPf0k5mgeSWQSGvQagBfNI4RULHGonAVT5_-dnLY,181
+odoo/addons/ssi_mail/__manifest__.py,sha256=Bnq-WEnHSKH3ASWWy_0h5FFvuF7_khnAe9ZX6baR0MI,503
+odoo/addons/ssi_mail/static/description/icon.png,sha256=lNGJOSg4cMRfwPTfFKVT6d5B2N1N83iVpEEN1blqu1I,48333
+odoo/addons/ssi_mail/wizard/__init__.py,sha256=AEB6ePyhukbwiqiFSvMy5O4ffGKHT5A5Bobo6-Mi70M,193
+odoo/addons/ssi_mail/wizard/mail_wizard_invite.py,sha256=Uvgk29xhYfcszX9UsYKKIoxJbcAs8aQju9CByhWAe78,738
+odoo/addons/ssi_mail/wizard/mail_wizard_invite_views.xml,sha256=99wQvhb2UPsnshdEz5ZpCxbJaerwZcvJGpAhg5Y3pmA,751
+odoo14_addon_ssi_mail-14.0.1.1.0.dist-info/METADATA,sha256=iejmm4VDqmftVXjOGbwJPXTHlx0UrT8up0JIvfHmWq8,1664
+odoo14_addon_ssi_mail-14.0.1.1.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+odoo14_addon_ssi_mail-14.0.1.1.0.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo14_addon_ssi_mail-14.0.1.1.0.dist-info/RECORD,,
