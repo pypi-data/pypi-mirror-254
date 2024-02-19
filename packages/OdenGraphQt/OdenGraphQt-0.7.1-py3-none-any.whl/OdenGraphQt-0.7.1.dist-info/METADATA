@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: OdenGraphQt
+Version: 0.7.1
+Summary: Node graph framework for PySide6/PyQt6 that can be implemented and re-purposed into applications.
+Author: Huey Yeng, Johnny Chan
+Maintainer: Huey Yeng
+License: MIT License
+        ===========
+        
+        Copyright (c) 2024 Huey Yeng
+        Copyright (c) 2017 Johnny Chan
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/hueyyeng/OdenGraphQt
+Project-URL: Bug Reports, https://github.com/hueyyeng/OdenGraphQt/issues
+Project-URL: Source, https://github.com/hueyyeng/OdenGraphQt
+Keywords: python,library,qt,widgets,development
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: PySide6 >=6.5.0
+Requires-Dist: qtpy >=2.3.1
+
+# OdenGraphQt
+
+OdenGraphQt is a fork of jchanvfx [NodeGraphQt](https://github.com/jchanvfx/NodeGraphQt), a node graph UI framework
+for `PySide6` that can be implemented and re-purposed into applications.
+
+## Changes from NodeGraphQt
+
+- **PySide6** compatibility (I have not tested PyQt6) courtesy of **jowr** and **rajkundu**
+- Alternative port accept/reject connection
+- Partial type hints for IDE type checker (e.g. PyCharm)
+- Minor code reformat, tweaks and comments for code readability
+
+## Install
+
+For now, please install as editable package. I'll be publishing to PyPI after I'm done with a few rounds of sanity
+testing.
+
+I highly advise using virtual environment when developing any tools/applications.
+
+Assuming you're on Windows and using command prompt. Git Bash user please change the path to Unix style.
+
+1. Clone this repository (e.g. `D:\Repo\OdenGraphQt`)
+2. Navigate to the Python app code you wish to integrate OdenGraphQt (e.g. `D:\Tools\MyAwesomePipelineTool`)
+3. Run `pip install -e D:\Repo\OdenGraphQt`
+4. ???
+5. ~~Profit~~ You can start importing `OdenGraphQt` module in your Python app code.
+
+## Documentation
+
+Please refer to jchanvfx excellent documentation at https://chantonic.com/NodeGraphQt/api/index.html
+
+I'll update this section in the near future after re-configuring the `sphinx_doc_build.yml`.
+
+See the [basic_example.py](/examples/basic_example.py) script to get started
+or [accept_reject_example.py](/examples/accept_reject_example.py) for the alternative port accept/reject connection
+logic.
+
+## Why Oden? なぜおでんなのか？
+
+Oden is delicious. おでんはおいしいです。
+
+Real answer: I need to have a different namespace and Node can be rearranged as Oden by shifting N to the back.
