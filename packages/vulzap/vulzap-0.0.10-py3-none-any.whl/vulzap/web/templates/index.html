@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulzap</title>
+    <link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
+    <script>
+        function toggleInput(inputId, checkboxId) {
+            var input = document.getElementById(inputId);
+            var checkbox = document.getElementById(checkboxId);
+
+            if (checkbox.checked) {
+                input.setAttribute('name', inputId);
+            } else {
+                input.removeAttribute('name');
+            }
+
+            if (input.style.display === 'none' || input.className === 'hidden') {
+                input.style.width = '98%';
+                input.style.display = 'block';
+                input.className = '';
+            } else {
+                input.style.display = 'none';
+                input.className = 'hidden';
+            }
+        }
+
+        function checkURL() {
+            var url = document.getElementById('url').value;
+            
+            var scheme = url.split(':')[0];
+            if (scheme !== 'http' && scheme !== 'https') {
+                var errorBox = document.getElementById('errorBox');
+                var errorMsg = document.getElementById('errorMsg');
+                errorMsg.textContent = "Enter Accessible URL";
+
+                errorBox.style.display = 'flex';
+                errorBox.style.opacity = 1;
+
+                setTimeout(function() {
+                    var fadeEffect = setInterval(function () {
+                        if (!errorBox.style.opacity) {
+                            errorBox.style.opacity = 1;
+                        }
+                        if (errorBox.style.opacity > 0) {
+                            errorBox.style.opacity -= 0.1;
+                        } else {
+                            clearInterval(fadeEffect);
+                            errorBox.style.display = 'none';
+                        }
+                    }, 100);
+                }, 3000);
+
+                return false;
+            }
+            return true;
+        }
+
+        function showOutputBox() {
+            var outputBox = document.getElementById('outputBox');
+            outputBox.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>DB 정보 입력</h2>
+          <form id="db-info-form">
+            <input type="text" name="host" placeholder="Host">
+            <input type="text" name="port" placeholder="Port">
+            <input type="text" name="name" placeholder="DB Name">
+            <input type="text" name="user" placeholder="User">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Save DB Info</button>
+          </form>
+        </div>
+      </div>
+      
+      <button id="dbButton">Open Modal</button>
+
+      <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("dbButton");
+        var span = document.getElementsByClassName("close")[0];
+      
+        window.onload = function() {
+          modal.style.display = "block";
+        }
+      
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+      
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+      
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      
+        document.getElementById('db-info-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+      
+          var formData = new FormData(event.target);
+          var data = Object.fromEntries(formData);
+      
+          modal.style.display = "none"; // 'Save DB Info' 버튼을 누르면 바로 모달을 닫습니다.
+      
+          fetch('/save_db_info', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('DB info saved successfully!');
+            } else {
+              alert('Failed to save DB info.');
+              modal.style.display = "block"; // DB 정보 저장에 실패하면 다시 모달을 엽니다.
+            }
+          });
+        });
+      </script>            
+
+    <div id="logo">Vulzap</div>
+
+    <div id="inputBox" style="margin-top: 80px;">
+        <form method="POST" id="myForm" onsubmit="event.preventDefault(); checkURL();">
+            <input type="text" id="url" name="url" placeholder="Enter URL" required style="width: 87%; margin-right: 10px;">
+            <input type="submit" value="RUN">
+            
+            <div style="margin-top: 20px;">
+                <label class="toggle">
+                    <input type="checkbox" id="targetCheckbox" name="target" onclick="toggleInput('targetInput', 'targetCheckbox');">
+                    <span class="slider"></span>
+                    <label for="targetCheckbox" style="margin-left: 45px;">Target</label>
+                </label>
+                <input type="text" id="targetInput" name="targetInput" placeholder="ex) /tests/fixtures/test_urls.csv" class="hidden">
+            </div>
+        
+            <div style="margin-top: 20px;">
+                <label class="toggle">
+                    <input type="checkbox" id="headerCheckbox" name="header" onclick="toggleInput('headerInput', 'headerCheckbox');">
+                    <span class="slider"></span>
+                    <label for="targetCheckbox" style="margin-left: 45px;">Header</label>
+                </label>
+                <input type="text" id="headerInput" name="headerInput" placeholder="ex)  &quot;{'session':'asdf'}&quot;" class="hidden">
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label class="toggle">
+                    <input type="checkbox" id="outputCheckbox" name="output" onclick="toggleInput('outputInput', 'outputCheckbox');">
+                    <span class="slider"></span>
+                    <label for="targetCheckbox" style="margin-left: 45px;">Output</label>
+                </label>
+                <input type="text" id="outputInput" name="outputInput" placeholder="Enter Output" class="hidden">
+            </div>
+        </form>
+    </div>
+
+    <div id="outputContainer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $("#outputContainer").load("output");
+    });
+    </script>
+
+
+    <div id="errorBox" style="background-color: gray; color: white; padding: 5px; position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 14px; display: flex; align-items: center; justify-content: center; z-index: 9999; display: none;">
+        <span id="errorMsg"></span>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();  // 폼 제출을 막습니다.
+    
+            if (!checkURL()) return;  // URL이 유효하지 않다면 아무 것도 하지 않습니다.
+    
+            var url = document.getElementById('url').value;
+            var targetInput = document.getElementById('targetInput').value;
+            var headerInput = document.getElementById('headerInput').value;
+            var outputInput = document.getElementById('outputInput').value;
+    
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/run_crawl');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200 && JSON.parse(xhr.responseText).success) {
+                    showOutputBox();
+                }
+            };
+            xhr.send('url=' + encodeURIComponent(url) + '&targetInput=' + encodeURIComponent(targetInput) + '&headerInput=' + encodeURIComponent(headerInput) + '&outputInput=' + encodeURIComponent(outputInput));
+        });
+    </script>   
+    
+    
+</body>
+</html>
