@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: yagpapi.py
+Version: 0.0.3
+Summary: Placeholder
+Home-page: https://github.com/gxskpo/yagpapi.py
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9.0
+License-File: LICENSE
+
