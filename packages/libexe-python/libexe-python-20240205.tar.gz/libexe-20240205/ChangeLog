@@ -1,0 +1,20 @@
+TODO:
+* complete multi thread support
+* add libexe_section_get_offset
+* add libexe_section_get_utf8_name and libexe_section_get_utf8_name_size
+* update man pages
+* sanitize stream names with control characters
+  - see olecf
+* libexe
+  - get section by name function
+* exeexport
+  - dump segment data?
+
+Format support:
+* NE executable
+* LE executable
+
+20111018
+* see `git log' for more recent change log
+* Initial version based on libevt
+
