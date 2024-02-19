@@ -1,0 +1,494 @@
+# File generated from our OpenAPI spec by Stainless.
+
+from __future__ import annotations
+
+from typing import Any, Optional, cast
+
+import httpx
+
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._compat import cached_property
+from ..._resource import SyncAPIResource, AsyncAPIResource
+from ..._response import (
+    to_raw_response_wrapper,
+    to_streamed_response_wrapper,
+    async_to_raw_response_wrapper,
+    async_to_streamed_response_wrapper,
+)
+from ..._base_client import (
+    make_request_options,
+)
+from ...types.responses import (
+    UnionTypeNumbersResponse,
+    UnionTypeObjectsResponse,
+    UnionTypeMixedTypesResponse,
+    UnionTypeNullableUnionResponse,
+    UnionTypeUnknownVariantResponse,
+    UnionTypeSuperMixedTypesResponse,
+)
+
+__all__ = ["UnionTypes", "AsyncUnionTypes"]
+
+
+class UnionTypes(SyncAPIResource):
+    @cached_property
+    def with_raw_response(self) -> UnionTypesWithRawResponse:
+        return UnionTypesWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> UnionTypesWithStreamingResponse:
+        return UnionTypesWithStreamingResponse(self)
+
+    def mixed_types(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeMixedTypesResponse:
+        """Endpoint with a top level union response of different types."""
+        return cast(
+            UnionTypeMixedTypesResponse,
+            self._post(
+                "/responses/unions/mixed_types",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeMixedTypesResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def nullable_union(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> Optional[UnionTypeNullableUnionResponse]:
+        """Endpoint with a top level union response of floats and integers."""
+        return cast(
+            Optional[UnionTypeNullableUnionResponse],
+            self._post(
+                "/responses/unions/nullable",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeNullableUnionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def numbers(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeNumbersResponse:
+        """Endpoint with a top level union response of floats and integers."""
+        return cast(
+            UnionTypeNumbersResponse,
+            self._post(
+                "/responses/unions/numbers",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeNumbersResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def objects(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeObjectsResponse:
+        """Endpoint with a top level union response of just object variants."""
+        return cast(
+            UnionTypeObjectsResponse,
+            self._post(
+                "/responses/unions/objects",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeObjectsResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def super_mixed_types(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeSuperMixedTypesResponse:
+        """Endpoint with a top level union response of different types."""
+        return cast(
+            UnionTypeSuperMixedTypesResponse,
+            self._post(
+                "/responses/unions/super_mixed_types",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeSuperMixedTypesResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def unknown_variant(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeUnknownVariantResponse:
+        """Endpoint with a top level union response with a variant that is `type: unknown`"""
+        return cast(
+            UnionTypeUnknownVariantResponse,
+            self._post(
+                "/responses/unions/unknown_variant",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeUnknownVariantResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+
+class AsyncUnionTypes(AsyncAPIResource):
+    @cached_property
+    def with_raw_response(self) -> AsyncUnionTypesWithRawResponse:
+        return AsyncUnionTypesWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncUnionTypesWithStreamingResponse:
+        return AsyncUnionTypesWithStreamingResponse(self)
+
+    async def mixed_types(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeMixedTypesResponse:
+        """Endpoint with a top level union response of different types."""
+        return cast(
+            UnionTypeMixedTypesResponse,
+            await self._post(
+                "/responses/unions/mixed_types",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeMixedTypesResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def nullable_union(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> Optional[UnionTypeNullableUnionResponse]:
+        """Endpoint with a top level union response of floats and integers."""
+        return cast(
+            Optional[UnionTypeNullableUnionResponse],
+            await self._post(
+                "/responses/unions/nullable",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeNullableUnionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def numbers(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeNumbersResponse:
+        """Endpoint with a top level union response of floats and integers."""
+        return cast(
+            UnionTypeNumbersResponse,
+            await self._post(
+                "/responses/unions/numbers",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeNumbersResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def objects(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeObjectsResponse:
+        """Endpoint with a top level union response of just object variants."""
+        return cast(
+            UnionTypeObjectsResponse,
+            await self._post(
+                "/responses/unions/objects",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeObjectsResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def super_mixed_types(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeSuperMixedTypesResponse:
+        """Endpoint with a top level union response of different types."""
+        return cast(
+            UnionTypeSuperMixedTypesResponse,
+            await self._post(
+                "/responses/unions/super_mixed_types",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeSuperMixedTypesResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def unknown_variant(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        idempotency_key: str | None = None,
+    ) -> UnionTypeUnknownVariantResponse:
+        """Endpoint with a top level union response with a variant that is `type: unknown`"""
+        return cast(
+            UnionTypeUnknownVariantResponse,
+            await self._post(
+                "/responses/unions/unknown_variant",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    idempotency_key=idempotency_key,
+                ),
+                cast_to=cast(
+                    Any, UnionTypeUnknownVariantResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+
+class UnionTypesWithRawResponse:
+    def __init__(self, union_types: UnionTypes) -> None:
+        self._union_types = union_types
+
+        self.mixed_types = to_raw_response_wrapper(
+            union_types.mixed_types,
+        )
+        self.nullable_union = to_raw_response_wrapper(
+            union_types.nullable_union,
+        )
+        self.numbers = to_raw_response_wrapper(
+            union_types.numbers,
+        )
+        self.objects = to_raw_response_wrapper(
+            union_types.objects,
+        )
+        self.super_mixed_types = to_raw_response_wrapper(
+            union_types.super_mixed_types,
+        )
+        self.unknown_variant = to_raw_response_wrapper(
+            union_types.unknown_variant,
+        )
+
+
+class AsyncUnionTypesWithRawResponse:
+    def __init__(self, union_types: AsyncUnionTypes) -> None:
+        self._union_types = union_types
+
+        self.mixed_types = async_to_raw_response_wrapper(
+            union_types.mixed_types,
+        )
+        self.nullable_union = async_to_raw_response_wrapper(
+            union_types.nullable_union,
+        )
+        self.numbers = async_to_raw_response_wrapper(
+            union_types.numbers,
+        )
+        self.objects = async_to_raw_response_wrapper(
+            union_types.objects,
+        )
+        self.super_mixed_types = async_to_raw_response_wrapper(
+            union_types.super_mixed_types,
+        )
+        self.unknown_variant = async_to_raw_response_wrapper(
+            union_types.unknown_variant,
+        )
+
+
+class UnionTypesWithStreamingResponse:
+    def __init__(self, union_types: UnionTypes) -> None:
+        self._union_types = union_types
+
+        self.mixed_types = to_streamed_response_wrapper(
+            union_types.mixed_types,
+        )
+        self.nullable_union = to_streamed_response_wrapper(
+            union_types.nullable_union,
+        )
+        self.numbers = to_streamed_response_wrapper(
+            union_types.numbers,
+        )
+        self.objects = to_streamed_response_wrapper(
+            union_types.objects,
+        )
+        self.super_mixed_types = to_streamed_response_wrapper(
+            union_types.super_mixed_types,
+        )
+        self.unknown_variant = to_streamed_response_wrapper(
+            union_types.unknown_variant,
+        )
+
+
+class AsyncUnionTypesWithStreamingResponse:
+    def __init__(self, union_types: AsyncUnionTypes) -> None:
+        self._union_types = union_types
+
+        self.mixed_types = async_to_streamed_response_wrapper(
+            union_types.mixed_types,
+        )
+        self.nullable_union = async_to_streamed_response_wrapper(
+            union_types.nullable_union,
+        )
+        self.numbers = async_to_streamed_response_wrapper(
+            union_types.numbers,
+        )
+        self.objects = async_to_streamed_response_wrapper(
+            union_types.objects,
+        )
+        self.super_mixed_types = async_to_streamed_response_wrapper(
+            union_types.super_mixed_types,
+        )
+        self.unknown_variant = async_to_streamed_response_wrapper(
+            union_types.unknown_variant,
+        )
