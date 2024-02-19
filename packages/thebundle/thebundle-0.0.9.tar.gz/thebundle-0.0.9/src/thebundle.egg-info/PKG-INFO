@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: thebundle
+Version: 0.0.9
+Summary: Python TheBundle essential code.
+Author-email: "M. Treglia" <horuselohim@gmail.com>
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: jsonschema
+Requires-Dist: colorama
+Requires-Dist: wheel
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: dev
+Requires-Dist: snakeviz; extra == "dev"
+Provides-Extra: pypi
+Requires-Dist: build; extra == "pypi"
+Requires-Dist: twine; extra == "pypi"
+Provides-Extra: player
+Requires-Dist: pyside6; extra == "player"
+Requires-Dist: pytube; extra == "player"
+Requires-Dist: tqdm; extra == "player"
+Requires-Dist: ffmpeg-python; extra == "player"
+Requires-Dist: pynput; extra == "player"
+Requires-Dist: mutagen; extra == "player"
+Requires-Dist: requests; extra == "player"
