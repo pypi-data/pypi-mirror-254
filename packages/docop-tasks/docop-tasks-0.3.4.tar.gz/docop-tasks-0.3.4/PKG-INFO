@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: docop-tasks
+Version: 0.3.4
+Summary: Basic set of tasks for docop
+Author-email: Petri Savolainen <petri@koodaamo.fi>
+License: GPLv3+
+Project-URL: Homepage, https://github.com/koodaamo/docop-tasks
+Project-URL: Repository, https://github.com/koodaamo/docop-tasks
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: playwright
+Requires-Dist: docop
+
+This package contains built-in tasks for docop.
+
+### fetch_html
+
+Fetch and store HTML from source URLs.
+
+Expects input source with a set of resources (URLs) to fetch
+Output document fields set:
+    - 'reference' to the URL
+    - 'type' to "html"
+    - 'title' and 'html' set to the fetched HTML title & rendered HTML content
+    - 'uuid' generated from the URL
+    - 'modified' field set to Last-Modified header value
+
