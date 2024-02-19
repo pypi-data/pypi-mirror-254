@@ -1,0 +1,13 @@
+src/autoresevaluator/dataset/tabledata/titanic/preprocessing.py,sha256=ecuQeRig65fGUl4paxP5bq20Fp7Ckz60Dt2DhcA_bcw,389
+src/autoresevaluator/main.py,sha256=qT9Qr14b0EEQVwQqVUSCUDEiuk604fFFMfVCI3o0-9Y,1893
+src/autoresevaluator/metrix/binary_classification.py,sha256=ILOwUXCadfbtEF3fUpgptAUXigTVNesLpztz2qisQ6o,2236
+src/autoresevaluator/metrix/multiclass_classificatio.py,sha256=BjZsaGnMIVpO89gJIAE41wKtoFxWsy3hIBi6cI_dyWA,29
+src/autoresevaluator/metrix/regression.py,sha256=MfRyDkllfdzl_0lMB8tTJoU803FrPuMV3a9WzCK22a8,70
+src/autoresevaluator/train/cross_validation.py,sha256=iB6fxE0sYxb6dOXBCpDTCVsjZKbWgC1iOLv2zKlU55I,937
+src/autoresevaluator/train/model_template.py,sha256=CnWoSA8_9m7tByIZDrEQ6cNoZudlm9O-UEm6bLolJ0w,1453
+src/autoresevaluator/train/optuna.py,sha256=k7jLiO7T57YcHY9Wkawpqokefyyu-PgLQBGwk-nM2C0,1910
+src/autoresevaluator/utils/log_config.py,sha256=B-7ID5kQ45b6rQ2d0K5h7DXVg-5JNV3sBPdaCLy5TbU,895
+autoresevaluator-0.1.0.dist-info/LICENSE,sha256=ltvoYxlj3sH6El_gGAImkSyJLfcIiFOyAQc2elJ4nUI,1068
+autoresevaluator-0.1.0.dist-info/METADATA,sha256=kUTXoZHO3_r6d6IBrh-IRmNToPfAD4U9r9Gs619Kj90,447
+autoresevaluator-0.1.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+autoresevaluator-0.1.0.dist-info/RECORD,,
