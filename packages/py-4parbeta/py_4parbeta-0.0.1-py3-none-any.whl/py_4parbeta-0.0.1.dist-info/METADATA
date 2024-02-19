@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: py-4parbeta
+Version: 0.0.1
+Summary: Efficient Parameter Estimation of Four-parameter beta distribution.
+Home-page: https://github.com/soham39039820/py-4parbeta
+Author: Soham Ghosh
+Author-email: soham.ghosh912@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
