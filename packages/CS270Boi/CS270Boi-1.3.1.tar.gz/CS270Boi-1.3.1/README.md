@@ -1,0 +1,3 @@
+I'll get around to doing this...
+`python3 setup.py sdist bdist_wheel`
+`twine upload dist/*`
