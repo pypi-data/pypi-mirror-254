@@ -1,0 +1,12 @@
+pyproject.toml
+setup.cfg
+src/beta4parlbe/__init__.py
+src/beta4parlbe/beta4parlbe.py
+src/beta4parmom/__init__.py
+src/beta4parmom/beta4parmom.py
+src/beta4parprop/__init__.py
+src/beta4parprop/beta4parprop.py
+src/py_4parbeta.egg-info/PKG-INFO
+src/py_4parbeta.egg-info/SOURCES.txt
+src/py_4parbeta.egg-info/dependency_links.txt
+src/py_4parbeta.egg-info/top_level.txt
