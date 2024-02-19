@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+envreader/__init__.py
+envreader/env_reader.py
+envreader/exceptions.py
+envreader/field.py
+envreader/field_getter.py
+envreader/version.py
+envreader.egg-info/PKG-INFO
+envreader.egg-info/SOURCES.txt
+envreader.egg-info/dependency_links.txt
+envreader.egg-info/top_level.txt
