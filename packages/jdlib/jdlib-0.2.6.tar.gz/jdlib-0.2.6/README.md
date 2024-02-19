@@ -1,0 +1,50 @@
+# jdlib
+
+## Release Notes
+
+- 0.2.6
+    - Fix `EmailUserManager` bugs
+- 0.2.5
+    - Manipulate DO ssh keys via cli
+    - Create DO droplet
+- 0.2.4
+    - Add `raise_exception` parameter to `jdlib.env.EnvFile`
+    - List environment with `env list`
+- 0.2.3
+    - Refactor `jdlib.api.client.Client` and rename to `jdlib.api.client.BaseClient`
+    - Improve environment parser
+    - Add Digital Ocean API client
+- 0.2.2
+    - Add `jdlib.api.client.Client` that wraps `request.Session`
+- 0.2.1
+    - Add plugin support to `startproject`
+    - Add Django Rest Framework settings via `rf` plugin
+- 0.2.0
+    - Fix environment parsing bug
+- 0.1.9
+    - Clean up environment parsing
+    - Get version from `__init__.py`
+- 0.1.8
+    - Fix bracket typo
+    - Remove `$` character from secret key generation
+- 0.1.7
+    - Parse Django database url
+- 0.1.6
+    - Set default Django settings
+- 0.1.5
+    - Add `RunCommand` for executing shell scripts
+    - Add `.env` parsing
+- 0.1.4
+    - Support ANSI color codes
+- 0.1.3
+    - Add `startproject` and `startapp` commands
+- 0.1.2
+    - Add `LoginView` and `RegisterView`
+- 0.1.1
+    - Add `UUIDMixin` and `TimeStampedMixin` along with underlying fields
+    - Create `EmailUser` and `EmailUserManager`
+    - Customize `ModelViewSet` to disable `PUT` requests and force `PATCH`
+- 0.1.0
+    - Add command parsing
+- 0.0.0
+    - Reserve PyPi project
