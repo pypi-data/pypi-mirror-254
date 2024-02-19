@@ -1,0 +1,4 @@
+include readme.md
+include pyproject.toml
+include setup.pyproject
+global -exclude *.py[cod]
