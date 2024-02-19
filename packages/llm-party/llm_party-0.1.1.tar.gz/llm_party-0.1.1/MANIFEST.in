@@ -1,0 +1,2 @@
+include llm_party/attendee/default/default_instruction.yaml
+include llm_party/attendee/custom/custom_instruction.yaml
