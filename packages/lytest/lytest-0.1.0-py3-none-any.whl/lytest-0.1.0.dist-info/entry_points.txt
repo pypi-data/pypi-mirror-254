@@ -1,0 +1,2 @@
+[console_scripts]
+lytest = lytest.command_line:cm_main
