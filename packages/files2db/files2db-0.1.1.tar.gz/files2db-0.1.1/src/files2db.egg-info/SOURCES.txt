@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/files2db/__init__.py
+src/files2db/databases.py
+src/files2db/main.py
+src/files2db.egg-info/PKG-INFO
+src/files2db.egg-info/SOURCES.txt
+src/files2db.egg-info/dependency_links.txt
+src/files2db.egg-info/entry_points.txt
+src/files2db.egg-info/requires.txt
+src/files2db.egg-info/top_level.txt
