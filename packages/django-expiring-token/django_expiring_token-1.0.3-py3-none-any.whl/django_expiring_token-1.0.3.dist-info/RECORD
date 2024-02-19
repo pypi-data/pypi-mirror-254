@@ -1,0 +1,17 @@
+django_expiring_token/__init__.py,sha256=4VYDxOuUIcHulmanACLNh4FhfI21-gTEEWje3z6hg_w,143
+django_expiring_token/admin.py,sha256=hx5kAj9Ihu1PRz_-EkTytCzLNEsuFH0_GxrFB461N1k,268
+django_expiring_token/apps.py,sha256=qcGa_kSGWIigeuP03cr2reOyo_5fUDlUj8CrfOb-zxE,154
+django_expiring_token/authentication.py,sha256=KRz0Ci1BOp6L-iKQGyk7rEmRZRL4pzoXWN1z1e0UDs0,2039
+django_expiring_token/models.py,sha256=Go56b_a43aK1LyGTLDS1CtVE9_l1cMKNIsupOtJtPz0,1157
+django_expiring_token/serializers.py,sha256=GjeVNdpGRD7pd5pawVeJ5ggxZzBUGD56DBILnwfvu3k,197
+django_expiring_token/settings.py,sha256=fmJWBnsiFQrsZ0z85xy-cLf1wb7U1qPrUkr_0VEcbds,592
+django_expiring_token/urls.py,sha256=Ke2rWM98T3r20LM4HL5GFDkQ3DPZTJe_UDAQhtBoiQw,153
+django_expiring_token/views.py,sha256=TtRRl5-kjYRyV1Kqt2ZjtPBSTxlUXcxjgWMTI8vCfcQ,1400
+django_expiring_token/migrations/0001_initial.py,sha256=jH1aqB_PW0lG0jF30ZYsM-1QKG3kn0fhGzOyTsMuSCc,1094
+django_expiring_token/migrations/0002_auto_20210310_2043.py,sha256=K0SdqmUTNQ7-KFSKV084fcrClkTaI1naVfqD2uowq98,428
+django_expiring_token/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_expiring_token-1.0.3.dist-info/LICENSE,sha256=xAqtS8ADCNTg2-eAdXUcsYXRuXEp0-IVQCMgjjDV1fE,1073
+django_expiring_token-1.0.3.dist-info/METADATA,sha256=2Bw5nvx7P3V7K521X0Qc7grqtPGM3lzEACnPt_PNrQ4,2589
+django_expiring_token-1.0.3.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+django_expiring_token-1.0.3.dist-info/top_level.txt,sha256=P_zJcro2-ECuqxq8qwYHcCO_Sni0qS28tqQaxpR4M44,22
+django_expiring_token-1.0.3.dist-info/RECORD,,
