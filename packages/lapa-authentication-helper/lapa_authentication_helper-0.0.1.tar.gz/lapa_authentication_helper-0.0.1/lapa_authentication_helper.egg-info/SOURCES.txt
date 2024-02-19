@@ -1,0 +1,11 @@
+README.md
+setup.py
+lapa_authentication_helper/__init__.py
+lapa_authentication_helper/configuration.py
+lapa_authentication_helper/main.py
+lapa_authentication_helper.egg-info/PKG-INFO
+lapa_authentication_helper.egg-info/SOURCES.txt
+lapa_authentication_helper.egg-info/dependency_links.txt
+lapa_authentication_helper.egg-info/requires.txt
+lapa_authentication_helper.egg-info/top_level.txt
+lapa_authentication_helper/data/config.ini
