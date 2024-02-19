@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "indexed-meta"
+version = "0.0.5"
+description = ""
+authors = ["pebaz <pebazium@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "indexed_meta"}]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
