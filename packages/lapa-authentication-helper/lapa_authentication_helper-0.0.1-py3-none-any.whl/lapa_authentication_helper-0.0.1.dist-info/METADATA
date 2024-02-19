@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: lapa-authentication-helper
+Version: 0.0.1
+Summary: helper to access the authentication service.
+Home-page: https://github.com/thepmsquare/lapa_authentication_helper
+Author: Amish Palkar
+Author-email: amishpalkar302001@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests >=2.31.0
+
+# lapa_authentication_helper
+
+## about
+
+helper to access the authentication service.
+
+## installation
+
+> pip install lapa_authentication_helper
+
+## usage
+
+[reference python file](./example.py)
+
+## configs
+
+1. lapa_authentication_helper\data\config.ini
+
+## env
+
+- python>=3.12.0
+
+## changelog
+
+### v0.0.1
+
+- initial implementation.
+
+## Feedback is appreciated. Thank you!
+
+
