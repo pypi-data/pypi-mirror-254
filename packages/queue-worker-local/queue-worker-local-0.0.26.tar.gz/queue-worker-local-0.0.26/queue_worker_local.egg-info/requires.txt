@@ -1,0 +1,4 @@
+pytest>=7.4.1
+database-mysql-local>=0.0.116
+logger-local>=0.0.71
+queue-local>=0.0.23
