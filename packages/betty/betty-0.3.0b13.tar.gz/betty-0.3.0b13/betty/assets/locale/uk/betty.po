@@ -1,0 +1,1157 @@
+# Ukrainian translations for Betty.
+# Copyright (C) 2020 Bart Feenstra & contributors
+# This file is distributed under the same license as the Betty project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Betty VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-02-01 15:27+0000\n"
+"PO-Revision-Date: 2024-01-13 18:21+0100\n"
+"Last-Translator: Rainer Thieringer <rainerthi@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+msgid ""
+"\n"
+"                Betty is an application that takes a family tree and "
+"builds a website out of it, much like the one you\n"
+"                are viewing right now. The more information your "
+"genealogical research contains, the more interactivity\n"
+"                Betty can add to your site, such as media galleries, "
+"maps, and browsable family trees.\n"
+"            "
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"                Betty was named after %(liberta_lankester_label)s, and "
+"this website shows a small sample of her family\n"
+"                history. You can browse the pages about her and some of "
+"her family to get an idea of what a Betty site\n"
+"                looks like.\n"
+"            "
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"        Welcome to %(project_title)s\n"
+"    "
+msgstr ""
+"\n"
+"        Ласкаво просимо на %(project_title)s\n"
+"    "
+
+#, python-format
+msgid ""
+"\n"
+"Display <a href=\"https://www.wikipedia.org/\">Wikipedia</a> summaries "
+"for resources with external links. In your custom <a "
+"href=\"https://jinja2docs.readthedocs.io/en/stable/\">Jinja2</a> "
+"templates, use the following: <pre><code>\n"
+"{{% with resource=resource_with_links %}}\n"
+"    {{% include 'wikipedia.html.j2' %}}\n"
+"{{% endwith %}}\n"
+"</code></pre>"
+msgstr ""
+
+msgid "\"{entity_type}\" is not a valid Betty entity type."
+msgstr ""
+
+msgid "\"{extension_type}\" is not a valid Betty extension type."
+msgstr ""
+
+msgid "\"{hex_value}\" is not a valid hexadecimal color, such as #ffc0cb."
+msgstr ""
+
+msgid "\"{locale}\" is not a valid IETF BCP 47 language tag."
+msgstr ""
+
+msgid "\"{path}\" is not a directory."
+msgstr ""
+
+#, python-format
+msgid "%(date)s in %(place)s"
+msgstr "%(date)s в %(place)s"
+
+#, python-format
+msgid "%(event)s of %(subjects)s"
+msgstr "%(event)s %(subjects)s"
+
+#, python-format
+msgid "%(event)s with %(subjects)s"
+msgstr "%(event)s з %(subjects)s"
+
+#, python-format
+msgid "%(person_individual_name)s had a child with %(co_parent_labels)s."
+msgid_plural ""
+"%(person_individual_name)s had %(child_count)s children with "
+"%(co_parent_labels)s."
+msgstr[0] "У %(person_individual_name)s була дитина від %(co_parent_labels)s."
+msgstr[1] "У %(person_individual_name)s було 3 дитини з %(co_parent_labels)s."
+msgstr[2] "У %(person_individual_name)s було 3 дитини з %(co_parent_labels)s."
+
+#, python-format
+msgid "%(person_individual_name)s had a child."
+msgid_plural "%(person_individual_name)s had %(child_count)s children."
+msgstr[0] "У %(person_individual_name)s була дитина."
+msgstr[1] "У %(person_individual_name)s було %(child_count)s дитини."
+msgstr[2] "У %(person_individual_name)s було %(child_count)s дитини."
+
+#, python-format
+msgid "%(person_individual_name)s is the child of %(parent_labels)s."
+msgstr "%(person_individual_name)s дитина %(parent_labels)s."
+
+msgid ""
+"<a "
+"href=\"https://en.wikipedia.org/wiki/Wikipedia:Copyrights\">Copyright</a>"
+" Wikipedia and its contributors."
+msgstr ""
+"<a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Авторські "
+"права\">Авторські права</a> на Вікіпедію та її дописувачів."
+
+msgid ""
+"A family history as told by <a "
+"href=\"https://github.com/bartfeenstra/betty\">Betty👵</a>"
+msgstr ""
+"Сімейна історія, яку розповіла <a "
+"href=\"https://github.com/bartfeenstra/betty\">Betty👵</a>"
+
+msgid "API documentation"
+msgstr "документація API"
+
+msgid "About"
+msgstr ""
+
+msgid "About Betty"
+msgstr ""
+
+#, python-format
+msgid "Accessed %(date)s"
+msgstr "доступ %(date)s"
+
+msgid "Add a family tree"
+msgstr ""
+
+msgid "Add a locale"
+msgstr ""
+
+msgid "Add an entity"
+msgstr ""
+
+msgid "Adoption"
+msgstr "Усиновлення"
+
+msgid "Alias"
+msgstr ""
+
+msgid "All caches cleared."
+msgstr ""
+
+msgid "All of these requirements must be met"
+msgstr ""
+
+#, python-format
+msgid "Also known as %(names)s"
+msgstr "Також відомий як %(names)s"
+
+msgid ""
+"An optional alias is used instead of the locale code to identify this "
+"locale, such as in URLs. If US English is the only English language "
+"variant on your site, you may want to alias its language code from <code"
+">en-US</code> to <code>en</code>, for instance."
+msgstr ""
+
+msgid ""
+"An unexpected error occurred and Betty could not complete the task. "
+"Please <a href=\"{report_url}\">report this problem</a> and include the "
+"following details, so the team behind Betty can address it."
+msgstr ""
+
+msgid "Ancestral names include"
+msgstr "Імена предків є"
+
+msgid "Announcement of divorce"
+msgstr "Оголошення про розлучення"
+
+msgid "Announcement of marriage"
+msgstr "Оголошення шлюбу"
+
+msgid "Appearances"
+msgstr "Знайдено в"
+
+msgid "Attendee"
+msgstr "Відвідувач"
+
+msgid "Author"
+msgstr "Автор(а)"
+
+msgid "Baptism"
+msgstr "Хрещення"
+
+msgid "Beneficiary"
+msgstr "Бенефіціар"
+
+msgid "Betty documentation"
+msgstr ""
+
+msgid ""
+"Betty helps you visualize and publish your family history by building "
+"interactive genealogy websites out of your <a "
+"href=\"{gramps_url}\">Gramps</a> and <a href=\"{gedcom_url}\">GEDCOM</a> "
+"family trees."
+msgstr ""
+
+msgid ""
+"Betty is unfamiliar with Gramps event \"{event_id}\"'s type of "
+"\"{gramps_event_type}\". The event was imported, but its type was set to "
+"\"{betty_event_type}\"."
+msgstr ""
+
+msgid ""
+"Betty is unfamiliar with person \"{person_id}\"'s Gramps presence role of"
+" \"{gramps_presence_role}\" for the event with Gramps handle "
+"\"{event_handle}\". The role was imported, but set to "
+"\"{betty_presence_role}\"."
+msgstr ""
+
+msgid "Betty project configuration ({supported_formats})"
+msgstr ""
+
+msgid "Birth"
+msgstr "Народження"
+
+msgid "Built the Cotton Candy front-end assets."
+msgstr ""
+
+msgid "Built the HTTP API documentation."
+msgstr ""
+
+msgid "Built the interactive family trees."
+msgstr ""
+
+msgid "Built the interactive maps."
+msgstr ""
+
+msgid "Burial"
+msgstr "Поховання"
+
+msgid "Cancel"
+msgstr ""
+
+msgid ""
+"Cannot determine the entity type for \"{entity_type}\". Did you perhaps "
+"make a typo, or could it be that the entity type comes from another "
+"package that is not yet installed?"
+msgstr ""
+
+msgid ""
+"Cannot determine the extension type for \"{extension_type}\". Did you "
+"perhaps make a typo, or could it be that the extension type comes from "
+"another package that is not yet installed?"
+msgstr ""
+
+msgid "Cannot find an available port to bind the web server to."
+msgstr ""
+
+msgid "Cannot find and import \"{entity_type}\"."
+msgstr ""
+
+msgid "Cannot find and import \"{extension_type}\"."
+msgstr ""
+
+msgid ""
+"Cannot generate pages for {entity_type}, because it is not a user-facing "
+"entity type."
+msgstr ""
+
+msgid ""
+"Cannot load coordinates \"{coordinates}\", because they are in an unknown"
+" format."
+msgstr ""
+
+msgid "Cannot remove the last remaining locale {locale}"
+msgstr ""
+
+msgid "Celebrant"
+msgstr ""
+
+msgid "Citation"
+msgstr ""
+
+msgid "Citations"
+msgstr ""
+
+msgid "Clean URLs"
+msgstr ""
+
+msgid "Clear all caches"
+msgstr ""
+
+#, fuzzy
+msgid "Conference"
+msgstr "Референції"
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Configuration file \"{configuration_file_path}\" does not exist."
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "Confirmation"
+msgstr "Миропомазання"
+
+#, python-format
+msgid "Continue reading on <a href=\"%(url)s\">Wikipedia</a>."
+msgstr "Продовжуйте читати у <a href=\"%(url)s\">Вікіпедії</a>."
+
+msgid ""
+"Copyright 2019-{year} Bart Feenstra & contributors. Betty is made "
+"available to you under the <a "
+"href=\"https://www.gnu.org/licenses/gpl-3.0.en.html\">GNU General Public "
+"License, Version 3</a> (GPLv3)."
+msgstr ""
+
+msgid "Correspondence"
+msgstr "Листування"
+
+msgid "Cotton Candy is Betty's default theme."
+msgstr ""
+
+msgid "Could not extract {file_path} as a gzip (*.gz) file."
+msgstr ""
+
+msgid ""
+"Could not extract {file_path} as a tar (*.tar) file after extracting the "
+"outer gzip (*.gz) file."
+msgstr ""
+
+msgid "Could not find the file \"{file_path}\"."
+msgstr ""
+
+msgid ""
+"Could not load \"{file_path}\" as a *.gpkg, a *.gramps, or an *.xml "
+"family tree."
+msgstr ""
+
+msgid "Create a new project"
+msgstr ""
+
+msgid ""
+"Create events such as births and deaths by deriving their details from "
+"existing information."
+msgstr ""
+
+msgid ""
+"Created {created_derivations} additional {event_type} events based on "
+"existing information."
+msgstr ""
+
+msgid "Cremation"
+msgstr "Кремація"
+
+msgid "Death"
+msgstr "Смерть"
+
+msgid "Debugging mode"
+msgstr ""
+
+msgid "Demo"
+msgstr ""
+
+msgid "Deriver"
+msgstr ""
+
+msgid "Deriving..."
+msgstr ""
+
+msgid "Descendant names include"
+msgstr "Імена нащадків є"
+
+msgid "Description, licensing, and image history"
+msgstr ""
+
+msgid ""
+"Determine if people can be proven to have died. If not, mark them and "
+"their associated entities private."
+msgstr ""
+
+msgid ""
+"Display interactive family trees using <a "
+"href=\"https://cytoscape.org/\">Cytoscape</a>."
+msgstr ""
+
+msgid ""
+"Display lists of places as interactive maps using <a "
+"href=\"https://leafletjs.com/\">Leaflet</a>."
+msgstr ""
+
+msgid ""
+"Display the HTTP API documentation in a user-friendly way using <a "
+"href=\"https://github.com/Redocly/redoc\">ReDoc</a>."
+msgstr ""
+
+msgid "Divorce"
+msgstr "Розлучення"
+
+#, python-format
+msgid "E.g. \"%(example)s\""
+msgstr "Наприклад «%(example)s»"
+
+msgid "Emigration"
+msgstr "Еміграція"
+
+msgid "Enable {extension}"
+msgstr ""
+
+msgid "Enclosure"
+msgstr ""
+
+msgid "Enclosures"
+msgstr ""
+
+msgid "Engagement"
+msgstr "Заручини"
+
+msgid "Entity ID"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Events"
+msgstr "Події"
+
+msgid "Exit"
+msgstr ""
+
+msgid "Exit the search"
+msgstr "Вийдіть із пошуку"
+
+msgid "External links"
+msgstr "Зовнішні посилання"
+
+msgid "Facts"
+msgstr "Факти"
+
+msgid "Family"
+msgstr ""
+
+msgid "Featured entities"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "File path"
+msgstr ""
+
+msgid "Files"
+msgstr ""
+
+msgid "Find out more about this image on Wikimedia Commons."
+msgstr ""
+
+msgid ""
+"Follow Betty on <a href=\"https://twitter.com/Betty_Project\">Twitter</a>"
+" and <a href=\"https://github.com/bartfeenstra/betty\">Github</a>."
+msgstr ""
+
+msgid "Funeral"
+msgstr "Похорон"
+
+msgid "General"
+msgstr ""
+
+msgid ""
+"Generate <a href=\"\">nginx</a> configuration for your site, as well as a"
+" <code>Dockerfile</code> to build a <a "
+"href=\"https://www.docker.com/\">Docker</a> container around it."
+msgstr ""
+
+msgid "Generate entity listing pages"
+msgstr ""
+
+msgid "Generate site"
+msgstr ""
+
+msgid "Generated pages for {count} {entity_type} in {locale}."
+msgstr ""
+
+msgid "Generated the listing page for {entity_type} in {locale}."
+msgstr ""
+
+msgid "Generating OpenAPI specification..."
+msgstr ""
+
+msgid "Generating localized public files in {locale}..."
+msgstr ""
+
+msgid "Generating static public files..."
+msgstr ""
+
+msgid "Generating your site to {output_directory}."
+msgstr ""
+
+msgid "Generating your site..."
+msgstr ""
+
+msgid "HTTP API Documentation"
+msgstr "документація HTTP API"
+
+msgid "Help"
+msgstr "Допомога"
+
+msgid "I'm sorry, dear, but it seems there are no events."
+msgstr ""
+
+msgid "I'm sorry, dear, but it seems there are no media."
+msgstr ""
+
+msgid "I'm sorry, dear, but it seems there are no people."
+msgstr ""
+
+msgid "I'm sorry, dear, but it seems there are no places."
+msgstr ""
+
+msgid "I'm sorry, dear, but it seems there are no sources."
+msgstr ""
+
+msgid "Immigration"
+msgstr "Імміграція"
+
+msgid "Invalid JSON: {error}."
+msgstr ""
+
+msgid "Invalid YAML: {error}."
+msgstr ""
+
+msgid "Keep this window open to keep the site running."
+msgstr ""
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Lifetime threshold"
+msgstr ""
+
+msgid "Link color (active)"
+msgstr ""
+
+msgid "Link color (inactive)"
+msgstr ""
+
+msgid "Load <a href=\"https://gramps-project.org/\">Gramps</a> family trees."
+msgstr ""
+
+msgid "Load the family tree from..."
+msgstr ""
+
+msgid "Loaded the configuration from {configuration_file_path}."
+msgstr ""
+
+msgid "Loading \"{file_path}\"..."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Locale"
+msgstr ""
+
+msgid "Locale aliases must not contain slashes."
+msgstr ""
+
+msgid "Localization"
+msgstr ""
+
+msgid "MMMM"
+msgstr "MMMM"
+
+msgid "MMMM d"
+msgstr "d MMMM"
+
+msgid "MMMM d, y"
+msgstr "d MMMM y року"
+
+msgid "MMMM, y"
+msgstr "MMMM y року"
+
+msgid "Maps"
+msgstr ""
+
+msgid "Marriage"
+msgstr "Шлюб"
+
+msgid "Media"
+msgstr "Медіа"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Missing"
+msgstr "Відсутній"
+
+msgid "New project..."
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Notes"
+msgstr "Примітки"
+
+msgid "Occupation"
+msgstr "Праця"
+
+msgid "One or more of these requirements must be met"
+msgstr ""
+
+msgid "Open an existing project"
+msgstr ""
+
+msgid "Open project..."
+msgstr ""
+
+msgid "Open your project from..."
+msgstr ""
+
+msgid "Organizer"
+msgstr ""
+
+msgid "Other attendees"
+msgstr "Інші відвідувачі"
+
+msgid ""
+"Output more detailed logs and disable optimizations that make debugging "
+"harder."
+msgstr ""
+
+msgid "People"
+msgstr "Люди"
+
+msgid "Permanent link to this section."
+msgstr "Постійне посилання на цей розділ."
+
+msgid "Person"
+msgstr ""
+
+msgid "Person name"
+msgstr ""
+
+msgid "Person names"
+msgstr ""
+
+msgid "Place"
+msgstr "Місце"
+
+msgid "Places"
+msgstr "Місця"
+
+msgid "Pre-built assets"
+msgstr ""
+
+msgid "Pre-built assets are unavailable for {extension_names}."
+msgstr ""
+
+msgid "Presence"
+msgstr ""
+
+msgid "Presence of {person} at {event}"
+msgstr ""
+
+msgid "Presences"
+msgstr ""
+
+msgid "Primary color (active)"
+msgstr ""
+
+msgid "Primary color (inactive)"
+msgstr ""
+
+msgid ""
+"Privatized person {privatized_person_id} ({privatized_person}) because "
+"they are likely still alive."
+msgstr ""
+
+msgid ""
+"Privatized place {privatized_place_id} ({privatized_place}) because it is"
+" not associated with any public information."
+msgstr ""
+
+msgid "Privatized {count} people because they are likely still alive."
+msgstr ""
+
+msgid ""
+"Privatized {count} {entity_type}, because they are associated with "
+"private information."
+msgstr ""
+
+msgid ""
+"Privatized {privatized_entity_type} {privatized_entity_id} "
+"({privatized_entity}) because of {reason_entity_type} {reason_entity_id} "
+"({reason_entity})."
+msgstr ""
+
+msgid "Privatizer"
+msgstr ""
+
+msgid "Privatizing..."
+msgstr ""
+
+msgid "Project"
+msgstr "Проект"
+
+msgid "Python built-in"
+msgstr ""
+
+msgid "Read more on Wikipedia."
+msgstr "Детальніше читайте у Вікіпедії."
+
+msgid "References"
+msgstr "Референції"
+
+msgid "Remove"
+msgstr ""
+
+msgid "Report a bug"
+msgstr ""
+
+msgid "Request a new feature"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Residence"
+msgstr "Проживання"
+
+msgid "Retirement"
+msgstr "Вихід на пенсію"
+
+msgid "Save and close"
+msgstr ""
+
+msgid "Save this project as..."
+msgstr ""
+
+msgid "Save your new project to..."
+msgstr ""
+
+msgid "Save your project to..."
+msgstr ""
+
+msgid "Serve site"
+msgstr ""
+
+msgid "Serving the Betty demo..."
+msgstr ""
+
+msgid "Serving the Betty documentation..."
+msgstr ""
+
+msgid "Serving your site at {url}..."
+msgstr ""
+
+msgid "Serving your site..."
+msgstr ""
+
+msgid "Settings..."
+msgstr ""
+
+msgid "Source"
+msgstr "Джерелo"
+
+msgid "Sources"
+msgstr "Джерела"
+
+msgid "Speaker"
+msgstr ""
+
+msgid "Starting Python's built-in web server..."
+msgstr ""
+
+msgid "Stop the site"
+msgstr ""
+
+msgid "Subject"
+msgstr "Предмет"
+
+msgid "The age at which people are presumed dead."
+msgstr ""
+
+msgid "The base URL must include a path."
+msgstr ""
+
+msgid ""
+"The base URL must start with a scheme such as https://, http://, or "
+"file://."
+msgstr ""
+
+msgid ""
+"The betty:privacy Gramps attribute must have a value of \"public\" or "
+"\"private\", but \"{privacy_value}\" was given for {entity_type} "
+"{entity_id} ({entity_label}), which was ignored."
+msgstr ""
+
+msgid ""
+"The entity reference must be for an entity of type "
+"{expected_entity_type_name} ({expected_entity_type_label}), but instead "
+"does not specify an entity type at all."
+msgstr ""
+
+msgid ""
+"The entity reference must be for an entity of type "
+"{expected_entity_type_name} ({expected_entity_type_label}), but instead "
+"is for an entity of type {actual_entity_type_name} "
+"({actual_entity_type_label})"
+msgstr ""
+
+msgid "The following errors occurred"
+msgstr ""
+
+msgid "The lifetime threshold must consist of digits only."
+msgstr ""
+
+#, python-format
+msgid "The translations for {locale_name} are {coverage_percentage}%% complete."
+msgstr ""
+
+msgid "There are no translations for {locale_name}."
+msgstr ""
+
+msgid "These entities are featured on your site's front page."
+msgstr ""
+
+#, python-format
+msgid "They are the child of %(parent_labels)s."
+msgstr "Це дитина %(parent_labels)s."
+
+#, python-format
+msgid "They grew up with a sibling."
+msgid_plural "They grew up with %(sibling_count)s siblings."
+msgstr[0] "У його батьків була ще одна дитина."
+msgstr[1] "У його батьків було ще %(sibling_count)s дітей."
+msgstr[2] "У його батьків було ще %(sibling_count)s дітей."
+
+#, python-format
+msgid "They had a child with %(co_parent_labels)s."
+msgid_plural "They had %(child_count)s children with %(co_parent_labels)s."
+msgstr[0] "У нього була дитина від %(co_parent_labels)s."
+msgstr[1] "У нього було 3 дитини з %(co_parent_labels)s."
+msgstr[2] "У нього було 3 дитини з %(co_parent_labels)s."
+
+#, python-format
+msgid "They had a child."
+msgid_plural "They had %(child_count)s children."
+msgstr[0] "У нього була дитина."
+msgstr[1] "У нього було %(child_count)s дитини."
+msgstr[2] "У нього було %(child_count)s дитини."
+
+msgid "This field is required."
+msgstr ""
+
+msgid "This must be a boolean."
+msgstr ""
+
+msgid "This must be a decimal number."
+msgstr ""
+
+msgid "This must be a key-value mapping."
+msgstr ""
+
+msgid "This must be a list."
+msgstr ""
+
+msgid "This must be a positive number."
+msgstr ""
+
+msgid "This must be a string."
+msgstr ""
+
+msgid "This must be a whole number."
+msgstr ""
+
+msgid "This must be none/null."
+msgstr ""
+
+msgid "This person's details are unavailable to protect their privacy."
+msgstr "Дані цієї особи недоступні для захисту їх конфіденційності."
+
+msgid "This person's name is unavailable to protect their privacy."
+msgstr "Ім’я даних цієї особи недоступне для захисту її конфіденційності."
+
+msgid "This person's name is unknown."
+msgstr "Ім'я цієї людини невідоме."
+
+msgid "Timeline"
+msgstr "Хронологія"
+
+msgid "Title"
+msgstr ""
+
+msgid "Trees"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid ""
+"URLs look like <code>/path</code> instead of "
+"<code>/path/index.html</code>. This requires a web server that supports "
+"it."
+msgstr ""
+
+msgid "Unknown"
+msgstr "Невідомо"
+
+msgid ""
+"Unknown file format \".{extension}\". Supported formats are: "
+"{supported_formats}."
+msgstr ""
+
+msgid "Unknown key: {unknown_key}. Did you mean {known_keys}?"
+msgstr ""
+
+msgid ""
+"Updated {updated_derivations} {event_type} events based on existing "
+"information."
+msgstr ""
+
+#, python-format
+msgid ""
+"Use <kbd>↑</kbd> and <kbd>↓</kbd> to navigate results, or <kbd>esc</kbd> "
+"to exit the search. Search again with <kbd>%(shortcut)s</kbd>."
+msgstr ""
+"Використовуйте <kbd>↑</kbd> і <kbd>↓</kbd> для переміщення по результатах"
+" або <kbd>esc</kbd> для виходу з пошуку. Шукайте знову за допомогою "
+"<kbd>%(shortcut)s</kbd>."
+
+msgid "Version: {version}"
+msgstr ""
+
+msgid "View a demo site"
+msgstr ""
+
+msgid "View a demonstration of what a Betty site looks like"
+msgstr ""
+
+msgid "View demo site..."
+msgstr ""
+
+msgid "View documentation"
+msgstr ""
+
+msgid "View site"
+msgstr ""
+
+msgid "Welcome to Betty"
+msgstr "Ласкаво просимо на Betty"
+
+msgid "Wikipedia"
+msgstr ""
+
+msgid "Will"
+msgstr "Заповіт"
+
+msgid "Witness"
+msgstr "Свідок"
+
+msgid "Witnesses"
+msgstr "Свідки"
+
+msgid "Work on a new or existing site of your own"
+msgstr ""
+
+msgid ""
+"You can now view a Betty demonstration site at <a "
+"href=\"{url}\">{url}</a>."
+msgstr ""
+
+msgid "You can now view the documentation at <a href=\"{url}\">{url}</a>."
+msgstr ""
+
+msgid "You can now view your site at <a href=\"{url}\">{url}</a>."
+msgstr ""
+
+#, python-format
+msgid ""
+"Your browser cannot show PDF documents. <a href=\"%(file_url)s\">Download"
+" %(file_name)s</a> to view it on your device instead."
+msgstr ""
+
+msgid "`npm` is available"
+msgstr ""
+
+msgid "`npm` is not available"
+msgstr ""
+
+msgid "around {date}"
+msgstr "близько {date}"
+
+msgid "from around {start_date}"
+msgstr "приблизно з {start_date}"
+
+msgid "from around {start_date} until around {end_date}"
+msgstr "приблизно з {start_date} приблизно до {end_date}"
+
+msgid "from around {start_date} until sometime before around {end_date}"
+msgstr "приблизно з {start_date} до десь до {end_date}"
+
+msgid "from around {start_date} until sometime before {end_date}"
+msgstr "приблизно з {start_date} до десь раніше {end_date}"
+
+msgid "from around {start_date} until {end_date}"
+msgstr "приблизно з {start_date} до {end_date}"
+
+msgid "from sometime after around {start_date} until around {end_date}"
+msgstr "десь приблизно після {start_date} приблизно до {end_date}"
+
+msgid "from sometime after around {start_date} until {end_date}"
+msgstr "десь після {start_date} до {end_date}"
+
+msgid "from sometime after {start_date} until around {end_date}"
+msgstr "десь після {start_date} приблизно до {end_date}"
+
+msgid "from sometime after {start_date} until {end_date}"
+msgstr "десь після {start_date} до {end_date}"
+
+msgid "from {start_date}"
+msgstr "з {start_date}"
+
+msgid "from {start_date} until around {end_date}"
+msgstr "з {start_date} до приблизно {end_date}"
+
+msgid "from {start_date} until sometime before around {end_date}"
+msgstr "з {start_date} до десь до {end_date}"
+
+msgid "from {start_date} until sometime before {end_date}"
+msgstr "з {start_date} до десь раніше {end_date}"
+
+msgid "from {start_date} until {end_date}"
+msgstr "з {start_date} до {end_date}"
+
+#, python-format
+msgid "in %(place)s"
+msgstr "в %(place)s"
+
+msgid ""
+"npm (https://www.npmjs.com/) must be available for features that require "
+"Node.js packages to be installed. Ensure that the `npm` executable is "
+"available in your `PATH`."
+msgstr ""
+
+msgid "private"
+msgstr "приватні"
+
+msgid "private (in order to protect people's privacy)"
+msgstr ""
+
+msgctxt "enter-search-shortcut"
+msgid "s"
+msgstr "ш"
+
+#, python-format
+msgid "show %(name_count)s more"
+msgid_plural "show %(name_count)s more"
+msgstr[0] "показати ще одну"
+msgstr[1] "показати ще %(name_count)s"
+msgstr[2] "показати ще %(name_count)s"
+
+msgid "show fewer"
+msgstr "показати менше"
+
+msgid "show less"
+msgstr "показати менше"
+
+msgid "show more"
+msgstr "показати більше"
+
+msgid "sometime after around {start_date}"
+msgstr "десь приблизно після {start_date}"
+
+msgid "sometime after {start_date}"
+msgstr "десь після {start_date}"
+
+msgid "sometime before around {end_date}"
+msgstr "десь приблизно до {end_date}"
+
+msgid "sometime before {end_date}"
+msgstr "десь до {end_date}"
+
+msgid "sometime between around {start_date} and around {end_date}"
+msgstr "десь між приблизно {start_date} та приблизно {end_date}"
+
+msgid "sometime between around {start_date} and {end_date}"
+msgstr "десь між приблизно {start_date} та {end_date}"
+
+msgid "sometime between {start_date} and around {end_date}"
+msgstr "десь між {start_date} і близько {end_date}"
+
+msgid "sometime between {start_date} and {end_date}"
+msgstr "десь між {start_date} та {end_date}"
+
+msgid "unknown date"
+msgstr "невідома дата"
+
+msgid "until around {end_date}"
+msgstr "приблизно до {end_date}"
+
+msgid "until {end_date}"
+msgstr "до {end_date}"
+
+msgid "y"
+msgstr "y року"
+
+msgid "{date}"
+msgstr ""
+
+msgid "{dependency_label} is required by {dependency_labels}."
+msgstr ""
+
+msgid "{dependent_label} requires {dependency_labels}."
+msgstr ""
+
+msgid "{entity_type_label} ID"
+msgstr ""
+
+msgid "{entity_type} {entity_id}"
+msgstr ""
+
+msgid "{event_type}"
+msgstr ""
+
+msgid "{event_type} ({event_description})"
+msgstr ""
+
+msgid "{event_type} ({event_description}) of {subjects}"
+msgstr ""
+
+msgid "{event_type} of {subjects}"
+msgstr "{event_type} {subjects}"
+
+msgid "{extension_type} is not configurable."
+msgstr ""
+
+msgid "{individual_name} {affiliation_name}"
+msgstr "{individual_name} {affiliation_name}"
+
+#, python-format
+msgid "© Copyright %(author)s, unless otherwise credited"
+msgstr "© Авторське право %(author)s, якщо інше не зараховано"
+
