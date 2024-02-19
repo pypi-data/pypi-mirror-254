@@ -1,0 +1,105 @@
+name: Release on GitHub & PyPI
+
+on:
+  push:
+    tags:
+      - "v*"
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main
+
+env:
+  CMEEL_LOG_LEVEL: DEBUG
+
+jobs:
+  linux:
+    name: "${{ matrix.image }} ${{ matrix.arch }}"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        image: ["manylinux_2_28", "musllinux_1_1"]
+        arch: ["x86_64", "aarch64"]
+        exclude:
+          - image: "musllinux_1_1"
+            arch: "aarch64"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - name: Set up QEMU
+        if: matrix.arch == 'aarch64'
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: all
+      - run: pipx install cmeel
+      - run: cmeel docker -Ui "quay.io/pypa/${{ matrix.image }}_${{ matrix.arch }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "artifact-${{ matrix.image }}-${{ matrix.arch }}"
+          path: wh/cmeel_urdfdom-*
+
+  macos:
+    name: "macos"
+    runs-on: "macos-latest"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -U pip
+      - run: python -m pip wheel -vw wh .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "macos"
+          path: wh/cmeel_urdfdom-*
+
+  sdist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+      - name: setup
+        run: |
+          python -m pip install -U pip
+          python -m pip install build cmeel[build] cmeel-console-bridge cmeel-tinyxml2 cmeel-urdfdom-headers
+      - name: build sdist
+        run: python -m build -nso dist .
+      - uses: actions/upload-artifact@v4
+        with:
+          path: dist
+
+  release:
+    needs: ["linux", "macos", "sdist"]
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - run: curl https://github.com/nim65s.gpg | gpg --import
+      - name: validate signature
+        run: >
+          git verify-tag --raw ${{ github.ref_name }} 2>&1
+          | grep -q 'VALIDSIG 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28'
+      - uses: actions/download-artifact@v4
+      - run: mkdir dist && mv artifact*/* dist
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
+      - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+      - run: gh release create -t "Release ${{ env.TAG}}" "${{ env.TAG }}" dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
