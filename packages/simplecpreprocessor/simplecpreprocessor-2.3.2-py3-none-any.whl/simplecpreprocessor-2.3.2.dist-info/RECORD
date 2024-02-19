@@ -1,0 +1,14 @@
+simplecpreprocessor/__init__.py,sha256=SUO8QFU0loAM2H0h9bhnoJlRiAPk44hkTHDfw-xvxUg,176
+simplecpreprocessor/__main__.py,sha256=jyId6hWXTeOK78Vy5AQSuUWYMn7l1AY7ox3BR-aZ4Uw,1004
+simplecpreprocessor/core.py,sha256=M4yPb3Z4ZDsdZrR2dzhz0Wn-_k22JPS1X1ajC1Bmvck,9713
+simplecpreprocessor/exceptions.py,sha256=7oaYXYvmwdPpNrPJ1TACk5P-huEUzs74n6BlIdpFWU4,87
+simplecpreprocessor/filesystem.py,sha256=wp5YoeIAK5ZkqMCxFjiTgo05-fzhIw05svqPRDDwiBk,2292
+simplecpreprocessor/platform.py,sha256=8nmfnEhOb30_BHu5J854uTHU6dlgSD2ojIe90B5p-Rg,1644
+simplecpreprocessor/test_preprocessor.py,sha256=39dhnZ0_H7Pt7Td6H3mzeYD4mkTij-pUWPFj3UAL8KM,22048
+simplecpreprocessor/tokens.py,sha256=CPvts8yOOMm4nWixYjFReqQvGbTFMEALDQSiZOMFNDo,3934
+simplecpreprocessor/version.py,sha256=sljQl28s4AYF9tb7pBjD7iFvrXeTcgDSFfANKpf4Ut8,23
+simplecpreprocessor-2.3.2.dist-info/entry_points.txt,sha256=8DC3-FWufUYa8H9ba6iuWxgeXoa-NcVkAINbTvyOjGk,73
+simplecpreprocessor-2.3.2.dist-info/LICENSE.txt,sha256=kQ0apctPw3A6tuUwqVzmHeQlLEs9-vAqvCWha-wmKQs,1059
+simplecpreprocessor-2.3.2.dist-info/WHEEL,sha256=EZbGkh7Ie4PoZfRQ8I0ZuP9VklN_TvcZ6DSE5Uar4z4,81
+simplecpreprocessor-2.3.2.dist-info/METADATA,sha256=ll9BQ6622gXZqHg6dLYRSqRZkr3HYzDHZoNKU9-mEfc,1332
+simplecpreprocessor-2.3.2.dist-info/RECORD,,
