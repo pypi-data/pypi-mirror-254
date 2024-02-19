@@ -1,0 +1,29 @@
+# Sources:
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+# https://github.com/pypa/sampleproject/blob/main/pyproject.toml
+
+[project]
+name = "pltfront"
+description = "A simplified matplotlib frontend"
+readme = "README.md"
+version = "0.4.3"
+authors = [
+    {name = "Iacopo Ricci", email = "dummy@dummy.com"}
+]
+requires-python = ">=3.10"
+license = {text = "GPLv3"}
+dependencies = [
+    "matplotlib >= 3.8.0",
+    "numpy >= 1.26.0",
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3.10",
+    "Development Status :: 4 - Beta"
+]
+
+[project.urls]
+repository = "https://framagit.org/codutils/pltfront"
+homepage = "https://codutils.frama.io/pltfront/tutorial"
+documentation = "https://codutils.frama.io/pltfront/api/pltfront"
+# changelog = ""

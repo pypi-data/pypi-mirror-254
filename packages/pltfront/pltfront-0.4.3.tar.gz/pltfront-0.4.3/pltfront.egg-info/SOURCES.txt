@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+pltfront/__init__.py
+pltfront/factory.py
+pltfront/plot.py
+pltfront.egg-info/PKG-INFO
+pltfront.egg-info/SOURCES.txt
+pltfront.egg-info/dependency_links.txt
+pltfront.egg-info/requires.txt
+pltfront.egg-info/top_level.txt
+tests/test_factory.py
+tests/test_plot.py
