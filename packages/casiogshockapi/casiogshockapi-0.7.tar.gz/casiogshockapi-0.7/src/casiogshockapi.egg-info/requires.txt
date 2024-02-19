@@ -1,0 +1,8 @@
+bleak
+pytz
+reactivex
+
+[testing]
+pytest
+pytest-cov
+setuptools
