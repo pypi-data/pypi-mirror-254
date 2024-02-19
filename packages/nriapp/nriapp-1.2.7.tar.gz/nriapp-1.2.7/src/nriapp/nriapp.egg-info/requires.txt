@@ -1,0 +1,14 @@
+selenium-wire
+webdriver-manager
+loguru
+tldextract
+python-dateutil
+pytz
+xmltodict
+azure-kusto-data
+azure-kusto-ingest
+pandas
+bs4
+keyring
+python-docx
+xlsxwriter
