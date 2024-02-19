@@ -1,0 +1,6 @@
+api-management-local
+variable-local
+boto3>=1.28.70
+message-local
+database-mysql-local>=0.0.121
+python-sdk-local
