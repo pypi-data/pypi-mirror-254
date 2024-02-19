@@ -1,0 +1,20 @@
+[project]
+name = "TTTS"
+version = "0.0.12"
+authors = [ 
+  { name="Ofir Arbili", email="ofir.arbili@gmail.com"},
+  {name="Seffi Cohen", email="seffi@post.bgu.ac.il" },
+  
+]
+description = "TTTS: Tree Test Time Simulation for Enhancing Decision Tree Robustness Against Adversarial Examples"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/OArbili/TTTS"
+Issues = "https://github.com/OArbili/TTTS/issues"
