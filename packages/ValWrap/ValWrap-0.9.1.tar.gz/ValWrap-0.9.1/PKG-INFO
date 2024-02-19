@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: ValWrap
+Version: 0.9.1
+Author: PWall
+License: GPL-3.0
+Project-URL: Homepage, https://github.com/ValUtils/ValWrap
+Keywords: valorant,api,endpoints
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: ValLib
+Requires-Dist: typing_extensions
