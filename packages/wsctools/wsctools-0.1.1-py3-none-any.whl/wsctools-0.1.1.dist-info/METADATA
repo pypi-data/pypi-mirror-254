@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: wsctools
+Version: 0.1.1
+Requires-Dist: googletrans ==4.0.0-rc1
+Requires-Dist: langdetect ==1.0.9
+Requires-Dist: tldextract ==5.1.1
+
