@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.py
+profiles_local.egg-info/PKG-INFO
+profiles_local.egg-info/SOURCES.txt
+profiles_local.egg-info/dependency_links.txt
+profiles_local.egg-info/requires.txt
+profiles_local.egg-info/top_level.txt
+profiles_local/src/__init__.py
+profiles_local/src/comprehensive_profile.py
+profiles_local/src/constants_profiles_local.py
+profiles_local/src/profiles_local.py
