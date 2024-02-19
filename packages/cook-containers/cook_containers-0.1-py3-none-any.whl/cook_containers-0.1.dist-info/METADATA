@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: cook-containers
+Version: 0.1
+Requires-Dist: ruamel.yaml (<0.18.0)
+
