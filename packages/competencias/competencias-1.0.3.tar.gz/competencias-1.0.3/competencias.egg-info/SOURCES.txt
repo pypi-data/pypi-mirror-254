@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+competencias/__init__.py
+competencias.egg-info/PKG-INFO
+competencias.egg-info/SOURCES.txt
+competencias.egg-info/dependency_links.txt
+competencias.egg-info/requires.txt
+competencias.egg-info/top_level.txt
