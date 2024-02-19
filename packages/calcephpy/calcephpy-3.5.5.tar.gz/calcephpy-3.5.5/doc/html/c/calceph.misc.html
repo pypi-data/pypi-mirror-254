@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miscellaneous functions &mdash; CALCEPH  - C language 3.5.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NAIF identification numbers" href="calceph.naifid.html" />
+    <link rel="prev" title="Error functions" href="calceph.error.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CALCEPH  - C language
+          </a>
+              <div class="version">
+                3.5.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="calceph.intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.install.cusage.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.interface.html">Library interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.multiple.html">Multiple file access functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="condsingle/calceph.single.html">Single file access functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.error.html">Error functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Miscellaneous functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#menu-calceph-getmaxsupportedorder">calceph_getmaxsupportedorder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getmaxsupportedorder"><code class="docutils literal notranslate"><span class="pre">getmaxsupportedorder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#menu-calceph-getversion-str">calceph_getversion_str</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#calcephpy.getversion_str"><code class="docutils literal notranslate"><span class="pre">calcephpy.getversion_str()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.naifid.html">NAIF identification numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.final.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.reportbugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.copying.html">CALCEPH Library Copying conditions</a></li>
+</ul>
+
+    <a href="genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CALCEPH  - C language</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Miscellaneous functions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="miscellaneous-functions">
+<h1>Miscellaneous functions<a class="headerlink" href="#miscellaneous-functions" title="Permalink to this heading"></a></h1>
+<section id="menu-calceph-getmaxsupportedorder">
+<h2>calceph_getmaxsupportedorder<a class="headerlink" href="#menu-calceph-getmaxsupportedorder" title="Permalink to this heading"></a></h2>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.calceph_getmaxsupportedorder">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">calceph_getmaxsupportedorder</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">segid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.calceph_getmaxsupportedorder" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segid</strong> -- type of the segment.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>maximal order of the computable derivatives for this type of segment.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the maximal order of the derivatives computed by the functions <a class="reference internal" href="calceph.multiple.html#c.calceph_compute_order" title="calceph_compute_order"><code class="xref c c-func docutils literal notranslate"><span class="pre">calceph_compute_order()</span></code></a>, <a class="reference internal" href="calceph.multiple.html#c.calceph_orient_order" title="calceph_orient_order"><code class="xref c c-func docutils literal notranslate"><span class="pre">calceph_orient_order()</span></code></a>, ....  for the segment type <em>segid</em>.
+If the segment type is unknown by the library, the function returns -1.</p>
+<p>The accepted values of <em>segid</em> are the predefined constants <em>CALCEPH_SEGTYPE_...</em> (<a class="reference internal" href="calceph.interface.html#constants"><span class="std std-ref">Constants</span></a>).</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">maxorder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calceph_getmaxsupportedorder</span><span class="p">(</span><span class="n">CALCEPH_SEGTYPE_SPK_2</span><span class="p">);</span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;maximal order is %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">maxorder</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="menu-calceph-getversion-str">
+<h2>calceph_getversion_str<a class="headerlink" href="#menu-calceph-getversion-str" title="Permalink to this heading"></a></h2>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.calceph_getversion_str">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">calceph_getversion_str</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="calceph.interface.html#c.CALCEPH_MAX_CONSTANTNAME" title="CALCEPH_MAX_CONSTANTNAME"><span class="n"><span class="pre">CALCEPH_MAX_CONSTANTNAME</span></span></a><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.calceph_getversion_str" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> -- version of the library</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the version of the CALCEPH Library, as a null-terminated string.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">cversion</span><span class="p">[</span><span class="n">CALCEPH_MAX_CONSTANTNAME</span><span class="p">];</span>
+<span class="n">calceph_getversion_str</span><span class="p">(</span><span class="n">cversion</span><span class="p">);</span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;library version is &#39;%s&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cversion</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calceph.error.html" class="btn btn-neutral float-left" title="Error functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calceph.naifid.html" class="btn btn-neutral float-right" title="NAIF identification numbers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, CNRS, Observatoire de Paris, Observatoire de la Côte d&#39;Azur.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

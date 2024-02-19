@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CALCEPH 3.5.5 - Fortran 2003 language &mdash; CALCEPH  - Fortran 2003 language 3.5.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="calceph.intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            CALCEPH  - Fortran 2003 language
+          </a>
+              <div class="version">
+                3.5.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="calceph.intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.install.cusage.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.interface.html">Library interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.multiple.html">Multiple file access functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="condsingle/calceph.single.html">Single file access functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.error.html">Error functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.misc.html">Miscellaneous functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.naifid.html">NAIF identification numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.final.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.reportbugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.copying.html">CALCEPH Library Copying conditions</a></li>
+</ul>
+
+    <a href="genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">CALCEPH  - Fortran 2003 language</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CALCEPH 3.5.5 - Fortran 2003 language</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calceph-version-api-language">
+<h1>CALCEPH 3.5.5 - Fortran 2003 language<a class="headerlink" href="#calceph-version-api-language" title="Permalink to this heading"></a></h1>
+<p>This manual documents how to install and use the CALCEPH Library using the Fortran 2003 interface.</p>
+<p>Authors : M. Gastineau, J. Laskar, A. Fienga, H. Manche</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calceph.intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.install.cusage.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.install.cusage.html#unix-like-system-linux-mac-os-x-bsd-cygwin">Unix-like system (Linux, Mac OS X, BSD, Cygwin, ...)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.install.cusage.html#quick-instructions">Quick instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.install.cusage.html#detailed-instructions">Detailed instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.install.cusage.html#windows-system">Windows system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.install.cusage.html#using-the-microsoft-visual-c-compiler">Using the Microsoft Visual C++ compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.install.cusage.html#using-the-mingw">Using the MinGW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.interface.html">Library interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.interface.html#a-simple-example-program">A simple example program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.interface.html#menu-headers-and-libraries">Modules and Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.interface.html#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#calcephpy.CalcephBin"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#calcephpy.NaifId"><code class="docutils literal notranslate"><span class="pre">calcephpy.NaifId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#calcephpy.Constants"><code class="docutils literal notranslate"><span class="pre">calcephpy.Constants</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.interface.html#constants">Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#VERSION_MAJOR"><code class="docutils literal notranslate"><span class="pre">VERSION_MAJOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#VERSION_MINOR"><code class="docutils literal notranslate"><span class="pre">VERSION_MINOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#VERSION_PATCH"><code class="docutils literal notranslate"><span class="pre">VERSION_PATCH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#VERSION_STRING"><code class="docutils literal notranslate"><span class="pre">VERSION_STRING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#ASTEROID"><code class="docutils literal notranslate"><span class="pre">ASTEROID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#UNIT_AU"><code class="docutils literal notranslate"><span class="pre">UNIT_AU</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#UNIT_KM"><code class="docutils literal notranslate"><span class="pre">UNIT_KM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#UNIT_DAY"><code class="docutils literal notranslate"><span class="pre">UNIT_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#UNIT_SEC"><code class="docutils literal notranslate"><span class="pre">UNIT_SEC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#UNIT_RAD"><code class="docutils literal notranslate"><span class="pre">UNIT_RAD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#OUTPUT_EULERANGLES"><code class="docutils literal notranslate"><span class="pre">OUTPUT_EULERANGLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#OUTPUT_NUTATIONANGLES"><code class="docutils literal notranslate"><span class="pre">OUTPUT_NUTATIONANGLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#USE_NAIFID"><code class="docutils literal notranslate"><span class="pre">USE_NAIFID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_ORIG_0"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_ORIG_0</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_1"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_2"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_3"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_5"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_8"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_8</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_9"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_9</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_12"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_12</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_13"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_13</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_14"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_14</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_17"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_17</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_18"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_18</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_19"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_19</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_20"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_20</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_21"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_21</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_102"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_102</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_103"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_103</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.interface.html#SEGTYPE_SPK_120"><code class="docutils literal notranslate"><span class="pre">SEGTYPE_SPK_120</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.multiple.html">Multiple file access functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.multiple.html#time-notes">Time notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.multiple.html#thread-notes">Thread notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.multiple.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.multiple.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-open">calceph_open</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.open"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.open()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-open-array">calceph_open_array</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#id0"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.open()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-prefetch">calceph_prefetch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.prefetch"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.prefetch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-isthreadsafe">calceph_isthreadsafe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.isthreadsafe"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.isthreadsafe()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-compute">calceph_compute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.compute"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.compute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-compute-unit">calceph_compute_unit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.compute_unit"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.compute_unit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-orient-unit">calceph_orient_unit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.orient_unit"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.orient_unit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-rotangmom-unit">calceph_rotangmom_unit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.rotangmom_unit"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.rotangmom_unit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-compute-order">calceph_compute_order</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.compute_order"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.compute_order()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-orient-order">calceph_orient_order</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.orient_order"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.orient_order()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-rotangmom-order">calceph_rotangmom_order</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.rotangmom_order"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.rotangmom_order()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstant">calceph_getconstant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstant"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstant()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantsd">calceph_getconstantsd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantsd"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantsd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantvd">calceph_getconstantvd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantvd"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantvd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantss">calceph_getconstantss</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantss"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantvs">calceph_getconstantvs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantvs"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantvs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantcount">calceph_getconstantcount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantcount"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantcount()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getconstantindex">calceph_getconstantindex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getconstantindex"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getconstantindex()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getfileversion">calceph_getfileversion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getfileversion"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getfileversion()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-gettimescale">calceph_gettimescale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.gettimescale"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.gettimescale()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-gettimespan">calceph_gettimespan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.gettimespan"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.gettimespan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getpositionrecordcount">calceph_getpositionrecordcount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getpositionrecordcount"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getpositionrecordcount()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getpositionrecordindex">calceph_getpositionrecordindex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getpositionrecordindex"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getpositionrecordindex()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getpositionrecordindex2">calceph_getpositionrecordindex2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getpositionrecordindex2"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getpositionrecordindex2()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getorientrecordcount">calceph_getorientrecordcount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getorientrecordcount"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getorientrecordcount()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getorientrecordindex">calceph_getorientrecordindex</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getorientrecordindex"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getorientrecordindex()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-getorientrecordindex2">calceph_getorientrecordindex2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.getorientrecordindex2"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.getorientrecordindex2()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calceph.multiple.html#menu-calceph-close">calceph_close</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calceph.multiple.html#calcephpy.CalcephBin.close"><code class="docutils literal notranslate"><span class="pre">calcephpy.CalcephBin.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="condsingle/calceph.single.html">Single file access functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="condsingle/calceph.single.html#time-notes">Time notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="condsingle/calceph.single.html#thread-notes">Thread notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="condsingle/calceph.single.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="condsingle/calceph.single.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sopen">calceph_sopen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-scompute">calceph_scompute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgetconstant">calceph_sgetconstant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgetconstantcount">calceph_sgetconstantcount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgetconstantindex">calceph_sgetconstantindex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgetfileversion">calceph_sgetfileversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgettimescale">calceph_sgettimescale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sgettimespan">calceph_sgettimespan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="condsingle/calceph.single.html#menu-calceph-sclose">calceph_sclose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.error.html">Error functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.error.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.error.html#menu-calceph-seterrorhandler">calceph_seterrorhandler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.error.html#calcephpy.seterrorhandler"><code class="docutils literal notranslate"><span class="pre">calcephpy.seterrorhandler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.misc.html">Miscellaneous functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.misc.html#menu-calceph-getmaxsupportedorder">calceph_getmaxsupportedorder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.misc.html#getmaxsupportedorder"><code class="docutils literal notranslate"><span class="pre">getmaxsupportedorder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.misc.html#menu-calceph-getversion-str">calceph_getversion_str</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calceph.misc.html#calcephpy.getversion_str"><code class="docutils literal notranslate"><span class="pre">calcephpy.getversion_str()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.naifid.html">NAIF identification numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calceph.naifid.html#sun-and-planetary-barycenters">Sun and planetary barycenters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.naifid.html#coordinate-time-ephemerides">Coordinate Time ephemerides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.naifid.html#planet-centers-and-satellites">Planet centers and satellites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calceph.naifid.html#comets">Comets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.final.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.reportbugs.html">Reporting bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calceph.copying.html">CALCEPH Library Copying conditions</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calceph.intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, CNRS, Observatoire de Paris, Observatoire de la Côte d&#39;Azur.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
