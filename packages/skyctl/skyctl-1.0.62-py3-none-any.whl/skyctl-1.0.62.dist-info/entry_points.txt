@@ -1,0 +1,3 @@
+[console_scripts]
+skyctl = ctl.terminal:ctl
+test = ctl.test:cli
