@@ -1,0 +1,70 @@
+{
+  "type": "array",
+  "elem": "#project",
+  "cons": {
+    "unique": ["@all.project_id", "@all.name", "@all.slug"],
+    "monotone_inc": ["@all.date"]
+  },
+  "defs": {
+    "#project": {
+      "type": "object",
+      "attr": {
+        "project_id": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+          }
+        },
+        "name": "string",
+        "slug": "string",
+        "date": "#date",
+        "rating": "number",
+        "project_type": {
+          "type": "string",
+          "cons": {
+            "in": ["game", "tool", "visualization", "program", "simulation"]
+          }
+        },
+        "controls": ["string", "null"],
+        "description": [
+          {
+            "type": "string",
+            "cons": {
+              "min_length": 50,
+              "max_length": 500
+            }
+          },
+          "null"
+        ],
+        "remarks": ["string", "null"],
+        "tags": {
+          "type": "array",
+          "elem": "string"
+        },
+        "source_link": ["#link", "null"],
+        "download_link": ["#link", "null"],
+        "web_link": ["#link", "null"],
+        "image_links": {
+          "type": "array",
+          "elem": "#link"
+        },
+        "primary_language": "string",
+        "archived": "boolean"
+      }
+    },
+    "#date": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+[
+  {
+    "name": "Halt and Catch Fire",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 1,
+    "link": "https://www.imdb.com/title/tt2543312"
+  },
+  {
+    "name": "Community",
+    "genre": "comedy",
+    "scores": {
+      "plot": 8,
+      "characters": 10,
+      "production": 5,
+      "dialog": 9
+    },
+    "rank": 2,
+    "link": "https://www.imdb.com/title/tt1439629"
+  },
+  {
+    "name": "Westworld",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 10,
+      "dialog": 8
+    },
+    "rank": 3,
+    "link": "https://www.imdb.com/title/tt0475784"
+  },
+  {
+    "name": "House",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 9,
+      "production": 7,
+      "dialog": 7
+    },
+    "rank": 4,
+    "link": "https://www.imdb.com/title/tt0412142"
+  },
+  {
+    "name": "Black Mirror",
+    "genre": "drama",
+    "scores": {
+      "plot": 10,
+      "characters": 1,
+      "production": 10,
+      "dialog": 5
+    },
+    "rank": 5,
+    "link": "https://www.imdb.com/title/tt2085059"
+  },
+  {
+    "name": "Sherlock",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 5,
+      "production": 8,
+      "dialog": 8
+    },
+    "rank": 6,
+    "link": "https://www.imdb.com/title/tt1475582"
+  },
+  {
+    "name": "The Bear",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 8,
+      "dialog": 9
+    },
+    "rank": 7,
+    "link": "https://www.imdb.com/title/tt14452776"
+  },
+  {
+    "name": "The Last of Us",
+    "genre": "thriller",
+    "scores": {
+      "plot": 8,
+      "characters": 8,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 8,
+    "link": "https://www.imdb.com/title/tt3581920"
+  },
+  {
+    "name": "I Think You Should Leave",
+    "genre": "comedy",
+    "scores": {
+      "plot": 1,
+      "characters": 2,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 9,
+    "link": "https://www.imdb.com/title/tt10050772"
+  },
+  {
+    "name": "How I Met Your Mother",
+    "genre": "sitcom",
+    "scores": {
+      "plot": 5,
+      "characters": 9,
+      "production": 3,
+      "dialog": 5
+    },
+    "rank": 10,
+    "link": "https://www.imdb.com/title/tt0460649"
+  },
+  {
+    "name": "Silo",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 6,
+      "production": 8,
+      "dialog": 6
+    },
+    "rank": 11,
+    "link": "https://www.imdb.com/title/tt14688458"
+  },
+  {
+    "name": "Rick and Morty",
+    "genre": "comedy",
+    "scores": {
+      "plot": 9,
+      "characters": 4,
+      "production": 4,
+      "dialog": 9
+    },
+    "rank": 12,
+    "link": "https://www.imdb.com/title/tt2861424"
+  },
+  {
+    "name": "Severance",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 8,
+      "dialog": 7
+    },
+    "rank": 13,
+    "link": "https://www.imdb.com/title/tt11280740"
+  },
+  {
+    "name": "Normal People",
+    "genre": "drama",
+    "scores": {
+      "plot": 5,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 14,
+    "link": "https://www.imdb.com/title/tt9059760"
+  },
+  {
+    "name": "Lessons in Chemistry",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 15,
+    "link": "https://www.imdb.com/title/tt13911628"
+  },
+  {
+    "name": "Portlandia",
+    "genre": "comedy",
+    "scores": {
+      "plot": 3,
+      "characters": 2,
+      "production": 2,
+      "dialog": 8
+    },
+    "rank": 16,
+    "link": "https://www.imdb.com/title/tt1780441"
+  },
+  {
+    "name": "The Queen's Gambit",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 9,
+      "dialog": 8
+    },
+    "rank": 17,
+    "link": "https://www.imdb.com/title/tt10048342"
+  },
+  {
+    "name": "Silicon Valley",
+    "genre": "comedy",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 18,
+    "link": "https://www.imdb.com/title/tt2575988"
+  },
+  {
+    "name": "Wild Wild Country",
+    "genre": "documentary",
+    "scores": {
+      "plot": 10,
+      "characters": 7,
+      "production": 7,
+      "dialog": 4
+    },
+    "rank": 19,
+    "link": "https://www.imdb.com/title/tt7768848"
+  }
+]

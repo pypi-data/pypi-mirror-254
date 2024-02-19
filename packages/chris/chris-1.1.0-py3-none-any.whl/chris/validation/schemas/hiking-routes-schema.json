@@ -1,0 +1,66 @@
+{
+  "type": "array",
+  "elem": "#hike",
+  "cons": {
+    "unique": ["@all.route_id", "@all.name", "@all.slug"]
+  },
+  "defs": {
+    "#hike": {
+      "type": "object",
+      "attr": {
+        "route_id": "#uuid",
+        "name": "string",
+        "slug": "#slug",
+        "dates": ["null", "#datelist"],
+        "miles": "number",
+        "elevation": ["null", "number"],
+        "area": "string",
+        "region": "string",
+        "travel_time": ["null", "number"],
+        "next": "boolean",
+        "coordinates": ["null", "#coords"]
+      }
+    },
+    "#uuid": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+      }
+    },
+    "#slug": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]+$" }
+      }
+    },
+    "#date": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "#datelist": {
+      "type": "array",
+      "elem": "#date",
+      "cons": {
+        "monotone_inc": ["@all"]
+      }
+    },
+    "#coords": {
+      "type": "object",
+      "attr": {
+        "latitude": "number",
+        "longitude": "number",
+        "formatted": {
+          "type": "string",
+          "cons": {
+            "format": {
+              "type": "regex",
+              "pattern": "^\\d+\\/\\d+\\/\\d+\\.\\d+\\/[NS] \\d+\\/\\d+\\/\\d+\\.\\d+\\/[EW]$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

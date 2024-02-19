@@ -1,0 +1,33 @@
+{
+  "type": "array",
+  "elem": "#course",
+  "cons": {
+    "unique": ["@all.name"]
+  },
+  "defs": {
+    "#course": {
+      "type": "object",
+      "attr": {
+        "year": {
+          "type": "string",
+          "cons": {
+            "in": ["freshman", "sophomore", "junior", "senior"]
+          }
+        },
+        "semester": {
+          "type": "string",
+          "cons": {
+            "in": ["fall", "spring"]
+          }
+        },
+        "name": "string",
+        "course_type": {
+          "type": "string",
+          "cons": {
+            "in": ["computer_science", "cognitive_science", "other"]
+          }
+        }
+      }
+    }
+  }
+}

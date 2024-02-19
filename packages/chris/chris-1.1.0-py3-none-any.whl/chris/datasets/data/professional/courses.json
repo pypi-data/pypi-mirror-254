@@ -1,0 +1,65 @@
+[
+  { "year": "freshman", "semester": "fall", "name": "Data Structures", "course_type": "computer_science" },
+  { "year": "freshman", "semester": "fall", "name": "Spanish Composition", "course_type": "other" },
+  { "year": "freshman", "semester": "fall", "name": "Intro to Philosophy", "course_type": "other" },
+  { "year": "freshman", "semester": "fall", "name": "General Chemistry with Calculus", "course_type": "other" },
+  {
+    "year": "freshman",
+    "semester": "spring",
+    "name": "Machine Structure & Assembly Language",
+    "course_type": "computer_science"
+  },
+  { "year": "freshman", "semester": "spring", "name": "Discrete Mathematics", "course_type": "computer_science" },
+  { "year": "freshman", "semester": "spring", "name": "Intro to Ethics", "course_type": "other" },
+  { "year": "freshman", "semester": "spring", "name": "Populations & Plant/Animal Physiology", "course_type": "other" },
+  { "year": "sophomore", "semester": "fall", "name": "Algorithms", "course_type": "computer_science" },
+  { "year": "sophomore", "semester": "fall", "name": "Computer Interfaces", "course_type": "computer_science" },
+  { "year": "sophomore", "semester": "fall", "name": "Intro to Psychology", "course_type": "cognitive_science" },
+  { "year": "sophomore", "semester": "fall", "name": "Music Theory", "course_type": "other" },
+  { "year": "sophomore", "semester": "fall", "name": "Music Composition for Film", "course_type": "other" },
+  { "year": "sophomore", "semester": "spring", "name": "Theory of Computation", "course_type": "computer_science" },
+  { "year": "sophomore", "semester": "spring", "name": "Machine Learning", "course_type": "computer_science" },
+  {
+    "year": "sophomore",
+    "semester": "spring",
+    "name": "Intro to Cognitive & Brain Sciences",
+    "course_type": "cognitive_science"
+  },
+  {
+    "year": "sophomore",
+    "semester": "spring",
+    "name": "Statistics for Psychology",
+    "course_type": "cognitive_science"
+  },
+  { "year": "sophomore", "semester": "spring", "name": "Linear Algebra", "course_type": "computer_science" },
+  { "year": "junior", "semester": "fall", "name": "Programming Languages", "course_type": "computer_science" },
+  { "year": "junior", "semester": "fall", "name": "Computational Geometry", "course_type": "computer_science" },
+  { "year": "junior", "semester": "fall", "name": "Social Psychology", "course_type": "cognitive_science" },
+  { "year": "junior", "semester": "fall", "name": "Experimental Psychology", "course_type": "cognitive_science" },
+  {
+    "year": "junior",
+    "semester": "fall",
+    "name": "Philosophy of Cognitive Science",
+    "course_type": "cognitive_science"
+  },
+  { "year": "junior", "semester": "spring", "name": "Artificial Intelligence", "course_type": "computer_science" },
+  {
+    "year": "junior",
+    "semester": "spring",
+    "name": "Biological Bases of Psychopathology",
+    "course_type": "cognitive_science"
+  },
+  { "year": "junior", "semester": "spring", "name": "Chinese Religions", "course_type": "other" },
+  { "year": "junior", "semester": "spring", "name": "Multivariable Calculus", "course_type": "computer_science" },
+  { "year": "senior", "semester": "fall", "name": "Advanced Algorithms", "course_type": "computer_science" },
+  { "year": "senior", "semester": "fall", "name": "Computational Models in CogSci", "course_type": "computer_science" },
+  { "year": "senior", "semester": "fall", "name": "Physiological Psychology", "course_type": "cognitive_science" },
+  { "year": "senior", "semester": "fall", "name": "Intro to Linguistics", "course_type": "cognitive_science" },
+  { "year": "senior", "semester": "fall", "name": "Psychology of Music", "course_type": "cognitive_science" },
+  { "year": "senior", "semester": "spring", "name": "Visualization", "course_type": "computer_science" },
+  { "year": "senior", "semester": "spring", "name": "Computer Aided Design", "course_type": "other" },
+  { "year": "senior", "semester": "spring", "name": "Math of Data Analysis", "course_type": "computer_science" },
+  { "year": "senior", "semester": "spring", "name": "Chemistry of Cooking", "course_type": "other" },
+  { "year": "senior", "semester": "spring", "name": "Gospel Choir", "course_type": "other" },
+  { "year": "senior", "semester": "fall", "name": "Cognitive Neuroscience Seminar", "course_type": "cognitive_science" }
+]

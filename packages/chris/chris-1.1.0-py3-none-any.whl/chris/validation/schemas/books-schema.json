@@ -1,0 +1,83 @@
+{
+  "type": "array",
+  "elem": "#book",
+  "cons": {
+    "unique": ["@all.isbn", "@all.title"]
+  },
+  "defs": {
+    "#book": {
+      "type": "object",
+      "attr": {
+        "isbn": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[0-9]{3}-[0-9]{10}$" }
+          }
+        },
+        "title": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^.{2,60}$" }
+          }
+        },
+        "subtitle": [
+          "null",
+          {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^.{2,120}$" }
+            }
+          }
+        ],
+        "author": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^.{5,32}$" }
+          }
+        },
+        "year_published": "#year",
+        "pages": "number",
+        "year_read": "#year",
+        "recommendability": {
+          "type": "number",
+          "cons": {
+            "gte": 1,
+            "lte": 10
+          }
+        },
+        "tags": {
+          "type": "array",
+          "elem": {
+            "type": "string",
+            "cons": {
+              "in": ["short", "science", "philosophy"]
+            }
+          }
+        },
+        "goodreads_link": "#link",
+        "image_links": {
+          "type": "object",
+          "attr": {
+            "book": "#link",
+            "square": "#link"
+          }
+        }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    },
+    "#year": {
+      "type": "number",
+      "cons": {
+        "gte": 0,
+        "lte": 2050
+      }
+    }
+  }
+}
