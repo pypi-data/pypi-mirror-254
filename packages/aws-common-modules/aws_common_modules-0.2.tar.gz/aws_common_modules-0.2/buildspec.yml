@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:  
+  install: 
+    commands:
+      - python -m pip install --upgrade pip
+      - python -m pip install hatch
+  build:
+    commands:
+      - python_path=`pyenv which python`
+      - hatch_cmd=$(echo $python_path | sed "s/\(.*\)python/\1hatch/")
+      - $hatch_cmd build -t wheel
+  post_build:
+    commands:
+      #- aws cloudfront create-invalidation --distribution-id=E3UXSL3TXXB639 --paths '/python/aws-common/*'
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: 'dist'
