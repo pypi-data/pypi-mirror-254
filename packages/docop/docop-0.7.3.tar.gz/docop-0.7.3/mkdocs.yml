@@ -1,0 +1,48 @@
+site_name: docop
+
+site_dir: ./documentation/site
+docs_dir: ./documentation/docs
+
+nav:
+  - 'index.md'
+  - 'install.md'
+  - 'config.md'
+  - 'cmdline.md'
+  - 'tasks.md'
+  - 'pipes.md'
+  - 'documents.md'
+  - 'contribute.md'
+
+    
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - navigation.footer
+    - navigation.tracking
+
+repo_url: https://github.com/koodaamo/docop
+
+copyright: Copyright &copy; 2023 - 2024 Petri Savolainen
+
+plugins:
+  - search
+
+markdown_extensions:
+  - def_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

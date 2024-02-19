@@ -1,0 +1,46 @@
+# Example configuration
+# Tasks and docs are mandatory, configs is optional.
+# Everything else is ignored by Docop. Feel free to add other configuration here.
+# (but consider using extra configs instead)
+
+--8<-- [start:dirs]
+dirs:
+  pipes: pipes
+  tasks: tasks
+  content: content
+  configs: configs
+--8<-- [end:dirs]
+
+--8<-- [start:sources]
+sources:
+  wikipedia:
+    resources:
+      - https://en.wikipedia.org/wiki/Document_automation
+
+  eff:
+    title: Electronic Frontier Foundation
+    resources:
+      - https://www.eff.org/deeplinks/2023/11/debunking-myth-anonymous-data
+      - https://www.eff.org/deeplinks/2023/11/publics-right-fight-bad-patents-must-be-protected
+
+  foei:
+    title: Friends of the Earth
+    resources:
+      - https://www.foei.org/press-release-nature-of-business-report/
+      - https://www.foei.org/reaction-ipcc-synthesis/
+--8<-- [end:sources]
+
+--8<-- [start:targets]
+targets:
+  mysite:
+    title: my target site
+    domain: mysite
+    account: mysystem
+--8<-- [end:targets]
+
+--8<-- [start:accounts]
+accounts:
+  mysystem:
+    title: my system account
+    apikey: none
+--8<-- [end:accounts]

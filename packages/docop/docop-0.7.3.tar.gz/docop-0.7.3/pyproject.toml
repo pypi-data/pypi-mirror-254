@@ -1,0 +1,42 @@
+[project]
+name = "docop"
+version = "0.7.3"
+authors = [
+    {name = "Petri Savolainen", email = "petri@koodaamo.fi"},
+]
+description = "Simple doc processor"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPLv3+"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+dependencies = [
+    "yamlstore >= 0.7.3",
+    "click >= 8.1.7",
+    "rich >= 13.7.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/koodaamo/docop"
+Repository = "https://github.com/koodaamo/docop"
+Documentation = "https://docop.readthedocs.io/en/latest/"
+Issues = "https://github.com/koodaamo/docop/issues"
+Changelog = "https://github.com/koodaamo/docop/blob/main/CHANGES.md"
+
+[project.scripts]
+docop = "docop.cli:docop"
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["docop"]
+
+[tool.setuptools.package-data]
+docop = ["py.typed", "config.yaml.in"]

@@ -1,0 +1,10 @@
+Usage: docop run [OPTIONS] TASKNAME or PIPENAME [EXTRAS]...
+
+  Run a task or pipeline.
+
+Options:
+  -s, --source TEXT   Sources that will be fetched and stored as documents.
+  -c, --content PATH  Stored documents to process.
+  -t, --target TEXT   Targets to export document content to
+  -a, --account TEXT  Account to use (source or target)
+  --help              Show this message and exit.

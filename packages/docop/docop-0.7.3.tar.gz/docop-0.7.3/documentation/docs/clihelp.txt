@@ -1,0 +1,15 @@
+Usage: docop [OPTIONS] COMMAND [ARGS]...
+
+  Document pipeline processor.
+
+Options:
+  --config PATH  Configuration file to use.
+  --help         Show this message and exit.
+
+Commands:
+  configs  List available configurations.
+  content  List the stored collections of YAML documents.
+  init     Initialize a docop project.
+  pipes    List available task pipelines.
+  run      Run a task or pipeline.
+  tasks    List available tasks.

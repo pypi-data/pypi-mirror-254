@@ -1,0 +1,7 @@
+# My first full pipe
+
+tasks:
+  - retrieve
+  - process1
+  - process2
+  - export
