@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Perform post installation tasks here
+
+# Create links if needed
+{% if link %}
+{% for source, target in link %}
+ln -s "{{ source }}" "{{ target }}"
+{% endfor %}
+{% endif %}
+
+{% if post_install %}
+# Run the user's post-install script
+./custom_postinstall
+{% endif %}
