@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: contact-user-externals-local
+Version: 0.0.2
+Summary: PyPI Package for Circles contact-user-external-local Python
+Home-page: https://github.com/circles-zone/contact-user-external-local-python-package
+Author: Circles
+Author-email: info@circlez.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: PyMySQL>=1.0.2
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: mysql-connector>=2.2.9
+Requires-Dist: logzio-python-handler>=4.1.0
+Requires-Dist: user-context-remote>=0.0.17
+Requires-Dist: python-sdk-local>=0.0.27
+Requires-Dist: user-external-local>=0.0.36
+Requires-Dist: user-context-remote>=0.0.57
+
+PyPI Package for Circles contact-user-external-local Python
