@@ -1,0 +1,5 @@
+llm>=0.9
+sentence-transformers>=2.3.0
+
+[test]
+pytest
